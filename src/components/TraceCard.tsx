@@ -189,12 +189,9 @@ export function TraceCard({ card, onAdvance }: TraceCardProps) {
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (phase === 'graded-fail' && e.code === 'Space') {
+      if ((phase === 'graded-fail' || phase === 'final-fail') && e.code === 'Space') {
         e.preventDefault();
         handleRetry();
-      } else if (phase === 'final-fail' && e.code === 'Space') {
-        e.preventDefault();
-        onAdvance();
       }
     };
     window.addEventListener('keydown', onKey);
@@ -447,7 +444,7 @@ export function TraceCard({ card, onAdvance }: TraceCardProps) {
         )}
         {phase === 'final-fail' && (
           <>
-            <span className="kbd">space</span> to continue
+            <span className="kbd">space</span> to retry — must pass to advance
           </>
         )}
       </div>
