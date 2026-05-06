@@ -1,0 +1,548 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "PC-01",
+    "levelLabel": "L12 struct passing",
+    "fullCode": "struct Color { int r; int g; };\nvoid fade(Color c) { c.r = 0; }\nint main() {\n  Color bg = {255, 128};\n  fade(bg);\n  cout << bg.r;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "struct Color { int r; int g; };",
+        "annotation": "STRATEGY: pass by VALUE = function gets a COPY. Start variable table: track bg.r, bg.g, c.r",
+        "atomIds": ["PC-01"]
+      },
+      {
+        "line": 2,
+        "code": "void fade(Color c) { c.r = 0; }",
+        "annotation": "No & on parameter c. This means c is a separate copy of whatever is passed in. Changes to c do NOT affect the caller.",
+        "atomIds": ["PC-01"]
+      },
+      {
+        "line": 4,
+        "code": "  Color bg = {255, 128};",
+        "annotation": "bg.r = 255, bg.g = 128. Write these in your variable table.",
+        "atomIds": ["PC-01"]
+      },
+      {
+        "line": 5,
+        "code": "  fade(bg);",
+        "annotation": "bg is COPIED into c. c.r starts as 255. Inside fade: c.r = 0. But c is a copy! bg.r stays 255.",
+        "atomIds": ["PC-01"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << bg.r;",
+        "annotation": "Output: 255. KEY: no & = copy = caller unchanged. Final values: bg.r=255, bg.g=128, c.r=0",
+        "atomIds": ["PC-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "PC-02",
+    "levelLabel": "L12 struct passing",
+    "fullCode": "struct Score { int val; int max; };\nvoid reset(Score &s) { s.val = 0; }\nint main() {\n  Score test = {85, 100};\n  reset(test);\n  cout << test.val;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "struct Score { int val; int max; };",
+        "annotation": "STRATEGY: see & on parameter = pass by REFERENCE = same box, two names. Track test.val, test.max",
+        "atomIds": ["PC-02"]
+      },
+      {
+        "line": 2,
+        "code": "void reset(Score &s) { s.val = 0; }",
+        "annotation": "& means s IS test. Not a copy. One box, two labels. Any write to s.val directly changes test.val.",
+        "atomIds": ["PC-02"]
+      },
+      {
+        "line": 4,
+        "code": "  Score test = {85, 100};",
+        "annotation": "test.val = 85, test.max = 100.",
+        "atomIds": ["PC-02"]
+      },
+      {
+        "line": 5,
+        "code": "  reset(test);",
+        "annotation": "s is bound to test (reference). s.val = 0 writes directly to test.val. Now test.val = 0.",
+        "atomIds": ["PC-02"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << test.val;",
+        "annotation": "Output: 0. KEY: & = reference = caller IS modified. Final: test.val=0, test.max=100",
+        "atomIds": ["PC-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "PC-03",
+    "levelLabel": "L12 struct passing",
+    "fullCode": "struct Vec { int dx; int dy; };\nvoid scale(Vec &v) {\n  v.dx = v.dx * 2;\n  v.dy = v.dy * 2;\n}\nint main() {\n  Vec move = {5, 3};\n  scale(move);\n  cout << move.dx << \" \" << move.dy;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "struct Vec { int dx; int dy; };",
+        "annotation": "STRATEGY: & reference + multiple field mutations. Track move.dx, move.dy through every write.",
+        "atomIds": ["PC-03"]
+      },
+      {
+        "line": 2,
+        "code": "void scale(Vec &v) {",
+        "annotation": "v is reference to caller's struct. Every write to v.dx or v.dy changes move directly.",
+        "atomIds": ["PC-03"]
+      },
+      {
+        "line": 7,
+        "code": "  Vec move = {5, 3};",
+        "annotation": "move.dx = 5, move.dy = 3.",
+        "atomIds": ["PC-03"]
+      },
+      {
+        "line": 3,
+        "code": "  v.dx = v.dx * 2;",
+        "annotation": "v.dx reads current move.dx (5), multiplies by 2. move.dx = 10.",
+        "atomIds": ["PC-03"]
+      },
+      {
+        "line": 4,
+        "code": "  v.dy = v.dy * 2;",
+        "annotation": "v.dy reads current move.dy (3), multiplies by 2. move.dy = 6.",
+        "atomIds": ["PC-03"]
+      },
+      {
+        "line": 9,
+        "code": "  cout << move.dx << \" \" << move.dy;",
+        "annotation": "Output: 10 6. Both fields mutated through reference. Final: move.dx=10, move.dy=6",
+        "atomIds": ["PC-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "PC-04",
+    "levelLabel": "L12 struct passing",
+    "fullCode": "struct Box { int size; };\nvoid clear(Box &arr[], int n) {\n  arr[0].size = 0;\n}\nint main() {\n  Box boxes[3] = {{10}, {20}, {30}};\n  clear(boxes, 3);\n  cout << boxes[0].size;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "struct Box { int size; };",
+        "annotation": "STRATEGY: array of structs passed by &. Track each element separately: boxes[0].size, boxes[1].size, boxes[2].size",
+        "atomIds": ["PC-04"]
+      },
+      {
+        "line": 2,
+        "code": "void clear(Box &arr[], int n) {",
+        "annotation": "& on array parameter = caller's array is directly accessible. arr[i] IS boxes[i].",
+        "atomIds": ["PC-04"]
+      },
+      {
+        "line": 6,
+        "code": "  Box boxes[3] = {{10}, {20}, {30}};",
+        "annotation": "boxes[0].size=10, boxes[1].size=20, boxes[2].size=30",
+        "atomIds": ["PC-04"]
+      },
+      {
+        "line": 3,
+        "code": "  arr[0].size = 0;",
+        "annotation": "arr IS boxes (reference). arr[0].size = 0 writes directly to boxes[0].size. Now boxes[0].size = 0.",
+        "atomIds": ["PC-04"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << boxes[0].size;",
+        "annotation": "Output: 0. Only index 0 changed. Final: boxes = {0, 20, 30}",
+        "atomIds": ["PC-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "PC-05",
+    "levelLabel": "L12 struct passing",
+    "fullCode": "struct Song { int bpm; string name; };\nvoid remix(Song &tracks[], int n) {\n  tracks[0].bpm = 140;\n  tracks[0].name = \"Remix\";\n}\nint main() {\n  Song playlist[2] = {{120, \"Beat\"}, {100, \"Chill\"}};\n  remix(playlist, 2);\n  cout << playlist[0].bpm << \" \" << playlist[0].name;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "struct Song { int bpm; string name; };",
+        "annotation": "STRATEGY: struct array by & with multiple field writes. Track each field of modified elements.",
+        "atomIds": ["PC-05"]
+      },
+      {
+        "line": 7,
+        "code": "  Song playlist[2] = {{120, \"Beat\"}, {100, \"Chill\"}};",
+        "annotation": "playlist[0] = {120, Beat}, playlist[1] = {100, Chill}",
+        "atomIds": ["PC-05"]
+      },
+      {
+        "line": 3,
+        "code": "  tracks[0].bpm = 140;",
+        "annotation": "tracks IS playlist (reference). playlist[0].bpm changes from 120 to 140.",
+        "atomIds": ["PC-05"]
+      },
+      {
+        "line": 4,
+        "code": "  tracks[0].name = \"Remix\";",
+        "annotation": "playlist[0].name changes from Beat to Remix. playlist[1] untouched.",
+        "atomIds": ["PC-05"]
+      },
+      {
+        "line": 9,
+        "code": "  cout << playlist[0].bpm << \" \" << playlist[0].name;",
+        "annotation": "Output: 140 Remix. Final: playlist[0]={140,Remix}, playlist[1]={100,Chill}",
+        "atomIds": ["PC-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "PC-06",
+    "levelLabel": "L12 struct passing",
+    "fullCode": "struct Size { int w; int h; };\nvoid display(const Size &s) {\n  cout << s.w << \"x\" << s.h;\n}\nint main() {\n  Size box = {10, 5};\n  display(box);\n  cout << \" \" << box.w;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "struct Size { int w; int h; };",
+        "annotation": "STRATEGY: const & = read-only reference. Function can READ but NOT WRITE. Caller stays unchanged.",
+        "atomIds": ["PC-06"]
+      },
+      {
+        "line": 2,
+        "code": "void display(const Size &s) {",
+        "annotation": "const prevents s.w = ... or s.h = ... inside function. Compiler would reject any write.",
+        "atomIds": ["PC-06"]
+      },
+      {
+        "line": 6,
+        "code": "  Size box = {10, 5};",
+        "annotation": "box.w = 10, box.h = 5.",
+        "atomIds": ["PC-06"]
+      },
+      {
+        "line": 3,
+        "code": "  cout << s.w << \"x\" << s.h;",
+        "annotation": "Reads box through reference s. Prints: 10x5. No mutation possible.",
+        "atomIds": ["PC-06"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << \" \" << box.w;",
+        "annotation": "Output total: 10x5 10. box unchanged. KEY: const & = efficiency without risk.",
+        "atomIds": ["PC-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-10",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "int a = 8;\nint b = a;\na = 20;\ncout << b;",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int a = 8;",
+        "annotation": "STRATEGY: variable copy = snapshot at moment of assignment. Draw two boxes. a = 8.",
+        "atomIds": ["HE-10"]
+      },
+      {
+        "line": 2,
+        "code": "int b = a;",
+        "annotation": "b copies a's CURRENT value: b = 8. They are now independent boxes. No link between them.",
+        "atomIds": ["HE-10"]
+      },
+      {
+        "line": 3,
+        "code": "a = 20;",
+        "annotation": "Only a's box changes. a = 20. b still holds its snapshot: b = 8.",
+        "atomIds": ["HE-10"]
+      },
+      {
+        "line": 4,
+        "code": "cout << b;",
+        "annotation": "Output: 8. KEY: int copy = independent boxes. Changing one never affects the other. Final: a=20, b=8",
+        "atomIds": ["HE-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-11",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "int v[3] = {5, 5, 5};\nv[0] = 9;\nv[2] = v[0] + 3;",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int v[3] = {5, 5, 5};",
+        "annotation": "STRATEGY: draw array boxes with indices. v[0]=5, v[1]=5, v[2]=5",
+        "atomIds": ["HE-11"]
+      },
+      {
+        "line": 2,
+        "code": "v[0] = 9;",
+        "annotation": "Overwrite v[0]. v[0]=9. Others unchanged.",
+        "atomIds": ["HE-11"]
+      },
+      {
+        "line": 3,
+        "code": "v[2] = v[0] + 3;",
+        "annotation": "Read v[0] (currently 9). Add 3. Write to v[2]. v[2]=12. KEY: always use CURRENT value when reading. Final: v={9, 5, 12}",
+        "atomIds": ["HE-11"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-12",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "int product = 1;\nfor (int i = 1; i <= 3; i++) {\n    product = product * i;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int product = 1;",
+        "annotation": "STRATEGY: loop trace = make a table with columns for i and accumulator. product = 1.",
+        "atomIds": ["HE-12"]
+      },
+      {
+        "line": 2,
+        "code": "for (int i = 1; i <= 3; i++) {",
+        "annotation": "i starts at 1. Loop runs while i <= 3. After each iteration, i increments by 1.",
+        "atomIds": ["HE-12"]
+      },
+      {
+        "line": 3,
+        "code": "    product = product * i;",
+        "annotation": "i=1: product = 1*1 = 1. i=2: product = 1*2 = 2. i=3: product = 2*3 = 6. Then i=4, fails i<=3, loop exits.",
+        "atomIds": ["HE-12"]
+      },
+      {
+        "line": 2,
+        "code": "// after loop",
+        "annotation": "Final: product=6, i=4 (the value when condition first failed). KEY: trace each iteration separately.",
+        "atomIds": ["HE-12"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-13",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "int temp = 30;\nint status;\nif (temp > 25) {\n    status = 1;\n} else {\n    status = 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int temp = 30;",
+        "annotation": "STRATEGY: evaluate condition, then trace ONLY the branch that runs. temp = 30.",
+        "atomIds": ["HE-13"]
+      },
+      {
+        "line": 3,
+        "code": "if (temp > 25) {",
+        "annotation": "Evaluate: 30 > 25? YES (true). Enter the if-body. Skip the else entirely.",
+        "atomIds": ["HE-13"]
+      },
+      {
+        "line": 4,
+        "code": "    status = 1;",
+        "annotation": "This runs because condition was true. status = 1.",
+        "atomIds": ["HE-13"]
+      },
+      {
+        "line": 6,
+        "code": "    status = 0;  // SKIPPED",
+        "annotation": "This line NEVER executes. status stays 1. KEY: only one branch runs. Final: temp=30, status=1",
+        "atomIds": ["HE-13"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-15",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "void g(int y) {\n    y = 50;\n}\nint main() {\n    int m = 10;\n    g(m);\n    cout << m;\n    return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "int main() {",
+        "annotation": "STRATEGY: check parameter for &. No & = pass by value = copy = caller safe.",
+        "atomIds": ["HE-15"]
+      },
+      {
+        "line": 5,
+        "code": "    int m = 10;",
+        "annotation": "m = 10. This is the caller's variable.",
+        "atomIds": ["HE-15"]
+      },
+      {
+        "line": 1,
+        "code": "void g(int y) {",
+        "annotation": "No &. y is a COPY of m. Two separate boxes: m=10, y=10.",
+        "atomIds": ["HE-15"]
+      },
+      {
+        "line": 2,
+        "code": "    y = 50;",
+        "annotation": "y changes to 50. But y is a copy. m is untouched. m still = 10.",
+        "atomIds": ["HE-15"]
+      },
+      {
+        "line": 7,
+        "code": "    cout << m;",
+        "annotation": "Output: 10. KEY: no & = independent copy. Function cannot affect caller. Final: m=10",
+        "atomIds": ["HE-15"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-16",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "double vals[4] = {2.5, 8.0, 1.2, 6.3};\ndouble biggest = vals[0];\nfor (int i = 1; i < 4; i++) {\n    if (vals[i] > biggest) {\n        biggest = vals[i];\n    }\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "double vals[4] = {2.5, 8.0, 1.2, 6.3};",
+        "annotation": "STRATEGY: find-max pattern. Init max from [0], then scan [1] onward. Track biggest at each step.",
+        "atomIds": ["HE-16"]
+      },
+      {
+        "line": 2,
+        "code": "double biggest = vals[0];",
+        "annotation": "biggest = 2.5 (copy of vals[0]). This is the \"best so far\" variable.",
+        "atomIds": ["HE-16"]
+      },
+      {
+        "line": 3,
+        "code": "for (int i = 1; i < 4; i++) {",
+        "annotation": "Start at i=1 (skip [0], already used). Iterate through rest of array.",
+        "atomIds": ["HE-16"]
+      },
+      {
+        "line": 4,
+        "code": "    if (vals[i] > biggest) {",
+        "annotation": "i=1: 8.0>2.5? YES -> biggest=8.0. i=2: 1.2>8.0? NO -> skip. i=3: 6.3>8.0? NO -> skip.",
+        "atomIds": ["HE-16"]
+      },
+      {
+        "line": 4,
+        "code": "// after loop",
+        "annotation": "Final biggest = 8.0. KEY: only updates when current > best. Trace each comparison separately.",
+        "atomIds": ["HE-16"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-17",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "struct Rect { int w; int h; };\nvoid double_it(Rect &r) {\n    r.w = r.w * 2;\n    r.h = r.h * 2;\n}\nint main() {\n    Rect box;\n    box.w = 5;\n    box.h = 3;\n    double_it(box);\n    return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "    Rect box;",
+        "annotation": "STRATEGY: struct + & reference. r IS box. Track box.w and box.h.",
+        "atomIds": ["HE-17"]
+      },
+      {
+        "line": 8,
+        "code": "    box.w = 5; box.h = 3;",
+        "annotation": "box.w = 5, box.h = 3.",
+        "atomIds": ["HE-17"]
+      },
+      {
+        "line": 2,
+        "code": "void double_it(Rect &r) {",
+        "annotation": "& means r IS box. One struct, two names.",
+        "atomIds": ["HE-17"]
+      },
+      {
+        "line": 3,
+        "code": "    r.w = r.w * 2;",
+        "annotation": "r.w reads box.w (5), multiplies by 2. box.w = 10.",
+        "atomIds": ["HE-17"]
+      },
+      {
+        "line": 4,
+        "code": "    r.h = r.h * 2;",
+        "annotation": "r.h reads box.h (3), multiplies by 2. box.h = 6. Final: box = {10, 6}",
+        "atomIds": ["HE-17"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-18",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "struct stat_double { double numbers[3]; double mystery; };\nint main() {\n    stat_double d;\n    d.numbers[0] = 1.0;\n    d.numbers[1] = 9.0;\n    d.numbers[2] = 5.0;\n    d.mystery = d.numbers[0];\n    if (d.numbers[1] > d.mystery) d.mystery = d.numbers[1];\n    if (d.numbers[2] > d.mystery) d.mystery = d.numbers[2];\n    return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "struct stat_double { double numbers[3]; double mystery; };",
+        "annotation": "STRATEGY: inline max-find on struct array. Same find-max pattern but unrolled (no loop, explicit if checks).",
+        "atomIds": ["HE-18"]
+      },
+      {
+        "line": 4,
+        "code": "    d.numbers = {1.0, 9.0, 5.0};",
+        "annotation": "d.numbers[0]=1.0, d.numbers[1]=9.0, d.numbers[2]=5.0.",
+        "atomIds": ["HE-18"]
+      },
+      {
+        "line": 7,
+        "code": "    d.mystery = d.numbers[0];",
+        "annotation": "Init mystery from [0]. d.mystery = 1.0.",
+        "atomIds": ["HE-18"]
+      },
+      {
+        "line": 8,
+        "code": "    if (d.numbers[1] > d.mystery) d.mystery = d.numbers[1];",
+        "annotation": "9.0 > 1.0? YES. d.mystery = 9.0.",
+        "atomIds": ["HE-18"]
+      },
+      {
+        "line": 9,
+        "code": "    if (d.numbers[2] > d.mystery) d.mystery = d.numbers[2];",
+        "annotation": "5.0 > 9.0? NO. Skip. Final d.mystery = 9.0. KEY: each if is independent, check sequentially.",
+        "atomIds": ["HE-18"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "ME-01",
+    "levelLabel": "L17 mock exams",
+    "fullCode": "struct stat_double {\n    double numbers[5];\n    double mystery;\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = data.numbers[0];\n    for (int i = 1; i < 5; i++) {\n        if (data.numbers[i] > data.mystery) {\n            data.mystery = data.numbers[i];\n        }\n    }\n}\n\nint main() {\n    stat_double d;\n    d.numbers[0] = 10.0;\n    d.numbers[1] = 2.5;\n    d.numbers[2] = 15.3;\n    d.numbers[3] = 8.0;\n    d.numbers[4] = 12.1;\n    who_am_i(d);\n    return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "void who_am_i(stat_double &data) {",
+        "annotation": "STRATEGY: this is the exam Q1 pattern. & reference = data IS d. Track data.mystery through loop. This function finds MAX.",
+        "atomIds": ["ME-01"]
+      },
+      {
+        "line": 7,
+        "code": "    data.mystery = data.numbers[0];",
+        "annotation": "Init mystery from [0]. data.mystery = 10.0. This is \"best so far\".",
+        "atomIds": ["ME-01"]
+      },
+      {
+        "line": 8,
+        "code": "    for (int i = 1; i < 5; i++) {",
+        "annotation": "Scan [1] through [4]. Compare each to current mystery.",
+        "atomIds": ["ME-01"]
+      },
+      {
+        "line": 9,
+        "code": "        if (data.numbers[i] > data.mystery) {",
+        "annotation": "i=1: 2.5>10.0? NO. i=2: 15.3>10.0? YES -> mystery=15.3. i=3: 8.0>15.3? NO. i=4: 12.1>15.3? NO.",
+        "atomIds": ["ME-01"]
+      },
+      {
+        "line": 9,
+        "code": "// after loop",
+        "annotation": "Final data.mystery = 15.3. EXAM PROCEDURE: init from [0], compare each remaining element, update only when strictly greater.",
+        "atomIds": ["ME-01"]
+      }
+    ]
+  }
+]

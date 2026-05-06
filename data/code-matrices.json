@@ -1,0 +1,296 @@
+[
+  {
+    "id": "CM-ALG-01",
+    "section": "Algorithm matrix",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Pattern A: simple formula", "code": "void who_am_i(stat_double &data) {\n    data.mystery = data.a + data.b;\n}" },
+      { "label": "Pattern B: loop accumulator", "code": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n}" }
+    ],
+    "prompt": "Following the loop accumulator pattern, write who_am_i that sets mystery = product of numbers[0..4] (start mystery at 1, multiply each)",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 1;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery * data.numbers[i];\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "1", "for", "*", "data.numbers"]
+  },
+  {
+    "id": "CM-ALG-02",
+    "section": "Algorithm matrix",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Pattern: find max", "code": "void who_am_i(stat_double &data) {\n    data.mystery = data.numbers[0];\n    for (int i = 1; i < 5; i++) {\n        if (data.numbers[i] > data.mystery)\n            data.mystery = data.numbers[i];\n    }\n}" }
+    ],
+    "prompt": "Adapt the pattern: write who_am_i that finds the MINIMUM of numbers[0..4] (flip the comparison)",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = data.numbers[0];\n    for (int i = 1; i < 5; i++) {\n        if (data.numbers[i] < data.mystery)\n            data.mystery = data.numbers[i];\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "data.numbers[0]", "for", "if", "<", "data.numbers[i]"]
+  },
+  {
+    "id": "CM-ALG-03",
+    "section": "Algorithm matrix",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Pattern: count positives", "code": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        if (data.numbers[i] > 0)\n            data.mystery = data.mystery + 1;\n    }\n}" }
+    ],
+    "prompt": "Adapt the count pattern: write who_am_i that counts how many numbers[0..4] are GREATER THAN 10",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        if (data.numbers[i] > 10)\n            data.mystery = data.mystery + 1;\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "0", "for", "if", "> 10", "+ 1"]
+  },
+  {
+    "id": "CM-ALG-04",
+    "section": "Algorithm matrix",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Pattern: sum all", "code": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n}" },
+      { "label": "Pattern: count all positive", "code": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        if (data.numbers[i] > 0)\n            data.mystery = data.mystery + 1;\n    }\n}" }
+    ],
+    "prompt": "Combine both patterns: write who_am_i that sums ONLY the positive numbers in numbers[0..4] (conditional accumulator)",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        if (data.numbers[i] > 0)\n            data.mystery = data.mystery + data.numbers[i];\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "0", "for", "if", "> 0", "+ data.numbers"]
+  },
+  {
+    "id": "CM-ALG-05",
+    "section": "Algorithm matrix",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Pattern: sum", "code": "data.mystery = 0;\nfor (int i = 0; i < 5; i++) {\n    data.mystery = data.mystery + data.numbers[i];\n}" },
+      { "label": "Pattern: average = sum / count", "code": "data.mystery = 0;\nfor (int i = 0; i < 5; i++) {\n    data.mystery = data.mystery + data.numbers[i];\n}\ndata.mystery = data.mystery / 5;" }
+    ],
+    "prompt": "Write the full who_am_i function that computes the average of numbers[0..4]",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n    data.mystery = data.mystery / 5;\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "for", "data.numbers", "/ 5"]
+  },
+  {
+    "id": "CM-ALG-06",
+    "section": "Algorithm matrix",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Pattern: absolute difference (2 values)", "code": "void who_am_i(stat_double &data) {\n    if (data.a > data.b)\n        data.mystery = data.a - data.b;\n    else\n        data.mystery = data.b - data.a;\n}" }
+    ],
+    "prompt": "Adapt: write who_am_i that sets mystery to the RANGE of numbers[0..4] (max minus min). Find max and min first, then subtract.",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    double max_val = data.numbers[0];\n    double min_val = data.numbers[0];\n    for (int i = 1; i < 5; i++) {\n        if (data.numbers[i] > max_val)\n            max_val = data.numbers[i];\n        if (data.numbers[i] < min_val)\n            min_val = data.numbers[i];\n    }\n    data.mystery = max_val - min_val;\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "for", "if", ">", "<", "data.numbers"]
+  },
+  {
+    "id": "CM-ALG-07",
+    "section": "Algorithm matrix",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Pattern: sum with 5 elements", "code": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n}" }
+    ],
+    "prompt": "Same sum pattern but with 10 elements: write who_am_i that sums numbers[0..9]",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 10; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "0", "for", "< 10", "data.numbers"]
+  },
+  {
+    "id": "CM-ALG-08",
+    "section": "Algorithm matrix",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Pattern: count negatives", "code": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        if (data.numbers[i] < 0)\n            data.mystery = data.mystery + 1;\n    }\n}" }
+    ],
+    "prompt": "Adapt: write who_am_i that sums ONLY the negative numbers in numbers[0..4]",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        if (data.numbers[i] < 0)\n            data.mystery = data.mystery + data.numbers[i];\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "0", "for", "if", "< 0", "+ data.numbers"]
+  },
+
+  {
+    "id": "CM-ENT-01",
+    "section": "Entity swap",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Q2 for employee_data", "code": "struct employee_data {\n    int id;\n    string name;\n    double salary;\n};" },
+      { "label": "Q3 for employee_data", "code": "void read_employees(employee_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].name;\n        cin >> list[i].salary;\n    }\n}" }
+    ],
+    "prompt": "Now write Q2 + Q3 for student_data with fields: int id, string name, string course",
+    "expectedAnswer": "struct student_data {\n    int id;\n    string name;\n    string course;\n};\n\nvoid read_students(student_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].name;\n        cin >> list[i].course;\n    }\n}",
+    "keyChecks": ["struct", "student_data", "int id", "string name", "string course", "};", "void", "read_students", "&list[]", "int count", "for", "cin", "list[i]"]
+  },
+  {
+    "id": "CM-ENT-02",
+    "section": "Entity swap",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Q2 for book_data", "code": "struct book_data {\n    int year;\n    string title;\n    string author;\n};" },
+      { "label": "Q3 for book_data", "code": "void read_books(book_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].year;\n        cin >> list[i].title;\n        cin >> list[i].author;\n    }\n}" },
+      { "label": "Q4 for book_data", "code": "int main() {\n    const int MAX = 100;\n    book_data list[MAX];\n    int count;\n    cin >> count;\n    read_books(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %s\\n\", list[i].year, list[i].title.c_str(), list[i].author.c_str());\n    }\n    return 0;\n}" }
+    ],
+    "prompt": "Write Q2 + Q3 + Q4 for product_data with fields: int id, string name, double price",
+    "expectedAnswer": "struct product_data {\n    int id;\n    string name;\n    double price;\n};\n\nvoid read_products(product_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].name;\n        cin >> list[i].price;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    product_data list[MAX];\n    int count;\n    cin >> count;\n    read_products(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %.2f\\n\", list[i].id, list[i].name.c_str(), list[i].price);\n    }\n    return 0;\n}",
+    "keyChecks": ["struct", "product_data", "int id", "string name", "double price", "void", "read_products", "&list[]", "cin", "int main()", "const int MAX", "printf", ".c_str()", "return 0"]
+  },
+  {
+    "id": "CM-ENT-03",
+    "section": "Entity swap",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Full program for employee_data", "code": "struct employee_data {\n    int id;\n    string name;\n    double salary;\n};\n\nvoid read_employees(employee_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].name;\n        cin >> list[i].salary;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    employee_data list[MAX];\n    int count;\n    cin >> count;\n    read_employees(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %.2f\\n\", list[i].id, list[i].name.c_str(), list[i].salary);\n    }\n    return 0;\n}" }
+    ],
+    "prompt": "Write the full program (Q2+Q3+Q4) for vehicle_data: int year, string make, string model",
+    "expectedAnswer": "struct vehicle_data {\n    int year;\n    string make;\n    string model;\n};\n\nvoid read_vehicles(vehicle_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].year;\n        cin >> list[i].make;\n        cin >> list[i].model;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    vehicle_data list[MAX];\n    int count;\n    cin >> count;\n    read_vehicles(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %s\\n\", list[i].year, list[i].make.c_str(), list[i].model.c_str());\n    }\n    return 0;\n}",
+    "keyChecks": ["struct", "vehicle_data", "int year", "string make", "string model", "void", "read_vehicles", "&list[]", "int main()", "const int MAX", "printf", ".c_str()", "return 0"]
+  },
+  {
+    "id": "CM-ENT-04",
+    "section": "Entity swap",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Q3 with nested loop (numbers[5])", "code": "void read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        for (int j = 0; j < 5; j++) {\n            cin >> list[i].numbers[j];\n        }\n    }\n}" }
+    ],
+    "prompt": "Write Q3 read function for stat_double that reads a nested array scores[10] for each item",
+    "expectedAnswer": "void read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        for (int j = 0; j < 10; j++) {\n            cin >> list[i].scores[j];\n        }\n    }\n}",
+    "keyChecks": ["void", "read_stat", "stat_double", "&list[]", "int count", "for", "int j", "< 10", "cin", "list[i].scores[j]"]
+  },
+  {
+    "id": "CM-ENT-05",
+    "section": "Entity swap",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Full stat_double program (a + b)", "code": "struct stat_double {\n    double mystery;\n    double a;\n    double b;\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = data.a + data.b;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].a;\n        cin >> list[i].b;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}" }
+    ],
+    "prompt": "Write the full program for stat_double with numbers[5], where who_am_i sets mystery = sum of numbers, read function reads numbers with nested loop",
+    "expectedAnswer": "struct stat_double {\n    double mystery;\n    double numbers[5];\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        for (int j = 0; j < 5; j++) {\n            cin >> list[i].numbers[j];\n        }\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}",
+    "keyChecks": ["struct", "stat_double", "numbers[5]", "void", "who_am_i", "data.mystery", "for", "data.numbers", "read_stat", "&list[]", "cin", "int main()", "const int MAX", "printf", "%.2f", "return 0"]
+  },
+  {
+    "id": "CM-ENT-06",
+    "section": "Entity swap",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Q4 printf with int + string", "code": "printf(\"%d %s\\n\", list[i].id, list[i].name.c_str());" }
+    ],
+    "prompt": "Write Q4 printf for: int year, string make, double price (3 fields)",
+    "expectedAnswer": "printf(\"%d %s %.2f\\n\", list[i].year, list[i].make.c_str(), list[i].price);",
+    "keyChecks": ["printf", "%d", "%s", "%.2f", "list[i].year", "list[i].make.c_str()", "list[i].price"]
+  },
+  {
+    "id": "CM-ENT-07",
+    "section": "Entity swap",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Full program: computer_data", "code": "struct computer_data {\n    int id;\n    string description;\n    string location;\n};\n\nvoid read_computers(computer_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].description;\n        cin >> list[i].location;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    computer_data list[MAX];\n    int count;\n    cin >> count;\n    read_computers(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %s\\n\", list[i].id, list[i].description.c_str(), list[i].location.c_str());\n    }\n    return 0;\n}" }
+    ],
+    "prompt": "Write the full program for movie_data: int year, string title, double rating",
+    "expectedAnswer": "struct movie_data {\n    int year;\n    string title;\n    double rating;\n};\n\nvoid read_movies(movie_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].year;\n        cin >> list[i].title;\n        cin >> list[i].rating;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    movie_data list[MAX];\n    int count;\n    cin >> count;\n    read_movies(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %.2f\\n\", list[i].year, list[i].title.c_str(), list[i].rating);\n    }\n    return 0;\n}",
+    "keyChecks": ["struct", "movie_data", "int year", "string title", "double rating", "void", "read_movies", "&list[]", "cin", "int main()", "const int MAX", "printf", ".c_str()", "return 0"]
+  },
+  {
+    "id": "CM-ENT-08",
+    "section": "Entity swap",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Q2+Q3 for sensor_data (int id, string location, double reading)", "code": "struct sensor_data {\n    int id;\n    string location;\n    double reading;\n};\n\nvoid read_sensors(sensor_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].location;\n        cin >> list[i].reading;\n    }\n}" }
+    ],
+    "prompt": "Write Q4 main for sensor_data: declare array, read count, call read_sensors, print all with printf",
+    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    sensor_data list[MAX];\n    int count;\n    cin >> count;\n    read_sensors(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %.2f\\n\", list[i].id, list[i].location.c_str(), list[i].reading);\n    }\n    return 0;\n}",
+    "keyChecks": ["int main()", "const int MAX", "100", "sensor_data", "list[MAX]", "cin >> count", "read_sensors", "for", "printf", ".c_str()", "return 0"]
+  },
+  {
+    "id": "CM-ENT-09",
+    "section": "Entity swap",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Full Q1+Q2+Q3+Q4 for stat_double (mystery = a + b)", "code": "#include <iostream>\nusing namespace std;\n\nstruct stat_double {\n    double mystery;\n    double a;\n    double b;\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = data.a + data.b;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].a;\n        cin >> list[i].b;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}" }
+    ],
+    "prompt": "Write the COMPLETE program (with #include) for stat_double: mystery = a * b, read a and b, print mystery",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\n\nstruct stat_double {\n    double mystery;\n    double a;\n    double b;\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = data.a * data.b;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].a;\n        cin >> list[i].b;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}",
+    "keyChecks": ["#include", "struct", "stat_double", "mystery", "who_am_i", "data.a * data.b", "read_stat", "&list[]", "cin", "int main()", "const int MAX", "printf", "%.2f", "return 0"]
+  },
+  {
+    "id": "CM-ENT-10",
+    "section": "Entity swap",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Q2 with 4 fields", "code": "struct patient_data {\n    int id;\n    string name;\n    double height;\n    double weight;\n};" }
+    ],
+    "prompt": "Write Q3 read function for patient_data (reads all 4 fields: id, name, height, weight)",
+    "expectedAnswer": "void read_patients(patient_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].name;\n        cin >> list[i].height;\n        cin >> list[i].weight;\n    }\n}",
+    "keyChecks": ["void", "read_patients", "patient_data", "&list[]", "int count", "for", "cin", "list[i].id", "list[i].name", "list[i].height", "list[i].weight"]
+  },
+
+  {
+    "id": "CM-PROG-01",
+    "section": "Complexity progression",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Level 1: scalar by value", "code": "void f(int x) {\n    x = 99;  // copy — caller unchanged\n}" },
+      { "label": "Level 2: scalar by reference", "code": "void f(int &x) {\n    x = 99;  // alias — caller changed\n}" },
+      { "label": "Level 3: struct by reference", "code": "void f(Point &p) {\n    p.x = 99;  // struct field — caller changed\n}" }
+    ],
+    "prompt": "Level 4: write a function that takes an array of Points by reference and sets list[0].x = 99",
+    "expectedAnswer": "void f(Point &list[], int n) {\n    list[0].x = 99;\n}",
+    "keyChecks": ["void", "Point", "&list[]", "list[0].x", "99"]
+  },
+  {
+    "id": "CM-PROG-02",
+    "section": "Complexity progression",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Level 1: print one value", "code": "cout << x;" },
+      { "label": "Level 2: print with format", "code": "printf(\"%d\\n\", x);" },
+      { "label": "Level 3: print struct field", "code": "printf(\"%d\\n\", p.id);" }
+    ],
+    "prompt": "Level 4: write printf for list[i] with int id and string name (inside a for loop over count items)",
+    "expectedAnswer": "for (int i = 0; i < count; i++) {\n    printf(\"%d %s\\n\", list[i].id, list[i].name.c_str());\n}",
+    "keyChecks": ["for", "int i", "i < count", "printf", "%d", "%s", "list[i]", ".c_str()"]
+  },
+  {
+    "id": "CM-PROG-03",
+    "section": "Complexity progression",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Level 1: read one int", "code": "int x;\ncin >> x;" },
+      { "label": "Level 2: read into struct field", "code": "cin >> p.name;" },
+      { "label": "Level 3: read into array element", "code": "cin >> list[i].name;" }
+    ],
+    "prompt": "Level 4: write a full Q3 read function for city_data (int population, string name) using a for loop",
+    "expectedAnswer": "void read_cities(city_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].population;\n        cin >> list[i].name;\n    }\n}",
+    "keyChecks": ["void", "read_cities", "city_data", "&list[]", "int count", "for", "cin", "list[i].population", "list[i].name"]
+  },
+  {
+    "id": "CM-PROG-04",
+    "section": "Complexity progression",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Level 1: declare scalar", "code": "int x;" },
+      { "label": "Level 2: declare array", "code": "int arr[100];" },
+      { "label": "Level 3: declare struct array", "code": "employee_data list[100];" }
+    ],
+    "prompt": "Level 4: write the full Q4 declarations — const int MAX = 100, employee_data list[MAX], int count, cin >> count",
+    "expectedAnswer": "const int MAX = 100;\nemployee_data list[MAX];\nint count;\ncin >> count;",
+    "keyChecks": ["const int MAX", "100", "employee_data", "list[MAX]", "int count", "cin >> count"]
+  },
+  {
+    "id": "CM-PROG-05",
+    "section": "Complexity progression",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Level 1: simple if", "code": "if (x > 0) {\n    result = x;\n}" },
+      { "label": "Level 2: if/else", "code": "if (data.a > data.b)\n    data.mystery = data.a;\nelse\n    data.mystery = data.b;" }
+    ],
+    "prompt": "Level 3: write who_am_i using if/else inside a loop — find max of numbers[0..4]",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = data.numbers[0];\n    for (int i = 1; i < 5; i++) {\n        if (data.numbers[i] > data.mystery)\n            data.mystery = data.numbers[i];\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "data.numbers[0]", "for", "if", ">", "data.numbers[i]"]
+  },
+  {
+    "id": "CM-PROG-06",
+    "section": "Complexity progression",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Level 1: struct with 2 scalars", "code": "struct stat_double {\n    double mystery;\n    double a;\n};" },
+      { "label": "Level 2: struct with 3 scalars", "code": "struct stat_double {\n    double mystery;\n    double a;\n    double b;\n};" }
+    ],
+    "prompt": "Level 3: write struct stat_double with mystery and an array field numbers[5]",
+    "expectedAnswer": "struct stat_double {\n    double mystery;\n    double numbers[5];\n};",
+    "keyChecks": ["struct", "stat_double", "double mystery", "double numbers[5]", "};"]
+  },
+  {
+    "id": "CM-PROG-07",
+    "section": "Complexity progression",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Level 1: single cin read per item", "code": "for (int i = 0; i < count; i++) {\n    cin >> list[i].name;\n}" },
+      { "label": "Level 2: multiple cin reads per item", "code": "for (int i = 0; i < count; i++) {\n    cin >> list[i].id;\n    cin >> list[i].name;\n}" }
+    ],
+    "prompt": "Level 3: write the nested loop version — read numbers[0..4] for each of count items",
+    "expectedAnswer": "for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n        cin >> list[i].numbers[j];\n    }\n}",
+    "keyChecks": ["for", "int i", "i < count", "for", "int j", "j < 5", "cin", "list[i].numbers[j]"]
+  }
+]

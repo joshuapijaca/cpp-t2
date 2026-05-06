@@ -7,6 +7,9 @@ import { MCQCard } from '../components/MCQCard';
 import { ClozeCard } from '../components/ClozeCard';
 import { DecomposeCard } from '../components/DecomposeCard';
 import { WalkthroughCard } from '../components/WalkthroughCard';
+import { ProceduralDrill } from '../components/ProceduralDrill';
+import { CodeMatrix } from '../components/CodeMatrix';
+import { CodeMemorize } from '../components/CodeMemorize';
 import { ProgressBar } from '../components/ProgressBar';
 import cardsData from '../../data/cards.json';
 
@@ -98,6 +101,15 @@ export function Sequence({
       )}
       {card.type === 'walkthrough' && (
         <WalkthroughCard key={cardKey} card={card} onAdvance={handleAdvance} />
+      )}
+      {card.type === 'procedural' && (
+        <ProceduralDrill key={cardKey} drill={card} onComplete={handleAdvance} />
+      )}
+      {card.type === 'matrix' && (
+        <CodeMatrix key={cardKey} matrix={card} onAdvance={handleAdvance} />
+      )}
+      {card.type === 'code-memorize' && (
+        <CodeMemorize key={cardKey} drill={card} onAdvance={handleAdvance} />
       )}
     </div>
   );

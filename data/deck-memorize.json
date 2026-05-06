@@ -1,0 +1,272 @@
+[
+  {
+    "type": "code-memorize",
+    "atomId": "SW-01",
+    "id": "CMEM-SW01-01",
+    "section": "Struct writing",
+    "question": "Write struct employee_data with fields: int id, string name, double salary",
+    "code": "struct employee_data {\n    int id;\n    string name;\n    double salary;\n};",
+    "keyChecks": ["struct", "employee_data", "int id", "string name", "double salary", "};"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "SW-01",
+    "id": "CMEM-SW01-02",
+    "section": "Struct writing",
+    "question": "Write struct book_data with fields: int year, string title, string author",
+    "code": "struct book_data {\n    int year;\n    string title;\n    string author;\n};",
+    "keyChecks": ["struct", "book_data", "int year", "string title", "string author", "};"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "SW-01",
+    "id": "CMEM-SW01-03",
+    "section": "Struct writing",
+    "question": "Write struct vehicle_data with fields: int year, string make, string model",
+    "code": "struct vehicle_data {\n    int year;\n    string make;\n    string model;\n};",
+    "keyChecks": ["struct", "vehicle_data", "int year", "string make", "string model", "};"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "SW-01",
+    "id": "CMEM-SW01-04",
+    "section": "Struct writing",
+    "question": "Write struct computer_data with fields: int id, string description, string location",
+    "code": "struct computer_data {\n    int id;\n    string description;\n    string location;\n};",
+    "keyChecks": ["struct", "computer_data", "int id", "string description", "string location", "};"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "SW-01",
+    "id": "CMEM-SW01-05",
+    "section": "Struct writing",
+    "question": "Write struct student_data with fields: int id, string name, string course",
+    "code": "struct student_data {\n    int id;\n    string name;\n    string course;\n};",
+    "keyChecks": ["struct", "student_data", "int id", "string name", "string course", "};"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-01",
+    "id": "CMEM-ME01-01",
+    "section": "Mock exam struct",
+    "question": "Write struct stat_double with fields: double mystery, double a, double b",
+    "code": "struct stat_double {\n    double mystery;\n    double a;\n    double b;\n};",
+    "keyChecks": ["struct", "stat_double", "double mystery", "double a", "double b", "};"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-02",
+    "id": "CMEM-ME02-01",
+    "section": "Mock exam struct",
+    "question": "Write struct stat_double with fields: double mystery, double numbers[5]",
+    "code": "struct stat_double {\n    double mystery;\n    double numbers[5];\n};",
+    "keyChecks": ["struct", "stat_double", "double mystery", "double numbers[5]", "};"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-01",
+    "id": "CMEM-ME01-02",
+    "section": "Mock 1 who_am_i",
+    "question": "Write who_am_i: mystery = a + b",
+    "code": "void who_am_i(stat_double &data) {\n    data.mystery = data.a + data.b;\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "data.a", "+", "data.b"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-01",
+    "id": "CMEM-ME01-03",
+    "section": "Mock 1 who_am_i variant",
+    "question": "Write who_am_i: mystery = a * b",
+    "code": "void who_am_i(stat_double &data) {\n    data.mystery = data.a * data.b;\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "data.a", "*", "data.b"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-04",
+    "id": "CMEM-ME04-01",
+    "section": "Mock 4 who_am_i",
+    "question": "Write who_am_i: mystery = |a - b| (absolute difference)",
+    "code": "void who_am_i(stat_double &data) {\n    if (data.a > data.b)\n        data.mystery = data.a - data.b;\n    else\n        data.mystery = data.b - data.a;\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "if", "data.a > data.b", "data.a - data.b", "else", "data.b - data.a"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-03",
+    "id": "CMEM-ME03-01",
+    "section": "Mock 3 who_am_i",
+    "question": "Write who_am_i: mystery = sum of numbers[0..4]",
+    "code": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery = 0", "for", "int i = 0", "i < 5", "data.mystery + data.numbers[i]"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-02",
+    "id": "CMEM-ME02-02",
+    "section": "Mock 2 who_am_i",
+    "question": "Write who_am_i: mystery = max of numbers[0..4]",
+    "code": "void who_am_i(stat_double &data) {\n    data.mystery = data.numbers[0];\n    for (int i = 1; i < 5; i++) {\n        if (data.numbers[i] > data.mystery)\n            data.mystery = data.numbers[i];\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery = data.numbers[0]", "for", "i = 1", "i < 5", "if", "data.numbers[i] > data.mystery"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-02",
+    "id": "CMEM-ME02-03",
+    "section": "Mock 2 who_am_i variant",
+    "question": "Write who_am_i: mystery = min of numbers[0..4]",
+    "code": "void who_am_i(stat_double &data) {\n    data.mystery = data.numbers[0];\n    for (int i = 1; i < 5; i++) {\n        if (data.numbers[i] < data.mystery)\n            data.mystery = data.numbers[i];\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery = data.numbers[0]", "for", "i = 1", "i < 5", "if", "data.numbers[i] < data.mystery"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-05",
+    "id": "CMEM-ME05-01",
+    "section": "Mock 5 who_am_i",
+    "question": "Write who_am_i: mystery = count of positive numbers in numbers[0..4]",
+    "code": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        if (data.numbers[i] > 0)\n            data.mystery = data.mystery + 1;\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery = 0", "for", "i < 5", "if", "data.numbers[i] > 0", "data.mystery + 1"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-03",
+    "id": "CMEM-ME03-02",
+    "section": "Mock 3 who_am_i variant",
+    "question": "Write who_am_i: mystery = average of numbers[0..4]",
+    "code": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n    data.mystery = data.mystery / 5;\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery = 0", "for", "i < 5", "data.numbers[i]", "data.mystery / 5"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "RW-02",
+    "id": "CMEM-RW02-01",
+    "section": "Read function",
+    "question": "Write read_employees for employee_data (int id, string name, double salary)",
+    "code": "void read_employees(employee_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].name;\n        cin >> list[i].salary;\n    }\n}",
+    "keyChecks": ["void", "read_employees", "employee_data", "&list[]", "int count", "for", "i < count", "cin", "list[i].id", "list[i].name"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "RW-02",
+    "id": "CMEM-RW02-02",
+    "section": "Read function",
+    "question": "Write read_books for book_data (int year, string title, string author)",
+    "code": "void read_books(book_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].year;\n        cin >> list[i].title;\n        cin >> list[i].author;\n    }\n}",
+    "keyChecks": ["void", "read_books", "book_data", "&list[]", "int count", "for", "i < count", "cin", "list[i].year", "list[i].title"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "RW-02",
+    "id": "CMEM-RW02-03",
+    "section": "Read function",
+    "question": "Write read_computers for computer_data (int id, string description, string location)",
+    "code": "void read_computers(computer_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].description;\n        cin >> list[i].location;\n    }\n}",
+    "keyChecks": ["void", "read_computers", "computer_data", "&list[]", "int count", "for", "i < count", "cin", "list[i].id", "list[i].description"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "RW-02",
+    "id": "CMEM-RW02-04",
+    "section": "Read function",
+    "question": "Write read_stat for stat_double with fields a and b",
+    "code": "void read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].a;\n        cin >> list[i].b;\n    }\n}",
+    "keyChecks": ["void", "read_stat", "stat_double", "&list[]", "int count", "for", "i < count", "cin", "list[i].a", "list[i].b"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "RW-02",
+    "id": "CMEM-RW02-05",
+    "section": "Read function",
+    "question": "Write read_stat for stat_double with nested loop reading numbers[0..4]",
+    "code": "void read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        for (int j = 0; j < 5; j++) {\n            cin >> list[i].numbers[j];\n        }\n    }\n}",
+    "keyChecks": ["void", "read_stat", "stat_double", "&list[]", "int count", "for", "i < count", "j < 5", "cin", "list[i].numbers[j]"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "RW-02",
+    "id": "CMEM-RW02-06",
+    "section": "Read function",
+    "question": "Write read_students for student_data (int id, string name, string course)",
+    "code": "void read_students(student_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].name;\n        cin >> list[i].course;\n    }\n}",
+    "keyChecks": ["void", "read_students", "student_data", "&list[]", "int count", "for", "i < count", "cin", "list[i].id", "list[i].name"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "MW-01",
+    "id": "CMEM-MW01-01",
+    "section": "Main writing",
+    "question": "Write main for employee_data: declare array, read count, call read_employees, printf output",
+    "code": "int main() {\n    const int MAX = 100;\n    employee_data list[MAX];\n    int count;\n    cin >> count;\n    read_employees(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %.2f\\n\", list[i].id, list[i].name.c_str(), list[i].salary);\n    }\n    return 0;\n}",
+    "keyChecks": ["int main()", "const int MAX", "100", "employee_data", "list[MAX]", "cin >> count", "read_employees", "printf", ".c_str()", "return 0"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "MW-01",
+    "id": "CMEM-MW01-02",
+    "section": "Main writing",
+    "question": "Write main for book_data: declare array, read count, call read_books, printf output",
+    "code": "int main() {\n    const int MAX = 100;\n    book_data list[MAX];\n    int count;\n    cin >> count;\n    read_books(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %s\\n\", list[i].year, list[i].title.c_str(), list[i].author.c_str());\n    }\n    return 0;\n}",
+    "keyChecks": ["int main()", "const int MAX", "100", "book_data", "list[MAX]", "cin >> count", "read_books", "printf", "%d", ".c_str()", "return 0"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "MW-01",
+    "id": "CMEM-MW01-03",
+    "section": "Main writing",
+    "question": "Write main for stat_double: declare array, read count, call read_stat, call who_am_i, printf mystery",
+    "code": "int main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}",
+    "keyChecks": ["int main()", "const int MAX", "100", "stat_double", "list[MAX]", "cin >> count", "read_stat", "who_am_i", "printf", "%.2f", "return 0"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "MW-01",
+    "id": "CMEM-MW01-04",
+    "section": "Main writing",
+    "question": "Write main for computer_data: declare array, read count, call read_computers, printf output",
+    "code": "int main() {\n    const int MAX = 100;\n    computer_data list[MAX];\n    int count;\n    cin >> count;\n    read_computers(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %s\\n\", list[i].id, list[i].description.c_str(), list[i].location.c_str());\n    }\n    return 0;\n}",
+    "keyChecks": ["int main()", "const int MAX", "100", "computer_data", "list[MAX]", "cin >> count", "read_computers", "printf", "%d", ".c_str()", "return 0"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-01",
+    "id": "CMEM-ME01-04",
+    "section": "Full integration",
+    "question": "Write full program: employee_data struct + read_employees + main with printf",
+    "code": "#include <iostream>\nusing namespace std;\n\nstruct employee_data {\n    int id;\n    string name;\n    double salary;\n};\n\nvoid read_employees(employee_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].name;\n        cin >> list[i].salary;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    employee_data list[MAX];\n    int count;\n    cin >> count;\n    read_employees(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %.2f\\n\", list[i].id, list[i].name.c_str(), list[i].salary);\n    }\n    return 0;\n}",
+    "keyChecks": ["#include", "struct", "employee_data", "int id", "string name", "double salary", "void", "read_employees", "&list[]", "cin", "int main()", "const int MAX", "printf", ".c_str()", "return 0"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-01",
+    "id": "CMEM-ME01-05",
+    "section": "Full integration",
+    "question": "Write full program: stat_double (a+b) struct + who_am_i + read_stat + main",
+    "code": "#include <iostream>\nusing namespace std;\n\nstruct stat_double {\n    double mystery;\n    double a;\n    double b;\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = data.a + data.b;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].a;\n        cin >> list[i].b;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}",
+    "keyChecks": ["#include", "struct", "stat_double", "mystery", "who_am_i", "data.a + data.b", "read_stat", "&list[]", "cin", "int main()", "const int MAX", "printf", "%.2f", "return 0"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-02",
+    "id": "CMEM-ME02-04",
+    "section": "Full integration",
+    "question": "Write full program: stat_double (max of numbers[5]) struct + who_am_i + nested read + main",
+    "code": "#include <iostream>\nusing namespace std;\n\nstruct stat_double {\n    double mystery;\n    double numbers[5];\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = data.numbers[0];\n    for (int i = 1; i < 5; i++) {\n        if (data.numbers[i] > data.mystery)\n            data.mystery = data.numbers[i];\n    }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        for (int j = 0; j < 5; j++) {\n            cin >> list[i].numbers[j];\n        }\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}",
+    "keyChecks": ["#include", "struct", "stat_double", "numbers[5]", "who_am_i", "data.numbers[0]", "data.numbers[i] > data.mystery", "read_stat", "&list[]", "cin", "int main()", "const int MAX", "printf", "%.2f", "return 0"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-03",
+    "id": "CMEM-ME03-03",
+    "section": "Full integration",
+    "question": "Write full program: stat_double (sum of numbers[5]) struct + who_am_i + nested read + main",
+    "code": "#include <iostream>\nusing namespace std;\n\nstruct stat_double {\n    double mystery;\n    double numbers[5];\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        for (int j = 0; j < 5; j++) {\n            cin >> list[i].numbers[j];\n        }\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}",
+    "keyChecks": ["#include", "struct", "stat_double", "numbers[5]", "who_am_i", "data.mystery = 0", "data.mystery + data.numbers[i]", "read_stat", "&list[]", "cin", "int main()", "const int MAX", "printf", "%.2f", "return 0"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "ME-05",
+    "id": "CMEM-ME05-02",
+    "section": "Full integration",
+    "question": "Write full program: stat_double (count positives in numbers[5]) struct + who_am_i + nested read + main",
+    "code": "#include <iostream>\nusing namespace std;\n\nstruct stat_double {\n    double mystery;\n    double numbers[5];\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        if (data.numbers[i] > 0)\n            data.mystery = data.mystery + 1;\n    }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        for (int j = 0; j < 5; j++) {\n            cin >> list[i].numbers[j];\n        }\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}",
+    "keyChecks": ["#include", "struct", "stat_double", "numbers[5]", "who_am_i", "data.mystery = 0", "data.numbers[i] > 0", "data.mystery + 1", "read_stat", "&list[]", "cin", "int main()", "const int MAX", "printf", "%.2f", "return 0"]
+  }
+]

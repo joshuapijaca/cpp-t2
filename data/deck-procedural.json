@@ -1,0 +1,308 @@
+[
+  {
+    "type": "procedural",
+    "atomId": "HE-01",
+    "id": "PD-HE01-01",
+    "section": "C++ boilerplate",
+    "prompt": "Write the two lines that start every C++ program: the iostream include and the namespace declaration",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;",
+    "keyChecks": ["#include", "<iostream>", "using", "namespace", "std", ";"],
+    "variants": [
+      { "prompt": "Write the include directive and namespace line needed before any cout/cin usage", "expectedAnswer": "#include <iostream>\nusing namespace std;" },
+      { "prompt": "Write the header lines that give access to cin and cout in C++", "expectedAnswer": "#include <iostream>\nusing namespace std;" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "HE-01",
+    "id": "PD-HE01-02",
+    "section": "C++ boilerplate",
+    "prompt": "Write the main function skeleton with an empty body and return 0",
+    "expectedAnswer": "int main() {\n    return 0;\n}",
+    "keyChecks": ["int", "main()", "{", "return", "0", ";", "}"],
+    "variants": [
+      { "prompt": "Write the entry point function that does nothing and exits cleanly", "expectedAnswer": "int main() {\n    return 0;\n}" },
+      { "prompt": "Write int main with braces and return 0 inside", "expectedAnswer": "int main() {\n    return 0;\n}" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "HE-01",
+    "id": "PD-HE01-03",
+    "section": "C++ boilerplate",
+    "prompt": "Write a complete minimal C++ program: include, namespace, main function, return 0",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n    return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "using namespace std", "int main()", "return 0", "}"],
+    "variants": [
+      { "prompt": "Write the full boilerplate skeleton for a C++ program that does nothing", "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n    return 0;\n}" },
+      { "prompt": "Write the complete program template every SIT102 C++ file starts with", "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n    return 0;\n}" }
+    ]
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "SW-01",
+    "id": "PD-SW01-01",
+    "section": "Struct definition",
+    "prompt": "Write struct employee_data with fields: int id, string name, double salary",
+    "expectedAnswer": "struct employee_data {\n    int id;\n    string name;\n    double salary;\n};",
+    "keyChecks": ["struct", "employee_data", "int id", "string name", "double salary", "};"],
+    "variants": [
+      { "prompt": "Write struct book_data with fields: int year, string title, string author", "expectedAnswer": "struct book_data {\n    int year;\n    string title;\n    string author;\n};" },
+      { "prompt": "Write struct vehicle_data with fields: int year, string make, string model", "expectedAnswer": "struct vehicle_data {\n    int year;\n    string make;\n    string model;\n};" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "SW-01",
+    "id": "PD-SW01-02",
+    "section": "Struct definition",
+    "prompt": "Write struct stat_double with fields: double mystery, double a, double b",
+    "expectedAnswer": "struct stat_double {\n    double mystery;\n    double a;\n    double b;\n};",
+    "keyChecks": ["struct", "stat_double", "double mystery", "double a", "double b", "};"],
+    "variants": [
+      { "prompt": "Write struct stat_double with fields: double mystery, double numbers[5]", "expectedAnswer": "struct stat_double {\n    double mystery;\n    double numbers[5];\n};" },
+      { "prompt": "Write struct sensor_data with fields: int id, string location, double reading", "expectedAnswer": "struct sensor_data {\n    int id;\n    string location;\n    double reading;\n};" }
+    ]
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "ME-01",
+    "id": "PD-ME01-01",
+    "section": "who_am_i: simple arithmetic",
+    "prompt": "Write void who_am_i(stat_double &data) that sets mystery = a + b",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = data.a + data.b;\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "data.a", "data.b"],
+    "variants": [
+      { "prompt": "Write void who_am_i(stat_double &data) that sets mystery = a * b", "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = data.a * data.b;\n}" },
+      { "prompt": "Write void who_am_i(stat_double &data) that sets mystery = a - b", "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = data.a - data.b;\n}" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "ME-02",
+    "id": "PD-ME02-01",
+    "section": "who_am_i: max of array",
+    "prompt": "Write void who_am_i(stat_double &data) that sets mystery = max of numbers[0..4] using a loop",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = data.numbers[0];\n    for (int i = 1; i < 5; i++) {\n        if (data.numbers[i] > data.mystery)\n            data.mystery = data.numbers[i];\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "data.numbers", "for", "if"],
+    "variants": [
+      { "prompt": "Write void who_am_i(stat_double &data) that sets mystery = min of numbers[0..4] using a loop", "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = data.numbers[0];\n    for (int i = 1; i < 5; i++) {\n        if (data.numbers[i] < data.mystery)\n            data.mystery = data.numbers[i];\n    }\n}" },
+      { "prompt": "Write void who_am_i(stat_double &data) that sets mystery = max of numbers[0..9] using a loop", "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = data.numbers[0];\n    for (int i = 1; i < 10; i++) {\n        if (data.numbers[i] > data.mystery)\n            data.mystery = data.numbers[i];\n    }\n}" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "ME-03",
+    "id": "PD-ME03-01",
+    "section": "who_am_i: sum accumulation",
+    "prompt": "Write void who_am_i(stat_double &data) that sets mystery = sum of numbers[0..4] using a loop",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "= 0", "for", "data.numbers"],
+    "variants": [
+      { "prompt": "Write void who_am_i(stat_double &data) that sets mystery = sum of numbers[0..9] using a loop", "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 10; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n}" },
+      { "prompt": "Write void who_am_i(stat_double &data) that sets mystery = product of numbers[0..4] starting from 1", "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 1;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery * data.numbers[i];\n    }\n}" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "ME-04",
+    "id": "PD-ME04-01",
+    "section": "who_am_i: absolute difference",
+    "prompt": "Write void who_am_i(stat_double &data) that sets mystery = |a - b| (absolute difference using if/else)",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    if (data.a > data.b)\n        data.mystery = data.a - data.b;\n    else\n        data.mystery = data.b - data.a;\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "if", "data.a", "data.b", "data.mystery"],
+    "variants": [
+      { "prompt": "Write void who_am_i(stat_double &data) that sets mystery = the larger of a and b using if/else", "expectedAnswer": "void who_am_i(stat_double &data) {\n    if (data.a > data.b)\n        data.mystery = data.a;\n    else\n        data.mystery = data.b;\n}" },
+      { "prompt": "Write void who_am_i(stat_double &data) that sets mystery = the smaller of a and b using if/else", "expectedAnswer": "void who_am_i(stat_double &data) {\n    if (data.a < data.b)\n        data.mystery = data.a;\n    else\n        data.mystery = data.b;\n}" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "ME-05",
+    "id": "PD-ME05-01",
+    "section": "who_am_i: count with condition",
+    "prompt": "Write void who_am_i(stat_double &data) that sets mystery = count of positive values in numbers[0..4]",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        if (data.numbers[i] > 0)\n            data.mystery = data.mystery + 1;\n    }\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "= 0", "for", "if", "> 0"],
+    "variants": [
+      { "prompt": "Write void who_am_i(stat_double &data) that sets mystery = count of negative values in numbers[0..4]", "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        if (data.numbers[i] < 0)\n            data.mystery = data.mystery + 1;\n    }\n}" },
+      { "prompt": "Write void who_am_i(stat_double &data) that sets mystery = count of values in numbers[0..4] greater than 10", "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        if (data.numbers[i] > 10)\n            data.mystery = data.mystery + 1;\n    }\n}" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "ME-03",
+    "id": "PD-ME03-02",
+    "section": "who_am_i: average (sum variant)",
+    "prompt": "Write void who_am_i(stat_double &data) that sets mystery = average of numbers[0..4] (sum then divide by 5)",
+    "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n    data.mystery = data.mystery / 5;\n}",
+    "keyChecks": ["void", "who_am_i", "stat_double", "&data", "data.mystery", "for", "data.numbers", "/ 5"],
+    "variants": [
+      { "prompt": "Write void who_am_i(stat_double &data) that sets mystery = average of numbers[0..9] (sum then divide by 10)", "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 10; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n    data.mystery = data.mystery / 10;\n}" },
+      { "prompt": "Write void who_am_i(stat_double &data) that sets mystery = average of a and b", "expectedAnswer": "void who_am_i(stat_double &data) {\n    data.mystery = (data.a + data.b) / 2;\n}" }
+    ]
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "RW-02",
+    "id": "PD-RW02-01",
+    "section": "Read function signature",
+    "prompt": "Write the function signature: void read_employees(employee_data &list[], int count)",
+    "expectedAnswer": "void read_employees(employee_data &list[], int count)",
+    "keyChecks": ["void", "read_employees", "employee_data", "&list[]", "int count"],
+    "variants": [
+      { "prompt": "Write the function signature: void read_books(book_data &list[], int count)", "expectedAnswer": "void read_books(book_data &list[], int count)" },
+      { "prompt": "Write the function signature: void read_vehicles(vehicle_data &list[], int count)", "expectedAnswer": "void read_vehicles(vehicle_data &list[], int count)" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "RW-02",
+    "id": "PD-RW02-02",
+    "section": "Read function: simple fields",
+    "prompt": "Write void read_employees(employee_data &list[], int count) that reads id, name, salary for each item using cin",
+    "expectedAnswer": "void read_employees(employee_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].name;\n        cin >> list[i].salary;\n    }\n}",
+    "keyChecks": ["void", "read_employees", "employee_data", "&list[]", "int count", "for", "cin >>", "list[i]"],
+    "variants": [
+      { "prompt": "Write void read_books(book_data &list[], int count) that reads year, title, author for each item using cin", "expectedAnswer": "void read_books(book_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].year;\n        cin >> list[i].title;\n        cin >> list[i].author;\n    }\n}" },
+      { "prompt": "Write void read_vehicles(vehicle_data &list[], int count) that reads year, make, model for each item using cin", "expectedAnswer": "void read_vehicles(vehicle_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].year;\n        cin >> list[i].make;\n        cin >> list[i].model;\n    }\n}" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "RW-02",
+    "id": "PD-RW02-03",
+    "section": "Read function: nested loop for array field",
+    "prompt": "Write void read_stat(stat_double &list[], int count) that reads numbers[0..4] for each item using a nested loop",
+    "expectedAnswer": "void read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        for (int j = 0; j < 5; j++) {\n            cin >> list[i].numbers[j];\n        }\n    }\n}",
+    "keyChecks": ["void", "read_stat", "stat_double", "&list[]", "int count", "for", "cin >>", "list[i].numbers[j]"],
+    "variants": [
+      { "prompt": "Write void read_stat(stat_double &list[], int count) that reads a and b for each item using cin", "expectedAnswer": "void read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].a;\n        cin >> list[i].b;\n    }\n}" },
+      { "prompt": "Write void read_stat(stat_double &list[], int count) that reads numbers[0..9] for each item using a nested loop", "expectedAnswer": "void read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        for (int j = 0; j < 10; j++) {\n            cin >> list[i].numbers[j];\n        }\n    }\n}" }
+    ]
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "MW-01",
+    "id": "PD-MW01-01",
+    "section": "Main function: declarations and setup",
+    "prompt": "Write int main() that declares const MAX=100, employee_data list[MAX], int count, reads count with cin, calls read_employees(list, count), returns 0",
+    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    employee_data list[MAX];\n    int count;\n    cin >> count;\n    read_employees(list, count);\n    return 0;\n}",
+    "keyChecks": ["int main()", "const int MAX", "100", "employee_data", "list[MAX]", "int count", "cin >> count", "read_employees", "return 0"],
+    "variants": [
+      { "prompt": "Write int main() that declares const MAX=100, book_data list[MAX], int count, reads count with cin, calls read_books(list, count), returns 0", "expectedAnswer": "int main() {\n    const int MAX = 100;\n    book_data list[MAX];\n    int count;\n    cin >> count;\n    read_books(list, count);\n    return 0;\n}" },
+      { "prompt": "Write int main() that declares const MAX=100, vehicle_data list[MAX], int count, reads count with cin, calls read_vehicles(list, count), returns 0", "expectedAnswer": "int main() {\n    const int MAX = 100;\n    vehicle_data list[MAX];\n    int count;\n    cin >> count;\n    read_vehicles(list, count);\n    return 0;\n}" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "MW-03",
+    "id": "PD-MW03-01",
+    "section": "Printf: format specifiers",
+    "prompt": "Write: printf(\"%d %s\\n\", id, name.c_str());",
+    "expectedAnswer": "printf(\"%d %s\\n\", id, name.c_str());",
+    "keyChecks": ["printf", "%d", "%s", "\\n", ".c_str()", ";"],
+    "variants": [
+      { "prompt": "Write: printf(\"%s %d\\n\", title.c_str(), year);", "expectedAnswer": "printf(\"%s %d\\n\", title.c_str(), year);" },
+      { "prompt": "Write: printf(\"%.2f\\n\", price);", "expectedAnswer": "printf(\"%.2f\\n\", price);" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "MW-03",
+    "id": "PD-MW03-02",
+    "section": "Printf: struct fields in loop",
+    "prompt": "Write: printf(\"%d %s %.2f\\n\", list[i].id, list[i].name.c_str(), list[i].salary);",
+    "expectedAnswer": "printf(\"%d %s %.2f\\n\", list[i].id, list[i].name.c_str(), list[i].salary);",
+    "keyChecks": ["printf", "%d", "%s", "%.2f", "list[i]", ".c_str()", ";"],
+    "variants": [
+      { "prompt": "Write: printf(\"%d %s %s\\n\", list[i].year, list[i].title.c_str(), list[i].author.c_str());", "expectedAnswer": "printf(\"%d %s %s\\n\", list[i].year, list[i].title.c_str(), list[i].author.c_str());" },
+      { "prompt": "Write: printf(\"%s %.2f\\n\", list[i].name.c_str(), list[i].mystery);", "expectedAnswer": "printf(\"%s %.2f\\n\", list[i].name.c_str(), list[i].mystery);" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "MW-03",
+    "id": "PD-MW03-03",
+    "section": "Printf: loop printing all items",
+    "prompt": "Write a for loop that prints id and name for count employees using printf(\"%d %s\\n\", list[i].id, list[i].name.c_str())",
+    "expectedAnswer": "for (int i = 0; i < count; i++) {\n    printf(\"%d %s\\n\", list[i].id, list[i].name.c_str());\n}",
+    "keyChecks": ["for", "int i", "i < count", "printf", "%d", "%s", "list[i]", ".c_str()"],
+    "variants": [
+      { "prompt": "Write a for loop that prints year and title for count books using printf(\"%d %s\\n\", list[i].year, list[i].title.c_str())", "expectedAnswer": "for (int i = 0; i < count; i++) {\n    printf(\"%d %s\\n\", list[i].year, list[i].title.c_str());\n}" },
+      { "prompt": "Write a for loop that prints year and make for count vehicles using printf(\"%d %s\\n\", list[i].year, list[i].make.c_str())", "expectedAnswer": "for (int i = 0; i < count; i++) {\n    printf(\"%d %s\\n\", list[i].year, list[i].make.c_str());\n}" }
+    ]
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "MW-03",
+    "id": "PD-MW03-04",
+    "section": "Printf: double with decimal places",
+    "prompt": "Write a printf that prints the mystery value from list[0] with 2 decimal places",
+    "expectedAnswer": "printf(\"%.2f\\n\", list[0].mystery);",
+    "keyChecks": ["printf", "%.2f", "\\n", "list[0]", ".mystery", ";"],
+    "variants": [
+      { "prompt": "Write a printf that prints mystery from list[i] with 2 decimal places (inside a loop)", "expectedAnswer": "printf(\"%.2f\\n\", list[i].mystery);" },
+      { "prompt": "Write a printf that prints salary from list[0] with 2 decimal places", "expectedAnswer": "printf(\"%.2f\\n\", list[0].salary);" }
+    ]
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "HE-12",
+    "id": "PD-HE12-01",
+    "section": "Loop pattern: for header",
+    "prompt": "Write the for loop header: for (int i = 0; i < count; i++)",
+    "expectedAnswer": "for (int i = 0; i < count; i++)",
+    "keyChecks": ["for", "int i", "= 0", "i < count", "i++"],
+    "variants": [
+      { "prompt": "Write the for loop header: for (int i = 0; i < 5; i++)", "expectedAnswer": "for (int i = 0; i < 5; i++)" },
+      { "prompt": "Write the for loop header: for (int j = 0; j < 10; j++)", "expectedAnswer": "for (int j = 0; j < 10; j++)" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "RW-01",
+    "id": "PD-RW01-01",
+    "section": "Loop pattern: cin read loop",
+    "prompt": "Write a for loop that reads cin >> list[i].name for count items",
+    "expectedAnswer": "for (int i = 0; i < count; i++) {\n    cin >> list[i].name;\n}",
+    "keyChecks": ["for", "int i", "i < count", "cin >>", "list[i].name"],
+    "variants": [
+      { "prompt": "Write a for loop that reads cin >> list[i].id for count items", "expectedAnswer": "for (int i = 0; i < count; i++) {\n    cin >> list[i].id;\n}" },
+      { "prompt": "Write a for loop that reads cin >> list[i].salary for count items", "expectedAnswer": "for (int i = 0; i < count; i++) {\n    cin >> list[i].salary;\n}" }
+    ]
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "ME-01",
+    "id": "PD-ME01-02",
+    "section": "Full program: employee",
+    "prompt": "Write the COMPLETE program: struct employee_data (int id, string name, double salary), read_employees function, and main that reads count, calls read, prints all with printf",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\n\nstruct employee_data {\n    int id;\n    string name;\n    double salary;\n};\n\nvoid read_employees(employee_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].name;\n        cin >> list[i].salary;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    employee_data list[MAX];\n    int count;\n    cin >> count;\n    read_employees(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %.2f\\n\", list[i].id, list[i].name.c_str(), list[i].salary);\n    }\n    return 0;\n}",
+    "keyChecks": ["#include", "struct", "employee_data", "void", "read_employees", "&list[]", "int main()", "const int MAX", "cin >> count", "printf", ".c_str()", "return 0"],
+    "variants": [
+      { "prompt": "Write the COMPLETE program: struct book_data (int year, string title, string author), read_books function, and main that reads count, calls read, prints all with printf", "expectedAnswer": "#include <iostream>\nusing namespace std;\n\nstruct book_data {\n    int year;\n    string title;\n    string author;\n};\n\nvoid read_books(book_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].year;\n        cin >> list[i].title;\n        cin >> list[i].author;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    book_data list[MAX];\n    int count;\n    cin >> count;\n    read_books(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %s %s\\n\", list[i].year, list[i].title.c_str(), list[i].author.c_str());\n    }\n    return 0;\n}" },
+      { "prompt": "Write the COMPLETE program: struct stat_double (double mystery, double a, double b), who_am_i (mystery = a + b), read_stat function, and main that processes all items", "expectedAnswer": "#include <iostream>\nusing namespace std;\n\nstruct stat_double {\n    double mystery;\n    double a;\n    double b;\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = data.a + data.b;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].a;\n        cin >> list[i].b;\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "ME-02",
+    "id": "PD-ME02-02",
+    "section": "Full program: stat_double with max",
+    "prompt": "Write the COMPLETE program: struct stat_double (double mystery, double numbers[5]), who_am_i (mystery = max of numbers), read_stat (nested loop for numbers), and main",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\n\nstruct stat_double {\n    double mystery;\n    double numbers[5];\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = data.numbers[0];\n    for (int i = 1; i < 5; i++) {\n        if (data.numbers[i] > data.mystery)\n            data.mystery = data.numbers[i];\n    }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        for (int j = 0; j < 5; j++) {\n            cin >> list[i].numbers[j];\n        }\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}",
+    "keyChecks": ["#include", "struct", "stat_double", "numbers[5]", "who_am_i", "data.mystery", "data.numbers", "read_stat", "&list[]", "int main()", "const int MAX", "cin", "printf", "%.2f", "return 0"],
+    "variants": [
+      { "prompt": "Write the COMPLETE program: struct stat_double (double mystery, double numbers[5]), who_am_i (mystery = sum of numbers), read_stat (nested loop), and main", "expectedAnswer": "#include <iostream>\nusing namespace std;\n\nstruct stat_double {\n    double mystery;\n    double numbers[5];\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        data.mystery = data.mystery + data.numbers[i];\n    }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        for (int j = 0; j < 5; j++) {\n            cin >> list[i].numbers[j];\n        }\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}" },
+      { "prompt": "Write the COMPLETE program: struct stat_double (double mystery, double numbers[5]), who_am_i (mystery = count of positives), read_stat (nested loop), and main", "expectedAnswer": "#include <iostream>\nusing namespace std;\n\nstruct stat_double {\n    double mystery;\n    double numbers[5];\n};\n\nvoid who_am_i(stat_double &data) {\n    data.mystery = 0;\n    for (int i = 0; i < 5; i++) {\n        if (data.numbers[i] > 0)\n            data.mystery = data.mystery + 1;\n    }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        for (int j = 0; j < 5; j++) {\n            cin >> list[i].numbers[j];\n        }\n    }\n}\n\nint main() {\n    const int MAX = 100;\n    stat_double list[MAX];\n    int count;\n    cin >> count;\n    read_stat(list, count);\n    for (int i = 0; i < count; i++) {\n        who_am_i(list[i]);\n        printf(\"%.2f\\n\", list[i].mystery);\n    }\n    return 0;\n}" }
+    ]
+  }
+]

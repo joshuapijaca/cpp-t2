@@ -10,7 +10,10 @@ export type Card =
   | WriteCard
   | ClozeCard
   | DecomposeCard
-  | WalkthroughCard;
+  | WalkthroughCard
+  | ProceduralCard
+  | MatrixCard
+  | CodeMemorizeCard;
 
 // === DO half (production / a priori / bottom-up) ===
 
@@ -19,6 +22,7 @@ export interface MemorizeCard {
   atomId: string;
   fact: string;            // <=7 words; Miller's law (the variant student types)
   context?: string;        // canonical outline.fact - shown as subtitle for orientation
+  codeExample?: string;    // code snippet showing concept in context (always visible)
   flashSeconds: number;    // 2-5
   mode: 'race' | 'recall'; // race = visible during input; recall = hide first
   keyChecks: string[];     // tokens that must all appear
@@ -111,4 +115,39 @@ export interface WalkthroughCard {
     annotation: string;        // "entry point - every program needs main()"
     atomIds: string[];         // ["S-03"]
   }>;
+}
+
+// === Active practice types (interleaved in L13-L17) ===
+
+export interface ProceduralCard {
+  type: 'procedural';
+  atomId: string;
+  id: string;                  // e.g. "PD-SW01-01"
+  section: string;             // e.g. "Q2 struct"
+  prompt: string;
+  expectedAnswer: string;
+  keyChecks: string[];
+  variants: Array<{ prompt: string; expectedAnswer: string }>;
+}
+
+export interface MatrixCard {
+  type: 'matrix';
+  atomId: string;
+  id: string;                  // e.g. "CM-ME01-01"
+  section: string;             // e.g. "algorithm transfer"
+  matrixType: string;          // 'algorithm' | 'entity' | 'progression'
+  examples: Array<{ label: string; code: string }>;
+  prompt: string;
+  expectedAnswer: string;
+  keyChecks: string[];
+}
+
+export interface CodeMemorizeCard {
+  type: 'code-memorize';
+  atomId: string;
+  id: string;                  // e.g. "CMEM-SW01-01"
+  section: string;             // e.g. "Q2 struct"
+  question: string;
+  code: string;
+  keyChecks: string[];
 }

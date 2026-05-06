@@ -131,6 +131,10 @@ export function MemorizeCard({ card, onAdvance }: MemorizeCardProps) {
         {card.fact}
       </div>
 
+      {card.codeExample && (
+        <pre className="memorize-code">{card.codeExample}</pre>
+      )}
+
       {(phase === 'input' || phase === 'graded-fail' || phase === 'graded-pass') && (
         <div className="input-area">
           <label className="input-area__label" htmlFor={`memorize-${card.atomId}`}>

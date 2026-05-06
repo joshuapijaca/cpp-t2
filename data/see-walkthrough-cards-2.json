@@ -1,0 +1,3796 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "P-01",
+    "levelLabel": "L-1 prerequisites",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << 42 << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "int main() {",
+        "annotation": "The computer starts executing code from here when you run the program",
+        "atomIds": ["P-01"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << 42 << endl;",
+        "annotation": "The machine follows this instruction, displaying the number 42",
+        "atomIds": ["P-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "P-02",
+    "levelLabel": "L-1 prerequisites",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"A\" << endl;\n  cout << \"B\" << endl;\n  cout << \"C\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << \"A\" << endl;",
+        "annotation": "A program is a sequence of text instructions executed one after another",
+        "atomIds": ["P-02"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << \"B\" << endl;",
+        "annotation": "The computer reads each instruction from top to bottom, in order",
+        "atomIds": ["P-02"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << \"C\" << endl;",
+        "annotation": "C prints last because instructions always run sequentially",
+        "atomIds": ["P-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "P-03",
+    "levelLabel": "L-1 prerequisites",
+    "fullCode": "// File: greet.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Welcome\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "// File: greet.cpp",
+        "annotation": "Source code lives in a plain text file with a .cpp extension",
+        "atomIds": ["P-03"]
+      },
+      {
+        "line": 4,
+        "code": "int main() {",
+        "annotation": "All your C++ instructions go inside the .cpp file",
+        "atomIds": ["P-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "P-04",
+    "levelLabel": "L-1 prerequisites",
+    "fullCode": "// greet.cpp --> compiler --> greet.exe\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Welcome\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "// greet.cpp --> compiler --> greet.exe",
+        "annotation": "A compiler transforms your text source file into a runnable executable",
+        "atomIds": ["P-04"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << \"Welcome\" << endl;",
+        "annotation": "The compiler translates every line into machine instructions the CPU understands",
+        "atomIds": ["P-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "P-05",
+    "levelLabel": "L-1 prerequisites",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Go!\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "int main() {",
+        "annotation": "Double clicking the .exe launches the program starting at main",
+        "atomIds": ["P-05"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << \"Go!\" << endl;",
+        "annotation": "The processor runs each instruction in sequence until it reaches return",
+        "atomIds": ["P-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "P-06",
+    "levelLabel": "L-1 prerequisites",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Name: Ada\" << endl;\n  cout << \"Age: 21\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << \"Name: Ada\" << endl;",
+        "annotation": "This text appears in the terminal, the window where program output is shown",
+        "atomIds": ["P-06"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << \"Age: 21\" << endl;",
+        "annotation": "All printed text shows up in the terminal so the user can read it",
+        "atomIds": ["P-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "P-07",
+    "levelLabel": "L-1 prerequisites",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string name;\n  cout << \"Enter name: \";\n  cin >> name;\n  cout << \"Hello \" << name << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  cout << \"Enter name: \";",
+        "annotation": "A prompt appears in the terminal asking the user to type something",
+        "atomIds": ["P-07"]
+      },
+      {
+        "line": 7,
+        "code": "  cin >> name;",
+        "annotation": "The program waits for the user to type a response in the terminal",
+        "atomIds": ["P-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "S-01",
+    "levelLabel": "L0 syntax skeleton",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int x = 10;\n  cout << x << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "#include <iostream>",
+        "annotation": "This directive brings in the I/O tools so you can use cout and cin",
+        "atomIds": ["S-01"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << x << endl;",
+        "annotation": "cout is only available because we included iostream on line 1",
+        "atomIds": ["S-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "S-02",
+    "levelLabel": "L0 syntax skeleton",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << 42 << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "using namespace std;",
+        "annotation": "This shortcut means you can type cout instead of the full std::cout",
+        "atomIds": ["S-02"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << 42 << endl;",
+        "annotation": "Without the using line, you would need to write std::cout here",
+        "atomIds": ["S-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "S-03",
+    "levelLabel": "L0 syntax skeleton",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"running\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "int main() {",
+        "annotation": "main is required; the operating system looks for it to start your program",
+        "atomIds": ["S-03"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << \"running\" << endl;",
+        "annotation": "Everything inside main executes when the program launches",
+        "atomIds": ["S-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "S-04",
+    "levelLabel": "L0 syntax skeleton",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double price = 9.99;\n  cout << price;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  double price = 9.99;",
+        "annotation": "A semicolon terminates each statement; omitting it causes a compiler error",
+        "atomIds": ["S-04"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << price;",
+        "annotation": "This statement also requires a semicolon at the end",
+        "atomIds": ["S-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "S-05",
+    "levelLabel": "L0 syntax skeleton",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int a = 10;\n  cout << a << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "int main() {",
+        "annotation": "The { brace opens a block that groups multiple statements together",
+        "atomIds": ["S-05"]
+      },
+      {
+        "line": 4,
+        "code": "  int a = 10;",
+        "annotation": "All code between the opening { and closing } belongs to this block",
+        "atomIds": ["S-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "S-06",
+    "levelLabel": "L0 syntax skeleton",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"hello\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << \"hello\" << endl;",
+        "annotation": "This line is inside the block that was opened on line 3",
+        "atomIds": ["S-06"]
+      },
+      {
+        "line": 6,
+        "code": "}",
+        "annotation": "The } brace closes the block; every opening { needs a matching }",
+        "atomIds": ["S-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "S-07",
+    "levelLabel": "L0 syntax skeleton",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"finished\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  return 0;",
+        "annotation": "return 0 signals success to the operating system and exits the program",
+        "atomIds": ["S-07"]
+      },
+      {
+        "line": 6,
+        "code": "}",
+        "annotation": "After return 0, no more lines inside main execute",
+        "atomIds": ["S-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "S-08",
+    "levelLabel": "L0 syntax skeleton",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  // temperature in Celsius\n  double temp = 22.5;\n  cout << temp << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  // temperature in Celsius",
+        "annotation": "Text after // is a comment that the compiler skips entirely",
+        "atomIds": ["S-08"]
+      },
+      {
+        "line": 5,
+        "code": "  double temp = 22.5;",
+        "annotation": "Only this executable code runs; comments are notes for the programmer",
+        "atomIds": ["S-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "S-09",
+    "levelLabel": "L0 syntax skeleton",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int    a   =   3 ;\n  int b=7;\n  cout << a + b << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int    a   =   3 ;",
+        "annotation": "Spaces between words and symbols do not change the meaning of the code",
+        "atomIds": ["S-09"]
+      },
+      {
+        "line": 5,
+        "code": "  int b=7;",
+        "annotation": "Zero spaces also works; the compiler ignores extra whitespace",
+        "atomIds": ["S-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "S-10",
+    "levelLabel": "L0 syntax skeleton",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"A\" << endl;\n      cout << \"B\" << endl;\n    cout << \"C\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << \"A\" << endl;",
+        "annotation": "Indentation helps humans read code but the compiler ignores it",
+        "atomIds": ["S-10"]
+      },
+      {
+        "line": 5,
+        "code": "      cout << \"B\" << endl;",
+        "annotation": "This deeper indent compiles identically; indentation is style, not syntax",
+        "atomIds": ["S-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-01",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"goodbye\";\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << \"goodbye\";",
+        "annotation": "cout is the standard output stream that displays text on screen",
+        "atomIds": ["O-01"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << \"goodbye\";",
+        "annotation": "The word goodbye appears in the terminal when this line runs",
+        "atomIds": ["O-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-02",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double price = 9.99;\n  cout << price;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  double price = 9.99;",
+        "annotation": "price stores the value 9.99",
+        "atomIds": ["O-02"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << price;",
+        "annotation": "The << operator pushes the value of price (9.99) to the output stream",
+        "atomIds": ["O-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-03",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"welcome to C++\";\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << \"welcome to C++\";",
+        "annotation": "Words inside double quotes form a string literal printed exactly as typed",
+        "atomIds": ["O-03"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << \"welcome to C++\";",
+        "annotation": "The terminal shows: welcome to C++ (no quotes in the output)",
+        "atomIds": ["O-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-04",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << 100;\n  cout << 7;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << 100;",
+        "annotation": "Numeric values are printed directly; 100 appears on screen as digits",
+        "atomIds": ["O-04"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << 7;",
+        "annotation": "Output runs together without a separator, producing \"1007\" on screen",
+        "atomIds": ["O-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-05",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"first\" << endl;\n  cout << \"second\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << \"first\" << endl;",
+        "annotation": "endl inserts a line break, moving the cursor down to the next line",
+        "atomIds": ["O-05"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << \"second\" << endl;",
+        "annotation": "Each endl ensures the next output starts on a fresh line",
+        "atomIds": ["O-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-06",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"apples\\n\";\n  cout << \"oranges\\n\";\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << \"apples\\n\";",
+        "annotation": "The \\n escape character inside the string creates a new line on output",
+        "atomIds": ["O-06"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << \"oranges\\n\";",
+        "annotation": "\\n does the same job as endl but is written inside the quoted string",
+        "atomIds": ["O-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-07",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string name = \"Ada\";\n  int age = 21;\n  cout << name << \" is \" << age << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  cout << name << \" is \" << age << endl;",
+        "annotation": "Multiple << operators chain values together on one output line",
+        "atomIds": ["O-07"]
+      },
+      {
+        "line": 7,
+        "code": "  cout << name << \" is \" << age << endl;",
+        "annotation": "Produces \"Ada is 21\" by sending each piece to cout in sequence",
+        "atomIds": ["O-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-08",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <cstdio>\nint main() {\n  int score = 95;\n  printf(\"score = %d\\n\", score);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  int score = 95;",
+        "annotation": "score holds 95, which we want to display using printf",
+        "atomIds": ["O-08"]
+      },
+      {
+        "line": 4,
+        "code": "  printf(\"score = %d\\n\", score);",
+        "annotation": "printf uses a format string with placeholders; %d is replaced by score",
+        "atomIds": ["O-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-09",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <cstdio>\nint main() {\n  int total = 42;\n  printf(\"total = %d\\n\", total);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  printf(\"total = %d\\n\", total);",
+        "annotation": "The %d placeholder tells printf to insert an integer at that spot",
+        "atomIds": ["O-09"]
+      },
+      {
+        "line": 4,
+        "code": "  printf(\"total = %d\\n\", total);",
+        "annotation": "Output: \"total = 42\" because %d was replaced by the value of total",
+        "atomIds": ["O-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-10",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <cstdio>\n#include <string>\nusing namespace std;\nint main() {\n  string city = \"Perth\";\n  printf(\"city = %s\\n\", city.c_str());\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  string city = \"Perth\";",
+        "annotation": "city is a C++ string that we want to print with printf",
+        "atomIds": ["O-10"]
+      },
+      {
+        "line": 6,
+        "code": "  printf(\"city = %s\\n\", city.c_str());",
+        "annotation": "%s formats a C string; call .c_str() to convert the C++ string first",
+        "atomIds": ["O-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-11",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <cstdio>\nint main() {\n  printf(\"first\\n\");\n  printf(\"second\\n\");\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  printf(\"first\\n\");",
+        "annotation": "\\n inside the printf format string starts a new line after printing",
+        "atomIds": ["O-11"]
+      },
+      {
+        "line": 4,
+        "code": "  printf(\"second\\n\");",
+        "annotation": "\"second\" prints on a separate line because the previous \\n moved down",
+        "atomIds": ["O-11"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-12",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <cstdio>\nint main() {\n  printf(\"value = %d\\n\", 77);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  printf(\"value = %d\\n\", 77);",
+        "annotation": "The first argument to printf is always the format string template",
+        "atomIds": ["O-12"]
+      },
+      {
+        "line": 3,
+        "code": "  printf(\"value = %d\\n\", 77);",
+        "annotation": "\"value = %d\\n\" is the template; %d marks where 77 gets inserted",
+        "atomIds": ["O-12"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-13",
+    "levelLabel": "L1 output",
+    "fullCode": "#include <cstdio>\nint main() {\n  printf(\"%d x %d = %d\\n\", 4, 5, 20);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  printf(\"%d x %d = %d\\n\", 4, 5, 20);",
+        "annotation": "Each %d placeholder is matched to the next argument: 4, 5, then 20",
+        "atomIds": ["O-13"]
+      },
+      {
+        "line": 3,
+        "code": "  printf(\"%d x %d = %d\\n\", 4, 5, 20);",
+        "annotation": "Produces \"4 x 5 = 20\" by filling placeholders left to right",
+        "atomIds": ["O-13"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-01",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int score = 100;\n  score = score - 20;\n  cout << score << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int score = 100;",
+        "annotation": "A variable is a labeled storage box; score is a box currently holding 100",
+        "atomIds": ["V-01"]
+      },
+      {
+        "line": 5,
+        "code": "  score = score - 20;",
+        "annotation": "The box contents can be replaced; score now holds 80",
+        "atomIds": ["V-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-02",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int width = 10;\n  int height = 5;\n  cout << width << \" \" << height << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int width = 10;",
+        "annotation": "Names like \"width\" describe the purpose of the variable",
+        "atomIds": ["V-02"]
+      },
+      {
+        "line": 5,
+        "code": "  int height = 5;",
+        "annotation": "Separate names identify separate boxes; pick names that explain the data",
+        "atomIds": ["V-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-03",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  int count = 3;\n  double rate = 4.5;\n  string label = \"total\";\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  int count = 3;",
+        "annotation": "The type determines what kind of value the variable can store",
+        "atomIds": ["V-03"]
+      },
+      {
+        "line": 6,
+        "code": "  double rate = 4.5;",
+        "annotation": "int for whole numbers, double for decimals, string for text",
+        "atomIds": ["V-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-04",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double temp;\n  int count;\n  cout << \"declared\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  double temp;",
+        "annotation": "A declaration reserves a box; the pattern is: type name;",
+        "atomIds": ["V-04"]
+      },
+      {
+        "line": 5,
+        "code": "  int count;",
+        "annotation": "The box exists but has no meaningful value yet until you assign one",
+        "atomIds": ["V-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-05",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double price = 9.95;\n  int qty = 3;\n  cout << price << \" \" << qty << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  double price = 9.95;",
+        "annotation": "Initialization creates the box and fills it in one step: type name = value;",
+        "atomIds": ["V-05"]
+      },
+      {
+        "line": 5,
+        "code": "  int qty = 3;",
+        "annotation": "Both the box and the starting value are set at the same time",
+        "atomIds": ["V-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-06",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int total = 42;\n  cout << total << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int total = 42;",
+        "annotation": "total holds the number 42 in memory",
+        "atomIds": ["V-06"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << total << endl;",
+        "annotation": "Reading total retrieves 42 from the box without altering it",
+        "atomIds": ["V-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-07",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int count = 3;\n  count = 7;\n  cout << count << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int count = 3;",
+        "annotation": "count starts with 3",
+        "atomIds": ["V-07"]
+      },
+      {
+        "line": 5,
+        "code": "  count = 7;",
+        "annotation": "Writing replaces the old value; count is now 7 (3 is gone forever)",
+        "atomIds": ["V-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-08",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int n = 10;\n  n = 20;\n  if (n == 20) {\n    cout << \"yes\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  n = 20;",
+        "annotation": "A single = assigns a value to the variable (store operation)",
+        "atomIds": ["V-08"]
+      },
+      {
+        "line": 6,
+        "code": "  if (n == 20) {",
+        "annotation": "Double == compares two values and returns true or false",
+        "atomIds": ["V-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-09",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int a = 3;\n  int b = a + 1;\n  cout << b << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int a = 3;",
+        "annotation": "You must declare a variable before referencing it in later lines",
+        "atomIds": ["V-09"]
+      },
+      {
+        "line": 5,
+        "code": "  int b = a + 1;",
+        "annotation": "a can be used here because it was declared on the previous line",
+        "atomIds": ["V-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-10",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int age = 21;\n  int year = 2026;\n  cout << age << \" \" << year << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int age = 21;",
+        "annotation": "int stores whole numbers only: no decimals, no text",
+        "atomIds": ["V-10"]
+      },
+      {
+        "line": 5,
+        "code": "  int year = 2026;",
+        "annotation": "Any whole number (positive, negative, or zero) fits in an int",
+        "atomIds": ["V-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-11",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double weight = 72.5;\n  double height = 1.75;\n  cout << weight << \" \" << height << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  double weight = 72.5;",
+        "annotation": "double is for numbers with fractional parts, like 72.5",
+        "atomIds": ["V-11"]
+      },
+      {
+        "line": 5,
+        "code": "  double height = 1.75;",
+        "annotation": "Whenever a value has a decimal point, use double instead of int",
+        "atomIds": ["V-11"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-12",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string city = \"Perth\";\n  string country = \"Australia\";\n  cout << city << \", \" << country << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  string city = \"Perth\";",
+        "annotation": "string stores a sequence of characters, meaning any text value",
+        "atomIds": ["V-12"]
+      },
+      {
+        "line": 6,
+        "code": "  string country = \"Australia\";",
+        "annotation": "Put text in double quotes to create a string value to store",
+        "atomIds": ["V-12"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-13",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  bool ready = true;\n  bool finished = false;\n  cout << ready << \" \" << finished << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  bool ready = true;",
+        "annotation": "A bool variable only holds true or false, nothing else",
+        "atomIds": ["V-13"]
+      },
+      {
+        "line": 5,
+        "code": "  bool finished = false;",
+        "annotation": "Bool values are used for flags and conditions; cout prints 1 or 0",
+        "atomIds": ["V-13"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-14",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  char grade = 'B';\n  char symbol = '#';\n  cout << grade << symbol << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  char grade = 'B';",
+        "annotation": "char stores a single character, surrounded by single quotes",
+        "atomIds": ["V-14"]
+      },
+      {
+        "line": 5,
+        "code": "  char symbol = '#';",
+        "annotation": "Letters, digits, and symbols each count as one character for char",
+        "atomIds": ["V-14"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-15",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int year = 2026;\n  int count = 0;\n  cout << year << \" \" << count << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int year = 2026;",
+        "annotation": "2026 is an integer literal: plain digits typed directly in the code",
+        "atomIds": ["V-15"]
+      },
+      {
+        "line": 5,
+        "code": "  int count = 0;",
+        "annotation": "Int literals are just numbers with no decimal point and no quotes",
+        "atomIds": ["V-15"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-16",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double tax = 0.1;\n  double weight = 65.3;\n  cout << tax << \" \" << weight << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  double tax = 0.1;",
+        "annotation": "0.1 is a double literal because it contains a decimal point",
+        "atomIds": ["V-16"]
+      },
+      {
+        "line": 5,
+        "code": "  double weight = 65.3;",
+        "annotation": "The decimal point distinguishes a double literal from an int literal",
+        "atomIds": ["V-16"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-17",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  string msg = \"good morning\";\n  cout << \"done\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  string msg = \"good morning\";",
+        "annotation": "Text inside double quotes is a string literal: a fixed piece of text",
+        "atomIds": ["V-17"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << \"done\" << endl;",
+        "annotation": "A string literal can go directly into cout without storing it first",
+        "atomIds": ["V-17"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-18",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  char star = '*';\n  char dot = '.';\n  cout << star << dot << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  char star = '*';",
+        "annotation": "A char literal uses single quotes around exactly one character",
+        "atomIds": ["V-18"]
+      },
+      {
+        "line": 5,
+        "code": "  char dot = '.';",
+        "annotation": "Single quotes for one character (char), double quotes for text (string)",
+        "atomIds": ["V-18"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-19",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  bool active = true;\n  bool locked = false;\n  cout << active << \" \" << locked << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  bool active = true;",
+        "annotation": "true is a built in keyword, not a string; no quotes are needed",
+        "atomIds": ["V-19"]
+      },
+      {
+        "line": 5,
+        "code": "  bool locked = false;",
+        "annotation": "The only two bool literals are true and false; no other values exist",
+        "atomIds": ["V-19"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-20",
+    "levelLabel": "L2 variables",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string color = \"blue\";\n  cout << color << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "#include <string>",
+        "annotation": "You must include the string header to use the string type",
+        "atomIds": ["V-20"]
+      },
+      {
+        "line": 5,
+        "code": "  string color = \"blue\";",
+        "annotation": "Without #include <string>, declaring a string variable fails to compile",
+        "atomIds": ["V-20"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-01",
+    "levelLabel": "L3 input",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double temp;\n  cin >> temp;\n  cout << \"Temp: \" << temp << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  cin >> temp;",
+        "annotation": "cin is the input stream; it reads what the user types in the terminal",
+        "atomIds": ["I-01"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << \"Temp: \" << temp << endl;",
+        "annotation": "After typing and pressing Enter, the value is stored in temp",
+        "atomIds": ["I-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-02",
+    "levelLabel": "L3 input",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double price;\n  cin >> price;\n  cout << price << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  double price;",
+        "annotation": "An empty box waiting to receive a value from the user",
+        "atomIds": ["I-02"]
+      },
+      {
+        "line": 5,
+        "code": "  cin >> price;",
+        "annotation": ">> takes the next typed value from input and places it into price",
+        "atomIds": ["I-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-03",
+    "levelLabel": "L3 input",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string name;\n  cout << \"Your name: \";\n  cin >> name;\n  cout << \"Hi \" << name << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  cout << \"Your name: \";",
+        "annotation": "Display a message so the user knows what to type",
+        "atomIds": ["I-03"]
+      },
+      {
+        "line": 7,
+        "code": "  cin >> name;",
+        "annotation": "The program pauses here, waiting for the user to type and press Enter",
+        "atomIds": ["I-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-04",
+    "levelLabel": "L3 input",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double x, y;\n  cin >> x >> y;\n  cout << x << \" \" << y << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  double x, y;",
+        "annotation": "Two boxes declared for two input values",
+        "atomIds": ["I-04"]
+      },
+      {
+        "line": 5,
+        "code": "  cin >> x >> y;",
+        "annotation": "The user types \"3.5 7.2\"; whitespace separates the two values",
+        "atomIds": ["I-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-05",
+    "levelLabel": "L3 input",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  double val;\n  string word;\n  cin >> val;\n  cin >> word;\n  cout << val << \" \" << word << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  cin >> val;",
+        "annotation": "cin converts typed text to the variable type; digits become a double",
+        "atomIds": ["I-05"]
+      },
+      {
+        "line": 8,
+        "code": "  cin >> word;",
+        "annotation": "For a string, cin grabs one word (stopping at the next space)",
+        "atomIds": ["I-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-06",
+    "levelLabel": "L3 input",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double x, y, z;\n  cin >> x >> y >> z;\n  cout << x + y + z << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  cin >> x >> y >> z;",
+        "annotation": "Chaining >> reads multiple values from one input line in sequence",
+        "atomIds": ["I-06"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << x + y + z << endl;",
+        "annotation": "All three values are now stored and ready to use in expressions",
+        "atomIds": ["I-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-07",
+    "levelLabel": "L3 input",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string address;\n  getline(cin, address);\n  cout << \"Address: \" << address << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  getline(cin, address);",
+        "annotation": "getline reads everything until Enter, including spaces in the middle",
+        "atomIds": ["I-07"]
+      },
+      {
+        "line": 7,
+        "code": "  cout << \"Address: \" << address << endl;",
+        "annotation": "Unlike cin >>, getline captures the full line: \"123 Main St\" stays intact",
+        "atomIds": ["I-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-01",
+    "levelLabel": "L4 arithmetic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int total = 10 + 25;\n  cout << total << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int total = 10 + 25;",
+        "annotation": "The + operator computes the sum: 10 plus 25 equals 35",
+        "atomIds": ["A-01"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << total << endl;",
+        "annotation": "Outputs 35, the result of adding the two numbers",
+        "atomIds": ["A-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-02",
+    "levelLabel": "L4 arithmetic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int change = 100 - 37;\n  cout << change << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int change = 100 - 37;",
+        "annotation": "The minus sign subtracts the right side from the left: 100 minus 37 is 63",
+        "atomIds": ["A-02"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << change << endl;",
+        "annotation": "Displays 63, the difference between the two values",
+        "atomIds": ["A-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-03",
+    "levelLabel": "L4 arithmetic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int price = 12;\n  int qty = 4;\n  int cost = price * qty;\n  cout << cost << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  int cost = price * qty;",
+        "annotation": "The * operator multiplies two values: 12 times 4 equals 48",
+        "atomIds": ["A-03"]
+      },
+      {
+        "line": 7,
+        "code": "  cout << cost << endl;",
+        "annotation": "Prints 48, the product of price and qty",
+        "atomIds": ["A-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-04",
+    "levelLabel": "L4 arithmetic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int total = 20;\n  int share = total / 4;\n  cout << share << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  int share = total / 4;",
+        "annotation": "The / operator divides: 20 divided by 4 gives 5",
+        "atomIds": ["A-04"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << share << endl;",
+        "annotation": "Prints 5, the quotient of 20 and 4",
+        "atomIds": ["A-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-05",
+    "levelLabel": "L4 arithmetic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int leftover = 10 % 4;\n  cout << leftover << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int leftover = 10 % 4;",
+        "annotation": "The % operator finds the remainder: 10 divided by 4 leaves 2",
+        "atomIds": ["A-05"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << leftover << endl;",
+        "annotation": "Outputs 2, the amount left over after dividing evenly",
+        "atomIds": ["A-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-06",
+    "levelLabel": "L4 arithmetic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int result = 7 / 2;\n  cout << result << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int result = 7 / 2;",
+        "annotation": "Dividing two ints drops the decimal: 7/2 gives 3, not 3.5",
+        "atomIds": ["A-06"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << result << endl;",
+        "annotation": "Prints 3 because integer division always rounds toward zero",
+        "atomIds": ["A-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-07",
+    "levelLabel": "L4 arithmetic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int val = 4 + 3 * 2;\n  cout << val << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int val = 4 + 3 * 2;",
+        "annotation": "Multiplication happens before addition: 3*2=6, then 4+6=10",
+        "atomIds": ["A-07"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << val << endl;",
+        "annotation": "Prints 10 because * has higher precedence than +",
+        "atomIds": ["A-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-08",
+    "levelLabel": "L4 arithmetic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int val = (4 + 3) * 2;\n  cout << val << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int val = (4 + 3) * 2;",
+        "annotation": "Parentheses make 4+3 evaluate first (=7), then 7*2=14",
+        "atomIds": ["A-08"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << val << endl;",
+        "annotation": "Outputs 14 because parentheses changed the evaluation order",
+        "atomIds": ["A-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-09",
+    "levelLabel": "L4 arithmetic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int score = 10;\n  score += 3;\n  score *= 2;\n  cout << score << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  score += 3;",
+        "annotation": "+= means score = score + 3; a shorthand that adds and assigns at once",
+        "atomIds": ["A-09"]
+      },
+      {
+        "line": 6,
+        "code": "  score *= 2;",
+        "annotation": "*= means score = score * 2; score was 13, now becomes 26",
+        "atomIds": ["A-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-10",
+    "levelLabel": "L4 arithmetic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int count = 5;\n  count++;\n  cout << count << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  count++;",
+        "annotation": "++ increments by 1; this is the same as count = count + 1",
+        "atomIds": ["A-10"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << count << endl;",
+        "annotation": "Prints 6 because ++ added 1 to the original value of 5",
+        "atomIds": ["A-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-11",
+    "levelLabel": "L4 arithmetic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int lives = 3;\n  lives--;\n  cout << lives << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  lives--;",
+        "annotation": "Decrements by 1; equivalent to lives = lives - 1",
+        "atomIds": ["A-11"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << lives << endl;",
+        "annotation": "Prints 2 because the decrement reduced lives from 3 to 2",
+        "atomIds": ["A-11"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-01",
+    "levelLabel": "L5 comparisons and logic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int n = 10;\n  if (n == 10) {\n    cout << \"ten\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (n == 10) {",
+        "annotation": "== checks whether two values are identical; here 10 equals 10, so true",
+        "atomIds": ["C-01"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"ten\" << endl;",
+        "annotation": "The body runs because the equality test returned true",
+        "atomIds": ["C-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-02",
+    "levelLabel": "L5 comparisons and logic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int age = 21;\n  if (age != 18) {\n    cout << \"not eighteen\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (age != 18) {",
+        "annotation": "!= returns true when the two sides are different values (21 is not 18)",
+        "atomIds": ["C-02"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"not eighteen\" << endl;",
+        "annotation": "This runs because the not equal check evaluated to true",
+        "atomIds": ["C-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-03",
+    "levelLabel": "L5 comparisons and logic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int temp = 15;\n  if (temp < 20) {\n    cout << \"cool\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (temp < 20) {",
+        "annotation": "< returns true when the left side is smaller than the right (15 < 20)",
+        "atomIds": ["C-03"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"cool\" << endl;",
+        "annotation": "Prints because 15 is less than 20",
+        "atomIds": ["C-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-04",
+    "levelLabel": "L5 comparisons and logic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int score = 85;\n  if (score > 70) {\n    cout << \"above average\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (score > 70) {",
+        "annotation": "> checks whether the left value exceeds the right (85 > 70 is true)",
+        "atomIds": ["C-04"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"above average\" << endl;",
+        "annotation": "The body executes because 85 is greater than 70",
+        "atomIds": ["C-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-05",
+    "levelLabel": "L5 comparisons and logic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int age = 18;\n  if (age <= 18) {\n    cout << \"youth or younger\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (age <= 18) {",
+        "annotation": "<= is true when the left side is less than or equal to the right",
+        "atomIds": ["C-05"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"youth or younger\" << endl;",
+        "annotation": "18 <= 18 is true because the equal case is included",
+        "atomIds": ["C-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-06",
+    "levelLabel": "L5 comparisons and logic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int temp = 100;\n  if (temp >= 100) {\n    cout << \"boiling\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (temp >= 100) {",
+        "annotation": ">= is true when the left side is greater than or the same as the right",
+        "atomIds": ["C-06"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"boiling\" << endl;",
+        "annotation": "100 >= 100 is true because the values match (equal case counts)",
+        "atomIds": ["C-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-07",
+    "levelLabel": "L5 comparisons and logic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int age = 21;\n  bool adult = (age >= 18);\n  if (adult) cout << \"adult\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  bool adult = (age >= 18);",
+        "annotation": "Any comparison produces a bool (true or false) that you can save",
+        "atomIds": ["C-07"]
+      },
+      {
+        "line": 6,
+        "code": "  if (adult) cout << \"adult\" << endl;",
+        "annotation": "The stored bool can be used directly as a condition later",
+        "atomIds": ["C-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "L-01",
+    "levelLabel": "L5 comparisons and logic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int age = 25;\n  bool hasID = true;\n  if (age >= 18 && hasID) {\n    cout << \"allowed\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  if (age >= 18 && hasID) {",
+        "annotation": "&& requires both conditions to be true; if either is false, the whole thing is false",
+        "atomIds": ["L-01"]
+      },
+      {
+        "line": 7,
+        "code": "    cout << \"allowed\" << endl;",
+        "annotation": "Both age >= 18 and hasID are true, so the AND passes",
+        "atomIds": ["L-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "L-02",
+    "levelLabel": "L5 comparisons and logic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  bool rain = true;\n  bool snow = false;\n  if (rain || snow) {\n    cout << \"bring jacket\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  if (rain || snow) {",
+        "annotation": "|| needs just one side to be true; the whole condition passes if either holds",
+        "atomIds": ["L-02"]
+      },
+      {
+        "line": 7,
+        "code": "    cout << \"bring jacket\" << endl;",
+        "annotation": "rain is true, so the OR succeeds even though snow is false",
+        "atomIds": ["L-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "L-03",
+    "levelLabel": "L5 comparisons and logic",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  bool done = true;\n  if (!done) {\n    cout << \"still working\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (!done) {",
+        "annotation": "! inverts the bool value: !true becomes false, !false becomes true",
+        "atomIds": ["L-03"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"still working\" << endl;",
+        "annotation": "This does not print because !done is false (done was true)",
+        "atomIds": ["L-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-01",
+    "levelLabel": "L6 if/else",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int temp = 30;\n  if (temp > 25) {\n    cout << \"warm\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (temp > 25) {",
+        "annotation": "The if statement evaluates the condition and runs the body only if true",
+        "atomIds": ["F-01"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"warm\" << endl;",
+        "annotation": "30 > 25 is true, so this line executes",
+        "atomIds": ["F-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-02",
+    "levelLabel": "L6 if/else",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int score = 40;\n  if (score >= 50) {\n    cout << \"pass\" << endl;\n  } else {\n    cout << \"fail\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (score >= 50) {",
+        "annotation": "40 >= 50 is false, so the if body is skipped",
+        "atomIds": ["F-02"]
+      },
+      {
+        "line": 7,
+        "code": "  } else {",
+        "annotation": "else provides an alternative path when the if condition fails",
+        "atomIds": ["F-02"]
+      },
+      {
+        "line": 8,
+        "code": "    cout << \"fail\" << endl;",
+        "annotation": "This line runs because score was below 50 and the else branch was taken",
+        "atomIds": ["F-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-03",
+    "levelLabel": "L6 if/else",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int grade = 75;\n  if (grade >= 80)      cout << \"HD\" << endl;\n  else if (grade >= 70) cout << \"D\" << endl;\n  else if (grade >= 60) cout << \"C\" << endl;\n  else                  cout << \"F\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (grade >= 80)      cout << \"HD\" << endl;",
+        "annotation": "First check: 75 >= 80 is false, so skip to the next condition",
+        "atomIds": ["F-03"]
+      },
+      {
+        "line": 6,
+        "code": "  else if (grade >= 70) cout << \"D\" << endl;",
+        "annotation": "Second check: 75 >= 70 is true, so this branch runs and the rest are skipped",
+        "atomIds": ["F-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-04",
+    "levelLabel": "L6 if/else",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int temp = 30;\n  bool hot = (temp > 25);\n  if (hot) {\n    cout << \"warm day\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  bool hot = (temp > 25);",
+        "annotation": "The comparison result (true or false) is stored in a bool variable",
+        "atomIds": ["F-04"]
+      },
+      {
+        "line": 6,
+        "code": "  if (hot) {",
+        "annotation": "if requires a bool expression; the saved variable works directly",
+        "atomIds": ["F-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-05",
+    "levelLabel": "L6 if/else",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int n = 10;\n  if (n > 5) {\n    cout << \"big\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (n > 5) {",
+        "annotation": "Braces are recommended around every if body for clarity and safety",
+        "atomIds": ["F-05"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"big\" << endl;",
+        "annotation": "Using {} even for one line avoids accidental errors when editing later",
+        "atomIds": ["F-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-01",
+    "levelLabel": "L7 loops",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int count = 3;\n  while (count > 0) {\n    cout << count << \" \";\n    count--;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  while (count > 0) {",
+        "annotation": "while repeats the body as long as the condition stays true",
+        "atomIds": ["W-01"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << count << \" \";",
+        "annotation": "Prints 3 2 1 as count decreases each time through the loop",
+        "atomIds": ["W-01"]
+      },
+      {
+        "line": 7,
+        "code": "    count--;",
+        "annotation": "When count hits 0, the condition becomes false and the loop stops",
+        "atomIds": ["W-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-02",
+    "levelLabel": "L7 loops",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int guess;\n  do {\n    cout << \"Guess (1 to 10): \";\n    cin >> guess;\n  } while (guess != 7);\n  cout << \"Correct!\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  do {",
+        "annotation": "do/while always runs the body once before testing the condition",
+        "atomIds": ["W-02"]
+      },
+      {
+        "line": 8,
+        "code": "  } while (guess != 7);",
+        "annotation": "After the body runs, the condition is checked; if true, repeat",
+        "atomIds": ["W-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-03",
+    "levelLabel": "L7 loops",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  for (int i = 1; i <= 3; i++) {\n    cout << i << \" \";\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  for (int i = 1; i <= 3; i++) {",
+        "annotation": "The for loop packs initialization, condition, and step into one line",
+        "atomIds": ["W-03"]
+      },
+      {
+        "line": 5,
+        "code": "    cout << i << \" \";",
+        "annotation": "Prints 1 2 3; the for loop is the most commonly used loop structure",
+        "atomIds": ["W-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-04",
+    "levelLabel": "L7 loops",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  for (int i = 10; i < 13; i++) {\n    cout << i << \" \";\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  for (int i = 10; i < 13; i++) {",
+        "annotation": "The init part (int i = 10) executes just once at the very start",
+        "atomIds": ["W-04"]
+      },
+      {
+        "line": 5,
+        "code": "    cout << i << \" \";",
+        "annotation": "Prints 10 11 12; the init value determines where counting begins",
+        "atomIds": ["W-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-05",
+    "levelLabel": "L7 loops",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  for (int i = 0; i < 3; i++) {\n    cout << i << \" \";\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  for (int i = 0; i < 3; i++) {",
+        "annotation": "The condition (i < 3) is evaluated before each pass through the body",
+        "atomIds": ["W-05"]
+      },
+      {
+        "line": 5,
+        "code": "    cout << i << \" \";",
+        "annotation": "When i reaches 3, the condition fails and the loop exits",
+        "atomIds": ["W-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-06",
+    "levelLabel": "L7 loops",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  for (int i = 0; i < 4; i++) {\n    cout << i << \" \";\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  for (int i = 0; i < 4; i++) {",
+        "annotation": "The step (i++) executes after the body finishes, before rechecking the condition",
+        "atomIds": ["W-06"]
+      },
+      {
+        "line": 5,
+        "code": "    cout << i << \" \";",
+        "annotation": "Order each cycle: check condition, run body, then run step",
+        "atomIds": ["W-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-07",
+    "levelLabel": "L7 loops",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  for (int i = 0; i < 10; i++) {\n    if (i == 5) break;\n    cout << i << \" \";\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "    if (i == 5) break;",
+        "annotation": "break stops the loop immediately and jumps past the closing brace",
+        "atomIds": ["W-07"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << i << \" \";",
+        "annotation": "Only prints 0 1 2 3 4 because break exits before i reaches 5",
+        "atomIds": ["W-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-08",
+    "levelLabel": "L7 loops",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  for (int i = 0; i < 6; i++) {\n    if (i == 3) continue;\n    cout << i << \" \";\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "    if (i == 3) continue;",
+        "annotation": "continue skips the remaining body and proceeds to the next iteration",
+        "atomIds": ["W-08"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << i << \" \";",
+        "annotation": "Output: 0 1 2 4 5; the number 3 is skipped because continue jumped ahead",
+        "atomIds": ["W-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-09",
+    "levelLabel": "L7 loops",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  for (int i = 0; i < 2; i++) {\n    for (int j = 0; j < 3; j++) {\n      cout << i << j << \" \";\n    }\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  for (int i = 0; i < 2; i++) {",
+        "annotation": "The outer loop runs twice, once for each row",
+        "atomIds": ["W-09"]
+      },
+      {
+        "line": 5,
+        "code": "    for (int j = 0; j < 3; j++) {",
+        "annotation": "The inner loop runs 3 times per outer pass; total runs: 2 times 3 = 6",
+        "atomIds": ["W-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-10",
+    "levelLabel": "L7 loops",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int n = 0;\n  while (true) {\n    n++;\n    if (n >= 5) break;\n  }\n  cout << n << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  while (true) {",
+        "annotation": "true as the condition means the loop will repeat forever unless stopped",
+        "atomIds": ["W-10"]
+      },
+      {
+        "line": 7,
+        "code": "    if (n >= 5) break;",
+        "annotation": "An infinite loop must have a break or changing condition to exit safely",
+        "atomIds": ["W-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-01",
+    "levelLabel": "L8 functions",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid say_bye() {\n  cout << \"bye\" << endl;\n}\nint main() {\n  say_bye();\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "void say_bye() {",
+        "annotation": "A function packages reusable code under a name you can call later",
+        "atomIds": ["H-01"]
+      },
+      {
+        "line": 7,
+        "code": "  say_bye();",
+        "annotation": "Calling say_bye() transfers control to the function, runs it, then comes back",
+        "atomIds": ["H-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-02",
+    "levelLabel": "L8 functions",
+    "fullCode": "#include <iostream>\nusing namespace std;\ndouble multiply(double a, double b) {\n  return a * b;\n}\nint main() {\n  cout << multiply(3.0, 4.0) << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "double multiply(double a, double b) {",
+        "annotation": "The signature pattern: returnType name(params) { body } defines a function",
+        "atomIds": ["H-02"]
+      },
+      {
+        "line": 4,
+        "code": "  return a * b;",
+        "annotation": "This function takes two doubles, multiplies them, and returns the result",
+        "atomIds": ["H-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-03",
+    "levelLabel": "L8 functions",
+    "fullCode": "#include <iostream>\nusing namespace std;\ndouble multiply(double a, double b) {\n  return a * b;\n}\nint main() {\n  double result = multiply(2.5, 4.0);\n  cout << result << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  double result = multiply(2.5, 4.0);",
+        "annotation": "Arguments 2.5 and 4.0 are passed in; the returned 10.0 is stored in result",
+        "atomIds": ["H-03"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << result << endl;",
+        "annotation": "Prints 10, the value the function computed and returned",
+        "atomIds": ["H-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-04",
+    "levelLabel": "L8 functions",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid change(double val) {\n  val = 0.0;\n}\nint main() {\n  double price = 9.99;\n  change(price);\n  cout << price << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "void change(double val) {",
+        "annotation": "val is its own local box containing a copy of the argument",
+        "atomIds": ["H-04"]
+      },
+      {
+        "line": 4,
+        "code": "  val = 0.0;",
+        "annotation": "Modifying val only affects the copy; price in main remains 9.99",
+        "atomIds": ["H-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-05",
+    "levelLabel": "L8 functions",
+    "fullCode": "#include <iostream>\nusing namespace std;\ndouble cube(double n) {\n  return n * n * n;\n}\nint main() {\n  cout << cube(3.0) << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "double cube(double n) {",
+        "annotation": "The return type (double) declares what kind of value the function sends back",
+        "atomIds": ["H-05"]
+      },
+      {
+        "line": 4,
+        "code": "  return n * n * n;",
+        "annotation": "return delivers the computed result (27.0) back to the calling code",
+        "atomIds": ["H-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-06",
+    "levelLabel": "L8 functions",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid show_total(int a, int b) {\n  cout << a + b << endl;\n}\nint main() {\n  show_total(3, 7);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "void show_total(int a, int b) {",
+        "annotation": "void means the function performs an action but does not return a value",
+        "atomIds": ["H-06"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << a + b << endl;",
+        "annotation": "It prints output but gives nothing back to the caller",
+        "atomIds": ["H-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-07",
+    "levelLabel": "L8 functions",
+    "fullCode": "#include <iostream>\nusing namespace std;\ndouble cube(double n);\nint main() {\n  cout << cube(2.0) << endl;\n  return 0;\n}\ndouble cube(double n) {\n  return n * n * n;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "double cube(double n);",
+        "annotation": "A prototype tells the compiler about the function before it is fully defined",
+        "atomIds": ["H-07"]
+      },
+      {
+        "line": 8,
+        "code": "double cube(double n) {",
+        "annotation": "The complete definition appears later; the prototype bridged the gap",
+        "atomIds": ["H-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-08",
+    "levelLabel": "L8 functions",
+    "fullCode": "#include <iostream>\nusing namespace std;\ndouble cube(double);\nvoid show(int);\nint main() {\n  show(5);\n  cout << cube(3.0) << endl;\n  return 0;\n}\ndouble cube(double n) { return n * n * n; }\nvoid show(int x) { cout << x << endl; }",
+    "steps": [
+      {
+        "line": 3,
+        "code": "double cube(double);",
+        "annotation": "A prototype needs only return type, name, and parameter types; names are optional",
+        "atomIds": ["H-08"]
+      },
+      {
+        "line": 4,
+        "code": "void show(int);",
+        "annotation": "Declares that show takes an int and returns nothing (void)",
+        "atomIds": ["H-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-09",
+    "levelLabel": "L8 functions",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid compute() {\n  int temp = 100;\n  cout << temp << endl;\n}\nint main() {\n  compute();\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int temp = 100;",
+        "annotation": "temp is created when compute starts and exists only while it runs",
+        "atomIds": ["H-09"]
+      },
+      {
+        "line": 6,
+        "code": "}",
+        "annotation": "When the function ends, temp is destroyed and its memory is freed",
+        "atomIds": ["H-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-10",
+    "levelLabel": "L8 functions",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid compute() {\n  int result = 99;\n}\nint main() {\n  compute();\n  // result does not exist here\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int result = 99;",
+        "annotation": "result is local to compute; only code inside compute can access it",
+        "atomIds": ["H-10"]
+      },
+      {
+        "line": 8,
+        "code": "  // result does not exist here",
+        "annotation": "main cannot see result because it belongs to a different function scope",
+        "atomIds": ["H-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-01",
+    "levelLabel": "L9 pass by reference",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid double_it(int val) {\n  val = val * 2;\n}\nint main() {\n  int x = 4;\n  double_it(x);\n  cout << x << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "void double_it(int val) {",
+        "annotation": "Without &, val receives a separate copy of x from the caller",
+        "atomIds": ["R-01"]
+      },
+      {
+        "line": 4,
+        "code": "  val = val * 2;",
+        "annotation": "Only the local copy changes; the original x in main remains 4",
+        "atomIds": ["R-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-02",
+    "levelLabel": "L9 pass by reference",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid reset(int val) {\n  val = 0;\n}\nint main() {\n  int score = 100;\n  reset(score);\n  cout << score << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "void reset(int val) {",
+        "annotation": "By value: val is a copy, completely independent from score",
+        "atomIds": ["R-02"]
+      },
+      {
+        "line": 9,
+        "code": "  cout << score << endl;",
+        "annotation": "score is still 100 because the function only zeroed its own copy",
+        "atomIds": ["R-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-03",
+    "levelLabel": "L9 pass by reference",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid double_it(int &val) {\n  val = val * 2;\n}\nint main() {\n  int x = 4;\n  double_it(x);\n  cout << x << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "void double_it(int &val) {",
+        "annotation": "The & makes val and x share the same memory location (an alias)",
+        "atomIds": ["R-03"]
+      },
+      {
+        "line": 4,
+        "code": "  val = val * 2;",
+        "annotation": "Since val IS x, multiplying val by 2 also changes x to 8",
+        "atomIds": ["R-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-04",
+    "levelLabel": "L9 pass by reference",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid double_it(int &val) {\n  val = val * 2;\n}\nint main() {\n  int x = 4;\n  double_it(x);\n  cout << x << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "void double_it(int &val) {",
+        "annotation": "void f(int &val) means val operates on the caller variable directly",
+        "atomIds": ["R-04"]
+      },
+      {
+        "line": 8,
+        "code": "  double_it(x);",
+        "annotation": "After the call, x is 8 because val and x shared the same box",
+        "atomIds": ["R-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-05",
+    "levelLabel": "L9 pass by reference",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid triple(int &n) {\n  n = n * 3;\n}\nint main() {\n  int val = 5;\n  triple(val);\n  cout << val << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  n = n * 3;",
+        "annotation": "With & on the parameter, changes here directly modify the caller variable",
+        "atomIds": ["R-05"]
+      },
+      {
+        "line": 9,
+        "code": "  cout << val << endl;",
+        "annotation": "val is 15; the reference parameter made the mutation stick",
+        "atomIds": ["R-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-06",
+    "levelLabel": "L9 pass by reference",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid double_it(int &val) {\n  val = val * 2;\n}\nint main() {\n  int x = 4;\n  double_it(x);\n  // double_it(10);  // ERROR: literal cannot bind to &\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 8,
+        "code": "  double_it(x);",
+        "annotation": "OK: x is a real variable with a box that the reference can point to",
+        "atomIds": ["R-06"]
+      },
+      {
+        "line": 9,
+        "code": "  // double_it(10);  // ERROR: literal cannot bind to &",
+        "annotation": "10 is just a value with no box, so a non const reference cannot bind to it",
+        "atomIds": ["R-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-07",
+    "levelLabel": "L9 pass by reference",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Student {\n  string name;\n  int age;\n};\nvoid show(const Student &s) {\n  cout << s.name << \" \" << s.age << endl;\n}\nint main() {\n  Student st;\n  st.name = \"Bob\";\n  st.age = 20;\n  show(st);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 8,
+        "code": "void show(const Student &s) {",
+        "annotation": "const & passes by reference for speed but blocks any modification",
+        "atomIds": ["R-07"]
+      },
+      {
+        "line": 9,
+        "code": "  cout << s.name << \" \" << s.age << endl;",
+        "annotation": "Reading is allowed; writing s.name = \"X\" would trigger a compiler error",
+        "atomIds": ["R-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-08",
+    "levelLabel": "L9 pass by reference",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid double_it(int &val) {\n  val = val * 2;\n}\nint main() {\n  int x = 4;\n  double_it(x);\n  cout << x << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "void double_it(int &val) {",
+        "annotation": "val and x are two labels for the same storage; a reference is a second name",
+        "atomIds": ["R-08"]
+      },
+      {
+        "line": 9,
+        "code": "  cout << x << endl;",
+        "annotation": "x shows 8; one box with two names (val inside the function, x in main)",
+        "atomIds": ["R-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-01",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double scores[3] = {8.5, 9.0, 7.5};\n  for (int i = 0; i < 3; i++) {\n    cout << scores[i] << \" \";\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  double scores[3] = {8.5, 9.0, 7.5};",
+        "annotation": "An array stores multiple values of the same type in consecutive slots",
+        "atomIds": ["G-01"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << scores[i] << \" \";",
+        "annotation": "Use an index to retrieve each value from the sequence",
+        "atomIds": ["G-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-02",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double temps[3];\n  temps[0] = 22.5;\n  cout << temps[0] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  double temps[3];",
+        "annotation": "type arr[N] reserves space for N elements; here 3 double slots are created",
+        "atomIds": ["G-02"]
+      },
+      {
+        "line": 5,
+        "code": "  temps[0] = 22.5;",
+        "annotation": "Elements start uninitialized; assign a value before reading",
+        "atomIds": ["G-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-03",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double vals[4] = {1.1, 2.2, 3.3, 4.4};\n  cout << vals[2] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  double vals[4] = {1.1, 2.2, 3.3, 4.4};",
+        "annotation": "Brace initialization sets all four elements at declaration time",
+        "atomIds": ["G-03"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << vals[2] << endl;",
+        "annotation": "Prints 3.3; element at index 2 is the third value in the list",
+        "atomIds": ["G-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-04",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double prices[3] = {5.0, 10.0, 15.0};\n  cout << prices[0] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  cout << prices[0] << endl;",
+        "annotation": "Index 0 always refers to the very first element of the array",
+        "atomIds": ["G-04"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << prices[0] << endl;",
+        "annotation": "Prints 5 because arrays count from zero, not from one",
+        "atomIds": ["G-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-05",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int data[5] = {2, 4, 6, 8, 10};\n  int pos = 3;\n  cout << data[pos] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  int pos = 3;",
+        "annotation": "The index can be a variable, not just a literal number",
+        "atomIds": ["G-05"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << data[pos] << endl;",
+        "annotation": "data[pos] looks up element 3, which is 8 (the fourth value)",
+        "atomIds": ["G-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-06",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int nums[4] = {5, 15, 25, 35};\n  cout << nums[0] << \" \" << nums[3] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int nums[4] = {5, 15, 25, 35};",
+        "annotation": "Four elements at indices 0 through 3; zero based indexing",
+        "atomIds": ["G-06"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << nums[0] << \" \" << nums[3] << endl;",
+        "annotation": "nums[0] is 5 (first) and nums[3] is 35 (last); indexing starts at 0",
+        "atomIds": ["G-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-07",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  const int SIZE = 5;\n  int arr[SIZE] = {2, 4, 6, 8, 10};\n  cout << arr[SIZE - 1] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  cout << arr[SIZE - 1] << endl;",
+        "annotation": "The last valid index is always N minus 1; here arr[4] gives 10",
+        "atomIds": ["G-07"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << arr[SIZE - 1] << endl;",
+        "annotation": "With 5 elements, valid indices are 0, 1, 2, 3, 4",
+        "atomIds": ["G-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-08",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int arr[4] = {1, 2, 3, 4};\n  // arr[4] is OUT OF BOUNDS\n  cout << arr[3] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  // arr[4] is OUT OF BOUNDS",
+        "annotation": "Accessing index N or beyond is undefined behavior; it may crash or give garbage",
+        "atomIds": ["G-08"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << arr[3] << endl;",
+        "annotation": "arr[3] is the highest safe index for a 4 element array",
+        "atomIds": ["G-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-09",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  const int CAP = 50;\n  double data[CAP];\n  data[0] = 3.14;\n  cout << data[0] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  const int CAP = 50;",
+        "annotation": "The size of a C array must be a compile time constant, not a variable",
+        "atomIds": ["G-09"]
+      },
+      {
+        "line": 5,
+        "code": "  double data[CAP];",
+        "annotation": "50 slots are created and the size can never grow or shrink at runtime",
+        "atomIds": ["G-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-10",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid init(int arr[], int n) {\n  for (int i = 0; i < n; i++) {\n    arr[i] = i + 1;\n  }\n}\nint main() {\n  int vals[5];\n  init(vals, 5);\n  cout << vals[0] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "void init(int arr[], int n) {",
+        "annotation": "Since arrays cannot be returned, pass one as a parameter for the function to fill",
+        "atomIds": ["G-10"]
+      },
+      {
+        "line": 5,
+        "code": "    arr[i] = i + 1;",
+        "annotation": "Writing to arr modifies the caller array because arrays pass by reference",
+        "atomIds": ["G-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-11",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int nums[4] = {3, 6, 9, 12};\n  for (int i = 0; i < 4; i++) {\n    cout << nums[i] << \" \";\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  for (int i = 0; i < 4; i++) {",
+        "annotation": "Use a for loop from 0 to N minus 1 to walk through every element",
+        "atomIds": ["G-11"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << nums[i] << \" \";",
+        "annotation": "On each pass, i advances and nums[i] gives the next element",
+        "atomIds": ["G-11"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-12",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int arr[4] = {1, 1, 1, 1};\n  arr[1] = 50;\n  cout << arr[1] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  arr[1] = 50;",
+        "annotation": "Assign a value to a specific slot using arr[index] = value;",
+        "atomIds": ["G-12"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << arr[1] << endl;",
+        "annotation": "Prints 50; the old value at index 1 has been overwritten",
+        "atomIds": ["G-12"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-13",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid show(int arr[], int n) {\n  for (int i = 0; i < n; i++) {\n    cout << arr[i] << \" \";\n  }\n}\nint main() {\n  int vals[4] = {10, 20, 30, 40};\n  show(vals, 4);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "void show(int arr[], int n) {",
+        "annotation": "Pass an array with type arr[] and always include the size as a second parameter",
+        "atomIds": ["G-13"]
+      },
+      {
+        "line": 10,
+        "code": "  show(vals, 4);",
+        "annotation": "The array name and its length are sent to the function",
+        "atomIds": ["G-13"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-14",
+    "levelLabel": "L10 arrays",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid zero_first(int arr[], int n) {\n  arr[0] = 0;\n}\nint main() {\n  int vals[3] = {5, 10, 15};\n  zero_first(vals, 3);\n  cout << vals[0] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "void zero_first(int arr[], int n) {",
+        "annotation": "Arrays always pass by reference; the function accesses the original data",
+        "atomIds": ["G-14"]
+      },
+      {
+        "line": 4,
+        "code": "  arr[0] = 0;",
+        "annotation": "This write directly modifies the caller array; vals[0] becomes 0",
+        "atomIds": ["G-14"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-01",
+    "levelLabel": "L11 structs",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Product {\n  string label;\n  double price;\n};\nint main() {\n  Product p;\n  p.label = \"Widget\";\n  p.price = 4.99;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "struct Product {",
+        "annotation": "A struct bundles related data fields into a single named package",
+        "atomIds": ["T-01"]
+      },
+      {
+        "line": 5,
+        "code": "  string label;",
+        "annotation": "Product groups label and price together as one unit",
+        "atomIds": ["T-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-02",
+    "levelLabel": "L11 structs",
+    "fullCode": "struct Color {\n  int r;\n  int g;\n  int b;\n};",
+    "steps": [
+      {
+        "line": 1,
+        "code": "struct Color {",
+        "annotation": "struct Color { ... }; creates a new custom data type named Color",
+        "atomIds": ["T-02"]
+      },
+      {
+        "line": 2,
+        "code": "  int r;",
+        "annotation": "Color has three integer fields: r, g, and b",
+        "atomIds": ["T-02"]
+      },
+      {
+        "line": 5,
+        "code": "};",
+        "annotation": "The semicolon after the closing brace completes the type definition",
+        "atomIds": ["T-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-03",
+    "levelLabel": "L11 structs",
+    "fullCode": "struct Color {\n  int r;\n  int g;\n  int b;\n};",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int r;",
+        "annotation": "Each field follows: type fieldName; like a normal variable declaration",
+        "atomIds": ["T-03"]
+      },
+      {
+        "line": 4,
+        "code": "  int b;",
+        "annotation": "A struct can have as many fields as needed, each with its own type",
+        "atomIds": ["T-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-04",
+    "levelLabel": "L11 structs",
+    "fullCode": "struct Rect {\n  int w;\n  int h;\n};",
+    "steps": [
+      {
+        "line": 1,
+        "code": "struct Rect {",
+        "annotation": "Curly braces enclose all the fields of the struct",
+        "atomIds": ["T-04"]
+      },
+      {
+        "line": 4,
+        "code": "};",
+        "annotation": "Forgetting the ; after } is a common mistake that causes a compiler error",
+        "atomIds": ["T-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-05",
+    "levelLabel": "L11 structs",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Product {\n  string label;\n  double price;\n};\nint main() {\n  Product item;\n  item.label = \"Pen\";\n  item.price = 2.50;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 9,
+        "code": "  Product item;",
+        "annotation": "Declaring a variable with a struct type creates an instance with all fields",
+        "atomIds": ["T-05"]
+      },
+      {
+        "line": 10,
+        "code": "  item.label = \"Pen\";",
+        "annotation": "item now has its own label and price fields ready to use",
+        "atomIds": ["T-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-06",
+    "levelLabel": "L11 structs",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Rect { int w; int h; };\nint main() {\n  Rect r;\n  r.w = 10;\n  r.h = 5;\n  cout << r.w << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  r.w = 10;",
+        "annotation": "The dot (.) accesses a specific field inside a struct instance",
+        "atomIds": ["T-06"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << r.w << endl;",
+        "annotation": "Reading r.w retrieves the stored value through the dot operator",
+        "atomIds": ["T-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-07",
+    "levelLabel": "L11 structs",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Rect { int w; int h; };\nint main() {\n  Rect r;\n  r.w = 10;\n  r.h = 5;\n  cout << r.w << \" \" << r.h << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  r.w = 10;",
+        "annotation": "structVar.field = value; stores a value in a named field of the struct",
+        "atomIds": ["T-07"]
+      },
+      {
+        "line": 7,
+        "code": "  r.h = 5;",
+        "annotation": "Each field is set individually using the dot assignment pattern",
+        "atomIds": ["T-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-08",
+    "levelLabel": "L11 structs",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Rect { int w; int h; };\nint main() {\n  Rect r;\n  r.w = 10;\n  r.h = 5;\n  cout << r.h << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  r.h = 5;",
+        "annotation": "Write the value 5 into the h field of r",
+        "atomIds": ["T-08"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << r.h << endl;",
+        "annotation": "cout << structVar.field outputs the stored value (5) to the terminal",
+        "atomIds": ["T-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-09",
+    "levelLabel": "L11 structs",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Scores {\n  int marks[4];\n  int total;\n};\nint main() {\n  Scores s;\n  s.marks[0] = 80;\n  s.total = 0;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int marks[4];",
+        "annotation": "A struct field can be an array; marks holds 4 integers",
+        "atomIds": ["T-09"]
+      },
+      {
+        "line": 5,
+        "code": "  int total;",
+        "annotation": "A struct can mix array fields and scalar fields in the same definition",
+        "atomIds": ["T-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-10",
+    "levelLabel": "L11 structs",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Scores {\n  int marks[4];\n  int total;\n};\nint main() {\n  Scores s;\n  s.marks[0] = 90;\n  s.marks[1] = 85;\n  cout << s.marks[0] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 9,
+        "code": "  s.marks[0] = 90;",
+        "annotation": "First use dot to reach the array, then brackets to select the element",
+        "atomIds": ["T-10"]
+      },
+      {
+        "line": 11,
+        "code": "  cout << s.marks[0] << endl;",
+        "annotation": "structVar.arrayField[i] chains field access and array indexing together",
+        "atomIds": ["T-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-11",
+    "levelLabel": "L11 structs",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Rect { int w; int h; };\nint main() {\n  Rect shapes[5];\n  shapes[0].w = 10;\n  shapes[0].h = 5;\n  cout << shapes[0].w << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  Rect shapes[5];",
+        "annotation": "Type name[N] creates an array of N struct instances",
+        "atomIds": ["T-11"]
+      },
+      {
+        "line": 6,
+        "code": "  shapes[0].w = 10;",
+        "annotation": "Each element in the array is a separate struct with its own fields",
+        "atomIds": ["T-11"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-12",
+    "levelLabel": "L11 structs",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Rect { int w; int h; };\nint main() {\n  Rect shapes[3];\n  shapes[0].w = 10;\n  shapes[1].w = 20;\n  cout << shapes[0].w << \" \" << shapes[1].w << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  shapes[0].w = 10;",
+        "annotation": "list[i].field combines an array index with a struct field in one expression",
+        "atomIds": ["T-12"]
+      },
+      {
+        "line": 7,
+        "code": "  shapes[1].w = 20;",
+        "annotation": "Each array slot has its own independent struct fields",
+        "atomIds": ["T-12"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "PC-01",
+    "levelLabel": "L12 struct passing",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Rect { int w; int h; };\nvoid clear(Rect r) {\n  r.w = 0;\n}\nint main() {\n  Rect box;\n  box.w = 10;\n  clear(box);\n  cout << box.w << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "void clear(Rect r) {",
+        "annotation": "By value: r is a full copy of box; they are independent structs",
+        "atomIds": ["PC-01"]
+      },
+      {
+        "line": 5,
+        "code": "  r.w = 0;",
+        "annotation": "Only the copy is zeroed; box.w stays 10 in the caller",
+        "atomIds": ["PC-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "PC-02",
+    "levelLabel": "L12 struct passing",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Rect { int w; int h; };\nvoid widen(Rect &r) {\n  r.w = r.w * 2;\n}\nint main() {\n  Rect box;\n  box.w = 5;\n  widen(box);\n  cout << box.w << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "void widen(Rect &r) {",
+        "annotation": "& means r is an alias for box; they share the same struct data",
+        "atomIds": ["PC-02"]
+      },
+      {
+        "line": 5,
+        "code": "  r.w = r.w * 2;",
+        "annotation": "Doubling r.w also doubles box.w because & links them together",
+        "atomIds": ["PC-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "PC-03",
+    "levelLabel": "L12 struct passing",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Scores { int total; int marks[4]; };\nvoid reset(Scores &s) {\n  s.total = 0;\n}\nint main() {\n  Scores data;\n  data.total = 100;\n  reset(data);\n  cout << data.total << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "void reset(Scores &s) {",
+        "annotation": "The & on the parameter allows the function to alter the caller struct",
+        "atomIds": ["PC-03"]
+      },
+      {
+        "line": 5,
+        "code": "  s.total = 0;",
+        "annotation": "Setting s.total to 0 persists in data because & shares the memory",
+        "atomIds": ["PC-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "PC-04",
+    "levelLabel": "L12 struct passing",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Product { int id; string name; };\nvoid read_products(Product list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].id >> list[i].name;\n  }\n}\nint main() {\n  Product items[10];\n  read_products(items, 3);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "void read_products(Product list[], int count) {",
+        "annotation": "A struct array parameter lets the function fill the caller array directly",
+        "atomIds": ["PC-04"]
+      },
+      {
+        "line": 7,
+        "code": "    cin >> list[i].id >> list[i].name;",
+        "annotation": "Writes through list[i] modify the original array since arrays pass by reference",
+        "atomIds": ["PC-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "PC-05",
+    "levelLabel": "L12 struct passing",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Product { int id; string name; };\nvoid label(Product list[], int n) {\n  list[0].name = \"Widget\";\n}\nint main() {\n  Product items[5];\n  label(items, 5);\n  cout << items[0].name << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  list[0].name = \"Widget\";",
+        "annotation": "Writing to list[i].field inside the function changes the caller array",
+        "atomIds": ["PC-05"]
+      },
+      {
+        "line": 11,
+        "code": "  cout << items[0].name << endl;",
+        "annotation": "Prints \"Widget\" because arrays are always passed by reference",
+        "atomIds": ["PC-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "PC-06",
+    "levelLabel": "L12 struct passing",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Rect { int w; int h; };\nvoid show(const Rect &r) {\n  cout << r.w << \" x \" << r.h << endl;\n}\nint main() {\n  Rect box;\n  box.w = 10;\n  box.h = 5;\n  show(box);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "void show(const Rect &r) {",
+        "annotation": "const & avoids copying the struct while also preventing any changes to it",
+        "atomIds": ["PC-06"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << r.w << \" x \" << r.h << endl;",
+        "annotation": "You can read fields freely; any write attempt would fail to compile",
+        "atomIds": ["PC-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-01",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int a = 10;\n  a = a - 3;\n  cout << a << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int a = 10;",
+        "annotation": "Hand execution means stepping through each line and recording variable states",
+        "atomIds": ["HE-01"]
+      },
+      {
+        "line": 5,
+        "code": "  a = a - 3;",
+        "annotation": "Update your notes: a was 10, subtract 3, a is now 7",
+        "atomIds": ["HE-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-02",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int a = 3;\n  int b = 7;\n  int c = a + b;\n  cout << c << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int a = 3;",
+        "annotation": "Note down: a = 3",
+        "atomIds": ["HE-02"]
+      },
+      {
+        "line": 6,
+        "code": "  int c = a + b;",
+        "annotation": "Maintain a table of all variables: a = 3, b = 7, c = 10",
+        "atomIds": ["HE-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-03",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int val = 1;\n  val = 2;\n  val = 3;\n  cout << val << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  val = 2;",
+        "annotation": "Each assignment replaces the previous value; old one is lost",
+        "atomIds": ["HE-03"]
+      },
+      {
+        "line": 6,
+        "code": "  val = 3;",
+        "annotation": "Trace: val went 1 -> 2 -> 3; the final state is 3",
+        "atomIds": ["HE-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-04",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  for (int i = 10; i < 13; i++) {\n    cout << i << \" \";\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  for (int i = 10; i < 13; i++) {",
+        "annotation": "Record i on each pass: i=10 (runs), i=11 (runs), i=12 (runs), i=13 (stops)",
+        "atomIds": ["HE-04"]
+      },
+      {
+        "line": 5,
+        "code": "    cout << i << \" \";",
+        "annotation": "Output trace: 10 11 12; loop exits when the condition becomes false",
+        "atomIds": ["HE-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-05",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int temp = 15;\n  if (temp > 25) {\n    cout << \"hot\" << endl;\n  } else {\n    cout << \"cool\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (temp > 25) {",
+        "annotation": "Test the condition: 15 > 25 is false, so skip to the else branch",
+        "atomIds": ["HE-05"]
+      },
+      {
+        "line": 8,
+        "code": "    cout << \"cool\" << endl;",
+        "annotation": "The else runs because the condition evaluated to false",
+        "atomIds": ["HE-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-06",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid show(int val) {\n  cout << val * 2 << endl;\n}\nint main() {\n  show(10);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  show(10);",
+        "annotation": "When tracing a call, start a new frame with the parameter set to the argument",
+        "atomIds": ["HE-06"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << val * 2 << endl;",
+        "annotation": "Inside the frame: val = 10, so val * 2 = 20 is printed",
+        "atomIds": ["HE-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-07",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid work() {\n  int tmp = 42;\n  cout << tmp << endl;\n}\nint main() {\n  work();\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int tmp = 42;",
+        "annotation": "tmp is alive only while work() is executing; track it in this frame",
+        "atomIds": ["HE-07"]
+      },
+      {
+        "line": 6,
+        "code": "}",
+        "annotation": "When work returns, delete tmp from your trace table; it no longer exists",
+        "atomIds": ["HE-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-08",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid add_ten(int &x) {\n  x = x + 10;\n}\nint main() {\n  int val = 5;\n  add_ten(val);\n  cout << val << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  x = x + 10;",
+        "annotation": "Because of &, x and val share one box; adding 10 updates val too",
+        "atomIds": ["HE-08"]
+      },
+      {
+        "line": 9,
+        "code": "  cout << val << endl;",
+        "annotation": "Trace: val was 5, now 15; the & let the function change the caller variable",
+        "atomIds": ["HE-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-09",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid set(int &slot) {\n  slot = 50;\n}\nint main() {\n  int arr[3] = {10, 20, 30};\n  set(arr[1]);\n  cout << arr[1] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  int arr[3] = {10, 20, 30};",
+        "annotation": "Trace the array: arr = {10, 20, 30}",
+        "atomIds": ["HE-09"]
+      },
+      {
+        "line": 8,
+        "code": "  set(arr[1]);",
+        "annotation": "slot is & for arr[1]; slot = 50 changes arr to {10, 50, 30}",
+        "atomIds": ["HE-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-10",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int a = 10;\n  int b = a;\n  a = 20;\n  cout << a << \" \" << b << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  int b = a;",
+        "annotation": "b gets a copy of a (10); they are separate boxes now",
+        "atomIds": ["HE-10"]
+      },
+      {
+        "line": 6,
+        "code": "  a = 20;",
+        "annotation": "Changing a to 20 does not touch b; final state: a = 20, b = 10",
+        "atomIds": ["HE-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-11",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int arr[3] = {5, 5, 5};\n  arr[0] = 10;\n  arr[2] = arr[0] + arr[1];\n  cout << arr[0] << \" \" << arr[1] << \" \" << arr[2] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  arr[0] = 10;",
+        "annotation": "Trace: arr changes from {5, 5, 5} to {10, 5, 5}",
+        "atomIds": ["HE-11"]
+      },
+      {
+        "line": 6,
+        "code": "  arr[2] = arr[0] + arr[1];",
+        "annotation": "10 + 5 = 15; trace: arr = {10, 5, 15}",
+        "atomIds": ["HE-11"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-12",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int product = 1;\n  for (int i = 1; i <= 3; i++) {\n    product = product * i;\n  }\n  cout << product << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  for (int i = 1; i <= 3; i++) {",
+        "annotation": "Trace each pass: i=1 product=1, i=2 product=2, i=3 product=6",
+        "atomIds": ["HE-12"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << product << endl;",
+        "annotation": "Final result: product = 6 (which is 1 * 1 * 2 * 3)",
+        "atomIds": ["HE-12"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-13",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int n = 3;\n  int result;\n  if (n > 5) {\n    result = 100;\n  } else {\n    result = 0;\n  }\n  cout << result << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  if (n > 5) {",
+        "annotation": "3 > 5 is false, so skip the if body and enter the else block",
+        "atomIds": ["HE-13"]
+      },
+      {
+        "line": 9,
+        "code": "    result = 0;",
+        "annotation": "Trace: result = 0 (the else branch was taken because condition was false)",
+        "atomIds": ["HE-13"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-14",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint double_it(int n) {\n  return n * 2;\n}\nint main() {\n  int val = double_it(7);\n  cout << val << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  int val = double_it(7);",
+        "annotation": "Enter double_it: n=7, compute 7*2=14, return 14 to the caller",
+        "atomIds": ["HE-14"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << val << endl;",
+        "annotation": "Back in main: val = 14 (the returned result); output is 14",
+        "atomIds": ["HE-14"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-15",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nvoid by_val(int x) { x = 0; }\nvoid by_ref(int &x) { x = 0; }\nint main() {\n  int a = 10;\n  by_val(a);\n  cout << a << endl;\n  by_ref(a);\n  cout << a << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  by_val(a);",
+        "annotation": "Value pass: copy is zeroed but a stays 10 in main",
+        "atomIds": ["HE-15"]
+      },
+      {
+        "line": 9,
+        "code": "  by_ref(a);",
+        "annotation": "Reference pass: a itself becomes 0 because & shares the same box",
+        "atomIds": ["HE-15"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-16",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int arr[4] = {5, 2, 8, 1};\n  int min_val = arr[0];\n  for (int i = 1; i < 4; i++) {\n    if (arr[i] < min_val) {\n      min_val = arr[i];\n    }\n  }\n  cout << min_val << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  int min_val = arr[0];",
+        "annotation": "Start min at first element (5); scan the rest for anything smaller",
+        "atomIds": ["HE-16"]
+      },
+      {
+        "line": 7,
+        "code": "    if (arr[i] < min_val) {",
+        "annotation": "Trace: i=1 2<5 yes min=2, i=2 8<2 no, i=3 1<2 yes min=1; final min=1",
+        "atomIds": ["HE-16"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-17",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Rect { int w; int h; };\nvoid grow(Rect &r) {\n  r.w = r.w + 5;\n  r.h = r.h + 5;\n}\nint main() {\n  Rect box;\n  box.w = 10;\n  box.h = 20;\n  grow(box);\n  cout << box.w << \" \" << box.h << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  r.w = r.w + 5;",
+        "annotation": "Trace: box.w was 10, now 15; box.h was 20, now 25 (both via &)",
+        "atomIds": ["HE-17"]
+      },
+      {
+        "line": 13,
+        "code": "  cout << box.w << \" \" << box.h << endl;",
+        "annotation": "Prints 15 25; the struct fields were mutated through the reference",
+        "atomIds": ["HE-17"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "HE-18",
+    "levelLabel": "L13 hand execution",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct stat_double { double mystery; double numbers[5]; };\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    data.mystery = data.mystery + data.numbers[i];\n  }\n}\nint main() {\n  stat_double d;\n  d.numbers[0] = 1.0;\n  d.numbers[1] = 2.0;\n  d.numbers[2] = 3.0;\n  d.numbers[3] = 4.0;\n  d.numbers[4] = 5.0;\n  who_am_i(d);\n  cout << d.mystery << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  for (int i = 0; i < 5; i++) {",
+        "annotation": "Trace the accumulator each pass: 0+1=1, 1+2=3, 3+3=6, 6+4=10, 10+5=15",
+        "atomIds": ["HE-18"]
+      },
+      {
+        "line": 7,
+        "code": "    data.mystery = data.mystery + data.numbers[i];",
+        "annotation": "mystery accumulates the total; after the loop it holds 15 (the sum)",
+        "atomIds": ["HE-18"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "SW-01",
+    "levelLabel": "L14 write struct (Q2)",
+    "fullCode": "struct student_data {\n  int id;\n  string name;\n  double gpa;\n};",
+    "steps": [
+      {
+        "line": 1,
+        "code": "struct student_data {",
+        "annotation": "Begin with the keyword struct, then your chosen type name, then {",
+        "atomIds": ["SW-01"]
+      },
+      {
+        "line": 4,
+        "code": "  double gpa;",
+        "annotation": "Add each field that describes one piece of data about the entity",
+        "atomIds": ["SW-01"]
+      },
+      {
+        "line": 5,
+        "code": "};",
+        "annotation": "Finish the definition with }; so the compiler registers the new type",
+        "atomIds": ["SW-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "SW-02",
+    "levelLabel": "L14 write struct (Q2)",
+    "fullCode": "struct product {\n  int code;\n  string label;\n  double cost;\n};",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int code;",
+        "annotation": "A field declaration is just like a variable: type followed by name then ;",
+        "atomIds": ["SW-02"]
+      },
+      {
+        "line": 4,
+        "code": "  double cost;",
+        "annotation": "Match the type to the kind of data: int for IDs, double for prices, string for text",
+        "atomIds": ["SW-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "SW-03",
+    "levelLabel": "L14 write struct (Q2)",
+    "fullCode": "struct Data {\n  double value;\n};",
+    "steps": [
+      {
+        "line": 1,
+        "code": "struct Data {",
+        "annotation": "Opening brace starts the list of fields",
+        "atomIds": ["SW-03"]
+      },
+      {
+        "line": 3,
+        "code": "};",
+        "annotation": "The }; is essential; leaving off the semicolon causes a compile error",
+        "atomIds": ["SW-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "SW-04",
+    "levelLabel": "L14 write struct (Q2)",
+    "fullCode": "struct movie {\n  int year;\n  string title;\n  double rating;\n};",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int year;",
+        "annotation": "Use int for whole number data like years and counts",
+        "atomIds": ["SW-04"]
+      },
+      {
+        "line": 3,
+        "code": "  string title;",
+        "annotation": "Use string when the spec describes text data like names or titles",
+        "atomIds": ["SW-04"]
+      },
+      {
+        "line": 4,
+        "code": "  double rating;",
+        "annotation": "Use double for any value that might have a decimal component",
+        "atomIds": ["SW-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "SW-05",
+    "levelLabel": "L14 write struct (Q2)",
+    "fullCode": "struct movie {\n  double rating;\n  int year;\n  string title;\n};",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  double rating;",
+        "annotation": "Putting rating first is perfectly valid; field order does not affect behavior",
+        "atomIds": ["SW-05"]
+      },
+      {
+        "line": 4,
+        "code": "  string title;",
+        "annotation": "The compiler accepts any arrangement of fields within the struct",
+        "atomIds": ["SW-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "RW-01",
+    "levelLabel": "L15 read function (Q3)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Product { int id; double price; };\nvoid read_products(Product list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].id >> list[i].price;\n  }\n}\nint main() {\n  Product arr[50];\n  read_products(arr, 5);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "void read_products(Product list[], int count) {",
+        "annotation": "A read function uses void because it fills data rather than returning a value",
+        "atomIds": ["RW-01"]
+      },
+      {
+        "line": 6,
+        "code": "    cin >> list[i].id >> list[i].price;",
+        "annotation": "It accomplishes its purpose by writing into the passed array",
+        "atomIds": ["RW-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "RW-02",
+    "levelLabel": "L15 read function (Q3)",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Movie { int year; string title; };\nvoid read_movies(Movie list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].year >> list[i].title;\n  }\n}\nint main() {\n  Movie arr[50];\n  read_movies(arr, 3);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "void read_movies(Movie list[], int count) {",
+        "annotation": "Type list[] in the parameter passes the caller array for the function to fill",
+        "atomIds": ["RW-02"]
+      },
+      {
+        "line": 7,
+        "code": "    cin >> list[i].year >> list[i].title;",
+        "annotation": "Each loop iteration populates one struct element in the array",
+        "atomIds": ["RW-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "RW-03",
+    "levelLabel": "L15 read function (Q3)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Product { int id; };\nvoid read_products(Product list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].id;\n  }\n}\nint main() {\n  Product arr[100];\n  int count;\n  cin >> count;\n  read_products(arr, count);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "void read_products(Product list[], int count) {",
+        "annotation": "The count parameter specifies how many items to read from input",
+        "atomIds": ["RW-03"]
+      },
+      {
+        "line": 5,
+        "code": "  for (int i = 0; i < count; i++) {",
+        "annotation": "The loop runs exactly count times; count limits how much of the array is filled",
+        "atomIds": ["RW-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "RW-04",
+    "levelLabel": "L15 read function (Q3)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Product { int id; double price; };\nvoid read_products(Product list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].id;\n    cin >> list[i].price;\n  }\n}\nint main() {\n  Product arr[100];\n  read_products(arr, 4);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  for (int i = 0; i < count; i++) {",
+        "annotation": "The loop iterates count times, processing one struct per pass",
+        "atomIds": ["RW-04"]
+      },
+      {
+        "line": 7,
+        "code": "    cin >> list[i].price;",
+        "annotation": "Each iteration fills one element; i advances to the next slot automatically",
+        "atomIds": ["RW-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "RW-05",
+    "levelLabel": "L15 read function (Q3)",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Product { int id; string label; };\nvoid read_products(Product list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].id;\n    cin >> list[i].label;\n  }\n}\nint main() {\n  Product arr[50];\n  read_products(arr, 2);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "    cin >> list[i].id;",
+        "annotation": "cin >> list[i].field stores user input directly into the struct element",
+        "atomIds": ["RW-05"]
+      },
+      {
+        "line": 8,
+        "code": "    cin >> list[i].label;",
+        "annotation": "A separate cin reads each additional field of the same struct",
+        "atomIds": ["RW-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "RW-06",
+    "levelLabel": "L15 read function (Q3)",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Movie { int year; string title; double rating; };\nvoid read_movies(Movie list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].year;\n    cin >> list[i].title;\n    cin >> list[i].rating;\n  }\n}\nint main() {\n  Movie arr[100];\n  read_movies(arr, 2);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "    cin >> list[i].year;",
+        "annotation": "Each field needs its own cin statement; one per piece of input data",
+        "atomIds": ["RW-06"]
+      },
+      {
+        "line": 9,
+        "code": "    cin >> list[i].rating;",
+        "annotation": "With three fields, three cin calls are required per loop iteration",
+        "atomIds": ["RW-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "RW-07",
+    "levelLabel": "L15 read function (Q3)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Product { int id; };\nvoid read_products(Product list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cout << \"Enter product id: \";\n    cin >> list[i].id;\n  }\n}\nint main() {\n  Product arr[50];\n  read_products(arr, 3);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "    cout << \"Enter product id: \";",
+        "annotation": "A prompt before each cin is optional but helps the user know what to type",
+        "atomIds": ["RW-07"]
+      },
+      {
+        "line": 7,
+        "code": "    cin >> list[i].id;",
+        "annotation": "After the prompt, cin reads the value the user provides",
+        "atomIds": ["RW-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "MW-01",
+    "levelLabel": "L16 main function (Q4)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"program started\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "int main() {",
+        "annotation": "int main() is the required entry point for every C++ program",
+        "atomIds": ["MW-01"]
+      },
+      {
+        "line": 5,
+        "code": "  return 0;",
+        "annotation": "End main with return 0 to tell the OS everything finished normally",
+        "atomIds": ["MW-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "MW-02",
+    "levelLabel": "L16 main function (Q4)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  const int MAX = 50;\n  double vals[MAX];\n  cout << MAX << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  const int MAX = 50;",
+        "annotation": "const makes MAX a fixed constant; its value can never be reassigned",
+        "atomIds": ["MW-02"]
+      },
+      {
+        "line": 5,
+        "code": "  double vals[MAX];",
+        "annotation": "Use the constant to size the array so the capacity is easy to change later",
+        "atomIds": ["MW-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "MW-03",
+    "levelLabel": "L16 main function (Q4)",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nstruct Product { int id; string name; };\nint main() {\n  const int MAX = 50;\n  Product list[MAX];\n  list[0].id = 1;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  Product list[MAX];",
+        "annotation": "Create an array of your struct type sized by the constant MAX",
+        "atomIds": ["MW-03"]
+      },
+      {
+        "line": 8,
+        "code": "  list[0].id = 1;",
+        "annotation": "Each slot is a complete struct ready to store data",
+        "atomIds": ["MW-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "MW-04",
+    "levelLabel": "L16 main function (Q4)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int count;\n  cin >> count;\n  cout << count << \" items\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int count;",
+        "annotation": "Declare count to hold the number of records the user will enter",
+        "atomIds": ["MW-04"]
+      },
+      {
+        "line": 5,
+        "code": "  cin >> count;",
+        "annotation": "Read the actual count from the user so the program knows how many to process",
+        "atomIds": ["MW-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "MW-05",
+    "levelLabel": "L16 main function (Q4)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int count;\n  cin >> count;\n  cout << \"Processing \" << count << \" records\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  cin >> count;",
+        "annotation": "The user types how many items there are; this number drives the loops",
+        "atomIds": ["MW-05"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << \"Processing \" << count << \" records\" << endl;",
+        "annotation": "count is now set and will be passed to functions that need it",
+        "atomIds": ["MW-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "MW-06",
+    "levelLabel": "L16 main function (Q4)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nstruct Product { int id; };\nvoid read_products(Product list[], int count) {\n  for (int i = 0; i < count; i++) cin >> list[i].id;\n}\nint main() {\n  const int MAX = 50;\n  Product list[MAX];\n  int count;\n  cin >> count;\n  read_products(list, count);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 12,
+        "code": "  read_products(list, count);",
+        "annotation": "Main calls the read function, passing the array and user provided count",
+        "atomIds": ["MW-06"]
+      },
+      {
+        "line": 4,
+        "code": "void read_products(Product list[], int count) {",
+        "annotation": "The function handles input; main coordinates the overall flow",
+        "atomIds": ["MW-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "MW-07",
+    "levelLabel": "L16 main function (Q4)",
+    "fullCode": "#include <iostream>\n#include <cstdio>\n#include <string>\nusing namespace std;\nstruct Product { int id; string name; };\nint main() {\n  Product list[3];\n  list[0].id = 1; list[0].name = \"Pen\";\n  list[1].id = 2; list[1].name = \"Pad\";\n  int count = 2;\n  for (int i = 0; i < count; i++) {\n    printf(\"%d %s\\n\", list[i].id, list[i].name.c_str());\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 11,
+        "code": "  for (int i = 0; i < count; i++) {",
+        "annotation": "Loop from 0 to count to output each stored item",
+        "atomIds": ["MW-07"]
+      },
+      {
+        "line": 12,
+        "code": "    printf(\"%d %s\\n\", list[i].id, list[i].name.c_str());",
+        "annotation": "Print each record inside the loop using printf or cout",
+        "atomIds": ["MW-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "MW-08",
+    "levelLabel": "L16 main function (Q4)",
+    "fullCode": "#include <cstdio>\n#include <string>\nusing namespace std;\nstruct Product { int id; string name; };\nint main() {\n  Product p;\n  p.id = 7;\n  p.name = \"Widget\";\n  printf(\"%d %s\\n\", p.id, p.name.c_str());\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 9,
+        "code": "  printf(\"%d %s\\n\", p.id, p.name.c_str());",
+        "annotation": "%d prints the int field, %s prints the string field from the struct",
+        "atomIds": ["MW-08"]
+      },
+      {
+        "line": 9,
+        "code": "  printf(\"%d %s\\n\", p.id, p.name.c_str());",
+        "annotation": "Each format specifier is matched to a corresponding struct field value",
+        "atomIds": ["MW-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "MW-09",
+    "levelLabel": "L16 main function (Q4)",
+    "fullCode": "#include <cstdio>\n#include <string>\nusing namespace std;\nint main() {\n  string city = \"Perth\";\n  printf(\"%s\\n\", city.c_str());\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  string city = \"Perth\";",
+        "annotation": "printf cannot directly accept a C++ string; conversion is needed",
+        "atomIds": ["MW-09"]
+      },
+      {
+        "line": 6,
+        "code": "  printf(\"%s\\n\", city.c_str());",
+        "annotation": "Call .c_str() to get the C style string pointer that %s requires",
+        "atomIds": ["MW-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "ME-01",
+    "levelLabel": "L17 mock exams",
+    "fullCode": "struct stat_double {\n  double mystery;\n  double x;\n  double y;\n};\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.x * data.y;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "struct stat_double {",
+        "annotation": "The struct holds mystery plus two input values x and y",
+        "atomIds": ["ME-01"]
+      },
+      {
+        "line": 8,
+        "code": "  data.mystery = data.x * data.y;",
+        "annotation": "mystery stores the product of x and y; a straightforward multiplication pattern",
+        "atomIds": ["ME-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "ME-02",
+    "levelLabel": "L17 mock exams",
+    "fullCode": "struct stat_double {\n  double mystery;\n  double values[5];\n};\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.values[0];\n  for (int i = 1; i < 5; i++) {\n    if (data.values[i] < data.mystery)\n      data.mystery = data.values[i];\n  }\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  data.mystery = data.values[0];",
+        "annotation": "Start with the first element, then scan for the smallest value",
+        "atomIds": ["ME-02"]
+      },
+      {
+        "line": 9,
+        "code": "    if (data.values[i] < data.mystery)",
+        "annotation": "Update mystery whenever a smaller element is found; this finds the minimum",
+        "atomIds": ["ME-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "ME-03",
+    "levelLabel": "L17 mock exams",
+    "fullCode": "struct stat_double {\n  double mystery;\n  double values[5];\n};\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    data.mystery = data.mystery + data.values[i];\n  }\n  data.mystery = data.mystery / 5;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  data.mystery = 0;",
+        "annotation": "Reset the accumulator before summing all elements",
+        "atomIds": ["ME-03"]
+      },
+      {
+        "line": 9,
+        "code": "    data.mystery = data.mystery + data.values[i];",
+        "annotation": "After the loop, dividing by 5 gives the average; this is a mean calculator",
+        "atomIds": ["ME-03"]
+      },
+      {
+        "line": 11,
+        "code": "  data.mystery = data.mystery / 5;",
+        "annotation": "mystery holds the arithmetic mean of all five values",
+        "atomIds": ["ME-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "ME-04",
+    "levelLabel": "L17 mock exams",
+    "fullCode": "struct stat_double {\n  double mystery;\n  double x;\n  double y;\n};\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.x;\n  if (data.y > data.x)\n    data.mystery = data.y;\n}",
+    "steps": [
+      {
+        "line": 8,
+        "code": "  data.mystery = data.x;",
+        "annotation": "Assume x is the larger value to start with",
+        "atomIds": ["ME-04"]
+      },
+      {
+        "line": 9,
+        "code": "  if (data.y > data.x)",
+        "annotation": "Check whether y beats x; if so, mystery becomes y instead",
+        "atomIds": ["ME-04"]
+      },
+      {
+        "line": 10,
+        "code": "    data.mystery = data.y;",
+        "annotation": "mystery ends up holding the larger of x and y; a max of two pattern",
+        "atomIds": ["ME-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "ME-05",
+    "levelLabel": "L17 mock exams",
+    "fullCode": "struct stat_double {\n  double mystery;\n  double values[5];\n};\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    if (data.values[i] < 0)\n      data.mystery = data.mystery + 1;\n  }\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  data.mystery = 0;",
+        "annotation": "Start the counter at zero before scanning the array",
+        "atomIds": ["ME-05"]
+      },
+      {
+        "line": 9,
+        "code": "    if (data.values[i] < 0)",
+        "annotation": "Test each element for a condition (negative in this case)",
+        "atomIds": ["ME-05"]
+      },
+      {
+        "line": 10,
+        "code": "      data.mystery = data.mystery + 1;",
+        "annotation": "Increment by 1 for each match; mystery ends as the count of negatives",
+        "atomIds": ["ME-05"]
+      }
+    ]
+  }
+]

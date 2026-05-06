@@ -1,0 +1,1425 @@
+[
+  {
+    "id": "P-01",
+    "fact": "computer runs programs",
+    "level": -1,
+    "snippet": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "expected": "Hello"
+  },
+  {
+    "id": "P-02",
+    "fact": "program is text instructions",
+    "level": -1,
+    "snippet": "// A program is text instructions.\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "expected": "Hello"
+  },
+  {
+    "id": "P-03",
+    "fact": "source code is .cpp file",
+    "level": -1,
+    "snippet": "// File: hello.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "expected": "Hello"
+  },
+  {
+    "id": "P-04",
+    "fact": "compiler converts source to exe",
+    "level": -1,
+    "snippet": "// hello.cpp -> g++ compiles -> hello.exe\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "expected": "compiler produces hello executable"
+  },
+  {
+    "id": "P-05",
+    "fact": "running exe executes instructions",
+    "level": -1,
+    "snippet": "// Running the .exe executes each line in order:\nint main() {\n  cout << \"Hello\" << endl;   // line 1: prints Hello\n  return 0;                  // line 2: exits\n}",
+    "expected": "Hello printed, program exits with 0"
+  },
+  {
+    "id": "P-06",
+    "fact": "output appears in terminal",
+    "level": -1,
+    "snippet": "int main() {\n  cout << \"Hello\" << endl;\n  cout << \"Score: \" << 95 << endl;\n  return 0;\n}\n// Terminal output:\n// Hello\n// Score: 95",
+    "expected": "Hello appears in terminal"
+  },
+  {
+    "id": "P-07",
+    "fact": "input typed in terminal",
+    "level": -1,
+    "snippet": "int main() {\n  int age;\n  cout << \"Enter age: \";\n  cin >> age;\n  cout << \"You are \" << age << endl;\n  return 0;\n}\n// Terminal: Enter age: 25\n//          You are 25",
+    "expected": "age = 25 (read from terminal)"
+  },
+  {
+    "id": "WT-L-01",
+    "level": -1,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "S-01",
+    "fact": "#include <iostream> adds I/O",
+    "level": 0,
+    "snippet": "#include <iostream>",
+    "expected": ""
+  },
+  {
+    "id": "S-02",
+    "fact": "using namespace std; saves typing",
+    "level": 0,
+    "snippet": "#include <iostream>\nusing namespace std;        // lets you write cout, not std::cout\nint main() {\n  cout << \"ok\";\n  return 0;\n}",
+    "expected": ""
+  },
+  {
+    "id": "S-03",
+    "fact": "int main() { } is entry",
+    "level": 0,
+    "snippet": "int main() { return 0; }",
+    "expected": ""
+  },
+  {
+    "id": "S-04",
+    "fact": "; ends every statement",
+    "level": 0,
+    "snippet": "int x = 5;        // ; required\ncout << x;        // ; required",
+    "expected": ""
+  },
+  {
+    "id": "S-05",
+    "fact": "{ opens code block",
+    "level": 0,
+    "snippet": "int main() {       // { opens block\n  cout << \"hi\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "S-06",
+    "fact": "} closes code block",
+    "level": 0,
+    "snippet": "int main() {\n  cout << \"hi\";\n}                  // } closes block",
+    "expected": ""
+  },
+  {
+    "id": "S-07",
+    "fact": "return 0; ends main",
+    "level": 0,
+    "snippet": "int main() {\n  cout << \"done\";\n  return 0;        // tells OS: success\n}",
+    "expected": ""
+  },
+  {
+    "id": "S-08",
+    "fact": "// is single-line comment",
+    "level": 0,
+    "snippet": "int x = 5;     // declare counter\nx = x + 1;     // increment",
+    "expected": ""
+  },
+  {
+    "id": "S-09",
+    "fact": "whitespace mostly does not matter",
+    "level": 0,
+    "snippet": "int   x =   5 ;\nint y=10;\n// both are valid; spaces optional around tokens",
+    "expected": ""
+  },
+  {
+    "id": "S-10",
+    "fact": "indentation is style not syntax",
+    "level": 0,
+    "snippet": "int main() {\n    cout << \"indent\";\n        cout << \"more indent\";\n  cout << \"less\";\n  return 0;\n}",
+    "expected": ""
+  },
+  {
+    "id": "WT-L0",
+    "level": 0,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "O-01",
+    "fact": "cout prints to terminal",
+    "level": 1,
+    "snippet": "cout << \"hello\";",
+    "expected": ""
+  },
+  {
+    "id": "O-02",
+    "fact": "<< sends value to cout",
+    "level": 1,
+    "snippet": "int x = 5;\ncout << x;",
+    "expected": ""
+  },
+  {
+    "id": "O-03",
+    "fact": "cout << \"text\"; prints text",
+    "level": 1,
+    "snippet": "cout << \"hello, world\";",
+    "expected": ""
+  },
+  {
+    "id": "O-04",
+    "fact": "cout << 5; prints number",
+    "level": 1,
+    "snippet": "cout << 5;\ncout << 42;",
+    "expected": ""
+  },
+  {
+    "id": "O-05",
+    "fact": "endl prints newline",
+    "level": 1,
+    "snippet": "cout << \"line one\" << endl;\ncout << \"line two\" << endl;",
+    "expected": ""
+  },
+  {
+    "id": "O-06",
+    "fact": "\n also prints newline",
+    "level": 1,
+    "snippet": "cout << \"line one\\n\";\ncout << \"line two\\n\";",
+    "expected": ""
+  },
+  {
+    "id": "O-07",
+    "fact": "chain: cout << a << b;",
+    "level": 1,
+    "snippet": "int a = 1, b = 2;\ncout << a << \" \" << b << endl;",
+    "expected": ""
+  },
+  {
+    "id": "O-08",
+    "fact": "printf(format, args) outputs text",
+    "level": 1,
+    "snippet": "int id = 42;\nprintf(\"id = %d\\n\", id);",
+    "expected": ""
+  },
+  {
+    "id": "O-09",
+    "fact": "%d formats int",
+    "level": 1,
+    "snippet": "int n = 7;\nprintf(\"count = %d\\n\", n);",
+    "expected": ""
+  },
+  {
+    "id": "O-10",
+    "fact": "%s formats C-string",
+    "level": 1,
+    "snippet": "string name = \"ada\";\nprintf(\"name = %s\\n\", name.c_str());",
+    "expected": ""
+  },
+  {
+    "id": "O-11",
+    "fact": "\n in printf adds newline",
+    "level": 1,
+    "snippet": "printf(\"hello\\n\");\nprintf(\"world\\n\");",
+    "expected": ""
+  },
+  {
+    "id": "O-12",
+    "fact": "printf first arg is format",
+    "level": 1,
+    "snippet": "printf(\"score = %d\\n\", 100);\n//      ^^^^^^^^^^^^^ format string",
+    "expected": ""
+  },
+  {
+    "id": "O-13",
+    "fact": "printf extra args fill placeholders",
+    "level": 1,
+    "snippet": "printf(\"%d + %d = %d\\n\", 2, 3, 5);",
+    "expected": ""
+  },
+  {
+    "id": "WT-L1",
+    "level": 1,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "V-01",
+    "fact": "variable is named memory box",
+    "level": 2,
+    "snippet": "int n = 5;        // n is a labeled box holding 5\nn = n + 1;        // box now holds 6",
+    "expected": ""
+  },
+  {
+    "id": "V-02",
+    "fact": "variable has a name",
+    "level": 2,
+    "snippet": "int counter = 0;\nint total = 100;\n// names: counter, total",
+    "expected": ""
+  },
+  {
+    "id": "V-03",
+    "fact": "variable has a type",
+    "level": 2,
+    "snippet": "int   age = 21;\ndouble price = 9.95;\nstring name = \"ada\";",
+    "expected": ""
+  },
+  {
+    "id": "V-04",
+    "fact": "declare with type name;",
+    "level": 2,
+    "snippet": "int x;            // declare an int box named x\nstring title;     // declare a string box named title",
+    "expected": ""
+  },
+  {
+    "id": "V-05",
+    "fact": "initialize: type name = value;",
+    "level": 2,
+    "snippet": "int x = 5;\nstring name = \"ada\";\n// both declare AND store a value at once",
+    "expected": ""
+  },
+  {
+    "id": "V-06",
+    "fact": "read: cout << name;",
+    "level": 2,
+    "snippet": "int x = 5;\ncout << x;         // reads x's value",
+    "expected": ""
+  },
+  {
+    "id": "V-07",
+    "fact": "write: name = newValue;",
+    "level": 2,
+    "snippet": "int x = 5;\nx = 10;            // overwrites the box",
+    "expected": ""
+  },
+  {
+    "id": "V-08",
+    "fact": "= is assignment, not equality",
+    "level": 2,
+    "snippet": "int x = 5;         // = stores 5 in x\nif (x == 5) {      // == compares\n  cout << \"equal\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "V-09",
+    "fact": "declare before use",
+    "level": 2,
+    "snippet": "int x = 5;        // declared first\ncout << x;        // then used",
+    "expected": ""
+  },
+  {
+    "id": "V-10",
+    "fact": "int holds whole numbers",
+    "level": 2,
+    "snippet": "int count = 7;\nint n = 42;",
+    "expected": ""
+  },
+  {
+    "id": "V-11",
+    "fact": "double holds decimals",
+    "level": 2,
+    "snippet": "double mystery = 0.0;\ndouble price = 3.14;",
+    "expected": ""
+  },
+  {
+    "id": "V-12",
+    "fact": "string holds text",
+    "level": 2,
+    "snippet": "string title = \"C++\";\nstring author = \"ada\";",
+    "expected": ""
+  },
+  {
+    "id": "V-13",
+    "fact": "bool holds true or false",
+    "level": 2,
+    "snippet": "bool ok = true;\nbool done = false;",
+    "expected": ""
+  },
+  {
+    "id": "V-14",
+    "fact": "char holds one letter",
+    "level": 2,
+    "snippet": "char letter = 'A';\nchar digit = '7';",
+    "expected": ""
+  },
+  {
+    "id": "V-15",
+    "fact": "5 is int literal",
+    "level": 2,
+    "snippet": "int n = 5;          // 5 is an int literal\nint big = 1000000;",
+    "expected": ""
+  },
+  {
+    "id": "V-16",
+    "fact": "3.14 is double literal",
+    "level": 2,
+    "snippet": "double pi = 3.14;\ndouble half = 0.5;",
+    "expected": ""
+  },
+  {
+    "id": "V-17",
+    "fact": "\"hi\" is string literal",
+    "level": 2,
+    "snippet": "string greeting = \"hello\";\ncout << \"literal text\";",
+    "expected": ""
+  },
+  {
+    "id": "V-18",
+    "fact": "'a' is char literal",
+    "level": 2,
+    "snippet": "char letter = 'A';\nchar comma = ',';",
+    "expected": ""
+  },
+  {
+    "id": "V-19",
+    "fact": "true and false are bool literals",
+    "level": 2,
+    "snippet": "bool ok = true;\nbool failed = false;",
+    "expected": ""
+  },
+  {
+    "id": "V-20",
+    "fact": "string needs <string> include",
+    "level": 2,
+    "snippet": "#include <string>\nusing namespace std;\nstring title = \"C++\";",
+    "expected": ""
+  },
+  {
+    "id": "WT-L2",
+    "level": 2,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "I-01",
+    "fact": "cin reads from terminal",
+    "level": 3,
+    "snippet": "int n;\ncin >> n;          // pause for user input",
+    "expected": ""
+  },
+  {
+    "id": "I-02",
+    "fact": ">> reads value into variable",
+    "level": 3,
+    "snippet": "int x;\ncin >> x;          // >> reads next token",
+    "expected": ""
+  },
+  {
+    "id": "I-03",
+    "fact": "cin >> x; waits for input",
+    "level": 3,
+    "snippet": "cin >> x;",
+    "expected": ""
+  },
+  {
+    "id": "I-04",
+    "fact": "whitespace separates input values",
+    "level": 3,
+    "snippet": "int a, b;\ncin >> a >> b;     // user types: 3 7",
+    "expected": ""
+  },
+  {
+    "id": "I-05",
+    "fact": "cin parses to variable type",
+    "level": 3,
+    "snippet": "int n;\nstring s;\ncin >> n;          // parses digits as int\ncin >> s;          // reads one word",
+    "expected": ""
+  },
+  {
+    "id": "I-06",
+    "fact": "chain cin >> a >> b;",
+    "level": 3,
+    "snippet": "int a, b, c;\ncin >> a >> b >> c;",
+    "expected": ""
+  },
+  {
+    "id": "I-07",
+    "fact": "getline(cin, s) reads full line",
+    "level": 3,
+    "snippet": "string fullName;\ngetline(cin, fullName);",
+    "expected": ""
+  },
+  {
+    "id": "WT-L3",
+    "level": 3,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "A-01",
+    "fact": "+ adds",
+    "level": 4,
+    "snippet": "int sum = 3 + 4;        // 7\nint total = a + b;",
+    "expected": ""
+  },
+  {
+    "id": "A-02",
+    "fact": "- subtracts",
+    "level": 4,
+    "snippet": "int diff = 10 - 3;      // 7",
+    "expected": ""
+  },
+  {
+    "id": "A-03",
+    "fact": "* multiplies",
+    "level": 4,
+    "snippet": "int area = width * height;",
+    "expected": ""
+  },
+  {
+    "id": "A-04",
+    "fact": "/ divides",
+    "level": 4,
+    "snippet": "int half = n / 2;",
+    "expected": ""
+  },
+  {
+    "id": "A-05",
+    "fact": "% gives remainder",
+    "level": 4,
+    "snippet": "int rem = 7 % 3;        // 1",
+    "expected": ""
+  },
+  {
+    "id": "A-06",
+    "fact": "int division truncates",
+    "level": 4,
+    "snippet": "int q = 5 / 2;          // 2 (NOT 2.5)",
+    "expected": ""
+  },
+  {
+    "id": "A-07",
+    "fact": "* / % before + -",
+    "level": 4,
+    "snippet": "int r = 1 + 2 * 3;      // 7, not 9",
+    "expected": ""
+  },
+  {
+    "id": "A-08",
+    "fact": "() overrides operator order",
+    "level": 4,
+    "snippet": "int r = (1 + 2) * 3;    // 9",
+    "expected": ""
+  },
+  {
+    "id": "A-09",
+    "fact": "+= -= *= /= update",
+    "level": 4,
+    "snippet": "int total = 0;\ntotal += 5;             // total = total + 5",
+    "expected": ""
+  },
+  {
+    "id": "A-10",
+    "fact": "++ adds 1",
+    "level": 4,
+    "snippet": "int i = 0;\ni++;                    // i = 1",
+    "expected": ""
+  },
+  {
+    "id": "A-11",
+    "fact": "-- subtracts 1",
+    "level": 4,
+    "snippet": "int n = 10;\nn--;                    // n = 9",
+    "expected": ""
+  },
+  {
+    "id": "WT-L4",
+    "level": 4,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "C-01",
+    "fact": "== tests equality",
+    "level": 5,
+    "snippet": "if (x == 5) {\n  cout << \"matches\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "C-02",
+    "fact": "!= tests not equal",
+    "level": 5,
+    "snippet": "if (x != 0) {\n  cout << \"nonzero\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "C-03",
+    "fact": "< less than",
+    "level": 5,
+    "snippet": "for (int i = 0; i < n; i++) {\n  cout << i;\n}",
+    "expected": ""
+  },
+  {
+    "id": "C-04",
+    "fact": "> greater than",
+    "level": 5,
+    "snippet": "if (data.numbers[i] > data.mystery) {\n  data.mystery = data.numbers[i];\n}",
+    "expected": ""
+  },
+  {
+    "id": "C-05",
+    "fact": "<= less or equal",
+    "level": 5,
+    "snippet": "if (i <= count) {\n  cout << \"in range\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "C-06",
+    "fact": ">= greater or equal",
+    "level": 5,
+    "snippet": "if (score >= 50) {\n  cout << \"pass\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "C-07",
+    "fact": "comparison returns bool",
+    "level": 5,
+    "snippet": "bool match = (x == 5);   // bool result\nif (match) cout << \"y\";",
+    "expected": ""
+  },
+  {
+    "id": "L-01",
+    "fact": "&& is AND",
+    "level": 5,
+    "snippet": "if (a > 0 && b > 0) {\n  cout << \"both positive\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "L-02",
+    "fact": "|| is OR",
+    "level": 5,
+    "snippet": "if (x == 0 || y == 0) {\n  cout << \"at least one zero\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "L-03",
+    "fact": "! is NOT",
+    "level": 5,
+    "snippet": "if (!found) {\n  cout << \"missing\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "WT-L5",
+    "level": 5,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "F-01",
+    "fact": "if (cond) runs body",
+    "level": 6,
+    "snippet": "if (x > 0) {\n  cout << \"positive\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "F-02",
+    "fact": "else runs otherwise",
+    "level": 6,
+    "snippet": "if (x > 0) {\n  cout << \"positive\";\n} else {\n  cout << \"zero or negative\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "F-03",
+    "fact": "else if chains conditions",
+    "level": 6,
+    "snippet": "if (x > 0)      cout << \"pos\";\nelse if (x < 0) cout << \"neg\";\nelse            cout << \"zero\";",
+    "expected": ""
+  },
+  {
+    "id": "F-04",
+    "fact": "condition must be bool",
+    "level": 6,
+    "snippet": "bool ok = (x > 0);\nif (ok) {\n  cout << \"positive\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "F-05",
+    "fact": "use {} even one line",
+    "level": 6,
+    "snippet": "if (x > 0) {\n  cout << \"pos\";   // braces required\n}",
+    "expected": ""
+  },
+  {
+    "id": "WT-L6",
+    "level": 6,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "W-01",
+    "fact": "while (cond) repeats body",
+    "level": 7,
+    "snippet": "int i = 0;\nwhile (i < 5) {\n  cout << i;\n  i++;\n}",
+    "expected": ""
+  },
+  {
+    "id": "W-02",
+    "fact": "do { body } while runs once first",
+    "level": 7,
+    "snippet": "int n;\ndo {\n  cin >> n;\n} while (n < 0);",
+    "expected": ""
+  },
+  {
+    "id": "W-03",
+    "fact": "for (init; cond; step) loop",
+    "level": 7,
+    "snippet": "for (int i = 0; i < n; i++) {\n  cout << i;\n}",
+    "expected": ""
+  },
+  {
+    "id": "W-04",
+    "fact": "init runs once",
+    "level": 7,
+    "snippet": "for (int i = 0; i < 5; i++) {\n  // init `int i = 0` runs ONCE\n  cout << i;\n}",
+    "expected": ""
+  },
+  {
+    "id": "W-05",
+    "fact": "cond checked before each iter",
+    "level": 7,
+    "snippet": "for (int i = 0; i < 5; i++) {\n  // cond `i < 5` checked each iteration\n  cout << i;\n}",
+    "expected": ""
+  },
+  {
+    "id": "W-06",
+    "fact": "step runs after each iter",
+    "level": 7,
+    "snippet": "for (int i = 0; i < 5; i++) {\n  cout << i;\n  // step `i++` runs after body\n}",
+    "expected": ""
+  },
+  {
+    "id": "W-07",
+    "fact": "break exits loop",
+    "level": 7,
+    "snippet": "for (int i = 0; i < 100; i++) {\n  if (i == 7) break;\n  cout << i;\n}",
+    "expected": ""
+  },
+  {
+    "id": "W-08",
+    "fact": "continue skips to next iter",
+    "level": 7,
+    "snippet": "for (int i = 0; i < 5; i++) {\n  if (i == 2) continue;\n  cout << i;\n}",
+    "expected": ""
+  },
+  {
+    "id": "W-09",
+    "fact": "nested loops allowed",
+    "level": 7,
+    "snippet": "for (int r = 0; r < rows; r++) {\n  for (int c = 0; c < cols; c++) {\n    cout << grid[r][c];\n  }\n}",
+    "expected": ""
+  },
+  {
+    "id": "W-10",
+    "fact": "infinite loop if cond never false",
+    "level": 7,
+    "snippet": "while (true) {\n  // forever -- avoid in T2 unless break\n  cout << \"loops\";\n}",
+    "expected": ""
+  },
+  {
+    "id": "WT-L7",
+    "level": 7,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "H-01",
+    "fact": "function = named code block",
+    "level": 8,
+    "snippet": "void greet() {\n  cout << \"hello\";\n}\nint main() {\n  greet();\n  return 0;\n}",
+    "expected": ""
+  },
+  {
+    "id": "H-02",
+    "fact": "returnType name(params) { body }",
+    "level": 8,
+    "snippet": "int add(int a, int b) {\n  return a + b;\n}",
+    "expected": ""
+  },
+  {
+    "id": "H-03",
+    "fact": "call: name(args);",
+    "level": 8,
+    "snippet": "int sum = add(3, 4);\ncout << sum;       // 7",
+    "expected": ""
+  },
+  {
+    "id": "H-04",
+    "fact": "parameters become local boxes",
+    "level": 8,
+    "snippet": "void f(int x) {\n  // x is a local box; caller's variable is separate\n  x = 99;\n}",
+    "expected": ""
+  },
+  {
+    "id": "H-05",
+    "fact": "return value; sends back",
+    "level": 8,
+    "snippet": "int square(int n) {\n  return n * n;\n}",
+    "expected": ""
+  },
+  {
+    "id": "H-06",
+    "fact": "void = no return value",
+    "level": 8,
+    "snippet": "void greet() {\n  cout << \"hi\";\n  // no return value\n}",
+    "expected": ""
+  },
+  {
+    "id": "H-07",
+    "fact": "declare before use (or prototype)",
+    "level": 8,
+    "snippet": "int square(int n);   // prototype\n\nint main() {\n  cout << square(5);\n  return 0;\n}\n\nint square(int n) { return n * n; }",
+    "expected": ""
+  },
+  {
+    "id": "H-08",
+    "fact": "prototype: returnType name(types);",
+    "level": 8,
+    "snippet": "int square(int);      // prototype: types only\nvoid greet(string);",
+    "expected": ""
+  },
+  {
+    "id": "H-09",
+    "fact": "locals die at return",
+    "level": 8,
+    "snippet": "void f() {\n  int local = 5;\n  // local dies when f returns\n}",
+    "expected": ""
+  },
+  {
+    "id": "H-10",
+    "fact": "caller cannot see locals",
+    "level": 8,
+    "snippet": "void f() {\n  int secret = 42;\n}\nint main() {\n  f();\n  // cout << secret;  // ERROR: out of scope\n  return 0;\n}",
+    "expected": ""
+  },
+  {
+    "id": "WT-L8",
+    "level": 8,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "R-01",
+    "fact": "parameter receives copy by default",
+    "level": 9,
+    "snippet": "void increment_copy(int x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment_copy(n);\n  cout << n << endl;\n  return 0;\n}",
+    "expected": "5"
+  },
+  {
+    "id": "R-02",
+    "fact": "mutating param doesn't change caller",
+    "level": 9,
+    "snippet": "void increment_copy(int x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment_copy(n);\n  cout << n << endl;\n  return 0;\n}",
+    "expected": "5"
+  },
+  {
+    "id": "R-03",
+    "fact": "& means alias same memory box",
+    "level": 9,
+    "snippet": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "expected": "6"
+  },
+  {
+    "id": "R-04",
+    "fact": "void f(int &x) shares box with caller",
+    "level": 9,
+    "snippet": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "expected": "6"
+  },
+  {
+    "id": "R-05",
+    "fact": "mutating &param changes caller",
+    "level": 9,
+    "snippet": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "expected": "6"
+  },
+  {
+    "id": "R-06",
+    "fact": "reference must bind real variable",
+    "level": 9,
+    "snippet": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);    // OK: n is a variable\n  // increment(5); // ERROR: literal cannot bind to int&\n  return 0;\n}",
+    "expected": "(compiles only with the literal call commented out)"
+  },
+  {
+    "id": "R-07",
+    "fact": "const & is read-only alias",
+    "level": 9,
+    "snippet": "void print_user(const user_data &user) {\n  cout << user.username << endl;\n  // user.username = \"X\";  // ERROR: cannot modify const\n}\n\nint main() {\n  user_data u;\n  u.username = \"alice\";\n  print_user(u);     // u stays \"alice\"\n  return 0;\n}",
+    "expected": "alice"
+  },
+  {
+    "id": "R-08",
+    "fact": "reference is two names for one box",
+    "level": 9,
+    "snippet": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);   // x and n now label same box; box was 5, now 6\n  cout << n;      // 6\n  return 0;\n}",
+    "expected": "6"
+  },
+  {
+    "id": "WT-L9",
+    "level": 9,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "G-01",
+    "fact": "array = sequence of N values",
+    "level": 10,
+    "snippet": "// array holds N items in a row",
+    "expected": ""
+  },
+  {
+    "id": "G-02",
+    "fact": "type arr[N] declares array",
+    "level": 10,
+    "snippet": "int arr[5];",
+    "expected": "arr declared with 5 uninitialized slots"
+  },
+  {
+    "id": "G-03",
+    "fact": "type arr[N] = {...}; init",
+    "level": 10,
+    "snippet": "int arr[3] = {1, 2, 3};",
+    "expected": "arr = {1, 2, 3}"
+  },
+  {
+    "id": "G-04",
+    "fact": "arr[0] is first element",
+    "level": 10,
+    "snippet": "arr[0]   // first slot",
+    "expected": "first element of arr"
+  },
+  {
+    "id": "G-05",
+    "fact": "arr[i] accesses i-th element",
+    "level": 10,
+    "snippet": "arr[i]",
+    "expected": "element at index i"
+  },
+  {
+    "id": "G-06",
+    "fact": "arrays index from 0",
+    "level": 10,
+    "snippet": "int arr[3] = {10, 20, 30};\ncout << arr[0];   // 10  (NOT arr[1])",
+    "expected": ""
+  },
+  {
+    "id": "G-07",
+    "fact": "last is arr[N-1]",
+    "level": 10,
+    "snippet": "arr[N-1] // last slot",
+    "expected": "last element of arr"
+  },
+  {
+    "id": "G-08",
+    "fact": "arr[N] is out of bounds",
+    "level": 10,
+    "snippet": "int arr[3] = {10, 20, 30};\n// arr[3] is past the end -- undefined behavior\ncout << arr[3];",
+    "expected": ""
+  },
+  {
+    "id": "G-09",
+    "fact": "array size fixed at compile",
+    "level": 10,
+    "snippet": "const int MAX = 100; int arr[MAX];",
+    "expected": "MAX = 100; arr has 100 slots"
+  },
+  {
+    "id": "G-10",
+    "fact": "cannot return array directly",
+    "level": 10,
+    "snippet": "// C++ has no `return arr;`. Use a reference parameter instead:\nvoid fill(int arr[], int n) { /* ... */ }",
+    "expected": ""
+  },
+  {
+    "id": "G-11",
+    "fact": "for loop iterates array",
+    "level": 10,
+    "snippet": "for (int i = 0; i < N; i++) arr[i] = ...;",
+    "expected": "arr[0]..arr[N-1] each assigned"
+  },
+  {
+    "id": "G-12",
+    "fact": "arr[i] = v writes element",
+    "level": 10,
+    "snippet": "arr[2] = 99;",
+    "expected": "arr[2] = 99"
+  },
+  {
+    "id": "G-13",
+    "fact": "array param: type arr[]",
+    "level": 10,
+    "snippet": "void f(int arr[], int n) { ... }",
+    "expected": "f receives arr and size n"
+  },
+  {
+    "id": "G-14",
+    "fact": "&arr[] aliases caller's array",
+    "level": 10,
+    "snippet": "void f(int &arr[], int n) { arr[0] = 99; }",
+    "expected": "caller's arr[0] becomes 99"
+  },
+  {
+    "id": "WT-L10",
+    "level": 10,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "T-01",
+    "fact": "struct = named field group",
+    "level": 11,
+    "snippet": "// struct = a named bundle of named fields",
+    "expected": ""
+  },
+  {
+    "id": "T-02",
+    "fact": "struct Name { fields }; defines type",
+    "level": 11,
+    "snippet": "struct Point {\n    int x;\n    int y;\n};",
+    "expected": "Point type declared with fields x, y"
+  },
+  {
+    "id": "T-03",
+    "fact": "each field: type fieldName;",
+    "level": 11,
+    "snippet": "struct Point {\n    int x;\n    int y;\n};",
+    "expected": "two fields: x (int), y (int)"
+  },
+  {
+    "id": "T-04",
+    "fact": "; required after closing }",
+    "level": 11,
+    "snippet": "struct Point { int x; int y; };",
+    "expected": "Point type declared; } must end with ;"
+  },
+  {
+    "id": "T-05",
+    "fact": "use type: Name x; declares",
+    "level": 11,
+    "snippet": "struct Point { int x; int y; };\nPoint p;",
+    "expected": "p declared as Point; p.x and p.y uninitialized"
+  },
+  {
+    "id": "T-06",
+    "fact": ".field accesses struct member",
+    "level": 11,
+    "snippet": "Point p;\np.x = 3;",
+    "expected": "p.x = 3"
+  },
+  {
+    "id": "T-07",
+    "fact": "x.field = v writes field",
+    "level": 11,
+    "snippet": "Point p;\np.x = 3;",
+    "expected": "p.x = 3"
+  },
+  {
+    "id": "T-08",
+    "fact": "cout << x.field reads field",
+    "level": 11,
+    "snippet": "Point p; p.x = 3;\ncout << p.x;",
+    "expected": "3"
+  },
+  {
+    "id": "T-09",
+    "fact": "struct can contain array field",
+    "level": 11,
+    "snippet": "struct stat_double {\n    double numbers[5];\n    double mystery;\n};",
+    "expected": "stat_double has numbers[5] array and mystery scalar"
+  },
+  {
+    "id": "T-10",
+    "fact": "chained: data.arr[i]",
+    "level": 11,
+    "snippet": "stat_double d;\nd.numbers[0] = 1.0;",
+    "expected": "d.numbers[0] = 1.0"
+  },
+  {
+    "id": "T-11",
+    "fact": "array of structs: Name list[N];",
+    "level": 11,
+    "snippet": "struct Point { int x; int y; };\nPoint list[3];",
+    "expected": "list[0..2] each a Point struct"
+  },
+  {
+    "id": "T-12",
+    "fact": "list[i].field chained access",
+    "level": 11,
+    "snippet": "Point list[3];\nlist[0].x = 5;",
+    "expected": "list[0].x = 5"
+  },
+  {
+    "id": "WT-L11",
+    "level": 11,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "PC-01",
+    "fact": "pass struct by value copies whole",
+    "level": 12,
+    "snippet": "void f(Point p) { p.x = 99; }   // caller's p unchanged",
+    "expected": "caller's p unchanged; copy was modified"
+  },
+  {
+    "id": "PC-02",
+    "fact": "void f(Name &x) shares struct",
+    "level": 12,
+    "snippet": "void update(Point &p) { p.x = 99; }",
+    "expected": "caller's p.x = 99 via &"
+  },
+  {
+    "id": "PC-03",
+    "fact": "& lets struct mutation persist",
+    "level": 12,
+    "snippet": "void mutate(stat_double &d) {\n  d.mystery = 99.0;   // persists in caller\n}",
+    "expected": ""
+  },
+  {
+    "id": "PC-04",
+    "fact": "&list[] passes array by ref",
+    "level": 12,
+    "snippet": "void read_items(Item &list[], int count) { ... }",
+    "expected": "caller's list modified via &"
+  },
+  {
+    "id": "PC-05",
+    "fact": "list[i].field writes persist via &",
+    "level": 12,
+    "snippet": "void read_book(book &list[], int n) {\n  list[0].title = \"C++\";   // writes to caller's list\n}",
+    "expected": ""
+  },
+  {
+    "id": "PC-06",
+    "fact": "const Name &x is read-only",
+    "level": 12,
+    "snippet": "void print(const Point &p) { cout << p.x; }",
+    "expected": "prints p.x; p cannot be modified (const &)"
+  },
+  {
+    "id": "WT-L12",
+    "level": 12,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "HE-01",
+    "fact": "trace = mentally simulate code",
+    "level": 13,
+    "snippet": "// No code - meta-skill atom",
+    "expected": ""
+  },
+  {
+    "id": "HE-02",
+    "fact": "track each var's value",
+    "level": 13,
+    "snippet": "int x = 5;\nint y = 10;\n// track: x=5, y=10",
+    "expected": "x = 5, y = 10"
+  },
+  {
+    "id": "HE-03",
+    "fact": "update value on each assignment",
+    "level": 13,
+    "snippet": "int x = 5;\nx = 10;\n// x trace: 5, 10  (two values, latest = 10)",
+    "expected": "x = 10 (was 5, then reassigned)"
+  },
+  {
+    "id": "HE-04",
+    "fact": "for-loop: track i across iterations",
+    "level": 13,
+    "snippet": "for (int i = 0; i < 3; i++) {\n    // body\n}\n// i trace: 0, 1, 2, (loop ends when i==3)",
+    "expected": "i: 0, 1, 2; loop exits when i = 3"
+  },
+  {
+    "id": "HE-05",
+    "fact": "conditional: pick branch by cond",
+    "level": 13,
+    "snippet": "int n = 7;\nif (n > 5) {\n    // branch A taken (cond is true)\n} else {\n    // branch B taken (cond is false)\n}",
+    "expected": "branch A taken (7 > 5 is true)"
+  },
+  {
+    "id": "HE-06",
+    "fact": "function call: enter new frame",
+    "level": 13,
+    "snippet": "void f(int x) {\n    // new frame: x is local\n}\nint main() {\n    f(5);   // call: enter new frame\n}",
+    "expected": "new frame: f called with x = 5"
+  },
+  {
+    "id": "HE-07",
+    "fact": "return: exit frame, locals die",
+    "level": 13,
+    "snippet": "void f() {\n    int local = 5;\n    // local lives here\n}\n// local does not exist here",
+    "expected": "local = 5 inside f; destroyed on return"
+  },
+  {
+    "id": "HE-08",
+    "fact": "& param: SAME box, persists",
+    "level": 13,
+    "snippet": "void incr(int &x) {\n    x = x + 1;        // mutates caller's box\n}\nint main() {\n    int n = 5;\n    incr(n);\n    // n trace: 5, 6  (mutation persisted via &)\n}",
+    "expected": "n = 6 (was 5; incr mutated via &)"
+  },
+  {
+    "id": "HE-09",
+    "fact": "arr[i] write persists if &",
+    "level": 13,
+    "snippet": "void fill(int &slot) {\n    slot = 99;\n}\nint main() {\n    int arr[3] = {1, 2, 3};\n    fill(arr[0]);\n    // arr trace: [1,2,3] -> [99,2,3]\n}",
+    "expected": "arr = {99, 2, 3} (arr[0] mutated via &)"
+  },
+  {
+    "id": "HE-10",
+    "fact": "trace x = 5; y = x; final state",
+    "level": 13,
+    "snippet": "int x = 5;\nint y = x;\n// final: x = 5, y = 5",
+    "expected": "5 5"
+  },
+  {
+    "id": "HE-11",
+    "fact": "trace arr[i] = v; final array",
+    "level": 13,
+    "snippet": "int arr[3] = {0, 0, 0};\narr[1] = 7;\narr[2] = arr[1] + 1;\n// final: arr = [0, 7, 8]",
+    "expected": "arr = {0, 7, 8}"
+  },
+  {
+    "id": "HE-12",
+    "fact": "trace for-loop iterations",
+    "level": 13,
+    "snippet": "int sum = 0;\nfor (int i = 1; i <= 4; i++) {\n    sum = sum + i;\n}\n// final: sum = 10\n// i trace: 1, 2, 3, 4 (then exits)",
+    "expected": "10"
+  },
+  {
+    "id": "HE-13",
+    "fact": "trace if/else branches",
+    "level": 13,
+    "snippet": "int n = 7;\nint label;\nif (n > 5) {\n    label = 1;\n} else {\n    label = 2;\n}\n// final: label = 1",
+    "expected": "1"
+  },
+  {
+    "id": "HE-14",
+    "fact": "trace function call + return",
+    "level": 13,
+    "snippet": "int square(int x) {\n    return x * x;\n}\nint main() {\n    int r = square(5);\n    // call: enter square, x=5\n    // return 25, exit frame\n    // r = 25\n}",
+    "expected": "r = 25 (square returns 5*5)"
+  },
+  {
+    "id": "HE-15",
+    "fact": "trace pass-by-value vs &",
+    "level": 13,
+    "snippet": "void f_val(int x) {\n    x = 99;\n}\nvoid f_ref(int &x) {\n    x = 99;\n}\nint main() {\n    int n = 5;\n    f_val(n);    // n still 5\n    f_ref(n);    // n now 99\n}",
+    "expected": "after f_val: n = 5; after f_ref: n = 99"
+  },
+  {
+    "id": "HE-16",
+    "fact": "trace max-finder algorithm",
+    "level": 13,
+    "snippet": "// Max of an array of 5 doubles\ndouble nums[5] = {3.2, 7.1, 5.0, 9.4, 2.8};\ndouble max_val = nums[0];\nfor (int i = 1; i < 5; i++) {\n    if (nums[i] > max_val) {\n        max_val = nums[i];\n    }\n}\n// max_val = 9.4",
+    "expected": "max_val = 9.4"
+  },
+  {
+    "id": "HE-17",
+    "fact": "trace struct field mutation via &",
+    "level": 13,
+    "snippet": "struct Point { int x; int y; };\nvoid shift(Point &p) {\n    p.x = p.x + 1;\n    p.y = p.y + 1;\n}\nint main() {\n    Point a = {3, 4};\n    shift(a);\n    // a trace: {3,4} -> {4,5}\n}",
+    "expected": "a = {4, 5} (was {3, 4}; shifted via &)"
+  },
+  {
+    "id": "HE-18",
+    "fact": "trace data.numbers[i] > data.mystery",
+    "level": 13,
+    "snippet": "// Inner test of who_am_i:\n// if (data.numbers[i] > data.mystery)\n//     data.mystery = data.numbers[i];\n// Trace per i: read array elem, compare to scalar, conditionally update scalar",
+    "expected": "mystery updated only when numbers[i] > mystery"
+  },
+  {
+    "id": "WT-L13",
+    "level": 13,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "SW-01",
+    "fact": "write struct Name { ... };",
+    "level": 14,
+    "snippet": "struct computer_data {\n    int id;\n    string description;\n    string location;\n};",
+    "expected": "computer_data type: id, description, location"
+  },
+  {
+    "id": "SW-02",
+    "fact": "write field: type fieldName;",
+    "level": 14,
+    "snippet": "int id;\nstring description;",
+    "expected": "two fields: id (int), description (string)"
+  },
+  {
+    "id": "SW-03",
+    "fact": "terminate struct with };",
+    "level": 14,
+    "snippet": "struct X {\n    int a;\n};",
+    "expected": "X type declared with field a; };"
+  },
+  {
+    "id": "SW-04",
+    "fact": "choose types per spec",
+    "level": 14,
+    "snippet": "// pick types per spec\nstruct book {\n  int id;\n  string title;     // string for text\n  double price;     // double for amounts\n};",
+    "expected": ""
+  },
+  {
+    "id": "SW-05",
+    "fact": "field order is arbitrary",
+    "level": 14,
+    "snippet": "// any field order is fine\nstruct book {\n  string title;\n  double price;\n  int id;\n};",
+    "expected": ""
+  },
+  {
+    "id": "WT-L14",
+    "level": 14,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "RW-01",
+    "fact": "write void return signature",
+    "level": 15,
+    "snippet": "void read_items(...) { ... }",
+    "expected": "function returns nothing (void)"
+  },
+  {
+    "id": "RW-02",
+    "fact": "write Type &list[] parameter",
+    "level": 15,
+    "snippet": "void read_X(X &list[], int count) {}",
+    "expected": ""
+  },
+  {
+    "id": "RW-03",
+    "fact": "write int count parameter",
+    "level": 15,
+    "snippet": "void read_X(X &list[], int count) {}",
+    "expected": ""
+  },
+  {
+    "id": "RW-04",
+    "fact": "write for-loop with count bound",
+    "level": 15,
+    "snippet": "for (int i = 0; i < count; i++) { ... }",
+    "expected": "iterates count times; i = 0 to count-1"
+  },
+  {
+    "id": "RW-05",
+    "fact": "cin >> list[i].field; reads input",
+    "level": 15,
+    "snippet": "cin >> list[i].id;",
+    "expected": "user input stored in list[i].id"
+  },
+  {
+    "id": "RW-06",
+    "fact": "one cin per struct field",
+    "level": 15,
+    "snippet": "cin >> list[i].id;\ncin >> list[i].name;\ncin >> list[i].course;",
+    "expected": "3 fields read per iteration"
+  },
+  {
+    "id": "RW-07",
+    "fact": "optional cout prompt before cin",
+    "level": 15,
+    "snippet": "cout << \"Enter id: \"; cin >> list[i].id;",
+    "expected": "prompt displayed, then input read"
+  },
+  {
+    "id": "WT-L15",
+    "level": 15,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "MW-01",
+    "fact": "int main() { ... return 0; }",
+    "level": 16,
+    "snippet": "int main() {\n    // body here\n    return 0;\n}",
+    "expected": ""
+  },
+  {
+    "id": "MW-02",
+    "fact": "const int MAX = 100;",
+    "level": 16,
+    "snippet": "const int MAX = 100;",
+    "expected": ""
+  },
+  {
+    "id": "MW-03",
+    "fact": "declare Type list[MAX];",
+    "level": 16,
+    "snippet": "computer_data list[MAX];",
+    "expected": ""
+  },
+  {
+    "id": "MW-04",
+    "fact": "declare int count;",
+    "level": 16,
+    "snippet": "int count;\ncin >> count;",
+    "expected": ""
+  },
+  {
+    "id": "MW-05",
+    "fact": "cin >> count; reads N",
+    "level": 16,
+    "snippet": "cin >> count;",
+    "expected": ""
+  },
+  {
+    "id": "MW-06",
+    "fact": "call read_X(list, count);",
+    "level": 16,
+    "snippet": "read_book(list, count);",
+    "expected": ""
+  },
+  {
+    "id": "MW-07",
+    "fact": "print loop: for-loop i < count",
+    "level": 16,
+    "snippet": "for (int i = 0; i < count; i++) printf(...);",
+    "expected": ""
+  },
+  {
+    "id": "MW-08",
+    "fact": "printf(\"%d %s\n\", id, name);",
+    "level": 16,
+    "snippet": "printf(\"%d %s\\n\", list[i].id, list[i].title.c_str());",
+    "expected": ""
+  },
+  {
+    "id": "MW-09",
+    "fact": ".c_str() converts string for %s",
+    "level": 16,
+    "snippet": "string name = \"ada\";\nprintf(\"%s\\n\", name.c_str());   // C-string for %s",
+    "expected": ""
+  },
+  {
+    "id": "WT-L16",
+    "level": 16,
+    "snippet": "",
+    "expected": ""
+  },
+  {
+    "id": "ME-01",
+    "fact": "mock exam me-01",
+    "level": 17,
+    "snippet": "// Mock 1 — all four questions in one program\nstruct stat_double { double mystery; double a; double b; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.a + data.b;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  printf(\"%.2f\\n\", list[0].mystery);\n  return 0;\n}",
+    "expected": "mystery = a + b"
+  },
+  {
+    "id": "ME-02",
+    "fact": "mock exam me-02",
+    "level": 17,
+    "snippet": "// Mock 2 — max-finder variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.numbers[0];\n  for (int i = 1; i < 5; i++) {\n    if (data.numbers[i] > data.mystery)\n      data.mystery = data.numbers[i];\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "expected": "mystery = max of numbers array"
+  },
+  {
+    "id": "ME-03",
+    "fact": "mock exam me-03",
+    "level": 17,
+    "snippet": "// Mock 3 — sum-accumulator variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    data.mystery = data.mystery + data.numbers[i];\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "expected": "mystery = sum of numbers array"
+  },
+  {
+    "id": "ME-04",
+    "fact": "mock exam me-04",
+    "level": 17,
+    "snippet": "// Mock 4 — absolute difference variant\nstruct stat_double { double mystery; double a; double b; };\n\nvoid who_am_i(stat_double &data) {\n  if (data.a > data.b)\n    data.mystery = data.a - data.b;\n  else\n    data.mystery = data.b - data.a;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "expected": "mystery = |a - b| (absolute difference)"
+  },
+  {
+    "id": "ME-05",
+    "fact": "mock exam me-05",
+    "level": 17,
+    "snippet": "// Mock 5 — count-positive variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    if (data.numbers[i] > 0)\n      data.mystery = data.mystery + 1;\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "expected": "mystery = count of positive numbers"
+  },
+  {
+    "id": "WT-L17",
+    "level": 17,
+    "snippet": "",
+    "expected": ""
+  }
+]

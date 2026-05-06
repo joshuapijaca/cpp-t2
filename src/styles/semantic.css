@@ -257,6 +257,139 @@
   text-align: center;
 }
 
+/* Procedural drills home button */
+.home__procedural {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px;
+  width: 100%;
+  max-width: 600px;
+  box-sizing: border-box;
+}
+
+.home__procedural-btn {
+  background: var(--color-accent);
+  border: none;
+  border-radius: var(--radius);
+  padding: 14px 28px;
+  color: var(--color-bg);
+  font-family: var(--font-mono);
+  font-size: var(--text-base);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: opacity 120ms ease-out;
+}
+
+.home__procedural-btn:hover {
+  opacity: 0.85;
+}
+
+.home__procedural-hint {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  text-align: center;
+}
+
+/* Streak dots */
+.streak-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.streak-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 2px solid var(--color-accent-mute);
+  background: transparent;
+  transition: background 200ms, border-color 200ms;
+}
+
+.streak-dot--filled {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.streak-dot--pulse {
+  animation: streak-pulse 300ms ease-out;
+}
+
+@keyframes streak-pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.4); }
+  100% { transform: scale(1); }
+}
+
+.streak-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-mute);
+}
+
+/* Code matrix styles */
+.matrix-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.matrix-example {
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.matrix-example__label {
+  padding: 6px 12px;
+  background: var(--color-bg-elevated);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-text-mute);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.matrix-example__code {
+  padding: 10px 12px;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+  background: var(--color-bg);
+}
+
+.matrix-divider {
+  text-align: center;
+  padding: 8px 0;
+}
+
+.matrix-divider__arrow {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+.home__procedural-btn--matrix {
+  background: var(--color-bg-elevated);
+  color: var(--color-accent);
+  border: 1px solid var(--color-accent-mute);
+}
+
+.home__procedural-btn--matrix:hover {
+  opacity: 0.85;
+}
+
 .nav-btns {
   position: fixed;
   top: 40px;
@@ -379,6 +512,21 @@
 
 .memorize-fact--hidden {
   visibility: hidden;
+}
+
+.memorize-code {
+  width: 100%;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  padding: 12px 16px;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  line-height: 1.5;
+  overflow-x: auto;
+  white-space: pre;
+  margin: 0;
 }
 
 .countdown {
@@ -1425,4 +1573,52 @@
   font-size: var(--text-sm);
   color: var(--color-text);
   line-height: 1.5;
+}
+
+
+/* === Code Memorize === */
+
+.cmem-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cmem-study {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.cmem-study__label {
+  font-size: var(--text-sm);
+  color: var(--color-accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+
+.cmem-study__code {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  background: var(--color-bg);
+  border: 1px solid var(--color-accent);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  white-space: pre;
+  overflow-x: auto;
+  width: 100%;
+  box-sizing: border-box;
+  line-height: 1.6;
+}
+
+.home__procedural-btn--cmem {
+  border-color: #e879f9;
+  color: #e879f9;
+}
+
+.home__procedural-btn--cmem:hover {
+  background: rgba(232, 121, 249, 0.08);
 }

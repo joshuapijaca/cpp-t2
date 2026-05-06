@@ -12,15 +12,16 @@ import { resolve } from 'path';
 
 const ROOT = resolve(import.meta.dirname, '..');
 
-const DO_TYPES = new Set(['memorize', 'mcq', 'trace', 'write']);
+const DO_TYPES = new Set(['memorize', 'trace', 'write']); // mcq removed: longest-answer exploit
 const SEE_FILES = [
   // 'data/see-demo-cards.json',        // removed: passive, user finds useless
   // 'data/see-q-context-cards.json',    // removed: also demo type
-  'data/see-cloze-cards.json',
-  'data/see-decompose-cards.json',
-  'data/see-walkthrough-cards.json',
-  'data/see-worked-example-cards.json',
-  'data/see-read-predict-cards.json',
+  // 'data/see-cloze-cards.json',     // removed: user found unintelligible
+  // 'data/see-decompose-cards.json', // removed: replaced by per-atom walkthroughs
+  'data/see-walkthrough-cards.json',    // 187 per-atom walkthroughs angle 1
+  'data/see-walkthrough-cards-2.json', // 187 per-atom walkthroughs angle 2
+  // 'data/see-worked-example-cards.json', // removed: demo type, filtered out
+  // 'data/see-read-predict-cards.json',   // removed: demo type, filtered out
 ];
 
 // Level order matching docs/07 sequence. Prefix → level number.
@@ -67,7 +68,7 @@ function typeOrder(type: string): number {
     case 'mcq': return 3;
     case 'trace': return 4;
     case 'write': return 5;
-    case 'walkthrough': return 6;
+    case 'walkthrough': return -1;  // per-atom walkthrough BEFORE all DO cards
     default: return 9;
   }
 }
@@ -91,16 +92,8 @@ function main() {
     seeCards.push(...arr.filter(c => c.type !== 'demo'));
   }
 
-  // 3. Separate walkthroughs (end-of-level) from per-atom SEE cards
-  const walkthroughs: AnyCard[] = [];
-  const perAtomSee: AnyCard[] = [];
-  for (const c of seeCards) {
-    if (c.type === 'walkthrough') {
-      walkthroughs.push(c);
-    } else {
-      perAtomSee.push(c);
-    }
-  }
+  // 3. All walkthroughs are now per-atom (placed before DO cards via typeOrder -1)
+  const perAtomSee = seeCards;  // no separation needed
 
   // 4. Group all per-atom cards (DO + SEE) by atomId
   const allPerAtom = [...doCards, ...perAtomSee];
@@ -121,38 +114,10 @@ function main() {
     (a, b) => atomSortKey(a).localeCompare(atomSortKey(b))
   );
 
-  // 7. Build final array: per-atom cards + walkthrough at end of each level
-  const walkthroughByLevel = new Map<number, AnyCard[]>();
-  for (const wt of walkthroughs) {
-    const lv = atomLevel(wt.atomId);
-    const arr = walkthroughByLevel.get(lv) ?? [];
-    arr.push(wt);
-    walkthroughByLevel.set(lv, arr);
-  }
-
+  // 7. Build final array: walkthrough → DO cards per atom (sorted by level)
   const final: AnyCard[] = [];
-  let prevLevel = -999;
-
   for (const atomId of sortedAtomIds) {
-    const curLevel = atomLevel(atomId);
-
-    // Insert walkthroughs when transitioning to a new level
-    if (curLevel !== prevLevel && prevLevel !== -999) {
-      const wts = walkthroughByLevel.get(prevLevel);
-      if (wts) {
-        final.push(...wts);
-        walkthroughByLevel.delete(prevLevel);
-      }
-    }
-    prevLevel = curLevel;
-
     final.push(...(byAtom.get(atomId) ?? []));
-  }
-
-  // Flush any remaining walkthroughs for the last level
-  if (prevLevel !== -999) {
-    const wts = walkthroughByLevel.get(prevLevel);
-    if (wts) final.push(...wts);
   }
 
   // 8. Write combined cards.json
