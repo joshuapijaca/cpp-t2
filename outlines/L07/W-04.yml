@@ -1,0 +1,60 @@
+id: W-04
+fact: init runs once
+words: 3
+level: 7
+deps:
+  - W-03
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - init runs only once
+    - 'first part: init once'
+    - init sets up loop var
+    - init not repeated
+    - init at the start
+  see_demo:
+    why_one_line: the init clause runs ONCE before the loop starts.
+    snippet: |
+      for (int i = 0; i < 5; i++) {
+        // init `int i = 0` runs ONCE
+        cout << i;
+      }
+    highlights:
+      - int i = 0
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      for (int i = 0; i < 5; i++) {
+        cout << i << " ";
+      }
+      cout << endl;
+      int sum = 0;
+      for (int i = 1; i <= 10; i++) {
+        sum = sum + i;
+      }
+    correct_atoms:
+      - W-04
+      - W-03
+    distractors:
+      - W-01
+      - W-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

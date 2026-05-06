@@ -1,0 +1,62 @@
+id: P-06
+fact: output appears in terminal
+words: 4
+level: -1
+deps:
+  - P-05
+q_tags:
+  Q1: S
+  Q2: S
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: |-
+  // cout sends text to the terminal (stdout)
+  cout << "Hello" << endl;
+  // Terminal shows: Hello
+expected_output: Hello appears in terminal
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - program prints to terminal
+    - output goes to console
+    - terminal shows program output
+    - cout writes to terminal
+    - print results to terminal
+  see_demo:
+    why_one_line: terminal output is where every Q1 trace and Q4 print lands.
+    snippet: |-
+      int main() {
+        cout << "Hello" << endl;
+        cout << "Score: " << 95 << endl;
+        return 0;
+      }
+      // Terminal output:
+      // Hello
+      // Score: 95
+    highlights:
+      - cout <<
+      - '// Terminal output:'
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int main() {
+        cout << "Hello" << endl;
+        cout << "Score: " << 95 << endl;
+        return 0;
+      }
+    correct_atoms:
+      - P-06
+      - P-05
+    distractors:
+      - P-01
+      - P-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

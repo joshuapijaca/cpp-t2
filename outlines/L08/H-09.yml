@@ -1,0 +1,55 @@
+id: H-09
+fact: locals die at return
+words: 5
+level: 8
+deps:
+  - H-04
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - locals end at return
+    - after return locals gone
+    - function-local lifetime
+    - frame popped on return
+    - locals don't escape function
+  see_demo:
+    why_one_line: locals (and params without &) vanish at return; their changes are lost.
+    snippet: |
+      void f() {
+        int local = 5;
+        // local dies when f returns
+      }
+    highlights:
+      - int local
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |-
+      int x = 42;
+      string s = to_string(x);
+      double d = stod("3.14");
+      int n = stoi("99");
+      cout << s << " " << d << " " << n << endl;
+    correct_atoms:
+      - H-09
+      - H-04
+    distractors:
+      - H-01
+      - H-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

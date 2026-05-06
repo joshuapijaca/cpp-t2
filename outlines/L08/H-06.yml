@@ -1,0 +1,56 @@
+id: H-06
+fact: void = no return value
+words: 5
+level: 8
+deps:
+  - H-02
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - void function returns nothing
+    - use void when no value
+    - void = silent function
+    - void f() returns no value
+    - no return needed if void
+  see_demo:
+    why_one_line: void means the function does work but does not hand back a value.
+    snippet: |
+      void greet() {
+        cout << "hi";
+        // no return value
+      }
+    highlights:
+      - void
+    used_in:
+      - Q1
+      - Q3
+  see_decompose:
+    snippet: |-
+      int x = 42;
+      string s = to_string(x);
+      double d = stod("3.14");
+      int n = stoi("99");
+      cout << s << " " << d << " " << n << endl;
+    correct_atoms:
+      - H-06
+      - H-02
+    distractors:
+      - H-01
+      - H-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,58 @@
+id: V-08
+fact: '= is assignment, not equality'
+words: 5
+level: 2
+deps:
+  - V-07
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - '= assigns; == compares'
+    - single = is assignment
+    - don't confuse = with ==
+    - 'assign vs equality: = vs =='
+    - '= writes; == reads boolean'
+  see_demo:
+    why_one_line: '= writes a value; comparing equality is == (a frequent Q1 trap).'
+    snippet: |
+      int x = 5;         // = stores 5 in x
+      if (x == 5) {      // == compares
+        cout << "equal";
+      }
+    highlights:
+      - '='
+      - '=='
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int x = 5;
+      x = x + 1;
+      int y = x;
+      string greeting = "hi";
+      greeting = "hello";
+    correct_atoms:
+      - V-08
+      - V-07
+    distractors:
+      - V-01
+      - V-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

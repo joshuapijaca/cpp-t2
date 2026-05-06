@@ -1,0 +1,52 @@
+id: O-12
+fact: printf first arg is format
+words: 5
+level: 1
+deps:
+  - O-08
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: 'N'
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - format string is first arg
+    - printf format goes first
+    - first parameter has %s and %d
+    - format precedes data
+    - first arg holds template
+  see_demo:
+    why_one_line: first arg is the format string; the rest fill the % placeholders in order.
+    snippet: |
+      printf("score = %d\n", 100);
+      //      ^^^^^^^^^^^^^ format string
+    highlights:
+      - '"score = %d\n"'
+    used_in:
+      - Q4
+  see_decompose:
+    snippet: |-
+      int id = 42;
+      string name = "Bob";
+      double gpa = 3.75;
+      printf("Student %d: %s, GPA %.2f\n", id, name.c_str(), gpa);
+    correct_atoms:
+      - O-12
+      - O-08
+    distractors:
+      - O-01
+      - O-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

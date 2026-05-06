@@ -1,0 +1,34 @@
+id: WT-L1
+level: 1
+level_label: "L1 output -- chained values + printf for Q4"
+anchor_atom_id: O-08
+status: locked
+full_code: |
+  #include <iostream>
+  #include <cstdio>
+  using namespace std;
+  
+  int main() {
+    int id = 42;
+    string name = "ada";
+    cout << id << " " << name << endl;
+    printf("%d %s\n", id, name.c_str());
+    return 0;
+  }
+steps:
+  - line: 6
+    code: "  int id = 42;"
+    annotation: "declare an int, store 42."
+    atom_ids: [V-04, V-10, V-15]
+  - line: 7
+    code: "  string name = \"ada\";"
+    annotation: "declare a string, store the literal."
+    atom_ids: [V-12, V-17]
+  - line: 8
+    code: "  cout << id << \" \" << name << endl;"
+    annotation: "cout chain: int + space + string + newline."
+    atom_ids: [O-01, O-02, O-04, O-05, O-07]
+  - line: 9
+    code: "  printf(\"%d %s\\n\", id, name.c_str());"
+    annotation: "Q4 printf shape. %d for int, %s for c_str, \\n for newline."
+    atom_ids: [O-08, O-09, O-10, O-11, MW-09]

@@ -1,0 +1,39 @@
+id: MW-02
+fact: "const int MAX = 100;"
+words: 5
+level: 16
+deps: []
+q_tags: { Q1: N, Q2: N, Q3: N, Q4: C }
+pfg_source: []
+test2_evidence: []
+canonical_example: ""
+expected_output: ""
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - "const int MAX = 100"
+    - "use const for array size"
+    - "capital MAX is convention"
+    - "const = compile-time constant"
+    - "MAX bounds the array"
+  write_L1_fill:
+    template: "___ int MAX = 100;"
+    blank_value: "const"
+  see_demo:
+    why_one_line: "const int MAX = 100; defines the array capacity before any other code."
+    snippet: |
+      const int MAX = 100;
+    highlights: ["const int MAX = 100;"]
+    used_in: [Q4]
+  see_decompose:
+    snippet: |
+      const int MAX = 100;
+      book list[MAX];
+    correct_atoms: [MW-02]
+    distractors: [MW-01, MW-03, R-01]
+acceptance:
+  memorize: ["<=7 words"]
+lint:
+  miller_max_words: 7
+status: locked

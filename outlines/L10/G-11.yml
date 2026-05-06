@@ -1,0 +1,55 @@
+id: G-11
+fact: for loop iterates array
+words: 4
+level: 10
+deps:
+  - G-05
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: for (int i = 0; i < N; i++) arr[i] = ...;
+expected_output: arr[0]..arr[N-1] each assigned
+sit102_quirks:
+  - Standard zero-based traversal
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - for-loop walks array
+    - use for loop with i < N
+    - iterate array with for(i)
+    - loop from 0 to N minus 1
+    - for loop reads each slot
+  write_L1_fill:
+    template: for (int i = 0; i < ___; i++) arr[i] = 0;
+    blank_value: 'N'
+  see_demo:
+    why_one_line: for (int i = 0; i < N; i++) is the canonical full-array walk.
+    snippet: |
+      for (int i = 0; i < N; i++) arr[i] = ...;
+    highlights:
+      - arr[i]
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      for (int i = 0; i < N; i++) arr[i] = ...;
+    correct_atoms:
+      - G-11
+      - G-05
+    distractors:
+      - G-01
+      - G-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions loop / iterate / array
+lint:
+  miller_max_words: 7
+status: locked

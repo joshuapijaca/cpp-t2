@@ -1,0 +1,57 @@
+id: F-03
+fact: else if chains conditions
+words: 4
+level: 6
+deps:
+  - F-02
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - else if for chained tests
+    - multiple branches via else if
+    - else if checks next condition
+    - chain conditions with else if
+    - use else if to add cases
+  see_demo:
+    why_one_line: else if chains decisions; only the first matching branch runs.
+    snippet: |
+      if (x > 0)      cout << "pos";
+      else if (x < 0) cout << "neg";
+      else            cout << "zero";
+    highlights:
+      - else if
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int square(int x) {
+        return x * x;
+      }
+
+      int main() {
+        int result = square(5);
+        cout << result << endl;
+        return 0;
+      }
+    correct_atoms:
+      - F-03
+      - F-02
+    distractors:
+      - F-01
+      - F-04
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

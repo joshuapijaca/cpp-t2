@@ -1,0 +1,64 @@
+id: T-05
+fact: 'use type: Name x; declares'
+words: 5
+level: 11
+deps:
+  - T-02
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence:
+  - question: Q4
+    instance: main() declares X list[MAX]; uses Name as a type
+    file_path: extraction/L14_struct_write/code_examples.cpp
+canonical_example: |
+  struct Point { int x; int y; };
+  Point p;
+expected_output: p declared as Point; p.x and p.y uninitialized
+sit102_quirks:
+  - After struct Name { ... };, write Name x; like any type
+misconceptions:
+  - id: M01
+    description: Adds struct keyword at use
+    student_says: struct Point p;
+    correct_says: C++ doesn't need struct keyword; just Point p;
+render_hints:
+  memorize_seed_phrases:
+    - Name x declares struct variable
+    - use struct type like any type
+    - Name x; creates struct variable
+    - declare Name x just like int
+    - 'Name as type: Name x;'
+  see_demo:
+    why_one_line: after the struct exists, Name x; declares one of its instances.
+    snippet: |
+      struct Point { int x; int y; };
+      Point p;
+    highlights:
+      - struct
+    used_in:
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      struct Point { int x; int y; };
+    correct_atoms:
+      - T-05
+      - T-02
+    distractors:
+      - T-01
+      - T-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions Name / type / declares
+lint:
+  forbid_tokens:
+    - class
+    - typedef
+  miller_max_words: 7
+status: locked

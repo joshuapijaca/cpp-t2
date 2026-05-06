@@ -1,0 +1,41 @@
+id: S-03
+fact: "int main() { } is entry"
+words: 5
+level: 0
+deps: []
+q_tags: { Q1: N, Q2: N, Q3: N, Q4: C }
+pfg_source: []
+test2_evidence: []
+canonical_example: ""
+expected_output: ""
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - "int main() is program entry"
+    - "main is where execution starts"
+    - "every program has main()"
+    - "int main returns int code"
+    - "run starts at main()"
+  write_L1_fill:
+    template: "___ main() { return 0; }"
+    blank_value: "int"
+  see_demo:
+    why_one_line: "every program starts at main(); Q4 demands you write it from scratch."
+    snippet: |
+      int main() { return 0; }
+    highlights: ["int main()"]
+    used_in: [Q4]
+  see_decompose:
+    snippet: |
+      int main() {
+        // every program enters here
+        return 0;
+      }
+    correct_atoms: [S-03]
+    distractors: [S-01, S-10, R-01]
+acceptance:
+  memorize: ["<=7 words"]
+lint:
+  miller_max_words: 7
+status: locked

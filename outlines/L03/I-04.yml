@@ -1,0 +1,54 @@
+id: I-04
+fact: whitespace separates input values
+words: 4
+level: 3
+deps:
+  - I-03
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - spaces separate cin values
+    - tab or space ends input
+    - whitespace splits inputs
+    - each value before whitespace
+    - cin stops at whitespace
+  see_demo:
+    why_one_line: tabs, spaces, and newlines all separate input tokens for >>.
+    snippet: |
+      int a, b;
+      cin >> a >> b;     // user types: 3 7
+    highlights:
+      - ' '
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int age;
+      string name;
+      cout << "Enter name: ";
+      cin >> name;
+      cout << "Enter age: ";
+      cin >> age;
+      cout << name << " is " << age << endl;
+    correct_atoms:
+      - I-04
+      - I-03
+    distractors:
+      - I-01
+      - I-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

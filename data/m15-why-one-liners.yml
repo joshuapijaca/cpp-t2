@@ -1,0 +1,229 @@
+# M15 — hand-authored whyOneLine per atom (187 entries).
+# Each value: 1 sentence, Hemingway prose, T2-context-anchored, ASCII only, <=80 chars.
+# Merged into outlines via build/apply-m15-content.ts.
+# Spec: cpp-t2/docs/14_see_cards_master_plan.md ("Outline Schema").
+
+# === L-1 Pre-programming (P-) ===
+P-01: "every C++ program is just CPU instructions running in order."
+P-02: "code is text humans read and the compiler turns into machine action."
+P-03: "your work lives in .cpp files; this is the input the compiler reads."
+P-04: "compiler turns text into a runnable .exe before any user sees output."
+P-05: "running the .exe is what produces the output the SIT102 tester checks."
+P-06: "terminal output is where every Q1 trace and Q4 print lands."
+P-07: "terminal input is what cin reads from in Q3 read functions."
+
+# === L0 Source skeleton (S-) ===
+S-01: "without #include <iostream> the compiler has never heard of cin or cout."
+S-02: "lets you write cout instead of std::cout; SIT102 always uses this."
+S-03: "every program starts at main(); Q4 demands you write it from scratch."
+S-04: "missing one ; is the most common SIT102 compile fail."
+S-05: "{ marks where every function body, loop body, and struct body begins."
+S-06: "} closes the matching { ; mismatched braces collapse the whole parse."
+S-07: "main must end with return 0; or the OS treats the program as failed."
+S-08: "// lets you annotate code without affecting behavior; useful in answers."
+S-09: "the compiler ignores extra spaces and blank lines; readability is for you."
+S-10: "indentation makes structure visible; the compiler does not require it."
+
+# === L1 Output (O-) ===
+O-01: "primary tool for showing program results; chained in every Q4 print loop."
+O-02: "<< sends a value to cout; chain it to print several things in one line."
+O-03: "string literal in quotes goes directly to the terminal."
+O-04: "an int written to cout becomes its decimal digits on screen."
+O-05: "endl writes a newline and flushes; what every Q1 trace expects between lines."
+O-06: '"\\n" is the shorter newline used in Q4 printf format strings.'
+O-07: "chain << << << to put several values on one line of output."
+O-08: "Q4 mocks the SIT102 printf style for formatted record printing."
+O-09: "%d in printf is where each int (id, count) lands in the output."
+O-10: "%s in printf is where each C-string (use .c_str()) lands."
+O-11: '\\n inside a printf format adds a newline at that exact spot.'
+O-12: "first arg is the format string; the rest fill the % placeholders in order."
+O-13: "extra args after the format must match the placeholders one-for-one."
+
+# === L2 Variables (V-) ===
+V-01: "a variable is a labeled box in memory; everything else builds on this."
+V-02: "every variable has a name you use to read and write its box."
+V-03: "every variable has a type that decides what fits in the box."
+V-04: "every variable in C++ starts with a typed declaration."
+V-05: "type name = value; declares and initializes in one statement."
+V-06: "use the variable's name to read its current value into an expression."
+V-07: "name = newValue; overwrites the box with a new value."
+V-08: "= writes a value; comparing equality is == (a frequent Q1 trap)."
+V-09: "C++ reads top-down; declare a variable before you can use it."
+V-10: "int is the default type for counts, indices, and Q4 record IDs."
+V-11: "double is what stores the .mystery field in Q1 stat_double."
+V-12: "string holds names and Q4 record fields like book.title."
+V-13: "bool is the type that an if condition expects."
+V-14: "char holds one letter; rare in T2 but part of the type system."
+V-15: "literal integers like 5 fix the type as int unless cast."
+V-16: "decimals like 3.14 default to double; appears in Q1 .mystery seeds."
+V-17: 'string literals in double quotes need <string>; appear in Q2 fields.'
+V-18: "single-quoted 'a' is a char, not a string; mixing the two is a Q4 bug."
+V-19: "true and false are the only two bool literals; used in Q1 conditions."
+V-20: "without #include <string> the string type is not declared."
+
+# === L3 Input (I-) ===
+I-01: "Q3 read function calls cin once per struct field; without it no user data."
+I-02: ">> reads the next whitespace-separated token into the variable."
+I-03: "cin >> x; pauses until the user types and presses enter."
+I-04: "tabs, spaces, and newlines all separate input tokens for >>."
+I-05: "cin reads ints as digits, strings as one whitespace-delimited word."
+I-06: "chain >> >> to read several values from one input line."
+I-07: "getline reads an entire line into a string; rare but useful for Q3 names."
+
+# === L4 Operators (A-) ===
+A-01: "+ adds two numbers; appears in Q1 mystery-update lines like data.a + data.b."
+A-02: "- subtracts; sometimes appears in Q1 traces under stat_double mutations."
+A-03: "* multiplies; appears in Q1 area-style mocks and some mystery formulas."
+A-04: "/ divides; for ints this truncates toward zero (a known Q1 trap)."
+A-05: "% gives the remainder of int division; useful for parity tricks."
+A-06: "5/2 in int arithmetic is 2, not 2.5; affects who_am_i mystery values."
+A-07: "*, /, % bind tighter than + and -; matters in mixed expressions."
+A-08: "() force the desired evaluation order regardless of precedence."
+A-09: "x += 1 is shorthand for x = x + 1; matches mystery-update style."
+A-10: "i++ adds 1 and is what every for-loop step in Q3 and Q4 uses."
+A-11: "i-- subtracts 1; rarely on T2 but completes the operator family."
+
+# === L5 Comparison + logical (C- / L-) ===
+C-01: "== tests if two values are equal; conditional trap when written as =."
+C-02: "!= is the opposite of ==; used in some Q1 mystery conditions."
+C-03: "i < n is the canonical loop guard for Q3 and Q4 for-loops."
+C-04: "data.numbers[i] > data.mystery is a Q1 max-finder shape."
+C-05: "<= includes the boundary; off-by-one risk on Q3 read loops."
+C-06: ">= appears in some Q1 conditional variants."
+C-07: "every comparison returns a bool, which is what if and while expect."
+L-01: "&& chains two bool tests; both must be true for the whole to be true."
+L-02: "|| means OR; either condition true makes the whole true."
+L-03: "! flips a bool; rare in T2 but completes the logical family."
+
+# === L6 Conditionals (F-) ===
+F-01: "if (cond) runs its block when the condition is true."
+F-02: "else runs the alternative block when the if condition is false."
+F-03: "else if chains decisions; only the first matching branch runs."
+F-04: "the if condition must reduce to a bool; raw ints implicitly convert."
+F-05: "always wrap if bodies in {} ; SIT102 grading rejects single-line shortcuts."
+
+# === L7 Loops (W-) ===
+W-01: "while (cond) repeats while the condition stays true; check first."
+W-02: "do { body } while runs the body once before the first cond check."
+W-03: "for is what every Q3 read loop and Q4 print loop is built from."
+W-04: "the init clause runs ONCE before the loop starts."
+W-05: "the condition is checked BEFORE each iteration body runs."
+W-06: "the step clause runs AFTER each iteration body completes."
+W-07: "break leaves the loop immediately; rare in T2 but valid."
+W-08: "continue skips the rest of the body and goes to the next iteration."
+W-09: "nested loops are how you would walk a 2D grid; rare in T2."
+W-10: "if the condition is never false, your code hangs at runtime."
+
+# === L8 Functions (H-) ===
+H-01: "a function is a named block of code you can reuse and call from main."
+H-02: "the signature shape: returnType name(params) { body } -- write it cold."
+H-03: 'name(args); is how the caller actually runs the function.'
+H-04: "each parameter becomes a local box inside the function frame."
+H-05: "return value; ends the function and reports a result to the caller."
+H-06: "void means the function does work but does not hand back a value."
+H-07: "you must declare or prototype a function before any caller uses it."
+H-08: "prototype lets you put main first and define helpers later."
+H-09: "locals (and params without &) vanish at return; their changes are lost."
+H-10: "main cannot poke at a function's locals; only what & or return exposes."
+
+# === L9 Pass-by-reference (R-) ===
+R-01: "C++ default: every parameter is a copy; the caller box is untouched."
+R-02: "without &, a function's mutation lives only inside the frame and dies."
+R-03: "& binds the parameter to the caller's box; same memory, two names."
+R-04: "& sits between the type and the parameter name in the function signature."
+R-05: "with &, every mutation persists; the caller sees the change after return."
+R-06: "you cannot bind a reference to a literal; needs a real variable."
+R-07: "const & lets the function read the caller box without ever writing it."
+R-08: "the same memory box wears two names while the function runs."
+
+# === L10 Arrays (G-) ===
+G-01: "array stores N values of one type back-to-back in memory."
+G-02: "type arr[N]; reserves space for N elements at compile time."
+G-03: "type arr[N] = { ... }; fills the slots in order."
+G-04: "arr[0] is the first slot; off-by-one bugs start when you forget this."
+G-05: "arr[i] is how Q3 and Q4 read or write the i-th record."
+G-06: "C++ arrays count from 0; arr[N] is past the end."
+G-07: "the last valid index is N-1, the canonical loop upper bound minus one."
+G-08: "writing past arr[N-1] is undefined behavior; the SIT102 grader catches it."
+G-09: "you set N at declaration; fixed forever for that array."
+G-10: "C++ has no `return arr;`; you must pass it via & in the parameter list."
+G-11: "for (int i = 0; i < N; i++) is the canonical full-array walk."
+G-12: "arr[i] = v stores v at slot i; what Q3 read and Q4 print depend on."
+G-13: "type arr[] in a parameter is the array-passing shape -- without &, copies."
+G-14: "&arr[] aliases the caller's array; what makes Q3 reads stick."
+
+# === L11 Structs (T-) ===
+T-01: "struct lets you carry several related fields under one variable name."
+T-02: "struct Name { fields }; defines the type before any code can use it."
+T-03: "each field has its own type and name; comma-separated lists are illegal."
+T-04: "the ; after } is mandatory; missing it is a textbook SIT102 fail."
+T-05: 'after the struct exists, Name x; declares one of its instances.'
+T-06: "x.field is how you read or write one of the struct's slots."
+T-07: "x.field = v; updates that one field and leaves the others alone."
+T-08: "cout << x.field prints the field's current value to the terminal."
+T-09: "a struct can hold an array as a field; this is the Q1 stat_double shape."
+T-10: "data.numbers[i] is the Q1 chained access pattern -- struct then array."
+T-11: "Name list[N]; is the Q3 and Q4 array-of-structs pattern."
+T-12: "list[i].field is the Q3/Q4 chained access -- pick a record, then a field."
+
+# === L12 Pass composites (PC-) ===
+PC-01: "passing a struct by value copies every field; the caller is untouched."
+PC-02: "void f(Name &x) lets the function mutate the caller's struct directly."
+PC-03: "with &, x.field = v inside the function persists into the caller."
+PC-04: "void f(Name &list[], int n) is the Q3 read function signature shape."
+PC-05: "list[i].field = v writes into the caller's array of structs via &."
+PC-06: "const Name & gives the function read access without write power."
+
+# === L13 Hand-execution (HE-) ===
+HE-01: "Q1 demands you simulate a function's execution by hand and predict d.mystery."
+HE-02: "track every variable's value step by step; one missed update sinks the answer."
+HE-03: "every assignment overwrites the old value; record the new state."
+HE-04: "for-loop traces show i changing from start through cond exit."
+HE-05: "an if test picks ONE branch; ignore the unused side completely."
+HE-06: "calling a function opens a new frame with fresh local boxes."
+HE-07: "return collapses the frame; locals without & cease to exist."
+HE-08: "if the parameter has &, your traced edits write through to the caller box."
+HE-09: "arr[i] = v writes through to the caller array if the array param is &."
+HE-10: "trace simple assignments: end with the final value of every box you wrote."
+HE-11: "for arrays, write the final state of every slot you touched."
+HE-12: "loop traces walk every iteration until the condition fails."
+HE-13: "branch traces commit to one side based on the live condition value."
+HE-14: "function-call traces step into the new frame and back out at return."
+HE-15: "mark the SAME-box rule for & params; that single line decides Q1."
+HE-16: "Q1 is a max-finder algorithm: scan all numbers, keep the biggest."
+HE-17: "& on the struct param means d.mystery you set inside is what main sees."
+HE-18: "data.numbers[i] > data.mystery is the comparison every Q1 mystery rests on."
+
+# === L14 Struct-write (SW-) ===
+SW-01: "Q2 wants a struct definition with three fields, written from a spec."
+SW-02: "each field is one declaration: type fieldName; on its own line."
+SW-03: "always end the closing } with a semicolon; this is graded literally."
+SW-04: "pick types per the spec: int for ids, string for names, double for amounts."
+SW-05: "field order does not affect the grade as long as all three are present."
+
+# === L15 Read-function (RW-) ===
+RW-01: "Q3 always returns void -- the function fills caller storage, not a value."
+RW-02: "Type &list[] is the array-by-ref parameter shape that makes writes stick."
+RW-03: "int count tells the function how many records to read."
+RW-04: "for (int i = 0; i < count; i++) is the loop frame Q3 expects."
+RW-05: "cin >> list[i].field; reads one user input into one field of one record."
+RW-06: "one cin line per struct field -- the function reads them all in order."
+RW-07: "an optional cout prompt before each cin makes the program user-friendly."
+
+# === L16 Main-write (MW-) ===
+MW-01: "Q4 expects a complete int main() that returns 0 at the end."
+MW-02: "const int MAX = 100; defines the array capacity before any other code."
+MW-03: "Type list[MAX]; reserves storage for up to MAX records."
+MW-04: "int count; declares the variable that will hold the actual record count."
+MW-05: "cin >> count; reads the user's record count into the variable."
+MW-06: "call read_X(list, count); to fill the array via Q3's function."
+MW-07: "for (int i = 0; i < count; i++) loops over the records you just read."
+MW-08: 'printf with format string + .c_str() prints each record on one line.'
+MW-09: "C++ string -> %s needs .c_str() ; without it printf prints garbage."
+
+# === L17 Mock exams (ME-) ===
+ME-01: "first full timed mock; covers all four questions end-to-end."
+ME-02: "second full mock; entity name varies but the four shapes hold."
+ME-03: "third mock; tightens timing under the 90-minute budget."
+ME-04: "fourth mock; adds tricky stat_double mystery formulas to Q1."
+ME-05: "final mock; production-readiness check before exam day."

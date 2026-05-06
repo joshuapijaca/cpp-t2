@@ -1,0 +1,98 @@
+id: HE-15
+fact: trace pass-by-value vs &
+words: 5
+level: 13
+deps:
+  - R-02
+  - R-05
+  - HE-08
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q01
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+  - quote_id: Q02
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: stat_double &data - & means caller's d updated; without &, caller's d unchanged
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  void f_val(int x) {
+      x = 99;
+  }
+  void f_ref(int &x) {
+      x = 99;
+  }
+  int main() {
+      int n = 5;
+      f_val(n);    // n still 5
+      f_ref(n);    // n now 99
+  }
+expected_output: 'after f_val: n = 5; after f_ref: n = 99'
+sit102_quirks:
+  - Two boxes for value param; one box, two labels for & param
+  - Trace must show contrast clearly
+misconceptions:
+  - id: M01
+    description: Treats both the same
+    student_says: Mutation propagates either way
+    correct_says: Only & propagates; value-copy mutation is lost at return
+  - id: M02
+    description: Always uses &
+    student_says: Pass everything by ref
+    correct_says: Only when caller-mutation needed; otherwise value-copy is fine
+render_hints:
+  memorize_seed_phrases:
+    - value param trace separate box
+    - '& param trace one box two labels'
+    - no & means caller untouched
+    - '& means caller mutates'
+    - two box vs one box mental model
+  see_demo:
+    why_one_line: mark the SAME-box rule for & params; that single line decides Q1.
+    snippet: |
+      void f_val(int x) {
+          x = 99;
+      }
+      void f_ref(int &x) {
+          x = 99;
+      }
+      int main() {
+          int n = 5;
+          f_val(n);    // n still 5
+          f_ref(n);    // n now 99
+      }
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      void f_val(int x) {
+          x = 99;
+    correct_atoms:
+      - HE-15
+      - R-02
+      - R-05
+      - HE-08
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: value / reference / box / label / contrast'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+    - '*'
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

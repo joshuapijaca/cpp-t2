@@ -1,0 +1,797 @@
+# M15 — hand-authored short C++ snippets for atoms whose canonical_example is empty.
+# Used by build/apply-m15-content.ts to fill see_demo.snippet for foundation atoms.
+# All ASCII; <=8 lines each; SIT102 idiom.
+# Spec: cpp-t2/docs/14_see_cards_master_plan.md ("Outline Schema").
+
+# === L0 Source skeleton (S-) ===
+S-01:
+  snippet: |
+    #include <iostream>
+    using namespace std;
+    int main() {
+      cout << "ready" << endl;
+      return 0;
+    }
+  highlights: ["#include <iostream>"]
+
+S-02:
+  snippet: |
+    #include <iostream>
+    using namespace std;        // lets you write cout, not std::cout
+    int main() {
+      cout << "ok";
+      return 0;
+    }
+  highlights: ["using namespace std"]
+
+S-03:
+  snippet: |
+    int main() {
+      // every program enters here
+      return 0;
+    }
+  highlights: ["int main()"]
+
+S-04:
+  snippet: |
+    int x = 5;        // ; required
+    cout << x;        // ; required
+  highlights: [";"]
+
+S-05:
+  snippet: |
+    int main() {       // { opens block
+      cout << "hi";
+    }
+  highlights: ["{"]
+
+S-06:
+  snippet: |
+    int main() {
+      cout << "hi";
+    }                  // } closes block
+  highlights: ["}"]
+
+S-07:
+  snippet: |
+    int main() {
+      cout << "done";
+      return 0;        // tells OS: success
+    }
+  highlights: ["return 0;"]
+
+S-08:
+  snippet: |
+    int x = 5;     // declare counter
+    x = x + 1;     // increment
+  highlights: ["// declare counter", "// increment"]
+
+S-09:
+  snippet: |
+    int   x =   5 ;
+    int y=10;
+    // both are valid; spaces optional around tokens
+  highlights: []
+
+S-10:
+  snippet: |
+    int main() {
+        cout << "indent";
+            cout << "more indent";
+      cout << "less";
+      return 0;
+    }
+  highlights: []
+
+# === L1 Output (O-) ===
+O-01:
+  snippet: |
+    cout << "hello";
+  highlights: ["cout"]
+
+O-02:
+  snippet: |
+    int x = 5;
+    cout << x;
+  highlights: ["<<"]
+
+O-03:
+  snippet: |
+    cout << "hello, world";
+  highlights: ['"hello, world"']
+
+O-04:
+  snippet: |
+    cout << 5;
+    cout << 42;
+  highlights: ["5", "42"]
+
+O-05:
+  snippet: |
+    cout << "line one" << endl;
+    cout << "line two" << endl;
+  highlights: ["endl"]
+
+O-06:
+  snippet: |
+    cout << "line one\n";
+    cout << "line two\n";
+  highlights: ['\n']
+
+O-07:
+  snippet: |
+    int a = 1, b = 2;
+    cout << a << " " << b << endl;
+  highlights: ["<<"]
+
+O-08:
+  snippet: |
+    int id = 42;
+    printf("id = %d\n", id);
+  highlights: ["printf"]
+
+O-09:
+  snippet: |
+    int n = 7;
+    printf("count = %d\n", n);
+  highlights: ["%d"]
+
+O-10:
+  snippet: |
+    string name = "ada";
+    printf("name = %s\n", name.c_str());
+  highlights: ["%s", ".c_str()"]
+
+O-11:
+  snippet: |
+    printf("hello\n");
+    printf("world\n");
+  highlights: ['\n']
+
+O-12:
+  snippet: |
+    printf("score = %d\n", 100);
+    //      ^^^^^^^^^^^^^ format string
+  highlights: ['"score = %d\n"']
+
+O-13:
+  snippet: |
+    printf("%d + %d = %d\n", 2, 3, 5);
+  highlights: ["%d", "2", "3", "5"]
+
+# === L2 Variables (V-) ===
+V-01:
+  snippet: |
+    int n = 5;        // n is a labeled box holding 5
+    n = n + 1;        // box now holds 6
+  highlights: ["n"]
+
+V-02:
+  snippet: |
+    int counter = 0;
+    int total = 100;
+    // names: counter, total
+  highlights: ["counter", "total"]
+
+V-03:
+  snippet: |
+    int   age = 21;
+    double price = 9.95;
+    string name = "ada";
+  highlights: ["int", "double", "string"]
+
+V-04:
+  snippet: |
+    int x;            // declare an int box named x
+    string title;     // declare a string box named title
+  highlights: ["int x", "string title"]
+
+V-05:
+  snippet: |
+    int x = 5;
+    string name = "ada";
+    // both declare AND store a value at once
+  highlights: ["= 5", '= "ada"']
+
+V-06:
+  snippet: |
+    int x = 5;
+    cout << x;         // reads x's value
+  highlights: ["cout << x"]
+
+V-07:
+  snippet: |
+    int x = 5;
+    x = 10;            // overwrites the box
+  highlights: ["x = 10;"]
+
+V-08:
+  snippet: |
+    int x = 5;         // = stores 5 in x
+    if (x == 5) {      // == compares
+      cout << "equal";
+    }
+  highlights: ["=", "=="]
+
+V-09:
+  snippet: |
+    int x = 5;        // declared first
+    cout << x;        // then used
+  highlights: []
+
+V-10:
+  snippet: |
+    int count = 7;
+    int n = 42;
+  highlights: ["int"]
+
+V-11:
+  snippet: |
+    double mystery = 0.0;
+    double price = 3.14;
+  highlights: ["double"]
+
+V-12:
+  snippet: |
+    string title = "C++";
+    string author = "ada";
+  highlights: ["string"]
+
+V-13:
+  snippet: |
+    bool ok = true;
+    bool done = false;
+  highlights: ["bool"]
+
+V-14:
+  snippet: |
+    char letter = 'A';
+    char digit = '7';
+  highlights: ["char"]
+
+V-15:
+  snippet: |
+    int n = 5;          // 5 is an int literal
+    int big = 1000000;
+  highlights: ["5", "1000000"]
+
+V-16:
+  snippet: |
+    double pi = 3.14;
+    double half = 0.5;
+  highlights: ["3.14", "0.5"]
+
+V-17:
+  snippet: |
+    string greeting = "hello";
+    cout << "literal text";
+  highlights: ['"hello"', '"literal text"']
+
+V-18:
+  snippet: |
+    char letter = 'A';
+    char comma = ',';
+  highlights: ["'A'", "','"]
+
+V-19:
+  snippet: |
+    bool ok = true;
+    bool failed = false;
+  highlights: ["true", "false"]
+
+V-20:
+  snippet: |
+    #include <string>
+    using namespace std;
+    string title = "C++";
+  highlights: ["#include <string>"]
+
+# === L3 Input (I-) ===
+I-01:
+  snippet: |
+    int n;
+    cin >> n;          // pause for user input
+  highlights: ["cin"]
+
+I-02:
+  snippet: |
+    int x;
+    cin >> x;          // >> reads next token
+  highlights: [">>"]
+
+I-03:
+  snippet: |
+    int n;
+    cout << "enter n: ";
+    cin >> n;
+  highlights: ["cin >> n"]
+
+I-04:
+  snippet: |
+    int a, b;
+    cin >> a >> b;     // user types: 3 7
+  highlights: [" "]
+
+I-05:
+  snippet: |
+    int n;
+    string s;
+    cin >> n;          // parses digits as int
+    cin >> s;          // reads one word
+  highlights: ["cin >> n", "cin >> s"]
+
+I-06:
+  snippet: |
+    int a, b, c;
+    cin >> a >> b >> c;
+  highlights: [">> a >> b >> c"]
+
+I-07:
+  snippet: |
+    string fullName;
+    getline(cin, fullName);
+  highlights: ["getline(cin"]
+
+# === L4 Operators (A-) ===
+A-01:
+  snippet: |
+    int sum = 3 + 4;        // 7
+    int total = a + b;
+  highlights: ["+"]
+
+A-02:
+  snippet: |
+    int diff = 10 - 3;      // 7
+  highlights: ["-"]
+
+A-03:
+  snippet: |
+    int area = width * height;
+  highlights: ["*"]
+
+A-04:
+  snippet: |
+    int half = n / 2;
+  highlights: ["/"]
+
+A-05:
+  snippet: |
+    int rem = 7 % 3;        // 1
+  highlights: ["%"]
+
+A-06:
+  snippet: |
+    int q = 5 / 2;          // 2 (NOT 2.5)
+  highlights: ["5 / 2"]
+
+A-07:
+  snippet: |
+    int r = 1 + 2 * 3;      // 7, not 9
+  highlights: ["*", "+"]
+
+A-08:
+  snippet: |
+    int r = (1 + 2) * 3;    // 9
+  highlights: ["(1 + 2)"]
+
+A-09:
+  snippet: |
+    int total = 0;
+    total += 5;             // total = total + 5
+  highlights: ["+="]
+
+A-10:
+  snippet: |
+    int i = 0;
+    i++;                    // i = 1
+  highlights: ["i++"]
+
+A-11:
+  snippet: |
+    int n = 10;
+    n--;                    // n = 9
+  highlights: ["n--"]
+
+# === L5 Comparison + logical ===
+C-01:
+  snippet: |
+    if (x == 5) {
+      cout << "matches";
+    }
+  highlights: ["=="]
+
+C-02:
+  snippet: |
+    if (x != 0) {
+      cout << "nonzero";
+    }
+  highlights: ["!="]
+
+C-03:
+  snippet: |
+    for (int i = 0; i < n; i++) {
+      cout << i;
+    }
+  highlights: ["i < n"]
+
+C-04:
+  snippet: |
+    if (data.numbers[i] > data.mystery) {
+      data.mystery = data.numbers[i];
+    }
+  highlights: ["data.numbers[i] > data.mystery"]
+
+C-05:
+  snippet: |
+    if (i <= count) {
+      cout << "in range";
+    }
+  highlights: ["<="]
+
+C-06:
+  snippet: |
+    if (score >= 50) {
+      cout << "pass";
+    }
+  highlights: [">="]
+
+C-07:
+  snippet: |
+    bool match = (x == 5);   // bool result
+    if (match) cout << "y";
+  highlights: ["bool", "(x == 5)"]
+
+L-01:
+  snippet: |
+    if (a > 0 && b > 0) {
+      cout << "both positive";
+    }
+  highlights: ["&&"]
+
+L-02:
+  snippet: |
+    if (x == 0 || y == 0) {
+      cout << "at least one zero";
+    }
+  highlights: ["||"]
+
+L-03:
+  snippet: |
+    if (!found) {
+      cout << "missing";
+    }
+  highlights: ["!"]
+
+# === L6 Conditionals (F-) ===
+F-01:
+  snippet: |
+    if (x > 0) {
+      cout << "positive";
+    }
+  highlights: ["if"]
+
+F-02:
+  snippet: |
+    if (x > 0) {
+      cout << "positive";
+    } else {
+      cout << "zero or negative";
+    }
+  highlights: ["else"]
+
+F-03:
+  snippet: |
+    if (x > 0)      cout << "pos";
+    else if (x < 0) cout << "neg";
+    else            cout << "zero";
+  highlights: ["else if"]
+
+F-04:
+  snippet: |
+    bool ok = (x > 0);
+    if (ok) {
+      cout << "positive";
+    }
+  highlights: ["bool", "if (ok)"]
+
+F-05:
+  snippet: |
+    if (x > 0) {
+      cout << "pos";   // braces required
+    }
+  highlights: ["{", "}"]
+
+# === L7 Loops (W-) ===
+W-01:
+  snippet: |
+    int i = 0;
+    while (i < 5) {
+      cout << i;
+      i++;
+    }
+  highlights: ["while"]
+
+W-02:
+  snippet: |
+    int n;
+    do {
+      cin >> n;
+    } while (n < 0);
+  highlights: ["do", "while"]
+
+W-03:
+  snippet: |
+    for (int i = 0; i < n; i++) {
+      cout << i;
+    }
+  highlights: ["for (int i = 0; i < n; i++)"]
+
+W-04:
+  snippet: |
+    for (int i = 0; i < 5; i++) {
+      // init `int i = 0` runs ONCE
+      cout << i;
+    }
+  highlights: ["int i = 0"]
+
+W-05:
+  snippet: |
+    for (int i = 0; i < 5; i++) {
+      // cond `i < 5` checked each iteration
+      cout << i;
+    }
+  highlights: ["i < 5"]
+
+W-06:
+  snippet: |
+    for (int i = 0; i < 5; i++) {
+      cout << i;
+      // step `i++` runs after body
+    }
+  highlights: ["i++"]
+
+W-07:
+  snippet: |
+    for (int i = 0; i < 100; i++) {
+      if (i == 7) break;
+      cout << i;
+    }
+  highlights: ["break"]
+
+W-08:
+  snippet: |
+    for (int i = 0; i < 5; i++) {
+      if (i == 2) continue;
+      cout << i;
+    }
+  highlights: ["continue"]
+
+W-09:
+  snippet: |
+    for (int r = 0; r < rows; r++) {
+      for (int c = 0; c < cols; c++) {
+        cout << grid[r][c];
+      }
+    }
+  highlights: ["for (int r", "for (int c"]
+
+W-10:
+  snippet: |
+    while (true) {
+      // forever -- avoid in T2 unless break
+      cout << "loops";
+    }
+  highlights: ["while (true)"]
+
+# === L8 Functions (H-) ===
+H-01:
+  snippet: |
+    void greet() {
+      cout << "hello";
+    }
+    int main() {
+      greet();
+      return 0;
+    }
+  highlights: ["void greet()", "greet();"]
+
+H-02:
+  snippet: |
+    int add(int a, int b) {
+      return a + b;
+    }
+  highlights: ["int add(int a, int b)"]
+
+H-03:
+  snippet: |
+    int sum = add(3, 4);
+    cout << sum;       // 7
+  highlights: ["add(3, 4)"]
+
+H-04:
+  snippet: |
+    void f(int x) {
+      // x is a local box; caller's variable is separate
+      x = 99;
+    }
+  highlights: ["int x"]
+
+H-05:
+  snippet: |
+    int square(int n) {
+      return n * n;
+    }
+  highlights: ["return"]
+
+H-06:
+  snippet: |
+    void greet() {
+      cout << "hi";
+      // no return value
+    }
+  highlights: ["void"]
+
+H-07:
+  snippet: |
+    int square(int n);   // prototype
+
+    int main() {
+      cout << square(5);
+      return 0;
+    }
+
+    int square(int n) { return n * n; }
+  highlights: ["int square(int n);"]
+
+H-08:
+  snippet: |
+    int square(int);      // prototype: types only
+    void greet(string);
+  highlights: ["int square(int);"]
+
+H-09:
+  snippet: |
+    void f() {
+      int local = 5;
+      // local dies when f returns
+    }
+  highlights: ["int local"]
+
+H-10:
+  snippet: |
+    void f() {
+      int secret = 42;
+    }
+    int main() {
+      f();
+      // cout << secret;  // ERROR: out of scope
+      return 0;
+    }
+  highlights: ["int secret"]
+
+# === L10 Arrays — backfill the few missing G-* ===
+G-06:
+  snippet: |
+    int arr[3] = {10, 20, 30};
+    cout << arr[0];   // 10  (NOT arr[1])
+  highlights: ["arr[0]"]
+
+G-08:
+  snippet: |
+    int arr[3] = {10, 20, 30};
+    // arr[3] is past the end -- undefined behavior
+    cout << arr[3];
+  highlights: ["arr[3]"]
+
+G-10:
+  snippet: |
+    // C++ has no `return arr;`. Use a reference parameter instead:
+    void fill(int arr[], int n) { /* ... */ }
+  highlights: ["int arr[]"]
+
+# === L12 Pass composites — backfill ===
+PC-03:
+  snippet: |
+    void mutate(stat_double &d) {
+      d.mystery = 99.0;   // persists in caller
+    }
+  highlights: ["stat_double &d", "d.mystery = 99.0"]
+
+PC-05:
+  snippet: |
+    void read_book(book &list[], int n) {
+      list[0].title = "C++";   // writes to caller's list
+    }
+  highlights: ["list[0].title"]
+
+# === L14 Struct-write — backfill ===
+SW-04:
+  snippet: |
+    // pick types per spec
+    struct book {
+      int id;
+      string title;     // string for text
+      double price;     // double for amounts
+    };
+  highlights: ["int id;", "string title;", "double price;"]
+
+SW-05:
+  snippet: |
+    // any field order is fine
+    struct book {
+      string title;
+      double price;
+      int id;
+    };
+  highlights: []
+
+# === L15 Read-function — backfill ===
+RW-02:
+  snippet: |
+    void read_book(book &list[], int count) {
+      // &list[] aliases caller's array
+    }
+  highlights: ["&list[]"]
+
+RW-03:
+  snippet: |
+    void read_book(book &list[], int count) {
+      for (int i = 0; i < count; i++) { /* ... */ }
+    }
+  highlights: ["int count"]
+
+# === L16 Main-write — backfill ===
+MW-01:
+  snippet: |
+    int main() {
+      // Q4: full main shape
+      return 0;
+    }
+  highlights: ["int main()", "return 0;"]
+
+MW-02:
+  snippet: |
+    const int MAX = 100;
+    book list[MAX];
+  highlights: ["const int MAX = 100;"]
+
+MW-03:
+  snippet: |
+    const int MAX = 100;
+    book list[MAX];        // capacity-MAX storage
+  highlights: ["book list[MAX]"]
+
+MW-04:
+  snippet: |
+    int count;
+    cin >> count;
+  highlights: ["int count;"]
+
+MW-05:
+  snippet: |
+    int count;
+    cin >> count;          // user types record count
+  highlights: ["cin >> count;"]
+
+MW-06:
+  snippet: |
+    read_book(list, count);
+  highlights: ["read_book(list, count);"]
+
+MW-07:
+  snippet: |
+    for (int i = 0; i < count; i++) {
+      printf("%d %s\n", list[i].id, list[i].title.c_str());
+    }
+  highlights: ["for (int i = 0; i < count; i++)"]
+
+MW-08:
+  snippet: |
+    printf("%d %s\n", list[i].id, list[i].title.c_str());
+  highlights: ["%d %s\\n", ".c_str()"]
+
+MW-09:
+  snippet: |
+    string name = "ada";
+    printf("%s\n", name.c_str());   // C-string for %s
+  highlights: [".c_str()"]

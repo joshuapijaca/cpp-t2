@@ -1,0 +1,56 @@
+id: C-01
+fact: '== tests equality'
+words: 3
+level: 5
+deps:
+  - V-13
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - '== checks equal'
+    - a == b is true if equal
+    - '== returns bool'
+    - use == not = for compare
+    - equality test
+  see_demo:
+    why_one_line: '== tests if two values are equal; conditional trap when written as =.'
+    snippet: |
+      if (x == 5) {
+        cout << "matches";
+      }
+    highlights:
+      - '=='
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int x = 10;
+      if (x > 5) {
+        cout << "big" << endl;
+      } else if (x == 5) {
+        cout << "exact" << endl;
+      } else {
+        cout << "small" << endl;
+      }
+    correct_atoms:
+      - C-01
+      - V-13
+    distractors:
+      - C-02
+      - C-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

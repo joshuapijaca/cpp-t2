@@ -1,0 +1,81 @@
+id: HE-07
+fact: 'return: exit frame, locals die'
+words: 5
+level: 13
+deps:
+  - HE-06
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q06
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: After who_am_i returns, its `i` and other locals are gone; only caller's d remains (mutated via &)
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  void f() {
+      int local = 5;
+      // local lives here
+  }
+  // local does not exist here
+expected_output: local = 5 inside f; destroyed on return
+sit102_quirks:
+  - Locals erased at return
+  - Caller resumes its own frame
+  - '& parameters were aliases - caller''s box still alive'
+misconceptions:
+  - id: M01
+    description: Locals persist after return
+    student_says: local can still be used after f
+    correct_says: Locals die at return; frame is popped
+  - id: M02
+    description: Confuses & locals with regular locals
+    student_says: '& parameter dies too'
+    correct_says: '& parameter was an alias for caller''s box; caller''s box outlives the call'
+render_hints:
+  memorize_seed_phrases:
+    - return pops frame
+    - locals die at return
+    - frame ends, locals gone
+    - return erases the frame
+    - caller resumes after return
+  see_demo:
+    why_one_line: return collapses the frame; locals without & cease to exist.
+    snippet: |
+      void f() {
+          int local = 5;
+          // local lives here
+      }
+      // local does not exist here
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      void f() {
+          int local = 5;
+    correct_atoms:
+      - HE-07
+      - HE-06
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: return / pop / die / frame / locals'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+    - heap
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

@@ -1,0 +1,1498 @@
+[
+  {
+    "type": "cloze",
+    "atomId": "P-01",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "A ___ is a sequence of instructions the computer executes",
+    "answer": "program",
+    "explanation": "P-01: computer runs programs"
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-02",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "Source code is ___ that humans read and the compiler translates",
+    "answer": "text",
+    "explanation": "P-02: program is text instructions"
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-03",
+    "code": "// File: hello.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "C++ source code files use the ___ extension",
+    "answer": ".cpp",
+    "explanation": "P-03: source code is .cpp file"
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-04",
+    "code": "// hello.cpp -> g++ compiles -> hello.exe\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "The ___ converts .cpp source code into an executable .exe",
+    "answer": "compiler",
+    "explanation": "P-04: compiler converts source to exe"
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-05",
+    "code": "int main() {\n  cout << \"Hello\" << endl;\n  int x = 5;\n  cout << x << endl;\n  return 0;\n}",
+    "clozeSentence": "When you run the .exe, the CPU ___ each instruction in order",
+    "answer": "executes",
+    "explanation": "P-05: running exe executes instructions"
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-06",
+    "code": "int main() {\n  cout << \"Hello\" << endl;\n  cout << \"Score: \" << 95 << endl;\n  return 0;\n}",
+    "clozeSentence": "Program output appears in the ___ window",
+    "answer": "terminal",
+    "explanation": "P-06: output appears in terminal"
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-07",
+    "code": "int main() {\n  int age;\n  cout << \"Enter age: \";\n  cin >> age;\n  cout << \"You are \" << age << endl;\n  return 0;\n}",
+    "clozeSentence": "User input is ___ in the terminal during program execution",
+    "answer": "typed",
+    "explanation": "P-07: input typed in terminal"
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-01",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"ready\" << endl;\n  return 0;\n}",
+    "clozeSentence": "Without ___ the compiler doesn't know about cout or cin",
+    "answer": "#include <iostream>",
+    "explanation": "S-01: #include <iostream> adds I/O"
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-02",
+    "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "___ lets you write cout instead of std::cout",
+    "answer": "using namespace std;",
+    "explanation": "S-02: using namespace std; saves typing"
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-03",
+    "code": "int main() {\n  // every program enters here\n  return 0;\n}",
+    "clozeSentence": "___ is where every C++ program begins executing",
+    "answer": "int main()",
+    "explanation": "S-03: int main() { } is entry"
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-04",
+    "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "Every C++ statement must end with a ___",
+    "answer": ";",
+    "explanation": "S-04: ; ends every statement"
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-05",
+    "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "The ___ character opens a code block (function body, loop body)",
+    "answer": "{",
+    "explanation": "S-05: { opens code block"
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-06",
+    "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "The ___ character closes a code block",
+    "answer": "}",
+    "explanation": "S-06: } closes code block"
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-07",
+    "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "___ ends main and tells the OS the program succeeded",
+    "answer": "return 0;",
+    "explanation": "S-07: return 0; ends main"
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-08",
+    "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "___ starts a single-line comment that the compiler ignores",
+    "answer": "//",
+    "explanation": "S-08: // is single-line comment"
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-09",
+    "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "Extra spaces between tokens are ___ by the compiler",
+    "answer": "ignored",
+    "explanation": "S-09: whitespace mostly does not matter"
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-10",
+    "code": "#include <iostream>\nusing namespace std;\n\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "Indentation is a ___ convention, not required by the compiler",
+    "answer": "style",
+    "explanation": "S-10: indentation is style not syntax"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-01",
+    "code": "string name = \"Alice\";\nint score = 95;\ncout << \"Name: \" << name << endl;\ncout << \"Score: \" << score << \"\\n\";",
+    "clozeSentence": "___ sends output to the terminal for display",
+    "answer": "cout",
+    "explanation": "O-01: cout prints to terminal"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-02",
+    "code": "string name = \"Alice\";\nint score = 95;\ncout << \"Name: \" << name << endl;\ncout << \"Score: \" << score << \"\\n\";",
+    "clozeSentence": "The ___ operator inserts a value into the output stream",
+    "answer": "<<",
+    "explanation": "O-02: << sends value to cout"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-03",
+    "code": "string name = \"Alice\";\nint score = 95;\ncout << \"Name: \" << name << endl;\ncout << \"Score: \" << score << \"\\n\";",
+    "clozeSentence": "Text in ___ is printed exactly as written by cout",
+    "answer": "double quotes",
+    "explanation": "O-03: cout << \"text\"; prints text"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-04",
+    "code": "string name = \"Alice\";\nint score = 95;\ncout << \"Name: \" << name << endl;\ncout << \"Score: \" << score << \"\\n\";",
+    "clozeSentence": "cout << 5 prints the ___ 5 to the terminal",
+    "answer": "number",
+    "explanation": "O-04: cout << 5; prints number"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-05",
+    "code": "string name = \"Alice\";\nint score = 95;\ncout << \"Name: \" << name << endl;\ncout << \"Score: \" << score << \"\\n\";",
+    "clozeSentence": "___ moves the cursor to a new line after printing",
+    "answer": "endl",
+    "explanation": "O-05: endl prints newline"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-06",
+    "code": "string name = \"Alice\";\nint score = 95;\ncout << \"Name: \" << name << endl;\ncout << \"Score: \" << score << \"\\n\";",
+    "clozeSentence": "The escape sequence ___ inside a string creates a newline",
+    "answer": "\\n",
+    "explanation": "O-06: \n also prints newline"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-07",
+    "code": "string name = \"Alice\";\nint score = 95;\ncout << \"Name: \" << name << endl;\ncout << \"Score: \" << score << \"\\n\";",
+    "clozeSentence": "Chaining multiple ___ operators prints several values in sequence",
+    "answer": "<<",
+    "explanation": "O-07: chain: cout << a << b;"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-08",
+    "code": "int id = 42;\nstring name = \"Bob\";\ndouble gpa = 3.75;\nprintf(\"Student %d: %s, GPA %.2f\\n\", id, name.c_str(), gpa);",
+    "clozeSentence": "___ outputs formatted text using a format string with placeholders",
+    "answer": "printf",
+    "explanation": "O-08: printf(format, args) outputs text"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-09",
+    "code": "int id = 42;\nstring name = \"Bob\";\ndouble gpa = 3.75;\nprintf(\"Student %d: %s, GPA %.2f\\n\", id, name.c_str(), gpa);",
+    "clozeSentence": "In printf, ___ is the placeholder that gets replaced by an integer",
+    "answer": "%d",
+    "explanation": "O-09: %d formats int"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-10",
+    "code": "int id = 42;\nstring name = \"Bob\";\ndouble gpa = 3.75;\nprintf(\"Student %d: %s, GPA %.2f\\n\", id, name.c_str(), gpa);",
+    "clozeSentence": "In printf, ___ is the placeholder for a C-string",
+    "answer": "%s",
+    "explanation": "O-10: %s formats C-string"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-11",
+    "code": "int id = 42;\nstring name = \"Bob\";\ndouble gpa = 3.75;\nprintf(\"Student %d: %s, GPA %.2f\\n\", id, name.c_str(), gpa);",
+    "clozeSentence": "In printf format strings, ___ produces a newline character",
+    "answer": "\\n",
+    "explanation": "O-11: \n in printf adds newline"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-12",
+    "code": "int id = 42;\nstring name = \"Bob\";\ndouble gpa = 3.75;\nprintf(\"Student %d: %s, GPA %.2f\\n\", id, name.c_str(), gpa);",
+    "clozeSentence": "The first argument to printf is always the ___ string",
+    "answer": "format",
+    "explanation": "O-12: printf first arg is format"
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-13",
+    "code": "int id = 42;\nstring name = \"Bob\";\ndouble gpa = 3.75;\nprintf(\"Student %d: %s, GPA %.2f\\n\", id, name.c_str(), gpa);",
+    "clozeSentence": "Extra arguments to printf fill the ___ in left-to-right order",
+    "answer": "placeholders",
+    "explanation": "O-13: printf extra args fill placeholders"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-01",
+    "code": "int age = 25;\ndouble price = 9.99;\nstring name = \"Alice\";\nchar grade = 'A';\nbool passed = true;",
+    "clozeSentence": "A variable is a named ___ that stores a value",
+    "answer": "memory box",
+    "explanation": "V-01: variable is named memory box"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-02",
+    "code": "int age = 25;\ndouble price = 9.99;\nstring name = \"Alice\";\nchar grade = 'A';\nbool passed = true;",
+    "clozeSentence": "The variable ___ is how you refer to a specific memory box",
+    "answer": "name",
+    "explanation": "V-02: variable has a name"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-03",
+    "code": "int age = 25;\ndouble price = 9.99;\nstring name = \"Alice\";\nchar grade = 'A';\nbool passed = true;",
+    "clozeSentence": "Every variable has a ___ that determines what values it can hold",
+    "answer": "type",
+    "explanation": "V-03: variable has a type"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-04",
+    "code": "int x;            // declare an int box named x\nstring title;     // declare a string box named title",
+    "clozeSentence": "___ creates a variable: reserves a memory box with a name and type",
+    "answer": "declaration",
+    "explanation": "V-04: declare with type name;"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-05",
+    "code": "int x = 5;\nx = x + 1;\nint y = x;\nstring greeting = \"hi\";\ngreeting = \"hello\";",
+    "clozeSentence": "int x = 5; both declares and ___ the variable x",
+    "answer": "initializes",
+    "explanation": "V-05: initialize: type name = value;"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-06",
+    "code": "int x = 5;\nx = x + 1;\nint y = x;\nstring greeting = \"hi\";\ngreeting = \"hello\";",
+    "clozeSentence": "cout << x ___ the current value stored in x and prints it",
+    "answer": "reads",
+    "explanation": "V-06: read: cout << name;"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-07",
+    "code": "int age = 25;\ndouble price = 9.99;\nstring name = \"Alice\";\nchar grade = 'A';\nbool passed = true;",
+    "clozeSentence": "x = 10; ___ the value in x, replacing whatever was there before",
+    "answer": "overwrites",
+    "explanation": "V-07: write: name = newValue;"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-08",
+    "code": "int x = 5;\nx = x + 1;\nint y = x;\nstring greeting = \"hi\";\ngreeting = \"hello\";",
+    "clozeSentence": "In C++, = means ___ (store), not equality (compare)",
+    "answer": "assignment",
+    "explanation": "V-08: = is assignment, not equality"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-09",
+    "code": "int x = 5;\nx = x + 1;\nint y = x;\nstring greeting = \"hi\";\ngreeting = \"hello\";",
+    "clozeSentence": "A variable must be ___ before any line that uses it",
+    "answer": "declared",
+    "explanation": "V-09: declare before use"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-10",
+    "code": "int age = 25;\ndouble price = 9.99;\nstring name = \"Alice\";\nchar grade = 'A';\nbool passed = true;",
+    "clozeSentence": "___ stores whole numbers (positive, negative, or zero)",
+    "answer": "int",
+    "explanation": "V-10: int holds whole numbers"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-11",
+    "code": "int age = 25;\ndouble price = 9.99;\nstring name = \"Alice\";\nchar grade = 'A';\nbool passed = true;",
+    "clozeSentence": "___ stores numbers with decimal points",
+    "answer": "double",
+    "explanation": "V-11: double holds decimals"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-12",
+    "code": "int age = 25;\ndouble price = 9.99;\nstring name = \"Alice\";\nchar grade = 'A';\nbool passed = true;",
+    "clozeSentence": "___ stores text as a sequence of characters",
+    "answer": "string",
+    "explanation": "V-12: string holds text"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-13",
+    "code": "const int MAX = 100;\nint count = 0;\ndouble total = 0.0;\ncount = count + 1;\ntotal = total + 9.99;",
+    "clozeSentence": "___ stores only true or false",
+    "answer": "bool",
+    "explanation": "V-13: bool holds true or false"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-14",
+    "code": "const int MAX = 100;\nint count = 0;\ndouble total = 0.0;\ncount = count + 1;\ntotal = total + 9.99;",
+    "clozeSentence": "___ stores exactly one character in single quotes",
+    "answer": "char",
+    "explanation": "V-14: char holds one letter"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-15",
+    "code": "int age = 25;\ndouble price = 9.99;\nstring name = \"Alice\";\nchar grade = 'A';\nbool passed = true;",
+    "clozeSentence": "5 written directly in code is an int ___",
+    "answer": "literal",
+    "explanation": "V-15: 5 is int literal"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-16",
+    "code": "const int MAX = 100;\nint count = 0;\ndouble total = 0.0;\ncount = count + 1;\ntotal = total + 9.99;",
+    "clozeSentence": "3.14 written directly in code is a double ___",
+    "answer": "literal",
+    "explanation": "V-16: 3.14 is double literal"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-17",
+    "code": "const int MAX = 100;\nint count = 0;\ndouble total = 0.0;\ncount = count + 1;\ntotal = total + 9.99;",
+    "clozeSentence": "Text in double quotes like \"hello\" is a string ___",
+    "answer": "literal",
+    "explanation": "V-17: \"hi\" is string literal"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-18",
+    "code": "const int MAX = 100;\nint count = 0;\ndouble total = 0.0;\ncount = count + 1;\ntotal = total + 9.99;",
+    "clozeSentence": "A single character in single quotes like 'A' is a char ___",
+    "answer": "literal",
+    "explanation": "V-18: 'a' is char literal"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-19",
+    "code": "int x = 5;\nx = x + 1;\nint y = x;\nstring greeting = \"hi\";\ngreeting = \"hello\";",
+    "clozeSentence": "___ and false are the only two values a bool can hold",
+    "answer": "true",
+    "explanation": "V-19: true and false are bool literals"
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-20",
+    "code": "int x = 5;\nx = x + 1;\nint y = x;\nstring greeting = \"hi\";\ngreeting = \"hello\";",
+    "clozeSentence": "To use string variables, you need ___",
+    "answer": "#include <string>",
+    "explanation": "V-20: string needs <string> include"
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-01",
+    "code": "int age;\nstring name;\ncout << \"Enter name: \";\ncin >> name;\ncout << \"Enter age: \";\ncin >> age;\ncout << name << \" is \" << age << endl;",
+    "clozeSentence": "___ reads input that the user types in the terminal",
+    "answer": "cin",
+    "explanation": "I-01: cin reads from terminal"
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-02",
+    "code": "int age;\nstring name;\ncout << \"Enter name: \";\ncin >> name;\ncout << \"Enter age: \";\ncin >> age;\ncout << name << \" is \" << age << endl;",
+    "clozeSentence": "The ___ operator extracts a value from input into a variable",
+    "answer": ">>",
+    "explanation": "I-02: >> reads value into variable"
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-03",
+    "code": "int n;\ncout << \"enter n: \";\ncin >> n;",
+    "clozeSentence": "cin >> x; causes the program to ___ until the user types something",
+    "answer": "wait",
+    "explanation": "I-03: cin >> x; waits for input"
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-04",
+    "code": "int age;\nstring name;\ncout << \"Enter name: \";\ncin >> name;\ncout << \"Enter age: \";\ncin >> age;\ncout << name << \" is \" << age << endl;",
+    "clozeSentence": "When reading multiple values, ___ separates them in the input",
+    "answer": "whitespace",
+    "explanation": "I-04: whitespace separates input values"
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-05",
+    "code": "int age;\nstring name;\ncout << \"Enter name: \";\ncin >> name;\ncout << \"Enter age: \";\ncin >> age;\ncout << name << \" is \" << age << endl;",
+    "clozeSentence": "cin automatically ___ the typed text to match the variable's type",
+    "answer": "parses",
+    "explanation": "I-05: cin parses to variable type"
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-06",
+    "code": "int age;\nstring name;\ncout << \"Enter name: \";\ncin >> name;\ncout << \"Enter age: \";\ncin >> age;\ncout << name << \" is \" << age << endl;",
+    "clozeSentence": "cin >> a >> b reads ___ values from one input line",
+    "answer": "multiple",
+    "explanation": "I-06: chain cin >> a >> b;"
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-07",
+    "code": "int age;\nstring name;\ncout << \"Enter name: \";\ncin >> name;\ncout << \"Enter age: \";\ncin >> age;\ncout << name << \" is \" << age << endl;",
+    "clozeSentence": "___ reads the entire line including spaces, unlike cin >>",
+    "answer": "getline",
+    "explanation": "I-07: getline(cin, s) reads full line"
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-01",
+    "code": "int a = 10, b = 3;\nint sum = a + b;\nint diff = a - b;\nint prod = a * b;\nint quot = a / b;\nint rem = a % b;",
+    "clozeSentence": "The ___ operator adds two values together",
+    "answer": "+",
+    "explanation": "A-01: + adds"
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-02",
+    "code": "int a = 10, b = 3;\nint sum = a + b;\nint diff = a - b;\nint prod = a * b;\nint quot = a / b;\nint rem = a % b;",
+    "clozeSentence": "The ___ operator subtracts the right value from the left",
+    "answer": "-",
+    "explanation": "A-02: - subtracts"
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-03",
+    "code": "int a = 10, b = 3;\nint sum = a + b;\nint diff = a - b;\nint prod = a * b;\nint quot = a / b;\nint rem = a % b;",
+    "clozeSentence": "The ___ operator multiplies two values",
+    "answer": "*",
+    "explanation": "A-03: * multiplies"
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-04",
+    "code": "int a = 10, b = 3;\nint sum = a + b;\nint diff = a - b;\nint prod = a * b;\nint quot = a / b;\nint rem = a % b;",
+    "clozeSentence": "The ___ operator divides the left value by the right",
+    "answer": "/",
+    "explanation": "A-04: / divides"
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-05",
+    "code": "int a = 10, b = 3;\nint sum = a + b;\nint diff = a - b;\nint prod = a * b;\nint quot = a / b;\nint rem = a % b;",
+    "clozeSentence": "The ___ operator gives the remainder after division",
+    "answer": "%",
+    "explanation": "A-05: % gives remainder"
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-06",
+    "code": "int a = 10, b = 3;\nint sum = a + b;\nint diff = a - b;\nint prod = a * b;\nint quot = a / b;\nint rem = a % b;",
+    "clozeSentence": "5 / 2 gives 2 because integer division ___ the decimal part",
+    "answer": "truncates",
+    "explanation": "A-06: int division truncates"
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-07",
+    "code": "int x = 5;\nx++;\nx--;\nint y = (x + 2) * 3;\ndouble z = 10.0 / 3;",
+    "clozeSentence": "In 2 + 3 * 4, ___ happens before addition",
+    "answer": "multiplication",
+    "explanation": "A-07: * / % before + -"
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-08",
+    "code": "int x = 5;\nx++;\nx--;\nint y = (x + 2) * 3;\ndouble z = 10.0 / 3;",
+    "clozeSentence": "___ override the default operator precedence, just like in math",
+    "answer": "parentheses",
+    "explanation": "A-08: () overrides operator order"
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-09",
+    "code": "int x = 5;\nx++;\nx--;\nint y = (x + 2) * 3;\ndouble z = 10.0 / 3;",
+    "clozeSentence": "x += 3 is shorthand for x = x ___ 3",
+    "answer": "+",
+    "explanation": "A-09: += -= *= /= update"
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-10",
+    "code": "int x = 5;\nx++;\nx--;\nint y = (x + 2) * 3;\ndouble z = 10.0 / 3;",
+    "clozeSentence": "i++ adds ___ to i",
+    "answer": "1",
+    "explanation": "A-10: ++ adds 1"
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-11",
+    "code": "int x = 5;\nx++;\nx--;\nint y = (x + 2) * 3;\ndouble z = 10.0 / 3;",
+    "clozeSentence": "n-- subtracts ___ from n",
+    "answer": "1",
+    "explanation": "A-11: -- subtracts 1"
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-01",
+    "code": "int x = 10;\nif (x > 5) {\n  cout << \"big\" << endl;\n} else if (x == 5) {\n  cout << \"exact\" << endl;\n} else {\n  cout << \"small\" << endl;\n}",
+    "clozeSentence": "___ tests if two values are equal",
+    "answer": "==",
+    "explanation": "C-01: == tests equality"
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-02",
+    "code": "int x = 10;\nif (x > 5) {\n  cout << \"big\" << endl;\n} else if (x == 5) {\n  cout << \"exact\" << endl;\n} else {\n  cout << \"small\" << endl;\n}",
+    "clozeSentence": "___ tests if two values are NOT equal",
+    "answer": "!=",
+    "explanation": "C-02: != tests not equal"
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-03",
+    "code": "int x = 10;\nif (x > 5) {\n  cout << \"big\" << endl;\n} else if (x == 5) {\n  cout << \"exact\" << endl;\n} else {\n  cout << \"small\" << endl;\n}",
+    "clozeSentence": "i < n is true when i is ___ than n",
+    "answer": "less",
+    "explanation": "C-03: < less than"
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-04",
+    "code": "int x = 10;\nif (x > 5) {\n  cout << \"big\" << endl;\n} else if (x == 5) {\n  cout << \"exact\" << endl;\n} else {\n  cout << \"small\" << endl;\n}",
+    "clozeSentence": "x > 5 is true when x is ___ than 5",
+    "answer": "greater",
+    "explanation": "C-04: > greater than"
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-05",
+    "code": "int x = 10;\nif (x > 5) {\n  cout << \"big\" << endl;\n} else if (x == 5) {\n  cout << \"exact\" << endl;\n} else {\n  cout << \"small\" << endl;\n}",
+    "clozeSentence": "<= means less than ___ equal to",
+    "answer": "or",
+    "explanation": "C-05: <= less or equal"
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-06",
+    "code": "int x = 10;\nif (x > 5) {\n  cout << \"big\" << endl;\n} else if (x == 5) {\n  cout << \"exact\" << endl;\n} else {\n  cout << \"small\" << endl;\n}",
+    "clozeSentence": ">= means greater than ___ equal to",
+    "answer": "or",
+    "explanation": "C-06: >= greater or equal"
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-07",
+    "code": "int x = 10;\nif (x > 5) {\n  cout << \"big\" << endl;\n} else if (x == 5) {\n  cout << \"exact\" << endl;\n} else {\n  cout << \"small\" << endl;\n}",
+    "clozeSentence": "Every comparison operator returns a ___ value (true or false)",
+    "answer": "bool",
+    "explanation": "C-07: comparison returns bool"
+  },
+  {
+    "type": "cloze",
+    "atomId": "L-01",
+    "code": "int x = 10;\nif (x > 5 && x < 20) {\n  cout << \"in range\" << endl;\n}\nif (x < 0 || x > 100) {\n  cout << \"out of bounds\" << endl;\n}\nbool valid = !(x < 0);",
+    "clozeSentence": "___ returns true only if BOTH sides are true",
+    "answer": "&&",
+    "explanation": "L-01: && is AND"
+  },
+  {
+    "type": "cloze",
+    "atomId": "L-02",
+    "code": "int x = 10;\nif (x > 5 && x < 20) {\n  cout << \"in range\" << endl;\n}\nif (x < 0 || x > 100) {\n  cout << \"out of bounds\" << endl;\n}\nbool valid = !(x < 0);",
+    "clozeSentence": "___ returns true if EITHER side is true",
+    "answer": "||",
+    "explanation": "L-02: || is OR"
+  },
+  {
+    "type": "cloze",
+    "atomId": "L-03",
+    "code": "int x = 10;\nif (x > 5 && x < 20) {\n  cout << \"in range\" << endl;\n}\nif (x < 0 || x > 100) {\n  cout << \"out of bounds\" << endl;\n}\nbool valid = !(x < 0);",
+    "clozeSentence": "The ___ operator flips true to false and false to true",
+    "answer": "!",
+    "explanation": "L-03: ! is NOT"
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-01",
+    "code": "int square(int x) {\n  return x * x;\n}\n\nint main() {\n  int result = square(5);\n  cout << result << endl;\n  return 0;\n}",
+    "clozeSentence": "___ runs the body only when the condition is true",
+    "answer": "if",
+    "explanation": "F-01: if (cond) runs body"
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-02",
+    "code": "int square(int x) {\n  return x * x;\n}\n\nint main() {\n  int result = square(5);\n  cout << result << endl;\n  return 0;\n}",
+    "clozeSentence": "___ runs its body only when the if condition was false",
+    "answer": "else",
+    "explanation": "F-02: else runs otherwise"
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-03",
+    "code": "int square(int x) {\n  return x * x;\n}\n\nint main() {\n  int result = square(5);\n  cout << result << endl;\n  return 0;\n}",
+    "clozeSentence": "___ chains another condition check after a failed if",
+    "answer": "else if",
+    "explanation": "F-03: else if chains conditions"
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-04",
+    "code": "int square(int x) {\n  return x * x;\n}\n\nint main() {\n  int result = square(5);\n  cout << result << endl;\n  return 0;\n}",
+    "clozeSentence": "The condition inside if() must evaluate to type ___",
+    "answer": "bool",
+    "explanation": "F-04: condition must be bool"
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-05",
+    "code": "int square(int x) {\n  return x * x;\n}\n\nint main() {\n  int result = square(5);\n  cout << result << endl;\n  return 0;\n}",
+    "clozeSentence": "Always use ___ around if/else bodies, even for one-line bodies",
+    "answer": "braces",
+    "explanation": "F-05: use {} even one line"
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-01",
+    "code": "for (int i = 0; i < 5; i++) {\n  cout << i << \" \";\n}\ncout << endl;\nint sum = 0;\nfor (int i = 1; i <= 10; i++) {\n  sum = sum + i;\n}",
+    "clozeSentence": "___ repeats the body as long as the condition stays true",
+    "answer": "while",
+    "explanation": "W-01: while (cond) repeats body"
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-02",
+    "code": "for (int i = 0; i < 5; i++) {\n  cout << i << \" \";\n}\ncout << endl;\nint sum = 0;\nfor (int i = 1; i <= 10; i++) {\n  sum = sum + i;\n}",
+    "clozeSentence": "___ guarantees the body runs at least once before checking the condition",
+    "answer": "do-while",
+    "explanation": "W-02: do { body } while runs once first"
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-03",
+    "code": "for (int i = 0; i < 5; i++) {\n  cout << i << \" \";\n}\ncout << endl;\nint sum = 0;\nfor (int i = 1; i <= 10; i++) {\n  sum = sum + i;\n}",
+    "clozeSentence": "for (___; condition; step) puts all loop control in one line",
+    "answer": "init",
+    "explanation": "W-03: for (init; cond; step) loop"
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-04",
+    "code": "for (int i = 0; i < 5; i++) {\n  cout << i << \" \";\n}\ncout << endl;\nint sum = 0;\nfor (int i = 1; i <= 10; i++) {\n  sum = sum + i;\n}",
+    "clozeSentence": "The init part of a for-loop runs exactly ___ before the first iteration",
+    "answer": "once",
+    "explanation": "W-04: init runs once"
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-05",
+    "code": "for (int i = 0; i < 5; i++) {\n  cout << i << \" \";\n}\ncout << endl;\nint sum = 0;\nfor (int i = 1; i <= 10; i++) {\n  sum = sum + i;\n}",
+    "clozeSentence": "The condition is checked ___ each iteration of the loop",
+    "answer": "before",
+    "explanation": "W-05: cond checked before each iter"
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-06",
+    "code": "int i = 0;\nwhile (i < 10) {\n  if (i == 7) break;\n  if (i % 2 == 0) {\n    i++;\n    continue;\n  }\n  cout << i << \" \";\n  i++;\n}",
+    "clozeSentence": "The step part runs ___ each iteration, before the next condition check",
+    "answer": "after",
+    "explanation": "W-06: step runs after each iter"
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-07",
+    "code": "int i = 0;\nwhile (i < 10) {\n  if (i == 7) break;\n  if (i % 2 == 0) {\n    i++;\n    continue;\n  }\n  cout << i << \" \";\n  i++;\n}",
+    "clozeSentence": "___ immediately exits the loop and jumps to after the closing }",
+    "answer": "break",
+    "explanation": "W-07: break exits loop"
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-08",
+    "code": "int i = 0;\nwhile (i < 10) {\n  if (i == 7) break;\n  if (i % 2 == 0) {\n    i++;\n    continue;\n  }\n  cout << i << \" \";\n  i++;\n}",
+    "clozeSentence": "___ skips the rest of the current iteration and jumps to the next one",
+    "answer": "continue",
+    "explanation": "W-08: continue skips to next iter"
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-09",
+    "code": "int i = 0;\nwhile (i < 10) {\n  if (i == 7) break;\n  if (i % 2 == 0) {\n    i++;\n    continue;\n  }\n  cout << i << \" \";\n  i++;\n}",
+    "clozeSentence": "A loop inside another loop is called ___ loops",
+    "answer": "nested",
+    "explanation": "W-09: nested loops allowed"
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-10",
+    "code": "int i = 0;\nwhile (i < 10) {\n  if (i == 7) break;\n  if (i % 2 == 0) {\n    i++;\n    continue;\n  }\n  cout << i << \" \";\n  i++;\n}",
+    "clozeSentence": "while(true) creates an ___ loop that never stops on its own",
+    "answer": "infinite",
+    "explanation": "W-10: infinite loop if cond never false"
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-01",
+    "code": "string name = \"Alice\";\nint len = name.length();\nchar first = name[0];\nstring sub = name.substr(1, 3);\ncout << len << \" \" << first << \" \" << sub << endl;",
+    "clozeSentence": "A ___ is a named reusable block of code you can call",
+    "answer": "function",
+    "explanation": "H-01: function = named code block"
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-02",
+    "code": "string name = \"Alice\";\nint len = name.length();\nchar first = name[0];\nstring sub = name.substr(1, 3);\ncout << len << \" \" << first << \" \" << sub << endl;",
+    "clozeSentence": "The ___ before the function name specifies what type it gives back",
+    "answer": "return type",
+    "explanation": "H-02: returnType name(params) { body }"
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-03",
+    "code": "string name = \"Alice\";\nint len = name.length();\nchar first = name[0];\nstring sub = name.substr(1, 3);\ncout << len << \" \" << first << \" \" << sub << endl;",
+    "clozeSentence": "To run a function, you ___ it by writing its name with arguments",
+    "answer": "call",
+    "explanation": "H-03: call: name(args);"
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-04",
+    "code": "string name = \"Alice\";\nint len = name.length();\nchar first = name[0];\nstring sub = name.substr(1, 3);\ncout << len << \" \" << first << \" \" << sub << endl;",
+    "clozeSentence": "Parameters become ___ variables initialized with the argument values",
+    "answer": "local",
+    "explanation": "H-04: parameters become local boxes"
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-05",
+    "code": "string name = \"Alice\";\nint len = name.length();\nchar first = name[0];\nstring sub = name.substr(1, 3);\ncout << len << \" \" << first << \" \" << sub << endl;",
+    "clozeSentence": "___ sends a value back to whoever called the function",
+    "answer": "return",
+    "explanation": "H-05: return value; sends back"
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-06",
+    "code": "int x = 42;\nstring s = to_string(x);\ndouble d = stod(\"3.14\");\nint n = stoi(\"99\");\ncout << s << \" \" << d << \" \" << n << endl;",
+    "clozeSentence": "___ means the function returns nothing",
+    "answer": "void",
+    "explanation": "H-06: void = no return value"
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-07",
+    "code": "int x = 42;\nstring s = to_string(x);\ndouble d = stod(\"3.14\");\nint n = stoi(\"99\");\ncout << s << \" \" << d << \" \" << n << endl;",
+    "clozeSentence": "A function must be declared or ___ before any code that calls it",
+    "answer": "defined",
+    "explanation": "H-07: declare before use (or prototype)"
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-08",
+    "code": "int x = 42;\nstring s = to_string(x);\ndouble d = stod(\"3.14\");\nint n = stoi(\"99\");\ncout << s << \" \" << d << \" \" << n << endl;",
+    "clozeSentence": "A function ___ declares the signature without providing the body",
+    "answer": "prototype",
+    "explanation": "H-08: prototype: returnType name(types);"
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-09",
+    "code": "int x = 42;\nstring s = to_string(x);\ndouble d = stod(\"3.14\");\nint n = stoi(\"99\");\ncout << s << \" \" << d << \" \" << n << endl;",
+    "clozeSentence": "Local variables are ___ when the function returns",
+    "answer": "destroyed",
+    "explanation": "H-09: locals die at return"
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-10",
+    "code": "int x = 42;\nstring s = to_string(x);\ndouble d = stod(\"3.14\");\nint n = stoi(\"99\");\ncout << s << \" \" << d << \" \" << n << endl;",
+    "clozeSentence": "A function's local variables are ___ to all other functions",
+    "answer": "invisible",
+    "explanation": "H-10: caller cannot see locals"
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-01",
+    "code": "void increment_copy(int x) {\n  x = x + 1;",
+    "clozeSentence": "By default, parameters receive a ___ of the argument",
+    "answer": "copy",
+    "explanation": "R-01: parameter receives copy by default"
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-02",
+    "code": "void increment_copy(int x) {\n  x = x + 1;",
+    "clozeSentence": "Mutating a by-value parameter does NOT change the ___'s variable",
+    "answer": "caller",
+    "explanation": "R-02: mutating param doesn't change caller"
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-03",
+    "code": "void increment(int &x) {\n  x = x + 1;",
+    "clozeSentence": "___ in a parameter means the parameter is an alias for the caller's variable",
+    "answer": "&",
+    "explanation": "R-03: & means alias same memory box"
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-04",
+    "code": "void increment(int &x) {\n  x = x + 1;",
+    "clozeSentence": "void f(int &x) lets the function ___ the caller's variable",
+    "answer": "modify",
+    "explanation": "R-04: void f(int &x) shares box with caller"
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-05",
+    "code": "void increment(int &x) {\n  x = x + 1;",
+    "clozeSentence": "With &, mutating the parameter directly ___ the caller's value",
+    "answer": "changes",
+    "explanation": "R-05: mutating &param changes caller"
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-06",
+    "code": "void increment(int &x) {\n  x = x + 1;",
+    "clozeSentence": "A reference must bind to a real ___, not a literal like 5",
+    "answer": "variable",
+    "explanation": "R-06: reference must bind real variable"
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-07",
+    "code": "void print_user(const user_data &user) {\n  cout << user.username << endl;",
+    "clozeSentence": "const & gives ___ access without making a copy",
+    "answer": "read-only",
+    "explanation": "R-07: const & is read-only alias"
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-08",
+    "code": "void increment(int &x) {\n  x = x + 1;",
+    "clozeSentence": "A reference is two ___ for one memory box",
+    "answer": "names",
+    "explanation": "R-08: reference is two names for one box"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-01",
+    "code": "// array holds N items in a row",
+    "clozeSentence": "An array stores ___ values of the same type in consecutive memory",
+    "answer": "N",
+    "explanation": "G-01: array = sequence of N values"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-02",
+    "code": "int arr[5];",
+    "clozeSentence": "int arr[5]; declares an array of ___ integers",
+    "answer": "5",
+    "explanation": "G-02: type arr[N] declares array"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-03",
+    "code": "int arr[3] = {1, 2, 3};",
+    "clozeSentence": "int arr[3] = {10, 20, 30}; ___ the array with those values",
+    "answer": "initializes",
+    "explanation": "G-03: type arr[N] = {...}; init"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-04",
+    "code": "arr[0]   // first slot",
+    "clozeSentence": "arr[___] accesses the FIRST element of the array",
+    "answer": "0",
+    "explanation": "G-04: arr[0] is first element"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-05",
+    "code": "arr[i]",
+    "clozeSentence": "arr[i] accesses the element at ___ i",
+    "answer": "index",
+    "explanation": "G-05: arr[i] accesses i-th element"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-06",
+    "code": "int arr[5] = {10, 20, 30, 40, 50};\nfor (int i = 0; i < 5; i++) {\n  arr[i] = arr[i] * 2;\n}\ncout << arr[0] << \" \" << arr[4] << endl;",
+    "clozeSentence": "C++ arrays are ___-indexed, meaning the first element is at position 0",
+    "answer": "zero",
+    "explanation": "G-06: arrays index from 0"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-07",
+    "code": "arr[N-1] // last slot",
+    "clozeSentence": "For an array of size N, the last valid index is ___",
+    "answer": "N-1",
+    "explanation": "G-07: last is arr[N-1]"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-08",
+    "code": "int arr[5] = {10, 20, 30, 40, 50};\nfor (int i = 0; i < 5; i++) {\n  arr[i] = arr[i] * 2;\n}\ncout << arr[0] << \" \" << arr[4] << endl;",
+    "clozeSentence": "Accessing arr[N] in a size-N array is ___ — undefined behavior",
+    "answer": "out of bounds",
+    "explanation": "G-08: arr[N] is out of bounds"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-09",
+    "code": "const int MAX = 100; int arr[MAX];",
+    "clozeSentence": "Array size is fixed at ___ time and cannot change",
+    "answer": "compile",
+    "explanation": "G-09: array size fixed at compile"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-10",
+    "code": "int arr[5] = {10, 20, 30, 40, 50};\nfor (int i = 0; i < 5; i++) {\n  arr[i] = arr[i] * 2;\n}\ncout << arr[0] << \" \" << arr[4] << endl;",
+    "clozeSentence": "C++ cannot ___ an array directly from a function",
+    "answer": "return",
+    "explanation": "G-10: cannot return array directly"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-11",
+    "code": "for (int i = 0; i < N; i++) arr[i] = ...;",
+    "clozeSentence": "A for loop with arr[i] ___ through every element of the array",
+    "answer": "iterates",
+    "explanation": "G-11: for loop iterates array"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-12",
+    "code": "arr[2] = 99;",
+    "clozeSentence": "arr[2] = 99; ___ the value 99 into position 2",
+    "answer": "writes",
+    "explanation": "G-12: arr[i] = v writes element"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-13",
+    "code": "void f(int arr[], int n) { ... }",
+    "clozeSentence": "An array parameter is written as type ___",
+    "answer": "arr[]",
+    "explanation": "G-13: array param: type arr[]"
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-14",
+    "code": "void f(int &arr[], int n) { arr[0] = 99; }",
+    "clozeSentence": "Adding ___ before arr[] passes the array by reference",
+    "answer": "&",
+    "explanation": "G-14: &arr[] aliases caller's array"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-01",
+    "code": "// struct = a named bundle of named fields",
+    "clozeSentence": "A ___ groups related fields under one custom type name",
+    "answer": "struct",
+    "explanation": "T-01: struct = named field group"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-02",
+    "code": "struct Point {\n    int x;",
+    "clozeSentence": "struct Point { int x; int y; }; defines a new ___",
+    "answer": "type",
+    "explanation": "T-02: struct Name { fields }; defines type"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-03",
+    "code": "struct Point {\n    int x;",
+    "clozeSentence": "Each line inside a struct declares a ___: type fieldName;",
+    "answer": "field",
+    "explanation": "T-03: each field: type fieldName;"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-04",
+    "code": "struct Point { int x; int y; };",
+    "clozeSentence": "A struct definition must end with }___",
+    "answer": ";",
+    "explanation": "T-04: ; required after closing }"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-05",
+    "code": "struct Point { int x; int y; };",
+    "clozeSentence": "Point p; ___ a variable p of type Point",
+    "answer": "declares",
+    "explanation": "T-05: use type: Name x; declares"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-06",
+    "code": "Point p;",
+    "clozeSentence": "The ___ operator accesses a field inside a struct variable",
+    "answer": "dot",
+    "explanation": "T-06: .field accesses struct member"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-07",
+    "code": "Point p;",
+    "clozeSentence": "p.x = 3; ___ the value 3 into the x field of struct p",
+    "answer": "stores",
+    "explanation": "T-07: x.field = v writes field"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-08",
+    "code": "Point p; p.x = 3;",
+    "clozeSentence": "cout << p.x ___ the value of p's x field and prints it",
+    "answer": "reads",
+    "explanation": "T-08: cout << x.field reads field"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-09",
+    "code": "struct stat_double {\n    double numbers[5];",
+    "clozeSentence": "A struct can contain an ___ as one of its fields",
+    "answer": "array",
+    "explanation": "T-09: struct can contain array field"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-10",
+    "code": "stat_double d;",
+    "clozeSentence": "d.numbers[0] accesses the first element of the ___ field inside struct d",
+    "answer": "array",
+    "explanation": "T-10: chained: data.arr[i]"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-11",
+    "code": "struct Point { int x; int y; };",
+    "clozeSentence": "Point list[3]; creates an ___ of 3 Point structs",
+    "answer": "array",
+    "explanation": "T-11: array of structs: Name list[N];"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-12",
+    "code": "Point list[3];",
+    "clozeSentence": "list[0].x accesses field x of the ___ struct in the array",
+    "answer": "first",
+    "explanation": "T-12: list[i].field chained access"
+  },
+  {
+    "type": "cloze",
+    "atomId": "PC-01",
+    "code": "void f(Point p) { p.x = 99; }   // caller's p unchanged",
+    "clozeSentence": "Passing a struct by value creates a ___ — changes don't affect the original",
+    "answer": "copy",
+    "explanation": "PC-01: pass struct by value copies whole"
+  },
+  {
+    "type": "cloze",
+    "atomId": "PC-02",
+    "code": "void update(Point &p) { p.x = 99; }",
+    "clozeSentence": "void f(Point ___p) lets the function modify the caller's struct",
+    "answer": "&",
+    "explanation": "PC-02: void f(Name &x) shares struct"
+  },
+  {
+    "type": "cloze",
+    "atomId": "PC-03",
+    "code": "struct Point { int x; int y; };\nvoid shift(Point &p) {\n  p.x = p.x + 1;\n  p.y = p.y + 1;\n}\nPoint a = {3, 4};\nshift(a);",
+    "clozeSentence": "Without & on the struct parameter, cin would fill a useless ___ that gets discarded",
+    "answer": "copy",
+    "explanation": "PC-03: & lets struct mutation persist"
+  },
+  {
+    "type": "cloze",
+    "atomId": "PC-04",
+    "code": "void read_items(Item &list[], int count) { ... }",
+    "clozeSentence": "Item &list[] passes the ___ array by reference",
+    "answer": "entire",
+    "explanation": "PC-04: &list[] passes array by ref"
+  },
+  {
+    "type": "cloze",
+    "atomId": "PC-05",
+    "code": "struct Point { int x; int y; };\nvoid shift(Point &p) {\n  p.x = p.x + 1;\n  p.y = p.y + 1;\n}\nPoint a = {3, 4};\nshift(a);",
+    "clozeSentence": "With &, writes to list[i].field ___ in the caller's array",
+    "answer": "persist",
+    "explanation": "PC-05: list[i].field writes persist via &"
+  },
+  {
+    "type": "cloze",
+    "atomId": "PC-06",
+    "code": "void print(const Point &p) { cout << p.x; }",
+    "clozeSentence": "___ Point &p gives efficient read-only access without copying",
+    "answer": "const",
+    "explanation": "PC-06: const Name &x is read-only"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-01",
+    "code": "// No code - meta-skill atom",
+    "clozeSentence": "Hand execution means mentally ___ each line of code in order",
+    "answer": "running",
+    "explanation": "HE-01: trace = mentally simulate code"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-02",
+    "code": "int x = 5;",
+    "clozeSentence": "When tracing, track each variable's current ___",
+    "answer": "value",
+    "explanation": "HE-02: track each var's value"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-03",
+    "code": "int x = 5;",
+    "clozeSentence": "Each assignment ___ the old value with the new one",
+    "answer": "replaces",
+    "explanation": "HE-03: update value on each assignment"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-04",
+    "code": "for (int i = 0; i < 3; i++) {\n    // body\n// i trace: 0, 1, 2, (loop ends when i==3)",
+    "clozeSentence": "When tracing a for-loop, track how ___ changes each iteration",
+    "answer": "i",
+    "explanation": "HE-04: for-loop: track i across iterations"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-05",
+    "code": "int n = 7;",
+    "clozeSentence": "At an if/else, evaluate the ___ to decide which branch runs",
+    "answer": "condition",
+    "explanation": "HE-05: conditional: pick branch by cond"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-06",
+    "code": "void f(int x) {\n    // new frame: x is local\nint main() {",
+    "clozeSentence": "A function call creates a new ___ with fresh local variables",
+    "answer": "frame",
+    "explanation": "HE-06: function call: enter new frame"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-07",
+    "code": "void f() {\n    int local = 5;",
+    "clozeSentence": "When a function returns, its local variables are ___",
+    "answer": "destroyed",
+    "explanation": "HE-07: return: exit frame, locals die"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-08",
+    "code": "void incr(int &x) {\n    x = x + 1;        // mutates caller's box\nint main() {",
+    "clozeSentence": "For a & parameter, the parameter and caller's variable are the ___ box",
+    "answer": "same",
+    "explanation": "HE-08: & param: SAME box, persists"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-09",
+    "code": "void fill(int &slot) {\n    slot = 99;",
+    "clozeSentence": "Writing to a & reference parameter ___ the caller's original variable",
+    "answer": "modifies",
+    "explanation": "HE-09: arr[i] write persists if &"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-10",
+    "code": "int x = 5;",
+    "clozeSentence": "int y = x; copies x's value — later changes to x do NOT affect ___",
+    "answer": "y",
+    "explanation": "HE-10: trace x = 5; y = x; final state"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-11",
+    "code": "int arr[3] = {0, 0, 0};",
+    "clozeSentence": "Each arr[i] is ___ — changing one element doesn't affect the others",
+    "answer": "independent",
+    "explanation": "HE-11: trace arr[i] = v; final array"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-12",
+    "code": "int sum = 0;",
+    "clozeSentence": "To trace a loop, write out each ___ and track how variables change",
+    "answer": "iteration",
+    "explanation": "HE-12: trace for-loop iterations"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-13",
+    "code": "int n = 7;",
+    "clozeSentence": "In if/else if/else, only the ___ true branch executes",
+    "answer": "first",
+    "explanation": "HE-13: trace if/else branches"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-14",
+    "code": "int square(int x) {\n    return x * x;",
+    "clozeSentence": "When tracing a function call, the ___ value is sent back to the caller",
+    "answer": "return",
+    "explanation": "HE-14: trace function call + return"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-15",
+    "code": "void f_val(int x) {\n    x = 99;",
+    "clozeSentence": "Pass-by-value leaves the original unchanged; pass-by-___ modifies it",
+    "answer": "reference",
+    "explanation": "HE-15: trace pass-by-value vs &"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-16",
+    "code": "// Max of an array of 5 doubles\ndouble nums[5] = {3.2, 7.1, 5.0, 9.4, 2.8};",
+    "clozeSentence": "A max-finder starts with the first element, then ___ whenever something bigger is found",
+    "answer": "updates",
+    "explanation": "HE-16: trace max-finder algorithm"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-17",
+    "code": "struct Point { int x; int y; };",
+    "clozeSentence": "With &, mutating p.x inside the function changes ___ pt.x in the caller",
+    "answer": "the",
+    "explanation": "HE-17: trace struct field mutation via &"
+  },
+  {
+    "type": "cloze",
+    "atomId": "HE-18",
+    "code": "// Inner test of who_am_i:\n// if (data.numbers[i] > data.mystery)\n//     data.mystery = data.numbers[i];",
+    "clozeSentence": "In who_am_i, mystery updates whenever numbers[i] is ___ than mystery",
+    "answer": "greater",
+    "explanation": "HE-18: trace data.numbers[i] > data.mystery"
+  },
+  {
+    "type": "cloze",
+    "atomId": "SW-01",
+    "code": "struct computer_data {\n    int id;",
+    "clozeSentence": "To define a struct, write struct ___ { fields };",
+    "answer": "Name",
+    "explanation": "SW-01: write struct Name { ... };"
+  },
+  {
+    "type": "cloze",
+    "atomId": "SW-02",
+    "code": "int id;",
+    "clozeSentence": "Each struct field is declared as ___ fieldName;",
+    "answer": "type",
+    "explanation": "SW-02: write field: type fieldName;"
+  },
+  {
+    "type": "cloze",
+    "atomId": "SW-03",
+    "code": "struct X {\n    int a;",
+    "clozeSentence": "Forgetting the ___ after the struct's closing } is a common compile error",
+    "answer": ";",
+    "explanation": "SW-03: terminate struct with };"
+  },
+  {
+    "type": "cloze",
+    "atomId": "SW-04",
+    "code": "struct student {\n  int id;\n  string name;\n  double gpa;\n};",
+    "clozeSentence": "Choose int for whole numbers, string for text, ___ for decimals",
+    "answer": "double",
+    "explanation": "SW-04: choose types per spec"
+  },
+  {
+    "type": "cloze",
+    "atomId": "SW-05",
+    "code": "struct student {\n  int id;\n  string name;\n  double gpa;\n};",
+    "clozeSentence": "The ___ of fields inside a struct does not affect how it works",
+    "answer": "order",
+    "explanation": "SW-05: field order is arbitrary"
+  },
+  {
+    "type": "cloze",
+    "atomId": "RW-01",
+    "code": "void read_items(...) { ... }",
+    "clozeSentence": "A read function returns ___ because it fills data through the & parameter",
+    "answer": "void",
+    "explanation": "RW-01: write void return signature"
+  },
+  {
+    "type": "cloze",
+    "atomId": "RW-02",
+    "code": "void read_book(book &list[], int count) {\n  // &list[] aliases caller's array\n}",
+    "clozeSentence": "book ___list[] passes an array of books by reference",
+    "answer": "&",
+    "explanation": "RW-02: write Type &list[] parameter"
+  },
+  {
+    "type": "cloze",
+    "atomId": "RW-03",
+    "code": "void read_book(book &list[], int count) {\n  for (int i = 0; i < count; i++) { /* ... */ }\n}",
+    "clozeSentence": "The ___ parameter tells the function how many elements to fill",
+    "answer": "count",
+    "explanation": "RW-03: write int count parameter"
+  },
+  {
+    "type": "cloze",
+    "atomId": "RW-04",
+    "code": "for (int i = 0; i < count; i++) { ... }",
+    "clozeSentence": "The read loop uses i < ___ as its stopping condition",
+    "answer": "count",
+    "explanation": "RW-04: write for-loop with count bound"
+  },
+  {
+    "type": "cloze",
+    "atomId": "RW-05",
+    "code": "cin >> list[i].id;",
+    "clozeSentence": "cin >> list[i].___ reads input into a specific struct field",
+    "answer": "field",
+    "explanation": "RW-05: cin >> list[i].field; reads input"
+  },
+  {
+    "type": "cloze",
+    "atomId": "RW-06",
+    "code": "cin >> list[i].id;",
+    "clozeSentence": "Each struct field needs its own separate ___ statement",
+    "answer": "cin",
+    "explanation": "RW-06: one cin per struct field"
+  },
+  {
+    "type": "cloze",
+    "atomId": "RW-07",
+    "code": "cout << \"Enter id: \"; cin >> list[i].id;",
+    "clozeSentence": "A cout ___ before cin tells the user what to type",
+    "answer": "prompt",
+    "explanation": "RW-07: optional cout prompt before cin"
+  },
+  {
+    "type": "cloze",
+    "atomId": "MW-01",
+    "code": "int main() {\n  // Q4: full main shape\n  return 0;\n}",
+    "clozeSentence": "Every complete program needs int ___() { ... return 0; }",
+    "answer": "main",
+    "explanation": "MW-01: int main() { ... return 0; }"
+  },
+  {
+    "type": "cloze",
+    "atomId": "MW-02",
+    "code": "const int MAX = 100;\nbook list[MAX];",
+    "clozeSentence": "___ int MAX = 100; creates a value that cannot be changed",
+    "answer": "const",
+    "explanation": "MW-02: const int MAX = 100;"
+  },
+  {
+    "type": "cloze",
+    "atomId": "MW-03",
+    "code": "const int MAX = 100;\nbook list[MAX];        // capacity-MAX storage",
+    "clozeSentence": "book list[___]; declares an array sized to the constant maximum",
+    "answer": "MAX",
+    "explanation": "MW-03: declare Type list[MAX];"
+  },
+  {
+    "type": "cloze",
+    "atomId": "MW-04",
+    "code": "int main() {\n  const int MAX = 100;\n  book list[MAX];\n  int count;\n  cin >> count;\n  read_book(list, count);\n  for (int i = 0; i < count; i++) {\n    printf(\"%d %s %.2f\\n\", list[i].id, list[i].title.c_str(), list[i].price);\n  }\n  return 0;\n}",
+    "clozeSentence": "int ___; declares the variable that tracks how many items to process",
+    "answer": "count",
+    "explanation": "MW-04: declare int count;"
+  },
+  {
+    "type": "cloze",
+    "atomId": "MW-05",
+    "code": "int count;\ncin >> count;          // user types record count",
+    "clozeSentence": "cin >> count; reads how many items the user wants to ___",
+    "answer": "enter",
+    "explanation": "MW-05: cin >> count; reads N"
+  },
+  {
+    "type": "cloze",
+    "atomId": "MW-06",
+    "code": "int main() {\n  const int MAX = 100;\n  book list[MAX];\n  int count;\n  cin >> count;\n  read_book(list, count);\n  for (int i = 0; i < count; i++) {\n    printf(\"%d %s %.2f\\n\", list[i].id, list[i].title.c_str(), list[i].price);\n  }\n  return 0;\n}",
+    "clozeSentence": "read_book(list, count); ___ the read function with the array and count",
+    "answer": "calls",
+    "explanation": "MW-06: call read_X(list, count);"
+  },
+  {
+    "type": "cloze",
+    "atomId": "MW-07",
+    "code": "for (int i = 0; i < count; i++) {\n  printf(\"%d %s\\n\", list[i].id, list[i].title.c_str());\n}",
+    "clozeSentence": "The print loop iterates from 0 to ___ to display each item",
+    "answer": "count",
+    "explanation": "MW-07: print loop: for-loop i < count"
+  },
+  {
+    "type": "cloze",
+    "atomId": "MW-08",
+    "code": "int main() {\n  const int MAX = 100;\n  book list[MAX];\n  int count;\n  cin >> count;\n  read_book(list, count);\n  for (int i = 0; i < count; i++) {\n    printf(\"%d %s %.2f\\n\", list[i].id, list[i].title.c_str(), list[i].price);\n  }\n  return 0;\n}",
+    "clozeSentence": "printf(\"%d %s\\n\", id, name) — %d prints an ___, %s prints a string",
+    "answer": "integer",
+    "explanation": "MW-08: printf(\"%d %s\n\", id, name);"
+  },
+  {
+    "type": "cloze",
+    "atomId": "MW-09",
+    "code": "int main() {\n  const int MAX = 100;\n  book list[MAX];\n  int count;\n  cin >> count;\n  read_book(list, count);\n  for (int i = 0; i < count; i++) {\n    printf(\"%d %s %.2f\\n\", list[i].id, list[i].title.c_str(), list[i].price);\n  }\n  return 0;\n}",
+    "clozeSentence": "printf's %s needs .___() to convert a C++ string to a C-string",
+    "answer": "c_str",
+    "explanation": "MW-09: .c_str() converts string for %s"
+  },
+  {
+    "type": "cloze",
+    "atomId": "ME-01",
+    "code": "struct stat_double { double mystery; double a; double b; };\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.a + data.b;\n}\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "clozeSentence": "An exam struct typically contains scalar fields plus an ___ field",
+    "answer": "array",
+    "explanation": "ME-01: mock exam me-01"
+  },
+  {
+    "type": "cloze",
+    "atomId": "ME-02",
+    "code": "struct stat_double { double mystery; double numbers[5]; };\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.numbers[0];\n  for (int i = 1; i < 5; i++) {\n    if (data.numbers[i] > data.mystery)\n      data.mystery = data.numbers[i];\n  }\n}\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  return 0;\n}",
+    "clozeSentence": "The read function fills scalars with cin, then uses a ___ for the array",
+    "answer": "loop",
+    "explanation": "ME-02: mock exam me-02"
+  },
+  {
+    "type": "cloze",
+    "atomId": "ME-03",
+    "code": "struct stat_double { double mystery; double numbers[5]; };\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    data.mystery = data.mystery + data.numbers[i];\n  }\n}\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  return 0;\n}",
+    "clozeSentence": "who_am_i finds the ___ value by comparing each element to mystery",
+    "answer": "maximum",
+    "explanation": "ME-03: mock exam me-03"
+  },
+  {
+    "type": "cloze",
+    "atomId": "ME-04",
+    "code": "struct stat_double { double mystery; double a; double b; };\nvoid who_am_i(stat_double &data) {\n  if (data.a > data.b)\n    data.mystery = data.a - data.b;\n  else\n    data.mystery = data.b - data.a;\n}\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  return 0;\n}",
+    "clozeSentence": "mystery is initialized before the loop so there's a starting ___ value",
+    "answer": "comparison",
+    "explanation": "ME-04: mock exam me-04"
+  },
+  {
+    "type": "cloze",
+    "atomId": "ME-05",
+    "code": "struct stat_double { double mystery; double numbers[5]; };\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    if (data.numbers[i] > 0)\n      data.mystery = data.mystery + 1;\n  }\n}\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  return 0;\n}",
+    "clozeSentence": "main() calls read, then process, then output — this is called ___",
+    "answer": "decomposition",
+    "explanation": "ME-05: mock exam me-05"
+  }
+]

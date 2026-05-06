@@ -1,0 +1,30 @@
+id: WT-L-01
+level: -1
+level_label: "L-01 pre-programming -- the smallest possible program"
+anchor_atom_id: P-01
+status: locked
+full_code: |
+  #include <iostream>
+  using namespace std;
+  
+  int main() {
+    cout << "running" << endl;
+    return 0;
+  }
+steps:
+  - line: 1
+    code: "#include <iostream>"
+    annotation: "a .cpp file is text the compiler reads. The first line tells the compiler to also pull in cin/cout."
+    atom_ids: [P-03, P-04, S-01]
+  - line: 4
+    code: "int main() {"
+    annotation: "every program enters at main(). The OS literally calls this function."
+    atom_ids: [P-05, S-03]
+  - line: 5
+    code: "  cout << \"running\" << endl;"
+    annotation: "the compiler turned this line into machine instructions; running them prints to your terminal."
+    atom_ids: [P-06, O-01, O-02, O-05]
+  - line: 6
+    code: "  return 0;"
+    annotation: "control returns to the OS with status 0 (success)."
+    atom_ids: [P-04, S-07]

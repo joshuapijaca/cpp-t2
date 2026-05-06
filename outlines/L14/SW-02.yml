@@ -1,0 +1,77 @@
+id: SW-02
+fact: 'write field: type fieldName;'
+words: 4
+level: 14
+deps:
+  - T-03
+  - SW-01
+q_tags:
+  Q1: 'N'
+  Q2: C
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence:
+  - question: Q2
+    instance: 3 field lines per struct
+    file_path: extraction/L14_struct_write/notes.md
+canonical_example: |
+  int id;
+  string description;
+expected_output: 'two fields: id (int), description (string)'
+sit102_quirks:
+  - Type space name semicolon
+misconceptions:
+  - id: M01
+    description: Comma instead of semicolon
+    student_says: int id, string name
+    correct_says: Each field own line ending with ;
+render_hints:
+  memorize_seed_phrases:
+    - field is type then name
+    - each field ends with semicolon
+    - type space name plus ;
+    - field per line
+    - type then field name
+  write_L1_fill:
+    template: int ___;
+    blank_value: id
+  write_L2_complete:
+    template: |-
+      struct X {
+          ___
+          int count;
+      };
+    blank_value: int id;
+  write_L3_free_spec: 'Inside a struct, write 3 fields: int id; string name; int age;'
+  see_demo:
+    why_one_line: 'each field is one declaration: type fieldName; on its own line.'
+    snippet: |
+      int id;
+      string description;
+    highlights: []
+    used_in:
+      - Q2
+  see_decompose:
+    snippet: |
+      int id;
+    correct_atoms:
+      - SW-02
+      - T-03
+      - SW-01
+    distractors:
+      - SW-03
+      - SW-04
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions field / type / name
+  write:
+    - L1 expected = identifier (e.g. 'id')
+    - L3 keyChecks include 'int' + 'string' + ';'
+lint:
+  forbid_tokens:
+    - typedef
+  miller_max_words: 7
+status: locked

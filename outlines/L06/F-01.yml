@@ -1,0 +1,58 @@
+id: F-01
+fact: if (cond) runs body
+words: 4
+level: 6
+deps:
+  - C-07
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - if (cond) { body } runs body if true
+    - if statement = conditional
+    - 'if: run body when true'
+    - use if for branching
+    - if (cond) executes body
+  see_demo:
+    why_one_line: if (cond) runs its block when the condition is true.
+    snippet: |
+      if (x > 0) {
+        cout << "positive";
+      }
+    highlights:
+      - if
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |-
+      int square(int x) {
+        return x * x;
+      }
+
+      int main() {
+        int result = square(5);
+        cout << result << endl;
+        return 0;
+      }
+    correct_atoms:
+      - F-01
+      - C-07
+    distractors:
+      - F-02
+      - F-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

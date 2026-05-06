@@ -1,0 +1,68 @@
+id: T-06
+fact: .field accesses struct member
+words: 4
+level: 11
+deps:
+  - T-05
+q_tags:
+  Q1: C
+  Q2: C
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence:
+  - question: Q1
+    instance: data.mystery and data.numbers[i] use .field
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  Point p;
+  p.x = 3;
+expected_output: p.x = 3
+sit102_quirks:
+  - Use . (dot) for direct struct access
+  - No -> in T2 (no pointers)
+misconceptions:
+  - id: M01
+    description: Uses arrow ->
+    student_says: p->x
+    correct_says: Use dot . for direct struct (p.x); arrow only for pointer
+render_hints:
+  memorize_seed_phrases:
+    - dot operator accesses field
+    - x.field reads or writes member
+    - use dot for struct field
+    - .field gets named member
+    - dot reaches into struct
+  see_demo:
+    why_one_line: x.field is how you read or write one of the struct's slots.
+    snippet: |
+      Point p;
+      p.x = 3;
+    highlights:
+      - p.x
+    used_in:
+      - Q1
+      - Q2
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      Point p;
+    correct_atoms:
+      - T-06
+      - T-05
+    distractors:
+      - T-01
+      - T-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions dot / field / access
+lint:
+  forbid_tokens:
+    - '->'
+    - '*p'
+    - '&p'
+  miller_max_words: 7
+status: locked

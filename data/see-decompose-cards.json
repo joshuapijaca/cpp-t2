@@ -1,0 +1,4864 @@
+[
+  {
+    "type": "decompose",
+    "atomId": "P-01",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "question": "What does this code do when you run it?",
+    "options": [
+      {
+        "label": "A",
+        "text": "It defines a function but nothing happens until you call it separately"
+      },
+      {
+        "label": "B",
+        "text": "It saves the text Hello into a file called main.cpp"
+      },
+      {
+        "label": "C",
+        "text": "The computer executes each instruction in order, printing Hello to the terminal"
+      },
+      {
+        "label": "D",
+        "text": "It compiles the code into machine language but produces no output"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "A program is a sequence of instructions the computer runs top-to-bottom."
+  },
+  {
+    "type": "decompose",
+    "atomId": "P-02",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "question": "What IS this text you're reading?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A configuration file that sets up the compiler"
+      },
+      {
+        "label": "B",
+        "text": "A program — text instructions that tell the computer what to do"
+      },
+      {
+        "label": "C",
+        "text": "A terminal command that prints output immediately"
+      },
+      {
+        "label": "D",
+        "text": "A compiled binary that the CPU executes directly"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Source code is human-readable text instructions."
+  },
+  {
+    "type": "decompose",
+    "atomId": "P-03",
+    "code": "// File: hello.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "question": "What kind of file does this source code live in?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A .cpp file — the text file the compiler reads as input"
+      },
+      {
+        "label": "B",
+        "text": "A .exe file — the program that runs on the computer"
+      },
+      {
+        "label": "C",
+        "text": "A .txt file — a plain document with no special meaning"
+      },
+      {
+        "label": "D",
+        "text": "A .h file — a header that other programs include"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "C++ source code is stored in .cpp files."
+  },
+  {
+    "type": "decompose",
+    "atomId": "P-04",
+    "code": "// hello.cpp -> g++ compiles -> hello.exe\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "question": "What does the compiler (g++) do to this .cpp file?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Uploads the file to a server where it gets interpreted"
+      },
+      {
+        "label": "B",
+        "text": "Checks for spelling mistakes in the comments only"
+      },
+      {
+        "label": "C",
+        "text": "Converts the source code text into an executable (.exe) the CPU can run"
+      },
+      {
+        "label": "D",
+        "text": "Runs each line one at a time and shows the output immediately"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "The compiler transforms human-readable source into machine-executable binary."
+  },
+  {
+    "type": "decompose",
+    "atomId": "P-05",
+    "code": "int main() {\n  cout << \"Hello\" << endl;  // line 1: prints Hello\n  return 0;                 // line 2: exits\n}",
+    "question": "What happens when you run the compiled .exe?",
+    "options": [
+      {
+        "label": "A",
+        "text": "The CPU executes each instruction in sequence — prints Hello then exits"
+      },
+      {
+        "label": "B",
+        "text": "The operating system displays the source code in a text editor"
+      },
+      {
+        "label": "C",
+        "text": "The compiler reads the file again and checks for errors"
+      },
+      {
+        "label": "D",
+        "text": "Nothing happens until you type input at the keyboard"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Running the exe executes the compiled instructions in order."
+  },
+  {
+    "type": "decompose",
+    "atomId": "P-06",
+    "code": "int main() {\n  cout << \"Hello\" << endl;\n  cout << \"World\" << endl;\n  return 0;\n}",
+    "question": "Where does the text Hello and World appear?",
+    "options": [
+      {
+        "label": "A",
+        "text": "In a pop-up dialog box on the desktop"
+      },
+      {
+        "label": "B",
+        "text": "In the terminal — the text window where program output is displayed"
+      },
+      {
+        "label": "C",
+        "text": "In the compiler's error log"
+      },
+      {
+        "label": "D",
+        "text": "In the .cpp source file as a new comment"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "cout output appears in the terminal (console window)."
+  },
+  {
+    "type": "decompose",
+    "atomId": "P-07",
+    "code": "int main() {\n  int age;\n  cout << \"Enter age: \";\n  cin >> age;\n  cout << age << endl;\n  return 0;\n}",
+    "question": "How does the user provide the value for age?",
+    "options": [
+      {
+        "label": "A",
+        "text": "By typing it in the terminal — the same place output appears"
+      },
+      {
+        "label": "B",
+        "text": "By passing it as a command-line argument when compiling"
+      },
+      {
+        "label": "C",
+        "text": "By clicking a button in a graphical interface"
+      },
+      {
+        "label": "D",
+        "text": "By editing the source code and recompiling"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Input is typed in the terminal during program execution."
+  },
+  {
+    "type": "decompose",
+    "atomId": "S-01",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "question": "What does #include <iostream> do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Creates a string variable called iostream"
+      },
+      {
+        "label": "B",
+        "text": "Defines the main function as the program entry point"
+      },
+      {
+        "label": "C",
+        "text": "Imports the std namespace so you don't need std:: prefix"
+      },
+      {
+        "label": "D",
+        "text": "Includes the I/O library so cout and cin are available"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "#include adds a library's declarations to your program."
+  },
+  {
+    "type": "decompose",
+    "atomId": "S-02",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "question": "What does 'using namespace std;' allow you to do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Define main() as the program's starting point"
+      },
+      {
+        "label": "B",
+        "text": "Create variables without declaring their type"
+      },
+      {
+        "label": "C",
+        "text": "Include the iostream library for input and output"
+      },
+      {
+        "label": "D",
+        "text": "Write cout and endl without the std:: prefix"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "using namespace std; lets you skip writing std:: before standard names."
+  },
+  {
+    "type": "decompose",
+    "atomId": "S-03",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "question": "What does int main() { ... } represent?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A library function that gets called by iostream"
+      },
+      {
+        "label": "B",
+        "text": "A loop that repeats the body until it returns 0"
+      },
+      {
+        "label": "C",
+        "text": "A variable declaration that stores an integer called main"
+      },
+      {
+        "label": "D",
+        "text": "The program entry point — execution starts here"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "int main() is where every C++ program begins executing."
+  },
+  {
+    "type": "decompose",
+    "atomId": "S-04",
+    "code": "int x = 5;\ncout << x << endl;",
+    "question": "What does the ; at the end of each line do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Ends the statement — tells the compiler this instruction is complete"
+      },
+      {
+        "label": "B",
+        "text": "Separates the variable name from its type"
+      },
+      {
+        "label": "C",
+        "text": "Adds a newline character to the output"
+      },
+      {
+        "label": "D",
+        "text": "Assigns a value to the variable on that line"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Every C++ statement must end with a semicolon."
+  },
+  {
+    "type": "decompose",
+    "atomId": "S-05",
+    "code": "int main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "question": "What does the { after int main() do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Creates a new variable scope that lasts forever"
+      },
+      {
+        "label": "B",
+        "text": "Starts a loop that repeats the enclosed code"
+      },
+      {
+        "label": "C",
+        "text": "Opens a code block — marks where the function body begins"
+      },
+      {
+        "label": "D",
+        "text": "Includes a library needed by the function"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "{ opens a block of code (function body, loop body, etc)."
+  },
+  {
+    "type": "decompose",
+    "atomId": "S-06",
+    "code": "int main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "question": "What does the } at the end do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Ends the #include statement that was opened earlier"
+      },
+      {
+        "label": "B",
+        "text": "Outputs a closing bracket character to the terminal"
+      },
+      {
+        "label": "C",
+        "text": "Terminates the program and returns control to the OS"
+      },
+      {
+        "label": "D",
+        "text": "Closes the code block — marks where the function body ends"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "} closes the block opened by the matching {."
+  },
+  {
+    "type": "decompose",
+    "atomId": "S-07",
+    "code": "int main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "question": "What does 'return 0;' do at the end of main?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Ends main and tells the OS the program finished successfully"
+      },
+      {
+        "label": "B",
+        "text": "Prints the number 0 to the terminal"
+      },
+      {
+        "label": "C",
+        "text": "Resets all variables back to zero before exiting"
+      },
+      {
+        "label": "D",
+        "text": "Returns to the beginning of main to run again"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "return 0; exits main with success code 0."
+  },
+  {
+    "type": "decompose",
+    "atomId": "S-08",
+    "code": "int x = 5;\n// declare counter\nint count = 0;",
+    "question": "What does // declare counter do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Declares a variable called counter with no initial value"
+      },
+      {
+        "label": "B",
+        "text": "Nothing at runtime — it's a comment for humans reading the code"
+      },
+      {
+        "label": "C",
+        "text": "Tells the compiler to count how many variables exist"
+      },
+      {
+        "label": "D",
+        "text": "Outputs the text 'declare counter' to the terminal"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "// starts a single-line comment; the compiler ignores it."
+  },
+  {
+    "type": "decompose",
+    "atomId": "S-09",
+    "code": "int    x   =   5 ;\ncout<<x<<endl;",
+    "question": "Does the extra whitespace (spaces) affect how this code runs?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Yes — spaces are added to the output when printing x"
+      },
+      {
+        "label": "B",
+        "text": "No — whitespace between tokens is ignored by the compiler"
+      },
+      {
+        "label": "C",
+        "text": "Yes — it changes x's value by padding with zeros"
+      },
+      {
+        "label": "D",
+        "text": "Yes — extra spaces cause a compilation error"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Whitespace (spaces, tabs) between tokens doesn't affect meaning."
+  },
+  {
+    "type": "decompose",
+    "atomId": "S-10",
+    "code": "int main() {\nint x = 5;\n    cout << x << endl;\n  return 0;\n}",
+    "question": "Does the inconsistent indentation cause an error?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Yes — return must be at the same indent as int x"
+      },
+      {
+        "label": "B",
+        "text": "Yes — cout must be indented less than return"
+      },
+      {
+        "label": "C",
+        "text": "Yes — code must be indented exactly 2 spaces per level"
+      },
+      {
+        "label": "D",
+        "text": "No — indentation is just style; the compiler doesn't care"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Indentation is a readability convention, not syntax."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-01",
+    "code": "cout << \"Hello\" << endl;",
+    "question": "What does cout do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Creates a new string variable named Hello"
+      },
+      {
+        "label": "B",
+        "text": "Opens a file for writing text data"
+      },
+      {
+        "label": "C",
+        "text": "Sends output to the terminal for the user to see"
+      },
+      {
+        "label": "D",
+        "text": "Reads input from the keyboard into a variable"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "cout is the standard output stream — it prints to the terminal."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-02",
+    "code": "cout << \"Hello\" << endl;",
+    "question": "What does the << operator do here?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Sends (inserts) the value on its right into the output stream"
+      },
+      {
+        "label": "B",
+        "text": "Compares two values and returns true or false"
+      },
+      {
+        "label": "C",
+        "text": "Reads input from the terminal into a variable"
+      },
+      {
+        "label": "D",
+        "text": "Shifts the bits of a number to the left"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "<< is the insertion operator — it feeds values into cout."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-03",
+    "code": "cout << \"hello, world\" << endl;",
+    "question": "What does \"hello, world\" in quotes produce?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Prints the exact text hello, world to the terminal"
+      },
+      {
+        "label": "B",
+        "text": "Creates a variable named hello with value world"
+      },
+      {
+        "label": "C",
+        "text": "Compares the string hello with the string world"
+      },
+      {
+        "label": "D",
+        "text": "Reads the words hello and world from the keyboard"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "A string literal in quotes is printed exactly as written."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-04",
+    "code": "cout << 5 << endl;",
+    "question": "What does cout << 5 output?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Creates an integer variable initialized to 5"
+      },
+      {
+        "label": "B",
+        "text": "Stores the value 5 in a variable called cout"
+      },
+      {
+        "label": "C",
+        "text": "Prints the number 5 to the terminal"
+      },
+      {
+        "label": "D",
+        "text": "Reads 5 characters of input from the keyboard"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "cout << number prints the numeric value directly."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-05",
+    "code": "cout << \"Hello\" << endl;\ncout << \"World\" << endl;",
+    "question": "What does endl do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Adds a semicolon to terminate the statement"
+      },
+      {
+        "label": "B",
+        "text": "Ends the entire program and returns to the OS"
+      },
+      {
+        "label": "C",
+        "text": "Moves the cursor to a new line after printing"
+      },
+      {
+        "label": "D",
+        "text": "Closes the output stream so no more printing is possible"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "endl outputs a newline character and flushes the stream."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-06",
+    "code": "cout << \"Hello\\nWorld\" << endl;",
+    "question": "What does \\n inside the string do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Reads input from the user before continuing"
+      },
+      {
+        "label": "B",
+        "text": "Inserts a newline — same effect as endl but inside a string"
+      },
+      {
+        "label": "C",
+        "text": "Ends the string at that point and starts a new one"
+      },
+      {
+        "label": "D",
+        "text": "Prints a literal backslash followed by the letter n"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "\\n is an escape sequence that produces a newline character."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-07",
+    "code": "int x = 5;\nstring name = \"Alice\";\ncout << \"Name: \" << name << \" Score: \" << x << endl;",
+    "question": "What does chaining multiple << operators do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Only the last value after << is actually printed"
+      },
+      {
+        "label": "B",
+        "text": "Multiplies all the values together before printing"
+      },
+      {
+        "label": "C",
+        "text": "Sends multiple values to cout in sequence on the same line"
+      },
+      {
+        "label": "D",
+        "text": "Each << creates a separate output line with a newline"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Chaining << prints each value one after another."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-08",
+    "code": "int id = 42;\nprintf(\"ID is %d\\n\", id);",
+    "question": "What does printf do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Creates a new string variable with the formatted text"
+      },
+      {
+        "label": "B",
+        "text": "Reads formatted input from the keyboard"
+      },
+      {
+        "label": "C",
+        "text": "Writes the text to a file instead of the terminal"
+      },
+      {
+        "label": "D",
+        "text": "Outputs formatted text to the terminal using a format string"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "printf outputs using a format string with placeholders."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-09",
+    "code": "int score = 95;\nprintf(\"Score: %d\\n\", score);",
+    "question": "What does %d in the format string do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Reads an integer from the keyboard into score"
+      },
+      {
+        "label": "B",
+        "text": "Prints the literal text %d on the terminal"
+      },
+      {
+        "label": "C",
+        "text": "Formats score as a decimal (double) with decimal places"
+      },
+      {
+        "label": "D",
+        "text": "Gets replaced by the integer value of score (95)"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "%d is the format specifier for integers in printf."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-10",
+    "code": "string name = \"Alice\";\nprintf(\"Name: %s\\n\", name.c_str());",
+    "question": "What does %s in the format string do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Formats the value as a signed integer"
+      },
+      {
+        "label": "B",
+        "text": "Skips that position and prints nothing"
+      },
+      {
+        "label": "C",
+        "text": "Prints the literal text %s on the terminal"
+      },
+      {
+        "label": "D",
+        "text": "Gets replaced by the string value (Alice)"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "%s is the format specifier for C-strings in printf."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-11",
+    "code": "printf(\"Hello\\nWorld\\n\");",
+    "question": "What does \\n at the end of the printf format string do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Signals that no more arguments follow"
+      },
+      {
+        "label": "B",
+        "text": "Prints a newline character — moves cursor to next line"
+      },
+      {
+        "label": "C",
+        "text": "Ends the printf statement (like a semicolon)"
+      },
+      {
+        "label": "D",
+        "text": "Prints the letter n after the text"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "\\n in printf produces a newline, just like in cout strings."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-12",
+    "code": "int x = 5;\ndouble y = 3.14;\nprintf(\"x=%d y=%.2f\\n\", x, y);",
+    "question": "What is the FIRST argument to printf?",
+    "options": [
+      {
+        "label": "A",
+        "text": "The format string — a template with %d/%f placeholders for the other arguments"
+      },
+      {
+        "label": "B",
+        "text": "The variable that receives the formatted output"
+      },
+      {
+        "label": "C",
+        "text": "The file name to write output to"
+      },
+      {
+        "label": "D",
+        "text": "The number of values to print"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "printf's first argument is always the format string."
+  },
+  {
+    "type": "decompose",
+    "atomId": "O-13",
+    "code": "int a = 10, b = 20;\nprintf(\"a=%d b=%d\\n\", a, b);",
+    "question": "How do the extra arguments (a, b) relate to the format string?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Only the last argument is actually used by printf"
+      },
+      {
+        "label": "B",
+        "text": "They specify how many characters wide each field should be"
+      },
+      {
+        "label": "C",
+        "text": "Each fills the next %d placeholder in order — a fills first %d, b fills second"
+      },
+      {
+        "label": "D",
+        "text": "They are added together and printed as one number"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Extra arguments fill placeholders left-to-right."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-01",
+    "code": "int age = 25;\ncout << age << endl;",
+    "question": "What is 'age' in this code?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A constant that can never change"
+      },
+      {
+        "label": "B",
+        "text": "A type keyword like int or double"
+      },
+      {
+        "label": "C",
+        "text": "A named memory box that stores the value 25"
+      },
+      {
+        "label": "D",
+        "text": "A function that returns the number 25"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "A variable is a named location in memory that holds a value."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-02",
+    "code": "int counter = 0;\ncounter = counter + 1;",
+    "question": "What is the purpose of the name 'counter'?",
+    "options": [
+      {
+        "label": "A",
+        "text": "It's a reserved keyword that counts automatically"
+      },
+      {
+        "label": "B",
+        "text": "It determines how much memory is allocated"
+      },
+      {
+        "label": "C",
+        "text": "It's a type that specifies how the variable behaves"
+      },
+      {
+        "label": "D",
+        "text": "It's the label you use to refer to this specific memory box"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "The variable name is how you access its stored value."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-03",
+    "code": "int age = 25;\ndouble gpa = 3.8;\nstring name = \"Alice\";",
+    "question": "What do int, double, and string specify?",
+    "options": [
+      {
+        "label": "A",
+        "text": "How many times the variable can be assigned"
+      },
+      {
+        "label": "B",
+        "text": "Whether the variable is local or global"
+      },
+      {
+        "label": "C",
+        "text": "The maximum number of characters in the variable name"
+      },
+      {
+        "label": "D",
+        "text": "The type of value each variable can store"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "The type determines what kind of value a variable holds."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-04",
+    "code": "int x;\ndouble y;\nstring name;",
+    "question": "What does 'int x;' do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Prints the current value of x to the terminal"
+      },
+      {
+        "label": "B",
+        "text": "Defines a function named x that returns an int"
+      },
+      {
+        "label": "C",
+        "text": "Declares a variable — creates a memory box named x of type int"
+      },
+      {
+        "label": "D",
+        "text": "Reads an integer from the keyboard into x"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Declaration creates the variable: type name;"
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-05",
+    "code": "int x = 5;\ndouble pi = 3.14;",
+    "question": "What does '= 5' do in 'int x = 5;'?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Initializes x — stores the starting value 5 in the box at creation"
+      },
+      {
+        "label": "B",
+        "text": "Creates a constant named 5 that equals x"
+      },
+      {
+        "label": "C",
+        "text": "Declares that x can only ever hold the value 5"
+      },
+      {
+        "label": "D",
+        "text": "Compares x with 5 and returns true or false"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Initialization gives a variable its first value at declaration."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-06",
+    "code": "int x = 5;\ncout << x << endl;",
+    "question": "What does cout << x do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Stores the text 'x' into cout for later use"
+      },
+      {
+        "label": "B",
+        "text": "Deletes the value in x after printing it"
+      },
+      {
+        "label": "C",
+        "text": "Reads the value stored in x (5) and prints it to the terminal"
+      },
+      {
+        "label": "D",
+        "text": "Moves x's value into a different variable called cout"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Using a variable name in an expression reads its current value."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-07",
+    "code": "int x = 5;\nx = 10;\ncout << x << endl;",
+    "question": "What does 'x = 10;' do after x already exists?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Compares x with 10 and prints true or false"
+      },
+      {
+        "label": "B",
+        "text": "Creates a second variable named x with value 10"
+      },
+      {
+        "label": "C",
+        "text": "Causes an error because x was already assigned"
+      },
+      {
+        "label": "D",
+        "text": "Overwrites x's stored value — changes it from 5 to 10"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Assignment to an existing variable replaces its value."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-08",
+    "code": "int x = 5;\nx = x + 1;",
+    "question": "Does = here mean 'equals' like in math?",
+    "options": [
+      {
+        "label": "A",
+        "text": "No — = means 'store the right side value into the left side box'"
+      },
+      {
+        "label": "B",
+        "text": "Yes — it creates an equation that stays true forever"
+      },
+      {
+        "label": "C",
+        "text": "Yes — it checks if x equals x + 1 and returns a boolean"
+      },
+      {
+        "label": "D",
+        "text": "No — it means 'swap the values of left and right'"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "= is assignment (store), not equality (compare). == is equality."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-09",
+    "code": "cout << x << endl;\nint x = 5;",
+    "question": "What's wrong with this code?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Nothing — C++ figures out what x is from context"
+      },
+      {
+        "label": "B",
+        "text": "endl must come on its own separate line"
+      },
+      {
+        "label": "C",
+        "text": "x is used before it's declared — variables must be declared first"
+      },
+      {
+        "label": "D",
+        "text": "cout cannot print integer values, only strings"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "A variable must be declared before any line that uses it."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-10",
+    "code": "int age = 25;\nint count = -3;\nint total = 1000000;",
+    "question": "What kind of values can an int variable store?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Single characters like 'A' or '9'"
+      },
+      {
+        "label": "B",
+        "text": "Only positive numbers from 0 upward"
+      },
+      {
+        "label": "C",
+        "text": "Any number including decimals like 3.14"
+      },
+      {
+        "label": "D",
+        "text": "Whole numbers only (positive, negative, or zero)"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "int stores integers — no decimal point."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-11",
+    "code": "double price = 9.99;\ndouble pi = 3.14159;",
+    "question": "What kind of values can a double variable store?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Two integers stored as a pair"
+      },
+      {
+        "label": "B",
+        "text": "Numbers with decimal points (floating-point values)"
+      },
+      {
+        "label": "C",
+        "text": "Text strings that contain numeric digits"
+      },
+      {
+        "label": "D",
+        "text": "Only whole numbers, same as int but larger range"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "double stores floating-point (decimal) numbers."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-12",
+    "code": "string name = \"Alice\";\nstring greeting = \"Hello World\";",
+    "question": "What kind of values can a string variable store?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A fixed-length array of exactly 10 characters"
+      },
+      {
+        "label": "B",
+        "text": "A single character only, like 'A'"
+      },
+      {
+        "label": "C",
+        "text": "Numbers that are formatted as text"
+      },
+      {
+        "label": "D",
+        "text": "Text — a sequence of characters in double quotes"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "string holds text of any length."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-13",
+    "code": "bool found = true;\nbool done = false;",
+    "question": "What kind of values can a bool variable store?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Any integer where 0 means false and others mean true"
+      },
+      {
+        "label": "B",
+        "text": "Only true or false — nothing else"
+      },
+      {
+        "label": "C",
+        "text": "The strings \"true\" or \"false\" as text"
+      },
+      {
+        "label": "D",
+        "text": "A yes/no/maybe three-state value"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "bool holds exactly one of two values: true or false."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-14",
+    "code": "char letter = 'A';\nchar digit = '9';",
+    "question": "What kind of values can a char variable store?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A boolean value represented as a letter"
+      },
+      {
+        "label": "B",
+        "text": "An integer that counts characters in a string"
+      },
+      {
+        "label": "C",
+        "text": "A string of multiple characters in single quotes"
+      },
+      {
+        "label": "D",
+        "text": "A single character — one letter, digit, or symbol"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "char holds exactly one character in single quotes."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-15",
+    "code": "int x = 5;\nint y = -3;\nint sum = x + y;",
+    "question": "What is 5 in 'int x = 5;'?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A string containing the character '5'"
+      },
+      {
+        "label": "B",
+        "text": "An int literal — a fixed integer value written directly in code"
+      },
+      {
+        "label": "C",
+        "text": "A function that returns the number five"
+      },
+      {
+        "label": "D",
+        "text": "A variable named 5 that stores an integer"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "5 is a literal: a fixed value written directly in source code."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-16",
+    "code": "double pi = 3.14;\ndouble half = 0.5;",
+    "question": "What is 3.14 in 'double pi = 3.14;'?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A double literal — a fixed decimal value written directly in code"
+      },
+      {
+        "label": "B",
+        "text": "A variable named 3.14"
+      },
+      {
+        "label": "C",
+        "text": "An int literal that gets converted to double"
+      },
+      {
+        "label": "D",
+        "text": "A format specifier for printing decimals"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "3.14 is a floating-point literal."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-17",
+    "code": "string msg = \"hello\";\ncout << msg << endl;",
+    "question": "What is \"hello\" in 'string msg = \"hello\";'?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A variable name that references another string"
+      },
+      {
+        "label": "B",
+        "text": "A command that prints hello immediately"
+      },
+      {
+        "label": "C",
+        "text": "A char literal containing five characters"
+      },
+      {
+        "label": "D",
+        "text": "A string literal — fixed text written directly in double quotes"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "\"hello\" is a string literal — text in double quotes."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-18",
+    "code": "char grade = 'A';\nchar newline = '\\n';",
+    "question": "What is 'A' in 'char grade = 'A';'?",
+    "options": [
+      {
+        "label": "A",
+        "text": "An integer with the ASCII value of A"
+      },
+      {
+        "label": "B",
+        "text": "A char literal — a single character in single quotes"
+      },
+      {
+        "label": "C",
+        "text": "A variable name that stores the letter A"
+      },
+      {
+        "label": "D",
+        "text": "A string containing one character"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "'A' is a char literal — single character in single quotes."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-19",
+    "code": "bool ready = true;\nbool empty = false;",
+    "question": "What are true and false in this code?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Integer constants where true=1 and false=0"
+      },
+      {
+        "label": "B",
+        "text": "Bool literals — the only two values a bool variable can hold"
+      },
+      {
+        "label": "C",
+        "text": "Function calls that check a condition"
+      },
+      {
+        "label": "D",
+        "text": "String values that happen to look like keywords"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "true and false are the two boolean literals."
+  },
+  {
+    "type": "decompose",
+    "atomId": "V-20",
+    "code": "#include <string>\n#include <iostream>\nusing namespace std;\nint main() {\n  string name = \"Alice\";\n  cout << name << endl;\n  return 0;\n}",
+    "question": "Why is #include <string> needed here?",
+    "options": [
+      {
+        "label": "A",
+        "text": "The string type requires its own library include to be available"
+      },
+      {
+        "label": "B",
+        "text": "It's not needed — string is built into C++ without any include"
+      },
+      {
+        "label": "C",
+        "text": "It allows using double-quotes for text values"
+      },
+      {
+        "label": "D",
+        "text": "It makes cout able to print text"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "string is not built-in; it needs #include <string>."
+  },
+  {
+    "type": "decompose",
+    "atomId": "I-01",
+    "code": "int age;\ncout << \"Enter age: \";\ncin >> age;",
+    "question": "What does cin do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Opens a file for reading text"
+      },
+      {
+        "label": "B",
+        "text": "Reads input that the user types in the terminal"
+      },
+      {
+        "label": "C",
+        "text": "Creates a new variable to store data"
+      },
+      {
+        "label": "D",
+        "text": "Prints output to the terminal screen"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "cin is the standard input stream — it reads from the keyboard."
+  },
+  {
+    "type": "decompose",
+    "atomId": "I-02",
+    "code": "int age;\ncin >> age;",
+    "question": "What does the >> operator do here?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Extracts (reads) a value from the input stream into the variable age"
+      },
+      {
+        "label": "B",
+        "text": "Sends the value of age to the output stream"
+      },
+      {
+        "label": "C",
+        "text": "Shifts the bits of age to the right"
+      },
+      {
+        "label": "D",
+        "text": "Compares cin with age and returns true or false"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": ">> is the extraction operator — it reads from cin into a variable."
+  },
+  {
+    "type": "decompose",
+    "atomId": "I-03",
+    "code": "int n;\ncin >> n;\ncout << n << endl;",
+    "question": "What happens when execution reaches 'cin >> n;'?",
+    "options": [
+      {
+        "label": "A",
+        "text": "n is immediately set to 0 without waiting"
+      },
+      {
+        "label": "B",
+        "text": "The program skips this line if no input is available"
+      },
+      {
+        "label": "C",
+        "text": "The program pauses and waits for the user to type a value and press Enter"
+      },
+      {
+        "label": "D",
+        "text": "An error occurs because n has no value yet"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "cin >> blocks (waits) until the user provides input."
+  },
+  {
+    "type": "decompose",
+    "atomId": "I-04",
+    "code": "int a, b;\ncin >> a >> b;",
+    "question": "If the user types '5 10' (with a space), what happens?",
+    "options": [
+      {
+        "label": "A",
+        "text": "a gets 5 and b gets 10 — whitespace separates the two input values"
+      },
+      {
+        "label": "B",
+        "text": "a gets 510 (space is ignored within the number)"
+      },
+      {
+        "label": "C",
+        "text": "a gets the string '5 10' as one value"
+      },
+      {
+        "label": "D",
+        "text": "Only a gets a value; b stays uninitialized"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Whitespace (spaces, tabs, newlines) delimits separate input values."
+  },
+  {
+    "type": "decompose",
+    "atomId": "I-05",
+    "code": "int n;\ncin >> n;\ncout << n + 1 << endl;",
+    "question": "If the user types '7', what type is the value stored in n?",
+    "options": [
+      {
+        "label": "A",
+        "text": "char — because '7' is a single character"
+      },
+      {
+        "label": "B",
+        "text": "string — all keyboard input is stored as text"
+      },
+      {
+        "label": "C",
+        "text": "double — cin always reads decimal numbers"
+      },
+      {
+        "label": "D",
+        "text": "int — cin automatically parses the text '7' into an integer matching n's type"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "cin >> parses input text to match the variable's declared type."
+  },
+  {
+    "type": "decompose",
+    "atomId": "I-06",
+    "code": "int a, b, c;\ncin >> a >> b >> c;",
+    "question": "What does chaining >> operators do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Creates three separate input prompts one at a time"
+      },
+      {
+        "label": "B",
+        "text": "Reads only the last variable (c) and ignores a and b"
+      },
+      {
+        "label": "C",
+        "text": "Reads multiple values in sequence — a then b then c from one input line"
+      },
+      {
+        "label": "D",
+        "text": "Stores all three values into c as a sum"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Chaining >> reads multiple values separated by whitespace."
+  },
+  {
+    "type": "decompose",
+    "atomId": "I-07",
+    "code": "string line;\ngetline(cin, line);\ncout << line << endl;",
+    "question": "How does getline differ from cin >>?",
+    "options": [
+      {
+        "label": "A",
+        "text": "getline reads from a file; cin >> reads from the keyboard"
+      },
+      {
+        "label": "B",
+        "text": "getline reads the entire line including spaces; cin >> stops at the first space"
+      },
+      {
+        "label": "C",
+        "text": "getline automatically adds a newline; cin >> does not"
+      },
+      {
+        "label": "D",
+        "text": "getline only reads one character; cin >> reads whole words"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "getline(cin, s) reads everything until Enter, spaces included."
+  },
+  {
+    "type": "decompose",
+    "atomId": "A-01",
+    "code": "int a = 10, b = 3;\nint sum = a + b;\ncout << sum << endl;",
+    "question": "What does + do here?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Compares a and b, returning true if equal"
+      },
+      {
+        "label": "B",
+        "text": "Concatenates a and b as strings, producing '103'"
+      },
+      {
+        "label": "C",
+        "text": "Adds the values of a and b together, producing 13"
+      },
+      {
+        "label": "D",
+        "text": "Stores b into a, overwriting a's value"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "+ is the addition operator for numeric values."
+  },
+  {
+    "type": "decompose",
+    "atomId": "A-02",
+    "code": "int a = 10, b = 3;\nint diff = a - b;\ncout << diff << endl;",
+    "question": "What does - do here?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Makes b negative and stores it in diff"
+      },
+      {
+        "label": "B",
+        "text": "Checks if a is less than b"
+      },
+      {
+        "label": "C",
+        "text": "Removes b characters from the end of a"
+      },
+      {
+        "label": "D",
+        "text": "Subtracts b from a, producing 7"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "- is the subtraction operator."
+  },
+  {
+    "type": "decompose",
+    "atomId": "A-03",
+    "code": "int a = 10, b = 3;\nint product = a * b;\ncout << product << endl;",
+    "question": "What does * do here?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Multiplies a and b together, producing 30"
+      },
+      {
+        "label": "B",
+        "text": "Repeats the value of a exactly b times as a string"
+      },
+      {
+        "label": "C",
+        "text": "Raises a to the power of b"
+      },
+      {
+        "label": "D",
+        "text": "Dereferences a pointer named a"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "* is the multiplication operator."
+  },
+  {
+    "type": "decompose",
+    "atomId": "A-04",
+    "code": "int a = 10, b = 3;\nint quotient = a / b;\ncout << quotient << endl;",
+    "question": "What does / do here?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Starts a comment until end of line"
+      },
+      {
+        "label": "B",
+        "text": "Calculates the remainder of a divided by b"
+      },
+      {
+        "label": "C",
+        "text": "Formats a as a fraction with b as denominator"
+      },
+      {
+        "label": "D",
+        "text": "Divides a by b — gives the quotient"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "/ is the division operator."
+  },
+  {
+    "type": "decompose",
+    "atomId": "A-05",
+    "code": "int a = 10, b = 3;\nint rem = a % b;\ncout << rem << endl;",
+    "question": "What does % do here?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Divides a by b and gives the quotient"
+      },
+      {
+        "label": "B",
+        "text": "Calculates a percentage of b"
+      },
+      {
+        "label": "C",
+        "text": "Gives the remainder when a is divided by b (10 % 3 = 1)"
+      },
+      {
+        "label": "D",
+        "text": "Formats a number as a percentage string"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "% is the modulo (remainder) operator."
+  },
+  {
+    "type": "decompose",
+    "atomId": "A-06",
+    "code": "int result = 5 / 2;\ncout << result << endl;",
+    "question": "What value does 5 / 2 produce when both are ints?",
+    "options": [
+      {
+        "label": "A",
+        "text": "2.5 — division always gives the exact result"
+      },
+      {
+        "label": "B",
+        "text": "3 — integer division rounds up"
+      },
+      {
+        "label": "C",
+        "text": "2 — integer division truncates (drops) the decimal part"
+      },
+      {
+        "label": "D",
+        "text": "0 — division of small numbers gives zero"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "int / int truncates toward zero. 5/2 = 2, not 2.5."
+  },
+  {
+    "type": "decompose",
+    "atomId": "A-07",
+    "code": "int x = 2 + 3 * 4;\ncout << x << endl;",
+    "question": "What is x after this line? (hint: operator precedence)",
+    "options": [
+      {
+        "label": "A",
+        "text": "24 — both operations produce 12 each"
+      },
+      {
+        "label": "B",
+        "text": "20 — operations happen left to right, so (2+3)*4=20"
+      },
+      {
+        "label": "C",
+        "text": "9 — addition happens first, so 2+3=5, then 5*4 is truncated"
+      },
+      {
+        "label": "D",
+        "text": "14 — multiplication (*) happens before addition (+), so 3*4=12, then 2+12=14"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "* / % have higher precedence than + -, just like in math."
+  },
+  {
+    "type": "decompose",
+    "atomId": "A-08",
+    "code": "int x = (2 + 3) * 4;\ncout << x << endl;",
+    "question": "What do the parentheses do here?",
+    "options": [
+      {
+        "label": "A",
+        "text": "They cast the result to a different type"
+      },
+      {
+        "label": "B",
+        "text": "Force 2+3 to happen first, overriding normal * before + precedence"
+      },
+      {
+        "label": "C",
+        "text": "They have no effect — + already happens before *"
+      },
+      {
+        "label": "D",
+        "text": "They create a function call with arguments 2 and 3"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "() override default operator precedence, just like in math."
+  },
+  {
+    "type": "decompose",
+    "atomId": "A-09",
+    "code": "int x = 5;\nx += 3;\ncout << x << endl;",
+    "question": "What does x += 3 do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Adds 3 to x's current value and stores the result back in x (5+3=8)"
+      },
+      {
+        "label": "B",
+        "text": "Concatenates the digit 3 onto x as a string"
+      },
+      {
+        "label": "C",
+        "text": "Creates a new variable that holds x plus 3"
+      },
+      {
+        "label": "D",
+        "text": "Compares x with 3 and returns true if x is bigger"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "+= is shorthand for x = x + 3. Also -= *= /= work the same way."
+  },
+  {
+    "type": "decompose",
+    "atomId": "A-10",
+    "code": "int i = 0;\ni++;\ncout << i << endl;",
+    "question": "What does i++ do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Adds 1 to i — same as i = i + 1"
+      },
+      {
+        "label": "B",
+        "text": "Creates a copy of i with one added"
+      },
+      {
+        "label": "C",
+        "text": "Moves to the next character in a string"
+      },
+      {
+        "label": "D",
+        "text": "Doubles the value of i"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "++ increments by 1. It's shorthand for i = i + 1."
+  },
+  {
+    "type": "decompose",
+    "atomId": "A-11",
+    "code": "int n = 5;\nn--;\ncout << n << endl;",
+    "question": "What does n-- do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Subtracts 1 from n — same as n = n - 1 (result: 4)"
+      },
+      {
+        "label": "B",
+        "text": "Deletes the variable n from memory"
+      },
+      {
+        "label": "C",
+        "text": "Divides n by 2"
+      },
+      {
+        "label": "D",
+        "text": "Sets n to negative 5"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "-- decrements by 1. Shorthand for n = n - 1."
+  },
+  {
+    "type": "decompose",
+    "atomId": "C-01",
+    "code": "int x = 10;\nif (x == 10) {\n  cout << \"yes\" << endl;\n}",
+    "question": "What does == do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Tests if two values are equal — returns true if they are"
+      },
+      {
+        "label": "B",
+        "text": "Creates a copy of the variable on the right"
+      },
+      {
+        "label": "C",
+        "text": "Adds the two values together"
+      },
+      {
+        "label": "D",
+        "text": "Assigns the right value into the left variable"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "== is the equality comparison operator. Don't confuse with = (assignment)."
+  },
+  {
+    "type": "decompose",
+    "atomId": "C-02",
+    "code": "int x = 10;\nif (x != 5) {\n  cout << \"different\" << endl;\n}",
+    "question": "What does != do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Removes the value from x, making it empty"
+      },
+      {
+        "label": "B",
+        "text": "Checks if x is less than or equal to 5"
+      },
+      {
+        "label": "C",
+        "text": "Assigns the negative of 5 to x"
+      },
+      {
+        "label": "D",
+        "text": "Tests if two values are NOT equal — returns true if they differ"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "!= returns true when the two sides have different values."
+  },
+  {
+    "type": "decompose",
+    "atomId": "C-03",
+    "code": "for (int i = 0; i < 5; i++) {\n  cout << i << endl;\n}",
+    "question": "What does i < 5 evaluate to?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Shifts i left by 5 bit positions"
+      },
+      {
+        "label": "B",
+        "text": "true if i is less than 5, false otherwise"
+      },
+      {
+        "label": "C",
+        "text": "The difference between i and 5"
+      },
+      {
+        "label": "D",
+        "text": "Assigns 5 to i if i is smaller"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "< is less-than comparison — returns a bool."
+  },
+  {
+    "type": "decompose",
+    "atomId": "C-04",
+    "code": "int x = 10;\nif (x > 5) {\n  cout << \"big\" << endl;\n}",
+    "question": "What does x > 5 evaluate to?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Stores 5 into x if x is larger"
+      },
+      {
+        "label": "B",
+        "text": "The value of x minus 5"
+      },
+      {
+        "label": "C",
+        "text": "Shifts x right by 5 positions"
+      },
+      {
+        "label": "D",
+        "text": "true if x is greater than 5, false otherwise"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "> is greater-than comparison — returns a bool."
+  },
+  {
+    "type": "decompose",
+    "atomId": "C-05",
+    "code": "int x = 5;\nif (x <= 5) {\n  cout << \"yes\" << endl;\n}",
+    "question": "What does x <= 5 evaluate to?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Subtracts 5 from x and checks if result is negative"
+      },
+      {
+        "label": "B",
+        "text": "Assigns 5 to x then returns true"
+      },
+      {
+        "label": "C",
+        "text": "true if x is less than OR equal to 5"
+      },
+      {
+        "label": "D",
+        "text": "true only if x is strictly less than 5 (not equal)"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "<= means less than or equal — true when x is 5 or lower."
+  },
+  {
+    "type": "decompose",
+    "atomId": "C-06",
+    "code": "int x = 10;\nif (x >= 7) {\n  cout << \"pass\" << endl;\n}",
+    "question": "What does x >= 7 evaluate to?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Checks if x has at least 7 digits"
+      },
+      {
+        "label": "B",
+        "text": "true only if x is strictly greater (not equal to 7)"
+      },
+      {
+        "label": "C",
+        "text": "Adds 7 to x and stores the result"
+      },
+      {
+        "label": "D",
+        "text": "true if x is greater than OR equal to 7"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": ">= means greater than or equal."
+  },
+  {
+    "type": "decompose",
+    "atomId": "C-07",
+    "code": "int x = 10;\nbool big = (x > 5);\ncout << big << endl;",
+    "question": "What type does x > 5 produce?",
+    "options": [
+      {
+        "label": "A",
+        "text": "string — returns \"true\" or \"false\" as text"
+      },
+      {
+        "label": "B",
+        "text": "bool — all comparisons return either true or false"
+      },
+      {
+        "label": "C",
+        "text": "int — comparisons return 1 or 0 as integers"
+      },
+      {
+        "label": "D",
+        "text": "double — returns the difference between the values"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Every comparison operator returns a bool value."
+  },
+  {
+    "type": "decompose",
+    "atomId": "L-01",
+    "code": "int x = 10;\nif (x > 5 && x < 20) {\n  cout << \"in range\" << endl;\n}",
+    "question": "What does && do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "References the variable on the right (creates an alias)"
+      },
+      {
+        "label": "B",
+        "text": "Returns true only if BOTH sides are true (logical AND)"
+      },
+      {
+        "label": "C",
+        "text": "Returns true if EITHER side is true"
+      },
+      {
+        "label": "D",
+        "text": "Combines two numbers by adding them together"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "&& is logical AND — both conditions must be true."
+  },
+  {
+    "type": "decompose",
+    "atomId": "L-02",
+    "code": "int x = 10;\nif (x < 5 || x > 8) {\n  cout << \"outside\" << endl;\n}",
+    "question": "What does || do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Returns true only if exactly one side is true"
+      },
+      {
+        "label": "B",
+        "text": "Returns true only if BOTH sides are true"
+      },
+      {
+        "label": "C",
+        "text": "Concatenates two strings together"
+      },
+      {
+        "label": "D",
+        "text": "Returns true if EITHER side (or both) is true (logical OR)"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "|| is logical OR — at least one condition must be true."
+  },
+  {
+    "type": "decompose",
+    "atomId": "L-03",
+    "code": "bool done = false;\nif (!done) {\n  cout << \"keep going\" << endl;\n}",
+    "question": "What does ! do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Makes the variable negative (multiplies by -1)"
+      },
+      {
+        "label": "B",
+        "text": "Deletes the variable from memory"
+      },
+      {
+        "label": "C",
+        "text": "Flips the bool — !false becomes true, !true becomes false (logical NOT)"
+      },
+      {
+        "label": "D",
+        "text": "Checks if the variable is not equal to zero"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "! is logical NOT — it inverts a boolean value."
+  },
+  {
+    "type": "decompose",
+    "atomId": "F-01",
+    "code": "int x = 10;\nif (x > 5) {\n  cout << \"big\" << endl;\n}",
+    "question": "What does the if statement do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Always runs the body and then checks the condition after"
+      },
+      {
+        "label": "B",
+        "text": "Assigns the value true to x if x is greater than 5"
+      },
+      {
+        "label": "C",
+        "text": "Runs the body { ... } only if the condition (x > 5) is true"
+      },
+      {
+        "label": "D",
+        "text": "Runs the body repeatedly while the condition is true"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "if (condition) { body } — runs body once if condition is true."
+  },
+  {
+    "type": "decompose",
+    "atomId": "F-02",
+    "code": "int x = 3;\nif (x > 5) {\n  cout << \"big\" << endl;\n} else {\n  cout << \"small\" << endl;\n}",
+    "question": "When does the else block run?",
+    "options": [
+      {
+        "label": "A",
+        "text": "When the if body throws an error"
+      },
+      {
+        "label": "B",
+        "text": "After the if body finishes, as a second step"
+      },
+      {
+        "label": "C",
+        "text": "Only when the if condition is false — here x is 3, so 'small' prints"
+      },
+      {
+        "label": "D",
+        "text": "Always — else runs regardless of the condition"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "else provides the alternative path when if's condition is false."
+  },
+  {
+    "type": "decompose",
+    "atomId": "F-03",
+    "code": "int x = 5;\nif (x > 10) {\n  cout << \"big\" << endl;\n} else if (x > 3) {\n  cout << \"medium\" << endl;\n} else {\n  cout << \"small\" << endl;\n}",
+    "question": "What does 'else if' do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Creates a nested loop inside the else"
+      },
+      {
+        "label": "B",
+        "text": "Checks the condition only if the previous if was TRUE"
+      },
+      {
+        "label": "C",
+        "text": "Runs both the else block and the if block in sequence"
+      },
+      {
+        "label": "D",
+        "text": "Checks another condition if the previous if was false — chains multiple tests"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "else if chains conditions — only the first true branch executes."
+  },
+  {
+    "type": "decompose",
+    "atomId": "F-04",
+    "code": "int x = 10;\nif (x > 5) {\n  cout << \"yes\" << endl;\n}",
+    "question": "What type must the expression inside if(...) be?",
+    "options": [
+      {
+        "label": "A",
+        "text": "void — the condition has no type"
+      },
+      {
+        "label": "B",
+        "text": "string — the condition is a text expression"
+      },
+      {
+        "label": "C",
+        "text": "int — any non-zero number means true"
+      },
+      {
+        "label": "D",
+        "text": "bool (true/false) — the condition must evaluate to a boolean"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "if requires a bool condition (or something convertible to bool)."
+  },
+  {
+    "type": "decompose",
+    "atomId": "F-05",
+    "code": "if (x > 5) {\n  cout << \"yes\" << endl;\n}",
+    "question": "Why use { } even when the body is only one line?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Braces create a new variable that stores the condition result"
+      },
+      {
+        "label": "B",
+        "text": "Braces make the code run faster at runtime"
+      },
+      {
+        "label": "C",
+        "text": "Braces are required — the code won't compile without them"
+      },
+      {
+        "label": "D",
+        "text": "Prevents bugs — without braces, only the first line is in the body"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Always use { } to avoid accidental bugs with single-line bodies."
+  },
+  {
+    "type": "decompose",
+    "atomId": "W-01",
+    "code": "int i = 0;\nwhile (i < 5) {\n  cout << i << endl;\n  i++;\n}",
+    "question": "What does the while loop do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Runs the body a random number of times"
+      },
+      {
+        "label": "B",
+        "text": "Repeats the body as long as the condition (i < 5) stays true"
+      },
+      {
+        "label": "C",
+        "text": "Runs the body exactly once then checks the condition"
+      },
+      {
+        "label": "D",
+        "text": "Waits for user input before running the body"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "while checks condition BEFORE each iteration; loops until false."
+  },
+  {
+    "type": "decompose",
+    "atomId": "W-02",
+    "code": "int n;\ndo {\n  cout << \"Enter positive: \";\n  cin >> n;\n} while (n <= 0);",
+    "question": "How does do-while differ from while?",
+    "options": [
+      {
+        "label": "A",
+        "text": "The body runs at least once BEFORE the condition is checked"
+      },
+      {
+        "label": "B",
+        "text": "It runs the body only if the condition is initially false"
+      },
+      {
+        "label": "C",
+        "text": "It loops forever and never checks the condition"
+      },
+      {
+        "label": "D",
+        "text": "It's identical to while — just different syntax"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "do { body } while (cond); guarantees at least one execution."
+  },
+  {
+    "type": "decompose",
+    "atomId": "W-03",
+    "code": "for (int i = 0; i < 5; i++) {\n  cout << i << \" \";\n}",
+    "question": "What are the three parts inside for(...)?",
+    "options": [
+      {
+        "label": "A",
+        "text": "input; process; output — reads, computes, displays"
+      },
+      {
+        "label": "B",
+        "text": "start; end; increment — defines a range of numbers"
+      },
+      {
+        "label": "C",
+        "text": "init (int i=0); condition (i<5); step (i++) — setup, test, update"
+      },
+      {
+        "label": "D",
+        "text": "variable; value; type — declares and assigns in one line"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "for (init; condition; step) — all loop control in one line."
+  },
+  {
+    "type": "decompose",
+    "atomId": "W-04",
+    "code": "for (int i = 0; i < 5; i++) {\n  cout << i << \" \";\n}",
+    "question": "When does 'int i = 0' (the init part) execute?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Once only — before the very first iteration"
+      },
+      {
+        "label": "B",
+        "text": "Before every iteration, resetting i each time"
+      },
+      {
+        "label": "C",
+        "text": "After every iteration, right before the condition check"
+      },
+      {
+        "label": "D",
+        "text": "Only if the condition is true on the first check"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "The init part runs exactly once at the start of the for loop."
+  },
+  {
+    "type": "decompose",
+    "atomId": "W-05",
+    "code": "for (int i = 0; i < 5; i++) {\n  cout << i << \" \";\n}",
+    "question": "When is 'i < 5' (the condition) checked?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Only at the end when the loop is about to finish"
+      },
+      {
+        "label": "B",
+        "text": "After each iteration, then it decides about the NEXT one"
+      },
+      {
+        "label": "C",
+        "text": "Only once at the beginning of the loop"
+      },
+      {
+        "label": "D",
+        "text": "Before EACH iteration — if false, the loop stops immediately"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Condition is checked before every pass through the body."
+  },
+  {
+    "type": "decompose",
+    "atomId": "W-06",
+    "code": "for (int i = 0; i < 5; i++) {\n  cout << i << \" \";\n}",
+    "question": "When does 'i++' (the step) execute?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Before each iteration, right after the condition check"
+      },
+      {
+        "label": "B",
+        "text": "After EACH iteration of the body — before the next condition check"
+      },
+      {
+        "label": "C",
+        "text": "Only after the last iteration when the loop ends"
+      },
+      {
+        "label": "D",
+        "text": "Once at the very start, together with the init"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Step runs after each body execution, then condition is rechecked."
+  },
+  {
+    "type": "decompose",
+    "atomId": "W-07",
+    "code": "for (int i = 0; i < 10; i++) {\n  if (i == 5) break;\n  cout << i << \" \";\n}",
+    "question": "What does break do inside the loop?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Immediately exits the loop — execution jumps to after the closing }"
+      },
+      {
+        "label": "B",
+        "text": "Ends the entire program, not just the loop"
+      },
+      {
+        "label": "C",
+        "text": "Pauses the loop until the user presses a key"
+      },
+      {
+        "label": "D",
+        "text": "Skips the current iteration and continues with the next"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "break terminates the innermost enclosing loop."
+  },
+  {
+    "type": "decompose",
+    "atomId": "W-08",
+    "code": "for (int i = 0; i < 5; i++) {\n  if (i == 2) continue;\n  cout << i << \" \";\n}",
+    "question": "What does continue do inside the loop?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Exits the loop entirely, same as break"
+      },
+      {
+        "label": "B",
+        "text": "Pauses execution and waits for user input"
+      },
+      {
+        "label": "C",
+        "text": "Skips the rest of THIS iteration and jumps to the next (step + condition check)"
+      },
+      {
+        "label": "D",
+        "text": "Restarts the loop from the very beginning (i=0)"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "continue skips to the next iteration — doesn't exit the loop."
+  },
+  {
+    "type": "decompose",
+    "atomId": "W-09",
+    "code": "for (int r = 0; r < 3; r++) {\n  for (int c = 0; c < 4; c++) {\n    cout << r << c << \" \";\n  }\n  cout << endl;\n}",
+    "question": "What does having a for loop inside another for loop do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "The inner loop runs fully for EACH iteration of the outer loop (nested loops)"
+      },
+      {
+        "label": "B",
+        "text": "Both loops run at the same time in parallel"
+      },
+      {
+        "label": "C",
+        "text": "It causes a compilation error — loops cannot be nested"
+      },
+      {
+        "label": "D",
+        "text": "The inner loop only runs once total, not per outer iteration"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Nested loops: inner completes all iterations per one outer iteration."
+  },
+  {
+    "type": "decompose",
+    "atomId": "W-10",
+    "code": "while (true) {\n  cout << \"forever\" << endl;\n}",
+    "question": "What happens with while(true)?",
+    "options": [
+      {
+        "label": "A",
+        "text": "The loop runs forever — the condition never becomes false"
+      },
+      {
+        "label": "B",
+        "text": "The compiler detects the infinite loop and refuses to compile"
+      },
+      {
+        "label": "C",
+        "text": "It's the same as while(false) — the loop never runs"
+      },
+      {
+        "label": "D",
+        "text": "The loop runs exactly once then stops"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "If the condition can never become false, the loop is infinite."
+  },
+  {
+    "type": "decompose",
+    "atomId": "H-01",
+    "code": "void greet() {\n  cout << \"Hello!\" << endl;\n}\nint main() {\n  greet();\n  return 0;\n}",
+    "question": "What is greet() in this code?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A type declaration like int or string"
+      },
+      {
+        "label": "B",
+        "text": "A loop that prints Hello repeatedly"
+      },
+      {
+        "label": "C",
+        "text": "A variable that stores the text 'Hello!'"
+      },
+      {
+        "label": "D",
+        "text": "A function — a named reusable block of code you can call"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "A function packages code into a named unit you can invoke by name."
+  },
+  {
+    "type": "decompose",
+    "atomId": "H-02",
+    "code": "int add(int a, int b) {\n  return a + b;\n}",
+    "question": "What does the 'int' before 'add' specify?",
+    "options": [
+      {
+        "label": "A",
+        "text": "The type of the first parameter a"
+      },
+      {
+        "label": "B",
+        "text": "The return type — this function gives back an integer value"
+      },
+      {
+        "label": "C",
+        "text": "How many parameters the function takes"
+      },
+      {
+        "label": "D",
+        "text": "The size in bytes of the function's code"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Function signature: returnType name(params) { body }"
+  },
+  {
+    "type": "decompose",
+    "atomId": "H-03",
+    "code": "int add(int a, int b) {\n  return a + b;\n}\nint main() {\n  int result = add(3, 4);\n  cout << result << endl;\n  return 0;\n}",
+    "question": "What does add(3, 4) do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Calls the add function with arguments 3 and 4, which returns 7"
+      },
+      {
+        "label": "B",
+        "text": "Creates a new function named add with values 3 and 4"
+      },
+      {
+        "label": "C",
+        "text": "Declares two variables named 3 and 4 inside add"
+      },
+      {
+        "label": "D",
+        "text": "Prints 3 and 4 to the terminal"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Calling a function: name(arguments) — passes values and gets result."
+  },
+  {
+    "type": "decompose",
+    "atomId": "H-04",
+    "code": "int square(int x) {\n  return x * x;\n}\nint main() {\n  int result = square(5);\n  return 0;\n}",
+    "question": "What happens to x when square(5) is called?",
+    "options": [
+      {
+        "label": "A",
+        "text": "x is a global variable shared with main"
+      },
+      {
+        "label": "B",
+        "text": "x refers to the same memory as the 5 literal"
+      },
+      {
+        "label": "C",
+        "text": "x doesn't get a value until return is reached"
+      },
+      {
+        "label": "D",
+        "text": "x becomes a local copy containing 5 — a new box just for this call"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Parameters create new local variables initialized with the argument values."
+  },
+  {
+    "type": "decompose",
+    "atomId": "H-05",
+    "code": "int square(int x) {\n  return x * x;\n}",
+    "question": "What does 'return x * x;' do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Sends the computed value (x*x) back to whoever called this function"
+      },
+      {
+        "label": "B",
+        "text": "Stores x*x in a global variable for later"
+      },
+      {
+        "label": "C",
+        "text": "Ends the program entirely with exit code x*x"
+      },
+      {
+        "label": "D",
+        "text": "Prints x*x to the terminal"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "return sends a value back to the caller and exits the function."
+  },
+  {
+    "type": "decompose",
+    "atomId": "H-06",
+    "code": "void greet() {\n  cout << \"Hello!\" << endl;\n}",
+    "question": "What does 'void' as the return type mean?",
+    "options": [
+      {
+        "label": "A",
+        "text": "The function returns zero (0) automatically"
+      },
+      {
+        "label": "B",
+        "text": "The function can return any type it wants"
+      },
+      {
+        "label": "C",
+        "text": "This function returns nothing — it just does work without giving back a value"
+      },
+      {
+        "label": "D",
+        "text": "The function has no parameters"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "void means no return value. The function does work but sends nothing back."
+  },
+  {
+    "type": "decompose",
+    "atomId": "H-07",
+    "code": "int square(int n);    // prototype\nint main() {\n  cout << square(4) << endl;\n  return 0;\n}\nint square(int n) {   // definition\n  return n * n;\n}",
+    "question": "Why is the prototype 'int square(int n);' needed above main?",
+    "options": [
+      {
+        "label": "A",
+        "text": "It makes square a global variable instead of a function"
+      },
+      {
+        "label": "B",
+        "text": "It's optional — C++ can find functions defined below automatically"
+      },
+      {
+        "label": "C",
+        "text": "It creates a second copy of the function for faster execution"
+      },
+      {
+        "label": "D",
+        "text": "So the compiler knows square exists before main tries to call it"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Functions must be declared (or defined) before they're called."
+  },
+  {
+    "type": "decompose",
+    "atomId": "H-08",
+    "code": "int square(int);      // prototype - parameter name optional\nint add(int, int);",
+    "question": "What is this line (just the type + name + parameter types + semicolon)?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A commented-out function that won't compile"
+      },
+      {
+        "label": "B",
+        "text": "A function prototype — declares the signature so it can be called later"
+      },
+      {
+        "label": "C",
+        "text": "A function call that runs the code"
+      },
+      {
+        "label": "D",
+        "text": "A variable declaration of type int"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Prototype syntax: returnType name(paramTypes); — no body, just declares."
+  },
+  {
+    "type": "decompose",
+    "atomId": "H-09",
+    "code": "int compute() {\n  int local = 42;\n  return local;\n}\nint main() {\n  int x = compute();\n  // local doesn't exist here\n  return 0;\n}",
+    "question": "What happens to 'local' when compute() returns?",
+    "options": [
+      {
+        "label": "A",
+        "text": "It's destroyed — local variables die when the function exits"
+      },
+      {
+        "label": "B",
+        "text": "Its value is stored permanently for the next function call"
+      },
+      {
+        "label": "C",
+        "text": "It stays alive and can be accessed from main"
+      },
+      {
+        "label": "D",
+        "text": "It becomes a global variable automatically"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Local variables are destroyed when their function returns."
+  },
+  {
+    "type": "decompose",
+    "atomId": "H-10",
+    "code": "void f() {\n  int secret = 42;\n}\nint main() {\n  f();\n  // cout << secret;  // ERROR\n  return 0;\n}",
+    "question": "Why can't main() access 'secret'?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Because secret was declared with void type"
+      },
+      {
+        "label": "B",
+        "text": "Because f() hasn't been called yet at that point"
+      },
+      {
+        "label": "C",
+        "text": "It's local to f() — the caller cannot see another function's local variables"
+      },
+      {
+        "label": "D",
+        "text": "Because secret is too short a name for the compiler"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Each function's locals are invisible to all other functions."
+  },
+  {
+    "type": "decompose",
+    "atomId": "R-01",
+    "code": "void increment(int x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;   // prints 5\n  return 0;\n}",
+    "question": "Why does n still equal 5 after calling increment(n)?",
+    "options": [
+      {
+        "label": "A",
+        "text": "increment() returns a value that wasn't assigned back"
+      },
+      {
+        "label": "B",
+        "text": "x is a copy of n — changing the copy doesn't affect the original"
+      },
+      {
+        "label": "C",
+        "text": "n is reset to 5 after the function returns"
+      },
+      {
+        "label": "D",
+        "text": "The function didn't actually run because it's void"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Parameters receive copies by default. The original is untouched."
+  },
+  {
+    "type": "decompose",
+    "atomId": "R-02",
+    "code": "void attempt(int x) {\n  x = 99;\n}\nint main() {\n  int val = 10;\n  attempt(val);\n  cout << val << endl;  // still 10\n  return 0;\n}",
+    "question": "Why is val still 10 after attempt(val)?",
+    "options": [
+      {
+        "label": "A",
+        "text": "val was declared const so it can't change"
+      },
+      {
+        "label": "B",
+        "text": "attempt() returns void so no side effects can happen"
+      },
+      {
+        "label": "C",
+        "text": "Mutating the parameter x only changes the copy — caller's val is unaffected"
+      },
+      {
+        "label": "D",
+        "text": "The assignment x = 99 failed because x is read-only"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Pass-by-value: mutating the parameter never reaches the caller."
+  },
+  {
+    "type": "decompose",
+    "atomId": "R-03",
+    "code": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;  // prints 6\n  return 0;\n}",
+    "question": "What does & in 'int &x' mean?",
+    "options": [
+      {
+        "label": "A",
+        "text": "& means x is passed back as a return value"
+      },
+      {
+        "label": "B",
+        "text": "x is an alias (reference) for n — they share the same memory box"
+      },
+      {
+        "label": "C",
+        "text": "x is a constant copy that cannot be modified"
+      },
+      {
+        "label": "D",
+        "text": "x stores the memory address of n as a pointer"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "& makes a reference — two names for the same variable."
+  },
+  {
+    "type": "decompose",
+    "atomId": "R-04",
+    "code": "void increment(int &x) {\n  x = x + 1;\n}",
+    "question": "What does 'void f(int &x)' let the function do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Accept only literal values like 5, not variables"
+      },
+      {
+        "label": "B",
+        "text": "Modify the caller's original variable through the reference x"
+      },
+      {
+        "label": "C",
+        "text": "Return an integer value even though return type is void"
+      },
+      {
+        "label": "D",
+        "text": "Create a new variable in the caller's scope"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "void f(int &x) — the function can change the caller's variable."
+  },
+  {
+    "type": "decompose",
+    "atomId": "R-05",
+    "code": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;  // prints 6\n  return 0;\n}",
+    "question": "Why does n become 6 after increment(n)?",
+    "options": [
+      {
+        "label": "A",
+        "text": "cout reads n before the function finishes, showing the old value plus 1"
+      },
+      {
+        "label": "B",
+        "text": "The compiler optimizes x+1 into n's memory after return"
+      },
+      {
+        "label": "C",
+        "text": "increment returns 6 and it's auto-assigned to n"
+      },
+      {
+        "label": "D",
+        "text": "x and n are the same box — mutating x directly changes n"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Through the reference, modifying &x IS modifying the caller's n."
+  },
+  {
+    "type": "decompose",
+    "atomId": "R-06",
+    "code": "void f(int &x) {\n  x = 10;\n}\nint main() {\n  // f(5);  // ERROR - can't bind reference to literal\n  int n = 5;\n  f(n);     // OK - n is a real variable\n  return 0;\n}",
+    "question": "Why can't you call f(5) when the parameter is int &x?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Because f is void and can't accept arguments"
+      },
+      {
+        "label": "B",
+        "text": "Because 5 is too small a value for a reference"
+      },
+      {
+        "label": "C",
+        "text": "A reference must bind to a real variable — a literal 5 has no memory box to alias"
+      },
+      {
+        "label": "D",
+        "text": "Because 5 is a double, not an int"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "References need a named variable to attach to — not temporaries or literals."
+  },
+  {
+    "type": "decompose",
+    "atomId": "R-07",
+    "code": "void print_user(const string &name) {\n  cout << name << endl;\n  // name = \"Bob\";  // ERROR - const ref is read-only\n}",
+    "question": "What does 'const string &name' mean?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A reference that automatically deletes after use"
+      },
+      {
+        "label": "B",
+        "text": "A constant copy that uses extra memory"
+      },
+      {
+        "label": "C",
+        "text": "A writable reference that happens to be named const"
+      },
+      {
+        "label": "D",
+        "text": "A read-only reference — shares memory but can't modify the caller's value"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "const & gives read-only access without copying. Efficient + safe."
+  },
+  {
+    "type": "decompose",
+    "atomId": "R-08",
+    "code": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);  // n and x are ONE box, TWO names\n  return 0;\n}",
+    "question": "What's the best mental model for a reference parameter?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A copy that gets automatically synced back"
+      },
+      {
+        "label": "B",
+        "text": "Two names for one box — x and n refer to the exact same memory"
+      },
+      {
+        "label": "C",
+        "text": "A pointer that stores a memory address"
+      },
+      {
+        "label": "D",
+        "text": "A global variable shared between functions"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Reference = alias. Same box, different name. Not a copy, not a pointer."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-01",
+    "code": "int scores[5];",
+    "question": "What is an array?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A sequence of N values of the same type stored in consecutive memory"
+      },
+      {
+        "label": "B",
+        "text": "A function that returns multiple values at once"
+      },
+      {
+        "label": "C",
+        "text": "A string of characters with a fixed length"
+      },
+      {
+        "label": "D",
+        "text": "A variable that can hold different types simultaneously"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "An array stores N elements of the same type in a row."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-02",
+    "code": "int arr[5];\ndouble prices[10];\nstring names[3];",
+    "question": "What does 'int arr[5];' do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Declares an array of 5 integers — creates 5 consecutive int boxes"
+      },
+      {
+        "label": "B",
+        "text": "Creates a single int variable named arr with value 5"
+      },
+      {
+        "label": "C",
+        "text": "Declares a function that takes 5 parameters"
+      },
+      {
+        "label": "D",
+        "text": "Creates a pointer to the 5th element in memory"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "type name[N] declares an array of N elements."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-03",
+    "code": "int arr[3] = {10, 20, 30};",
+    "question": "What does = {10, 20, 30} do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Initializes the 3 array elements with values 10, 20, and 30"
+      },
+      {
+        "label": "B",
+        "text": "Declares the array to have exactly 3 dimensions"
+      },
+      {
+        "label": "C",
+        "text": "Sets all 3 elements to the sum (60)"
+      },
+      {
+        "label": "D",
+        "text": "Creates 3 separate variables named 10, 20, and 30"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Brace initialization fills array elements with the listed values."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-04",
+    "code": "int arr[5] = {10, 20, 30, 40, 50};\ncout << arr[0] << endl;",
+    "question": "What does arr[0] access?",
+    "options": [
+      {
+        "label": "A",
+        "text": "The FIRST element of the array (value 10)"
+      },
+      {
+        "label": "B",
+        "text": "The total size of the array (5)"
+      },
+      {
+        "label": "C",
+        "text": "The last element of the array"
+      },
+      {
+        "label": "D",
+        "text": "Nothing — arrays start at index 1"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Arrays are zero-indexed: arr[0] is the first element."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-05",
+    "code": "int arr[5] = {10, 20, 30, 40, 50};\nint i = 2;\ncout << arr[i] << endl;",
+    "question": "What does arr[i] give when i is 2?",
+    "options": [
+      {
+        "label": "A",
+        "text": "The element at index 2 — the third element (value 30)"
+      },
+      {
+        "label": "B",
+        "text": "The second element (value 20)"
+      },
+      {
+        "label": "C",
+        "text": "An error — you can't use a variable as an index"
+      },
+      {
+        "label": "D",
+        "text": "The element whose value is 2"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "arr[i] accesses the element at position i (0-based)."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-06",
+    "code": "int arr[5] = {10, 20, 30, 40, 50};\ncout << arr[0] << endl;  // 10 (first)\ncout << arr[4] << endl;  // 50 (last)",
+    "question": "Why does the first element use index 0, not 1?",
+    "options": [
+      {
+        "label": "A",
+        "text": "It's a bug — proper arrays start at 1"
+      },
+      {
+        "label": "B",
+        "text": "C++ arrays are zero-indexed — counting starts at 0"
+      },
+      {
+        "label": "C",
+        "text": "Index 0 is reserved for the array's length"
+      },
+      {
+        "label": "D",
+        "text": "0 means 'uninitialized' and returns a default value"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Zero-indexing: first=arr[0], second=arr[1], ..., last=arr[N-1]."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-07",
+    "code": "int arr[5] = {10, 20, 30, 40, 50};\ncout << arr[4] << endl;  // last element",
+    "question": "For an array of size N, what index is the LAST element?",
+    "options": [
+      {
+        "label": "A",
+        "text": "N — for size 5, the last index is 5"
+      },
+      {
+        "label": "B",
+        "text": "N+1 — arrays have an extra slot at the end"
+      },
+      {
+        "label": "C",
+        "text": "-1 — negative indexing counts from the end"
+      },
+      {
+        "label": "D",
+        "text": "N-1 — for size 5, the last valid index is 4"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Indices go from 0 to N-1. arr[N] is out of bounds."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-08",
+    "code": "int arr[3] = {10, 20, 30};\ncout << arr[3] << endl;  // BUG! Out of bounds",
+    "question": "What happens when you access arr[3] in a size-3 array?",
+    "options": [
+      {
+        "label": "A",
+        "text": "It returns 0 as a default for missing elements"
+      },
+      {
+        "label": "B",
+        "text": "Undefined behavior — you're reading memory beyond the array (out of bounds)"
+      },
+      {
+        "label": "C",
+        "text": "The compiler catches this and shows a helpful error"
+      },
+      {
+        "label": "D",
+        "text": "It wraps around and gives arr[0]"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "arr[N] is out of bounds. C++ won't stop you, but the behavior is undefined."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-09",
+    "code": "const int MAX = 100;\nint arr[MAX];",
+    "question": "Can you change the size of arr after declaration?",
+    "options": [
+      {
+        "label": "A",
+        "text": "No — array size is fixed at compile time and cannot change"
+      },
+      {
+        "label": "B",
+        "text": "Yes — use arr.resize() to change the size"
+      },
+      {
+        "label": "C",
+        "text": "Yes — just assign a new number to MAX"
+      },
+      {
+        "label": "D",
+        "text": "Yes — arrays automatically grow when you add elements"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "C-style arrays have fixed size determined at compile time."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-10",
+    "code": "int arr[5] = {1, 2, 3, 4, 5};\n// return arr;  // ERROR - can't return array",
+    "question": "Can a function return an array?",
+    "options": [
+      {
+        "label": "A",
+        "text": "No — C++ cannot return arrays directly from functions"
+      },
+      {
+        "label": "B",
+        "text": "Yes — but only if the array has fewer than 10 elements"
+      },
+      {
+        "label": "C",
+        "text": "Yes — arrays are returned as copies automatically"
+      },
+      {
+        "label": "D",
+        "text": "Yes — just use 'return arr;' with the array name"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Arrays can't be returned. Pass by reference parameter instead."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-11",
+    "code": "int arr[5] = {10, 20, 30, 40, 50};\nfor (int i = 0; i < 5; i++) {\n  cout << arr[i] << \" \";\n}",
+    "question": "How does the for loop iterate through the array?",
+    "options": [
+      {
+        "label": "A",
+        "text": "The loop runs until arr[i] equals 0"
+      },
+      {
+        "label": "B",
+        "text": "It copies the array into i on each iteration"
+      },
+      {
+        "label": "C",
+        "text": "i goes 0,1,2,3,4 — accessing each element arr[0] through arr[4] in order"
+      },
+      {
+        "label": "D",
+        "text": "i holds each array value (10,20,30...) not the index"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "for (i=0; i<N; i++) with arr[i] visits every element."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-12",
+    "code": "int arr[5] = {0, 0, 0, 0, 0};\narr[2] = 99;\ncout << arr[2] << endl;  // 99",
+    "question": "What does arr[2] = 99 do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Creates a new array element at position 99"
+      },
+      {
+        "label": "B",
+        "text": "Writes (stores) the value 99 into the array at index 2"
+      },
+      {
+        "label": "C",
+        "text": "Compares arr[2] with 99 and returns true/false"
+      },
+      {
+        "label": "D",
+        "text": "Inserts 99 between arr[1] and arr[2], shifting others"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "arr[i] = value writes to a specific array position."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-13",
+    "code": "void print_arr(int arr[], int n) {\n  for (int i = 0; i < n; i++) {\n    cout << arr[i] << \" \";\n  }\n}",
+    "question": "What does 'int arr[]' in the parameter mean?",
+    "options": [
+      {
+        "label": "A",
+        "text": "It creates a copy of every array element"
+      },
+      {
+        "label": "B",
+        "text": "It receives a single integer named arr"
+      },
+      {
+        "label": "C",
+        "text": "It declares a new empty array inside the function"
+      },
+      {
+        "label": "D",
+        "text": "The function receives an array — you pass it by name without size in brackets"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Array parameter: type arr[] (or type* arr). Size passed separately."
+  },
+  {
+    "type": "decompose",
+    "atomId": "G-14",
+    "code": "void fill(int &arr[], int n) {\n  for (int i = 0; i < n; i++) {\n    arr[i] = i * 10;\n  }\n}",
+    "question": "What does & before arr[] mean in the parameter?",
+    "options": [
+      {
+        "label": "A",
+        "text": "It makes the array read-only inside the function"
+      },
+      {
+        "label": "B",
+        "text": "The array is passed by reference — changes inside the function affect the caller's array"
+      },
+      {
+        "label": "C",
+        "text": "It returns the array as the function's output"
+      },
+      {
+        "label": "D",
+        "text": "It creates a pointer to the first element only"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "&arr[] means the function modifies the caller's actual array."
+  },
+  {
+    "type": "decompose",
+    "atomId": "T-01",
+    "code": "struct Point {\n  int x;\n  int y;\n};",
+    "question": "What is a struct?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A function that takes multiple parameters"
+      },
+      {
+        "label": "B",
+        "text": "A custom type that groups related fields (variables) under one name"
+      },
+      {
+        "label": "C",
+        "text": "An array that holds different types of values"
+      },
+      {
+        "label": "D",
+        "text": "A loop that processes data fields one by one"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "struct bundles related data into a single named type."
+  },
+  {
+    "type": "decompose",
+    "atomId": "T-02",
+    "code": "struct Point {\n  int x;\n  int y;\n};",
+    "question": "What does 'struct Point { ... };' create?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A variable called Point with values x and y"
+      },
+      {
+        "label": "B",
+        "text": "Two separate integer variables named x and y"
+      },
+      {
+        "label": "C",
+        "text": "A function that returns x and y"
+      },
+      {
+        "label": "D",
+        "text": "A new type called Point — a blueprint for variables with fields x and y"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "struct Name { fields }; defines a new type. It doesn't create a variable yet."
+  },
+  {
+    "type": "decompose",
+    "atomId": "T-03",
+    "code": "struct Student {\n  string name;\n  int age;\n  double gpa;\n};",
+    "question": "What are name, age, and gpa inside the struct?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Loop counters that iterate through students"
+      },
+      {
+        "label": "B",
+        "text": "Global variables accessible from anywhere"
+      },
+      {
+        "label": "C",
+        "text": "Parameters of a function called Student"
+      },
+      {
+        "label": "D",
+        "text": "Fields — each is a named piece of data that every Student variable will have"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Each line inside struct is a field: type fieldName;"
+  },
+  {
+    "type": "decompose",
+    "atomId": "T-04",
+    "code": "struct Point {\n  int x;\n  int y;\n};  // <-- this semicolon",
+    "question": "Why is ; needed after the closing } of the struct?",
+    "options": [
+      {
+        "label": "A",
+        "text": "It creates an instance of the struct"
+      },
+      {
+        "label": "B",
+        "text": "It ends the last field inside the struct"
+      },
+      {
+        "label": "C",
+        "text": "It's optional — just a style convention"
+      },
+      {
+        "label": "D",
+        "text": "C++ syntax requires a semicolon after the struct definition's closing brace"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "struct { ... }; — the trailing semicolon is mandatory C++ syntax."
+  },
+  {
+    "type": "decompose",
+    "atomId": "T-05",
+    "code": "struct Point { int x; int y; };\nPoint p;\np.x = 3;\np.y = 7;",
+    "question": "What does 'Point p;' do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Defines a new struct type called p"
+      },
+      {
+        "label": "B",
+        "text": "Calls a function named Point that returns p"
+      },
+      {
+        "label": "C",
+        "text": "Creates a pointer to the Point struct definition"
+      },
+      {
+        "label": "D",
+        "text": "Declares a variable p of type Point — creates a box with fields x and y"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Using the struct type to declare a variable: TypeName varName;"
+  },
+  {
+    "type": "decompose",
+    "atomId": "T-06",
+    "code": "Point p;\np.x = 3;\ncout << p.x << endl;",
+    "question": "What does the dot (.) in p.x do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Creates a new field called x in p"
+      },
+      {
+        "label": "B",
+        "text": "Checks if p contains a field named x"
+      },
+      {
+        "label": "C",
+        "text": "Accesses the field x inside the struct variable p"
+      },
+      {
+        "label": "D",
+        "text": "Multiplies p by x"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "The dot operator accesses a specific field of a struct variable."
+  },
+  {
+    "type": "decompose",
+    "atomId": "T-07",
+    "code": "Point p;\np.x = 3;\np.y = 7;",
+    "question": "What does 'p.x = 3;' do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Prints the value 3 followed by p's contents"
+      },
+      {
+        "label": "B",
+        "text": "Declares a new variable named p.x of type int"
+      },
+      {
+        "label": "C",
+        "text": "Compares p.x with 3 and returns a boolean"
+      },
+      {
+        "label": "D",
+        "text": "Writes (stores) the value 3 into the x field of struct variable p"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "structVar.field = value writes to that field."
+  },
+  {
+    "type": "decompose",
+    "atomId": "T-08",
+    "code": "Point p;\np.x = 3;\ncout << p.x << endl;",
+    "question": "What does cout << p.x produce?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Stores the output into p.x"
+      },
+      {
+        "label": "B",
+        "text": "Reads and prints the value stored in p's x field (3)"
+      },
+      {
+        "label": "C",
+        "text": "Prints all fields of p at once"
+      },
+      {
+        "label": "D",
+        "text": "Prints the text 'p.x' literally"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Reading a struct field: cout << structVar.field"
+  },
+  {
+    "type": "decompose",
+    "atomId": "T-09",
+    "code": "struct stat_double {\n  double mystery;\n  double numbers[5];\n  int count;\n};",
+    "question": "Can a struct contain an array as a field?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Only if the array is the last field listed"
+      },
+      {
+        "label": "B",
+        "text": "Only if the array uses dynamic allocation"
+      },
+      {
+        "label": "C",
+        "text": "Yes — numbers[5] is a valid field; structs can contain arrays"
+      },
+      {
+        "label": "D",
+        "text": "No — arrays must be declared outside structs"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Struct fields can be any type, including arrays."
+  },
+  {
+    "type": "decompose",
+    "atomId": "T-10",
+    "code": "stat_double d;\nd.numbers[0] = 3.14;\nd.numbers[1] = 2.71;\ncout << d.numbers[0] << endl;",
+    "question": "What does d.numbers[0] access?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A separate variable called numbers, not part of d"
+      },
+      {
+        "label": "B",
+        "text": "The first element of the array field 'numbers' inside struct d"
+      },
+      {
+        "label": "C",
+        "text": "The struct named 'numbers' at index d"
+      },
+      {
+        "label": "D",
+        "text": "The 0th struct in an array of stat_doubles"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Chaining: structVar.arrayField[index] — dot then brackets."
+  },
+  {
+    "type": "decompose",
+    "atomId": "T-11",
+    "code": "struct Point { int x; int y; };\nPoint list[3];\nlist[0].x = 1;\nlist[1].x = 2;",
+    "question": "What is 'Point list[3];'?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A Point struct with 3 fields named list"
+      },
+      {
+        "label": "B",
+        "text": "An array of 3 Point structs — each element has x and y fields"
+      },
+      {
+        "label": "C",
+        "text": "A function that creates 3 points"
+      },
+      {
+        "label": "D",
+        "text": "A pointer to a single Point"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Name list[N]; creates an array where each element is a struct."
+  },
+  {
+    "type": "decompose",
+    "atomId": "T-12",
+    "code": "Point list[3];\nlist[0].x = 5;\nlist[0].y = 10;\ncout << list[0].x << endl;",
+    "question": "What does list[0].x access?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A standalone variable named x in list 0"
+      },
+      {
+        "label": "B",
+        "text": "The x field of the first Point in the array"
+      },
+      {
+        "label": "C",
+        "text": "The first element of an array inside Point"
+      },
+      {
+        "label": "D",
+        "text": "The address of list at position x"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "list[i].field — index the array first, then access the struct's field."
+  },
+  {
+    "type": "decompose",
+    "atomId": "PC-01",
+    "code": "void f(Point p) {\n  p.x = 99;\n}\nint main() {\n  Point pt; pt.x = 1;\n  f(pt);\n  cout << pt.x << endl;  // still 1\n  return 0;\n}",
+    "question": "Why is pt.x still 1 after calling f(pt)?",
+    "options": [
+      {
+        "label": "A",
+        "text": "f() didn't run because it's declared as void"
+      },
+      {
+        "label": "B",
+        "text": "You can't assign to struct fields inside functions"
+      },
+      {
+        "label": "C",
+        "text": "p is a copy of pt — modifying the copy doesn't change the original struct"
+      },
+      {
+        "label": "D",
+        "text": "Structs are immutable once created"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Pass by value copies the whole struct. Changes to p don't affect pt."
+  },
+  {
+    "type": "decompose",
+    "atomId": "PC-02",
+    "code": "void update(Point &p) {\n  p.x = 99;\n}\nint main() {\n  Point pt; pt.x = 1;\n  update(pt);\n  cout << pt.x << endl;  // 99\n  return 0;\n}",
+    "question": "Why does pt.x become 99 after update(pt)?",
+    "options": [
+      {
+        "label": "A",
+        "text": "update() secretly returns the modified struct"
+      },
+      {
+        "label": "B",
+        "text": "All structs are always passed by reference automatically"
+      },
+      {
+        "label": "C",
+        "text": "p.x = 99 creates a new field that replaces the old one"
+      },
+      {
+        "label": "D",
+        "text": "Point &p means p is a reference (alias) for pt — same struct, two names"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "void f(Type &param) shares the caller's struct — mutations persist."
+  },
+  {
+    "type": "decompose",
+    "atomId": "PC-03",
+    "code": "void read_data(stat_double &d) {\n  cin >> d.mystery;\n  for (int i = 0; i < 5; i++) {\n    cin >> d.numbers[i];\n  }\n}",
+    "question": "Why is & needed in 'stat_double &d'?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Because cin requires reference parameters to compile"
+      },
+      {
+        "label": "B",
+        "text": "Because stat_double is too large to exist without a reference"
+      },
+      {
+        "label": "C",
+        "text": "To make d a pointer that stores an address"
+      },
+      {
+        "label": "D",
+        "text": "So that cin reads fill the CALLER's struct — without &, we'd fill a useless copy"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "& lets the function's mutations to d persist in the caller's variable."
+  },
+  {
+    "type": "decompose",
+    "atomId": "PC-04",
+    "code": "void read_items(Item &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].name;\n    cin >> list[i].price;\n  }\n}",
+    "question": "What does 'Item &list[]' mean in the parameter?",
+    "options": [
+      {
+        "label": "A",
+        "text": "An array of Items passed by reference — writes to list[i] persist in the caller"
+      },
+      {
+        "label": "B",
+        "text": "Creates a new array inside the function"
+      },
+      {
+        "label": "C",
+        "text": "A single Item reference, not an array"
+      },
+      {
+        "label": "D",
+        "text": "A read-only array that cannot be modified"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "&list[] passes the whole array by reference — caller sees all changes."
+  },
+  {
+    "type": "decompose",
+    "atomId": "PC-05",
+    "code": "void read_items(Item &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].title;\n  }\n}",
+    "question": "After this function runs, where do the values end up?",
+    "options": [
+      {
+        "label": "A",
+        "text": "In cout's output buffer, ready to print"
+      },
+      {
+        "label": "B",
+        "text": "In the caller's array — list[i].title writes persist because of the & reference"
+      },
+      {
+        "label": "C",
+        "text": "Nowhere — cin just displays a prompt"
+      },
+      {
+        "label": "D",
+        "text": "In a temporary copy that's discarded when the function returns"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "With &, writing to list[i].field modifies the caller's actual array."
+  },
+  {
+    "type": "decompose",
+    "atomId": "PC-06",
+    "code": "void print(const Point &p) {\n  cout << p.x << \" \" << p.y << endl;\n  // p.x = 5;  // ERROR - const ref is read-only\n}",
+    "question": "What does 'const Point &p' mean?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A constant pointer that stores p's memory address"
+      },
+      {
+        "label": "B",
+        "text": "A pass-by-value copy that happens to use const syntax"
+      },
+      {
+        "label": "C",
+        "text": "A read-only reference — efficient (no copy) but the function can't modify p"
+      },
+      {
+        "label": "D",
+        "text": "A mutable reference that can change p's fields"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "const & = efficient read-only access. No copy, no mutation."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-01",
+    "code": "int x = 3;\nx = x + 2;\ncout << x << endl;",
+    "question": "What does 'hand-executing' (tracing) this code mean?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Mentally running each line in order and tracking how values change"
+      },
+      {
+        "label": "B",
+        "text": "Typing the code into a compiler and running it"
+      },
+      {
+        "label": "C",
+        "text": "Guessing what the output might be without reading the code"
+      },
+      {
+        "label": "D",
+        "text": "Reading the code backwards to find bugs"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Trace = simulate the CPU step by step, tracking all state."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-02",
+    "code": "int x = 5;\nint y = 3;\ncout << x + y << endl;",
+    "question": "When tracing, what must you track for each variable?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Only its initial value — variables never change"
+      },
+      {
+        "label": "B",
+        "text": "How many times it appears in the code"
+      },
+      {
+        "label": "C",
+        "text": "Its current value — which changes whenever an assignment happens"
+      },
+      {
+        "label": "D",
+        "text": "Its type and memory address but not its value"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Track each variable's value as it gets created and updated."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-03",
+    "code": "int x = 5;\nx = 10;\nx = x + 1;\ncout << x << endl;",
+    "question": "What is x's value at the end?",
+    "options": [
+      {
+        "label": "A",
+        "text": "16 — all assignments add up (5+10+1)"
+      },
+      {
+        "label": "B",
+        "text": "5 — the first assignment is the only one that counts"
+      },
+      {
+        "label": "C",
+        "text": "11 — starts at 5, becomes 10, then 10+1=11"
+      },
+      {
+        "label": "D",
+        "text": "10 — the last direct assignment wins"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Each assignment REPLACES the old value. Trace in order: 5→10→11."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-04",
+    "code": "for (int i = 0; i < 3; i++) {\n  cout << i << \" \";\n}",
+    "question": "When tracing a for-loop, what must you track across iterations?",
+    "options": [
+      {
+        "label": "A",
+        "text": "The loop variable (i) — its value changes each iteration via the step"
+      },
+      {
+        "label": "B",
+        "text": "Whether the for-keyword was spelled correctly"
+      },
+      {
+        "label": "C",
+        "text": "Only the output — the loop variable doesn't matter"
+      },
+      {
+        "label": "D",
+        "text": "The number of lines in the loop body"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Track i: 0→1→2→(3 fails condition). Output: 0 1 2"
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-05",
+    "code": "int n = 7;\nif (n > 5) {\n  cout << \"big\" << endl;\n} else {\n  cout << \"small\" << endl;\n}",
+    "question": "When tracing an if/else, how do you decide which branch runs?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Evaluate the condition with current values — true=if body, false=else body"
+      },
+      {
+        "label": "B",
+        "text": "Both branches always run in sequence"
+      },
+      {
+        "label": "C",
+        "text": "The shorter branch runs first"
+      },
+      {
+        "label": "D",
+        "text": "Pick the branch that matches the variable name"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Check n>5 with n=7: 7>5 is true → 'big' prints. Else skipped."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-06",
+    "code": "void f(int x) {\n  x = x * 2;\n  cout << x << endl;\n}\nint main() {\n  int n = 5;\n  f(n);\n  cout << n << endl;\n  return 0;\n}",
+    "question": "When a function is called, what happens to the trace?",
+    "options": [
+      {
+        "label": "A",
+        "text": "All previous variables are deleted"
+      },
+      {
+        "label": "B",
+        "text": "Enter a new frame — create fresh local variables for that function's scope"
+      },
+      {
+        "label": "C",
+        "text": "The caller's code keeps running in parallel"
+      },
+      {
+        "label": "D",
+        "text": "Nothing changes — all variables are global"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Function call = new scope. x gets copy of n (5). x becomes 10 inside."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-07",
+    "code": "int compute() {\n  int temp = 42;\n  return temp;\n}\nint main() {\n  int x = compute();\n  return 0;\n}",
+    "question": "What happens to 'temp' when compute() returns?",
+    "options": [
+      {
+        "label": "A",
+        "text": "temp is renamed to x automatically"
+      },
+      {
+        "label": "B",
+        "text": "temp's value is lost but the variable still exists"
+      },
+      {
+        "label": "C",
+        "text": "temp is destroyed — local variables cease to exist when the function exits"
+      },
+      {
+        "label": "D",
+        "text": "temp becomes a global variable accessible in main"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Return = exit frame. Locals die. Only the return value survives."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-08",
+    "code": "void incr(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  incr(n);\n  cout << n << endl;\n  return 0;\n}",
+    "question": "When tracing a & parameter, how do you handle it?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Ignore x entirely — only track n in the caller"
+      },
+      {
+        "label": "B",
+        "text": "Create a separate box for x, then copy x back to n after return"
+      },
+      {
+        "label": "C",
+        "text": "x IS n — same box. Any change to x immediately appears as a change to n"
+      },
+      {
+        "label": "D",
+        "text": "x is a pointer — draw an arrow from x to n's address"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "& means ONE box with TWO labels. Trace them as the same value."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-09",
+    "code": "void fill(int &slot) {\n  slot = 99;\n}\nint main() {\n  int arr[3] = {0, 0, 0};\n  fill(arr[1]);\n  cout << arr[1] << endl;\n  return 0;\n}",
+    "question": "After fill(arr[1]), what is arr[1]?",
+    "options": [
+      {
+        "label": "A",
+        "text": "99 but only inside fill; arr[1] stays 0 in main"
+      },
+      {
+        "label": "B",
+        "text": "0 — the function only modified a local copy"
+      },
+      {
+        "label": "C",
+        "text": "99 — slot is a reference to arr[1], so writing to slot writes to arr[1]"
+      },
+      {
+        "label": "D",
+        "text": "An error — you can't pass array elements by reference"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Array elements can bind to references. &slot = arr[1], so writes persist."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-10",
+    "code": "int x = 5;\nint y = x;\nx = 10;\ncout << x << \" \" << y << endl;",
+    "question": "What are x and y at the end?",
+    "options": [
+      {
+        "label": "A",
+        "text": "x=10, y=15 — y is x+5"
+      },
+      {
+        "label": "B",
+        "text": "x=10, y=10 — y follows x when x changes"
+      },
+      {
+        "label": "C",
+        "text": "x=10, y=5 — y got a COPY of x's value at assignment time"
+      },
+      {
+        "label": "D",
+        "text": "x=5, y=5 — x never changed"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "y=x copies the VALUE at that moment. Later changes to x don't affect y."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-11",
+    "code": "int arr[3] = {0, 0, 0};\narr[0] = 5;\narr[2] = arr[0] + 1;\ncout << arr[0] << \" \" << arr[1] << \" \" << arr[2] << endl;",
+    "question": "What is the final state of the array?",
+    "options": [
+      {
+        "label": "A",
+        "text": "5, 0, 6 — arr[0] set to 5, arr[2] set to 5+1=6, arr[1] unchanged"
+      },
+      {
+        "label": "B",
+        "text": "5, 5, 5 — all elements update together"
+      },
+      {
+        "label": "C",
+        "text": "0, 0, 6 — arr[0]=5 was overwritten"
+      },
+      {
+        "label": "D",
+        "text": "5, 1, 6 — arr[1] gets 1 as a side effect"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Each arr[i] is independent. Trace: [0,0,0]→[5,0,0]→[5,0,6]."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-12",
+    "code": "int sum = 0;\nfor (int i = 1; i <= 3; i++) {\n  sum = sum + i;\n}\ncout << sum << endl;",
+    "question": "Trace the loop — what is sum after all iterations?",
+    "options": [
+      {
+        "label": "A",
+        "text": "3 — sum equals the last value of i"
+      },
+      {
+        "label": "B",
+        "text": "6 — iteration 1: sum=0+1=1, iter 2: sum=1+2=3, iter 3: sum=3+3=6"
+      },
+      {
+        "label": "C",
+        "text": "0 — sum never changes because i resets each iteration"
+      },
+      {
+        "label": "D",
+        "text": "9 — sum is 1+2+3+3"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Trace each iteration: i=1→sum=1, i=2→sum=3, i=3→sum=6."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-13",
+    "code": "int n = 7;\nif (n > 10) {\n  cout << \"A\" << endl;\n} else if (n > 5) {\n  cout << \"B\" << endl;\n} else {\n  cout << \"C\" << endl;\n}",
+    "question": "Which letter prints?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A and B — both true conditions execute"
+      },
+      {
+        "label": "B",
+        "text": "B — n=7: first condition (7>10) false, second (7>5) true → prints B"
+      },
+      {
+        "label": "C",
+        "text": "C — else always runs after checking conditions"
+      },
+      {
+        "label": "D",
+        "text": "A — the first branch always runs"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Trace conditions in order. First true branch executes; rest skipped."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-14",
+    "code": "int square(int x) {\n  return x * x;\n}\nint main() {\n  int result = square(4);\n  cout << result << endl;\n  return 0;\n}",
+    "question": "Trace: what value does result get?",
+    "options": [
+      {
+        "label": "A",
+        "text": "0 — the function returns 0 from main"
+      },
+      {
+        "label": "B",
+        "text": "16 — square(4): x=4, returns 4*4=16, stored in result"
+      },
+      {
+        "label": "C",
+        "text": "4 — result gets the argument, not the return value"
+      },
+      {
+        "label": "D",
+        "text": "8 — square means x+x not x*x"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Enter square: x=4. Compute 4*4=16. Return 16. result=16."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-15",
+    "code": "void f(int x) { x = 99; }\nvoid g(int &x) { x = 99; }\nint main() {\n  int a = 1, b = 1;\n  f(a);\n  g(b);\n  cout << a << \" \" << b << endl;\n  return 0;\n}",
+    "question": "What are a and b after the function calls?",
+    "options": [
+      {
+        "label": "A",
+        "text": "a=99, b=1 — f changes a, g doesn't change b"
+      },
+      {
+        "label": "B",
+        "text": "a=1, b=99 — f uses a copy (a unchanged), g uses a reference (b modified)"
+      },
+      {
+        "label": "C",
+        "text": "a=1, b=1 — neither function can change anything"
+      },
+      {
+        "label": "D",
+        "text": "a=99, b=99 — both functions change their argument"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Pass-by-value (no &): copy, original safe. Pass-by-ref (&): alias, original changes."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-16",
+    "code": "double arr[5] = {3.1, 1.5, 4.2, 2.8, 0.9};\ndouble max = arr[0];\nfor (int i = 1; i < 5; i++) {\n  if (arr[i] > max) {\n    max = arr[i];\n  }\n}\ncout << max << endl;",
+    "question": "What does max equal at the end?",
+    "options": [
+      {
+        "label": "A",
+        "text": "5 — max counts how many elements were checked"
+      },
+      {
+        "label": "B",
+        "text": "0.9 — max takes the last element"
+      },
+      {
+        "label": "C",
+        "text": "3.1 — max never changes from the first element"
+      },
+      {
+        "label": "D",
+        "text": "4.2 — starts at 3.1, then 4.2>3.1 so max becomes 4.2, nothing bigger after"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Trace max: 3.1→(1.5<3.1 skip)→(4.2>3.1 update)→(2.8<4.2 skip)→(0.9<4.2 skip)=4.2"
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-17",
+    "code": "struct Point { int x; int y; };\nvoid shift(Point &p) {\n  p.x = p.x + 1;\n  p.y = p.y + 1;\n}\nint main() {\n  Point pt; pt.x = 3; pt.y = 7;\n  shift(pt);\n  cout << pt.x << \" \" << pt.y << endl;\n  return 0;\n}",
+    "question": "What are pt.x and pt.y after shift(pt)?",
+    "options": [
+      {
+        "label": "A",
+        "text": "4, 8 — reference means p IS pt; p.x+1=4, p.y+1=8 persist in pt"
+      },
+      {
+        "label": "B",
+        "text": "3, 7 — the struct is passed by value, copy is modified"
+      },
+      {
+        "label": "C",
+        "text": "4, 7 — only x changes, y is read-only"
+      },
+      {
+        "label": "D",
+        "text": "1, 1 — shift replaces values with the increment amount"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "& reference: p IS pt. Mutations to p.x and p.y ARE mutations to pt."
+  },
+  {
+    "type": "decompose",
+    "atomId": "HE-18",
+    "code": "// if (data.numbers[i] > data.mystery)\n//   data.mystery = data.numbers[i];\n// Given: mystery=2.0, numbers=[3.0, 1.0, 4.0]",
+    "question": "Trace the comparison: which values make mystery update?",
+    "options": [
+      {
+        "label": "A",
+        "text": "All three — every number replaces mystery"
+      },
+      {
+        "label": "B",
+        "text": "None — 2.0 is already the maximum"
+      },
+      {
+        "label": "C",
+        "text": "Only 4.0 — only the maximum triggers the update"
+      },
+      {
+        "label": "D",
+        "text": "3.0 and 4.0 — both are > 2.0 (current mystery), so mystery becomes 3.0 then 4.0"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "i=0: 3.0>2.0→mystery=3.0. i=1: 1.0<3.0→skip. i=2: 4.0>3.0→mystery=4.0."
+  },
+  {
+    "type": "decompose",
+    "atomId": "SW-01",
+    "code": "struct computer_data {\n  string brand;\n  int ram;\n  double price;\n};",
+    "question": "What pattern does 'struct Name { fields };' follow?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Defines a custom type with the given name containing the listed fields"
+      },
+      {
+        "label": "B",
+        "text": "Creates a variable of that type immediately"
+      },
+      {
+        "label": "C",
+        "text": "Imports a type from another file"
+      },
+      {
+        "label": "D",
+        "text": "Declares a function that returns a struct"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "struct Name { ... }; = type definition. You declare variables with it later."
+  },
+  {
+    "type": "decompose",
+    "atomId": "SW-02",
+    "code": "struct student {\n  int id;\n  string name;\n  double gpa;\n};",
+    "question": "What is 'int id;' inside the struct?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A function parameter for the struct constructor"
+      },
+      {
+        "label": "B",
+        "text": "A field declaration — every student variable will have an int field called id"
+      },
+      {
+        "label": "C",
+        "text": "A constant value that cannot be changed"
+      },
+      {
+        "label": "D",
+        "text": "A global variable that all students share"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Each line is a field: type fieldName; — part of every instance of this struct."
+  },
+  {
+    "type": "decompose",
+    "atomId": "SW-03",
+    "code": "struct Point {\n  int x;\n  int y;\n};",
+    "question": "Why must the struct end with }; (semicolon after brace)?",
+    "options": [
+      {
+        "label": "A",
+        "text": "C++ requires it — the struct definition is a statement that needs termination"
+      },
+      {
+        "label": "B",
+        "text": "The semicolon is optional, just a style choice"
+      },
+      {
+        "label": "C",
+        "text": "It creates an unnamed instance of the struct"
+      },
+      {
+        "label": "D",
+        "text": "It closes the file scope the struct opened"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "}; is mandatory for struct/class definitions in C++."
+  },
+  {
+    "type": "decompose",
+    "atomId": "SW-04",
+    "code": "struct student {\n  int id;\n  string name;\n  double gpa;\n};",
+    "question": "How do you choose int vs string vs double for each field?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Match the type to what the field stores — int for whole numbers, string for text, double for decimals"
+      },
+      {
+        "label": "B",
+        "text": "The order of fields determines their types automatically"
+      },
+      {
+        "label": "C",
+        "text": "Always use string since it can hold any data"
+      },
+      {
+        "label": "D",
+        "text": "Use int for all fields and convert later"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Pick types based on the data: IDs→int, names→string, averages→double."
+  },
+  {
+    "type": "decompose",
+    "atomId": "SW-05",
+    "code": "struct student {\n  string name;\n  int id;\n  double gpa;\n};\n// also valid:\nstruct student2 {\n  int id;\n  string name;\n  double gpa;\n};",
+    "question": "Does the order of fields inside a struct matter?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Yes — the first field must always be the ID"
+      },
+      {
+        "label": "B",
+        "text": "Yes — fields must be in alphabetical order"
+      },
+      {
+        "label": "C",
+        "text": "No — you can list fields in any order; they're accessed by name, not position"
+      },
+      {
+        "label": "D",
+        "text": "Yes — numeric types must come before string types"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Field order is a style choice. Access by name (s.id) works regardless."
+  },
+  {
+    "type": "decompose",
+    "atomId": "RW-01",
+    "code": "void read_books(book &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].title;\n  }\n}",
+    "question": "Why is the return type 'void' for this read function?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Because read functions can never return data"
+      },
+      {
+        "label": "B",
+        "text": "To indicate that the function might fail"
+      },
+      {
+        "label": "C",
+        "text": "Because it only reads input, which makes it void automatically"
+      },
+      {
+        "label": "D",
+        "text": "It doesn't return a value — it fills the array through the reference parameter instead"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "void because the work is done via the & parameter, not a return value."
+  },
+  {
+    "type": "decompose",
+    "atomId": "RW-02",
+    "code": "void read_books(book &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].title;\n  }\n}",
+    "question": "What does 'book &list[]' mean as a parameter?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A pointer to a dynamically allocated array"
+      },
+      {
+        "label": "B",
+        "text": "An array of book structs passed by reference — reads will persist in the caller's array"
+      },
+      {
+        "label": "C",
+        "text": "A read-only const array of books"
+      },
+      {
+        "label": "D",
+        "text": "A single book reference, not an array"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Type &list[] = array of Type, passed by reference."
+  },
+  {
+    "type": "decompose",
+    "atomId": "RW-03",
+    "code": "void read_books(book &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].title;\n  }\n}",
+    "question": "Why is 'int count' passed as a separate parameter?",
+    "options": [
+      {
+        "label": "A",
+        "text": "count specifies the maximum size of each book's title"
+      },
+      {
+        "label": "B",
+        "text": "count tells the compiler how much memory to allocate"
+      },
+      {
+        "label": "C",
+        "text": "count is the return value of the function"
+      },
+      {
+        "label": "D",
+        "text": "Arrays don't know their own size — count tells the function how many elements to fill"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "C arrays have no built-in length. Pass size separately."
+  },
+  {
+    "type": "decompose",
+    "atomId": "RW-04",
+    "code": "void read_items(Item &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].name;\n    cin >> list[i].price;\n  }\n}",
+    "question": "Why does the for-loop use 'i < count' as its condition?",
+    "options": [
+      {
+        "label": "A",
+        "text": "To iterate exactly 'count' times — once per struct in the array that needs filling"
+      },
+      {
+        "label": "B",
+        "text": "To check if i is less than the array's maximum capacity"
+      },
+      {
+        "label": "C",
+        "text": "Because count is the index of the last valid element"
+      },
+      {
+        "label": "D",
+        "text": "To ensure i never equals the value stored in count"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Loop count times to fill count structs: indices 0 to count-1."
+  },
+  {
+    "type": "decompose",
+    "atomId": "RW-05",
+    "code": "void read_items(Item &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].id;\n    cin >> list[i].name;\n  }\n}",
+    "question": "What does 'cin >> list[i].id;' do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Creates a new field called id inside list[i]"
+      },
+      {
+        "label": "B",
+        "text": "Compares list[i].id with the input value"
+      },
+      {
+        "label": "C",
+        "text": "Reads one input value from the terminal into the id field of list element i"
+      },
+      {
+        "label": "D",
+        "text": "Prints the id field of list[i] to the terminal"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "cin >> struct.field reads input directly into that struct's field."
+  },
+  {
+    "type": "decompose",
+    "atomId": "RW-06",
+    "code": "cin >> list[i].id;\ncin >> list[i].name;\ncin >> list[i].price;",
+    "question": "Why is there a separate cin for each field?",
+    "options": [
+      {
+        "label": "A",
+        "text": "You could read all fields with one cin if you use commas"
+      },
+      {
+        "label": "B",
+        "text": "Multiple cin lines read from different input sources"
+      },
+      {
+        "label": "C",
+        "text": "Each cin >> reads one value — one per field to fill the entire struct"
+      },
+      {
+        "label": "D",
+        "text": "Only the last cin actually does anything"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "One cin >> per field. Each reads the next value from input."
+  },
+  {
+    "type": "decompose",
+    "atomId": "RW-07",
+    "code": "cout << \"Enter id: \";\ncin >> list[i].id;\ncout << \"Enter name: \";\ncin >> list[i].name;",
+    "question": "What does 'cout << \"Enter id: \";' before cin do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Shows a prompt so the user knows what to type — purely for usability"
+      },
+      {
+        "label": "B",
+        "text": "It stores the text 'Enter id' into list[i].id"
+      },
+      {
+        "label": "C",
+        "text": "It's required for cin to work — without it cin won't read"
+      },
+      {
+        "label": "D",
+        "text": "It formats the input so cin can parse it correctly"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Optional prompt: tells the user what input is expected. Doesn't affect cin."
+  },
+  {
+    "type": "decompose",
+    "atomId": "MW-01",
+    "code": "int main() {\n  // program body here\n  return 0;\n}",
+    "question": "What is the standard shape of a complete main function?",
+    "options": [
+      {
+        "label": "A",
+        "text": "int main(args) { body... } — requires parameters"
+      },
+      {
+        "label": "B",
+        "text": "void main() { body... } — no return needed"
+      },
+      {
+        "label": "C",
+        "text": "main() { body... exit(); } — uses exit instead of return"
+      },
+      {
+        "label": "D",
+        "text": "int main() { body... return 0; } — entry point that returns success code"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "Standard C++ main: int main() { ... return 0; }"
+  },
+  {
+    "type": "decompose",
+    "atomId": "MW-02",
+    "code": "const int MAX = 100;\nint arr[MAX];",
+    "question": "What does 'const int MAX = 100;' do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Creates a constant — a named value that cannot be changed after initialization"
+      },
+      {
+        "label": "B",
+        "text": "Declares a regular variable that starts at 100"
+      },
+      {
+        "label": "C",
+        "text": "Sets the maximum allowed array index to 100"
+      },
+      {
+        "label": "D",
+        "text": "Defines a function that always returns 100"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "const int MAX = 100; — a fixed value used for array sizes and limits."
+  },
+  {
+    "type": "decompose",
+    "atomId": "MW-03",
+    "code": "const int MAX = 100;\nbook list[MAX];",
+    "question": "What does 'book list[MAX];' declare?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A single book variable named list with 100 fields"
+      },
+      {
+        "label": "B",
+        "text": "An array of up to MAX (100) book structs — the storage for all items"
+      },
+      {
+        "label": "C",
+        "text": "A function that creates MAX books"
+      },
+      {
+        "label": "D",
+        "text": "A constant that limits books to 100 characters each"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Type list[MAX] declares the array. Not all slots need to be used."
+  },
+  {
+    "type": "decompose",
+    "atomId": "MW-04",
+    "code": "int count;\ncin >> count;",
+    "question": "What does 'int count;' declare in the context of main?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A loop counter for iterating"
+      },
+      {
+        "label": "B",
+        "text": "The maximum size of the array"
+      },
+      {
+        "label": "C",
+        "text": "The total number of fields in the struct"
+      },
+      {
+        "label": "D",
+        "text": "A variable to track how many items the user will actually enter"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": "count = how many structs we'll actually use (≤ MAX)."
+  },
+  {
+    "type": "decompose",
+    "atomId": "MW-05",
+    "code": "int count;\ncin >> count;\n// user types: 3",
+    "question": "What does 'cin >> count;' do in main?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Reads how many items the user wants to enter — sets the working size"
+      },
+      {
+        "label": "B",
+        "text": "Reads all the items from input in one go"
+      },
+      {
+        "label": "C",
+        "text": "Counts how many variables have been declared so far"
+      },
+      {
+        "label": "D",
+        "text": "Sets count to the array's maximum capacity"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Reads N from user. Then we loop N times to fill N structs."
+  },
+  {
+    "type": "decompose",
+    "atomId": "MW-06",
+    "code": "read_book(list, count);",
+    "question": "What does calling 'read_book(list, count);' do in main?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Prints all the books in the list"
+      },
+      {
+        "label": "B",
+        "text": "Returns a book from the list at position count"
+      },
+      {
+        "label": "C",
+        "text": "Calls the read function to fill the array — passes the array and how many to read"
+      },
+      {
+        "label": "D",
+        "text": "Declares a function called read_book"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Delegates input work to the read function. list and count are arguments."
+  },
+  {
+    "type": "decompose",
+    "atomId": "MW-07",
+    "code": "for (int i = 0; i < count; i++) {\n  printf(\"%d %s\\n\", list[i].id, list[i].name.c_str());\n}",
+    "question": "What does this for-loop in main do?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Reads input into each item of the array"
+      },
+      {
+        "label": "B",
+        "text": "Prints each item in the array, one per line, for all 'count' items"
+      },
+      {
+        "label": "C",
+        "text": "Deletes each item after printing it"
+      },
+      {
+        "label": "D",
+        "text": "Counts how many items match a search condition"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Output loop: iterate i from 0 to count-1, print each struct's fields."
+  },
+  {
+    "type": "decompose",
+    "atomId": "MW-08",
+    "code": "printf(\"%d %s\\n\", list[i].id, list[i].name.c_str());",
+    "question": "What do %d and %s in the format string produce?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Both print the same value in different formats"
+      },
+      {
+        "label": "B",
+        "text": "%d prints a double, %s prints a single char"
+      },
+      {
+        "label": "C",
+        "text": "%d prints the int (id), %s prints the string (name) — in that order"
+      },
+      {
+        "label": "D",
+        "text": "%d and %s are printed literally as text"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "%d=integer, %s=C-string. Args fill placeholders left-to-right."
+  },
+  {
+    "type": "decompose",
+    "atomId": "MW-09",
+    "code": "printf(\"%s\\n\", list[i].name.c_str());",
+    "question": "Why is .c_str() needed on the string?",
+    "options": [
+      {
+        "label": "A",
+        "text": "It counts the string's characters for %s formatting"
+      },
+      {
+        "label": "B",
+        "text": "It converts the string to uppercase before printing"
+      },
+      {
+        "label": "C",
+        "text": "It's not needed — %s works with C++ strings directly"
+      },
+      {
+        "label": "D",
+        "text": "printf's %s expects a C-string (char*); .c_str() converts C++ string to that format"
+      }
+    ],
+    "correctLabel": "D",
+    "explanation": ".c_str() bridges C++ string → C-style char* that printf requires."
+  },
+  {
+    "type": "decompose",
+    "atomId": "ME-01",
+    "code": "struct stat_double {\n  double mystery;\n  double a;\n  double numbers[5];\n  int count;\n};",
+    "question": "What pattern does this struct follow?",
+    "options": [
+      {
+        "label": "A",
+        "text": "A data container with mixed types: doubles, an array field, and an int — typical exam Q1 struct"
+      },
+      {
+        "label": "B",
+        "text": "An array of 5 separate structs"
+      },
+      {
+        "label": "C",
+        "text": "A function that processes statistical data"
+      },
+      {
+        "label": "D",
+        "text": "A class with private fields and methods"
+      }
+    ],
+    "correctLabel": "A",
+    "explanation": "Exam structs bundle a mix of scalars, arrays, and counters."
+  },
+  {
+    "type": "decompose",
+    "atomId": "ME-02",
+    "code": "void read_stat(stat_double &data) {\n  cin >> data.mystery;\n  cin >> data.count;\n  for (int i = 0; i < data.count; i++) {\n    cin >> data.numbers[i];\n  }\n}",
+    "question": "What is the purpose of this read function?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Validates that the input data is correct"
+      },
+      {
+        "label": "B",
+        "text": "Fills all fields of the struct from input — scalar fields first, then array via loop"
+      },
+      {
+        "label": "C",
+        "text": "Creates a new stat_double variable"
+      },
+      {
+        "label": "D",
+        "text": "Prints the struct's contents to the terminal"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Read pattern: cin each scalar, then loop for array elements."
+  },
+  {
+    "type": "decompose",
+    "atomId": "ME-03",
+    "code": "void who_am_i(stat_double &data) {\n  data.mystery = data.numbers[0];\n  for (int i = 1; i < data.count; i++) {\n    if (data.numbers[i] > data.mystery) {\n      data.mystery = data.numbers[i];\n    }\n  }\n}",
+    "question": "What does this function compute?",
+    "options": [
+      {
+        "label": "A",
+        "text": "Sorts the array from smallest to largest"
+      },
+      {
+        "label": "B",
+        "text": "Finds the maximum value in data.numbers and stores it in data.mystery"
+      },
+      {
+        "label": "C",
+        "text": "Sums all values in data.numbers"
+      },
+      {
+        "label": "D",
+        "text": "Counts how many numbers are positive"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Classic max-finder: start with first element, update when bigger found."
+  },
+  {
+    "type": "decompose",
+    "atomId": "ME-04",
+    "code": "struct stat_double {\n  double mystery;\n  double a;\n  double numbers[5];\n  int count;\n};\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.a;\n  for (int i = 0; i < data.count; i++) {\n    if (data.numbers[i] > data.mystery) {\n      data.mystery = data.numbers[i];\n    }\n  }\n}",
+    "question": "Why is data.mystery initialized to data.a before the loop?",
+    "options": [
+      {
+        "label": "A",
+        "text": "data.a is always the largest value"
+      },
+      {
+        "label": "B",
+        "text": "data.mystery needs a type-compatible initial value from the struct"
+      },
+      {
+        "label": "C",
+        "text": "Sets a starting comparison value — the loop finds the max between a and all numbers"
+      },
+      {
+        "label": "D",
+        "text": "It's a bug — should be initialized to 0"
+      }
+    ],
+    "correctLabel": "C",
+    "explanation": "Initialize max-candidate, then loop updates if anything is larger."
+  },
+  {
+    "type": "decompose",
+    "atomId": "ME-05",
+    "code": "int main() {\n  stat_double data;\n  read_stat(data);\n  who_am_i(data);\n  printf(\"mystery = %.2f\\n\", data.mystery);\n  return 0;\n}",
+    "question": "Why does main just call functions instead of containing all the logic?",
+    "options": [
+      {
+        "label": "A",
+        "text": "main() can't contain loops or if-statements"
+      },
+      {
+        "label": "B",
+        "text": "Decomposition — each function handles one task, making code organized and readable"
+      },
+      {
+        "label": "C",
+        "text": "The compiler requires at least 3 functions per program"
+      },
+      {
+        "label": "D",
+        "text": "Functions run faster than inline code"
+      }
+    ],
+    "correctLabel": "B",
+    "explanation": "Exam pattern: main declares data, calls read, calls process, calls output."
+  }
+]

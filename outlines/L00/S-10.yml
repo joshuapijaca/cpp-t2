@@ -1,0 +1,55 @@
+id: S-10
+fact: indentation is style not syntax
+words: 5
+level: 0
+deps: []
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - indentation purely cosmetic
+    - compiler ignores indent level
+    - 4 spaces or tab both fine
+    - indent for human readers
+    - no Python-style indent rules
+  see_demo:
+    why_one_line: indentation makes structure visible; the compiler does not require it.
+    snippet: |
+      int main() {
+          cout << "indent";
+              cout << "more indent";
+        cout << "less";
+        return 0;
+      }
+    highlights: []
+    used_in: []
+  see_decompose:
+    snippet: |-
+      #include <iostream>
+      using namespace std;
+
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    correct_atoms:
+      - S-10
+    distractors:
+      - S-01
+      - S-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

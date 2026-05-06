@@ -1,0 +1,51 @@
+id: G-07
+fact: last is arr[N-1]
+words: 3
+level: 10
+deps:
+  - G-06
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: arr[N-1] // last slot
+expected_output: last element of arr
+sit102_quirks: []
+misconceptions:
+  - id: M01
+    description: Reads arr[N]
+    student_says: arr[N]
+    correct_says: Last index is N-1; arr[N] is out of bounds
+render_hints:
+  memorize_seed_phrases:
+    - last index is N minus 1
+    - arr[N-1] is final element
+    - size 5 means last is [4]
+    - N-1 is last valid index
+    - stop at N-1 not N
+  see_demo:
+    why_one_line: the last valid index is N-1, the canonical loop upper bound minus one.
+    snippet: |
+      arr[N-1] // last slot
+    highlights: []
+    used_in: []
+  see_decompose:
+    snippet: |
+      arr[N-1] // last slot
+    correct_atoms:
+      - G-07
+      - G-06
+    distractors:
+      - G-01
+      - G-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions N-1 / last
+lint:
+  miller_max_words: 7
+status: locked

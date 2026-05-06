@@ -1,0 +1,70 @@
+id: HE-10
+fact: "trace x = 5; y = x; final state"
+words: 7
+level: 13
+deps:
+  - HE-03
+
+q_tags:
+  Q1: C
+  Q2: N
+  Q3: N
+  Q4: N
+
+pfg_source: []
+
+test2_evidence:
+  - question: Q1
+    instance: "data.mystery = data.numbers[0] is the same chained-assignment pattern"
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+
+canonical_example: |
+  int x = 5;
+  int y = x;
+  // final: x = 5, y = 5
+expected_output: "5 5"
+
+sit102_quirks:
+  - "y captures x's CURRENT value at the time of assignment"
+  - "Later changes to x do not affect already-copied y"
+
+misconceptions:
+  - id: M01
+    description: "Thinks y tracks future x changes"
+    student_says: "If x changes later, y changes too"
+    correct_says: "y = x copies the value at that moment; further x changes don't propagate"
+
+render_hints:
+  memorize_seed_phrases:
+    - "y captures x at assignment"
+    - "value-at-time copied to y"
+    - "later x changes skip y"
+    - "y = x is one-time copy"
+    - "x to y is value snapshot"
+
+  see_demo:
+    why_one_line: "trace simple assignments: end with the final value of every box you wrote."
+    snippet: |
+      int x = 5;
+      int y = x;
+      // final: x = 5, y = 5
+    highlights: []
+    used_in: [Q1]
+  see_decompose:
+    snippet: |
+      int x = 5;
+    correct_atoms: [HE-10, HE-03]
+    distractors: [HE-01, HE-02, R-01]
+acceptance:
+  memorize:
+    - "Each variant <=7 words"
+    - "Mentions: copy / snapshot / value / assignment"
+
+lint:
+  forbid_tokens: ["IDE", "debugger", "reference"]
+  miller_max_words: 7
+
+status: locked
+locked_at: 2026-05-04
+locked_by: M4
+revision_history: []

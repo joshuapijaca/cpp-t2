@@ -1,0 +1,39 @@
+id: MW-05
+fact: "cin >> count; reads N"
+words: 5
+level: 16
+deps: [I-03, MW-04]
+q_tags: { Q1: N, Q2: N, Q3: N, Q4: C }
+pfg_source: []
+test2_evidence: []
+canonical_example: ""
+expected_output: ""
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - "cin >> count gets size"
+    - "user types count value"
+    - "read count from keyboard"
+    - "cin >> count waits for input"
+    - "reads how-many"
+  write_L1_fill:
+    template: "cin ___ count;"
+    blank_value: ">>"
+  see_demo:
+    why_one_line: "cin >> count; reads the user's record count into the variable."
+    snippet: |
+      cin >> count;
+    highlights: ["cin >> count;"]
+    used_in: [Q4]
+  see_decompose:
+    snippet: |
+      int count;
+      cin >> count;          // user types record count
+    correct_atoms: [MW-05, I-03, MW-04]
+    distractors: [MW-01, MW-02, R-01]
+acceptance:
+  memorize: ["<=7 words"]
+lint:
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,59 @@
+id: F-02
+fact: else runs otherwise
+words: 3
+level: 6
+deps:
+  - F-01
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - else for false branch
+    - else runs when if false
+    - pair with if
+    - else = otherwise
+    - else covers the false path
+  see_demo:
+    why_one_line: else runs the alternative block when the if condition is false.
+    snippet: |
+      if (x > 0) {
+        cout << "positive";
+      } else {
+        cout << "zero or negative";
+      }
+    highlights:
+      - else
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int square(int x) {
+        return x * x;
+      }
+
+      int main() {
+        int result = square(5);
+        cout << result << endl;
+        return 0;
+      }
+    correct_atoms:
+      - F-02
+      - F-01
+    distractors:
+      - F-03
+      - F-04
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

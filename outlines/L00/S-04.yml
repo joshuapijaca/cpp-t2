@@ -1,0 +1,56 @@
+id: S-04
+fact: ; ends every statement
+words: 4
+level: 0
+deps: []
+q_tags:
+  Q1: C
+  Q2: C
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - ; ends every C++ statement
+    - forget ; -> compile error
+    - each statement ends in semicolon
+    - all statements need semicolon
+    - semicolon = end of line
+  see_demo:
+    why_one_line: missing one ; is the most common SIT102 compile fail.
+    snippet: |
+      int x = 5;        // ; required
+      cout << x;        // ; required
+    highlights:
+      - ;
+    used_in:
+      - Q1
+      - Q2
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      #include <iostream>
+      using namespace std;
+
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    correct_atoms:
+      - S-04
+    distractors:
+      - S-01
+      - S-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,52 @@
+id: A-04
+fact: / divides
+words: 2
+level: 4
+deps:
+  - V-10
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - / divides first by second
+    - slash operator divides
+    - a / b = quotient
+    - division uses /
+    - use / for quotient
+  see_demo:
+    why_one_line: / divides; for ints this truncates toward zero (a known Q1 trap).
+    snippet: |
+      int half = n / 2;
+    highlights:
+      - /
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int a = 10, b = 3;
+      int sum = a + b;
+      int diff = a - b;
+      int prod = a * b;
+      int quot = a / b;
+      int rem = a % b;
+    correct_atoms:
+      - A-04
+      - V-10
+    distractors:
+      - A-01
+      - A-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

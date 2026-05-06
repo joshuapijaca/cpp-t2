@@ -1,0 +1,59 @@
+id: C-07
+fact: comparison returns bool
+words: 3
+level: 5
+deps:
+  - V-13
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - compare -> true or false
+    - comparisons return bool
+    - < > == produce bool
+    - result is true/false
+    - comparison yields boolean
+  see_demo:
+    why_one_line: every comparison returns a bool, which is what if and while expect.
+    snippet: |
+      bool match = (x == 5);   // bool result
+      if (match) cout << "y";
+    highlights:
+      - bool
+      - (x == 5)
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int x = 10;
+      if (x > 5) {
+        cout << "big" << endl;
+      } else if (x == 5) {
+        cout << "exact" << endl;
+      } else {
+        cout << "small" << endl;
+      }
+    correct_atoms:
+      - C-07
+      - V-13
+    distractors:
+      - C-01
+      - C-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

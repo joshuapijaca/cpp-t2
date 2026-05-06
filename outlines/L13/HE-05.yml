@@ -1,0 +1,78 @@
+id: HE-05
+fact: 'conditional: pick branch by cond'
+words: 5
+level: 13
+deps:
+  - F-01
+  - HE-02
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q04
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: if (data.numbers[i] > data.mystery) - branch taken when condition true
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  int n = 7;
+  if (n > 5) {
+      // branch A taken (cond is true)
+  } else {
+      // branch B taken (cond is false)
+  }
+expected_output: branch A taken (7 > 5 is true)
+sit102_quirks:
+  - Evaluate condition first; pick body
+  - 'Inline cond viz: ''n > 5 -> true'''
+misconceptions:
+  - id: M01
+    description: Executes both branches
+    student_says: I traced if and else
+    correct_says: Only the branch matching the condition runs
+render_hints:
+  memorize_seed_phrases:
+    - pick branch from condition
+    - true picks if; false picks else
+    - evaluate cond, take branch
+    - if true run body
+    - branch chosen by cond
+  see_demo:
+    why_one_line: an if test picks ONE branch; ignore the unused side completely.
+    snippet: |
+      int n = 7;
+      if (n > 5) {
+          // branch A taken (cond is true)
+      } else {
+          // branch B taken (cond is false)
+      }
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      int n = 7;
+    correct_atoms:
+      - HE-05
+      - F-01
+      - HE-02
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: branch / cond / pick / take'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

@@ -1,0 +1,36 @@
+id: RW-03
+fact: "write int count parameter"
+words: 4
+level: 15
+deps: [G-13]
+q_tags: { Q1: N, Q2: N, Q3: C, Q4: C }
+pfg_source: []
+test2_evidence: []
+canonical_example: ""
+expected_output: ""
+sit102_quirks: ["count tells loop how many to read"]
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - "int count is second param"
+    - "count tracks how many"
+    - "second param: int count"
+    - "always pass count by value"
+    - "count is loop bound"
+  write_L1_fill: { template: "void read_X(X &list[], ___ count) {}", blank_value: "int" }
+  see_demo:
+    why_one_line: "int count tells the function how many records to read."
+    snippet: |
+      void read_X(X &list[], int count) {}
+    highlights: ["int count"]
+    used_in: [Q3, Q4]
+  see_decompose:
+    snippet: |
+      void read_book(book &list[], int count) {
+        for (int i = 0; i < count; i++) { /* ... */ }
+      }
+    correct_atoms: [RW-03, G-13]
+    distractors: [RW-01, RW-02, R-01]
+acceptance: { memorize: ["<=7 words", "Mentions count / int / param"] }
+lint: { miller_max_words: 7 }
+status: locked

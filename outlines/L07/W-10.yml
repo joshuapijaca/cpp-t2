@@ -1,0 +1,61 @@
+id: W-10
+fact: infinite loop if cond never false
+words: 6
+level: 7
+deps:
+  - W-01
+  - F-04
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - cond never false = infinite
+    - infinite loop traps program
+    - always check cond changes
+    - forgetting i++ -> infinite
+    - always update loop var
+  see_demo:
+    why_one_line: if the condition is never false, your code hangs at runtime.
+    snippet: |
+      while (true) {
+        // forever -- avoid in T2 unless break
+        cout << "loops";
+      }
+    highlights:
+      - while (true)
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int i = 0;
+      while (i < 10) {
+        if (i == 7) break;
+        if (i % 2 == 0) {
+          i++;
+          continue;
+        }
+        cout << i << " ";
+        i++;
+      }
+    correct_atoms:
+      - W-10
+      - W-01
+      - F-04
+    distractors:
+      - W-02
+      - W-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

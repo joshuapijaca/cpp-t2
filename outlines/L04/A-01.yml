@@ -1,0 +1,54 @@
+id: A-01
+fact: + adds
+words: 2
+level: 4
+deps:
+  - V-10
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - + adds two numbers
+    - plus operator sums
+    - a + b = sum
+    - addition uses +
+    - use + for sum
+  see_demo:
+    why_one_line: + adds two numbers; appears in Q1 mystery-update lines like data.a + data.b.
+    snippet: |
+      int sum = 3 + 4;        // 7
+      int total = a + b;
+    highlights:
+      - +
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |-
+      int a = 10, b = 3;
+      int sum = a + b;
+      int diff = a - b;
+      int prod = a * b;
+      int quot = a / b;
+      int rem = a % b;
+    correct_atoms:
+      - A-01
+      - V-10
+    distractors:
+      - A-10
+      - A-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

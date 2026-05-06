@@ -1,0 +1,37 @@
+id: WT-L13
+level: 13
+level_label: "L13 hand-execution -- predicting d.mystery"
+anchor_atom_id: HE-01
+status: locked
+full_code: |
+  struct stat_double { double mystery; double a; double b; };
+  
+  void who_am_i(stat_double &data) {
+    data.mystery = 0;
+    if (data.a > data.b) {
+      data.mystery = data.a;
+    } else {
+      data.mystery = data.b;
+    }
+  }
+steps:
+  - line: 3
+    code: "void who_am_i(stat_double &data) {"
+    annotation: "remember & means main's d and data are the same struct."
+    atom_ids: [HE-08, R-04]
+  - line: 4
+    code: "  data.mystery = 0;"
+    annotation: "overwrite data.mystery to 0; record this state."
+    atom_ids: [HE-03, T-07]
+  - line: 5
+    code: "  if (data.a > data.b) {"
+    annotation: "pick branch by current values of data.a and data.b."
+    atom_ids: [HE-05, C-04]
+  - line: 6
+    code: "    data.mystery = data.a;"
+    annotation: "if true, write data.a into data.mystery."
+    atom_ids: [HE-17]
+  - line: 8
+    code: "    data.mystery = data.b;"
+    annotation: "else, write data.b. only ONE side runs."
+    atom_ids: [HE-13]

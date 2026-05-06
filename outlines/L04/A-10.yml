@@ -1,0 +1,57 @@
+id: A-10
+fact: ++ adds 1
+words: 3
+level: 4
+deps:
+  - A-01
+  - V-07
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - ++ increments by 1
+    - i++ adds one to i
+    - ++ = +1 to variable
+    - increment with ++
+    - ++ used in for-loops
+  see_demo:
+    why_one_line: i++ adds 1 and is what every for-loop step in Q3 and Q4 uses.
+    snippet: |
+      int i = 0;
+      i++;                    // i = 1
+    highlights:
+      - i++
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int x = 5;
+      x++;
+      x--;
+      int y = (x + 2) * 3;
+      double z = 10.0 / 3;
+    correct_atoms:
+      - A-10
+      - A-01
+      - V-07
+    distractors:
+      - A-02
+      - A-11
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

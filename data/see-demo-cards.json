@@ -1,0 +1,2228 @@
+[
+  {
+    "type": "demo",
+    "atomId": "P-01",
+    "whyOneLine": "every C++ program is just CPU instructions running in order.",
+    "demoCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int main()",
+      "return 0"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "P-02",
+    "whyOneLine": "code is text humans read and the compiler turns into machine action.",
+    "demoCode": "// A program is text instructions.\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "// A program is text instructions"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "P-03",
+    "whyOneLine": "your work lives in .cpp files; this is the input the compiler reads.",
+    "demoCode": "// File: hello.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "// File: hello.cpp"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "P-04",
+    "whyOneLine": "compiler turns text into a runnable .exe before any user sees output.",
+    "demoCode": "// hello.cpp -> g++ compiles -> hello.exe\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "g++ compiles",
+      "hello.exe"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "P-05",
+    "whyOneLine": "running the .exe is what produces the output the SIT102 tester checks.",
+    "demoCode": "// Running the .exe executes each line in order:\nint main() {\n  cout << \"Hello\" << endl;   // line 1: prints Hello\n  return 0;                  // line 2: exits\n}",
+    "highlightTokens": [
+      "// line 1: prints Hello",
+      "// line 2: exits"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "P-06",
+    "whyOneLine": "terminal output is where every Q1 trace and Q4 print lands.",
+    "demoCode": "int main() {\n  cout << \"Hello\" << endl;\n  cout << \"Score: \" << 95 << endl;\n  return 0;\n}\n// Terminal output:\n// Hello\n// Score: 95",
+    "highlightTokens": [
+      "cout <<",
+      "// Terminal output:"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "P-07",
+    "whyOneLine": "terminal input is what cin reads from in Q3 read functions.",
+    "demoCode": "int main() {\n  int age;\n  cout << \"Enter age: \";\n  cin >> age;\n  cout << \"You are \" << age << endl;\n  return 0;\n}\n// Terminal: Enter age: 25\n//          You are 25",
+    "highlightTokens": [
+      "cin >> age",
+      "// Terminal:"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "S-01",
+    "whyOneLine": "without #include <iostream> the compiler has never heard of cin or cout.",
+    "demoCode": "#include <iostream>",
+    "highlightTokens": [
+      "#include <iostream>"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-02",
+    "whyOneLine": "lets you write cout instead of std::cout; SIT102 always uses this.",
+    "demoCode": "#include <iostream>\nusing namespace std;        // lets you write cout, not std::cout\nint main() {\n  cout << \"ok\";\n  return 0;\n}",
+    "highlightTokens": [
+      "using namespace std"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-03",
+    "whyOneLine": "every program starts at main(); Q4 demands you write it from scratch.",
+    "demoCode": "int main() { return 0; }",
+    "highlightTokens": [
+      "int main()"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-04",
+    "whyOneLine": "missing one ; is the most common SIT102 compile fail.",
+    "demoCode": "int x = 5;        // ; required\ncout << x;        // ; required",
+    "highlightTokens": [
+      ";"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-05",
+    "whyOneLine": "{ marks where every function body, loop body, and struct body begins.",
+    "demoCode": "int main() {       // { opens block\n  cout << \"hi\";\n}",
+    "highlightTokens": [
+      "{"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-06",
+    "whyOneLine": "} closes the matching { ; mismatched braces collapse the whole parse.",
+    "demoCode": "int main() {\n  cout << \"hi\";\n}                  // } closes block",
+    "highlightTokens": [
+      "}"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-07",
+    "whyOneLine": "main must end with return 0; or the OS treats the program as failed.",
+    "demoCode": "int main() {\n  cout << \"done\";\n  return 0;        // tells OS: success\n}",
+    "highlightTokens": [
+      "return 0;"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-08",
+    "whyOneLine": "// lets you annotate code without affecting behavior; useful in answers.",
+    "demoCode": "int x = 5;     // declare counter\nx = x + 1;     // increment",
+    "highlightTokens": [
+      "// declare counter",
+      "// increment"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "S-09",
+    "whyOneLine": "the compiler ignores extra spaces and blank lines; readability is for you.",
+    "demoCode": "int   x =   5 ;\nint y=10;\n// both are valid; spaces optional around tokens",
+    "highlightTokens": [],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "S-10",
+    "whyOneLine": "indentation makes structure visible; the compiler does not require it.",
+    "demoCode": "int main() {\n    cout << \"indent\";\n        cout << \"more indent\";\n  cout << \"less\";\n  return 0;\n}",
+    "highlightTokens": [],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "O-01",
+    "whyOneLine": "primary tool for showing program results; chained in every Q4 print loop.",
+    "demoCode": "cout << \"hello\";",
+    "highlightTokens": [
+      "cout"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "O-02",
+    "whyOneLine": "<< sends a value to cout; chain it to print several things in one line.",
+    "demoCode": "int x = 5;\ncout << x;",
+    "highlightTokens": [
+      "<<"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "O-03",
+    "whyOneLine": "string literal in quotes goes directly to the terminal.",
+    "demoCode": "cout << \"hello, world\";",
+    "highlightTokens": [
+      "\"hello, world\""
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "O-04",
+    "whyOneLine": "an int written to cout becomes its decimal digits on screen.",
+    "demoCode": "cout << 5;\ncout << 42;",
+    "highlightTokens": [
+      "5",
+      "42"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "O-05",
+    "whyOneLine": "endl writes a newline and flushes; what every Q1 trace expects between lines.",
+    "demoCode": "cout << \"line one\" << endl;\ncout << \"line two\" << endl;",
+    "highlightTokens": [
+      "endl"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "O-06",
+    "whyOneLine": "\"\\\\n\" is the shorter newline used in Q4 printf format strings.",
+    "demoCode": "cout << \"line one\\n\";\ncout << \"line two\\n\";",
+    "highlightTokens": [
+      "\\n"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-07",
+    "whyOneLine": "chain << << << to put several values on one line of output.",
+    "demoCode": "int a = 1, b = 2;\ncout << a << \" \" << b << endl;",
+    "highlightTokens": [
+      "<<"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "O-08",
+    "whyOneLine": "Q4 mocks the SIT102 printf style for formatted record printing.",
+    "demoCode": "int id = 42;\nprintf(\"id = %d\\n\", id);",
+    "highlightTokens": [
+      "printf"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-09",
+    "whyOneLine": "%d in printf is where each int (id, count) lands in the output.",
+    "demoCode": "int n = 7;\nprintf(\"count = %d\\n\", n);",
+    "highlightTokens": [
+      "%d"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-10",
+    "whyOneLine": "%s in printf is where each C-string (use .c_str()) lands.",
+    "demoCode": "string name = \"ada\";\nprintf(\"name = %s\\n\", name.c_str());",
+    "highlightTokens": [
+      "%s",
+      ".c_str()"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-11",
+    "whyOneLine": "\\\\n inside a printf format adds a newline at that exact spot.",
+    "demoCode": "printf(\"hello\\n\");\nprintf(\"world\\n\");",
+    "highlightTokens": [
+      "\\n"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-12",
+    "whyOneLine": "first arg is the format string; the rest fill the % placeholders in order.",
+    "demoCode": "printf(\"score = %d\\n\", 100);\n//      ^^^^^^^^^^^^^ format string",
+    "highlightTokens": [
+      "\"score = %d\\n\""
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-13",
+    "whyOneLine": "extra args after the format must match the placeholders one-for-one.",
+    "demoCode": "printf(\"%d + %d = %d\\n\", 2, 3, 5);",
+    "highlightTokens": [
+      "%d",
+      "2",
+      "3",
+      "5"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-01",
+    "whyOneLine": "a variable is a labeled box in memory; everything else builds on this.",
+    "demoCode": "int n = 5;        // n is a labeled box holding 5\nn = n + 1;        // box now holds 6",
+    "highlightTokens": [
+      "n"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-02",
+    "whyOneLine": "every variable has a name you use to read and write its box.",
+    "demoCode": "int counter = 0;\nint total = 100;\n// names: counter, total",
+    "highlightTokens": [
+      "counter",
+      "total"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-03",
+    "whyOneLine": "every variable has a type that decides what fits in the box.",
+    "demoCode": "int   age = 21;\ndouble price = 9.95;\nstring name = \"ada\";",
+    "highlightTokens": [
+      "int",
+      "double",
+      "string"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-04",
+    "whyOneLine": "every variable in C++ starts with a typed declaration.",
+    "demoCode": "int x;            // declare an int box named x\nstring title;     // declare a string box named title",
+    "highlightTokens": [
+      "int x",
+      "string title"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-05",
+    "whyOneLine": "type name = value; declares and initializes in one statement.",
+    "demoCode": "int x = 5;\nstring name = \"ada\";\n// both declare AND store a value at once",
+    "highlightTokens": [
+      "= 5",
+      "= \"ada\""
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-06",
+    "whyOneLine": "use the variable's name to read its current value into an expression.",
+    "demoCode": "int x = 5;\ncout << x;         // reads x's value",
+    "highlightTokens": [
+      "cout << x"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "V-07",
+    "whyOneLine": "name = newValue; overwrites the box with a new value.",
+    "demoCode": "int x = 5;\nx = 10;            // overwrites the box",
+    "highlightTokens": [
+      "x = 10;"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-08",
+    "whyOneLine": "= writes a value; comparing equality is == (a frequent Q1 trap).",
+    "demoCode": "int x = 5;         // = stores 5 in x\nif (x == 5) {      // == compares\n  cout << \"equal\";\n}",
+    "highlightTokens": [
+      "=",
+      "=="
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-09",
+    "whyOneLine": "C++ reads top-down; declare a variable before you can use it.",
+    "demoCode": "int x = 5;        // declared first\ncout << x;        // then used",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-10",
+    "whyOneLine": "int is the default type for counts, indices, and Q4 record IDs.",
+    "demoCode": "int count = 7;\nint n = 42;",
+    "highlightTokens": [
+      "int"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-11",
+    "whyOneLine": "double is what stores the .mystery field in Q1 stat_double.",
+    "demoCode": "double mystery = 0.0;\ndouble price = 3.14;",
+    "highlightTokens": [
+      "double"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-12",
+    "whyOneLine": "string holds names and Q4 record fields like book.title.",
+    "demoCode": "string title = \"C++\";\nstring author = \"ada\";",
+    "highlightTokens": [
+      "string"
+    ],
+    "usedIn": [
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-13",
+    "whyOneLine": "bool is the type that an if condition expects.",
+    "demoCode": "bool ok = true;\nbool done = false;",
+    "highlightTokens": [
+      "bool"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "V-14",
+    "whyOneLine": "char holds one letter; rare in T2 but part of the type system.",
+    "demoCode": "char letter = 'A';\nchar digit = '7';",
+    "highlightTokens": [
+      "char"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "V-15",
+    "whyOneLine": "literal integers like 5 fix the type as int unless cast.",
+    "demoCode": "int n = 5;          // 5 is an int literal\nint big = 1000000;",
+    "highlightTokens": [
+      "5",
+      "1000000"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-16",
+    "whyOneLine": "decimals like 3.14 default to double; appears in Q1 .mystery seeds.",
+    "demoCode": "double pi = 3.14;\ndouble half = 0.5;",
+    "highlightTokens": [
+      "3.14",
+      "0.5"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-17",
+    "whyOneLine": "string literals in double quotes need <string>; appear in Q2 fields.",
+    "demoCode": "string greeting = \"hello\";\ncout << \"literal text\";",
+    "highlightTokens": [
+      "\"hello\"",
+      "\"literal text\""
+    ],
+    "usedIn": [
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-18",
+    "whyOneLine": "single-quoted 'a' is a char, not a string; mixing the two is a Q4 bug.",
+    "demoCode": "char letter = 'A';\nchar comma = ',';",
+    "highlightTokens": [
+      "'A'",
+      "','"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "V-19",
+    "whyOneLine": "true and false are the only two bool literals; used in Q1 conditions.",
+    "demoCode": "bool ok = true;\nbool failed = false;",
+    "highlightTokens": [
+      "true",
+      "false"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "V-20",
+    "whyOneLine": "without #include <string> the string type is not declared.",
+    "demoCode": "#include <string>\nusing namespace std;\nstring title = \"C++\";",
+    "highlightTokens": [
+      "#include <string>"
+    ],
+    "usedIn": [
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "I-01",
+    "whyOneLine": "Q3 read function calls cin once per struct field; without it no user data.",
+    "demoCode": "int n;\ncin >> n;          // pause for user input",
+    "highlightTokens": [
+      "cin"
+    ],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "I-02",
+    "whyOneLine": ">> reads the next whitespace-separated token into the variable.",
+    "demoCode": "int x;\ncin >> x;          // >> reads next token",
+    "highlightTokens": [
+      ">>"
+    ],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "I-03",
+    "whyOneLine": "cin >> x; pauses until the user types and presses enter.",
+    "demoCode": "cin >> x;",
+    "highlightTokens": [
+      "cin >> x"
+    ],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "I-04",
+    "whyOneLine": "tabs, spaces, and newlines all separate input tokens for >>.",
+    "demoCode": "int a, b;\ncin >> a >> b;     // user types: 3 7",
+    "highlightTokens": [
+      " "
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "I-05",
+    "whyOneLine": "cin reads ints as digits, strings as one whitespace-delimited word.",
+    "demoCode": "int n;\nstring s;\ncin >> n;          // parses digits as int\ncin >> s;          // reads one word",
+    "highlightTokens": [
+      "cin >> n",
+      "cin >> s"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "I-06",
+    "whyOneLine": "chain >> >> to read several values from one input line.",
+    "demoCode": "int a, b, c;\ncin >> a >> b >> c;",
+    "highlightTokens": [
+      ">> a >> b >> c"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "I-07",
+    "whyOneLine": "getline reads an entire line into a string; rare but useful for Q3 names.",
+    "demoCode": "string fullName;\ngetline(cin, fullName);",
+    "highlightTokens": [
+      "getline(cin"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "A-01",
+    "whyOneLine": "+ adds two numbers; appears in Q1 mystery-update lines like data.a + data.b.",
+    "demoCode": "int sum = 3 + 4;        // 7\nint total = a + b;",
+    "highlightTokens": [
+      "+"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "A-02",
+    "whyOneLine": "- subtracts; sometimes appears in Q1 traces under stat_double mutations.",
+    "demoCode": "int diff = 10 - 3;      // 7",
+    "highlightTokens": [
+      "-"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "A-03",
+    "whyOneLine": "* multiplies; appears in Q1 area-style mocks and some mystery formulas.",
+    "demoCode": "int area = width * height;",
+    "highlightTokens": [
+      "*"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "A-04",
+    "whyOneLine": "/ divides; for ints this truncates toward zero (a known Q1 trap).",
+    "demoCode": "int half = n / 2;",
+    "highlightTokens": [
+      "/"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "A-05",
+    "whyOneLine": "% gives the remainder of int division; useful for parity tricks.",
+    "demoCode": "int rem = 7 % 3;        // 1",
+    "highlightTokens": [
+      "%"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "A-06",
+    "whyOneLine": "5/2 in int arithmetic is 2, not 2.5; affects who_am_i mystery values.",
+    "demoCode": "int q = 5 / 2;          // 2 (NOT 2.5)",
+    "highlightTokens": [
+      "5 / 2"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "A-07",
+    "whyOneLine": "*, /, % bind tighter than + and -; matters in mixed expressions.",
+    "demoCode": "int r = 1 + 2 * 3;      // 7, not 9",
+    "highlightTokens": [
+      "*",
+      "+"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "A-08",
+    "whyOneLine": "() force the desired evaluation order regardless of precedence.",
+    "demoCode": "int r = (1 + 2) * 3;    // 9",
+    "highlightTokens": [
+      "(1 + 2)"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "A-09",
+    "whyOneLine": "x += 1 is shorthand for x = x + 1; matches mystery-update style.",
+    "demoCode": "int total = 0;\ntotal += 5;             // total = total + 5",
+    "highlightTokens": [
+      "+="
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "A-10",
+    "whyOneLine": "i++ adds 1 and is what every for-loop step in Q3 and Q4 uses.",
+    "demoCode": "int i = 0;\ni++;                    // i = 1",
+    "highlightTokens": [
+      "i++"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "A-11",
+    "whyOneLine": "i-- subtracts 1; rarely on T2 but completes the operator family.",
+    "demoCode": "int n = 10;\nn--;                    // n = 9",
+    "highlightTokens": [
+      "n--"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "C-01",
+    "whyOneLine": "== tests if two values are equal; conditional trap when written as =.",
+    "demoCode": "if (x == 5) {\n  cout << \"matches\";\n}",
+    "highlightTokens": [
+      "=="
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "C-02",
+    "whyOneLine": "!= is the opposite of ==; used in some Q1 mystery conditions.",
+    "demoCode": "if (x != 0) {\n  cout << \"nonzero\";\n}",
+    "highlightTokens": [
+      "!="
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "C-03",
+    "whyOneLine": "i < n is the canonical loop guard for Q3 and Q4 for-loops.",
+    "demoCode": "for (int i = 0; i < n; i++) {\n  cout << i;\n}",
+    "highlightTokens": [
+      "i < n"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "C-04",
+    "whyOneLine": "data.numbers[i] > data.mystery is a Q1 max-finder shape.",
+    "demoCode": "if (data.numbers[i] > data.mystery) {\n  data.mystery = data.numbers[i];\n}",
+    "highlightTokens": [
+      "data.numbers[i] > data.mystery"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "C-05",
+    "whyOneLine": "<= includes the boundary; off-by-one risk on Q3 read loops.",
+    "demoCode": "if (i <= count) {\n  cout << \"in range\";\n}",
+    "highlightTokens": [
+      "<="
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "C-06",
+    "whyOneLine": ">= appears in some Q1 conditional variants.",
+    "demoCode": "if (score >= 50) {\n  cout << \"pass\";\n}",
+    "highlightTokens": [
+      ">="
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "C-07",
+    "whyOneLine": "every comparison returns a bool, which is what if and while expect.",
+    "demoCode": "bool match = (x == 5);   // bool result\nif (match) cout << \"y\";",
+    "highlightTokens": [
+      "bool",
+      "(x == 5)"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "L-01",
+    "whyOneLine": "&& chains two bool tests; both must be true for the whole to be true.",
+    "demoCode": "if (a > 0 && b > 0) {\n  cout << \"both positive\";\n}",
+    "highlightTokens": [
+      "&&"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "L-02",
+    "whyOneLine": "|| means OR; either condition true makes the whole true.",
+    "demoCode": "if (x == 0 || y == 0) {\n  cout << \"at least one zero\";\n}",
+    "highlightTokens": [
+      "||"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "L-03",
+    "whyOneLine": "! flips a bool; rare in T2 but completes the logical family.",
+    "demoCode": "if (!found) {\n  cout << \"missing\";\n}",
+    "highlightTokens": [
+      "!"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "F-01",
+    "whyOneLine": "if (cond) runs its block when the condition is true.",
+    "demoCode": "if (x > 0) {\n  cout << \"positive\";\n}",
+    "highlightTokens": [
+      "if"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "F-02",
+    "whyOneLine": "else runs the alternative block when the if condition is false.",
+    "demoCode": "if (x > 0) {\n  cout << \"positive\";\n} else {\n  cout << \"zero or negative\";\n}",
+    "highlightTokens": [
+      "else"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "F-03",
+    "whyOneLine": "else if chains decisions; only the first matching branch runs.",
+    "demoCode": "if (x > 0)      cout << \"pos\";\nelse if (x < 0) cout << \"neg\";\nelse            cout << \"zero\";",
+    "highlightTokens": [
+      "else if"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "F-04",
+    "whyOneLine": "the if condition must reduce to a bool; raw ints implicitly convert.",
+    "demoCode": "bool ok = (x > 0);\nif (ok) {\n  cout << \"positive\";\n}",
+    "highlightTokens": [
+      "bool",
+      "if (ok)"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "F-05",
+    "whyOneLine": "always wrap if bodies in {} ; SIT102 grading rejects single-line shortcuts.",
+    "demoCode": "if (x > 0) {\n  cout << \"pos\";   // braces required\n}",
+    "highlightTokens": [
+      "{",
+      "}"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "W-01",
+    "whyOneLine": "while (cond) repeats while the condition stays true; check first.",
+    "demoCode": "int i = 0;\nwhile (i < 5) {\n  cout << i;\n  i++;\n}",
+    "highlightTokens": [
+      "while"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "W-02",
+    "whyOneLine": "do { body } while runs the body once before the first cond check.",
+    "demoCode": "int n;\ndo {\n  cin >> n;\n} while (n < 0);",
+    "highlightTokens": [
+      "do",
+      "while"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "W-03",
+    "whyOneLine": "for is what every Q3 read loop and Q4 print loop is built from.",
+    "demoCode": "for (int i = 0; i < n; i++) {\n  cout << i;\n}",
+    "highlightTokens": [
+      "for (int i = 0; i < n; i++)"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-04",
+    "whyOneLine": "the init clause runs ONCE before the loop starts.",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  // init `int i = 0` runs ONCE\n  cout << i;\n}",
+    "highlightTokens": [
+      "int i = 0"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-05",
+    "whyOneLine": "the condition is checked BEFORE each iteration body runs.",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  // cond `i < 5` checked each iteration\n  cout << i;\n}",
+    "highlightTokens": [
+      "i < 5"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-06",
+    "whyOneLine": "the step clause runs AFTER each iteration body completes.",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  cout << i;\n  // step `i++` runs after body\n}",
+    "highlightTokens": [
+      "i++"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-07",
+    "whyOneLine": "break leaves the loop immediately; rare in T2 but valid.",
+    "demoCode": "for (int i = 0; i < 100; i++) {\n  if (i == 7) break;\n  cout << i;\n}",
+    "highlightTokens": [
+      "break"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "W-08",
+    "whyOneLine": "continue skips the rest of the body and goes to the next iteration.",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  if (i == 2) continue;\n  cout << i;\n}",
+    "highlightTokens": [
+      "continue"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "W-09",
+    "whyOneLine": "nested loops are how you would walk a 2D grid; rare in T2.",
+    "demoCode": "for (int r = 0; r < rows; r++) {\n  for (int c = 0; c < cols; c++) {\n    cout << grid[r][c];\n  }\n}",
+    "highlightTokens": [
+      "for (int r",
+      "for (int c"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "W-10",
+    "whyOneLine": "if the condition is never false, your code hangs at runtime.",
+    "demoCode": "while (true) {\n  // forever -- avoid in T2 unless break\n  cout << \"loops\";\n}",
+    "highlightTokens": [
+      "while (true)"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "H-01",
+    "whyOneLine": "a function is a named block of code you can reuse and call from main.",
+    "demoCode": "void greet() {\n  cout << \"hello\";\n}\nint main() {\n  greet();\n  return 0;\n}",
+    "highlightTokens": [
+      "void greet()",
+      "greet();"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-02",
+    "whyOneLine": "the signature shape: returnType name(params) { body } -- write it cold.",
+    "demoCode": "int add(int a, int b) {\n  return a + b;\n}",
+    "highlightTokens": [
+      "int add(int a, int b)"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-03",
+    "whyOneLine": "name(args); is how the caller actually runs the function.",
+    "demoCode": "int sum = add(3, 4);\ncout << sum;       // 7",
+    "highlightTokens": [
+      "add(3, 4)"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-04",
+    "whyOneLine": "each parameter becomes a local box inside the function frame.",
+    "demoCode": "void f(int x) {\n  // x is a local box; caller's variable is separate\n  x = 99;\n}",
+    "highlightTokens": [
+      "int x"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-05",
+    "whyOneLine": "return value; ends the function and reports a result to the caller.",
+    "demoCode": "int square(int n) {\n  return n * n;\n}",
+    "highlightTokens": [
+      "return"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-06",
+    "whyOneLine": "void means the function does work but does not hand back a value.",
+    "demoCode": "void greet() {\n  cout << \"hi\";\n  // no return value\n}",
+    "highlightTokens": [
+      "void"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-07",
+    "whyOneLine": "you must declare or prototype a function before any caller uses it.",
+    "demoCode": "int square(int n);   // prototype\n\nint main() {\n  cout << square(5);\n  return 0;\n}\n\nint square(int n) { return n * n; }",
+    "highlightTokens": [
+      "int square(int n);"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "H-08",
+    "whyOneLine": "prototype lets you put main first and define helpers later.",
+    "demoCode": "int square(int);      // prototype: types only\nvoid greet(string);",
+    "highlightTokens": [
+      "int square(int);"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "H-09",
+    "whyOneLine": "locals (and params without &) vanish at return; their changes are lost.",
+    "demoCode": "void f() {\n  int local = 5;\n  // local dies when f returns\n}",
+    "highlightTokens": [
+      "int local"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-10",
+    "whyOneLine": "main cannot poke at a function's locals; only what & or return exposes.",
+    "demoCode": "void f() {\n  int secret = 42;\n}\nint main() {\n  f();\n  // cout << secret;  // ERROR: out of scope\n  return 0;\n}",
+    "highlightTokens": [
+      "int secret"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-01",
+    "whyOneLine": "C++ default: every parameter is a copy; the caller box is untouched.",
+    "demoCode": "void increment_copy(int x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment_copy(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-02",
+    "whyOneLine": "without &, a function's mutation lives only inside the frame and dies.",
+    "demoCode": "void increment_copy(int x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment_copy(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-03",
+    "whyOneLine": "& binds the parameter to the caller's box; same memory, two names.",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-04",
+    "whyOneLine": "& sits between the type and the parameter name in the function signature.",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-05",
+    "whyOneLine": "with &, every mutation persists; the caller sees the change after return.",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-06",
+    "whyOneLine": "you cannot bind a reference to a literal; needs a real variable.",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);    // OK: n is a variable\n  // increment(5); // ERROR: literal cannot bind to int&\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "R-07",
+    "whyOneLine": "const & lets the function read the caller box without ever writing it.",
+    "demoCode": "void print_user(const user_data &user) {\n  cout << user.username << endl;\n  // user.username = \"X\";  // ERROR: cannot modify const\n}\n\nint main() {\n  user_data u;\n  u.username = \"alice\";\n  print_user(u);     // u stays \"alice\"\n  return 0;\n}",
+    "highlightTokens": [
+      "user_data &user"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "R-08",
+    "whyOneLine": "the same memory box wears two names while the function runs.",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);   // x and n now label same box; box was 5, now 6\n  cout << n;      // 6\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-01",
+    "whyOneLine": "array stores N values of one type back-to-back in memory.",
+    "demoCode": "// array holds N items in a row",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-02",
+    "whyOneLine": "type arr[N]; reserves space for N elements at compile time.",
+    "demoCode": "int arr[5];",
+    "highlightTokens": [
+      "arr[5]"
+    ],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-03",
+    "whyOneLine": "type arr[N] = { ... }; fills the slots in order.",
+    "demoCode": "int arr[3] = {1, 2, 3};",
+    "highlightTokens": [
+      "arr[3]"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "G-04",
+    "whyOneLine": "arr[0] is the first slot; off-by-one bugs start when you forget this.",
+    "demoCode": "arr[0]   // first slot",
+    "highlightTokens": [
+      "arr[0]"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-05",
+    "whyOneLine": "arr[i] is how Q3 and Q4 read or write the i-th record.",
+    "demoCode": "arr[i]",
+    "highlightTokens": [
+      "arr[i]"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-06",
+    "whyOneLine": "C++ arrays count from 0; arr[N] is past the end.",
+    "demoCode": "int arr[3] = {10, 20, 30};\ncout << arr[0];   // 10  (NOT arr[1])",
+    "highlightTokens": [
+      "arr[0]"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-07",
+    "whyOneLine": "the last valid index is N-1, the canonical loop upper bound minus one.",
+    "demoCode": "arr[N-1] // last slot",
+    "highlightTokens": [],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "G-08",
+    "whyOneLine": "writing past arr[N-1] is undefined behavior; the SIT102 grader catches it.",
+    "demoCode": "int arr[3] = {10, 20, 30};\n// arr[3] is past the end -- undefined behavior\ncout << arr[3];",
+    "highlightTokens": [
+      "arr[3]"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "G-09",
+    "whyOneLine": "you set N at declaration; fixed forever for that array.",
+    "demoCode": "const int MAX = 100; int arr[MAX];",
+    "highlightTokens": [
+      "arr[MAX]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-10",
+    "whyOneLine": "C++ has no `return arr;`; you must pass it via & in the parameter list.",
+    "demoCode": "// C++ has no `return arr;`. Use a reference parameter instead:\nvoid fill(int arr[], int n) { /* ... */ }",
+    "highlightTokens": [
+      "int arr[]"
+    ],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-11",
+    "whyOneLine": "for (int i = 0; i < N; i++) is the canonical full-array walk.",
+    "demoCode": "for (int i = 0; i < N; i++) arr[i] = ...;",
+    "highlightTokens": [
+      "arr[i]"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-12",
+    "whyOneLine": "arr[i] = v stores v at slot i; what Q3 read and Q4 print depend on.",
+    "demoCode": "arr[2] = 99;",
+    "highlightTokens": [
+      "arr[2]"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-13",
+    "whyOneLine": "type arr[] in a parameter is the array-passing shape -- without &, copies.",
+    "demoCode": "void f(int arr[], int n) { ... }",
+    "highlightTokens": [
+      "[]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-14",
+    "whyOneLine": "&arr[] aliases the caller's array; what makes Q3 reads stick.",
+    "demoCode": "void f(int &arr[], int n) { arr[0] = 99; }",
+    "highlightTokens": [
+      "arr[0]",
+      "[]"
+    ],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-01",
+    "whyOneLine": "struct lets you carry several related fields under one variable name.",
+    "demoCode": "// struct = a named bundle of named fields",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-02",
+    "whyOneLine": "struct Name { fields }; defines the type before any code can use it.",
+    "demoCode": "struct Point {\n    int x;\n    int y;\n};",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-03",
+    "whyOneLine": "each field has its own type and name; comma-separated lists are illegal.",
+    "demoCode": "struct Point {\n    int x;\n    int y;\n};",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-04",
+    "whyOneLine": "the ; after } is mandatory; missing it is a textbook SIT102 fail.",
+    "demoCode": "struct Point { int x; int y; };",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-05",
+    "whyOneLine": "after the struct exists, Name x; declares one of its instances.",
+    "demoCode": "struct Point { int x; int y; };\nPoint p;",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-06",
+    "whyOneLine": "x.field is how you read or write one of the struct's slots.",
+    "demoCode": "Point p;\np.x = 3;",
+    "highlightTokens": [
+      "p.x"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-07",
+    "whyOneLine": "x.field = v; updates that one field and leaves the others alone.",
+    "demoCode": "Point p;\np.x = 3;",
+    "highlightTokens": [
+      "p.x"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-08",
+    "whyOneLine": "cout << x.field prints the field's current value to the terminal.",
+    "demoCode": "Point p; p.x = 3;\ncout << p.x;",
+    "highlightTokens": [
+      "p.x"
+    ],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "T-09",
+    "whyOneLine": "a struct can hold an array as a field; this is the Q1 stat_double shape.",
+    "demoCode": "struct stat_double {\n    double numbers[5];\n    double mystery;\n};",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-10",
+    "whyOneLine": "data.numbers[i] is the Q1 chained access pattern -- struct then array.",
+    "demoCode": "stat_double d;\nd.numbers[0] = 1.0;",
+    "highlightTokens": [
+      "d.numbers"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-11",
+    "whyOneLine": "Name list[N]; is the Q3 and Q4 array-of-structs pattern.",
+    "demoCode": "struct Point { int x; int y; };\nPoint list[3];",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-12",
+    "whyOneLine": "list[i].field is the Q3/Q4 chained access -- pick a record, then a field.",
+    "demoCode": "Point list[3];\nlist[0].x = 5;",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-01",
+    "whyOneLine": "passing a struct by value copies every field; the caller is untouched.",
+    "demoCode": "void f(Point p) { p.x = 99; }   // caller's p unchanged",
+    "highlightTokens": [],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-02",
+    "whyOneLine": "void f(Name &x) lets the function mutate the caller's struct directly.",
+    "demoCode": "void update(Point &p) { p.x = 99; }",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-03",
+    "whyOneLine": "with &, x.field = v inside the function persists into the caller.",
+    "demoCode": "void mutate(stat_double &d) {\n  d.mystery = 99.0;   // persists in caller\n}",
+    "highlightTokens": [
+      "stat_double &d",
+      "d.mystery = 99.0"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-04",
+    "whyOneLine": "void f(Name &list[], int n) is the Q3 read function signature shape.",
+    "demoCode": "void read_items(Item &list[], int count) { ... }",
+    "highlightTokens": [
+      "Item &list[]"
+    ],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-05",
+    "whyOneLine": "list[i].field = v writes into the caller's array of structs via &.",
+    "demoCode": "void read_book(book &list[], int n) {\n  list[0].title = \"C++\";   // writes to caller's list\n}",
+    "highlightTokens": [
+      "list[0].title"
+    ],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-06",
+    "whyOneLine": "const Name & gives the function read access without write power.",
+    "demoCode": "void print(const Point &p) { cout << p.x; }",
+    "highlightTokens": [],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-01",
+    "whyOneLine": "Q1 demands you simulate a function's execution by hand and predict d.mystery.",
+    "demoCode": "// No code - meta-skill atom",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-02",
+    "whyOneLine": "track every variable's value step by step; one missed update sinks the answer.",
+    "demoCode": "int x = 5;\nint y = 10;\n// track: x=5, y=10",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-03",
+    "whyOneLine": "every assignment overwrites the old value; record the new state.",
+    "demoCode": "int x = 5;\nx = 10;\n// x trace: 5, 10  (two values, latest = 10)",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-04",
+    "whyOneLine": "for-loop traces show i changing from start through cond exit.",
+    "demoCode": "for (int i = 0; i < 3; i++) {\n    // body\n}\n// i trace: 0, 1, 2, (loop ends when i==3)",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-05",
+    "whyOneLine": "an if test picks ONE branch; ignore the unused side completely.",
+    "demoCode": "int n = 7;\nif (n > 5) {\n    // branch A taken (cond is true)\n} else {\n    // branch B taken (cond is false)\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-06",
+    "whyOneLine": "calling a function opens a new frame with fresh local boxes.",
+    "demoCode": "void f(int x) {\n    // new frame: x is local\n}\nint main() {\n    f(5);   // call: enter new frame\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-07",
+    "whyOneLine": "return collapses the frame; locals without & cease to exist.",
+    "demoCode": "void f() {\n    int local = 5;\n    // local lives here\n}\n// local does not exist here",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-08",
+    "whyOneLine": "if the parameter has &, your traced edits write through to the caller box.",
+    "demoCode": "void incr(int &x) {\n    x = x + 1;        // mutates caller's box\n}\nint main() {\n    int n = 5;\n    incr(n);\n    // n trace: 5, 6  (mutation persisted via &)\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-09",
+    "whyOneLine": "arr[i] = v writes through to the caller array if the array param is &.",
+    "demoCode": "void fill(int &slot) {\n    slot = 99;\n}\nint main() {\n    int arr[3] = {1, 2, 3};\n    fill(arr[0]);\n    // arr trace: [1,2,3] -> [99,2,3]\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-10",
+    "whyOneLine": "trace simple assignments: end with the final value of every box you wrote.",
+    "demoCode": "int x = 5;\nint y = x;\n// final: x = 5, y = 5",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-11",
+    "whyOneLine": "for arrays, write the final state of every slot you touched.",
+    "demoCode": "int arr[3] = {0, 0, 0};\narr[1] = 7;\narr[2] = arr[1] + 1;\n// final: arr = [0, 7, 8]",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-12",
+    "whyOneLine": "loop traces walk every iteration until the condition fails.",
+    "demoCode": "int sum = 0;\nfor (int i = 1; i <= 4; i++) {\n    sum = sum + i;\n}\n// final: sum = 10\n// i trace: 1, 2, 3, 4 (then exits)",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-13",
+    "whyOneLine": "branch traces commit to one side based on the live condition value.",
+    "demoCode": "int n = 7;\nint label;\nif (n > 5) {\n    label = 1;\n} else {\n    label = 2;\n}\n// final: label = 1",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-14",
+    "whyOneLine": "function-call traces step into the new frame and back out at return.",
+    "demoCode": "int square(int x) {\n    return x * x;\n}\nint main() {\n    int r = square(5);\n    // call: enter square, x=5\n    // return 25, exit frame\n    // r = 25\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-15",
+    "whyOneLine": "mark the SAME-box rule for & params; that single line decides Q1.",
+    "demoCode": "void f_val(int x) {\n    x = 99;\n}\nvoid f_ref(int &x) {\n    x = 99;\n}\nint main() {\n    int n = 5;\n    f_val(n);    // n still 5\n    f_ref(n);    // n now 99\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-16",
+    "whyOneLine": "Q1 is a max-finder algorithm: scan all numbers, keep the biggest.",
+    "demoCode": "// Max of an array of 5 doubles\ndouble nums[5] = {3.2, 7.1, 5.0, 9.4, 2.8};\ndouble max_val = nums[0];\nfor (int i = 1; i < 5; i++) {\n    if (nums[i] > max_val) {\n        max_val = nums[i];\n    }\n}\n// max_val = 9.4",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-17",
+    "whyOneLine": "& on the struct param means d.mystery you set inside is what main sees.",
+    "demoCode": "struct Point { int x; int y; };\nvoid shift(Point &p) {\n    p.x = p.x + 1;\n    p.y = p.y + 1;\n}\nint main() {\n    Point a = {3, 4};\n    shift(a);\n    // a trace: {3,4} -> {4,5}\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-18",
+    "whyOneLine": "data.numbers[i] > data.mystery is the comparison every Q1 mystery rests on.",
+    "demoCode": "// Inner test of who_am_i:\n// if (data.numbers[i] > data.mystery)\n//     data.mystery = data.numbers[i];\n// Trace per i: read array elem, compare to scalar, conditionally update scalar",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "SW-01",
+    "whyOneLine": "Q2 wants a struct definition with three fields, written from a spec.",
+    "demoCode": "struct computer_data {\n    int id;\n    string description;\n    string location;\n};",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "SW-02",
+    "whyOneLine": "each field is one declaration: type fieldName; on its own line.",
+    "demoCode": "int id;\nstring description;",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "SW-03",
+    "whyOneLine": "always end the closing } with a semicolon; this is graded literally.",
+    "demoCode": "struct X {\n    int a;\n};",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "SW-04",
+    "whyOneLine": "pick types per the spec: int for ids, string for names, double for amounts.",
+    "demoCode": "// pick types per spec\nstruct book {\n  int id;\n  string title;     // string for text\n  double price;     // double for amounts\n};",
+    "highlightTokens": [
+      "int id;",
+      "string title;",
+      "double price;"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "SW-05",
+    "whyOneLine": "field order does not affect the grade as long as all three are present.",
+    "demoCode": "// any field order is fine\nstruct book {\n  string title;\n  double price;\n  int id;\n};",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-01",
+    "whyOneLine": "Q3 always returns void -- the function fills caller storage, not a value.",
+    "demoCode": "void read_items(...) { ... }",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-02",
+    "whyOneLine": "Type &list[] is the array-by-ref parameter shape that makes writes stick.",
+    "demoCode": "void read_X(X &list[], int count) {}",
+    "highlightTokens": [
+      "X &list[]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-03",
+    "whyOneLine": "int count tells the function how many records to read.",
+    "demoCode": "void read_X(X &list[], int count) {}",
+    "highlightTokens": [
+      "int count"
+    ],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-04",
+    "whyOneLine": "for (int i = 0; i < count; i++) is the loop frame Q3 expects.",
+    "demoCode": "for (int i = 0; i < count; i++) { ... }",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-05",
+    "whyOneLine": "cin >> list[i].field; reads one user input into one field of one record.",
+    "demoCode": "cin >> list[i].id;",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-06",
+    "whyOneLine": "one cin line per struct field -- the function reads them all in order.",
+    "demoCode": "cin >> list[i].id;\ncin >> list[i].name;\ncin >> list[i].course;",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-07",
+    "whyOneLine": "an optional cout prompt before each cin makes the program user-friendly.",
+    "demoCode": "cout << \"Enter id: \"; cin >> list[i].id;",
+    "highlightTokens": [],
+    "usedIn": []
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-01",
+    "whyOneLine": "Q4 expects a complete int main() that returns 0 at the end.",
+    "demoCode": "int main() {\n    // body here\n    return 0;\n}",
+    "highlightTokens": [
+      "int main()",
+      "return 0;"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-02",
+    "whyOneLine": "const int MAX = 100; defines the array capacity before any other code.",
+    "demoCode": "const int MAX = 100;",
+    "highlightTokens": [
+      "const int MAX = 100;"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-03",
+    "whyOneLine": "Type list[MAX]; reserves storage for up to MAX records.",
+    "demoCode": "computer_data list[MAX];",
+    "highlightTokens": [
+      "list[MAX]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-04",
+    "whyOneLine": "int count; declares the variable that will hold the actual record count.",
+    "demoCode": "int count;\ncin >> count;",
+    "highlightTokens": [
+      "int count;"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-05",
+    "whyOneLine": "cin >> count; reads the user's record count into the variable.",
+    "demoCode": "cin >> count;",
+    "highlightTokens": [
+      "cin >> count;"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-06",
+    "whyOneLine": "call read_X(list, count); to fill the array via Q3's function.",
+    "demoCode": "read_book(list, count);",
+    "highlightTokens": [
+      "read_book(list, count);"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-07",
+    "whyOneLine": "for (int i = 0; i < count; i++) loops over the records you just read.",
+    "demoCode": "for (int i = 0; i < count; i++) printf(...);",
+    "highlightTokens": [
+      "for (int i = 0; i < count; i++)"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-08",
+    "whyOneLine": "printf with format string + .c_str() prints each record on one line.",
+    "demoCode": "printf(\"%d %s\\n\", list[i].id, list[i].title.c_str());",
+    "highlightTokens": [
+      "%d %s\\n",
+      ".c_str()"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-09",
+    "whyOneLine": "C++ string -> %s needs .c_str() ; without it printf prints garbage.",
+    "demoCode": "string name = \"ada\";\nprintf(\"%s\\n\", name.c_str());   // C-string for %s",
+    "highlightTokens": [
+      ".c_str()"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-01",
+    "whyOneLine": "first full timed mock; covers all four questions end-to-end.",
+    "demoCode": "// Mock 1 — all four questions in one program\nstruct stat_double { double mystery; double a; double b; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.a + data.b;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  printf(\"%.2f\\n\", list[0].mystery);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "who_am_i",
+      "read_stat",
+      "int main()"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-02",
+    "whyOneLine": "second full mock; entity name varies but the four shapes hold.",
+    "demoCode": "// Mock 2 — max-finder variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.numbers[0];\n  for (int i = 1; i < 5; i++) {\n    if (data.numbers[i] > data.mystery)\n      data.mystery = data.numbers[i];\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "who_am_i",
+      "data.numbers[i] > data.mystery"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-03",
+    "whyOneLine": "third mock; tightens timing under the 90-minute budget.",
+    "demoCode": "// Mock 3 — sum-accumulator variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    data.mystery = data.mystery + data.numbers[i];\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.mystery + data.numbers[i]"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-04",
+    "whyOneLine": "fourth mock; adds tricky stat_double mystery formulas to Q1.",
+    "demoCode": "// Mock 4 — absolute difference variant\nstruct stat_double { double mystery; double a; double b; };\n\nvoid who_am_i(stat_double &data) {\n  if (data.a > data.b)\n    data.mystery = data.a - data.b;\n  else\n    data.mystery = data.b - data.a;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.a - data.b",
+      "data.b - data.a"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-05",
+    "whyOneLine": "final mock; production-readiness check before exam day.",
+    "demoCode": "// Mock 5 — count-positive variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    if (data.numbers[i] > 0)\n      data.mystery = data.mystery + 1;\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.numbers[i] > 0",
+      "data.mystery + 1"
+    ],
+    "usedIn": [
+      "Q1",
+      "Q2",
+      "Q3",
+      "Q4"
+    ]
+  }
+]

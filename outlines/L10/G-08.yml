@@ -1,0 +1,55 @@
+id: G-08
+fact: arr[N] is out of bounds
+words: 5
+level: 10
+deps:
+  - G-07
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks:
+  - Out-of-bounds = undefined behavior
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - arr[N] is past the end
+    - 'out of bounds: undefined behavior'
+    - do not read or write arr[N]
+    - '[N] is invalid for size N'
+    - stay within 0 to N-1
+  see_demo:
+    why_one_line: writing past arr[N-1] is undefined behavior; the SIT102 grader catches it.
+    snippet: |
+      int arr[3] = {10, 20, 30};
+      // arr[3] is past the end -- undefined behavior
+      cout << arr[3];
+    highlights:
+      - arr[3]
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int arr[5] = {10, 20, 30, 40, 50};
+      for (int i = 0; i < 5; i++) {
+        arr[i] = arr[i] * 2;
+      }
+      cout << arr[0] << " " << arr[4] << endl;
+    correct_atoms:
+      - G-08
+      - G-07
+    distractors:
+      - G-01
+      - G-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions out / bounds / N
+lint:
+  miller_max_words: 7
+status: locked

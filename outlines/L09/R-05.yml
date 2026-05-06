@@ -1,0 +1,122 @@
+id: R-05
+fact: "mutating &param changes caller"
+words: 4
+level: 9
+deps:
+  - R-04
+  - R-02   # contrast: without & no change
+
+q_tags:
+  Q1: C
+  Q2: N
+  Q3: C
+  Q4: C
+
+pfg_source:
+  - quote_id: Q05
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+
+test2_evidence:
+  - question: Q1
+    instance: "data.mystery mutation in who_am_i visible in caller (test grader checks final d.mystery)"
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+  - question: Q3
+    instance: "list[i].field writes persist after read_X returns"
+    file_path: extraction/test2_bank/Q3_read_X_variants.md
+
+canonical_example: |
+  void increment(int &x) {
+    x = x + 1;
+  }
+  int main() {
+    int n = 5;
+    increment(n);
+    cout << n << endl;
+    return 0;
+  }
+expected_output: "6"
+
+sit102_quirks:
+  - "Caller sees ALL mutations after & param function returns"
+  - "Mutation persists; not undone at return like locals"
+
+misconceptions:
+  - id: M01
+    description: "Thinks mutation applied only inside function (R-02 leakage)"
+    student_says: "x changed in function but n is still 5"
+    correct_says: "With &, mutation persists; n is now 6"
+  - id: M02
+    description: "Believes return statement required to communicate change"
+    student_says: "Don't I need to return the new value?"
+    correct_says: "& makes mutation directly visible; no return needed"
+  - id: M03
+    description: "Confuses with copy semantics"
+    student_says: "Mutation goes back somehow at end of function"
+    correct_says: "Mutation happens in real time on caller's box"
+
+render_hints:
+  memorize_seed_phrases:
+    - "&param mutation persists in caller"
+    - "caller sees changes after return"
+    - "no copy = direct caller mutation"
+    - "& writes go to caller's box"
+    - "mutation visible after function ends"
+  trace:
+    description: "Show pre-call caller value, mutation through &-param, post-return caller value (now mutated)."
+    minimum_steps: 4
+    must_show:
+      - "pre-call: n=5"
+      - "alias bound, x and n both label same box"
+      - "x = x + 1 -> box value 6"
+      - "post-return: n=6 (mutation persisted)"
+  write_L1_fill:
+    template: "void incr(int &x) { x = ___ + 1; }"
+    blank_value: "x"
+  write_L2_complete:
+    template: "void incr(int &x) {\n  ___\n}\n// caller's n becomes 6"
+    blank_value: "x = x + 1;"
+  write_L3_free_spec: "Write a function that uses & to make caller's int variable double in value."
+
+  see_demo:
+    why_one_line: "with &, every mutation persists; the caller sees the change after return."
+    snippet: |
+      void increment(int &x) {
+        x = x + 1;
+      }
+      int main() {
+        int n = 5;
+        increment(n);
+        cout << n << endl;
+        return 0;
+      }
+    highlights: ["int &x"]
+    used_in: [Q1, Q3, Q4]
+  see_decompose:
+    snippet: |
+      void increment(int &x) {
+        x = x + 1;
+    correct_atoms: [R-05, R-04, R-02]
+    distractors: [R-01, R-03, T-01]
+acceptance:
+  memorize:
+    - "Each variant <=7 words"
+    - "Mentions one of: caller sees, persists, mutation visible, change persists"
+    - "Does not contradict R-02"
+  mcq:
+    - "Correct option: caller sees change / mutation persists"
+    - "Distractor: caller unchanged (R-02 confused for R-05)"
+  trace:
+    - "Final caller value differs from pre-call value"
+    - "Single box, both labels, mutation visible from caller post-return"
+  write:
+    - "L2 expected mutates x"
+    - "L3 keyChecks include '&' and mutation operator (=, +=, *= etc.)"
+
+lint:
+  forbid_tokens: ["nullptr", "->", "*"]
+  miller_max_words: 7
+
+status: locked
+locked_at: null
+locked_by: null
+revision_history: []

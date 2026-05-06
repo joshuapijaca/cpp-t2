@@ -1,0 +1,54 @@
+id: G-12
+fact: arr[i] = v writes element
+words: 5
+level: 10
+deps:
+  - G-05
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: arr[2] = 99;
+expected_output: arr[2] = 99
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - arr[i] = v writes slot i
+    - '= writes value to slot'
+    - assign value at index
+    - 'indexed write: arr[i] = v'
+    - '[i] = expr stores into slot'
+  write_L1_fill:
+    template: arr[___] = 99;
+    blank_value: '2'
+  see_demo:
+    why_one_line: arr[i] = v stores v at slot i; what Q3 read and Q4 print depend on.
+    snippet: |
+      arr[2] = 99;
+    highlights:
+      - arr[2]
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      arr[2] = 99;
+    correct_atoms:
+      - G-12
+      - G-05
+    distractors:
+      - G-01
+      - G-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions write / assign / slot
+lint:
+  miller_max_words: 7
+status: locked

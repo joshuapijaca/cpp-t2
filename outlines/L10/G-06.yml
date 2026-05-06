@@ -1,0 +1,61 @@
+id: G-06
+fact: arrays index from 0
+words: 4
+level: 10
+deps:
+  - G-04
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks:
+  - Always 0-based; never 1-based
+misconceptions:
+  - id: M01
+    description: 1-based thinking
+    student_says: arr[1] is first
+    correct_says: arr[0] is first; arrays are 0-indexed
+render_hints:
+  memorize_seed_phrases:
+    - indexing starts at zero
+    - arrays are zero-based
+    - first index is always 0
+    - 0-based not 1-based
+    - count from 0 in arrays
+  see_demo:
+    why_one_line: C++ arrays count from 0; arr[N] is past the end.
+    snippet: |
+      int arr[3] = {10, 20, 30};
+      cout << arr[0];   // 10  (NOT arr[1])
+    highlights:
+      - arr[0]
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int arr[5] = {10, 20, 30, 40, 50};
+      for (int i = 0; i < 5; i++) {
+        arr[i] = arr[i] * 2;
+      }
+      cout << arr[0] << " " << arr[4] << endl;
+    correct_atoms:
+      - G-06
+      - G-04
+    distractors:
+      - G-01
+      - G-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions 0 / zero-based
+lint:
+  miller_max_words: 7
+status: locked

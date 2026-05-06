@@ -1,0 +1,86 @@
+id: HE-17
+fact: trace struct field mutation via &
+words: 6
+level: 13
+deps:
+  - HE-08
+  - T-07
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q03
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: data.mystery = ...; data is &-bound; mutation to .mystery persists in caller's d
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  struct Point { int x; int y; };
+  void shift(Point &p) {
+      p.x = p.x + 1;
+      p.y = p.y + 1;
+  }
+  int main() {
+      Point a = {3, 4};
+      shift(a);
+      // a trace: {3,4} -> {4,5}
+  }
+expected_output: a = {4, 5} (was {3, 4}; shifted via &)
+sit102_quirks:
+  - Trace each .field mutation as separate step
+  - Whole struct shares one memory box; fields are sub-cells
+misconceptions:
+  - id: M01
+    description: Thinks .x and .y are independent boxes
+    student_says: Each field has own memory
+    correct_says: Fields belong to one struct box; & on the struct aliases all of them
+render_hints:
+  memorize_seed_phrases:
+    - struct & shares whole box
+    - field writes through & persist
+    - '& on struct aliases all fields'
+    - p.x = via & changes caller
+    - struct mutation via reference persists
+  see_demo:
+    why_one_line: '& on the struct param means d.mystery you set inside is what main sees.'
+    snippet: |
+      struct Point { int x; int y; };
+      void shift(Point &p) {
+          p.x = p.x + 1;
+          p.y = p.y + 1;
+      }
+      int main() {
+          Point a = {3, 4};
+          shift(a);
+          // a trace: {3,4} -> {4,5}
+      }
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      struct Point { int x; int y; };
+    correct_atoms:
+      - HE-17
+      - HE-08
+      - T-07
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: struct / field / & / persists / mutation'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

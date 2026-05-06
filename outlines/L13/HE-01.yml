@@ -1,0 +1,74 @@
+id: HE-01
+fact: "trace = mentally simulate code"
+words: 5
+level: 13
+deps:
+  - P-05    # running exe executes instructions (forward dep - backfilled M9)
+
+q_tags:
+  Q1: C
+  Q2: N
+  Q3: N
+  Q4: N
+
+pfg_source:
+  - quote_id: Q04
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+    note: "Methodology source - variable-box pattern from docs/06"
+
+test2_evidence:
+  - question: Q1
+    instance: "Q1 demands hand-trace of who_am_i; tracing IS mentally simulating each line"
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+
+canonical_example: |
+  // No code - meta-skill atom
+expected_output: ""
+
+sit102_quirks:
+  - "Trace on paper, not in IDE - exam is closed-book"
+  - "One row per variable per mutation"
+
+misconceptions:
+  - id: M01
+    description: "Thinks 'trace' means run program and read output"
+    student_says: "I'll just run it"
+    correct_says: "Trace = simulate by hand without running; predict output before running"
+  - id: M02
+    description: "Confuses trace with debugging"
+    student_says: "Like setting breakpoints"
+    correct_says: "Trace = pure mental simulation; no tooling, no IDE"
+
+render_hints:
+  memorize_seed_phrases:
+    - "trace means mentally simulate"
+    - "trace = simulate code by hand"
+    - "predict before running"
+    - "trace runs code in head"
+    - "no IDE just brain + paper"
+
+  see_demo:
+    why_one_line: "Q1 demands you simulate a function's execution by hand and predict d.mystery."
+    snippet: |
+      // No code - meta-skill atom
+    highlights: []
+    used_in: [Q1]
+  see_decompose:
+    snippet: |
+      // No code - meta-skill atom
+    correct_atoms: [HE-01, P-05]
+    distractors: [HE-10, HE-02, R-01]
+acceptance:
+  memorize:
+    - "Each variant <=7 words"
+    - "Mentions one of: simulate, mental, hand, predict, paper"
+    - "Does not mention IDE, debugger, breakpoint"
+
+lint:
+  forbid_tokens: ["IDE", "debugger", "breakpoint", "console.log"]
+  miller_max_words: 7
+
+status: locked
+locked_at: 2026-05-04
+locked_by: M4
+revision_history: []

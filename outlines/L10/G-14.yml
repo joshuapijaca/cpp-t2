@@ -1,0 +1,69 @@
+id: G-14
+fact: '&arr[] aliases caller''s array'
+words: 4
+level: 10
+deps:
+  - G-13
+  - R-03
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence:
+  - question: Q3
+    instance: void read_X(X &list[], int count)
+    file_path: extraction/L15_read_function/notes.md
+canonical_example: void f(int &arr[], int n) { arr[0] = 99; }
+expected_output: caller's arr[0] becomes 99
+sit102_quirks:
+  - '& between type and arr name'
+misconceptions:
+  - id: M01
+    description: Uses pointer syntax
+    student_says: int *arr
+    correct_says: Use & not *; SIT102 idiom is &arr[]
+render_hints:
+  memorize_seed_phrases:
+    - '&arr[] makes array param ref'
+    - '& on array param shares caller'
+    - pass-by-ref for arrays
+    - '&list[] is Q3 idiom'
+    - '& aliases caller''s array'
+  write_L1_fill:
+    template: void f(int ___arr[], int n) {}
+    blank_value: '&'
+  see_demo:
+    why_one_line: '&arr[] aliases the caller''s array; what makes Q3 reads stick.'
+    snippet: |
+      void f(int &arr[], int n) { arr[0] = 99; }
+    highlights:
+      - arr[0]
+      - '[]'
+    used_in:
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      void f(int &arr[], int n) { arr[0] = 99; }
+    correct_atoms:
+      - G-14
+      - G-13
+      - R-03
+    distractors:
+      - G-01
+      - G-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions & / array / caller
+  write:
+    - L1 expected = '&'
+lint:
+  forbid_tokens:
+    - '*arr'
+    - '* arr'
+  miller_max_words: 7
+status: locked

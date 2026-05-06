@@ -1,0 +1,63 @@
+id: T-04
+fact: ; required after closing }
+words: 4
+level: 11
+deps:
+  - T-02
+q_tags:
+  Q1: S
+  Q2: C
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence:
+  - question: Q2
+    instance: All Q2 variants end with `};`
+    file_path: extraction/L14_struct_write/code_examples.cpp
+canonical_example: |
+  struct Point { int x; int y; };
+expected_output: Point type declared; } must end with ;
+sit102_quirks:
+  - Forgetting }; is most common Q2 error
+  - Function body }, no semicolon - different rule
+misconceptions:
+  - id: M01
+    description: Treats struct like function
+    student_says: struct X { int a; }
+    correct_says: 'struct definitions REQUIRE trailing semicolon: };'
+render_hints:
+  memorize_seed_phrases:
+    - struct ends with semicolon
+    - always close struct with semicolon
+    - '}; ends every struct definition'
+    - trailing semicolon after struct body
+    - remember the semicolon after }
+  see_demo:
+    why_one_line: the ; after } is mandatory; missing it is a textbook SIT102 fail.
+    snippet: |
+      struct Point { int x; int y; };
+    highlights:
+      - struct
+    used_in:
+      - Q2
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      struct Point { int x; int y; };
+    correct_atoms:
+      - T-04
+      - T-02
+    distractors:
+      - T-01
+      - T-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions semicolon / ;
+lint:
+  forbid_tokens:
+    - class
+  miller_max_words: 7
+status: locked

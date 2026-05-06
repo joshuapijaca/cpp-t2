@@ -1,0 +1,58 @@
+id: H-02
+fact: returnType name(params) { body }
+words: 4
+level: 8
+deps:
+  - H-01
+  - V-04
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - 'signature: returnType name(params)'
+    - function header has type and name
+    - returnType name(params) { body }
+    - declare function with signature
+    - header then body in {}
+  see_demo:
+    why_one_line: 'the signature shape: returnType name(params) { body } -- write it cold.'
+    snippet: |
+      int add(int a, int b) {
+        return a + b;
+      }
+    highlights:
+      - int add(int a, int b)
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      string name = "Alice";
+      int len = name.length();
+      char first = name[0];
+      string sub = name.substr(1, 3);
+      cout << len << " " << first << " " << sub << endl;
+    correct_atoms:
+      - H-02
+      - H-01
+      - V-04
+    distractors:
+      - H-10
+      - H-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

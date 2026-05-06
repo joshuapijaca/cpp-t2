@@ -1,0 +1,62 @@
+id: W-06
+fact: step runs after each iter
+words: 5
+level: 7
+deps:
+  - W-03
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - step runs after body
+    - step = i++ usually
+    - step at end of each iter
+    - step updates the loop var
+    - step before next cond check
+  see_demo:
+    why_one_line: the step clause runs AFTER each iteration body completes.
+    snippet: |
+      for (int i = 0; i < 5; i++) {
+        cout << i;
+        // step `i++` runs after body
+      }
+    highlights:
+      - i++
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int i = 0;
+      while (i < 10) {
+        if (i == 7) break;
+        if (i % 2 == 0) {
+          i++;
+          continue;
+        }
+        cout << i << " ";
+        i++;
+      }
+    correct_atoms:
+      - W-06
+      - W-03
+    distractors:
+      - W-01
+      - W-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

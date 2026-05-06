@@ -1,0 +1,56 @@
+id: V-10
+fact: int holds whole numbers
+words: 4
+level: 2
+deps:
+  - V-03
+q_tags:
+  Q1: C
+  Q2: C
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - int = whole numbers
+    - int stores integers
+    - integers like 5 -3 0 fit in int
+    - int has no decimal part
+    - int = -2 -1 0 1 2 ...
+  see_demo:
+    why_one_line: int is the default type for counts, indices, and Q4 record IDs.
+    snippet: |
+      int count = 7;
+      int n = 42;
+    highlights:
+      - int
+    used_in:
+      - Q1
+      - Q2
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int age = 25;
+      double price = 9.99;
+      string name = "Alice";
+      char grade = 'A';
+      bool passed = true;
+    correct_atoms:
+      - V-10
+      - V-03
+    distractors:
+      - V-01
+      - V-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

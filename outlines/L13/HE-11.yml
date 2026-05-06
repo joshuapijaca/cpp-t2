@@ -1,0 +1,70 @@
+id: HE-11
+fact: trace arr[i] = v; final array
+words: 6
+level: 13
+deps:
+  - HE-09
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence:
+  - question: Q1
+    instance: data.numbers[0] is the index-write pattern; data.mystery = data.numbers[i] writes scalar
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  int arr[3] = {0, 0, 0};
+  arr[1] = 7;
+  arr[2] = arr[1] + 1;
+  // final: arr = [0, 7, 8]
+expected_output: arr = {0, 7, 8}
+sit102_quirks:
+  - Each arr[i] = ... is one mutation step
+  - Track each affected slot
+misconceptions:
+  - id: M01
+    description: Misses index update sequence
+    student_says: arr[2] is just 1 because that's i+1
+    correct_says: arr[2] = arr[1] + 1 reads arr[1]'s CURRENT value (7), so arr[2] = 8
+render_hints:
+  memorize_seed_phrases:
+    - arr[i] = v writes one slot
+    - index write mutates one cell
+    - arr[i] = v changes slot i
+    - track each indexed mutation
+    - one slot per assignment step
+  see_demo:
+    why_one_line: for arrays, write the final state of every slot you touched.
+    snippet: |
+      int arr[3] = {0, 0, 0};
+      arr[1] = 7;
+      arr[2] = arr[1] + 1;
+      // final: arr = [0, 7, 8]
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      int arr[3] = {0, 0, 0};
+    correct_atoms:
+      - HE-11
+      - HE-09
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: arr / index / slot / mutation'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

@@ -1,0 +1,56 @@
+id: I-02
+fact: '>> reads value into variable'
+words: 5
+level: 3
+deps:
+  - I-01
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - '>> stores input in variable'
+    - arrow points to variable
+    - '>> is input operator'
+    - '>> writes from cin'
+    - cin >> assigns to var
+  see_demo:
+    why_one_line: '>> reads the next whitespace-separated token into the variable.'
+    snippet: |
+      int x;
+      cin >> x;          // >> reads next token
+    highlights:
+      - '>>'
+    used_in:
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int age;
+      string name;
+      cout << "Enter name: ";
+      cin >> name;
+      cout << "Enter age: ";
+      cin >> age;
+      cout << name << " is " << age << endl;
+    correct_atoms:
+      - I-02
+      - I-01
+    distractors:
+      - I-03
+      - I-04
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

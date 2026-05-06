@@ -1,0 +1,65 @@
+id: P-02
+fact: program is text instructions
+words: 4
+level: -1
+deps:
+  - P-01
+q_tags:
+  Q1: S
+  Q2: S
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: |-
+  // This is a program: text instructions the compiler reads.
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << "Hello" << endl;
+    return 0;
+  }
+expected_output: Hello
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - program is written instructions
+    - programs are sequences of steps
+    - instructions in text form
+    - programs are text files
+    - program = list of instructions
+  see_demo:
+    why_one_line: code is text humans read and the compiler turns into machine action.
+    snippet: |-
+      // A program is text instructions.
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    highlights:
+      - // A program is text instructions
+    used_in: []
+  see_decompose:
+    snippet: |-
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    correct_atoms:
+      - P-02
+      - P-01
+    distractors:
+      - P-03
+      - P-04
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,55 @@
+id: V-07
+fact: 'write: name = newValue;'
+words: 3
+level: 2
+deps:
+  - V-04
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - '= writes new value'
+    - name = expr assigns
+    - assignment overwrites the value
+    - write to variable with =
+    - name = value updates the box
+  see_demo:
+    why_one_line: name = newValue; overwrites the box with a new value.
+    snippet: |
+      int x = 5;
+      x = 10;            // overwrites the box
+    highlights:
+      - x = 10;
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int age = 25;
+      double price = 9.99;
+      string name = "Alice";
+      char grade = 'A';
+      bool passed = true;
+    correct_atoms:
+      - V-07
+      - V-04
+    distractors:
+      - V-01
+      - V-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

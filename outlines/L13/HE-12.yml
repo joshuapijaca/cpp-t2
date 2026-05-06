@@ -1,0 +1,82 @@
+id: HE-12
+fact: "trace for-loop iterations"
+words: 3
+level: 13
+deps:
+  - HE-04
+
+q_tags:
+  Q1: C
+  Q2: N
+  Q3: N
+  Q4: N
+
+pfg_source:
+  - quote_id: Q05
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+
+test2_evidence:
+  - question: Q1
+    instance: "for (int i = 1; i < 5; i++) - trace 4 iterations: i = 1, 2, 3, 4"
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+
+canonical_example: |
+  int sum = 0;
+  for (int i = 1; i <= 4; i++) {
+      sum = sum + i;
+  }
+  // final: sum = 10
+  // i trace: 1, 2, 3, 4 (then exits)
+expected_output: "10"
+
+sit102_quirks:
+  - "Init runs once; cond before each iter; step after each iter"
+  - "Loop ends when cond first becomes false"
+
+misconceptions:
+  - id: M01
+    description: "Off-by-one on iteration count"
+    student_says: "for i = 1 to 4 runs 5 times"
+    correct_says: "i = 1, 2, 3, 4 - 4 iterations; loop exits when i = 5 makes cond false"
+  - id: M02
+    description: "Forgets step happens after body"
+    student_says: "i++ runs first"
+    correct_says: "Order: init once -> cond check -> body -> step -> back to cond"
+
+render_hints:
+  memorize_seed_phrases:
+    - "for-loop runs body per iter"
+    - "init once, cond check, body, step"
+    - "loop exits when cond false"
+    - "i changes per iteration"
+    - "track each iteration in turn"
+
+  see_demo:
+    why_one_line: "loop traces walk every iteration until the condition fails."
+    snippet: |
+      int sum = 0;
+      for (int i = 1; i <= 4; i++) {
+          sum = sum + i;
+      }
+      // final: sum = 10
+      // i trace: 1, 2, 3, 4 (then exits)
+    highlights: []
+    used_in: [Q1]
+  see_decompose:
+    snippet: |
+      int sum = 0;
+    correct_atoms: [HE-12, HE-04]
+    distractors: [HE-01, HE-10, R-01]
+acceptance:
+  memorize:
+    - "Each variant <=7 words"
+    - "Mentions: iter / loop / body / cond"
+
+lint:
+  forbid_tokens: ["IDE", "debugger"]
+  miller_max_words: 7
+
+status: locked
+locked_at: 2026-05-04
+locked_by: M4
+revision_history: []

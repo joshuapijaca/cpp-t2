@@ -1,0 +1,126 @@
+id: R-01
+fact: "parameter receives copy by default"
+words: 5
+level: 9
+deps:
+  - H-04   # parameters become local boxes
+
+q_tags:
+  Q1: C
+  Q2: N
+  Q3: C
+  Q4: C
+
+pfg_source:
+  - quote_id: Q01
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+    verbatim_summary: "On the first pass... main thing to start to explore using are reference parameters. These allow you to create parameters which are used to update the passed in values."
+  - quote_id: Q03
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+    verbatim_summary: "So far we have been using pass by value... the parameter receives a copy of the value passed in the argument."
+
+test2_evidence:
+  - question: Q3
+    instance: "Without &, read_X writes to local copies; caller's array stays empty"
+    file_path: extraction/test2_bank/Q3_read_X_variants.md
+
+canonical_example: |
+  void increment_copy(int x) {
+    x = x + 1;
+  }
+  int main() {
+    int n = 5;
+    increment_copy(n);
+    cout << n << endl;
+    return 0;
+  }
+expected_output: "5"
+
+sit102_quirks:
+  - "Default is value-copy unless explicit &"
+  - "Local mutations vanish at return"
+
+misconceptions:
+  - id: M01
+    description: "Thinks parameters are always shared with caller (Python-like)"
+    student_says: "n was passed in, so changes should affect main"
+    correct_says: "Default in C++ is copy; n in main untouched without &"
+  - id: M02
+    description: "Confuses with output streams that share state"
+    student_says: "Functions can change anything passed in"
+    correct_says: "Only explicit & creates shared access"
+  - id: M03
+    description: "Believes return value required to communicate change"
+    student_says: "I have to return the new n to update it"
+    correct_says: "Returns or & both work; default copy semantics demand one or the other"
+
+render_hints:
+  memorize_seed_phrases:
+    - "params copy by default"
+    - "function gets local copy"
+    - "no & means copy"
+    - "default is value-copy"
+    - "caller untouched without &"
+  trace:
+    description: "Two boxes: caller's `n` and param's `x`. Mutating x leaves n unchanged."
+    minimum_steps: 3
+    must_show:
+      - "pre-call: n=5, x=undefined"
+      - "param binding: copy of n into x; x=5"
+      - "after mutation: x=6, n=5"
+  write_L1_fill:
+    template: "void increment_copy(int ___) { x = x + 1; }"
+    blank_value: "x"
+  write_L2_complete:
+    template: "void f(int x) {\n  ___\n}\n// caller's n unchanged"
+    blank_value: "x = x + 1;"
+  write_L3_free_spec: "Write a function that increments its int parameter (no &). Show that caller's variable is unchanged."
+
+  see_demo:
+    why_one_line: "C++ default: every parameter is a copy; the caller box is untouched."
+    snippet: |
+      void increment_copy(int x) {
+        x = x + 1;
+      }
+      int main() {
+        int n = 5;
+        increment_copy(n);
+        cout << n << endl;
+        return 0;
+      }
+    highlights: []
+    used_in: [Q1, Q3, Q4]
+  see_decompose:
+    snippet: |
+      void increment_copy(int x) {
+        x = x + 1;
+    correct_atoms: [R-01, H-04]
+    distractors: [R-02, R-03, T-01]
+acceptance:
+  memorize:
+    - "Each variant <=7 words"
+    - "Mentions one of: copy, default, value, no &"
+    - "Does not use pointer terminology"
+  mcq:
+    - "Correct option says copy made / caller unchanged"
+    - "Distractors drawn from misconceptions list"
+  trace:
+    - "Two distinct boxes shown (caller + param)"
+    - "Final state: caller unchanged, param mutated locally"
+  write:
+    - "L1 expected: variable name token (e.g. 'x')"
+    - "L2 expected compiles and shows local mutation only"
+    - "L3 keyChecks must NOT include `&` for this atom"
+    - "L3 forbidden: `&` (this atom is the no-& contrast)"
+  cross_card:
+    - "Code compiles under g++ -Wall"
+    - "Output shows caller variable unchanged"
+
+lint:
+  forbid_tokens: ["&", "*", "->", "nullptr", "new ", "delete "]
+  miller_max_words: 7
+
+status: locked
+locked_at: null
+locked_by: null
+revision_history: []

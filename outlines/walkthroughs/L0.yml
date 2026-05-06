@@ -1,0 +1,38 @@
+id: WT-L0
+level: 0
+level_label: "L0 source skeleton -- hello world end-to-end"
+anchor_atom_id: S-03
+status: locked
+full_code: |
+  #include <iostream>
+  using namespace std;
+  
+  int main() {
+    cout << "hello, world" << endl;
+    return 0;
+  }
+steps:
+  - line: 1
+    code: "#include <iostream>"
+    annotation: "pulls cin/cout/endl into scope."
+    atom_ids: [S-01]
+  - line: 2
+    code: "using namespace std;"
+    annotation: "lets you write cout instead of std::cout (SIT102 convention)."
+    atom_ids: [S-02]
+  - line: 4
+    code: "int main() {"
+    annotation: "entry point. Returns int (0 = success)."
+    atom_ids: [S-03, S-05]
+  - line: 5
+    code: "  cout << \"hello, world\" << endl;"
+    annotation: "<< chains to cout. ; terminates."
+    atom_ids: [O-01, O-02, O-05, S-04]
+  - line: 6
+    code: "  return 0;"
+    annotation: "reports success."
+    atom_ids: [S-07]
+  - line: 7
+    code: "}"
+    annotation: "closes main's body."
+    atom_ids: [S-06]

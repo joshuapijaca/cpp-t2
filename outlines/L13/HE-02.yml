@@ -1,0 +1,72 @@
+id: HE-02
+fact: track each var's value
+words: 4
+level: 13
+deps:
+  - V-01
+  - HE-01
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q04
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: Q1 trace requires tracking d.mystery across 5 iterations
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  int x = 5;
+  int y = 10;
+  // track: x=5, y=10
+expected_output: x = 5, y = 10
+sit102_quirks:
+  - One row per variable in trace
+  - Variables persist until they go out of scope
+misconceptions:
+  - id: M01
+    description: Forgets to track all variables
+    student_says: Only tracking the output variable
+    correct_says: Track every named variable that mutates
+render_hints:
+  memorize_seed_phrases:
+    - track each variable's value
+    - every var gets a row
+    - log every variable state
+    - one row per variable
+    - watch all named variables
+  see_demo:
+    why_one_line: track every variable's value step by step; one missed update sinks the answer.
+    snippet: |
+      int x = 5;
+      int y = 10;
+      // track: x=5, y=10
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      int x = 5;
+    correct_atoms:
+      - HE-02
+      - V-01
+      - HE-01
+    distractors:
+      - HE-10
+      - HE-11
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: track / row / variable / state'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

@@ -1,0 +1,33 @@
+id: WT-L6
+level: 6
+level_label: "L6 conditionals -- if / else if / else"
+anchor_atom_id: F-01
+status: locked
+full_code: |
+  #include <iostream>
+  using namespace std;
+  
+  int main() {
+    int score = 75;
+    if (score >= 90) {
+      cout << "A";
+    } else if (score >= 50) {
+      cout << "P";
+    } else {
+      cout << "F";
+    }
+    return 0;
+  }
+steps:
+  - line: 6
+    code: "  if (score >= 90) {"
+    annotation: "first test; runs body if true."
+    atom_ids: [F-01, C-06, F-04]
+  - line: 8
+    code: "  } else if (score >= 50) {"
+    annotation: "else if chains another test only when prior was false."
+    atom_ids: [F-03]
+  - line: 10
+    code: "  } else {"
+    annotation: "else runs when no prior test matched."
+    atom_ids: [F-02]

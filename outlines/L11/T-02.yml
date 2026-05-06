@@ -1,0 +1,71 @@
+id: T-02
+fact: struct Name { fields }; defines type
+words: 5
+level: 11
+deps:
+  - T-01
+q_tags:
+  Q1: S
+  Q2: C
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence:
+  - question: Q2
+    instance: Q2 = write `struct entity_data { ... };` skeleton
+    file_path: extraction/L14_struct_write/code_examples.cpp
+canonical_example: |
+  struct Point {
+      int x;
+      int y;
+  };
+expected_output: Point type declared with fields x, y
+sit102_quirks:
+  - After struct Name { fields };, type Name is usable
+  - Trailing ; mandatory
+misconceptions:
+  - id: M01
+    description: Forgets trailing semicolon
+    student_says: struct Point { int x; }
+    correct_says: Must end with }; (close brace plus semicolon)
+render_hints:
+  memorize_seed_phrases:
+    - struct Name body defines type
+    - struct Name with fields creates type
+    - struct definition makes new type
+    - struct with body becomes type
+    - struct Name {} declares type
+  see_demo:
+    why_one_line: struct Name { fields }; defines the type before any code can use it.
+    snippet: |
+      struct Point {
+          int x;
+          int y;
+      };
+    highlights:
+      - struct
+    used_in:
+      - Q2
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      struct Point {
+          int x;
+    correct_atoms:
+      - T-02
+      - T-01
+    distractors:
+      - T-10
+      - T-11
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions struct + type / definition
+lint:
+  forbid_tokens:
+    - typedef
+    - class
+  miller_max_words: 7
+status: locked

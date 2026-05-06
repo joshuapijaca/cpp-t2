@@ -1,0 +1,54 @@
+id: A-09
+fact: += -= *= /= update
+words: 5
+level: 4
+deps:
+  - A-01
+  - V-07
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - += adds then assigns
+    - 'compound assign: x += y'
+    - += -= *= /= modify in place
+    - 'shortcut: x += 1 means x = x+1'
+    - update with += -= *= /=
+  see_demo:
+    why_one_line: x += 1 is shorthand for x = x + 1; matches mystery-update style.
+    snippet: |
+      int total = 0;
+      total += 5;             // total = total + 5
+    highlights:
+      - +=
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int x = 5;
+      x++;
+      x--;
+      int y = (x + 2) * 3;
+      double z = 10.0 / 3;
+    correct_atoms:
+      - A-09
+      - A-01
+      - V-07
+    distractors:
+      - A-10
+      - A-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

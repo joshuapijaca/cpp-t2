@@ -1,0 +1,59 @@
+id: V-03
+fact: variable has a type
+words: 4
+level: 2
+deps:
+  - V-01
+q_tags:
+  Q1: C
+  Q2: C
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - type defines what value fits
+    - each variable has a type
+    - type sets the kind of value
+    - type = int, double, string, etc.
+    - type chosen at declaration
+  see_demo:
+    why_one_line: every variable has a type that decides what fits in the box.
+    snippet: |
+      int   age = 21;
+      double price = 9.95;
+      string name = "ada";
+    highlights:
+      - int
+      - double
+      - string
+    used_in:
+      - Q1
+      - Q2
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int age = 25;
+      double price = 9.99;
+      string name = "Alice";
+      char grade = 'A';
+      bool passed = true;
+    correct_atoms:
+      - V-03
+      - V-01
+    distractors:
+      - V-10
+      - V-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

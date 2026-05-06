@@ -1,0 +1,51 @@
+id: PC-06
+fact: const Name &x is read-only
+words: 5
+level: 12
+deps:
+  - R-07
+  - PC-02
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: void print(const Point &p) { cout << p.x; }
+expected_output: prints p.x; p cannot be modified (const &)
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - const & on struct read-only
+    - const Name &x prevents mutation
+    - use const & for read-only struct
+    - read but not write through const &
+    - const & avoids copy stays safe
+  see_demo:
+    why_one_line: const Name & gives the function read access without write power.
+    snippet: |
+      void print(const Point &p) { cout << p.x; }
+    highlights: []
+    used_in: []
+  see_decompose:
+    snippet: |
+      void print(const Point &p) { cout << p.x; }
+    correct_atoms:
+      - PC-06
+      - R-07
+      - PC-02
+    distractors:
+      - PC-01
+      - PC-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions const / & / read
+lint:
+  forbid_tokens:
+    - '*'
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,258 @@
+# Q1 -- 18 worked examples (M15 original 10 + M19 redistribution 8 new)
+# Spec: cpp-t2/docs/14_see_cards_master_plan.md ("worked-example").
+# Each example anchored to a specific HE atom via atom_id.
+question: Q1
+status: locked
+examples:
+  - id: we-q1-01
+    atom_id: HE-05
+    variant_name: "max-of-two"
+    explanation: "mystery becomes the larger of a and b. Branch picks one side."
+    expected_output: "mystery = 7"
+    highlights: ["stat_double &data", "data.mystery"]
+    code: |
+      struct stat_double { double mystery; double a; double b; };
+
+      void who_am_i(stat_double &data) {
+        if (data.a > data.b) data.mystery = data.a;
+        else                data.mystery = data.b;
+      }
+
+      // caller: d.a = 7, d.b = 3 -> d.mystery = 7
+  - id: we-q1-02
+    atom_id: HE-03
+    variant_name: "sum-of-two"
+    explanation: "mystery becomes a + b. No branching."
+    expected_output: "mystery = 10"
+    highlights: ["data.a + data.b"]
+    code: |
+      void who_am_i(stat_double &data) {
+        data.mystery = data.a + data.b;
+      }
+      // caller: d.a = 4, d.b = 6 -> d.mystery = 10
+  - id: we-q1-03
+    atom_id: HE-16
+    variant_name: "array-max"
+    explanation: "walk an array field, keep the max. Q1 archetype on real T2."
+    expected_output: "mystery = 9"
+    highlights: ["data.numbers[i]", "data.numbers[i] > data.mystery"]
+    code: |
+      struct stat_double { double mystery; double numbers[5]; };
+
+      void who_am_i(stat_double &data) {
+        data.mystery = data.numbers[0];
+        for (int i = 1; i < 5; i++) {
+          if (data.numbers[i] > data.mystery) {
+            data.mystery = data.numbers[i];
+          }
+        }
+      }
+      // caller: numbers = {3, 9, 1, 7, 4} -> mystery = 9
+  - id: we-q1-04
+    atom_id: HE-18
+    variant_name: "array-min"
+    explanation: "same loop shape, < instead of >. Watch the comparison flip."
+    expected_output: "mystery = 1"
+    highlights: ["data.numbers[i] < data.mystery"]
+    code: |
+      void who_am_i(stat_double &data) {
+        data.mystery = data.numbers[0];
+        for (int i = 1; i < 5; i++) {
+          if (data.numbers[i] < data.mystery) {
+            data.mystery = data.numbers[i];
+          }
+        }
+      }
+      // caller: numbers = {3, 9, 1, 7, 4} -> mystery = 1
+  - id: we-q1-05
+    atom_id: HE-12
+    variant_name: "array-sum"
+    explanation: "accumulate over the array; mystery is the running total."
+    expected_output: "mystery = 24"
+    highlights: ["data.mystery = data.mystery + data.numbers[i]"]
+    code: |
+      void who_am_i(stat_double &data) {
+        data.mystery = 0;
+        for (int i = 0; i < 5; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+        }
+      }
+      // caller: numbers = {3, 9, 1, 7, 4} -> mystery = 24
+  - id: we-q1-06
+    atom_id: HE-04
+    variant_name: "count-greater-than-threshold"
+    explanation: "count how many entries beat a threshold; mystery is the count."
+    expected_output: "mystery = 3"
+    highlights: ["if (data.numbers[i] > 5)", "data.mystery"]
+    code: |
+      void who_am_i(stat_double &data) {
+        data.mystery = 0;
+        for (int i = 0; i < 5; i++) {
+          if (data.numbers[i] > 5) data.mystery = data.mystery + 1;
+        }
+      }
+      // caller: numbers = {3, 9, 1, 7, 8} -> mystery = 3
+  - id: we-q1-07
+    atom_id: HE-13
+    variant_name: "first-positive"
+    explanation: "find the first positive entry; break out of loop semantics."
+    expected_output: "mystery = 7"
+    highlights: ["if (data.numbers[i] > 0)", "break"]
+    code: |
+      void who_am_i(stat_double &data) {
+        data.mystery = -1;
+        for (int i = 0; i < 5; i++) {
+          if (data.numbers[i] > 0) {
+            data.mystery = data.numbers[i];
+            break;
+          }
+        }
+      }
+      // caller: numbers = {0, -2, 7, 4, 1} -> mystery = 7
+  - id: we-q1-08
+    atom_id: HE-11
+    variant_name: "average"
+    explanation: "sum then divide. Watch int vs double division."
+    expected_output: "mystery = 4.8"
+    highlights: ["data.mystery = data.mystery / 5"]
+    code: |
+      void who_am_i(stat_double &data) {
+        data.mystery = 0;
+        for (int i = 0; i < 5; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+        }
+        data.mystery = data.mystery / 5;
+      }
+      // caller: numbers = {3, 9, 1, 7, 4} -> mystery = 4.8 (double / int)
+  - id: we-q1-09
+    atom_id: HE-10
+    variant_name: "product-of-two"
+    explanation: "mystery = a * b; simplest non-additive formula."
+    expected_output: "mystery = 35"
+    highlights: ["data.a * data.b"]
+    code: |
+      void who_am_i(stat_double &data) {
+        data.mystery = data.a * data.b;
+      }
+      // caller: d.a = 5, d.b = 7 -> d.mystery = 35
+  - id: we-q1-10
+    atom_id: HE-15
+    variant_name: "no-ampersand-trap"
+    explanation: "WITHOUT &, mutation never reaches caller. mystery stays at its initial value."
+    expected_output: "mystery = 0 (unchanged)"
+    highlights: ["stat_double data", "data.mystery = 99"]
+    code: |
+      // SUBTLE: missing & means caller is untouched.
+      void who_am_i(stat_double data) {   // <-- no &
+        data.mystery = 99;
+      }
+      // caller: d.mystery = 0 -> after call: d.mystery STILL 0
+  - id: we-q1-11
+    atom_id: HE-01
+    variant_name: "one-assignment"
+    explanation: "simplest trace: one assignment, one result. Start here."
+    expected_output: "mystery = 42"
+    highlights: ["data.mystery = data.a"]
+    code: |
+      void who_am_i(stat_double &data) {
+        data.mystery = data.a;
+      }
+      // caller: d.a = 42 -> d.mystery = 42
+  - id: we-q1-12
+    atom_id: HE-02
+    variant_name: "track-three-vars"
+    explanation: "trace x, y, mystery across each line. Track every variable."
+    expected_output: "mystery = 8"
+    highlights: ["double x", "double y"]
+    code: |
+      void who_am_i(stat_double &data) {
+        double x = data.a;
+        double y = data.b;
+        data.mystery = x + y;
+      }
+      // caller: d.a = 3, d.b = 5 -> x=3, y=5, mystery = 8
+  - id: we-q1-13
+    atom_id: HE-06
+    variant_name: "helper-function-call"
+    explanation: "who_am_i calls helper. Enter helper frame, compute, return."
+    expected_output: "mystery = 7"
+    highlights: ["helper(data.a, data.b)", "return x + y"]
+    code: |
+      double helper(double x, double y) {
+        return x + y;
+      }
+
+      void who_am_i(stat_double &data) {
+        data.mystery = helper(data.a, data.b);
+      }
+      // caller: d.a = 3, d.b = 4 -> helper returns 7 -> mystery = 7
+  - id: we-q1-14
+    atom_id: HE-07
+    variant_name: "return-kills-local"
+    explanation: "temp lives inside compute, dies on return. Only the returned value survives."
+    expected_output: "mystery = 10"
+    highlights: ["double temp", "return temp"]
+    code: |
+      double compute(double a) {
+        double temp = a * 2;
+        return temp;
+      }
+
+      void who_am_i(stat_double &data) {
+        data.mystery = compute(data.a);
+        // temp no longer exists here
+      }
+      // caller: d.a = 5 -> temp=10 (dies at return) -> mystery = 10
+  - id: we-q1-15
+    atom_id: HE-08
+    variant_name: "ampersand-both-writes-persist"
+    explanation: "both writes to data persist because & means same box as caller."
+    expected_output: "mystery = 7, a = 0"
+    highlights: ["stat_double &data", "data.a = 0"]
+    code: |
+      void who_am_i(stat_double &data) {
+        data.mystery = data.a;
+        data.a = 0;
+      }
+      // caller: d.a = 7 -> d.mystery = 7, d.a = 0 (both persist via &)
+  - id: we-q1-16
+    atom_id: HE-09
+    variant_name: "array-element-write"
+    explanation: "array element write via & persists in caller. numbers[2] becomes 99."
+    expected_output: "mystery = 99"
+    highlights: ["data.numbers[2] = 99"]
+    code: |
+      void who_am_i(stat_double &data) {
+        data.numbers[2] = 99;
+        data.mystery = data.numbers[2];
+      }
+      // caller: numbers[2] was 1 -> becomes 99, mystery = 99
+  - id: we-q1-17
+    atom_id: HE-14
+    variant_name: "two-function-calls"
+    explanation: "trace two function calls. Enter add_one twice, each returns +1."
+    expected_output: "mystery = 7"
+    highlights: ["add_one(data.a)", "add_one(r)"]
+    code: |
+      double add_one(double x) {
+        return x + 1;
+      }
+
+      void who_am_i(stat_double &data) {
+        double r = add_one(data.a);
+        data.mystery = add_one(r);
+      }
+      // caller: d.a = 5 -> r = 6 -> mystery = 7
+  - id: we-q1-18
+    atom_id: HE-17
+    variant_name: "struct-field-chain"
+    explanation: "chain of struct field mutations via &. Each line reads the updated value."
+    expected_output: "mystery = 8"
+    highlights: ["data.a = data.a + 1", "data.b = data.a * 2"]
+    code: |
+      void who_am_i(stat_double &data) {
+        data.a = data.a + 1;
+        data.b = data.a * 2;
+        data.mystery = data.b;
+      }
+      // caller: d.a = 3 -> d.a = 4, d.b = 8, d.mystery = 8

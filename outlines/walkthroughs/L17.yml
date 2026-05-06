@@ -1,0 +1,29 @@
+id: WT-L17
+level: 17
+level_label: "L17 mock exam -- the four shapes back-to-back"
+anchor_atom_id: ME-01
+status: locked
+full_code: |
+  // Q1 trace: who_am_i(stat_double &data)
+  // Q2 write: struct book { int id; string title; double price; };
+  // Q3 write: void read_book(book &list[], int count) { ... }
+  // Q4 write: int main() { const MAX, list, count, cin, call, printf, return 0 }
+  //
+  // Each Q has one stable shape; the variant-name only changes (book -> car -> ...).
+steps:
+  - line: 1
+    code: "// Q1 trace"
+    annotation: "predict d.mystery after who_am_i runs (HE-* atoms)."
+    atom_ids: [HE-01, ME-01]
+  - line: 2
+    code: "// Q2 write struct"
+    annotation: "three fields, types from spec, ; after } (SW-* atoms)."
+    atom_ids: [SW-01, ME-02]
+  - line: 3
+    code: "// Q3 write read_X"
+    annotation: "void + &list[] + int count + for-loop + cin per field (RW-* atoms)."
+    atom_ids: [RW-01, ME-03]
+  - line: 4
+    code: "// Q4 write main"
+    annotation: "const MAX + list[MAX] + count + cin + call read + printf loop (MW-* atoms)."
+    atom_ids: [MW-01, ME-04]

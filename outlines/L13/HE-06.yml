@@ -1,0 +1,81 @@
+id: HE-06
+fact: 'function call: enter new frame'
+words: 5
+level: 13
+deps:
+  - H-03
+  - HE-02
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q06
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: who_am_i(d) call enters new frame; data binds to d
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  void f(int x) {
+      // new frame: x is local
+  }
+  int main() {
+      f(5);   // call: enter new frame
+  }
+expected_output: 'new frame: f called with x = 5'
+sit102_quirks:
+  - Each call pushes a frame
+  - Locals belong to the called frame, not caller
+misconceptions:
+  - id: M01
+    description: Function shares main's variables
+    student_says: x in f is the same x as in main
+    correct_says: f gets its own frame; x is local unless passed by &
+render_hints:
+  memorize_seed_phrases:
+    - function call enters frame
+    - new frame on call
+    - calls push stack frames
+    - params live in new frame
+    - frame holds locals
+  see_demo:
+    why_one_line: calling a function opens a new frame with fresh local boxes.
+    snippet: |
+      void f(int x) {
+          // new frame: x is local
+      }
+      int main() {
+          f(5);   // call: enter new frame
+      }
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      void f(int x) {
+          // new frame: x is local
+      int main() {
+    correct_atoms:
+      - HE-06
+      - H-03
+      - HE-02
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: frame / call / push / locals'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+    - heap
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

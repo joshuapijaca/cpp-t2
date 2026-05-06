@@ -1,0 +1,453 @@
+# M22 — Mini-SEE content for 12 zero-snippet atoms.
+# P-01..P-07 (meta-programming) + ME-01..ME-05 (mock exam composites).
+
+atoms:
+  P-01:
+    canonical_example: |
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    expected_output: "Hello"
+    see_demo_snippet: |
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    see_demo_highlights: ["int main()", "return 0"]
+    see_decompose_snippet: |
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+
+  P-02:
+    canonical_example: |
+      // This is a program: text instructions the compiler reads.
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    expected_output: "Hello"
+    see_demo_snippet: |
+      // A program is text instructions.
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    see_demo_highlights: ["// A program is text instructions"]
+    see_decompose_snippet: |
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+
+  P-03:
+    canonical_example: |
+      // File: hello.cpp
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    expected_output: "Hello"
+    see_demo_snippet: |
+      // File: hello.cpp
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    see_demo_highlights: ["// File: hello.cpp"]
+    see_decompose_snippet: |
+      // File: hello.cpp
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+
+  P-04:
+    canonical_example: |
+      // Step 1: write hello.cpp
+      // Step 2: g++ hello.cpp -o hello    <-- compiler makes .exe
+      // Step 3: ./hello                   <-- run the .exe
+      // Output: Hello
+    expected_output: "compiler produces hello executable"
+    see_demo_snippet: |
+      // hello.cpp -> g++ compiles -> hello.exe
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    see_demo_highlights: ["g++ compiles", "hello.exe"]
+    see_decompose_snippet: |
+      // hello.cpp -> g++ compiles -> hello.exe
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+
+  P-05:
+    canonical_example: |
+      // After compiling: ./hello runs the instructions
+      // Line 1: cout executes -> "Hello" appears
+      // Line 2: return 0 -> program exits
+    expected_output: "Hello printed, program exits with 0"
+    see_demo_snippet: |
+      // Running the .exe executes each line in order:
+      int main() {
+        cout << "Hello" << endl;   // line 1: prints Hello
+        return 0;                  // line 2: exits
+      }
+    see_demo_highlights: ["// line 1: prints Hello", "// line 2: exits"]
+    see_decompose_snippet: |
+      int main() {
+        cout << "Hello" << endl;
+        int x = 5;
+        cout << x << endl;
+        return 0;
+      }
+
+  P-06:
+    canonical_example: |
+      // cout sends text to the terminal (stdout)
+      cout << "Hello" << endl;
+      // Terminal shows: Hello
+    expected_output: "Hello appears in terminal"
+    see_demo_snippet: |
+      int main() {
+        cout << "Hello" << endl;
+        cout << "Score: " << 95 << endl;
+        return 0;
+      }
+      // Terminal output:
+      // Hello
+      // Score: 95
+    see_demo_highlights: ["cout <<", "// Terminal output:"]
+    see_decompose_snippet: |
+      int main() {
+        cout << "Hello" << endl;
+        cout << "Score: " << 95 << endl;
+        return 0;
+      }
+
+  P-07:
+    canonical_example: |
+      // cin reads input typed in the terminal (stdin)
+      int age;
+      cin >> age;
+      // User types: 25   -> age = 25
+    expected_output: "age = 25 (read from terminal)"
+    see_demo_snippet: |
+      int main() {
+        int age;
+        cout << "Enter age: ";
+        cin >> age;
+        cout << "You are " << age << endl;
+        return 0;
+      }
+      // Terminal: Enter age: 25
+      //          You are 25
+    see_demo_highlights: ["cin >> age", "// Terminal:"]
+    see_decompose_snippet: |
+      int main() {
+        int age;
+        cout << "Enter age: ";
+        cin >> age;
+        cout << "You are " << age << endl;
+        return 0;
+      }
+
+  ME-01:
+    canonical_example: |
+      // Mock Exam 1: struct + read + who_am_i + main
+      struct stat_double { double mystery; double a; double b; };
+      void who_am_i(stat_double &data) {
+        data.mystery = data.a + data.b;
+      }
+    expected_output: "mystery = a + b"
+    see_demo_snippet: |
+      // Mock 1 — all four questions in one program
+      struct stat_double { double mystery; double a; double b; };
+
+      void who_am_i(stat_double &data) {
+        data.mystery = data.a + data.b;
+      }
+
+      void read_stat(stat_double &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].a;
+          cin >> list[i].b;
+        }
+      }
+
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        read_stat(list, count);
+        printf("%.2f\n", list[0].mystery);
+        return 0;
+      }
+    see_demo_highlights: ["stat_double", "who_am_i", "read_stat", "int main()"]
+    see_decompose_snippet: |
+      struct stat_double { double mystery; double a; double b; };
+      void who_am_i(stat_double &data) {
+        data.mystery = data.a + data.b;
+      }
+      void read_stat(stat_double &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].a;
+          cin >> list[i].b;
+        }
+      }
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        read_stat(list, count);
+        return 0;
+      }
+
+  ME-02:
+    canonical_example: |
+      struct stat_double { double mystery; double numbers[5]; };
+      void who_am_i(stat_double &data) {
+        data.mystery = data.numbers[0];
+        for (int i = 1; i < 5; i++) {
+          if (data.numbers[i] > data.mystery)
+            data.mystery = data.numbers[i];
+        }
+      }
+    expected_output: "mystery = max of numbers array"
+    see_demo_snippet: |
+      // Mock 2 — max-finder variant
+      struct stat_double { double mystery; double numbers[5]; };
+
+      void who_am_i(stat_double &data) {
+        data.mystery = data.numbers[0];
+        for (int i = 1; i < 5; i++) {
+          if (data.numbers[i] > data.mystery)
+            data.mystery = data.numbers[i];
+        }
+      }
+
+      void read_stat(stat_double &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          for (int j = 0; j < 5; j++) {
+            cin >> list[i].numbers[j];
+          }
+        }
+      }
+
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        read_stat(list, count);
+        return 0;
+      }
+    see_demo_highlights: ["stat_double", "who_am_i", "data.numbers[i] > data.mystery"]
+    see_decompose_snippet: |
+      struct stat_double { double mystery; double numbers[5]; };
+      void who_am_i(stat_double &data) {
+        data.mystery = data.numbers[0];
+        for (int i = 1; i < 5; i++) {
+          if (data.numbers[i] > data.mystery)
+            data.mystery = data.numbers[i];
+        }
+      }
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        return 0;
+      }
+
+  ME-03:
+    canonical_example: |
+      struct stat_double { double mystery; double numbers[5]; };
+      void who_am_i(stat_double &data) {
+        data.mystery = 0;
+        for (int i = 0; i < 5; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+        }
+      }
+    expected_output: "mystery = sum of numbers array"
+    see_demo_snippet: |
+      // Mock 3 — sum-accumulator variant
+      struct stat_double { double mystery; double numbers[5]; };
+
+      void who_am_i(stat_double &data) {
+        data.mystery = 0;
+        for (int i = 0; i < 5; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+        }
+      }
+
+      void read_stat(stat_double &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          for (int j = 0; j < 5; j++) {
+            cin >> list[i].numbers[j];
+          }
+        }
+      }
+
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        read_stat(list, count);
+        return 0;
+      }
+    see_demo_highlights: ["stat_double", "data.mystery + data.numbers[i]"]
+    see_decompose_snippet: |
+      struct stat_double { double mystery; double numbers[5]; };
+      void who_am_i(stat_double &data) {
+        data.mystery = 0;
+        for (int i = 0; i < 5; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+        }
+      }
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        return 0;
+      }
+
+  ME-04:
+    canonical_example: |
+      struct stat_double { double mystery; double a; double b; };
+      void who_am_i(stat_double &data) {
+        if (data.a > data.b)
+          data.mystery = data.a - data.b;
+        else
+          data.mystery = data.b - data.a;
+      }
+    expected_output: "mystery = |a - b| (absolute difference)"
+    see_demo_snippet: |
+      // Mock 4 — absolute difference variant
+      struct stat_double { double mystery; double a; double b; };
+
+      void who_am_i(stat_double &data) {
+        if (data.a > data.b)
+          data.mystery = data.a - data.b;
+        else
+          data.mystery = data.b - data.a;
+      }
+
+      void read_stat(stat_double &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].a;
+          cin >> list[i].b;
+        }
+      }
+
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        read_stat(list, count);
+        return 0;
+      }
+    see_demo_highlights: ["stat_double", "data.a - data.b", "data.b - data.a"]
+    see_decompose_snippet: |
+      struct stat_double { double mystery; double a; double b; };
+      void who_am_i(stat_double &data) {
+        if (data.a > data.b)
+          data.mystery = data.a - data.b;
+        else
+          data.mystery = data.b - data.a;
+      }
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        return 0;
+      }
+
+  ME-05:
+    canonical_example: |
+      struct stat_double { double mystery; double numbers[5]; };
+      void who_am_i(stat_double &data) {
+        data.mystery = 0;
+        for (int i = 0; i < 5; i++) {
+          if (data.numbers[i] > 0)
+            data.mystery = data.mystery + 1;
+        }
+      }
+    expected_output: "mystery = count of positive numbers"
+    see_demo_snippet: |
+      // Mock 5 — count-positive variant
+      struct stat_double { double mystery; double numbers[5]; };
+
+      void who_am_i(stat_double &data) {
+        data.mystery = 0;
+        for (int i = 0; i < 5; i++) {
+          if (data.numbers[i] > 0)
+            data.mystery = data.mystery + 1;
+        }
+      }
+
+      void read_stat(stat_double &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          for (int j = 0; j < 5; j++) {
+            cin >> list[i].numbers[j];
+          }
+        }
+      }
+
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        read_stat(list, count);
+        return 0;
+      }
+    see_demo_highlights: ["stat_double", "data.numbers[i] > 0", "data.mystery + 1"]
+    see_decompose_snippet: |
+      struct stat_double { double mystery; double numbers[5]; };
+      void who_am_i(stat_double &data) {
+        data.mystery = 0;
+        for (int i = 0; i < 5; i++) {
+          if (data.numbers[i] > 0)
+            data.mystery = data.mystery + 1;
+        }
+      }
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        return 0;
+      }

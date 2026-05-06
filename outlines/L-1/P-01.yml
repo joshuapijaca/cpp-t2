@@ -1,0 +1,62 @@
+id: P-01
+fact: computer runs programs
+words: 3
+level: -1
+deps: []
+q_tags:
+  Q1: S
+  Q2: S
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: |-
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << "Hello" << endl;
+    return 0;
+  }
+expected_output: Hello
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - computer executes programs
+    - computers run software
+    - CPU runs programs
+    - machine runs program code
+    - computer obeys instructions
+  see_demo:
+    why_one_line: every C++ program is just CPU instructions running in order.
+    snippet: |-
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    highlights:
+      - int main()
+      - return 0
+    used_in: []
+  see_decompose:
+    snippet: |-
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    correct_atoms:
+      - P-01
+    distractors:
+      - P-02
+      - P-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

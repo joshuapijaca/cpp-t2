@@ -1,0 +1,64 @@
+id: T-07
+fact: x.field = v writes field
+words: 5
+level: 11
+deps:
+  - T-06
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence:
+  - question: Q1
+    instance: data.mystery = data.numbers[0]
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  Point p;
+  p.x = 3;
+expected_output: p.x = 3
+sit102_quirks:
+  - Standard assignment to a struct field
+misconceptions:
+  - id: M01
+    description: Assigns to whole struct
+    student_says: p = 3
+    correct_says: 'Assign to specific field: p.x = 3'
+render_hints:
+  memorize_seed_phrases:
+    - x.field = v stores into field
+    - assign value to struct field
+    - x.field = expr writes member
+    - '= sets struct field value'
+    - field assignment uses dot
+  see_demo:
+    why_one_line: x.field = v; updates that one field and leaves the others alone.
+    snippet: |
+      Point p;
+      p.x = 3;
+    highlights:
+      - p.x
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      Point p;
+    correct_atoms:
+      - T-07
+      - T-06
+    distractors:
+      - T-01
+      - T-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions field / assign / write
+lint:
+  forbid_tokens:
+    - '->'
+  miller_max_words: 7
+status: locked

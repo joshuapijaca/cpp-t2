@@ -1,0 +1,86 @@
+id: HE-14
+fact: trace function call + return
+words: 5
+level: 13
+deps:
+  - HE-06
+  - HE-07
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q06
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: main calls who_am_i(d); inside who_am_i, data is alias of d; return pops frame; d.mystery in main is now updated
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  int square(int x) {
+      return x * x;
+  }
+  int main() {
+      int r = square(5);
+      // call: enter square, x=5
+      // return 25, exit frame
+      // r = 25
+  }
+expected_output: r = 25 (square returns 5*5)
+sit102_quirks:
+  - 'Trace: enter frame -> execute body -> return -> resume caller with returned value'
+  - Locals (incl. value params) die at return
+misconceptions:
+  - id: M01
+    description: Forgets to pop frame on return
+    student_says: x still exists after return
+    correct_says: x dies at return; only the returned value or & mutations remain
+render_hints:
+  memorize_seed_phrases:
+    - 'call: enter frame; return: pop'
+    - trace call then return
+    - frame pushed on call popped on return
+    - enter exit cycle per call
+    - stack frames per function call
+  see_demo:
+    why_one_line: function-call traces step into the new frame and back out at return.
+    snippet: |
+      int square(int x) {
+          return x * x;
+      }
+      int main() {
+          int r = square(5);
+          // call: enter square, x=5
+          // return 25, exit frame
+          // r = 25
+      }
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      int square(int x) {
+          return x * x;
+    correct_atoms:
+      - HE-14
+      - HE-06
+      - HE-07
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: call / return / frame / push / pop'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+    - heap
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

@@ -1,0 +1,116 @@
+# Q2 -- 10 worked examples (M15 original, M19 atom_id redistribution)
+# Spec: cpp-t2/docs/14_see_cards_master_plan.md ("worked-example").
+# Each example anchored to a specific SW atom via atom_id.
+question: Q2
+status: locked
+examples:
+  - id: we-q2-01
+    atom_id: SW-01
+    variant_name: "book"
+    explanation: "book: int id, string title, double price."
+    highlights: ["struct book", "string title", "double price"]
+    code: |
+      struct book {
+        int id;
+        string title;
+        double price;
+      };
+  - id: we-q2-02
+    atom_id: SW-02
+    variant_name: "movie"
+    explanation: "movie: int id, string title, int year."
+    highlights: ["struct movie", "int year"]
+    code: |
+      struct movie {
+        int id;
+        string title;
+        int year;
+      };
+  - id: we-q2-03
+    atom_id: SW-04
+    variant_name: "student"
+    explanation: "student: int id, string name, double gpa."
+    highlights: ["struct student", "string name", "double gpa"]
+    code: |
+      struct student {
+        int id;
+        string name;
+        double gpa;
+      };
+  - id: we-q2-04
+    atom_id: SW-03
+    variant_name: "product"
+    explanation: "product: int id, string description, double price."
+    highlights: ["string description"]
+    code: |
+      struct product {
+        int id;
+        string description;
+        double price;
+      };
+  - id: we-q2-05
+    atom_id: SW-05
+    variant_name: "employee"
+    explanation: "employee: int id, string name, string department."
+    highlights: ["string department"]
+    code: |
+      struct employee {
+        int id;
+        string name;
+        string department;
+      };
+  - id: we-q2-06
+    atom_id: SW-01
+    variant_name: "car"
+    explanation: "car: string make, string model, int year."
+    highlights: ["struct car"]
+    code: |
+      struct car {
+        string make;
+        string model;
+        int year;
+      };
+  - id: we-q2-07
+    atom_id: SW-02
+    variant_name: "recipe"
+    explanation: "recipe: int id, string name, int servings."
+    highlights: ["int servings"]
+    code: |
+      struct recipe {
+        int id;
+        string name;
+        int servings;
+      };
+  - id: we-q2-08
+    atom_id: SW-04
+    variant_name: "song"
+    explanation: "song: string title, string artist, double duration."
+    highlights: ["struct song"]
+    code: |
+      struct song {
+        string title;
+        string artist;
+        double duration;
+      };
+  - id: we-q2-09
+    atom_id: SW-03
+    variant_name: "trap-missing-semicolon"
+    explanation: "WRONG. Missing ; after closing }. SIT102 grader fails this."
+    highlights: ["}"]
+    code: |
+      // WRONG: missing semicolon -- the grader rejects this.
+      struct book {
+        int id;
+        string title;
+        double price;
+      }                  // <-- missing ;
+  - id: we-q2-10
+    atom_id: SW-05
+    variant_name: "trap-comma-separated-fields"
+    explanation: "WRONG. Each field is its own statement; commas are illegal here."
+    highlights: [","]
+    code: |
+      // WRONG: cannot comma-separate inside struct.
+      struct book {
+        int id, string title, double price   // <-- not allowed
+      };

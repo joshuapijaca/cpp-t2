@@ -1,0 +1,62 @@
+id: RW-01
+fact: write void return signature
+words: 4
+level: 15
+deps:
+  - H-04
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: C
+  Q4: 'N'
+pfg_source: []
+test2_evidence:
+  - question: Q3
+    instance: void read_X(...)
+    file_path: extraction/L15_read_function/notes.md
+canonical_example: void read_items(...) { ... }
+expected_output: function returns nothing (void)
+sit102_quirks:
+  - Q3 always returns void
+misconceptions:
+  - id: M01
+    description: Uses int return
+    student_says: int read_X
+    correct_says: void return; mutation through & param
+render_hints:
+  memorize_seed_phrases:
+    - void for read function
+    - no return value in Q3
+    - void read_X is signature
+    - Q3 uses void not int
+    - void means no return value
+  write_L1_fill:
+    template: ___ read_X(X &list[], int count) {}
+    blank_value: void
+  see_demo:
+    why_one_line: Q3 always returns void -- the function fills caller storage, not a value.
+    snippet: |
+      void read_items(...) { ... }
+    highlights: []
+    used_in:
+      - Q3
+  see_decompose:
+    snippet: |
+      void read_items(...) { ... }
+    correct_atoms:
+      - RW-01
+      - H-04
+    distractors:
+      - RW-02
+      - RW-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions void / return
+lint:
+  forbid_tokens:
+    - int read_
+    - return list
+  miller_max_words: 7
+status: locked

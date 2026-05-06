@@ -1,0 +1,58 @@
+id: W-01
+fact: while (cond) repeats body
+words: 4
+level: 7
+deps:
+  - F-04
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - while loop runs while true
+    - while (cond) { body } repeats
+    - while = conditional loop
+    - use while for unknown count
+    - while keeps looping while true
+  see_demo:
+    why_one_line: while (cond) repeats while the condition stays true; check first.
+    snippet: |
+      int i = 0;
+      while (i < 5) {
+        cout << i;
+        i++;
+      }
+    highlights:
+      - while
+    used_in: []
+  see_decompose:
+    snippet: |-
+      for (int i = 0; i < 5; i++) {
+        cout << i << " ";
+      }
+      cout << endl;
+      int sum = 0;
+      for (int i = 1; i <= 10; i++) {
+        sum = sum + i;
+      }
+    correct_atoms:
+      - W-01
+      - F-04
+    distractors:
+      - W-10
+      - W-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

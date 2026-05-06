@@ -1,0 +1,126 @@
+id: R-08
+fact: "reference is two names for one box"
+words: 7
+level: 9
+deps:
+  - R-03
+
+q_tags:
+  Q1: C
+  Q2: N
+  Q3: C
+  Q4: C
+
+pfg_source:
+  - quote_id: Q02
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+  - quote_id: Q05
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+  - quote_id: Q07
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+  - quote_id: Q09
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+
+test2_evidence:
+  - question: Q1
+    instance: "Mental model for hand-tracing: data and caller's stat_double point to same box"
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+
+canonical_example: |
+  void increment(int &x) {
+    x = x + 1;
+  }
+  int main() {
+    int n = 5;
+    increment(n);   // x and n now label same box; box was 5, now 6
+    cout << n;      // 6
+    return 0;
+  }
+expected_output: "6"
+
+sit102_quirks:
+  - "One memory box; two labels (caller's name + param's name)"
+  - "Drawing convention: single box with both labels"
+  - "Strikethrough old value when mutated through either label"
+
+misconceptions:
+  - id: M01
+    description: "Draws two boxes (copy mental model)"
+    student_says: "n is one box; x is another box that copies it"
+    correct_says: "With &, ONE box; both names label it"
+  - id: M02
+    description: "Thinks reference is a separate variable that points to first"
+    student_says: "x is a pointer-like thing"
+    correct_says: "References auto-dereference; behaviorally x and n are interchangeable"
+  - id: M03
+    description: "Treats labels as separate state"
+    student_says: "Mutating through x doesn't update n"
+    correct_says: "Both labels access same box; mutation visible from either name"
+
+render_hints:
+  memorize_seed_phrases:
+    - "two names label same box"
+    - "reference shares one memory cell"
+    - "alias = same box different name"
+    - "one box two labels"
+    - "no extra storage for reference"
+  trace:
+    description: "CRITICAL: variable-box rendering MUST show ONE box with TWO labels (per IT-ELO T1 APK schema)."
+    minimum_steps: 4
+    must_show:
+      - "pre-call: one box labeled `n`, value 5"
+      - "param binding: same box, second label `x` added (no new box)"
+      - "mutation through x: box value 6, both labels still attached"
+      - "post-return: box value 6, only `n` label remains; `x` removed at frame exit"
+  write_L1_fill:
+    template: "// After increment(n) where x is alias of n:\n// box has labels: ___ and x\nLabels: ___"
+    blank_value: "n"
+  write_L2_complete:
+    template: "void f(int &x) { x = 99; }\nint main() {\n  int n = 7;\n  f(n);\n  cout << n;  // prints ___\n}"
+    blank_value: "99"
+  write_L3_free_spec: "Explain in 1-2 sentences: why does x = 99 inside f() affect n in main?"
+
+  see_demo:
+    why_one_line: "the same memory box wears two names while the function runs."
+    snippet: |
+      void increment(int &x) {
+        x = x + 1;
+      }
+      int main() {
+        int n = 5;
+        increment(n);   // x and n now label same box; box was 5, now 6
+        cout << n;      // 6
+        return 0;
+      }
+    highlights: ["int &x"]
+    used_in: [Q1, Q3, Q4]
+  see_decompose:
+    snippet: |
+      void increment(int &x) {
+        x = x + 1;
+    correct_atoms: [R-08, R-03]
+    distractors: [R-01, R-02, T-01]
+acceptance:
+  memorize:
+    - "<=7 words"
+    - "Conveys one-box-two-names model"
+    - "No mention of pointer / address-of / dereference"
+  mcq:
+    - "Correct: one box, two labels"
+    - "Distractor: separate boxes connected (M01)"
+  trace:
+    - "Variable-box render shows ONE box + TWO labels (must_show step 2)"
+    - "Final state shows label removal at frame exit"
+  write:
+    - "L1 = 'n'"
+    - "L2 = '99'"
+    - "L3 free-form must mention: same memory / aliasing / one box"
+
+lint:
+  forbid_tokens: ["nullptr", "->", "*", "address of", "dereference"]
+  miller_max_words: 7
+
+status: locked
+locked_at: null
+locked_by: null
+revision_history: []

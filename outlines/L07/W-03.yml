@@ -1,0 +1,63 @@
+id: W-03
+fact: for (init; cond; step) loop
+words: 5
+level: 7
+deps:
+  - W-01
+  - V-05
+  - A-10
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - for (init; cond; step) { body }
+    - for-loop with three parts
+    - for combines init cond step
+    - use for when count known
+    - standard counting loop
+  see_demo:
+    why_one_line: for is what every Q3 read loop and Q4 print loop is built from.
+    snippet: |
+      for (int i = 0; i < n; i++) {
+        cout << i;
+      }
+    highlights:
+      - for (int i = 0; i < n; i++)
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      for (int i = 0; i < 5; i++) {
+        cout << i << " ";
+      }
+      cout << endl;
+      int sum = 0;
+      for (int i = 1; i <= 10; i++) {
+        sum = sum + i;
+      }
+    correct_atoms:
+      - W-03
+      - W-01
+      - V-05
+      - A-10
+    distractors:
+      - W-10
+      - W-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

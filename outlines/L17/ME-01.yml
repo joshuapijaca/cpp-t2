@@ -1,0 +1,103 @@
+id: ME-01
+fact: mock exam me-01
+words: 4
+level: 17
+deps:
+  - HE-16
+  - SW-01
+  - RW-01
+  - MW-01
+q_tags:
+  Q1: C
+  Q2: C
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: |-
+  // Mock Exam 1: struct + read + who_am_i + main
+  struct stat_double { double mystery; double a; double b; };
+  void who_am_i(stat_double &data) {
+    data.mystery = data.a + data.b;
+  }
+expected_output: mystery = a + b
+sit102_quirks:
+  - 90-min timed exam
+  - no retry inside exam
+  - all 4 questions in sequence
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - mock exam me-01
+  see_demo:
+    why_one_line: first full timed mock; covers all four questions end-to-end.
+    snippet: |-
+      // Mock 1 — all four questions in one program
+      struct stat_double { double mystery; double a; double b; };
+
+      void who_am_i(stat_double &data) {
+        data.mystery = data.a + data.b;
+      }
+
+      void read_stat(stat_double &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].a;
+          cin >> list[i].b;
+        }
+      }
+
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        read_stat(list, count);
+        printf("%.2f\n", list[0].mystery);
+        return 0;
+      }
+    highlights:
+      - stat_double
+      - who_am_i
+      - read_stat
+      - int main()
+    used_in:
+      - Q1
+      - Q2
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      struct stat_double { double mystery; double a; double b; };
+      void who_am_i(stat_double &data) {
+        data.mystery = data.a + data.b;
+      }
+      void read_stat(stat_double &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].a;
+          cin >> list[i].b;
+        }
+      }
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        read_stat(list, count);
+        return 0;
+      }
+    correct_atoms:
+      - ME-01
+      - HE-16
+      - SW-01
+      - RW-01
+      - MW-01
+    distractors:
+      - ME-02
+      - ME-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

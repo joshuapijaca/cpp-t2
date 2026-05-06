@@ -1,0 +1,54 @@
+id: V-01
+fact: variable is named memory box
+words: 5
+level: 2
+deps: []
+q_tags:
+  Q1: C
+  Q2: C
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - variable = memory box with name
+    - variable is labeled storage
+    - variable holds one value
+    - name + box = variable
+    - variable stores a value
+  see_demo:
+    why_one_line: a variable is a labeled box in memory; everything else builds on this.
+    snippet: |
+      int n = 5;        // n is a labeled box holding 5
+      n = n + 1;        // box now holds 6
+    highlights:
+      - 'n'
+    used_in:
+      - Q1
+      - Q2
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int age = 25;
+      double price = 9.99;
+      string name = "Alice";
+      char grade = 'A';
+      bool passed = true;
+    correct_atoms:
+      - V-01
+    distractors:
+      - V-10
+      - V-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

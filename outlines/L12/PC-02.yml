@@ -1,0 +1,61 @@
+id: PC-02
+fact: void f(Name &x) shares struct
+words: 5
+level: 12
+deps:
+  - R-03
+  - T-05
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence:
+  - question: Q1
+    instance: void who_am_i(stat_double &data)
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: void update(Point &p) { p.x = 99; }
+expected_output: caller's p.x = 99 via &
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - Name &x makes struct ref
+    - struct & shares whole box
+    - void f(Name &x) is struct ref
+    - '& on struct param aliases caller'
+    - Name & = struct alias
+  write_L1_fill:
+    template: void update(Point ___p) { p.x = 99; }
+    blank_value: '&'
+  see_demo:
+    why_one_line: void f(Name &x) lets the function mutate the caller's struct directly.
+    snippet: |
+      void update(Point &p) { p.x = 99; }
+    highlights: []
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      void update(Point &p) { p.x = 99; }
+    correct_atoms:
+      - PC-02
+      - R-03
+      - T-05
+    distractors:
+      - PC-01
+      - PC-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions struct / & / shares
+lint:
+  forbid_tokens:
+    - '*p'
+    - '*x'
+  miller_max_words: 7
+status: locked

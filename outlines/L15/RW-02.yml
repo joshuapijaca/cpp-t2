@@ -1,0 +1,43 @@
+id: RW-02
+fact: "write Type &list[] parameter"
+words: 4
+level: 15
+deps: [PC-04]
+q_tags: { Q1: N, Q2: N, Q3: C, Q4: N }
+pfg_source: []
+test2_evidence:
+  - question: Q3
+    instance: "void read_X(X &list[], int count)"
+    file_path: extraction/L15_read_function/notes.md
+canonical_example: ""
+expected_output: ""
+sit102_quirks: ["& between type and list name"]
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - "Type &list[] for array param"
+    - "& goes between type and list"
+    - "Q3 param: T &list[]"
+    - "&list[] is array reference"
+    - "type & list[] passes by ref"
+  write_L2_complete: { template: "void read_X(___, int count) {}", blank_value: "X &list[]" }
+  see_demo:
+    why_one_line: "Type &list[] is the array-by-ref parameter shape that makes writes stick."
+    snippet: |
+      void read_X(X &list[], int count) {}
+    highlights: ["X &list[]"]
+    used_in: [Q3]
+  see_decompose:
+    snippet: |
+      void read_book(book &list[], int count) {
+        // &list[] aliases caller's array
+      }
+    correct_atoms: [RW-02, PC-04]
+    distractors: [RW-01, RW-03, R-01]
+acceptance:
+  memorize: ["<=7 words", "Mentions & / list / type"]
+  write: ["L2 must include '&list[]'"]
+lint:
+  forbid_tokens: ["*list", "*arr"]
+  miller_max_words: 7
+status: locked

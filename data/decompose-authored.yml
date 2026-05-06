@@ -1,0 +1,2741 @@
+# Hand-authored decompose cards. Each has a specific question + 1 correct + 3 false answers.
+# Generator reads this → outputs data/see-decompose-cards.json
+
+# ═══════════════════════════════════════════════════════════════
+# L-1: Philosophy (P-01 to P-07)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: P-01
+  code: |
+    #include <iostream>
+    using namespace std;
+    int main() {
+      cout << "Hello" << endl;
+      return 0;
+    }
+  question: "What does this code do when you run it?"
+  correct: "The computer executes each instruction in order, printing Hello to the terminal"
+  distractors:
+    - "It saves the text Hello into a file called main.cpp"
+    - "It compiles the code into machine language but produces no output"
+    - "It defines a function but nothing happens until you call it separately"
+  explanation: "A program is a sequence of instructions the computer runs top-to-bottom."
+
+- atomId: P-02
+  code: |
+    #include <iostream>
+    using namespace std;
+    int main() {
+      cout << "Hello" << endl;
+      return 0;
+    }
+  question: "What IS this text you're reading?"
+  correct: "A program — text instructions that tell the computer what to do"
+  distractors:
+    - "A compiled binary that the CPU executes directly"
+    - "A terminal command that prints output immediately"
+    - "A configuration file that sets up the compiler"
+  explanation: "Source code is human-readable text instructions."
+
+- atomId: P-03
+  code: |
+    // File: hello.cpp
+    #include <iostream>
+    using namespace std;
+    int main() {
+      cout << "Hello" << endl;
+      return 0;
+    }
+  question: "What kind of file does this source code live in?"
+  correct: "A .cpp file — the text file the compiler reads as input"
+  distractors:
+    - "A .exe file — the program that runs on the computer"
+    - "A .h file — a header that other programs include"
+    - "A .txt file — a plain document with no special meaning"
+  explanation: "C++ source code is stored in .cpp files."
+
+- atomId: P-04
+  code: |
+    // hello.cpp -> g++ compiles -> hello.exe
+    #include <iostream>
+    using namespace std;
+    int main() {
+      cout << "Hello" << endl;
+      return 0;
+    }
+  question: "What does the compiler (g++) do to this .cpp file?"
+  correct: "Converts the source code text into an executable (.exe) the CPU can run"
+  distractors:
+    - "Runs each line one at a time and shows the output immediately"
+    - "Checks for spelling mistakes in the comments only"
+    - "Uploads the file to a server where it gets interpreted"
+  explanation: "The compiler transforms human-readable source into machine-executable binary."
+
+- atomId: P-05
+  code: |
+    int main() {
+      cout << "Hello" << endl;  // line 1: prints Hello
+      return 0;                 // line 2: exits
+    }
+  question: "What happens when you run the compiled .exe?"
+  correct: "The CPU executes each instruction in sequence — prints Hello then exits"
+  distractors:
+    - "The compiler reads the file again and checks for errors"
+    - "The operating system displays the source code in a text editor"
+    - "Nothing happens until you type input at the keyboard"
+  explanation: "Running the exe executes the compiled instructions in order."
+
+- atomId: P-06
+  code: |
+    int main() {
+      cout << "Hello" << endl;
+      cout << "World" << endl;
+      return 0;
+    }
+  question: "Where does the text Hello and World appear?"
+  correct: "In the terminal — the text window where program output is displayed"
+  distractors:
+    - "In the .cpp source file as a new comment"
+    - "In a pop-up dialog box on the desktop"
+    - "In the compiler's error log"
+  explanation: "cout output appears in the terminal (console window)."
+
+- atomId: P-07
+  code: |
+    int main() {
+      int age;
+      cout << "Enter age: ";
+      cin >> age;
+      cout << age << endl;
+      return 0;
+    }
+  question: "How does the user provide the value for age?"
+  correct: "By typing it in the terminal — the same place output appears"
+  distractors:
+    - "By editing the source code and recompiling"
+    - "By clicking a button in a graphical interface"
+    - "By passing it as a command-line argument when compiling"
+  explanation: "Input is typed in the terminal during program execution."
+
+# ═══════════════════════════════════════════════════════════════
+# L0: Syntax basics (S-01 to S-10)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: S-01
+  code: |
+    #include <iostream>
+    using namespace std;
+    int main() {
+      cout << "Hello" << endl;
+      return 0;
+    }
+  question: "What does #include <iostream> do?"
+  correct: "Includes the I/O library so cout and cin are available"
+  distractors:
+    - "Imports the std namespace so you don't need std:: prefix"
+    - "Defines the main function as the program entry point"
+    - "Creates a string variable called iostream"
+  explanation: "#include adds a library's declarations to your program."
+
+- atomId: S-02
+  code: |
+    #include <iostream>
+    using namespace std;
+    int main() {
+      cout << "Hello" << endl;
+      return 0;
+    }
+  question: "What does 'using namespace std;' allow you to do?"
+  correct: "Write cout and endl without the std:: prefix"
+  distractors:
+    - "Include the iostream library for input and output"
+    - "Define main() as the program's starting point"
+    - "Create variables without declaring their type"
+  explanation: "using namespace std; lets you skip writing std:: before standard names."
+
+- atomId: S-03
+  code: |
+    #include <iostream>
+    using namespace std;
+    int main() {
+      cout << "Hello" << endl;
+      return 0;
+    }
+  question: "What does int main() { ... } represent?"
+  correct: "The program entry point — execution starts here"
+  distractors:
+    - "A variable declaration that stores an integer called main"
+    - "A loop that repeats the body until it returns 0"
+    - "A library function that gets called by iostream"
+  explanation: "int main() is where every C++ program begins executing."
+
+- atomId: S-04
+  code: |
+    int x = 5;
+    cout << x << endl;
+  question: "What does the ; at the end of each line do?"
+  correct: "Ends the statement — tells the compiler this instruction is complete"
+  distractors:
+    - "Assigns a value to the variable on that line"
+    - "Adds a newline character to the output"
+    - "Separates the variable name from its type"
+  explanation: "Every C++ statement must end with a semicolon."
+
+- atomId: S-05
+  code: |
+    int main() {
+      cout << "Hello" << endl;
+      return 0;
+    }
+  question: "What does the { after int main() do?"
+  correct: "Opens a code block — marks where the function body begins"
+  distractors:
+    - "Creates a new variable scope that lasts forever"
+    - "Starts a loop that repeats the enclosed code"
+    - "Includes a library needed by the function"
+  explanation: "{ opens a block of code (function body, loop body, etc)."
+
+- atomId: S-06
+  code: |
+    int main() {
+      cout << "Hello" << endl;
+      return 0;
+    }
+  question: "What does the } at the end do?"
+  correct: "Closes the code block — marks where the function body ends"
+  distractors:
+    - "Terminates the program and returns control to the OS"
+    - "Ends the #include statement that was opened earlier"
+    - "Outputs a closing bracket character to the terminal"
+  explanation: "} closes the block opened by the matching {."
+
+- atomId: S-07
+  code: |
+    int main() {
+      cout << "Hello" << endl;
+      return 0;
+    }
+  question: "What does 'return 0;' do at the end of main?"
+  correct: "Ends main and tells the OS the program finished successfully"
+  distractors:
+    - "Prints the number 0 to the terminal"
+    - "Resets all variables back to zero before exiting"
+    - "Returns to the beginning of main to run again"
+  explanation: "return 0; exits main with success code 0."
+
+- atomId: S-08
+  code: |
+    int x = 5;
+    // declare counter
+    int count = 0;
+  question: "What does // declare counter do?"
+  correct: "Nothing at runtime — it's a comment for humans reading the code"
+  distractors:
+    - "Declares a variable called counter with no initial value"
+    - "Tells the compiler to count how many variables exist"
+    - "Outputs the text 'declare counter' to the terminal"
+  explanation: "// starts a single-line comment; the compiler ignores it."
+
+- atomId: S-09
+  code: |
+    int    x   =   5 ;
+    cout<<x<<endl;
+  question: "Does the extra whitespace (spaces) affect how this code runs?"
+  correct: "No — whitespace between tokens is ignored by the compiler"
+  distractors:
+    - "Yes — extra spaces cause a compilation error"
+    - "Yes — spaces are added to the output when printing x"
+    - "Yes — it changes x's value by padding with zeros"
+  explanation: "Whitespace (spaces, tabs) between tokens doesn't affect meaning."
+
+- atomId: S-10
+  code: |
+    int main() {
+    int x = 5;
+        cout << x << endl;
+      return 0;
+    }
+  question: "Does the inconsistent indentation cause an error?"
+  correct: "No — indentation is just style; the compiler doesn't care"
+  distractors:
+    - "Yes — code must be indented exactly 2 spaces per level"
+    - "Yes — return must be at the same indent as int x"
+    - "Yes — cout must be indented less than return"
+  explanation: "Indentation is a readability convention, not syntax."
+
+# ═══════════════════════════════════════════════════════════════
+# L1: Output (O-01 to O-13)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: O-01
+  code: |
+    cout << "Hello" << endl;
+  question: "What does cout do?"
+  correct: "Sends output to the terminal for the user to see"
+  distractors:
+    - "Reads input from the keyboard into a variable"
+    - "Creates a new string variable named Hello"
+    - "Opens a file for writing text data"
+  explanation: "cout is the standard output stream — it prints to the terminal."
+
+- atomId: O-02
+  code: |
+    cout << "Hello" << endl;
+  question: "What does the << operator do here?"
+  correct: "Sends (inserts) the value on its right into the output stream"
+  distractors:
+    - "Compares two values and returns true or false"
+    - "Reads input from the terminal into a variable"
+    - "Shifts the bits of a number to the left"
+  explanation: "<< is the insertion operator — it feeds values into cout."
+
+- atomId: O-03
+  code: |
+    cout << "hello, world" << endl;
+  question: "What does \"hello, world\" in quotes produce?"
+  correct: "Prints the exact text hello, world to the terminal"
+  distractors:
+    - "Creates a variable named hello with value world"
+    - "Compares the string hello with the string world"
+    - "Reads the words hello and world from the keyboard"
+  explanation: "A string literal in quotes is printed exactly as written."
+
+- atomId: O-04
+  code: |
+    cout << 5 << endl;
+  question: "What does cout << 5 output?"
+  correct: "Prints the number 5 to the terminal"
+  distractors:
+    - "Stores the value 5 in a variable called cout"
+    - "Reads 5 characters of input from the keyboard"
+    - "Creates an integer variable initialized to 5"
+  explanation: "cout << number prints the numeric value directly."
+
+- atomId: O-05
+  code: |
+    cout << "Hello" << endl;
+    cout << "World" << endl;
+  question: "What does endl do?"
+  correct: "Moves the cursor to a new line after printing"
+  distractors:
+    - "Ends the entire program and returns to the OS"
+    - "Closes the output stream so no more printing is possible"
+    - "Adds a semicolon to terminate the statement"
+  explanation: "endl outputs a newline character and flushes the stream."
+
+- atomId: O-06
+  code: |
+    cout << "Hello\nWorld" << endl;
+  question: "What does \\n inside the string do?"
+  correct: "Inserts a newline — same effect as endl but inside a string"
+  distractors:
+    - "Prints a literal backslash followed by the letter n"
+    - "Ends the string at that point and starts a new one"
+    - "Reads input from the user before continuing"
+  explanation: "\\n is an escape sequence that produces a newline character."
+
+- atomId: O-07
+  code: |
+    int x = 5;
+    string name = "Alice";
+    cout << "Name: " << name << " Score: " << x << endl;
+  question: "What does chaining multiple << operators do?"
+  correct: "Sends multiple values to cout in sequence on the same line"
+  distractors:
+    - "Each << creates a separate output line with a newline"
+    - "Only the last value after << is actually printed"
+    - "Multiplies all the values together before printing"
+  explanation: "Chaining << prints each value one after another."
+
+- atomId: O-08
+  code: |
+    int id = 42;
+    printf("ID is %d\n", id);
+  question: "What does printf do?"
+  correct: "Outputs formatted text to the terminal using a format string"
+  distractors:
+    - "Reads formatted input from the keyboard"
+    - "Creates a new string variable with the formatted text"
+    - "Writes the text to a file instead of the terminal"
+  explanation: "printf outputs using a format string with placeholders."
+
+- atomId: O-09
+  code: |
+    int score = 95;
+    printf("Score: %d\n", score);
+  question: "What does %d in the format string do?"
+  correct: "Gets replaced by the integer value of score (95)"
+  distractors:
+    - "Prints the literal text %d on the terminal"
+    - "Reads an integer from the keyboard into score"
+    - "Formats score as a decimal (double) with decimal places"
+  explanation: "%d is the format specifier for integers in printf."
+
+- atomId: O-10
+  code: |
+    string name = "Alice";
+    printf("Name: %s\n", name.c_str());
+  question: "What does %s in the format string do?"
+  correct: "Gets replaced by the string value (Alice)"
+  distractors:
+    - "Prints the literal text %s on the terminal"
+    - "Formats the value as a signed integer"
+    - "Skips that position and prints nothing"
+  explanation: "%s is the format specifier for C-strings in printf."
+
+- atomId: O-11
+  code: |
+    printf("Hello\nWorld\n");
+  question: "What does \\n at the end of the printf format string do?"
+  correct: "Prints a newline character — moves cursor to next line"
+  distractors:
+    - "Ends the printf statement (like a semicolon)"
+    - "Prints the letter n after the text"
+    - "Signals that no more arguments follow"
+  explanation: "\\n in printf produces a newline, just like in cout strings."
+
+- atomId: O-12
+  code: |
+    int x = 5;
+    double y = 3.14;
+    printf("x=%d y=%.2f\n", x, y);
+  question: "What is the FIRST argument to printf?"
+  correct: "The format string — a template with %d/%f placeholders for the other arguments"
+  distractors:
+    - "The variable that receives the formatted output"
+    - "The number of values to print"
+    - "The file name to write output to"
+  explanation: "printf's first argument is always the format string."
+
+- atomId: O-13
+  code: |
+    int a = 10, b = 20;
+    printf("a=%d b=%d\n", a, b);
+  question: "How do the extra arguments (a, b) relate to the format string?"
+  correct: "Each fills the next %d placeholder in order — a fills first %d, b fills second"
+  distractors:
+    - "They are added together and printed as one number"
+    - "Only the last argument is actually used by printf"
+    - "They specify how many characters wide each field should be"
+  explanation: "Extra arguments fill placeholders left-to-right."
+
+# ═══════════════════════════════════════════════════════════════
+# L2: Variables (V-01 to V-20)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: V-01
+  code: |
+    int age = 25;
+    cout << age << endl;
+  question: "What is 'age' in this code?"
+  correct: "A named memory box that stores the value 25"
+  distractors:
+    - "A function that returns the number 25"
+    - "A type keyword like int or double"
+    - "A constant that can never change"
+  explanation: "A variable is a named location in memory that holds a value."
+
+- atomId: V-02
+  code: |
+    int counter = 0;
+    counter = counter + 1;
+  question: "What is the purpose of the name 'counter'?"
+  correct: "It's the label you use to refer to this specific memory box"
+  distractors:
+    - "It's a reserved keyword that counts automatically"
+    - "It's a type that specifies how the variable behaves"
+    - "It determines how much memory is allocated"
+  explanation: "The variable name is how you access its stored value."
+
+- atomId: V-03
+  code: |
+    int age = 25;
+    double gpa = 3.8;
+    string name = "Alice";
+  question: "What do int, double, and string specify?"
+  correct: "The type of value each variable can store"
+  distractors:
+    - "The maximum number of characters in the variable name"
+    - "How many times the variable can be assigned"
+    - "Whether the variable is local or global"
+  explanation: "The type determines what kind of value a variable holds."
+
+- atomId: V-04
+  code: |
+    int x;
+    double y;
+    string name;
+  question: "What does 'int x;' do?"
+  correct: "Declares a variable — creates a memory box named x of type int"
+  distractors:
+    - "Prints the current value of x to the terminal"
+    - "Reads an integer from the keyboard into x"
+    - "Defines a function named x that returns an int"
+  explanation: "Declaration creates the variable: type name;"
+
+- atomId: V-05
+  code: |
+    int x = 5;
+    double pi = 3.14;
+  question: "What does '= 5' do in 'int x = 5;'?"
+  correct: "Initializes x — stores the starting value 5 in the box at creation"
+  distractors:
+    - "Compares x with 5 and returns true or false"
+    - "Declares that x can only ever hold the value 5"
+    - "Creates a constant named 5 that equals x"
+  explanation: "Initialization gives a variable its first value at declaration."
+
+- atomId: V-06
+  code: |
+    int x = 5;
+    cout << x << endl;
+  question: "What does cout << x do?"
+  correct: "Reads the value stored in x (5) and prints it to the terminal"
+  distractors:
+    - "Stores the text 'x' into cout for later use"
+    - "Deletes the value in x after printing it"
+    - "Moves x's value into a different variable called cout"
+  explanation: "Using a variable name in an expression reads its current value."
+
+- atomId: V-07
+  code: |
+    int x = 5;
+    x = 10;
+    cout << x << endl;
+  question: "What does 'x = 10;' do after x already exists?"
+  correct: "Overwrites x's stored value — changes it from 5 to 10"
+  distractors:
+    - "Creates a second variable named x with value 10"
+    - "Compares x with 10 and prints true or false"
+    - "Causes an error because x was already assigned"
+  explanation: "Assignment to an existing variable replaces its value."
+
+- atomId: V-08
+  code: |
+    int x = 5;
+    x = x + 1;
+  question: "Does = here mean 'equals' like in math?"
+  correct: "No — = means 'store the right side value into the left side box'"
+  distractors:
+    - "Yes — it checks if x equals x + 1 and returns a boolean"
+    - "Yes — it creates an equation that stays true forever"
+    - "No — it means 'swap the values of left and right'"
+  explanation: "= is assignment (store), not equality (compare). == is equality."
+
+- atomId: V-09
+  code: |
+    cout << x << endl;
+    int x = 5;
+  question: "What's wrong with this code?"
+  correct: "x is used before it's declared — variables must be declared first"
+  distractors:
+    - "Nothing — C++ figures out what x is from context"
+    - "cout cannot print integer values, only strings"
+    - "endl must come on its own separate line"
+  explanation: "A variable must be declared before any line that uses it."
+
+- atomId: V-10
+  code: |
+    int age = 25;
+    int count = -3;
+    int total = 1000000;
+  question: "What kind of values can an int variable store?"
+  correct: "Whole numbers only (positive, negative, or zero)"
+  distractors:
+    - "Any number including decimals like 3.14"
+    - "Only positive numbers from 0 upward"
+    - "Single characters like 'A' or '9'"
+  explanation: "int stores integers — no decimal point."
+
+- atomId: V-11
+  code: |
+    double price = 9.99;
+    double pi = 3.14159;
+  question: "What kind of values can a double variable store?"
+  correct: "Numbers with decimal points (floating-point values)"
+  distractors:
+    - "Only whole numbers, same as int but larger range"
+    - "Two integers stored as a pair"
+    - "Text strings that contain numeric digits"
+  explanation: "double stores floating-point (decimal) numbers."
+
+- atomId: V-12
+  code: |
+    string name = "Alice";
+    string greeting = "Hello World";
+  question: "What kind of values can a string variable store?"
+  correct: "Text — a sequence of characters in double quotes"
+  distractors:
+    - "A single character only, like 'A'"
+    - "Numbers that are formatted as text"
+    - "A fixed-length array of exactly 10 characters"
+  explanation: "string holds text of any length."
+
+- atomId: V-13
+  code: |
+    bool found = true;
+    bool done = false;
+  question: "What kind of values can a bool variable store?"
+  correct: "Only true or false — nothing else"
+  distractors:
+    - "Any integer where 0 means false and others mean true"
+    - "The strings \"true\" or \"false\" as text"
+    - "A yes/no/maybe three-state value"
+  explanation: "bool holds exactly one of two values: true or false."
+
+- atomId: V-14
+  code: |
+    char letter = 'A';
+    char digit = '9';
+  question: "What kind of values can a char variable store?"
+  correct: "A single character — one letter, digit, or symbol"
+  distractors:
+    - "A string of multiple characters in single quotes"
+    - "A boolean value represented as a letter"
+    - "An integer that counts characters in a string"
+  explanation: "char holds exactly one character in single quotes."
+
+- atomId: V-15
+  code: |
+    int x = 5;
+    int y = -3;
+    int sum = x + y;
+  question: "What is 5 in 'int x = 5;'?"
+  correct: "An int literal — a fixed integer value written directly in code"
+  distractors:
+    - "A variable named 5 that stores an integer"
+    - "A string containing the character '5'"
+    - "A function that returns the number five"
+  explanation: "5 is a literal: a fixed value written directly in source code."
+
+- atomId: V-16
+  code: |
+    double pi = 3.14;
+    double half = 0.5;
+  question: "What is 3.14 in 'double pi = 3.14;'?"
+  correct: "A double literal — a fixed decimal value written directly in code"
+  distractors:
+    - "An int literal that gets converted to double"
+    - "A variable named 3.14"
+    - "A format specifier for printing decimals"
+  explanation: "3.14 is a floating-point literal."
+
+- atomId: V-17
+  code: |
+    string msg = "hello";
+    cout << msg << endl;
+  question: "What is \"hello\" in 'string msg = \"hello\";'?"
+  correct: "A string literal — fixed text written directly in double quotes"
+  distractors:
+    - "A char literal containing five characters"
+    - "A variable name that references another string"
+    - "A command that prints hello immediately"
+  explanation: "\"hello\" is a string literal — text in double quotes."
+
+- atomId: V-18
+  code: |
+    char grade = 'A';
+    char newline = '\n';
+  question: "What is 'A' in 'char grade = 'A';'?"
+  correct: "A char literal — a single character in single quotes"
+  distractors:
+    - "A string containing one character"
+    - "A variable name that stores the letter A"
+    - "An integer with the ASCII value of A"
+  explanation: "'A' is a char literal — single character in single quotes."
+
+- atomId: V-19
+  code: |
+    bool ready = true;
+    bool empty = false;
+  question: "What are true and false in this code?"
+  correct: "Bool literals — the only two values a bool variable can hold"
+  distractors:
+    - "String values that happen to look like keywords"
+    - "Integer constants where true=1 and false=0"
+    - "Function calls that check a condition"
+  explanation: "true and false are the two boolean literals."
+
+- atomId: V-20
+  code: |
+    #include <string>
+    #include <iostream>
+    using namespace std;
+    int main() {
+      string name = "Alice";
+      cout << name << endl;
+      return 0;
+    }
+  question: "Why is #include <string> needed here?"
+  correct: "The string type requires its own library include to be available"
+  distractors:
+    - "It's not needed — string is built into C++ without any include"
+    - "It makes cout able to print text"
+    - "It allows using double-quotes for text values"
+  explanation: "string is not built-in; it needs #include <string>."
+
+# ═══════════════════════════════════════════════════════════════
+# L3: Input (I-01 to I-07)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: I-01
+  code: |
+    int age;
+    cout << "Enter age: ";
+    cin >> age;
+  question: "What does cin do?"
+  correct: "Reads input that the user types in the terminal"
+  distractors:
+    - "Prints output to the terminal screen"
+    - "Creates a new variable to store data"
+    - "Opens a file for reading text"
+  explanation: "cin is the standard input stream — it reads from the keyboard."
+
+- atomId: I-02
+  code: |
+    int age;
+    cin >> age;
+  question: "What does the >> operator do here?"
+  correct: "Extracts (reads) a value from the input stream into the variable age"
+  distractors:
+    - "Sends the value of age to the output stream"
+    - "Shifts the bits of age to the right"
+    - "Compares cin with age and returns true or false"
+  explanation: ">> is the extraction operator — it reads from cin into a variable."
+
+- atomId: I-03
+  code: |
+    int n;
+    cin >> n;
+    cout << n << endl;
+  question: "What happens when execution reaches 'cin >> n;'?"
+  correct: "The program pauses and waits for the user to type a value and press Enter"
+  distractors:
+    - "n is immediately set to 0 without waiting"
+    - "The program skips this line if no input is available"
+    - "An error occurs because n has no value yet"
+  explanation: "cin >> blocks (waits) until the user provides input."
+
+- atomId: I-04
+  code: |
+    int a, b;
+    cin >> a >> b;
+  question: "If the user types '5 10' (with a space), what happens?"
+  correct: "a gets 5 and b gets 10 — whitespace separates the two input values"
+  distractors:
+    - "a gets the string '5 10' as one value"
+    - "a gets 510 (space is ignored within the number)"
+    - "Only a gets a value; b stays uninitialized"
+  explanation: "Whitespace (spaces, tabs, newlines) delimits separate input values."
+
+- atomId: I-05
+  code: |
+    int n;
+    cin >> n;
+    cout << n + 1 << endl;
+  question: "If the user types '7', what type is the value stored in n?"
+  correct: "int — cin automatically parses the text '7' into an integer matching n's type"
+  distractors:
+    - "string — all keyboard input is stored as text"
+    - "char — because '7' is a single character"
+    - "double — cin always reads decimal numbers"
+  explanation: "cin >> parses input text to match the variable's declared type."
+
+- atomId: I-06
+  code: |
+    int a, b, c;
+    cin >> a >> b >> c;
+  question: "What does chaining >> operators do?"
+  correct: "Reads multiple values in sequence — a then b then c from one input line"
+  distractors:
+    - "Reads only the last variable (c) and ignores a and b"
+    - "Stores all three values into c as a sum"
+    - "Creates three separate input prompts one at a time"
+  explanation: "Chaining >> reads multiple values separated by whitespace."
+
+- atomId: I-07
+  code: |
+    string line;
+    getline(cin, line);
+    cout << line << endl;
+  question: "How does getline differ from cin >>?"
+  correct: "getline reads the entire line including spaces; cin >> stops at the first space"
+  distractors:
+    - "getline reads from a file; cin >> reads from the keyboard"
+    - "getline only reads one character; cin >> reads whole words"
+    - "getline automatically adds a newline; cin >> does not"
+  explanation: "getline(cin, s) reads everything until Enter, spaces included."
+
+# ═══════════════════════════════════════════════════════════════
+# L4: Arithmetic (A-01 to A-11)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: A-01
+  code: |
+    int a = 10, b = 3;
+    int sum = a + b;
+    cout << sum << endl;
+  question: "What does + do here?"
+  correct: "Adds the values of a and b together, producing 13"
+  distractors:
+    - "Concatenates a and b as strings, producing '103'"
+    - "Stores b into a, overwriting a's value"
+    - "Compares a and b, returning true if equal"
+  explanation: "+ is the addition operator for numeric values."
+
+- atomId: A-02
+  code: |
+    int a = 10, b = 3;
+    int diff = a - b;
+    cout << diff << endl;
+  question: "What does - do here?"
+  correct: "Subtracts b from a, producing 7"
+  distractors:
+    - "Makes b negative and stores it in diff"
+    - "Removes b characters from the end of a"
+    - "Checks if a is less than b"
+  explanation: "- is the subtraction operator."
+
+- atomId: A-03
+  code: |
+    int a = 10, b = 3;
+    int product = a * b;
+    cout << product << endl;
+  question: "What does * do here?"
+  correct: "Multiplies a and b together, producing 30"
+  distractors:
+    - "Dereferences a pointer named a"
+    - "Repeats the value of a exactly b times as a string"
+    - "Raises a to the power of b"
+  explanation: "* is the multiplication operator."
+
+- atomId: A-04
+  code: |
+    int a = 10, b = 3;
+    int quotient = a / b;
+    cout << quotient << endl;
+  question: "What does / do here?"
+  correct: "Divides a by b — gives the quotient"
+  distractors:
+    - "Starts a comment until end of line"
+    - "Calculates the remainder of a divided by b"
+    - "Formats a as a fraction with b as denominator"
+  explanation: "/ is the division operator."
+
+- atomId: A-05
+  code: |
+    int a = 10, b = 3;
+    int rem = a % b;
+    cout << rem << endl;
+  question: "What does % do here?"
+  correct: "Gives the remainder when a is divided by b (10 % 3 = 1)"
+  distractors:
+    - "Calculates a percentage of b"
+    - "Divides a by b and gives the quotient"
+    - "Formats a number as a percentage string"
+  explanation: "% is the modulo (remainder) operator."
+
+- atomId: A-06
+  code: |
+    int result = 5 / 2;
+    cout << result << endl;
+  question: "What value does 5 / 2 produce when both are ints?"
+  correct: "2 — integer division truncates (drops) the decimal part"
+  distractors:
+    - "2.5 — division always gives the exact result"
+    - "3 — integer division rounds up"
+    - "0 — division of small numbers gives zero"
+  explanation: "int / int truncates toward zero. 5/2 = 2, not 2.5."
+
+- atomId: A-07
+  code: |
+    int x = 2 + 3 * 4;
+    cout << x << endl;
+  question: "What is x after this line? (hint: operator precedence)"
+  correct: "14 — multiplication (*) happens before addition (+), so 3*4=12, then 2+12=14"
+  distractors:
+    - "20 — operations happen left to right, so (2+3)*4=20"
+    - "24 — both operations produce 12 each"
+    - "9 — addition happens first, so 2+3=5, then 5*4 is truncated"
+  explanation: "* / % have higher precedence than + -, just like in math."
+
+- atomId: A-08
+  code: |
+    int x = (2 + 3) * 4;
+    cout << x << endl;
+  question: "What do the parentheses do here?"
+  correct: "Force 2+3 to happen first, overriding normal * before + precedence"
+  distractors:
+    - "They create a function call with arguments 2 and 3"
+    - "They cast the result to a different type"
+    - "They have no effect — + already happens before *"
+  explanation: "() override default operator precedence, just like in math."
+
+- atomId: A-09
+  code: |
+    int x = 5;
+    x += 3;
+    cout << x << endl;
+  question: "What does x += 3 do?"
+  correct: "Adds 3 to x's current value and stores the result back in x (5+3=8)"
+  distractors:
+    - "Compares x with 3 and returns true if x is bigger"
+    - "Creates a new variable that holds x plus 3"
+    - "Concatenates the digit 3 onto x as a string"
+  explanation: "+= is shorthand for x = x + 3. Also -= *= /= work the same way."
+
+- atomId: A-10
+  code: |
+    int i = 0;
+    i++;
+    cout << i << endl;
+  question: "What does i++ do?"
+  correct: "Adds 1 to i — same as i = i + 1"
+  distractors:
+    - "Doubles the value of i"
+    - "Creates a copy of i with one added"
+    - "Moves to the next character in a string"
+  explanation: "++ increments by 1. It's shorthand for i = i + 1."
+
+- atomId: A-11
+  code: |
+    int n = 5;
+    n--;
+    cout << n << endl;
+  question: "What does n-- do?"
+  correct: "Subtracts 1 from n — same as n = n - 1 (result: 4)"
+  distractors:
+    - "Sets n to negative 5"
+    - "Divides n by 2"
+    - "Deletes the variable n from memory"
+  explanation: "-- decrements by 1. Shorthand for n = n - 1."
+
+# ═══════════════════════════════════════════════════════════════
+# L5: Comparison (C-01 to C-07)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: C-01
+  code: |
+    int x = 10;
+    if (x == 10) {
+      cout << "yes" << endl;
+    }
+  question: "What does == do?"
+  correct: "Tests if two values are equal — returns true if they are"
+  distractors:
+    - "Assigns the right value into the left variable"
+    - "Creates a copy of the variable on the right"
+    - "Adds the two values together"
+  explanation: "== is the equality comparison operator. Don't confuse with = (assignment)."
+
+- atomId: C-02
+  code: |
+    int x = 10;
+    if (x != 5) {
+      cout << "different" << endl;
+    }
+  question: "What does != do?"
+  correct: "Tests if two values are NOT equal — returns true if they differ"
+  distractors:
+    - "Assigns the negative of 5 to x"
+    - "Removes the value from x, making it empty"
+    - "Checks if x is less than or equal to 5"
+  explanation: "!= returns true when the two sides have different values."
+
+- atomId: C-03
+  code: |
+    for (int i = 0; i < 5; i++) {
+      cout << i << endl;
+    }
+  question: "What does i < 5 evaluate to?"
+  correct: "true if i is less than 5, false otherwise"
+  distractors:
+    - "The difference between i and 5"
+    - "Assigns 5 to i if i is smaller"
+    - "Shifts i left by 5 bit positions"
+  explanation: "< is less-than comparison — returns a bool."
+
+- atomId: C-04
+  code: |
+    int x = 10;
+    if (x > 5) {
+      cout << "big" << endl;
+    }
+  question: "What does x > 5 evaluate to?"
+  correct: "true if x is greater than 5, false otherwise"
+  distractors:
+    - "The value of x minus 5"
+    - "Shifts x right by 5 positions"
+    - "Stores 5 into x if x is larger"
+  explanation: "> is greater-than comparison — returns a bool."
+
+- atomId: C-05
+  code: |
+    int x = 5;
+    if (x <= 5) {
+      cout << "yes" << endl;
+    }
+  question: "What does x <= 5 evaluate to?"
+  correct: "true if x is less than OR equal to 5"
+  distractors:
+    - "true only if x is strictly less than 5 (not equal)"
+    - "Assigns 5 to x then returns true"
+    - "Subtracts 5 from x and checks if result is negative"
+  explanation: "<= means less than or equal — true when x is 5 or lower."
+
+- atomId: C-06
+  code: |
+    int x = 10;
+    if (x >= 7) {
+      cout << "pass" << endl;
+    }
+  question: "What does x >= 7 evaluate to?"
+  correct: "true if x is greater than OR equal to 7"
+  distractors:
+    - "true only if x is strictly greater (not equal to 7)"
+    - "Adds 7 to x and stores the result"
+    - "Checks if x has at least 7 digits"
+  explanation: ">= means greater than or equal."
+
+- atomId: C-07
+  code: |
+    int x = 10;
+    bool big = (x > 5);
+    cout << big << endl;
+  question: "What type does x > 5 produce?"
+  correct: "bool — all comparisons return either true or false"
+  distractors:
+    - "int — comparisons return 1 or 0 as integers"
+    - "string — returns \"true\" or \"false\" as text"
+    - "double — returns the difference between the values"
+  explanation: "Every comparison operator returns a bool value."
+
+# ═══════════════════════════════════════════════════════════════
+# L6: Logic (L-01 to L-03)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: L-01
+  code: |
+    int x = 10;
+    if (x > 5 && x < 20) {
+      cout << "in range" << endl;
+    }
+  question: "What does && do?"
+  correct: "Returns true only if BOTH sides are true (logical AND)"
+  distractors:
+    - "Returns true if EITHER side is true"
+    - "Combines two numbers by adding them together"
+    - "References the variable on the right (creates an alias)"
+  explanation: "&& is logical AND — both conditions must be true."
+
+- atomId: L-02
+  code: |
+    int x = 10;
+    if (x < 5 || x > 8) {
+      cout << "outside" << endl;
+    }
+  question: "What does || do?"
+  correct: "Returns true if EITHER side (or both) is true (logical OR)"
+  distractors:
+    - "Returns true only if BOTH sides are true"
+    - "Returns true only if exactly one side is true"
+    - "Concatenates two strings together"
+  explanation: "|| is logical OR — at least one condition must be true."
+
+- atomId: L-03
+  code: |
+    bool done = false;
+    if (!done) {
+      cout << "keep going" << endl;
+    }
+  question: "What does ! do?"
+  correct: "Flips the bool — !false becomes true, !true becomes false (logical NOT)"
+  distractors:
+    - "Checks if the variable is not equal to zero"
+    - "Deletes the variable from memory"
+    - "Makes the variable negative (multiplies by -1)"
+  explanation: "! is logical NOT — it inverts a boolean value."
+
+# ═══════════════════════════════════════════════════════════════
+# L7: If/else (F-01 to F-05)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: F-01
+  code: |
+    int x = 10;
+    if (x > 5) {
+      cout << "big" << endl;
+    }
+  question: "What does the if statement do?"
+  correct: "Runs the body { ... } only if the condition (x > 5) is true"
+  distractors:
+    - "Runs the body repeatedly while the condition is true"
+    - "Always runs the body and then checks the condition after"
+    - "Assigns the value true to x if x is greater than 5"
+  explanation: "if (condition) { body } — runs body once if condition is true."
+
+- atomId: F-02
+  code: |
+    int x = 3;
+    if (x > 5) {
+      cout << "big" << endl;
+    } else {
+      cout << "small" << endl;
+    }
+  question: "When does the else block run?"
+  correct: "Only when the if condition is false — here x is 3, so 'small' prints"
+  distractors:
+    - "Always — else runs regardless of the condition"
+    - "When the if body throws an error"
+    - "After the if body finishes, as a second step"
+  explanation: "else provides the alternative path when if's condition is false."
+
+- atomId: F-03
+  code: |
+    int x = 5;
+    if (x > 10) {
+      cout << "big" << endl;
+    } else if (x > 3) {
+      cout << "medium" << endl;
+    } else {
+      cout << "small" << endl;
+    }
+  question: "What does 'else if' do?"
+  correct: "Checks another condition if the previous if was false — chains multiple tests"
+  distractors:
+    - "Runs both the else block and the if block in sequence"
+    - "Creates a nested loop inside the else"
+    - "Checks the condition only if the previous if was TRUE"
+  explanation: "else if chains conditions — only the first true branch executes."
+
+- atomId: F-04
+  code: |
+    int x = 10;
+    if (x > 5) {
+      cout << "yes" << endl;
+    }
+  question: "What type must the expression inside if(...) be?"
+  correct: "bool (true/false) — the condition must evaluate to a boolean"
+  distractors:
+    - "int — any non-zero number means true"
+    - "string — the condition is a text expression"
+    - "void — the condition has no type"
+  explanation: "if requires a bool condition (or something convertible to bool)."
+
+- atomId: F-05
+  code: |
+    if (x > 5) {
+      cout << "yes" << endl;
+    }
+  question: "Why use { } even when the body is only one line?"
+  correct: "Prevents bugs — without braces, only the first line is in the body"
+  distractors:
+    - "Braces are required — the code won't compile without them"
+    - "Braces make the code run faster at runtime"
+    - "Braces create a new variable that stores the condition result"
+  explanation: "Always use { } to avoid accidental bugs with single-line bodies."
+
+# ═══════════════════════════════════════════════════════════════
+# L8: Loops (W-01 to W-10)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: W-01
+  code: |
+    int i = 0;
+    while (i < 5) {
+      cout << i << endl;
+      i++;
+    }
+  question: "What does the while loop do?"
+  correct: "Repeats the body as long as the condition (i < 5) stays true"
+  distractors:
+    - "Runs the body exactly once then checks the condition"
+    - "Runs the body a random number of times"
+    - "Waits for user input before running the body"
+  explanation: "while checks condition BEFORE each iteration; loops until false."
+
+- atomId: W-02
+  code: |
+    int n;
+    do {
+      cout << "Enter positive: ";
+      cin >> n;
+    } while (n <= 0);
+  question: "How does do-while differ from while?"
+  correct: "The body runs at least once BEFORE the condition is checked"
+  distractors:
+    - "It loops forever and never checks the condition"
+    - "It's identical to while — just different syntax"
+    - "It runs the body only if the condition is initially false"
+  explanation: "do { body } while (cond); guarantees at least one execution."
+
+- atomId: W-03
+  code: |
+    for (int i = 0; i < 5; i++) {
+      cout << i << " ";
+    }
+  question: "What are the three parts inside for(...)?"
+  correct: "init (int i=0); condition (i<5); step (i++) — setup, test, update"
+  distractors:
+    - "variable; value; type — declares and assigns in one line"
+    - "input; process; output — reads, computes, displays"
+    - "start; end; increment — defines a range of numbers"
+  explanation: "for (init; condition; step) — all loop control in one line."
+
+- atomId: W-04
+  code: |
+    for (int i = 0; i < 5; i++) {
+      cout << i << " ";
+    }
+  question: "When does 'int i = 0' (the init part) execute?"
+  correct: "Once only — before the very first iteration"
+  distractors:
+    - "Before every iteration, resetting i each time"
+    - "After every iteration, right before the condition check"
+    - "Only if the condition is true on the first check"
+  explanation: "The init part runs exactly once at the start of the for loop."
+
+- atomId: W-05
+  code: |
+    for (int i = 0; i < 5; i++) {
+      cout << i << " ";
+    }
+  question: "When is 'i < 5' (the condition) checked?"
+  correct: "Before EACH iteration — if false, the loop stops immediately"
+  distractors:
+    - "Only once at the beginning of the loop"
+    - "After each iteration, then it decides about the NEXT one"
+    - "Only at the end when the loop is about to finish"
+  explanation: "Condition is checked before every pass through the body."
+
+- atomId: W-06
+  code: |
+    for (int i = 0; i < 5; i++) {
+      cout << i << " ";
+    }
+  question: "When does 'i++' (the step) execute?"
+  correct: "After EACH iteration of the body — before the next condition check"
+  distractors:
+    - "Once at the very start, together with the init"
+    - "Only after the last iteration when the loop ends"
+    - "Before each iteration, right after the condition check"
+  explanation: "Step runs after each body execution, then condition is rechecked."
+
+- atomId: W-07
+  code: |
+    for (int i = 0; i < 10; i++) {
+      if (i == 5) break;
+      cout << i << " ";
+    }
+  question: "What does break do inside the loop?"
+  correct: "Immediately exits the loop — execution jumps to after the closing }"
+  distractors:
+    - "Skips the current iteration and continues with the next"
+    - "Pauses the loop until the user presses a key"
+    - "Ends the entire program, not just the loop"
+  explanation: "break terminates the innermost enclosing loop."
+
+- atomId: W-08
+  code: |
+    for (int i = 0; i < 5; i++) {
+      if (i == 2) continue;
+      cout << i << " ";
+    }
+  question: "What does continue do inside the loop?"
+  correct: "Skips the rest of THIS iteration and jumps to the next (step + condition check)"
+  distractors:
+    - "Exits the loop entirely, same as break"
+    - "Restarts the loop from the very beginning (i=0)"
+    - "Pauses execution and waits for user input"
+  explanation: "continue skips to the next iteration — doesn't exit the loop."
+
+- atomId: W-09
+  code: |
+    for (int r = 0; r < 3; r++) {
+      for (int c = 0; c < 4; c++) {
+        cout << r << c << " ";
+      }
+      cout << endl;
+    }
+  question: "What does having a for loop inside another for loop do?"
+  correct: "The inner loop runs fully for EACH iteration of the outer loop (nested loops)"
+  distractors:
+    - "Both loops run at the same time in parallel"
+    - "The inner loop only runs once total, not per outer iteration"
+    - "It causes a compilation error — loops cannot be nested"
+  explanation: "Nested loops: inner completes all iterations per one outer iteration."
+
+- atomId: W-10
+  code: |
+    while (true) {
+      cout << "forever" << endl;
+    }
+  question: "What happens with while(true)?"
+  correct: "The loop runs forever — the condition never becomes false"
+  distractors:
+    - "The loop runs exactly once then stops"
+    - "The compiler detects the infinite loop and refuses to compile"
+    - "It's the same as while(false) — the loop never runs"
+  explanation: "If the condition can never become false, the loop is infinite."
+
+# ═══════════════════════════════════════════════════════════════
+# L9: Functions (H-01 to H-10)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: H-01
+  code: |
+    void greet() {
+      cout << "Hello!" << endl;
+    }
+    int main() {
+      greet();
+      return 0;
+    }
+  question: "What is greet() in this code?"
+  correct: "A function — a named reusable block of code you can call"
+  distractors:
+    - "A variable that stores the text 'Hello!'"
+    - "A loop that prints Hello repeatedly"
+    - "A type declaration like int or string"
+  explanation: "A function packages code into a named unit you can invoke by name."
+
+- atomId: H-02
+  code: |
+    int add(int a, int b) {
+      return a + b;
+    }
+  question: "What does the 'int' before 'add' specify?"
+  correct: "The return type — this function gives back an integer value"
+  distractors:
+    - "The type of the first parameter a"
+    - "How many parameters the function takes"
+    - "The size in bytes of the function's code"
+  explanation: "Function signature: returnType name(params) { body }"
+
+- atomId: H-03
+  code: |
+    int add(int a, int b) {
+      return a + b;
+    }
+    int main() {
+      int result = add(3, 4);
+      cout << result << endl;
+      return 0;
+    }
+  question: "What does add(3, 4) do?"
+  correct: "Calls the add function with arguments 3 and 4, which returns 7"
+  distractors:
+    - "Creates a new function named add with values 3 and 4"
+    - "Declares two variables named 3 and 4 inside add"
+    - "Prints 3 and 4 to the terminal"
+  explanation: "Calling a function: name(arguments) — passes values and gets result."
+
+- atomId: H-04
+  code: |
+    int square(int x) {
+      return x * x;
+    }
+    int main() {
+      int result = square(5);
+      return 0;
+    }
+  question: "What happens to x when square(5) is called?"
+  correct: "x becomes a local copy containing 5 — a new box just for this call"
+  distractors:
+    - "x refers to the same memory as the 5 literal"
+    - "x is a global variable shared with main"
+    - "x doesn't get a value until return is reached"
+  explanation: "Parameters create new local variables initialized with the argument values."
+
+- atomId: H-05
+  code: |
+    int square(int x) {
+      return x * x;
+    }
+  question: "What does 'return x * x;' do?"
+  correct: "Sends the computed value (x*x) back to whoever called this function"
+  distractors:
+    - "Prints x*x to the terminal"
+    - "Stores x*x in a global variable for later"
+    - "Ends the program entirely with exit code x*x"
+  explanation: "return sends a value back to the caller and exits the function."
+
+- atomId: H-06
+  code: |
+    void greet() {
+      cout << "Hello!" << endl;
+    }
+  question: "What does 'void' as the return type mean?"
+  correct: "This function returns nothing — it just does work without giving back a value"
+  distractors:
+    - "The function returns zero (0) automatically"
+    - "The function can return any type it wants"
+    - "The function has no parameters"
+  explanation: "void means no return value. The function does work but sends nothing back."
+
+- atomId: H-07
+  code: |
+    int square(int n);    // prototype
+    int main() {
+      cout << square(4) << endl;
+      return 0;
+    }
+    int square(int n) {   // definition
+      return n * n;
+    }
+  question: "Why is the prototype 'int square(int n);' needed above main?"
+  correct: "So the compiler knows square exists before main tries to call it"
+  distractors:
+    - "It creates a second copy of the function for faster execution"
+    - "It makes square a global variable instead of a function"
+    - "It's optional — C++ can find functions defined below automatically"
+  explanation: "Functions must be declared (or defined) before they're called."
+
+- atomId: H-08
+  code: |
+    int square(int);      // prototype - parameter name optional
+    int add(int, int);
+  question: "What is this line (just the type + name + parameter types + semicolon)?"
+  correct: "A function prototype — declares the signature so it can be called later"
+  distractors:
+    - "A function call that runs the code"
+    - "A variable declaration of type int"
+    - "A commented-out function that won't compile"
+  explanation: "Prototype syntax: returnType name(paramTypes); — no body, just declares."
+
+- atomId: H-09
+  code: |
+    int compute() {
+      int local = 42;
+      return local;
+    }
+    int main() {
+      int x = compute();
+      // local doesn't exist here
+      return 0;
+    }
+  question: "What happens to 'local' when compute() returns?"
+  correct: "It's destroyed — local variables die when the function exits"
+  distractors:
+    - "It stays alive and can be accessed from main"
+    - "It becomes a global variable automatically"
+    - "Its value is stored permanently for the next function call"
+  explanation: "Local variables are destroyed when their function returns."
+
+- atomId: H-10
+  code: |
+    void f() {
+      int secret = 42;
+    }
+    int main() {
+      f();
+      // cout << secret;  // ERROR
+      return 0;
+    }
+  question: "Why can't main() access 'secret'?"
+  correct: "It's local to f() — the caller cannot see another function's local variables"
+  distractors:
+    - "Because secret was declared with void type"
+    - "Because f() hasn't been called yet at that point"
+    - "Because secret is too short a name for the compiler"
+  explanation: "Each function's locals are invisible to all other functions."
+
+# ═══════════════════════════════════════════════════════════════
+# L9: References (R-01 to R-08)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: R-01
+  code: |
+    void increment(int x) {
+      x = x + 1;
+    }
+    int main() {
+      int n = 5;
+      increment(n);
+      cout << n << endl;   // prints 5
+      return 0;
+    }
+  question: "Why does n still equal 5 after calling increment(n)?"
+  correct: "x is a copy of n — changing the copy doesn't affect the original"
+  distractors:
+    - "The function didn't actually run because it's void"
+    - "n is reset to 5 after the function returns"
+    - "increment() returns a value that wasn't assigned back"
+  explanation: "Parameters receive copies by default. The original is untouched."
+
+- atomId: R-02
+  code: |
+    void attempt(int x) {
+      x = 99;
+    }
+    int main() {
+      int val = 10;
+      attempt(val);
+      cout << val << endl;  // still 10
+      return 0;
+    }
+  question: "Why is val still 10 after attempt(val)?"
+  correct: "Mutating the parameter x only changes the copy — caller's val is unaffected"
+  distractors:
+    - "The assignment x = 99 failed because x is read-only"
+    - "attempt() returns void so no side effects can happen"
+    - "val was declared const so it can't change"
+  explanation: "Pass-by-value: mutating the parameter never reaches the caller."
+
+- atomId: R-03
+  code: |
+    void increment(int &x) {
+      x = x + 1;
+    }
+    int main() {
+      int n = 5;
+      increment(n);
+      cout << n << endl;  // prints 6
+      return 0;
+    }
+  question: "What does & in 'int &x' mean?"
+  correct: "x is an alias (reference) for n — they share the same memory box"
+  distractors:
+    - "x stores the memory address of n as a pointer"
+    - "x is a constant copy that cannot be modified"
+    - "& means x is passed back as a return value"
+  explanation: "& makes a reference — two names for the same variable."
+
+- atomId: R-04
+  code: |
+    void increment(int &x) {
+      x = x + 1;
+    }
+  question: "What does 'void f(int &x)' let the function do?"
+  correct: "Modify the caller's original variable through the reference x"
+  distractors:
+    - "Return an integer value even though return type is void"
+    - "Accept only literal values like 5, not variables"
+    - "Create a new variable in the caller's scope"
+  explanation: "void f(int &x) — the function can change the caller's variable."
+
+- atomId: R-05
+  code: |
+    void increment(int &x) {
+      x = x + 1;
+    }
+    int main() {
+      int n = 5;
+      increment(n);
+      cout << n << endl;  // prints 6
+      return 0;
+    }
+  question: "Why does n become 6 after increment(n)?"
+  correct: "x and n are the same box — mutating x directly changes n"
+  distractors:
+    - "increment returns 6 and it's auto-assigned to n"
+    - "The compiler optimizes x+1 into n's memory after return"
+    - "cout reads n before the function finishes, showing the old value plus 1"
+  explanation: "Through the reference, modifying &x IS modifying the caller's n."
+
+- atomId: R-06
+  code: |
+    void f(int &x) {
+      x = 10;
+    }
+    int main() {
+      // f(5);  // ERROR - can't bind reference to literal
+      int n = 5;
+      f(n);     // OK - n is a real variable
+      return 0;
+    }
+  question: "Why can't you call f(5) when the parameter is int &x?"
+  correct: "A reference must bind to a real variable — a literal 5 has no memory box to alias"
+  distractors:
+    - "Because 5 is a double, not an int"
+    - "Because f is void and can't accept arguments"
+    - "Because 5 is too small a value for a reference"
+  explanation: "References need a named variable to attach to — not temporaries or literals."
+
+- atomId: R-07
+  code: |
+    void print_user(const string &name) {
+      cout << name << endl;
+      // name = "Bob";  // ERROR - const ref is read-only
+    }
+  question: "What does 'const string &name' mean?"
+  correct: "A read-only reference — shares memory but can't modify the caller's value"
+  distractors:
+    - "A constant copy that uses extra memory"
+    - "A writable reference that happens to be named const"
+    - "A reference that automatically deletes after use"
+  explanation: "const & gives read-only access without copying. Efficient + safe."
+
+- atomId: R-08
+  code: |
+    void increment(int &x) {
+      x = x + 1;
+    }
+    int main() {
+      int n = 5;
+      increment(n);  // n and x are ONE box, TWO names
+      return 0;
+    }
+  question: "What's the best mental model for a reference parameter?"
+  correct: "Two names for one box — x and n refer to the exact same memory"
+  distractors:
+    - "A pointer that stores a memory address"
+    - "A copy that gets automatically synced back"
+    - "A global variable shared between functions"
+  explanation: "Reference = alias. Same box, different name. Not a copy, not a pointer."
+
+# ═══════════════════════════════════════════════════════════════
+# L10: Arrays (G-01 to G-14)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: G-01
+  code: |
+    int scores[5];
+  question: "What is an array?"
+  correct: "A sequence of N values of the same type stored in consecutive memory"
+  distractors:
+    - "A function that returns multiple values at once"
+    - "A variable that can hold different types simultaneously"
+    - "A string of characters with a fixed length"
+  explanation: "An array stores N elements of the same type in a row."
+
+- atomId: G-02
+  code: |
+    int arr[5];
+    double prices[10];
+    string names[3];
+  question: "What does 'int arr[5];' do?"
+  correct: "Declares an array of 5 integers — creates 5 consecutive int boxes"
+  distractors:
+    - "Creates a single int variable named arr with value 5"
+    - "Declares a function that takes 5 parameters"
+    - "Creates a pointer to the 5th element in memory"
+  explanation: "type name[N] declares an array of N elements."
+
+- atomId: G-03
+  code: |
+    int arr[3] = {10, 20, 30};
+  question: "What does = {10, 20, 30} do?"
+  correct: "Initializes the 3 array elements with values 10, 20, and 30"
+  distractors:
+    - "Creates 3 separate variables named 10, 20, and 30"
+    - "Sets all 3 elements to the sum (60)"
+    - "Declares the array to have exactly 3 dimensions"
+  explanation: "Brace initialization fills array elements with the listed values."
+
+- atomId: G-04
+  code: |
+    int arr[5] = {10, 20, 30, 40, 50};
+    cout << arr[0] << endl;
+  question: "What does arr[0] access?"
+  correct: "The FIRST element of the array (value 10)"
+  distractors:
+    - "The last element of the array"
+    - "The total size of the array (5)"
+    - "Nothing — arrays start at index 1"
+  explanation: "Arrays are zero-indexed: arr[0] is the first element."
+
+- atomId: G-05
+  code: |
+    int arr[5] = {10, 20, 30, 40, 50};
+    int i = 2;
+    cout << arr[i] << endl;
+  question: "What does arr[i] give when i is 2?"
+  correct: "The element at index 2 — the third element (value 30)"
+  distractors:
+    - "The second element (value 20)"
+    - "The element whose value is 2"
+    - "An error — you can't use a variable as an index"
+  explanation: "arr[i] accesses the element at position i (0-based)."
+
+- atomId: G-06
+  code: |
+    int arr[5] = {10, 20, 30, 40, 50};
+    cout << arr[0] << endl;  // 10 (first)
+    cout << arr[4] << endl;  // 50 (last)
+  question: "Why does the first element use index 0, not 1?"
+  correct: "C++ arrays are zero-indexed — counting starts at 0"
+  distractors:
+    - "Index 0 is reserved for the array's length"
+    - "It's a bug — proper arrays start at 1"
+    - "0 means 'uninitialized' and returns a default value"
+  explanation: "Zero-indexing: first=arr[0], second=arr[1], ..., last=arr[N-1]."
+
+- atomId: G-07
+  code: |
+    int arr[5] = {10, 20, 30, 40, 50};
+    cout << arr[4] << endl;  // last element
+  question: "For an array of size N, what index is the LAST element?"
+  correct: "N-1 — for size 5, the last valid index is 4"
+  distractors:
+    - "N — for size 5, the last index is 5"
+    - "N+1 — arrays have an extra slot at the end"
+    - "-1 — negative indexing counts from the end"
+  explanation: "Indices go from 0 to N-1. arr[N] is out of bounds."
+
+- atomId: G-08
+  code: |
+    int arr[3] = {10, 20, 30};
+    cout << arr[3] << endl;  // BUG! Out of bounds
+  question: "What happens when you access arr[3] in a size-3 array?"
+  correct: "Undefined behavior — you're reading memory beyond the array (out of bounds)"
+  distractors:
+    - "It returns 0 as a default for missing elements"
+    - "It wraps around and gives arr[0]"
+    - "The compiler catches this and shows a helpful error"
+  explanation: "arr[N] is out of bounds. C++ won't stop you, but the behavior is undefined."
+
+- atomId: G-09
+  code: |
+    const int MAX = 100;
+    int arr[MAX];
+  question: "Can you change the size of arr after declaration?"
+  correct: "No — array size is fixed at compile time and cannot change"
+  distractors:
+    - "Yes — just assign a new number to MAX"
+    - "Yes — arrays automatically grow when you add elements"
+    - "Yes — use arr.resize() to change the size"
+  explanation: "C-style arrays have fixed size determined at compile time."
+
+- atomId: G-10
+  code: |
+    int arr[5] = {1, 2, 3, 4, 5};
+    // return arr;  // ERROR - can't return array
+  question: "Can a function return an array?"
+  correct: "No — C++ cannot return arrays directly from functions"
+  distractors:
+    - "Yes — just use 'return arr;' with the array name"
+    - "Yes — arrays are returned as copies automatically"
+    - "Yes — but only if the array has fewer than 10 elements"
+  explanation: "Arrays can't be returned. Pass by reference parameter instead."
+
+- atomId: G-11
+  code: |
+    int arr[5] = {10, 20, 30, 40, 50};
+    for (int i = 0; i < 5; i++) {
+      cout << arr[i] << " ";
+    }
+  question: "How does the for loop iterate through the array?"
+  correct: "i goes 0,1,2,3,4 — accessing each element arr[0] through arr[4] in order"
+  distractors:
+    - "It copies the array into i on each iteration"
+    - "i holds each array value (10,20,30...) not the index"
+    - "The loop runs until arr[i] equals 0"
+  explanation: "for (i=0; i<N; i++) with arr[i] visits every element."
+
+- atomId: G-12
+  code: |
+    int arr[5] = {0, 0, 0, 0, 0};
+    arr[2] = 99;
+    cout << arr[2] << endl;  // 99
+  question: "What does arr[2] = 99 do?"
+  correct: "Writes (stores) the value 99 into the array at index 2"
+  distractors:
+    - "Creates a new array element at position 99"
+    - "Compares arr[2] with 99 and returns true/false"
+    - "Inserts 99 between arr[1] and arr[2], shifting others"
+  explanation: "arr[i] = value writes to a specific array position."
+
+- atomId: G-13
+  code: |
+    void print_arr(int arr[], int n) {
+      for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+      }
+    }
+  question: "What does 'int arr[]' in the parameter mean?"
+  correct: "The function receives an array — you pass it by name without size in brackets"
+  distractors:
+    - "It declares a new empty array inside the function"
+    - "It creates a copy of every array element"
+    - "It receives a single integer named arr"
+  explanation: "Array parameter: type arr[] (or type* arr). Size passed separately."
+
+- atomId: G-14
+  code: |
+    void fill(int &arr[], int n) {
+      for (int i = 0; i < n; i++) {
+        arr[i] = i * 10;
+      }
+    }
+  question: "What does & before arr[] mean in the parameter?"
+  correct: "The array is passed by reference — changes inside the function affect the caller's array"
+  distractors:
+    - "It creates a pointer to the first element only"
+    - "It makes the array read-only inside the function"
+    - "It returns the array as the function's output"
+  explanation: "&arr[] means the function modifies the caller's actual array."
+
+# ═══════════════════════════════════════════════════════════════
+# L11: Structs (T-01 to T-12)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: T-01
+  code: |
+    struct Point {
+      int x;
+      int y;
+    };
+  question: "What is a struct?"
+  correct: "A custom type that groups related fields (variables) under one name"
+  distractors:
+    - "A function that takes multiple parameters"
+    - "An array that holds different types of values"
+    - "A loop that processes data fields one by one"
+  explanation: "struct bundles related data into a single named type."
+
+- atomId: T-02
+  code: |
+    struct Point {
+      int x;
+      int y;
+    };
+  question: "What does 'struct Point { ... };' create?"
+  correct: "A new type called Point — a blueprint for variables with fields x and y"
+  distractors:
+    - "A variable called Point with values x and y"
+    - "A function that returns x and y"
+    - "Two separate integer variables named x and y"
+  explanation: "struct Name { fields }; defines a new type. It doesn't create a variable yet."
+
+- atomId: T-03
+  code: |
+    struct Student {
+      string name;
+      int age;
+      double gpa;
+    };
+  question: "What are name, age, and gpa inside the struct?"
+  correct: "Fields — each is a named piece of data that every Student variable will have"
+  distractors:
+    - "Parameters of a function called Student"
+    - "Global variables accessible from anywhere"
+    - "Loop counters that iterate through students"
+  explanation: "Each line inside struct is a field: type fieldName;"
+
+- atomId: T-04
+  code: |
+    struct Point {
+      int x;
+      int y;
+    };  // <-- this semicolon
+  question: "Why is ; needed after the closing } of the struct?"
+  correct: "C++ syntax requires a semicolon after the struct definition's closing brace"
+  distractors:
+    - "It ends the last field inside the struct"
+    - "It creates an instance of the struct"
+    - "It's optional — just a style convention"
+  explanation: "struct { ... }; — the trailing semicolon is mandatory C++ syntax."
+
+- atomId: T-05
+  code: |
+    struct Point { int x; int y; };
+    Point p;
+    p.x = 3;
+    p.y = 7;
+  question: "What does 'Point p;' do?"
+  correct: "Declares a variable p of type Point — creates a box with fields x and y"
+  distractors:
+    - "Defines a new struct type called p"
+    - "Calls a function named Point that returns p"
+    - "Creates a pointer to the Point struct definition"
+  explanation: "Using the struct type to declare a variable: TypeName varName;"
+
+- atomId: T-06
+  code: |
+    Point p;
+    p.x = 3;
+    cout << p.x << endl;
+  question: "What does the dot (.) in p.x do?"
+  correct: "Accesses the field x inside the struct variable p"
+  distractors:
+    - "Multiplies p by x"
+    - "Creates a new field called x in p"
+    - "Checks if p contains a field named x"
+  explanation: "The dot operator accesses a specific field of a struct variable."
+
+- atomId: T-07
+  code: |
+    Point p;
+    p.x = 3;
+    p.y = 7;
+  question: "What does 'p.x = 3;' do?"
+  correct: "Writes (stores) the value 3 into the x field of struct variable p"
+  distractors:
+    - "Compares p.x with 3 and returns a boolean"
+    - "Declares a new variable named p.x of type int"
+    - "Prints the value 3 followed by p's contents"
+  explanation: "structVar.field = value writes to that field."
+
+- atomId: T-08
+  code: |
+    Point p;
+    p.x = 3;
+    cout << p.x << endl;
+  question: "What does cout << p.x produce?"
+  correct: "Reads and prints the value stored in p's x field (3)"
+  distractors:
+    - "Prints the text 'p.x' literally"
+    - "Prints all fields of p at once"
+    - "Stores the output into p.x"
+  explanation: "Reading a struct field: cout << structVar.field"
+
+- atomId: T-09
+  code: |
+    struct stat_double {
+      double mystery;
+      double numbers[5];
+      int count;
+    };
+  question: "Can a struct contain an array as a field?"
+  correct: "Yes — numbers[5] is a valid field; structs can contain arrays"
+  distractors:
+    - "No — arrays must be declared outside structs"
+    - "Only if the array is the last field listed"
+    - "Only if the array uses dynamic allocation"
+  explanation: "Struct fields can be any type, including arrays."
+
+- atomId: T-10
+  code: |
+    stat_double d;
+    d.numbers[0] = 3.14;
+    d.numbers[1] = 2.71;
+    cout << d.numbers[0] << endl;
+  question: "What does d.numbers[0] access?"
+  correct: "The first element of the array field 'numbers' inside struct d"
+  distractors:
+    - "The struct named 'numbers' at index d"
+    - "A separate variable called numbers, not part of d"
+    - "The 0th struct in an array of stat_doubles"
+  explanation: "Chaining: structVar.arrayField[index] — dot then brackets."
+
+- atomId: T-11
+  code: |
+    struct Point { int x; int y; };
+    Point list[3];
+    list[0].x = 1;
+    list[1].x = 2;
+  question: "What is 'Point list[3];'?"
+  correct: "An array of 3 Point structs — each element has x and y fields"
+  distractors:
+    - "A Point struct with 3 fields named list"
+    - "A function that creates 3 points"
+    - "A pointer to a single Point"
+  explanation: "Name list[N]; creates an array where each element is a struct."
+
+- atomId: T-12
+  code: |
+    Point list[3];
+    list[0].x = 5;
+    list[0].y = 10;
+    cout << list[0].x << endl;
+  question: "What does list[0].x access?"
+  correct: "The x field of the first Point in the array"
+  distractors:
+    - "The first element of an array inside Point"
+    - "A standalone variable named x in list 0"
+    - "The address of list at position x"
+  explanation: "list[i].field — index the array first, then access the struct's field."
+
+# ═══════════════════════════════════════════════════════════════
+# L12: Pass compound types (PC-01 to PC-06)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: PC-01
+  code: |
+    void f(Point p) {
+      p.x = 99;
+    }
+    int main() {
+      Point pt; pt.x = 1;
+      f(pt);
+      cout << pt.x << endl;  // still 1
+      return 0;
+    }
+  question: "Why is pt.x still 1 after calling f(pt)?"
+  correct: "p is a copy of pt — modifying the copy doesn't change the original struct"
+  distractors:
+    - "f() didn't run because it's declared as void"
+    - "Structs are immutable once created"
+    - "You can't assign to struct fields inside functions"
+  explanation: "Pass by value copies the whole struct. Changes to p don't affect pt."
+
+- atomId: PC-02
+  code: |
+    void update(Point &p) {
+      p.x = 99;
+    }
+    int main() {
+      Point pt; pt.x = 1;
+      update(pt);
+      cout << pt.x << endl;  // 99
+      return 0;
+    }
+  question: "Why does pt.x become 99 after update(pt)?"
+  correct: "Point &p means p is a reference (alias) for pt — same struct, two names"
+  distractors:
+    - "update() secretly returns the modified struct"
+    - "All structs are always passed by reference automatically"
+    - "p.x = 99 creates a new field that replaces the old one"
+  explanation: "void f(Type &param) shares the caller's struct — mutations persist."
+
+- atomId: PC-03
+  code: |
+    void read_data(stat_double &d) {
+      cin >> d.mystery;
+      for (int i = 0; i < 5; i++) {
+        cin >> d.numbers[i];
+      }
+    }
+  question: "Why is & needed in 'stat_double &d'?"
+  correct: "So that cin reads fill the CALLER's struct — without &, we'd fill a useless copy"
+  distractors:
+    - "Because stat_double is too large to exist without a reference"
+    - "To make d a pointer that stores an address"
+    - "Because cin requires reference parameters to compile"
+  explanation: "& lets the function's mutations to d persist in the caller's variable."
+
+- atomId: PC-04
+  code: |
+    void read_items(Item &list[], int count) {
+      for (int i = 0; i < count; i++) {
+        cin >> list[i].name;
+        cin >> list[i].price;
+      }
+    }
+  question: "What does 'Item &list[]' mean in the parameter?"
+  correct: "An array of Items passed by reference — writes to list[i] persist in the caller"
+  distractors:
+    - "A single Item reference, not an array"
+    - "A read-only array that cannot be modified"
+    - "Creates a new array inside the function"
+  explanation: "&list[] passes the whole array by reference — caller sees all changes."
+
+- atomId: PC-05
+  code: |
+    void read_items(Item &list[], int count) {
+      for (int i = 0; i < count; i++) {
+        cin >> list[i].title;
+      }
+    }
+  question: "After this function runs, where do the values end up?"
+  correct: "In the caller's array — list[i].title writes persist because of the & reference"
+  distractors:
+    - "In a temporary copy that's discarded when the function returns"
+    - "In cout's output buffer, ready to print"
+    - "Nowhere — cin just displays a prompt"
+  explanation: "With &, writing to list[i].field modifies the caller's actual array."
+
+- atomId: PC-06
+  code: |
+    void print(const Point &p) {
+      cout << p.x << " " << p.y << endl;
+      // p.x = 5;  // ERROR - const ref is read-only
+    }
+  question: "What does 'const Point &p' mean?"
+  correct: "A read-only reference — efficient (no copy) but the function can't modify p"
+  distractors:
+    - "A mutable reference that can change p's fields"
+    - "A constant pointer that stores p's memory address"
+    - "A pass-by-value copy that happens to use const syntax"
+  explanation: "const & = efficient read-only access. No copy, no mutation."
+
+# ═══════════════════════════════════════════════════════════════
+# L13: Hand execution (HE-01 to HE-18)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: HE-01
+  code: |
+    int x = 3;
+    x = x + 2;
+    cout << x << endl;
+  question: "What does 'hand-executing' (tracing) this code mean?"
+  correct: "Mentally running each line in order and tracking how values change"
+  distractors:
+    - "Typing the code into a compiler and running it"
+    - "Reading the code backwards to find bugs"
+    - "Guessing what the output might be without reading the code"
+  explanation: "Trace = simulate the CPU step by step, tracking all state."
+
+- atomId: HE-02
+  code: |
+    int x = 5;
+    int y = 3;
+    cout << x + y << endl;
+  question: "When tracing, what must you track for each variable?"
+  correct: "Its current value — which changes whenever an assignment happens"
+  distractors:
+    - "Only its initial value — variables never change"
+    - "Its type and memory address but not its value"
+    - "How many times it appears in the code"
+  explanation: "Track each variable's value as it gets created and updated."
+
+- atomId: HE-03
+  code: |
+    int x = 5;
+    x = 10;
+    x = x + 1;
+    cout << x << endl;
+  question: "What is x's value at the end?"
+  correct: "11 — starts at 5, becomes 10, then 10+1=11"
+  distractors:
+    - "5 — the first assignment is the only one that counts"
+    - "10 — the last direct assignment wins"
+    - "16 — all assignments add up (5+10+1)"
+  explanation: "Each assignment REPLACES the old value. Trace in order: 5→10→11."
+
+- atomId: HE-04
+  code: |
+    for (int i = 0; i < 3; i++) {
+      cout << i << " ";
+    }
+  question: "When tracing a for-loop, what must you track across iterations?"
+  correct: "The loop variable (i) — its value changes each iteration via the step"
+  distractors:
+    - "Only the output — the loop variable doesn't matter"
+    - "The number of lines in the loop body"
+    - "Whether the for-keyword was spelled correctly"
+  explanation: "Track i: 0→1→2→(3 fails condition). Output: 0 1 2"
+
+- atomId: HE-05
+  code: |
+    int n = 7;
+    if (n > 5) {
+      cout << "big" << endl;
+    } else {
+      cout << "small" << endl;
+    }
+  question: "When tracing an if/else, how do you decide which branch runs?"
+  correct: "Evaluate the condition with current values — true=if body, false=else body"
+  distractors:
+    - "Both branches always run in sequence"
+    - "The shorter branch runs first"
+    - "Pick the branch that matches the variable name"
+  explanation: "Check n>5 with n=7: 7>5 is true → 'big' prints. Else skipped."
+
+- atomId: HE-06
+  code: |
+    void f(int x) {
+      x = x * 2;
+      cout << x << endl;
+    }
+    int main() {
+      int n = 5;
+      f(n);
+      cout << n << endl;
+      return 0;
+    }
+  question: "When a function is called, what happens to the trace?"
+  correct: "Enter a new frame — create fresh local variables for that function's scope"
+  distractors:
+    - "All previous variables are deleted"
+    - "The caller's code keeps running in parallel"
+    - "Nothing changes — all variables are global"
+  explanation: "Function call = new scope. x gets copy of n (5). x becomes 10 inside."
+
+- atomId: HE-07
+  code: |
+    int compute() {
+      int temp = 42;
+      return temp;
+    }
+    int main() {
+      int x = compute();
+      return 0;
+    }
+  question: "What happens to 'temp' when compute() returns?"
+  correct: "temp is destroyed — local variables cease to exist when the function exits"
+  distractors:
+    - "temp becomes a global variable accessible in main"
+    - "temp's value is lost but the variable still exists"
+    - "temp is renamed to x automatically"
+  explanation: "Return = exit frame. Locals die. Only the return value survives."
+
+- atomId: HE-08
+  code: |
+    void incr(int &x) {
+      x = x + 1;
+    }
+    int main() {
+      int n = 5;
+      incr(n);
+      cout << n << endl;
+      return 0;
+    }
+  question: "When tracing a & parameter, how do you handle it?"
+  correct: "x IS n — same box. Any change to x immediately appears as a change to n"
+  distractors:
+    - "Create a separate box for x, then copy x back to n after return"
+    - "x is a pointer — draw an arrow from x to n's address"
+    - "Ignore x entirely — only track n in the caller"
+  explanation: "& means ONE box with TWO labels. Trace them as the same value."
+
+- atomId: HE-09
+  code: |
+    void fill(int &slot) {
+      slot = 99;
+    }
+    int main() {
+      int arr[3] = {0, 0, 0};
+      fill(arr[1]);
+      cout << arr[1] << endl;
+      return 0;
+    }
+  question: "After fill(arr[1]), what is arr[1]?"
+  correct: "99 — slot is a reference to arr[1], so writing to slot writes to arr[1]"
+  distractors:
+    - "0 — the function only modified a local copy"
+    - "99 but only inside fill; arr[1] stays 0 in main"
+    - "An error — you can't pass array elements by reference"
+  explanation: "Array elements can bind to references. &slot = arr[1], so writes persist."
+
+- atomId: HE-10
+  code: |
+    int x = 5;
+    int y = x;
+    x = 10;
+    cout << x << " " << y << endl;
+  question: "What are x and y at the end?"
+  correct: "x=10, y=5 — y got a COPY of x's value at assignment time"
+  distractors:
+    - "x=10, y=10 — y follows x when x changes"
+    - "x=5, y=5 — x never changed"
+    - "x=10, y=15 — y is x+5"
+  explanation: "y=x copies the VALUE at that moment. Later changes to x don't affect y."
+
+- atomId: HE-11
+  code: |
+    int arr[3] = {0, 0, 0};
+    arr[0] = 5;
+    arr[2] = arr[0] + 1;
+    cout << arr[0] << " " << arr[1] << " " << arr[2] << endl;
+  question: "What is the final state of the array?"
+  correct: "5, 0, 6 — arr[0] set to 5, arr[2] set to 5+1=6, arr[1] unchanged"
+  distractors:
+    - "5, 5, 5 — all elements update together"
+    - "0, 0, 6 — arr[0]=5 was overwritten"
+    - "5, 1, 6 — arr[1] gets 1 as a side effect"
+  explanation: "Each arr[i] is independent. Trace: [0,0,0]→[5,0,0]→[5,0,6]."
+
+- atomId: HE-12
+  code: |
+    int sum = 0;
+    for (int i = 1; i <= 3; i++) {
+      sum = sum + i;
+    }
+    cout << sum << endl;
+  question: "Trace the loop — what is sum after all iterations?"
+  correct: "6 — iteration 1: sum=0+1=1, iter 2: sum=1+2=3, iter 3: sum=3+3=6"
+  distractors:
+    - "3 — sum equals the last value of i"
+    - "9 — sum is 1+2+3+3"
+    - "0 — sum never changes because i resets each iteration"
+  explanation: "Trace each iteration: i=1→sum=1, i=2→sum=3, i=3→sum=6."
+
+- atomId: HE-13
+  code: |
+    int n = 7;
+    if (n > 10) {
+      cout << "A" << endl;
+    } else if (n > 5) {
+      cout << "B" << endl;
+    } else {
+      cout << "C" << endl;
+    }
+  question: "Which letter prints?"
+  correct: "B — n=7: first condition (7>10) false, second (7>5) true → prints B"
+  distractors:
+    - "A — the first branch always runs"
+    - "C — else always runs after checking conditions"
+    - "A and B — both true conditions execute"
+  explanation: "Trace conditions in order. First true branch executes; rest skipped."
+
+- atomId: HE-14
+  code: |
+    int square(int x) {
+      return x * x;
+    }
+    int main() {
+      int result = square(4);
+      cout << result << endl;
+      return 0;
+    }
+  question: "Trace: what value does result get?"
+  correct: "16 — square(4): x=4, returns 4*4=16, stored in result"
+  distractors:
+    - "4 — result gets the argument, not the return value"
+    - "8 — square means x+x not x*x"
+    - "0 — the function returns 0 from main"
+  explanation: "Enter square: x=4. Compute 4*4=16. Return 16. result=16."
+
+- atomId: HE-15
+  code: |
+    void f(int x) { x = 99; }
+    void g(int &x) { x = 99; }
+    int main() {
+      int a = 1, b = 1;
+      f(a);
+      g(b);
+      cout << a << " " << b << endl;
+      return 0;
+    }
+  question: "What are a and b after the function calls?"
+  correct: "a=1, b=99 — f uses a copy (a unchanged), g uses a reference (b modified)"
+  distractors:
+    - "a=99, b=99 — both functions change their argument"
+    - "a=1, b=1 — neither function can change anything"
+    - "a=99, b=1 — f changes a, g doesn't change b"
+  explanation: "Pass-by-value (no &): copy, original safe. Pass-by-ref (&): alias, original changes."
+
+- atomId: HE-16
+  code: |
+    double arr[5] = {3.1, 1.5, 4.2, 2.8, 0.9};
+    double max = arr[0];
+    for (int i = 1; i < 5; i++) {
+      if (arr[i] > max) {
+        max = arr[i];
+      }
+    }
+    cout << max << endl;
+  question: "What does max equal at the end?"
+  correct: "4.2 — starts at 3.1, then 4.2>3.1 so max becomes 4.2, nothing bigger after"
+  distractors:
+    - "0.9 — max takes the last element"
+    - "3.1 — max never changes from the first element"
+    - "5 — max counts how many elements were checked"
+  explanation: "Trace max: 3.1→(1.5<3.1 skip)→(4.2>3.1 update)→(2.8<4.2 skip)→(0.9<4.2 skip)=4.2"
+
+- atomId: HE-17
+  code: |
+    struct Point { int x; int y; };
+    void shift(Point &p) {
+      p.x = p.x + 1;
+      p.y = p.y + 1;
+    }
+    int main() {
+      Point pt; pt.x = 3; pt.y = 7;
+      shift(pt);
+      cout << pt.x << " " << pt.y << endl;
+      return 0;
+    }
+  question: "What are pt.x and pt.y after shift(pt)?"
+  correct: "4, 8 — reference means p IS pt; p.x+1=4, p.y+1=8 persist in pt"
+  distractors:
+    - "3, 7 — the struct is passed by value, copy is modified"
+    - "4, 7 — only x changes, y is read-only"
+    - "1, 1 — shift replaces values with the increment amount"
+  explanation: "& reference: p IS pt. Mutations to p.x and p.y ARE mutations to pt."
+
+- atomId: HE-18
+  code: |
+    // if (data.numbers[i] > data.mystery)
+    //   data.mystery = data.numbers[i];
+    // Given: mystery=2.0, numbers=[3.0, 1.0, 4.0]
+  question: "Trace the comparison: which values make mystery update?"
+  correct: "3.0 and 4.0 — both are > 2.0 (current mystery), so mystery becomes 3.0 then 4.0"
+  distractors:
+    - "Only 4.0 — only the maximum triggers the update"
+    - "All three — every number replaces mystery"
+    - "None — 2.0 is already the maximum"
+  explanation: "i=0: 3.0>2.0→mystery=3.0. i=1: 1.0<3.0→skip. i=2: 4.0>3.0→mystery=4.0."
+
+# ═══════════════════════════════════════════════════════════════
+# L14: Struct writing (SW-01 to SW-05)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: SW-01
+  code: |
+    struct computer_data {
+      string brand;
+      int ram;
+      double price;
+    };
+  question: "What pattern does 'struct Name { fields };' follow?"
+  correct: "Defines a custom type with the given name containing the listed fields"
+  distractors:
+    - "Creates a variable of that type immediately"
+    - "Declares a function that returns a struct"
+    - "Imports a type from another file"
+  explanation: "struct Name { ... }; = type definition. You declare variables with it later."
+
+- atomId: SW-02
+  code: |
+    struct student {
+      int id;
+      string name;
+      double gpa;
+    };
+  question: "What is 'int id;' inside the struct?"
+  correct: "A field declaration — every student variable will have an int field called id"
+  distractors:
+    - "A global variable that all students share"
+    - "A function parameter for the struct constructor"
+    - "A constant value that cannot be changed"
+  explanation: "Each line is a field: type fieldName; — part of every instance of this struct."
+
+- atomId: SW-03
+  code: |
+    struct Point {
+      int x;
+      int y;
+    };
+  question: "Why must the struct end with }; (semicolon after brace)?"
+  correct: "C++ requires it — the struct definition is a statement that needs termination"
+  distractors:
+    - "The semicolon is optional, just a style choice"
+    - "It creates an unnamed instance of the struct"
+    - "It closes the file scope the struct opened"
+  explanation: "}; is mandatory for struct/class definitions in C++."
+
+- atomId: SW-04
+  code: |
+    struct student {
+      int id;
+      string name;
+      double gpa;
+    };
+  question: "How do you choose int vs string vs double for each field?"
+  correct: "Match the type to what the field stores — int for whole numbers, string for text, double for decimals"
+  distractors:
+    - "Always use string since it can hold any data"
+    - "Use int for all fields and convert later"
+    - "The order of fields determines their types automatically"
+  explanation: "Pick types based on the data: IDs→int, names→string, averages→double."
+
+- atomId: SW-05
+  code: |
+    struct student {
+      string name;
+      int id;
+      double gpa;
+    };
+    // also valid:
+    struct student2 {
+      int id;
+      string name;
+      double gpa;
+    };
+  question: "Does the order of fields inside a struct matter?"
+  correct: "No — you can list fields in any order; they're accessed by name, not position"
+  distractors:
+    - "Yes — fields must be in alphabetical order"
+    - "Yes — the first field must always be the ID"
+    - "Yes — numeric types must come before string types"
+  explanation: "Field order is a style choice. Access by name (s.id) works regardless."
+
+# ═══════════════════════════════════════════════════════════════
+# L15: Read-function writing (RW-01 to RW-07)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: RW-01
+  code: |
+    void read_books(book &list[], int count) {
+      for (int i = 0; i < count; i++) {
+        cin >> list[i].title;
+      }
+    }
+  question: "Why is the return type 'void' for this read function?"
+  correct: "It doesn't return a value — it fills the array through the reference parameter instead"
+  distractors:
+    - "Because read functions can never return data"
+    - "Because it only reads input, which makes it void automatically"
+    - "To indicate that the function might fail"
+  explanation: "void because the work is done via the & parameter, not a return value."
+
+- atomId: RW-02
+  code: |
+    void read_books(book &list[], int count) {
+      for (int i = 0; i < count; i++) {
+        cin >> list[i].title;
+      }
+    }
+  question: "What does 'book &list[]' mean as a parameter?"
+  correct: "An array of book structs passed by reference — reads will persist in the caller's array"
+  distractors:
+    - "A single book reference, not an array"
+    - "A read-only const array of books"
+    - "A pointer to a dynamically allocated array"
+  explanation: "Type &list[] = array of Type, passed by reference."
+
+- atomId: RW-03
+  code: |
+    void read_books(book &list[], int count) {
+      for (int i = 0; i < count; i++) {
+        cin >> list[i].title;
+      }
+    }
+  question: "Why is 'int count' passed as a separate parameter?"
+  correct: "Arrays don't know their own size — count tells the function how many elements to fill"
+  distractors:
+    - "count specifies the maximum size of each book's title"
+    - "count is the return value of the function"
+    - "count tells the compiler how much memory to allocate"
+  explanation: "C arrays have no built-in length. Pass size separately."
+
+- atomId: RW-04
+  code: |
+    void read_items(Item &list[], int count) {
+      for (int i = 0; i < count; i++) {
+        cin >> list[i].name;
+        cin >> list[i].price;
+      }
+    }
+  question: "Why does the for-loop use 'i < count' as its condition?"
+  correct: "To iterate exactly 'count' times — once per struct in the array that needs filling"
+  distractors:
+    - "To check if i is less than the array's maximum capacity"
+    - "To ensure i never equals the value stored in count"
+    - "Because count is the index of the last valid element"
+  explanation: "Loop count times to fill count structs: indices 0 to count-1."
+
+- atomId: RW-05
+  code: |
+    void read_items(Item &list[], int count) {
+      for (int i = 0; i < count; i++) {
+        cin >> list[i].id;
+        cin >> list[i].name;
+      }
+    }
+  question: "What does 'cin >> list[i].id;' do?"
+  correct: "Reads one input value from the terminal into the id field of list element i"
+  distractors:
+    - "Prints the id field of list[i] to the terminal"
+    - "Compares list[i].id with the input value"
+    - "Creates a new field called id inside list[i]"
+  explanation: "cin >> struct.field reads input directly into that struct's field."
+
+- atomId: RW-06
+  code: |
+    cin >> list[i].id;
+    cin >> list[i].name;
+    cin >> list[i].price;
+  question: "Why is there a separate cin for each field?"
+  correct: "Each cin >> reads one value — one per field to fill the entire struct"
+  distractors:
+    - "You could read all fields with one cin if you use commas"
+    - "Multiple cin lines read from different input sources"
+    - "Only the last cin actually does anything"
+  explanation: "One cin >> per field. Each reads the next value from input."
+
+- atomId: RW-07
+  code: |
+    cout << "Enter id: ";
+    cin >> list[i].id;
+    cout << "Enter name: ";
+    cin >> list[i].name;
+  question: "What does 'cout << \"Enter id: \";' before cin do?"
+  correct: "Shows a prompt so the user knows what to type — purely for usability"
+  distractors:
+    - "It's required for cin to work — without it cin won't read"
+    - "It stores the text 'Enter id' into list[i].id"
+    - "It formats the input so cin can parse it correctly"
+  explanation: "Optional prompt: tells the user what input is expected. Doesn't affect cin."
+
+# ═══════════════════════════════════════════════════════════════
+# L16: Main writing (MW-01 to MW-09)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: MW-01
+  code: |
+    int main() {
+      // program body here
+      return 0;
+    }
+  question: "What is the standard shape of a complete main function?"
+  correct: "int main() { body... return 0; } — entry point that returns success code"
+  distractors:
+    - "void main() { body... } — no return needed"
+    - "main() { body... exit(); } — uses exit instead of return"
+    - "int main(args) { body... } — requires parameters"
+  explanation: "Standard C++ main: int main() { ... return 0; }"
+
+- atomId: MW-02
+  code: |
+    const int MAX = 100;
+    int arr[MAX];
+  question: "What does 'const int MAX = 100;' do?"
+  correct: "Creates a constant — a named value that cannot be changed after initialization"
+  distractors:
+    - "Declares a regular variable that starts at 100"
+    - "Sets the maximum allowed array index to 100"
+    - "Defines a function that always returns 100"
+  explanation: "const int MAX = 100; — a fixed value used for array sizes and limits."
+
+- atomId: MW-03
+  code: |
+    const int MAX = 100;
+    book list[MAX];
+  question: "What does 'book list[MAX];' declare?"
+  correct: "An array of up to MAX (100) book structs — the storage for all items"
+  distractors:
+    - "A single book variable named list with 100 fields"
+    - "A function that creates MAX books"
+    - "A constant that limits books to 100 characters each"
+  explanation: "Type list[MAX] declares the array. Not all slots need to be used."
+
+- atomId: MW-04
+  code: |
+    int count;
+    cin >> count;
+  question: "What does 'int count;' declare in the context of main?"
+  correct: "A variable to track how many items the user will actually enter"
+  distractors:
+    - "The maximum size of the array"
+    - "A loop counter for iterating"
+    - "The total number of fields in the struct"
+  explanation: "count = how many structs we'll actually use (≤ MAX)."
+
+- atomId: MW-05
+  code: |
+    int count;
+    cin >> count;
+    // user types: 3
+  question: "What does 'cin >> count;' do in main?"
+  correct: "Reads how many items the user wants to enter — sets the working size"
+  distractors:
+    - "Sets count to the array's maximum capacity"
+    - "Counts how many variables have been declared so far"
+    - "Reads all the items from input in one go"
+  explanation: "Reads N from user. Then we loop N times to fill N structs."
+
+- atomId: MW-06
+  code: |
+    read_book(list, count);
+  question: "What does calling 'read_book(list, count);' do in main?"
+  correct: "Calls the read function to fill the array — passes the array and how many to read"
+  distractors:
+    - "Declares a function called read_book"
+    - "Prints all the books in the list"
+    - "Returns a book from the list at position count"
+  explanation: "Delegates input work to the read function. list and count are arguments."
+
+- atomId: MW-07
+  code: |
+    for (int i = 0; i < count; i++) {
+      printf("%d %s\n", list[i].id, list[i].name.c_str());
+    }
+  question: "What does this for-loop in main do?"
+  correct: "Prints each item in the array, one per line, for all 'count' items"
+  distractors:
+    - "Reads input into each item of the array"
+    - "Deletes each item after printing it"
+    - "Counts how many items match a search condition"
+  explanation: "Output loop: iterate i from 0 to count-1, print each struct's fields."
+
+- atomId: MW-08
+  code: |
+    printf("%d %s\n", list[i].id, list[i].name.c_str());
+  question: "What do %d and %s in the format string produce?"
+  correct: "%d prints the int (id), %s prints the string (name) — in that order"
+  distractors:
+    - "%d prints a double, %s prints a single char"
+    - "Both print the same value in different formats"
+    - "%d and %s are printed literally as text"
+  explanation: "%d=integer, %s=C-string. Args fill placeholders left-to-right."
+
+- atomId: MW-09
+  code: |
+    printf("%s\n", list[i].name.c_str());
+  question: "Why is .c_str() needed on the string?"
+  correct: "printf's %s expects a C-string (char*); .c_str() converts C++ string to that format"
+  distractors:
+    - "It converts the string to uppercase before printing"
+    - "It counts the string's characters for %s formatting"
+    - "It's not needed — %s works with C++ strings directly"
+  explanation: ".c_str() bridges C++ string → C-style char* that printf requires."
+
+# ═══════════════════════════════════════════════════════════════
+# L17: Mock exams (ME-01 to ME-05)
+# ═══════════════════════════════════════════════════════════════
+
+- atomId: ME-01
+  code: |
+    struct stat_double {
+      double mystery;
+      double a;
+      double numbers[5];
+      int count;
+    };
+  question: "What pattern does this struct follow?"
+  correct: "A data container with mixed types: doubles, an array field, and an int — typical exam Q1 struct"
+  distractors:
+    - "A function that processes statistical data"
+    - "An array of 5 separate structs"
+    - "A class with private fields and methods"
+  explanation: "Exam structs bundle a mix of scalars, arrays, and counters."
+
+- atomId: ME-02
+  code: |
+    void read_stat(stat_double &data) {
+      cin >> data.mystery;
+      cin >> data.count;
+      for (int i = 0; i < data.count; i++) {
+        cin >> data.numbers[i];
+      }
+    }
+  question: "What is the purpose of this read function?"
+  correct: "Fills all fields of the struct from input — scalar fields first, then array via loop"
+  distractors:
+    - "Prints the struct's contents to the terminal"
+    - "Creates a new stat_double variable"
+    - "Validates that the input data is correct"
+  explanation: "Read pattern: cin each scalar, then loop for array elements."
+
+- atomId: ME-03
+  code: |
+    void who_am_i(stat_double &data) {
+      data.mystery = data.numbers[0];
+      for (int i = 1; i < data.count; i++) {
+        if (data.numbers[i] > data.mystery) {
+          data.mystery = data.numbers[i];
+        }
+      }
+    }
+  question: "What does this function compute?"
+  correct: "Finds the maximum value in data.numbers and stores it in data.mystery"
+  distractors:
+    - "Sums all values in data.numbers"
+    - "Sorts the array from smallest to largest"
+    - "Counts how many numbers are positive"
+  explanation: "Classic max-finder: start with first element, update when bigger found."
+
+- atomId: ME-04
+  code: |
+    struct stat_double {
+      double mystery;
+      double a;
+      double numbers[5];
+      int count;
+    };
+    void who_am_i(stat_double &data) {
+      data.mystery = data.a;
+      for (int i = 0; i < data.count; i++) {
+        if (data.numbers[i] > data.mystery) {
+          data.mystery = data.numbers[i];
+        }
+      }
+    }
+  question: "Why is data.mystery initialized to data.a before the loop?"
+  correct: "Sets a starting comparison value — the loop finds the max between a and all numbers"
+  distractors:
+    - "data.a is always the largest value"
+    - "It's a bug — should be initialized to 0"
+    - "data.mystery needs a type-compatible initial value from the struct"
+  explanation: "Initialize max-candidate, then loop updates if anything is larger."
+
+- atomId: ME-05
+  code: |
+    int main() {
+      stat_double data;
+      read_stat(data);
+      who_am_i(data);
+      printf("mystery = %.2f\n", data.mystery);
+      return 0;
+    }
+  question: "Why does main just call functions instead of containing all the logic?"
+  correct: "Decomposition — each function handles one task, making code organized and readable"
+  distractors:
+    - "main() can't contain loops or if-statements"
+    - "Functions run faster than inline code"
+    - "The compiler requires at least 3 functions per program"
+  explanation: "Exam pattern: main declares data, calls read, calls process, calls output."

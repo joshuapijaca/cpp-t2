@@ -1,0 +1,49 @@
+id: WT-L11
+level: 11
+level_label: "L11 structs -- define, declare, write, read"
+anchor_atom_id: T-01
+status: locked
+full_code: |
+  #include <iostream>
+  #include <string>
+  using namespace std;
+  
+  struct book {
+    int id;
+    string title;
+    double price;
+  };
+  
+  int main() {
+    book b;
+    b.id = 1;
+    b.title = "C++";
+    b.price = 9.95;
+    cout << b.id << " " << b.title << endl;
+    return 0;
+  }
+steps:
+  - line: 5
+    code: "struct book {"
+    annotation: "open the type definition."
+    atom_ids: [T-01, T-02]
+  - line: 6
+    code: "  int id;"
+    annotation: "each field: type fieldName;"
+    atom_ids: [T-03]
+  - line: 9
+    code: "};"
+    annotation: "; required after } when defining a type."
+    atom_ids: [T-04]
+  - line: 12
+    code: "  book b;"
+    annotation: "now book is a usable type."
+    atom_ids: [T-05]
+  - line: 13
+    code: "  b.id = 1;"
+    annotation: ". accesses one field; = writes it."
+    atom_ids: [T-06, T-07]
+  - line: 16
+    code: "  cout << b.id << \" \" << b.title << endl;"
+    annotation: "reading fields via .field"
+    atom_ids: [T-08]

@@ -1,0 +1,52 @@
+id: V-06
+fact: 'read: cout << name;'
+words: 3
+level: 2
+deps:
+  - V-04
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - read variable to print
+    - cout << name shows value
+    - use name in expression to read
+    - reading uses the name
+    - access variable by name
+  see_demo:
+    why_one_line: use the variable's name to read its current value into an expression.
+    snippet: |
+      int x = 5;
+      cout << x;         // reads x's value
+    highlights:
+      - cout << x
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int x = 5;
+      x = x + 1;
+      int y = x;
+      string greeting = "hi";
+      greeting = "hello";
+    correct_atoms:
+      - V-06
+      - V-04
+    distractors:
+      - V-01
+      - V-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

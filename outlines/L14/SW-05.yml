@@ -1,0 +1,68 @@
+id: SW-05
+fact: field order is arbitrary
+words: 4
+level: 14
+deps:
+  - SW-02
+q_tags:
+  Q1: 'N'
+  Q2: C
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence:
+  - question: Q2
+    instance: Q2 spec lists fields; order not graded strictly
+    file_path: extraction/L14_struct_write/notes.md
+canonical_example: ''
+expected_output: ''
+sit102_quirks:
+  - Compiles equally with any field order
+  - 'Best practice: match spec order for clarity'
+misconceptions:
+  - id: M01
+    description: Worries about exact order
+    student_says: Must order alphabetically
+    correct_says: Order doesn't change correctness; spec order is convention
+render_hints:
+  memorize_seed_phrases:
+    - field order does not matter
+    - any order compiles fine
+    - ordering arbitrary for correctness
+    - spec order conventional only
+    - fields any order all work
+  see_demo:
+    why_one_line: field order does not affect the grade as long as all three are present.
+    snippet: |
+      // any field order is fine
+      struct book {
+        string title;
+        double price;
+        int id;
+      };
+    highlights: []
+    used_in:
+      - Q2
+  see_decompose:
+    snippet: |-
+      struct student {
+        int id;
+        string name;
+        double gpa;
+      };
+    correct_atoms:
+      - SW-05
+      - SW-02
+    distractors:
+      - SW-01
+      - SW-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions order / arbitrary
+lint:
+  forbid_tokens:
+    - typedef
+  miller_max_words: 7
+status: locked

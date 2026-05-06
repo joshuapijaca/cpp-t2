@@ -1,0 +1,50 @@
+id: RW-07
+fact: optional cout prompt before cin
+words: 5
+level: 15
+deps:
+  - RW-05
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: S
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: 'cout << "Enter id: "; cin >> list[i].id;'
+expected_output: prompt displayed, then input read
+sit102_quirks:
+  - Optional; not graded but improves UX
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - cout prompt before cin
+    - optional cout improves UX
+    - prompt user before reading
+    - cout shows what to enter
+    - cin alone OK; cout helps
+  see_demo:
+    why_one_line: an optional cout prompt before each cin makes the program user-friendly.
+    snippet: |
+      cout << "Enter id: "; cin >> list[i].id;
+    highlights: []
+    used_in: []
+  see_decompose:
+    snippet: |
+      cout << "Enter id: "; cin >> list[i].id;
+    correct_atoms:
+      - RW-07
+      - RW-05
+    distractors:
+      - RW-01
+      - RW-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions cout / prompt / optional
+lint:
+  forbid_tokens:
+    - cin <<
+  miller_max_words: 7
+status: locked

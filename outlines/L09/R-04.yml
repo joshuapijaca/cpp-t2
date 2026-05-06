@@ -1,0 +1,129 @@
+id: R-04
+fact: "void f(int &x) shares box with caller"
+words: 7
+level: 9
+deps:
+  - R-03   # & means alias
+  - H-02   # function signature: returnType name(params){body}
+
+q_tags:
+  Q1: C
+  Q2: N
+  Q3: C
+  Q4: C
+
+pfg_source:
+  - quote_id: Q04
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+  - quote_id: Q05
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+  - quote_id: Q07
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+  - quote_id: Q09
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+
+test2_evidence:
+  - question: Q1
+    instance: "void who_am_i(stat_double &data) - signature shape Q1"
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+  - question: Q3
+    instance: "void read_X(X &list[], int n) - signature shape Q3"
+    file_path: extraction/test2_bank/Q3_read_X_variants.md
+
+canonical_example: |
+  void increment(int &x) {
+    x = x + 1;
+  }
+  int main() {
+    int n = 5;
+    increment(n);
+    cout << n << endl;
+    return 0;
+  }
+expected_output: "6"
+
+sit102_quirks:
+  - "& goes between type and parameter name"
+  - "No special syntax at call site (just pass variable)"
+  - "Caller passes variable name, not &name"
+
+misconceptions:
+  - id: M01
+    description: "Adds & at call site too"
+    student_says: "increment(&n);"
+    correct_says: "increment(n); - & only in declaration, not call"
+  - id: M02
+    description: "Puts & before type"
+    student_says: "void f(&int x)"
+    correct_says: "void f(int &x) - & between type and name"
+  - id: M03
+    description: "Forgets & - falls back to copy semantics"
+    student_says: "void f(int x)"
+    correct_says: "Without &, mutation is local; caller unchanged"
+
+render_hints:
+  memorize_seed_phrases:
+    - "void f(int &x) shares caller box"
+    - "& in signature = reference param"
+    - "& between type and name"
+    - "param signature uses &"
+    - "f(int &x) means alias to caller"
+  trace:
+    description: "Show signature parsing: type=int, ref=&, name=x; binding to caller's variable on call."
+    minimum_steps: 3
+    must_show:
+      - "signature read"
+      - "call site: n passed (no & at call)"
+      - "binding: x aliases n"
+  write_L1_fill:
+    template: "void increment(int ___ x) { x = x + 1; }"
+    blank_value: "&"
+  write_L2_complete:
+    template: "void increment(___) { x = x + 1; }"
+    blank_value: "int &x"
+  write_L3_free_spec: "Write the signature of a void function that takes one int by reference, named x."
+
+  see_demo:
+    why_one_line: "& sits between the type and the parameter name in the function signature."
+    snippet: |
+      void increment(int &x) {
+        x = x + 1;
+      }
+      int main() {
+        int n = 5;
+        increment(n);
+        cout << n << endl;
+        return 0;
+      }
+    highlights: ["int &x"]
+    used_in: [Q1, Q3, Q4]
+  see_decompose:
+    snippet: |
+      void increment(int &x) {
+        x = x + 1;
+    correct_atoms: [R-04, R-03, H-02]
+    distractors: [R-01, R-02, T-01]
+acceptance:
+  memorize:
+    - "Each variant <=7 words"
+    - "Mentions one of: signature, &, parameter, declaration"
+  mcq:
+    - "Correct option: & between type and name"
+    - "Distractor: & before type / & at call site / no &"
+  trace:
+    - "Trace shows signature parsing + binding step"
+  write:
+    - "L1 expected = '&'"
+    - "L2 expected = 'int &x' (whitespace tolerant)"
+    - "L3 expected pattern: 'void <name>(int &x)'"
+    - "L3 forbidden: '&' at call site, '*'"
+
+lint:
+  forbid_tokens: ["nullptr", "->", "(&n)", "(&x)"]
+  require_pattern_in_L3: "void\\s+\\w+\\(int\\s*&\\s*\\w+\\)"
+  miller_max_words: 7
+
+status: locked
+locked_at: null
+locked_by: null
+revision_history: []

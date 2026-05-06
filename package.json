@@ -1,0 +1,46 @@
+{
+  "name": "cpp-t2",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "C++T2 — SIT102 Test 2 from-zero learning app. M0-M11 milestone plan; see docs/13_milestones.md.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "type-check": "tsc --noEmit",
+    "gen": "tsx build/generate-cards.ts",
+    "lint:cards": "tsx build/lint-cards.ts",
+    "lint:see": "tsx build/lint-see-outlines.ts",
+    "check:cpp": "tsx build/compile-check.ts",
+    "order": "tsx build/order-atoms.ts",
+    "gen:see-demo": "tsx build/gen-see-demo-cards.ts",
+    "gen:see-decompose": "tsx build/gen-see-decompose-cards.ts",
+    "gen:see-walkthroughs": "tsx build/gen-see-walkthroughs.ts",
+    "gen:see-worked": "tsx build/gen-see-worked-examples.ts",
+    "gen:see-predict": "tsx build/gen-see-read-predict.ts",
+    "gen:see-q-context": "tsx build/gen-see-q-context.ts",
+    "gen:see": "npm run gen:see-demo && npm run gen:see-decompose && npm run gen:see-walkthroughs && npm run gen:see-worked && npm run gen:see-predict && npm run gen:see-q-context",
+    "interleave": "tsx build/interleave-see-do.ts",
+    "gen:all": "npm run gen:see && npm run interleave",
+    "lint:see-cards": "tsx build/lint-see-cards.ts"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.92.0",
+    "@tailwindcss/vite": "^4.0.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@vitejs/plugin-react": "^4.3.4",
+    "glob": "^13.0.6",
+    "js-yaml": "^4.1.1",
+    "tailwindcss": "^4.0.0",
+    "tsx": "^4.21.0",
+    "typescript": "~5.6.0",
+    "vite": "^6.0.0"
+  }
+}

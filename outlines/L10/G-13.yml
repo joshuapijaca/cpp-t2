@@ -1,0 +1,54 @@
+id: G-13
+fact: 'array param: type arr[]'
+words: 4
+level: 10
+deps:
+  - G-02
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: C
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: void f(int arr[], int n) { ... }
+expected_output: f receives arr and size n
+sit102_quirks:
+  - Empty brackets in param list
+misconceptions:
+  - id: M01
+    description: Adds size in param brackets
+    student_says: void f(int arr[5])
+    correct_says: 'Empty brackets: int arr[] (size not part of param type)'
+render_hints:
+  memorize_seed_phrases:
+    - param uses empty brackets
+    - type arr[] in function param
+    - no size in param array
+    - 'array param: type name[]'
+    - '[] alone for array param'
+  see_demo:
+    why_one_line: type arr[] in a parameter is the array-passing shape -- without &, copies.
+    snippet: |
+      void f(int arr[], int n) { ... }
+    highlights:
+      - '[]'
+    used_in:
+      - Q3
+  see_decompose:
+    snippet: |
+      void f(int arr[], int n) { ... }
+    correct_atoms:
+      - G-13
+      - G-02
+    distractors:
+      - G-01
+      - G-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions param / empty / brackets
+lint:
+  miller_max_words: 7
+status: locked

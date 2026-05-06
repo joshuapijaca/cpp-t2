@@ -1,0 +1,31 @@
+id: WT-L8
+level: 8
+level_label: "L8 functions -- call, parameter, return"
+anchor_atom_id: H-02
+status: locked
+full_code: |
+  #include <iostream>
+  using namespace std;
+  
+  int square(int n) {
+    return n * n;
+  }
+  
+  int main() {
+    int r = square(5);
+    cout << r << endl;
+    return 0;
+  }
+steps:
+  - line: 4
+    code: "int square(int n) {"
+    annotation: "signature: returns int, named square, takes one int param."
+    atom_ids: [H-01, H-02, H-04]
+  - line: 5
+    code: "  return n * n;"
+    annotation: "compute and hand value back to the caller."
+    atom_ids: [H-05, A-03]
+  - line: 9
+    code: "  int r = square(5);"
+    annotation: "caller binds 5 to n inside the function frame, gets 25 back."
+    atom_ids: [H-03, H-09]

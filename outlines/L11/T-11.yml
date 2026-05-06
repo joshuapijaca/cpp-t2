@@ -1,0 +1,58 @@
+id: T-11
+fact: 'array of structs: Name list[N];'
+words: 5
+level: 11
+deps:
+  - T-05
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence:
+  - question: Q4
+    instance: main() declares X list[MAX] where X is the struct
+    file_path: extraction/L14_struct_write/notes.md
+canonical_example: |
+  struct Point { int x; int y; };
+  Point list[3];
+expected_output: list[0..2] each a Point struct
+sit102_quirks:
+  - Standard array syntax with struct as element type
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - Name list[N] makes struct array
+    - array of structs declared like ints
+    - Name array uses [N]
+    - 'struct array: Name list[N];'
+    - structs in array form
+  see_demo:
+    why_one_line: Name list[N]; is the Q3 and Q4 array-of-structs pattern.
+    snippet: |
+      struct Point { int x; int y; };
+      Point list[3];
+    highlights:
+      - struct
+    used_in:
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      struct Point { int x; int y; };
+    correct_atoms:
+      - T-11
+      - T-05
+    distractors:
+      - T-01
+      - T-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions array / struct
+lint:
+  forbid_tokens: []
+  miller_max_words: 7
+status: locked

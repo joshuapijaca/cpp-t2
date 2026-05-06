@@ -1,0 +1,68 @@
+id: PC-04
+fact: '&list[] passes array by ref'
+words: 5
+level: 12
+deps:
+  - G-14
+  - R-03
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence:
+  - question: Q3
+    instance: void read_X(X &list[], int count)
+    file_path: extraction/L15_read_function/notes.md
+canonical_example: void read_items(Item &list[], int count) { ... }
+expected_output: caller's list modified via &
+sit102_quirks:
+  - Q3 idiom; never *array
+misconceptions:
+  - id: M01
+    description: Uses pointer syntax
+    student_says: Item *list
+    correct_says: Use & not *; SIT102 idiom is &list[]
+render_hints:
+  memorize_seed_phrases:
+    - '&list[] is Q3 array param'
+    - T &arr[] passes array by ref
+    - '& before array name shares'
+    - array of structs by reference
+    - Q3 signature uses &list[]
+  write_L1_fill:
+    template: void read_X(X ___list[], int count) {}
+    blank_value: '&'
+  see_demo:
+    why_one_line: void f(Name &list[], int n) is the Q3 read function signature shape.
+    snippet: |
+      void read_items(Item &list[], int count) { ... }
+    highlights:
+      - Item &list[]
+    used_in:
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      void read_items(Item &list[], int count) { ... }
+    correct_atoms:
+      - PC-04
+      - G-14
+      - R-03
+    distractors:
+      - PC-01
+      - PC-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions array / & / Q3
+  write:
+    - L1 expected = '&'
+lint:
+  forbid_tokens:
+    - '*list'
+    - '*arr'
+  miller_max_words: 7
+status: locked

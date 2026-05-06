@@ -1,0 +1,52 @@
+id: V-14
+fact: char holds one letter
+words: 4
+level: 2
+deps:
+  - V-03
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - char = single character
+    - char stores one letter
+    - 'single-quoted: ''a'' is char'
+    - char is one byte typically
+    - char fits one symbol
+  see_demo:
+    why_one_line: char holds one letter; rare in T2 but part of the type system.
+    snippet: |
+      char letter = 'A';
+      char digit = '7';
+    highlights:
+      - char
+    used_in: []
+  see_decompose:
+    snippet: |-
+      const int MAX = 100;
+      int count = 0;
+      double total = 0.0;
+      count = count + 1;
+      total = total + 9.99;
+    correct_atoms:
+      - V-14
+      - V-03
+    distractors:
+      - V-01
+      - V-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

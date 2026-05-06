@@ -1,0 +1,26 @@
+id: WT-L7
+level: 7
+level_label: "L7 loops -- for-loop walks 0..n-1"
+anchor_atom_id: W-03
+status: locked
+full_code: |
+  #include <iostream>
+  using namespace std;
+  
+  int main() {
+    int n = 5;
+    for (int i = 0; i < n; i++) {
+      cout << i << " ";
+    }
+    cout << endl;
+    return 0;
+  }
+steps:
+  - line: 6
+    code: "  for (int i = 0; i < n; i++) {"
+    annotation: "init runs once, cond before each, step after."
+    atom_ids: [W-03, W-04, W-05, W-06]
+  - line: 7
+    code: "    cout << i << \" \";"
+    annotation: "body runs while cond is true."
+    atom_ids: [O-02, O-04]

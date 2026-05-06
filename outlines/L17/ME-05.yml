@@ -1,0 +1,106 @@
+id: ME-05
+fact: mock exam me-05
+words: 4
+level: 17
+deps:
+  - HE-16
+  - SW-01
+  - RW-01
+  - MW-01
+q_tags:
+  Q1: C
+  Q2: C
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: |-
+  struct stat_double { double mystery; double numbers[5]; };
+  void who_am_i(stat_double &data) {
+    data.mystery = 0;
+    for (int i = 0; i < 5; i++) {
+      if (data.numbers[i] > 0)
+        data.mystery = data.mystery + 1;
+    }
+  }
+expected_output: mystery = count of positive numbers
+sit102_quirks:
+  - 90-min timed exam
+  - no retry inside exam
+  - all 4 questions in sequence
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - mock exam me-05
+  see_demo:
+    why_one_line: final mock; production-readiness check before exam day.
+    snippet: |-
+      // Mock 5 — count-positive variant
+      struct stat_double { double mystery; double numbers[5]; };
+
+      void who_am_i(stat_double &data) {
+        data.mystery = 0;
+        for (int i = 0; i < 5; i++) {
+          if (data.numbers[i] > 0)
+            data.mystery = data.mystery + 1;
+        }
+      }
+
+      void read_stat(stat_double &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          for (int j = 0; j < 5; j++) {
+            cin >> list[i].numbers[j];
+          }
+        }
+      }
+
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        read_stat(list, count);
+        return 0;
+      }
+    highlights:
+      - stat_double
+      - data.numbers[i] > 0
+      - data.mystery + 1
+    used_in:
+      - Q1
+      - Q2
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      struct stat_double { double mystery; double numbers[5]; };
+      void who_am_i(stat_double &data) {
+        data.mystery = 0;
+        for (int i = 0; i < 5; i++) {
+          if (data.numbers[i] > 0)
+            data.mystery = data.mystery + 1;
+        }
+      }
+      int main() {
+        const int MAX = 100;
+        stat_double list[MAX];
+        int count;
+        cin >> count;
+        return 0;
+      }
+    correct_atoms:
+      - ME-05
+      - HE-16
+      - SW-01
+      - RW-01
+      - MW-01
+    distractors:
+      - ME-01
+      - ME-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

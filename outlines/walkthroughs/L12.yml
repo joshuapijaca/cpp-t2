@@ -1,0 +1,39 @@
+id: WT-L12
+level: 12
+level_label: "L12 pass composites -- struct and array via &"
+anchor_atom_id: PC-02
+status: locked
+full_code: |
+  #include <iostream>
+  using namespace std;
+  
+  struct stat_double { double mystery; double a; double b; };
+  
+  void compute(stat_double &d) {
+    d.mystery = d.a + d.b;
+  }
+  
+  int main() {
+    stat_double d;
+    d.a = 3; d.b = 4;
+    compute(d);
+    cout << d.mystery << endl;
+    return 0;
+  }
+steps:
+  - line: 6
+    code: "void compute(stat_double &d) {"
+    annotation: "& on struct param: caller and d are the SAME struct."
+    atom_ids: [PC-02, R-04]
+  - line: 7
+    code: "  d.mystery = d.a + d.b;"
+    annotation: "writing d.mystery persists in caller (PC-03)."
+    atom_ids: [PC-03, T-07]
+  - line: 13
+    code: "  compute(d);"
+    annotation: "pass d by ref; no special syntax at call site."
+    atom_ids: [H-03]
+  - line: 14
+    code: "  cout << d.mystery << endl;"
+    annotation: "main sees the mutation: prints 7."
+    atom_ids: [T-08]

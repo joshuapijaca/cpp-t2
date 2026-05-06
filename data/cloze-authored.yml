@@ -1,0 +1,770 @@
+# Hand-authored cloze cards. Each: sentence with ___ blank + answer.
+# Code context pulled automatically from outlines by generator.
+
+# L-1: Philosophy
+- atomId: P-01
+  sentence: "A ___ is a sequence of instructions the computer executes"
+  answer: "program"
+
+- atomId: P-02
+  sentence: "Source code is ___ that humans read and the compiler translates"
+  answer: "text"
+
+- atomId: P-03
+  sentence: "C++ source code files use the ___ extension"
+  answer: ".cpp"
+
+- atomId: P-04
+  sentence: "The ___ converts .cpp source code into an executable .exe"
+  answer: "compiler"
+
+- atomId: P-05
+  sentence: "When you run the .exe, the CPU ___ each instruction in order"
+  answer: "executes"
+
+- atomId: P-06
+  sentence: "Program output appears in the ___ window"
+  answer: "terminal"
+
+- atomId: P-07
+  sentence: "User input is ___ in the terminal during program execution"
+  answer: "typed"
+
+# L0: Syntax basics
+- atomId: S-01
+  sentence: "Without ___ the compiler doesn't know about cout or cin"
+  answer: "#include <iostream>"
+
+- atomId: S-02
+  sentence: "___ lets you write cout instead of std::cout"
+  answer: "using namespace std;"
+
+- atomId: S-03
+  sentence: "___ is where every C++ program begins executing"
+  answer: "int main()"
+
+- atomId: S-04
+  sentence: "Every C++ statement must end with a ___"
+  answer: ";"
+
+- atomId: S-05
+  sentence: "The ___ character opens a code block (function body, loop body)"
+  answer: "{"
+
+- atomId: S-06
+  sentence: "The ___ character closes a code block"
+  answer: "}"
+
+- atomId: S-07
+  sentence: "___ ends main and tells the OS the program succeeded"
+  answer: "return 0;"
+
+- atomId: S-08
+  sentence: "___ starts a single-line comment that the compiler ignores"
+  answer: "//"
+
+- atomId: S-09
+  sentence: "Extra spaces between tokens are ___ by the compiler"
+  answer: "ignored"
+
+- atomId: S-10
+  sentence: "Indentation is a ___ convention, not required by the compiler"
+  answer: "style"
+
+# L1: Output
+- atomId: O-01
+  sentence: "___ sends output to the terminal for display"
+  answer: "cout"
+
+- atomId: O-02
+  sentence: "The ___ operator inserts a value into the output stream"
+  answer: "<<"
+
+- atomId: O-03
+  sentence: "Text in ___ is printed exactly as written by cout"
+  answer: "double quotes"
+
+- atomId: O-04
+  sentence: "cout << 5 prints the ___ 5 to the terminal"
+  answer: "number"
+
+- atomId: O-05
+  sentence: "___ moves the cursor to a new line after printing"
+  answer: "endl"
+
+- atomId: O-06
+  sentence: "The escape sequence ___ inside a string creates a newline"
+  answer: "\\n"
+
+- atomId: O-07
+  sentence: "Chaining multiple ___ operators prints several values in sequence"
+  answer: "<<"
+
+- atomId: O-08
+  sentence: "___ outputs formatted text using a format string with placeholders"
+  answer: "printf"
+
+- atomId: O-09
+  sentence: "In printf, ___ is the placeholder that gets replaced by an integer"
+  answer: "%d"
+
+- atomId: O-10
+  sentence: "In printf, ___ is the placeholder for a C-string"
+  answer: "%s"
+
+- atomId: O-11
+  sentence: "In printf format strings, ___ produces a newline character"
+  answer: "\\n"
+
+- atomId: O-12
+  sentence: "The first argument to printf is always the ___ string"
+  answer: "format"
+
+- atomId: O-13
+  sentence: "Extra arguments to printf fill the ___ in left-to-right order"
+  answer: "placeholders"
+
+# L2: Variables
+- atomId: V-01
+  sentence: "A variable is a named ___ that stores a value"
+  answer: "memory box"
+
+- atomId: V-02
+  sentence: "The variable ___ is how you refer to a specific memory box"
+  answer: "name"
+
+- atomId: V-03
+  sentence: "Every variable has a ___ that determines what values it can hold"
+  answer: "type"
+
+- atomId: V-04
+  sentence: "___ creates a variable: reserves a memory box with a name and type"
+  answer: "declaration"
+
+- atomId: V-05
+  sentence: "int x = 5; both declares and ___ the variable x"
+  answer: "initializes"
+
+- atomId: V-06
+  sentence: "cout << x ___ the current value stored in x and prints it"
+  answer: "reads"
+
+- atomId: V-07
+  sentence: "x = 10; ___ the value in x, replacing whatever was there before"
+  answer: "overwrites"
+
+- atomId: V-08
+  sentence: "In C++, = means ___ (store), not equality (compare)"
+  answer: "assignment"
+
+- atomId: V-09
+  sentence: "A variable must be ___ before any line that uses it"
+  answer: "declared"
+
+- atomId: V-10
+  sentence: "___ stores whole numbers (positive, negative, or zero)"
+  answer: "int"
+
+- atomId: V-11
+  sentence: "___ stores numbers with decimal points"
+  answer: "double"
+
+- atomId: V-12
+  sentence: "___ stores text as a sequence of characters"
+  answer: "string"
+
+- atomId: V-13
+  sentence: "___ stores only true or false"
+  answer: "bool"
+
+- atomId: V-14
+  sentence: "___ stores exactly one character in single quotes"
+  answer: "char"
+
+- atomId: V-15
+  sentence: "5 written directly in code is an int ___"
+  answer: "literal"
+
+- atomId: V-16
+  sentence: "3.14 written directly in code is a double ___"
+  answer: "literal"
+
+- atomId: V-17
+  sentence: "Text in double quotes like \"hello\" is a string ___"
+  answer: "literal"
+
+- atomId: V-18
+  sentence: "A single character in single quotes like 'A' is a char ___"
+  answer: "literal"
+
+- atomId: V-19
+  sentence: "___ and false are the only two values a bool can hold"
+  answer: "true"
+
+- atomId: V-20
+  sentence: "To use string variables, you need ___"
+  answer: "#include <string>"
+
+# L3: Input
+- atomId: I-01
+  sentence: "___ reads input that the user types in the terminal"
+  answer: "cin"
+
+- atomId: I-02
+  sentence: "The ___ operator extracts a value from input into a variable"
+  answer: ">>"
+
+- atomId: I-03
+  sentence: "cin >> x; causes the program to ___ until the user types something"
+  answer: "wait"
+
+- atomId: I-04
+  sentence: "When reading multiple values, ___ separates them in the input"
+  answer: "whitespace"
+
+- atomId: I-05
+  sentence: "cin automatically ___ the typed text to match the variable's type"
+  answer: "parses"
+
+- atomId: I-06
+  sentence: "cin >> a >> b reads ___ values from one input line"
+  answer: "multiple"
+
+- atomId: I-07
+  sentence: "___ reads the entire line including spaces, unlike cin >>"
+  answer: "getline"
+
+# L4: Arithmetic
+- atomId: A-01
+  sentence: "The ___ operator adds two values together"
+  answer: "+"
+
+- atomId: A-02
+  sentence: "The ___ operator subtracts the right value from the left"
+  answer: "-"
+
+- atomId: A-03
+  sentence: "The ___ operator multiplies two values"
+  answer: "*"
+
+- atomId: A-04
+  sentence: "The ___ operator divides the left value by the right"
+  answer: "/"
+
+- atomId: A-05
+  sentence: "The ___ operator gives the remainder after division"
+  answer: "%"
+
+- atomId: A-06
+  sentence: "5 / 2 gives 2 because integer division ___ the decimal part"
+  answer: "truncates"
+
+- atomId: A-07
+  sentence: "In 2 + 3 * 4, ___ happens before addition"
+  answer: "multiplication"
+
+- atomId: A-08
+  sentence: "___ override the default operator precedence, just like in math"
+  answer: "parentheses"
+
+- atomId: A-09
+  sentence: "x += 3 is shorthand for x = x ___ 3"
+  answer: "+"
+
+- atomId: A-10
+  sentence: "i++ adds ___ to i"
+  answer: "1"
+
+- atomId: A-11
+  sentence: "n-- subtracts ___ from n"
+  answer: "1"
+
+# L5: Comparison
+- atomId: C-01
+  sentence: "___ tests if two values are equal"
+  answer: "=="
+
+- atomId: C-02
+  sentence: "___ tests if two values are NOT equal"
+  answer: "!="
+
+- atomId: C-03
+  sentence: "i < n is true when i is ___ than n"
+  answer: "less"
+
+- atomId: C-04
+  sentence: "x > 5 is true when x is ___ than 5"
+  answer: "greater"
+
+- atomId: C-05
+  sentence: "<= means less than ___ equal to"
+  answer: "or"
+
+- atomId: C-06
+  sentence: ">= means greater than ___ equal to"
+  answer: "or"
+
+- atomId: C-07
+  sentence: "Every comparison operator returns a ___ value (true or false)"
+  answer: "bool"
+
+# L6: Logic
+- atomId: L-01
+  sentence: "___ returns true only if BOTH sides are true"
+  answer: "&&"
+
+- atomId: L-02
+  sentence: "___ returns true if EITHER side is true"
+  answer: "||"
+
+- atomId: L-03
+  sentence: "The ___ operator flips true to false and false to true"
+  answer: "!"
+
+# L7: If/else
+- atomId: F-01
+  sentence: "___ runs the body only when the condition is true"
+  answer: "if"
+
+- atomId: F-02
+  sentence: "___ runs its body only when the if condition was false"
+  answer: "else"
+
+- atomId: F-03
+  sentence: "___ chains another condition check after a failed if"
+  answer: "else if"
+
+- atomId: F-04
+  sentence: "The condition inside if() must evaluate to type ___"
+  answer: "bool"
+
+- atomId: F-05
+  sentence: "Always use ___ around if/else bodies, even for one-line bodies"
+  answer: "braces"
+
+# L8: Loops
+- atomId: W-01
+  sentence: "___ repeats the body as long as the condition stays true"
+  answer: "while"
+
+- atomId: W-02
+  sentence: "___ guarantees the body runs at least once before checking the condition"
+  answer: "do-while"
+
+- atomId: W-03
+  sentence: "for (___; condition; step) puts all loop control in one line"
+  answer: "init"
+
+- atomId: W-04
+  sentence: "The init part of a for-loop runs exactly ___ before the first iteration"
+  answer: "once"
+
+- atomId: W-05
+  sentence: "The condition is checked ___ each iteration of the loop"
+  answer: "before"
+
+- atomId: W-06
+  sentence: "The step part runs ___ each iteration, before the next condition check"
+  answer: "after"
+
+- atomId: W-07
+  sentence: "___ immediately exits the loop and jumps to after the closing }"
+  answer: "break"
+
+- atomId: W-08
+  sentence: "___ skips the rest of the current iteration and jumps to the next one"
+  answer: "continue"
+
+- atomId: W-09
+  sentence: "A loop inside another loop is called ___ loops"
+  answer: "nested"
+
+- atomId: W-10
+  sentence: "while(true) creates an ___ loop that never stops on its own"
+  answer: "infinite"
+
+# L8: Functions (H-prefix but level 8)
+- atomId: H-01
+  sentence: "A ___ is a named reusable block of code you can call"
+  answer: "function"
+
+- atomId: H-02
+  sentence: "The ___ before the function name specifies what type it gives back"
+  answer: "return type"
+
+- atomId: H-03
+  sentence: "To run a function, you ___ it by writing its name with arguments"
+  answer: "call"
+
+- atomId: H-04
+  sentence: "Parameters become ___ variables initialized with the argument values"
+  answer: "local"
+
+- atomId: H-05
+  sentence: "___ sends a value back to whoever called the function"
+  answer: "return"
+
+- atomId: H-06
+  sentence: "___ means the function returns nothing"
+  answer: "void"
+
+- atomId: H-07
+  sentence: "A function must be declared or ___ before any code that calls it"
+  answer: "defined"
+
+- atomId: H-08
+  sentence: "A function ___ declares the signature without providing the body"
+  answer: "prototype"
+
+- atomId: H-09
+  sentence: "Local variables are ___ when the function returns"
+  answer: "destroyed"
+
+- atomId: H-10
+  sentence: "A function's local variables are ___ to all other functions"
+  answer: "invisible"
+
+# L9: References
+- atomId: R-01
+  sentence: "By default, parameters receive a ___ of the argument"
+  answer: "copy"
+
+- atomId: R-02
+  sentence: "Mutating a by-value parameter does NOT change the ___'s variable"
+  answer: "caller"
+
+- atomId: R-03
+  sentence: "___ in a parameter means the parameter is an alias for the caller's variable"
+  answer: "&"
+
+- atomId: R-04
+  sentence: "void f(int &x) lets the function ___ the caller's variable"
+  answer: "modify"
+
+- atomId: R-05
+  sentence: "With &, mutating the parameter directly ___ the caller's value"
+  answer: "changes"
+
+- atomId: R-06
+  sentence: "A reference must bind to a real ___, not a literal like 5"
+  answer: "variable"
+
+- atomId: R-07
+  sentence: "const & gives ___ access without making a copy"
+  answer: "read-only"
+
+- atomId: R-08
+  sentence: "A reference is two ___ for one memory box"
+  answer: "names"
+
+# L10: Arrays
+- atomId: G-01
+  sentence: "An array stores ___ values of the same type in consecutive memory"
+  answer: "N"
+
+- atomId: G-02
+  sentence: "int arr[5]; declares an array of ___ integers"
+  answer: "5"
+
+- atomId: G-03
+  sentence: "int arr[3] = {10, 20, 30}; ___ the array with those values"
+  answer: "initializes"
+
+- atomId: G-04
+  sentence: "arr[___] accesses the FIRST element of the array"
+  answer: "0"
+
+- atomId: G-05
+  sentence: "arr[i] accesses the element at ___ i"
+  answer: "index"
+
+- atomId: G-06
+  sentence: "C++ arrays are ___-indexed, meaning the first element is at position 0"
+  answer: "zero"
+
+- atomId: G-07
+  sentence: "For an array of size N, the last valid index is ___"
+  answer: "N-1"
+
+- atomId: G-08
+  sentence: "Accessing arr[N] in a size-N array is ___ — undefined behavior"
+  answer: "out of bounds"
+
+- atomId: G-09
+  sentence: "Array size is fixed at ___ time and cannot change"
+  answer: "compile"
+
+- atomId: G-10
+  sentence: "C++ cannot ___ an array directly from a function"
+  answer: "return"
+
+- atomId: G-11
+  sentence: "A for loop with arr[i] ___ through every element of the array"
+  answer: "iterates"
+
+- atomId: G-12
+  sentence: "arr[2] = 99; ___ the value 99 into position 2"
+  answer: "writes"
+
+- atomId: G-13
+  sentence: "An array parameter is written as type ___"
+  answer: "arr[]"
+
+- atomId: G-14
+  sentence: "Adding ___ before arr[] passes the array by reference"
+  answer: "&"
+
+# L11: Structs
+- atomId: T-01
+  sentence: "A ___ groups related fields under one custom type name"
+  answer: "struct"
+
+- atomId: T-02
+  sentence: "struct Point { int x; int y; }; defines a new ___"
+  answer: "type"
+
+- atomId: T-03
+  sentence: "Each line inside a struct declares a ___: type fieldName;"
+  answer: "field"
+
+- atomId: T-04
+  sentence: "A struct definition must end with }___"
+  answer: ";"
+
+- atomId: T-05
+  sentence: "Point p; ___ a variable p of type Point"
+  answer: "declares"
+
+- atomId: T-06
+  sentence: "The ___ operator accesses a field inside a struct variable"
+  answer: "dot"
+
+- atomId: T-07
+  sentence: "p.x = 3; ___ the value 3 into the x field of struct p"
+  answer: "stores"
+
+- atomId: T-08
+  sentence: "cout << p.x ___ the value of p's x field and prints it"
+  answer: "reads"
+
+- atomId: T-09
+  sentence: "A struct can contain an ___ as one of its fields"
+  answer: "array"
+
+- atomId: T-10
+  sentence: "d.numbers[0] accesses the first element of the ___ field inside struct d"
+  answer: "array"
+
+- atomId: T-11
+  sentence: "Point list[3]; creates an ___ of 3 Point structs"
+  answer: "array"
+
+- atomId: T-12
+  sentence: "list[0].x accesses field x of the ___ struct in the array"
+  answer: "first"
+
+# L12: Pass compound types
+- atomId: PC-01
+  sentence: "Passing a struct by value creates a ___ — changes don't affect the original"
+  answer: "copy"
+
+- atomId: PC-02
+  sentence: "void f(Point ___p) lets the function modify the caller's struct"
+  answer: "&"
+
+- atomId: PC-03
+  sentence: "Without & on the struct parameter, cin would fill a useless ___ that gets discarded"
+  answer: "copy"
+
+- atomId: PC-04
+  sentence: "Item &list[] passes the ___ array by reference"
+  answer: "entire"
+
+- atomId: PC-05
+  sentence: "With &, writes to list[i].field ___ in the caller's array"
+  answer: "persist"
+
+- atomId: PC-06
+  sentence: "___ Point &p gives efficient read-only access without copying"
+  answer: "const"
+
+# L13: Hand execution
+- atomId: HE-01
+  sentence: "Hand execution means mentally ___ each line of code in order"
+  answer: "running"
+
+- atomId: HE-02
+  sentence: "When tracing, track each variable's current ___"
+  answer: "value"
+
+- atomId: HE-03
+  sentence: "Each assignment ___ the old value with the new one"
+  answer: "replaces"
+
+- atomId: HE-04
+  sentence: "When tracing a for-loop, track how ___ changes each iteration"
+  answer: "i"
+
+- atomId: HE-05
+  sentence: "At an if/else, evaluate the ___ to decide which branch runs"
+  answer: "condition"
+
+- atomId: HE-06
+  sentence: "A function call creates a new ___ with fresh local variables"
+  answer: "frame"
+
+- atomId: HE-07
+  sentence: "When a function returns, its local variables are ___"
+  answer: "destroyed"
+
+- atomId: HE-08
+  sentence: "For a & parameter, the parameter and caller's variable are the ___ box"
+  answer: "same"
+
+- atomId: HE-09
+  sentence: "Writing to a & reference parameter ___ the caller's original variable"
+  answer: "modifies"
+
+- atomId: HE-10
+  sentence: "int y = x; copies x's value — later changes to x do NOT affect ___"
+  answer: "y"
+
+- atomId: HE-11
+  sentence: "Each arr[i] is ___ — changing one element doesn't affect the others"
+  answer: "independent"
+
+- atomId: HE-12
+  sentence: "To trace a loop, write out each ___ and track how variables change"
+  answer: "iteration"
+
+- atomId: HE-13
+  sentence: "In if/else if/else, only the ___ true branch executes"
+  answer: "first"
+
+- atomId: HE-14
+  sentence: "When tracing a function call, the ___ value is sent back to the caller"
+  answer: "return"
+
+- atomId: HE-15
+  sentence: "Pass-by-value leaves the original unchanged; pass-by-___ modifies it"
+  answer: "reference"
+
+- atomId: HE-16
+  sentence: "A max-finder starts with the first element, then ___ whenever something bigger is found"
+  answer: "updates"
+
+- atomId: HE-17
+  sentence: "With &, mutating p.x inside the function changes ___ pt.x in the caller"
+  answer: "the"
+
+- atomId: HE-18
+  sentence: "In who_am_i, mystery updates whenever numbers[i] is ___ than mystery"
+  answer: "greater"
+
+# L14: Struct writing
+- atomId: SW-01
+  sentence: "To define a struct, write struct ___ { fields };"
+  answer: "Name"
+
+- atomId: SW-02
+  sentence: "Each struct field is declared as ___ fieldName;"
+  answer: "type"
+
+- atomId: SW-03
+  sentence: "Forgetting the ___ after the struct's closing } is a common compile error"
+  answer: ";"
+
+- atomId: SW-04
+  sentence: "Choose int for whole numbers, string for text, ___ for decimals"
+  answer: "double"
+
+- atomId: SW-05
+  sentence: "The ___ of fields inside a struct does not affect how it works"
+  answer: "order"
+
+# L15: Read-function writing
+- atomId: RW-01
+  sentence: "A read function returns ___ because it fills data through the & parameter"
+  answer: "void"
+
+- atomId: RW-02
+  sentence: "book ___list[] passes an array of books by reference"
+  answer: "&"
+
+- atomId: RW-03
+  sentence: "The ___ parameter tells the function how many elements to fill"
+  answer: "count"
+
+- atomId: RW-04
+  sentence: "The read loop uses i < ___ as its stopping condition"
+  answer: "count"
+
+- atomId: RW-05
+  sentence: "cin >> list[i].___ reads input into a specific struct field"
+  answer: "field"
+
+- atomId: RW-06
+  sentence: "Each struct field needs its own separate ___ statement"
+  answer: "cin"
+
+- atomId: RW-07
+  sentence: "A cout ___ before cin tells the user what to type"
+  answer: "prompt"
+
+# L16: Main writing
+- atomId: MW-01
+  sentence: "Every complete program needs int ___() { ... return 0; }"
+  answer: "main"
+
+- atomId: MW-02
+  sentence: "___ int MAX = 100; creates a value that cannot be changed"
+  answer: "const"
+
+- atomId: MW-03
+  sentence: "book list[___]; declares an array sized to the constant maximum"
+  answer: "MAX"
+
+- atomId: MW-04
+  sentence: "int ___; declares the variable that tracks how many items to process"
+  answer: "count"
+
+- atomId: MW-05
+  sentence: "cin >> count; reads how many items the user wants to ___"
+  answer: "enter"
+
+- atomId: MW-06
+  sentence: "read_book(list, count); ___ the read function with the array and count"
+  answer: "calls"
+
+- atomId: MW-07
+  sentence: "The print loop iterates from 0 to ___ to display each item"
+  answer: "count"
+
+- atomId: MW-08
+  sentence: "printf(\"%d %s\\n\", id, name) — %d prints an ___, %s prints a string"
+  answer: "integer"
+
+- atomId: MW-09
+  sentence: "printf's %s needs .___() to convert a C++ string to a C-string"
+  answer: "c_str"
+
+# L17: Mock exams
+- atomId: ME-01
+  sentence: "An exam struct typically contains scalar fields plus an ___ field"
+  answer: "array"
+
+- atomId: ME-02
+  sentence: "The read function fills scalars with cin, then uses a ___ for the array"
+  answer: "loop"
+
+- atomId: ME-03
+  sentence: "who_am_i finds the ___ value by comparing each element to mystery"
+  answer: "maximum"
+
+- atomId: ME-04
+  sentence: "mystery is initialized before the loop so there's a starting ___ value"
+  answer: "comparison"
+
+- atomId: ME-05
+  sentence: "main() calls read, then process, then output — this is called ___"
+  answer: "decomposition"

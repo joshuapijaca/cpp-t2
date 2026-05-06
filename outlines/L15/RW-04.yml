@@ -1,0 +1,57 @@
+id: RW-04
+fact: write for-loop with count bound
+words: 5
+level: 15
+deps:
+  - G-11
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: for (int i = 0; i < count; i++) { ... }
+expected_output: iterates count times; i = 0 to count-1
+sit102_quirks:
+  - i < count not i <= count
+misconceptions:
+  - id: M01
+    description: Uses i <= count
+    student_says: i <= count
+    correct_says: i < count for 0-based traversal
+render_hints:
+  memorize_seed_phrases:
+    - for-loop bound by count
+    - loop from 0 to count
+    - use < count not <=
+    - 0-based loop with i++
+    - iterate while i < count
+  write_L1_fill:
+    template: for (int i = 0; i < ___; i++) {}
+    blank_value: count
+  see_demo:
+    why_one_line: for (int i = 0; i < count; i++) is the loop frame Q3 expects.
+    snippet: |
+      for (int i = 0; i < count; i++) { ... }
+    highlights: []
+    used_in:
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      for (int i = 0; i < count; i++) { ... }
+    correct_atoms:
+      - RW-04
+      - G-11
+    distractors:
+      - RW-01
+      - RW-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions for / count / loop
+lint:
+  miller_max_words: 7
+status: locked

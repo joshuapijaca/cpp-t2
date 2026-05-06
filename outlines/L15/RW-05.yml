@@ -1,0 +1,58 @@
+id: RW-05
+fact: cin >> list[i].field; reads input
+words: 6
+level: 15
+deps:
+  - T-12
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: C
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: cin >> list[i].id;
+expected_output: user input stored in list[i].id
+sit102_quirks:
+  - cin space >> space target
+misconceptions:
+  - id: M01
+    description: Wrong stream operator
+    student_says: cin << list[i].id
+    correct_says: cin >> reads INTO; cout << prints OUT
+render_hints:
+  memorize_seed_phrases:
+    - cin >> reads into target
+    - cin >> list[i].field
+    - '>> reads stdin to var'
+    - cin >> follows by target
+    - use >> for input
+  write_L1_fill:
+    template: cin ___ list[i].id;
+    blank_value: '>>'
+  see_demo:
+    why_one_line: cin >> list[i].field; reads one user input into one field of one record.
+    snippet: |
+      cin >> list[i].id;
+    highlights: []
+    used_in:
+      - Q3
+  see_decompose:
+    snippet: |
+      cin >> list[i].id;
+    correct_atoms:
+      - RW-05
+      - T-12
+    distractors:
+      - RW-01
+      - RW-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions cin / read / >>
+lint:
+  forbid_tokens:
+    - cin <<
+  miller_max_words: 7
+status: locked

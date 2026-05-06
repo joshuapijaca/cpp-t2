@@ -1,0 +1,53 @@
+id: V-19
+fact: true and false are bool literals
+words: 6
+level: 2
+deps:
+  - V-13
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - true and false bool values
+    - literal true / false
+    - true = 1, false = 0
+    - 'bool literals: true, false'
+    - two bool literal values
+  see_demo:
+    why_one_line: true and false are the only two bool literals; used in Q1 conditions.
+    snippet: |
+      bool ok = true;
+      bool failed = false;
+    highlights:
+      - 'true'
+      - 'false'
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int x = 5;
+      x = x + 1;
+      int y = x;
+      string greeting = "hi";
+      greeting = "hello";
+    correct_atoms:
+      - V-19
+      - V-13
+    distractors:
+      - V-01
+      - V-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,52 @@
+id: A-05
+fact: '% gives remainder'
+words: 3
+level: 4
+deps:
+  - A-04
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - '% computes modulo remainder'
+    - a % b = leftover
+    - '% returns division remainder'
+    - modulo uses %
+    - use % for remainder
+  see_demo:
+    why_one_line: '% gives the remainder of int division; useful for parity tricks.'
+    snippet: |
+      int rem = 7 % 3;        // 1
+    highlights:
+      - '%'
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int a = 10, b = 3;
+      int sum = a + b;
+      int diff = a - b;
+      int prod = a * b;
+      int quot = a / b;
+      int rem = a % b;
+    correct_atoms:
+      - A-05
+      - A-04
+    distractors:
+      - A-01
+      - A-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

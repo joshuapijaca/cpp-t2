@@ -1,0 +1,90 @@
+id: SW-01
+fact: write struct Name { ... };
+words: 5
+level: 14
+deps:
+  - T-02
+q_tags:
+  Q1: 'N'
+  Q2: C
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence:
+  - question: Q2
+    instance: Q2 entirely = write struct definition
+    file_path: extraction/L14_struct_write/notes.md
+canonical_example: |
+  struct computer_data {
+      int id;
+      string description;
+      string location;
+  };
+expected_output: 'computer_data type: id, description, location'
+sit102_quirks:
+  - 'C++ form: struct keyword + name + body + ;'
+  - No typedef wrapper needed
+misconceptions:
+  - id: M01
+    description: Uses typedef struct
+    student_says: typedef struct { ... } X;
+    correct_says: Just write struct X { ... };
+render_hints:
+  memorize_seed_phrases:
+    - write struct Name with fields
+    - 'Q2 skeleton: struct then name then body'
+    - struct Name { fields }; is Q2
+    - 'Q2: struct with three fields'
+    - Q2 answer wraps fields in struct
+  write_L1_fill:
+    template: |-
+      ___ computer_data {
+          int id;
+          string description;
+          string location;
+      };
+    blank_value: struct
+  write_L2_complete:
+    template: |-
+      struct computer_data {
+          ___
+      };
+    blank_value: int id; string description; string location;
+  write_L3_free_spec: 'Write a struct named computer_data with fields: int id, string description, string location.'
+  see_demo:
+    why_one_line: Q2 wants a struct definition with three fields, written from a spec.
+    snippet: |
+      struct computer_data {
+          int id;
+          string description;
+          string location;
+      };
+    highlights: []
+    used_in:
+      - Q2
+  see_decompose:
+    snippet: |
+      struct computer_data {
+          int id;
+    correct_atoms:
+      - SW-01
+      - T-02
+    distractors:
+      - SW-02
+      - SW-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions struct / Name / fields
+  write:
+    - L1 expected = 'struct'
+    - L2 must include all 3 fields
+    - L3 keyChecks include struct + computer_data + 3 fields
+    - 'L3 forbidden: typedef'
+lint:
+  forbid_tokens:
+    - typedef
+    - class
+  miller_max_words: 7
+status: locked

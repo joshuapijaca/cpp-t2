@@ -1,0 +1,54 @@
+id: H-05
+fact: return value; sends back
+words: 4
+level: 8
+deps:
+  - H-02
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: 'N'
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - return ends function with value
+    - return sends a value back
+    - caller receives returned value
+    - use return for output
+    - return exits the function
+  see_demo:
+    why_one_line: return value; ends the function and reports a result to the caller.
+    snippet: |
+      int square(int n) {
+        return n * n;
+      }
+    highlights:
+      - return
+    used_in:
+      - Q4
+  see_decompose:
+    snippet: |-
+      string name = "Alice";
+      int len = name.length();
+      char first = name[0];
+      string sub = name.substr(1, 3);
+      cout << len << " " << first << " " << sub << endl;
+    correct_atoms:
+      - H-05
+      - H-02
+    distractors:
+      - H-01
+      - H-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

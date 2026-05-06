@@ -1,0 +1,66 @@
+id: P-07
+fact: input typed in terminal
+words: 4
+level: -1
+deps:
+  - P-05
+q_tags:
+  Q1: S
+  Q2: S
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: |-
+  // cin reads input typed in the terminal (stdin)
+  int age;
+  cin >> age;
+  // User types: 25   -> age = 25
+expected_output: age = 25 (read from terminal)
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - user types input at terminal
+    - cin reads typed input
+    - keyboard input via terminal
+    - terminal reads what user types
+    - input typed into console
+  see_demo:
+    why_one_line: terminal input is what cin reads from in Q3 read functions.
+    snippet: |-
+      int main() {
+        int age;
+        cout << "Enter age: ";
+        cin >> age;
+        cout << "You are " << age << endl;
+        return 0;
+      }
+      // Terminal: Enter age: 25
+      //          You are 25
+    highlights:
+      - cin >> age
+      - '// Terminal:'
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int main() {
+        int age;
+        cout << "Enter age: ";
+        cin >> age;
+        cout << "You are " << age << endl;
+        return 0;
+      }
+    correct_atoms:
+      - P-07
+      - P-05
+    distractors:
+      - P-01
+      - P-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,50 @@
+id: G-09
+fact: array size fixed at compile
+words: 5
+level: 10
+deps:
+  - G-02
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: 'N'
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: const int MAX = 100; int arr[MAX];
+expected_output: MAX = 100; arr has 100 slots
+sit102_quirks:
+  - Use const int MAX = 100; in Q4
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - size set at compile time
+    - fixed N for the array
+    - size cannot change later
+    - compile-time array size
+    - use const for array size
+  see_demo:
+    why_one_line: you set N at declaration; fixed forever for that array.
+    snippet: |
+      const int MAX = 100; int arr[MAX];
+    highlights:
+      - arr[MAX]
+    used_in:
+      - Q4
+  see_decompose:
+    snippet: |
+      const int MAX = 100; int arr[MAX];
+    correct_atoms:
+      - G-09
+      - G-02
+    distractors:
+      - G-01
+      - G-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions size / fixed / compile
+lint:
+  miller_max_words: 7
+status: locked

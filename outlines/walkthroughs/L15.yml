@@ -1,0 +1,30 @@
+id: WT-L15
+level: 15
+level_label: "L15 read-function -- Q3 read_book"
+anchor_atom_id: RW-01
+status: locked
+full_code: |
+  void read_book(book &list[], int count) {
+    for (int i = 0; i < count; i++) {
+      cout << "id: ";    cin >> list[i].id;
+      cout << "title: "; cin >> list[i].title;
+      cout << "price: "; cin >> list[i].price;
+    }
+  }
+steps:
+  - line: 1
+    code: "void read_book(book &list[], int count) {"
+    annotation: "void return + array-by-ref + int count = Q3 signature shape."
+    atom_ids: [RW-01, RW-02, RW-03, PC-04]
+  - line: 2
+    code: "  for (int i = 0; i < count; i++) {"
+    annotation: "walk 0..count-1."
+    atom_ids: [RW-04, W-03]
+  - line: 3
+    code: "    cout << \"id: \";    cin >> list[i].id;"
+    annotation: "prompt then cin into one field."
+    atom_ids: [RW-05, RW-07, I-01]
+  - line: 4
+    code: "    cout << \"title: \"; cin >> list[i].title;"
+    annotation: "one cin per field; order matches struct definition."
+    atom_ids: [RW-06]

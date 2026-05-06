@@ -1,0 +1,60 @@
+id: P-05
+fact: running exe executes instructions
+words: 4
+level: -1
+deps:
+  - P-04
+q_tags:
+  Q1: S
+  Q2: S
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: |-
+  // After compiling: ./hello runs the instructions
+  // Line 1: cout executes -> "Hello" appears
+  // Line 2: return 0 -> program exits
+expected_output: Hello printed, program exits with 0
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - running an exe runs the code
+    - execute = follow each instruction
+    - CPU runs each line in order
+    - running executes the program
+    - exe steps through instructions
+  see_demo:
+    why_one_line: running the .exe is what produces the output the SIT102 tester checks.
+    snippet: |-
+      // Running the .exe executes each line in order:
+      int main() {
+        cout << "Hello" << endl;   // line 1: prints Hello
+        return 0;                  // line 2: exits
+      }
+    highlights:
+      - '// line 1: prints Hello'
+      - '// line 2: exits'
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int main() {
+        cout << "Hello" << endl;
+        int x = 5;
+        cout << x << endl;
+        return 0;
+      }
+    correct_atoms:
+      - P-05
+      - P-04
+    distractors:
+      - P-01
+      - P-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

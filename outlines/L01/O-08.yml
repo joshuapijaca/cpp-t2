@@ -1,0 +1,53 @@
+id: O-08
+fact: printf(format, args) outputs text
+words: 4
+level: 1
+deps:
+  - S-01
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - printf with format string
+    - C-style printf for output
+    - printf takes format then values
+    - printf prints formatted text
+    - use printf in Q4
+  see_demo:
+    why_one_line: Q4 mocks the SIT102 printf style for formatted record printing.
+    snippet: |
+      int id = 42;
+      printf("id = %d\n", id);
+    highlights:
+      - printf
+    used_in:
+      - Q1
+      - Q4
+  see_decompose:
+    snippet: |-
+      int id = 42;
+      string name = "Bob";
+      double gpa = 3.75;
+      printf("Student %d: %s, GPA %.2f\n", id, name.c_str(), gpa);
+    correct_atoms:
+      - O-08
+      - S-01
+    distractors:
+      - O-01
+      - O-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

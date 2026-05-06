@@ -1,0 +1,64 @@
+id: P-04
+fact: compiler converts source to exe
+words: 5
+level: -1
+deps:
+  - P-03
+q_tags:
+  Q1: S
+  Q2: S
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: |-
+  // Step 1: write hello.cpp
+  // Step 2: g++ hello.cpp -o hello    <-- compiler makes .exe
+  // Step 3: ./hello                   <-- run the .exe
+  // Output: Hello
+expected_output: compiler produces hello executable
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - compiler turns code into program
+    - g++ compiles source to exe
+    - compiler builds the executable
+    - source becomes runnable via compiler
+    - compile = source -> exe
+  see_demo:
+    why_one_line: compiler turns text into a runnable .exe before any user sees output.
+    snippet: |-
+      // hello.cpp -> g++ compiles -> hello.exe
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    highlights:
+      - g++ compiles
+      - hello.exe
+    used_in: []
+  see_decompose:
+    snippet: |-
+      // hello.cpp -> g++ compiles -> hello.exe
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    correct_atoms:
+      - P-04
+      - P-03
+    distractors:
+      - P-01
+      - P-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

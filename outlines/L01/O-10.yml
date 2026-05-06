@@ -1,0 +1,53 @@
+id: O-10
+fact: '%s formats C-string'
+words: 3
+level: 1
+deps:
+  - O-08
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: 'N'
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - '%s for C-string values'
+    - '%s -> string placeholder'
+    - use %s for char array
+    - printf string with %s
+    - '%s prints null-terminated text'
+  see_demo:
+    why_one_line: '%s in printf is where each C-string (use .c_str()) lands.'
+    snippet: |
+      string name = "ada";
+      printf("name = %s\n", name.c_str());
+    highlights:
+      - '%s'
+      - .c_str()
+    used_in:
+      - Q4
+  see_decompose:
+    snippet: |-
+      int id = 42;
+      string name = "Bob";
+      double gpa = 3.75;
+      printf("Student %d: %s, GPA %.2f\n", id, name.c_str(), gpa);
+    correct_atoms:
+      - O-10
+      - O-08
+    distractors:
+      - O-01
+      - O-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

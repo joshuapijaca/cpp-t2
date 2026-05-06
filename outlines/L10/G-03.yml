@@ -1,0 +1,49 @@
+id: G-03
+fact: type arr[N] = {...}; init
+words: 5
+level: 10
+deps:
+  - G-02
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: int arr[3] = {1, 2, 3};
+expected_output: arr = {1, 2, 3}
+sit102_quirks:
+  - Use {} for initializer list
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - init array with curly braces
+    - '{} list initializes array'
+    - type arr[N] = {values};
+    - list inside braces sets values
+    - arr[N] = {a, b, c}; init form
+  see_demo:
+    why_one_line: type arr[N] = { ... }; fills the slots in order.
+    snippet: |
+      int arr[3] = {1, 2, 3};
+    highlights:
+      - arr[3]
+    used_in: []
+  see_decompose:
+    snippet: |
+      int arr[3] = {1, 2, 3};
+    correct_atoms:
+      - G-03
+      - G-02
+    distractors:
+      - G-01
+      - G-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions init / braces
+lint:
+  miller_max_words: 7
+status: locked

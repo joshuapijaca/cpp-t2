@@ -1,0 +1,34 @@
+id: WT-L14
+level: 14
+level_label: "L14 struct-write -- Q2 from spec"
+anchor_atom_id: SW-01
+status: locked
+full_code: |
+  // Q2 spec: book has id, title, price.
+  
+  struct book {
+    int id;
+    string title;
+    double price;
+  };
+steps:
+  - line: 3
+    code: "struct book {"
+    annotation: "header: keyword + name + opening brace."
+    atom_ids: [SW-01, T-02]
+  - line: 4
+    code: "  int id;"
+    annotation: "pick int for ids."
+    atom_ids: [SW-02, SW-04, V-10]
+  - line: 5
+    code: "  string title;"
+    annotation: "string for text fields."
+    atom_ids: [SW-04, V-12]
+  - line: 6
+    code: "  double price;"
+    annotation: "double for amounts."
+    atom_ids: [SW-04, V-11]
+  - line: 7
+    code: "};"
+    annotation: "closing brace + ; -- skipping ; fails the grader."
+    atom_ids: [SW-03, T-04]

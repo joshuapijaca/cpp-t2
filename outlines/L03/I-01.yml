@@ -1,0 +1,56 @@
+id: I-01
+fact: cin reads from terminal
+words: 4
+level: 3
+deps:
+  - O-01
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - cin reads stdin input
+    - cin pulls from keyboard
+    - cin = input stream
+    - use cin for user typing
+    - cin gets terminal input
+  see_demo:
+    why_one_line: Q3 read function calls cin once per struct field; without it no user data.
+    snippet: |
+      int n;
+      cin >> n;          // pause for user input
+    highlights:
+      - cin
+    used_in:
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int age;
+      string name;
+      cout << "Enter name: ";
+      cin >> name;
+      cout << "Enter age: ";
+      cin >> age;
+      cout << name << " is " << age << endl;
+    correct_atoms:
+      - I-01
+      - O-01
+    distractors:
+      - I-02
+      - I-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

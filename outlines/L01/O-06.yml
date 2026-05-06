@@ -1,0 +1,60 @@
+id: O-06
+fact: |2-
+
+   also prints newline
+words: 4
+level: 1
+deps:
+  - O-03
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: S
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - |-
+      "
+      " embeds newline in text
+    - newline char inside string
+    - |2-
+
+       breaks line in printf
+    - shorter than endl
+    - |-
+      use 
+       inside quotes
+  see_demo:
+    why_one_line: '"\\n" is the shorter newline used in Q4 printf format strings.'
+    snippet: |
+      cout << "line one\n";
+      cout << "line two\n";
+    highlights:
+      - \n
+    used_in:
+      - Q4
+  see_decompose:
+    snippet: |-
+      string name = "Alice";
+      int score = 95;
+      cout << "Name: " << name << endl;
+      cout << "Score: " << score << "\n";
+    correct_atoms:
+      - O-06
+      - O-03
+    distractors:
+      - O-01
+      - O-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

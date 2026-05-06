@@ -1,0 +1,54 @@
+id: G-05
+fact: arr[i] accesses i-th element
+words: 4
+level: 10
+deps:
+  - G-04
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: arr[i]
+expected_output: element at index i
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - arr[i] reads slot i
+    - '[i] picks i-th slot'
+    - index i for that element
+    - use [i] to read or write
+    - arr[i] is the slot at i
+  write_L1_fill:
+    template: v[___] // access 3rd element
+    blank_value: '2'
+  see_demo:
+    why_one_line: arr[i] is how Q3 and Q4 read or write the i-th record.
+    snippet: |
+      arr[i]
+    highlights:
+      - arr[i]
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      arr[i]
+    correct_atoms:
+      - G-05
+      - G-04
+    distractors:
+      - G-01
+      - G-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions index / slot / i
+lint:
+  miller_max_words: 7
+status: locked

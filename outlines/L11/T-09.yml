@@ -1,0 +1,62 @@
+id: T-09
+fact: struct can contain array field
+words: 5
+level: 11
+deps:
+  - T-02
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence:
+  - question: Q1
+    instance: stat_double has double numbers[5]
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  struct stat_double {
+      double numbers[5];
+      double mystery;
+  };
+expected_output: stat_double has numbers[5] array and mystery scalar
+sit102_quirks:
+  - Array field declared like normal field plus [N]
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - struct can hold an array
+    - array allowed as struct field
+    - struct field can be array[N]
+    - fields include arrays too
+    - array field inside struct OK
+  see_demo:
+    why_one_line: a struct can hold an array as a field; this is the Q1 stat_double shape.
+    snippet: |
+      struct stat_double {
+          double numbers[5];
+          double mystery;
+      };
+    highlights:
+      - struct
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      struct stat_double {
+          double numbers[5];
+    correct_atoms:
+      - T-09
+      - T-02
+    distractors:
+      - T-01
+      - T-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions struct / array
+lint:
+  forbid_tokens: []
+  miller_max_words: 7
+status: locked

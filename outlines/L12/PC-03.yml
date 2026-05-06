@@ -1,0 +1,64 @@
+id: PC-03
+fact: '& lets struct mutation persist'
+words: 5
+level: 12
+deps:
+  - PC-02
+  - T-07
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - struct & param mutation persists
+    - field writes via & stay
+    - caller sees struct changes
+    - '& makes struct mutation visible'
+    - struct field through & persists
+  see_demo:
+    why_one_line: with &, x.field = v inside the function persists into the caller.
+    snippet: |
+      void mutate(stat_double &d) {
+        d.mystery = 99.0;   // persists in caller
+      }
+    highlights:
+      - stat_double &d
+      - d.mystery = 99.0
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      struct Point { int x; int y; };
+      void shift(Point &p) {
+        p.x = p.x + 1;
+        p.y = p.y + 1;
+      }
+      Point a = {3, 4};
+      shift(a);
+    correct_atoms:
+      - PC-03
+      - PC-02
+      - T-07
+    distractors:
+      - PC-01
+      - PC-04
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions struct / & / persists
+lint:
+  forbid_tokens:
+    - '*'
+  miller_max_words: 7
+status: locked

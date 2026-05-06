@@ -1,0 +1,79 @@
+id: SW-03
+fact: terminate struct with };
+words: 3
+level: 14
+deps:
+  - T-04
+  - SW-01
+q_tags:
+  Q1: 'N'
+  Q2: C
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence:
+  - question: Q2
+    instance: Trailing }; on every struct
+    file_path: extraction/L14_struct_write/notes.md
+canonical_example: |
+  struct X {
+      int a;
+  };
+expected_output: X type declared with field a; };
+sit102_quirks:
+  - Most common Q2 mark loss = forgetting ;
+misconceptions:
+  - id: M01
+    description: Omits trailing ;
+    student_says: '} alone'
+    correct_says: '}; - close brace plus semicolon'
+render_hints:
+  memorize_seed_phrases:
+    - always end with semicolon
+    - '}; closes struct'
+    - remember semicolon after }
+    - trailing semicolon mandatory
+    - struct ends with };
+  write_L1_fill:
+    template: struct X { int a; }___
+    blank_value: ;
+  write_L2_complete:
+    template: |-
+      struct X {
+          int a;
+      ___
+    blank_value: '};'
+  write_L3_free_spec: Show how a struct definition ends. Write the last 2 characters.
+  see_demo:
+    why_one_line: always end the closing } with a semicolon; this is graded literally.
+    snippet: |
+      struct X {
+          int a;
+      };
+    highlights: []
+    used_in:
+      - Q2
+  see_decompose:
+    snippet: |
+      struct X {
+          int a;
+    correct_atoms:
+      - SW-03
+      - T-04
+      - SW-01
+    distractors:
+      - SW-02
+      - SW-04
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions semicolon
+  write:
+    - L1 expected = ';'
+    - L2 expected = '};' or '}'
+lint:
+  forbid_tokens:
+    - typedef
+  miller_max_words: 7
+status: locked

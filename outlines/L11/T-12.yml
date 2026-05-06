@@ -1,0 +1,64 @@
+id: T-12
+fact: list[i].field chained access
+words: 3
+level: 11
+deps:
+  - T-06
+  - T-11
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence:
+  - question: Q3
+    instance: cin >> list[i].id; list[i].field per Q3 read function
+    file_path: extraction/L14_struct_write/notes.md
+canonical_example: |
+  Point list[3];
+  list[0].x = 5;
+expected_output: list[0].x = 5
+sit102_quirks:
+  - Index first, then field
+misconceptions:
+  - id: M01
+    description: Reverses chain
+    student_says: list.field[i]
+    correct_says: 'Index the array first: list[i], then field: list[i].field'
+render_hints:
+  memorize_seed_phrases:
+    - list[i].field gets array element field
+    - index then dot for struct array
+    - 'chain: bracket then dot'
+    - list[i].field is element's field
+    - '[i] then .field per element'
+  see_demo:
+    why_one_line: list[i].field is the Q3/Q4 chained access -- pick a record, then a field.
+    snippet: |
+      Point list[3];
+      list[0].x = 5;
+    highlights: []
+    used_in:
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      Point list[3];
+    correct_atoms:
+      - T-12
+      - T-06
+      - T-11
+    distractors:
+      - T-01
+      - T-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions index + field
+lint:
+  forbid_tokens:
+    - '->'
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,66 @@
+id: P-03
+fact: source code is .cpp file
+words: 5
+level: -1
+deps:
+  - P-02
+q_tags:
+  Q1: S
+  Q2: S
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: |-
+  // File: hello.cpp
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << "Hello" << endl;
+    return 0;
+  }
+expected_output: Hello
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - source code lives in .cpp
+    - C++ files end in cpp
+    - .cpp holds source code
+    - source code = text in .cpp
+    - we write code in .cpp files
+  see_demo:
+    why_one_line: your work lives in .cpp files; this is the input the compiler reads.
+    snippet: |-
+      // File: hello.cpp
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    highlights:
+      - '// File: hello.cpp'
+    used_in: []
+  see_decompose:
+    snippet: |-
+      // File: hello.cpp
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "Hello" << endl;
+        return 0;
+      }
+    correct_atoms:
+      - P-03
+      - P-02
+    distractors:
+      - P-01
+      - P-04
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,66 @@
+id: T-10
+fact: 'chained: data.arr[i]'
+words: 2
+level: 11
+deps:
+  - T-06
+  - T-09
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence:
+  - question: Q1
+    instance: data.numbers[i] in who_am_i
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  stat_double d;
+  d.numbers[0] = 1.0;
+expected_output: d.numbers[0] = 1.0
+sit102_quirks:
+  - 'Read left to right: struct.field then [index]'
+misconceptions:
+  - id: M01
+    description: Reverses syntax
+    student_says: data[i].numbers
+    correct_says: Field comes first; index applies to the field's array
+render_hints:
+  memorize_seed_phrases:
+    - data.arr[i] reads field then index
+    - 'chained access: dot then index'
+    - struct field then [i]
+    - 'left to right: dot then bracket'
+    - 'field array element: x.arr[i]'
+  see_demo:
+    why_one_line: data.numbers[i] is the Q1 chained access pattern -- struct then array.
+    snippet: |
+      stat_double d;
+      d.numbers[0] = 1.0;
+    highlights:
+      - d.numbers
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      stat_double d;
+    correct_atoms:
+      - T-10
+      - T-06
+      - T-09
+    distractors:
+      - T-01
+      - T-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions dot + index / chain
+lint:
+  forbid_tokens:
+    - '->'
+  miller_max_words: 7
+status: locked

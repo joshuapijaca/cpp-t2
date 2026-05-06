@@ -1,0 +1,144 @@
+id: R-03
+fact: "& means alias same memory box"
+words: 6
+level: 9
+deps:
+  - V-01   # variable = memory box
+  - R-01
+  - R-02
+
+q_tags:
+  Q1: C
+  Q2: N
+  Q3: C
+  Q4: C
+
+pfg_source:
+  - quote_id: Q02
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+    verbatim_summary: "References provide a means to indirectly access a variable - creating a variable that is an alias..."
+  - quote_id: Q04
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+    verbatim_summary: "Pass by reference is achieved by adding an ampersand & before the parameter name."
+  - quote_id: Q09
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+    verbatim_summary: "any operations using data in double_it(), will be effectively referring to val in main()"
+
+test2_evidence:
+  - question: Q1
+    instance: "who_am_i(stat_double &data) - d.mystery only updates because of &"
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+  - question: Q3
+    instance: "read_X(X &list[], int n) - list aliased so writes persist"
+    file_path: extraction/test2_bank/Q3_read_X_variants.md
+
+canonical_example: |
+  void increment(int &x) {
+    x = x + 1;
+  }
+  int main() {
+    int n = 5;
+    increment(n);
+    cout << n << endl;
+    return 0;
+  }
+expected_output: "6"
+
+sit102_quirks:
+  - "& not * (no pointer dereference)"
+  - "Reference auto-binds at call site"
+  - "No special syntax needed at call site"
+
+misconceptions:
+  - id: M01
+    description: "Confuses & (reference) with * (pointer dereference)"
+    student_says: "& means address-of like in C"
+    correct_says: "In param declaration, & means alias / reference, not address-of"
+  - id: M02
+    description: "Thinks need to dereference inside function body"
+    student_says: "I need *x to read the value"
+    correct_says: "Reference auto-dereferences; use x directly"
+  - id: M03
+    description: "Tries to reassign reference to point elsewhere"
+    student_says: "Can I make x refer to a different variable later?"
+    correct_says: "Reference binds once at param binding; cannot reseat"
+  - id: M04
+    description: "Believes & must combine with const"
+    student_says: "& alone is wrong; must be const &"
+    correct_says: "& alone allows mutation; const & for read-only"
+
+render_hints:
+  memorize_seed_phrases:
+    - "& makes alias for caller variable"
+    - "reference is another name for box"
+    - "& parameter shares caller's box"
+    - "no copy made with &"
+    - "caller and param share memory"
+  trace:
+    description: "Single memory box drawn with two labels (caller's `n`, param's `x`). Mutation through either label affects the same box."
+    minimum_steps: 4
+    must_show:
+      - "pre-call: one box, label `n` only, value 5"
+      - "param binding: same box, second label `x` added"
+      - "during mutation through x: box value 6, both labels"
+      - "post-return: box value 6, only label `n` remains"
+  write_L1_fill:
+    template: "void increment(int ___ x) { x = x + 1; }"
+    blank_value: "&"
+  write_L2_complete:
+    template: "void incr(int &x) { ___ }"
+    blank_value: "x = x + 1;"
+  write_L3_free_spec: "Write a function that takes an int by reference and increments it. Caller must see the change."
+
+  see_demo:
+    why_one_line: "& binds the parameter to the caller's box; same memory, two names."
+    snippet: |
+      void increment(int &x) {
+        x = x + 1;
+      }
+      int main() {
+        int n = 5;
+        increment(n);
+        cout << n << endl;
+        return 0;
+      }
+    highlights: ["int &x"]
+    used_in: [Q1, Q3, Q4]
+  see_decompose:
+    snippet: |
+      void increment(int &x) {
+        x = x + 1;
+    correct_atoms: [R-03, V-01, R-01, R-02]
+    distractors: [R-04, R-05, T-01]
+acceptance:
+  memorize:
+    - "Each variant <=7 words"
+    - "Mentions one of: same box, alias, shared, reference"
+    - "No variant uses pointer terms (*, address of, dereference)"
+  mcq:
+    - "Correct option mentions: same memory / alias / reference"
+    - "All 3 distractors from misconceptions M01-M04"
+    - "No distractor is gibberish or trivially wrong"
+  trace:
+    - "Variable boxes show ONE box, TWO labels"
+    - "expectedSteps[] has >=4 steps matching must_show"
+    - "expected_output matches '6'"
+  write:
+    - "L1 expected = '&' exactly"
+    - "L2 expected compiles and produces '6'"
+    - "L3 keyChecks must include '&' token"
+    - "L3 forbidden must include '*' and 'return ' (with space; `return;` allowed for void)"
+  cross_card:
+    - "All code compiles g++ -Wall"
+    - "No card teaches pointer syntax"
+    - "All cards reference SIT102 idiom"
+
+lint:
+  forbid_tokens: ["nullptr", "->", "new ", "delete ", "*x", "* x", "&x +", "&x;"]
+  require_at_least_one_of_in_write_L3: ["&x", "&n", "&data", "&val"]
+  miller_max_words: 7
+
+status: locked
+locked_at: null
+locked_by: null
+revision_history: []

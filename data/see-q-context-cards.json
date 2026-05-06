@@ -1,0 +1,3123 @@
+[
+  {
+    "type": "demo",
+    "atomId": "S-01",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: #include <iostream> adds I/O",
+    "demoCode": "#include <iostream>",
+    "highlightTokens": [
+      "#include <iostream>"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-02",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: using namespace std; saves typing",
+    "demoCode": "#include <iostream>\nusing namespace std;        // lets you write cout, not std::cout\nint main() {\n  cout << \"ok\";\n  return 0;\n}",
+    "highlightTokens": [
+      "using namespace std"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-03",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: int main() { } is entry",
+    "demoCode": "int main() { return 0; }",
+    "highlightTokens": [
+      "int main()"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-04",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: ; ends every statement",
+    "demoCode": "int x = 5;        // ; required\ncout << x;        // ; required",
+    "highlightTokens": [
+      ";"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-04",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: ; ends every statement",
+    "demoCode": "int x = 5;        // ; required\ncout << x;        // ; required",
+    "highlightTokens": [
+      ";"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-04",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: ; ends every statement",
+    "demoCode": "int x = 5;        // ; required\ncout << x;        // ; required",
+    "highlightTokens": [
+      ";"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-04",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: ; ends every statement",
+    "demoCode": "int x = 5;        // ; required\ncout << x;        // ; required",
+    "highlightTokens": [
+      ";"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-05",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: { opens code block",
+    "demoCode": "int main() {       // { opens block\n  cout << \"hi\";\n}",
+    "highlightTokens": [
+      "{"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-05",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: { opens code block",
+    "demoCode": "int main() {       // { opens block\n  cout << \"hi\";\n}",
+    "highlightTokens": [
+      "{"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-05",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: { opens code block",
+    "demoCode": "int main() {       // { opens block\n  cout << \"hi\";\n}",
+    "highlightTokens": [
+      "{"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-05",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: { opens code block",
+    "demoCode": "int main() {       // { opens block\n  cout << \"hi\";\n}",
+    "highlightTokens": [
+      "{"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-06",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: } closes code block",
+    "demoCode": "int main() {\n  cout << \"hi\";\n}                  // } closes block",
+    "highlightTokens": [
+      "}"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-06",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: } closes code block",
+    "demoCode": "int main() {\n  cout << \"hi\";\n}                  // } closes block",
+    "highlightTokens": [
+      "}"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-06",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: } closes code block",
+    "demoCode": "int main() {\n  cout << \"hi\";\n}                  // } closes block",
+    "highlightTokens": [
+      "}"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-06",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: } closes code block",
+    "demoCode": "int main() {\n  cout << \"hi\";\n}                  // } closes block",
+    "highlightTokens": [
+      "}"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "S-07",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: return 0; ends main",
+    "demoCode": "int main() {\n  cout << \"done\";\n  return 0;        // tells OS: success\n}",
+    "highlightTokens": [
+      "return 0;"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-06",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: \n also prints newline",
+    "demoCode": "cout << \"line one\\n\";\ncout << \"line two\\n\";",
+    "highlightTokens": [
+      "\\n"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-08",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: printf(format, args) outputs text",
+    "demoCode": "int id = 42;\nprintf(\"id = %d\\n\", id);",
+    "highlightTokens": [
+      "printf"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-08",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: printf(format, args) outputs text",
+    "demoCode": "int id = 42;\nprintf(\"id = %d\\n\", id);",
+    "highlightTokens": [
+      "printf"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-09",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: %d formats int",
+    "demoCode": "int n = 7;\nprintf(\"count = %d\\n\", n);",
+    "highlightTokens": [
+      "%d"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-10",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: %s formats C-string",
+    "demoCode": "string name = \"ada\";\nprintf(\"name = %s\\n\", name.c_str());",
+    "highlightTokens": [
+      "%s",
+      ".c_str()"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-11",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: \n in printf adds newline",
+    "demoCode": "printf(\"hello\\n\");\nprintf(\"world\\n\");",
+    "highlightTokens": [
+      "\\n"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-12",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: printf first arg is format",
+    "demoCode": "printf(\"score = %d\\n\", 100);\n//      ^^^^^^^^^^^^^ format string",
+    "highlightTokens": [
+      "\"score = %d\\n\""
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "O-13",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: printf extra args fill placeholders",
+    "demoCode": "printf(\"%d + %d = %d\\n\", 2, 3, 5);",
+    "highlightTokens": [
+      "%d",
+      "2",
+      "3",
+      "5"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-01",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: variable is named memory box",
+    "demoCode": "int n = 5;        // n is a labeled box holding 5\nn = n + 1;        // box now holds 6",
+    "highlightTokens": [
+      "n"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-01",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: variable is named memory box",
+    "demoCode": "int n = 5;        // n is a labeled box holding 5\nn = n + 1;        // box now holds 6",
+    "highlightTokens": [
+      "n"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-01",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: variable is named memory box",
+    "demoCode": "int n = 5;        // n is a labeled box holding 5\nn = n + 1;        // box now holds 6",
+    "highlightTokens": [
+      "n"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-01",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: variable is named memory box",
+    "demoCode": "int n = 5;        // n is a labeled box holding 5\nn = n + 1;        // box now holds 6",
+    "highlightTokens": [
+      "n"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-02",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: variable has a name",
+    "demoCode": "int counter = 0;\nint total = 100;\n// names: counter, total",
+    "highlightTokens": [
+      "counter",
+      "total"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-02",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: variable has a name",
+    "demoCode": "int counter = 0;\nint total = 100;\n// names: counter, total",
+    "highlightTokens": [
+      "counter",
+      "total"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-02",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: variable has a name",
+    "demoCode": "int counter = 0;\nint total = 100;\n// names: counter, total",
+    "highlightTokens": [
+      "counter",
+      "total"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-02",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: variable has a name",
+    "demoCode": "int counter = 0;\nint total = 100;\n// names: counter, total",
+    "highlightTokens": [
+      "counter",
+      "total"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-03",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: variable has a type",
+    "demoCode": "int   age = 21;\ndouble price = 9.95;\nstring name = \"ada\";",
+    "highlightTokens": [
+      "int",
+      "double",
+      "string"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-03",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: variable has a type",
+    "demoCode": "int   age = 21;\ndouble price = 9.95;\nstring name = \"ada\";",
+    "highlightTokens": [
+      "int",
+      "double",
+      "string"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-03",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: variable has a type",
+    "demoCode": "int   age = 21;\ndouble price = 9.95;\nstring name = \"ada\";",
+    "highlightTokens": [
+      "int",
+      "double",
+      "string"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-03",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: variable has a type",
+    "demoCode": "int   age = 21;\ndouble price = 9.95;\nstring name = \"ada\";",
+    "highlightTokens": [
+      "int",
+      "double",
+      "string"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-04",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: declare with type name;",
+    "demoCode": "int x;            // declare an int box named x\nstring title;     // declare a string box named title",
+    "highlightTokens": [
+      "int x",
+      "string title"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-04",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: declare with type name;",
+    "demoCode": "int x;            // declare an int box named x\nstring title;     // declare a string box named title",
+    "highlightTokens": [
+      "int x",
+      "string title"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-04",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: declare with type name;",
+    "demoCode": "int x;            // declare an int box named x\nstring title;     // declare a string box named title",
+    "highlightTokens": [
+      "int x",
+      "string title"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-04",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: declare with type name;",
+    "demoCode": "int x;            // declare an int box named x\nstring title;     // declare a string box named title",
+    "highlightTokens": [
+      "int x",
+      "string title"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-05",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: initialize: type name = value;",
+    "demoCode": "int x = 5;\nstring name = \"ada\";\n// both declare AND store a value at once",
+    "highlightTokens": [
+      "= 5",
+      "= \"ada\""
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-05",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: initialize: type name = value;",
+    "demoCode": "int x = 5;\nstring name = \"ada\";\n// both declare AND store a value at once",
+    "highlightTokens": [
+      "= 5",
+      "= \"ada\""
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-05",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: initialize: type name = value;",
+    "demoCode": "int x = 5;\nstring name = \"ada\";\n// both declare AND store a value at once",
+    "highlightTokens": [
+      "= 5",
+      "= \"ada\""
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-07",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: write: name = newValue;",
+    "demoCode": "int x = 5;\nx = 10;            // overwrites the box",
+    "highlightTokens": [
+      "x = 10;"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-07",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: write: name = newValue;",
+    "demoCode": "int x = 5;\nx = 10;            // overwrites the box",
+    "highlightTokens": [
+      "x = 10;"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-07",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: write: name = newValue;",
+    "demoCode": "int x = 5;\nx = 10;            // overwrites the box",
+    "highlightTokens": [
+      "x = 10;"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-08",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: = is assignment, not equality",
+    "demoCode": "int x = 5;         // = stores 5 in x\nif (x == 5) {      // == compares\n  cout << \"equal\";\n}",
+    "highlightTokens": [
+      "=",
+      "=="
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-08",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: = is assignment, not equality",
+    "demoCode": "int x = 5;         // = stores 5 in x\nif (x == 5) {      // == compares\n  cout << \"equal\";\n}",
+    "highlightTokens": [
+      "=",
+      "=="
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-08",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: = is assignment, not equality",
+    "demoCode": "int x = 5;         // = stores 5 in x\nif (x == 5) {      // == compares\n  cout << \"equal\";\n}",
+    "highlightTokens": [
+      "=",
+      "=="
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-09",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: declare before use",
+    "demoCode": "int x = 5;        // declared first\ncout << x;        // then used",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-09",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: declare before use",
+    "demoCode": "int x = 5;        // declared first\ncout << x;        // then used",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-09",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: declare before use",
+    "demoCode": "int x = 5;        // declared first\ncout << x;        // then used",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-09",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: declare before use",
+    "demoCode": "int x = 5;        // declared first\ncout << x;        // then used",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-10",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: int holds whole numbers",
+    "demoCode": "int count = 7;\nint n = 42;",
+    "highlightTokens": [
+      "int"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-10",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: int holds whole numbers",
+    "demoCode": "int count = 7;\nint n = 42;",
+    "highlightTokens": [
+      "int"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-10",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: int holds whole numbers",
+    "demoCode": "int count = 7;\nint n = 42;",
+    "highlightTokens": [
+      "int"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-10",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: int holds whole numbers",
+    "demoCode": "int count = 7;\nint n = 42;",
+    "highlightTokens": [
+      "int"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-11",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: double holds decimals",
+    "demoCode": "double mystery = 0.0;\ndouble price = 3.14;",
+    "highlightTokens": [
+      "double"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-12",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: string holds text",
+    "demoCode": "string title = \"C++\";\nstring author = \"ada\";",
+    "highlightTokens": [
+      "string"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-12",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: string holds text",
+    "demoCode": "string title = \"C++\";\nstring author = \"ada\";",
+    "highlightTokens": [
+      "string"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-12",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: string holds text",
+    "demoCode": "string title = \"C++\";\nstring author = \"ada\";",
+    "highlightTokens": [
+      "string"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-15",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: 5 is int literal",
+    "demoCode": "int n = 5;          // 5 is an int literal\nint big = 1000000;",
+    "highlightTokens": [
+      "5",
+      "1000000"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-15",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: 5 is int literal",
+    "demoCode": "int n = 5;          // 5 is an int literal\nint big = 1000000;",
+    "highlightTokens": [
+      "5",
+      "1000000"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-15",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: 5 is int literal",
+    "demoCode": "int n = 5;          // 5 is an int literal\nint big = 1000000;",
+    "highlightTokens": [
+      "5",
+      "1000000"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-16",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: 3.14 is double literal",
+    "demoCode": "double pi = 3.14;\ndouble half = 0.5;",
+    "highlightTokens": [
+      "3.14",
+      "0.5"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-17",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: \"hi\" is string literal",
+    "demoCode": "string greeting = \"hello\";\ncout << \"literal text\";",
+    "highlightTokens": [
+      "\"hello\"",
+      "\"literal text\""
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-17",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: \"hi\" is string literal",
+    "demoCode": "string greeting = \"hello\";\ncout << \"literal text\";",
+    "highlightTokens": [
+      "\"hello\"",
+      "\"literal text\""
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-17",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: \"hi\" is string literal",
+    "demoCode": "string greeting = \"hello\";\ncout << \"literal text\";",
+    "highlightTokens": [
+      "\"hello\"",
+      "\"literal text\""
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-20",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: string needs <string> include",
+    "demoCode": "#include <string>\nusing namespace std;\nstring title = \"C++\";",
+    "highlightTokens": [
+      "#include <string>"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-20",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: string needs <string> include",
+    "demoCode": "#include <string>\nusing namespace std;\nstring title = \"C++\";",
+    "highlightTokens": [
+      "#include <string>"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "V-20",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: string needs <string> include",
+    "demoCode": "#include <string>\nusing namespace std;\nstring title = \"C++\";",
+    "highlightTokens": [
+      "#include <string>"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "I-01",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: cin reads from terminal",
+    "demoCode": "int n;\ncin >> n;          // pause for user input",
+    "highlightTokens": [
+      "cin"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "I-01",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: cin reads from terminal",
+    "demoCode": "int n;\ncin >> n;          // pause for user input",
+    "highlightTokens": [
+      "cin"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "I-02",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: >> reads value into variable",
+    "demoCode": "int x;\ncin >> x;          // >> reads next token",
+    "highlightTokens": [
+      ">>"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "I-02",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: >> reads value into variable",
+    "demoCode": "int x;\ncin >> x;          // >> reads next token",
+    "highlightTokens": [
+      ">>"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "I-03",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: cin >> x; waits for input",
+    "demoCode": "cin >> x;",
+    "highlightTokens": [
+      "cin >> x"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "I-03",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: cin >> x; waits for input",
+    "demoCode": "cin >> x;",
+    "highlightTokens": [
+      "cin >> x"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "A-01",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: + adds",
+    "demoCode": "int sum = 3 + 4;        // 7\nint total = a + b;",
+    "highlightTokens": [
+      "+"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "A-10",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: ++ adds 1",
+    "demoCode": "int i = 0;\ni++;                    // i = 1",
+    "highlightTokens": [
+      "i++"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "A-10",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: ++ adds 1",
+    "demoCode": "int i = 0;\ni++;                    // i = 1",
+    "highlightTokens": [
+      "i++"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "A-10",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: ++ adds 1",
+    "demoCode": "int i = 0;\ni++;                    // i = 1",
+    "highlightTokens": [
+      "i++"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "C-03",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: < less than",
+    "demoCode": "for (int i = 0; i < n; i++) {\n  cout << i;\n}",
+    "highlightTokens": [
+      "i < n"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "C-03",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: < less than",
+    "demoCode": "for (int i = 0; i < n; i++) {\n  cout << i;\n}",
+    "highlightTokens": [
+      "i < n"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "C-03",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: < less than",
+    "demoCode": "for (int i = 0; i < n; i++) {\n  cout << i;\n}",
+    "highlightTokens": [
+      "i < n"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "C-04",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: > greater than",
+    "demoCode": "if (data.numbers[i] > data.mystery) {\n  data.mystery = data.numbers[i];\n}",
+    "highlightTokens": [
+      "data.numbers[i] > data.mystery"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "C-07",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: comparison returns bool",
+    "demoCode": "bool match = (x == 5);   // bool result\nif (match) cout << \"y\";",
+    "highlightTokens": [
+      "bool",
+      "(x == 5)"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "C-07",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: comparison returns bool",
+    "demoCode": "bool match = (x == 5);   // bool result\nif (match) cout << \"y\";",
+    "highlightTokens": [
+      "bool",
+      "(x == 5)"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "C-07",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: comparison returns bool",
+    "demoCode": "bool match = (x == 5);   // bool result\nif (match) cout << \"y\";",
+    "highlightTokens": [
+      "bool",
+      "(x == 5)"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "F-01",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: if (cond) runs body",
+    "demoCode": "if (x > 0) {\n  cout << \"positive\";\n}",
+    "highlightTokens": [
+      "if"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "F-04",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: condition must be bool",
+    "demoCode": "bool ok = (x > 0);\nif (ok) {\n  cout << \"positive\";\n}",
+    "highlightTokens": [
+      "bool",
+      "if (ok)"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-03",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: for (init; cond; step) loop",
+    "demoCode": "for (int i = 0; i < n; i++) {\n  cout << i;\n}",
+    "highlightTokens": [
+      "for (int i = 0; i < n; i++)"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-03",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: for (init; cond; step) loop",
+    "demoCode": "for (int i = 0; i < n; i++) {\n  cout << i;\n}",
+    "highlightTokens": [
+      "for (int i = 0; i < n; i++)"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-03",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: for (init; cond; step) loop",
+    "demoCode": "for (int i = 0; i < n; i++) {\n  cout << i;\n}",
+    "highlightTokens": [
+      "for (int i = 0; i < n; i++)"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-04",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: init runs once",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  // init `int i = 0` runs ONCE\n  cout << i;\n}",
+    "highlightTokens": [
+      "int i = 0"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-04",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: init runs once",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  // init `int i = 0` runs ONCE\n  cout << i;\n}",
+    "highlightTokens": [
+      "int i = 0"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-04",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: init runs once",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  // init `int i = 0` runs ONCE\n  cout << i;\n}",
+    "highlightTokens": [
+      "int i = 0"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-05",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: cond checked before each iter",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  // cond `i < 5` checked each iteration\n  cout << i;\n}",
+    "highlightTokens": [
+      "i < 5"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-05",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: cond checked before each iter",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  // cond `i < 5` checked each iteration\n  cout << i;\n}",
+    "highlightTokens": [
+      "i < 5"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-05",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: cond checked before each iter",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  // cond `i < 5` checked each iteration\n  cout << i;\n}",
+    "highlightTokens": [
+      "i < 5"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-06",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: step runs after each iter",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  cout << i;\n  // step `i++` runs after body\n}",
+    "highlightTokens": [
+      "i++"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-06",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: step runs after each iter",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  cout << i;\n  // step `i++` runs after body\n}",
+    "highlightTokens": [
+      "i++"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "W-06",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: step runs after each iter",
+    "demoCode": "for (int i = 0; i < 5; i++) {\n  cout << i;\n  // step `i++` runs after body\n}",
+    "highlightTokens": [
+      "i++"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-01",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: function = named code block",
+    "demoCode": "void greet() {\n  cout << \"hello\";\n}\nint main() {\n  greet();\n  return 0;\n}",
+    "highlightTokens": [
+      "void greet()",
+      "greet();"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-01",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: function = named code block",
+    "demoCode": "void greet() {\n  cout << \"hello\";\n}\nint main() {\n  greet();\n  return 0;\n}",
+    "highlightTokens": [
+      "void greet()",
+      "greet();"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-01",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: function = named code block",
+    "demoCode": "void greet() {\n  cout << \"hello\";\n}\nint main() {\n  greet();\n  return 0;\n}",
+    "highlightTokens": [
+      "void greet()",
+      "greet();"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-02",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: returnType name(params) { body }",
+    "demoCode": "int add(int a, int b) {\n  return a + b;\n}",
+    "highlightTokens": [
+      "int add(int a, int b)"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-02",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: returnType name(params) { body }",
+    "demoCode": "int add(int a, int b) {\n  return a + b;\n}",
+    "highlightTokens": [
+      "int add(int a, int b)"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-02",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: returnType name(params) { body }",
+    "demoCode": "int add(int a, int b) {\n  return a + b;\n}",
+    "highlightTokens": [
+      "int add(int a, int b)"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-03",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: call: name(args);",
+    "demoCode": "int sum = add(3, 4);\ncout << sum;       // 7",
+    "highlightTokens": [
+      "add(3, 4)"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-03",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: call: name(args);",
+    "demoCode": "int sum = add(3, 4);\ncout << sum;       // 7",
+    "highlightTokens": [
+      "add(3, 4)"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-04",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: parameters become local boxes",
+    "demoCode": "void f(int x) {\n  // x is a local box; caller's variable is separate\n  x = 99;\n}",
+    "highlightTokens": [
+      "int x"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-04",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: parameters become local boxes",
+    "demoCode": "void f(int x) {\n  // x is a local box; caller's variable is separate\n  x = 99;\n}",
+    "highlightTokens": [
+      "int x"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-04",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: parameters become local boxes",
+    "demoCode": "void f(int x) {\n  // x is a local box; caller's variable is separate\n  x = 99;\n}",
+    "highlightTokens": [
+      "int x"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-05",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: return value; sends back",
+    "demoCode": "int square(int n) {\n  return n * n;\n}",
+    "highlightTokens": [
+      "return"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-06",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: void = no return value",
+    "demoCode": "void greet() {\n  cout << \"hi\";\n  // no return value\n}",
+    "highlightTokens": [
+      "void"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-06",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: void = no return value",
+    "demoCode": "void greet() {\n  cout << \"hi\";\n  // no return value\n}",
+    "highlightTokens": [
+      "void"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-09",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: locals die at return",
+    "demoCode": "void f() {\n  int local = 5;\n  // local dies when f returns\n}",
+    "highlightTokens": [
+      "int local"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "H-10",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: caller cannot see locals",
+    "demoCode": "void f() {\n  int secret = 42;\n}\nint main() {\n  f();\n  // cout << secret;  // ERROR: out of scope\n  return 0;\n}",
+    "highlightTokens": [
+      "int secret"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-01",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: parameter receives copy by default",
+    "demoCode": "void increment_copy(int x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment_copy(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-01",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: parameter receives copy by default",
+    "demoCode": "void increment_copy(int x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment_copy(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-01",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: parameter receives copy by default",
+    "demoCode": "void increment_copy(int x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment_copy(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-02",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: mutating param doesn't change caller",
+    "demoCode": "void increment_copy(int x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment_copy(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-02",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: mutating param doesn't change caller",
+    "demoCode": "void increment_copy(int x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment_copy(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-02",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: mutating param doesn't change caller",
+    "demoCode": "void increment_copy(int x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment_copy(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-03",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: & means alias same memory box",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-03",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: & means alias same memory box",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-03",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: & means alias same memory box",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-04",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: void f(int &x) shares box with caller",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-04",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: void f(int &x) shares box with caller",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-04",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: void f(int &x) shares box with caller",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-05",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: mutating &param changes caller",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-05",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: mutating &param changes caller",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-05",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: mutating &param changes caller",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);\n  cout << n << endl;\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-08",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: reference is two names for one box",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);   // x and n now label same box; box was 5, now 6\n  cout << n;      // 6\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-08",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: reference is two names for one box",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);   // x and n now label same box; box was 5, now 6\n  cout << n;      // 6\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "R-08",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: reference is two names for one box",
+    "demoCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int n = 5;\n  increment(n);   // x and n now label same box; box was 5, now 6\n  cout << n;      // 6\n  return 0;\n}",
+    "highlightTokens": [
+      "int &x"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-01",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: array = sequence of N values",
+    "demoCode": "// array holds N items in a row",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-01",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: array = sequence of N values",
+    "demoCode": "// array holds N items in a row",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-02",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: type arr[N] declares array",
+    "demoCode": "int arr[5];",
+    "highlightTokens": [
+      "arr[5]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-02",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: type arr[N] declares array",
+    "demoCode": "int arr[5];",
+    "highlightTokens": [
+      "arr[5]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-04",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: arr[0] is first element",
+    "demoCode": "arr[0]   // first slot",
+    "highlightTokens": [
+      "arr[0]"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-04",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: arr[0] is first element",
+    "demoCode": "arr[0]   // first slot",
+    "highlightTokens": [
+      "arr[0]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-04",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: arr[0] is first element",
+    "demoCode": "arr[0]   // first slot",
+    "highlightTokens": [
+      "arr[0]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-05",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: arr[i] accesses i-th element",
+    "demoCode": "arr[i]",
+    "highlightTokens": [
+      "arr[i]"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-05",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: arr[i] accesses i-th element",
+    "demoCode": "arr[i]",
+    "highlightTokens": [
+      "arr[i]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-05",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: arr[i] accesses i-th element",
+    "demoCode": "arr[i]",
+    "highlightTokens": [
+      "arr[i]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-06",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: arrays index from 0",
+    "demoCode": "int arr[3] = {10, 20, 30};\ncout << arr[0];   // 10  (NOT arr[1])",
+    "highlightTokens": [
+      "arr[0]"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-06",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: arrays index from 0",
+    "demoCode": "int arr[3] = {10, 20, 30};\ncout << arr[0];   // 10  (NOT arr[1])",
+    "highlightTokens": [
+      "arr[0]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-06",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: arrays index from 0",
+    "demoCode": "int arr[3] = {10, 20, 30};\ncout << arr[0];   // 10  (NOT arr[1])",
+    "highlightTokens": [
+      "arr[0]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-09",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: array size fixed at compile",
+    "demoCode": "const int MAX = 100; int arr[MAX];",
+    "highlightTokens": [
+      "arr[MAX]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-10",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: cannot return array directly",
+    "demoCode": "// C++ has no `return arr;`. Use a reference parameter instead:\nvoid fill(int arr[], int n) { /* ... */ }",
+    "highlightTokens": [
+      "int arr[]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-10",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: cannot return array directly",
+    "demoCode": "// C++ has no `return arr;`. Use a reference parameter instead:\nvoid fill(int arr[], int n) { /* ... */ }",
+    "highlightTokens": [
+      "int arr[]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-11",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: for loop iterates array",
+    "demoCode": "for (int i = 0; i < N; i++) arr[i] = ...;",
+    "highlightTokens": [
+      "arr[i]"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-11",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: for loop iterates array",
+    "demoCode": "for (int i = 0; i < N; i++) arr[i] = ...;",
+    "highlightTokens": [
+      "arr[i]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-11",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: for loop iterates array",
+    "demoCode": "for (int i = 0; i < N; i++) arr[i] = ...;",
+    "highlightTokens": [
+      "arr[i]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-12",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: arr[i] = v writes element",
+    "demoCode": "arr[2] = 99;",
+    "highlightTokens": [
+      "arr[2]"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-12",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: arr[i] = v writes element",
+    "demoCode": "arr[2] = 99;",
+    "highlightTokens": [
+      "arr[2]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-12",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: arr[i] = v writes element",
+    "demoCode": "arr[2] = 99;",
+    "highlightTokens": [
+      "arr[2]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-13",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: array param: type arr[]",
+    "demoCode": "void f(int arr[], int n) { ... }",
+    "highlightTokens": [
+      "[]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-14",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: &arr[] aliases caller's array",
+    "demoCode": "void f(int &arr[], int n) { arr[0] = 99; }",
+    "highlightTokens": [
+      "arr[0]",
+      "[]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "G-14",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: &arr[] aliases caller's array",
+    "demoCode": "void f(int &arr[], int n) { arr[0] = 99; }",
+    "highlightTokens": [
+      "arr[0]",
+      "[]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-01",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: struct = named field group",
+    "demoCode": "// struct = a named bundle of named fields",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-01",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: struct = named field group",
+    "demoCode": "// struct = a named bundle of named fields",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-01",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: struct = named field group",
+    "demoCode": "// struct = a named bundle of named fields",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-02",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: struct Name { fields }; defines type",
+    "demoCode": "struct Point {\n    int x;\n    int y;\n};",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-02",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: struct Name { fields }; defines type",
+    "demoCode": "struct Point {\n    int x;\n    int y;\n};",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-02",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: struct Name { fields }; defines type",
+    "demoCode": "struct Point {\n    int x;\n    int y;\n};",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-03",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: each field: type fieldName;",
+    "demoCode": "struct Point {\n    int x;\n    int y;\n};",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-03",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: each field: type fieldName;",
+    "demoCode": "struct Point {\n    int x;\n    int y;\n};",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-03",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: each field: type fieldName;",
+    "demoCode": "struct Point {\n    int x;\n    int y;\n};",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-04",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: ; required after closing }",
+    "demoCode": "struct Point { int x; int y; };",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-04",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: ; required after closing }",
+    "demoCode": "struct Point { int x; int y; };",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-04",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: ; required after closing }",
+    "demoCode": "struct Point { int x; int y; };",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-05",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: use type: Name x; declares",
+    "demoCode": "struct Point { int x; int y; };\nPoint p;",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-05",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: use type: Name x; declares",
+    "demoCode": "struct Point { int x; int y; };\nPoint p;",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-06",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: .field accesses struct member",
+    "demoCode": "Point p;\np.x = 3;",
+    "highlightTokens": [
+      "p.x"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-06",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: .field accesses struct member",
+    "demoCode": "Point p;\np.x = 3;",
+    "highlightTokens": [
+      "p.x"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-06",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: .field accesses struct member",
+    "demoCode": "Point p;\np.x = 3;",
+    "highlightTokens": [
+      "p.x"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-06",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: .field accesses struct member",
+    "demoCode": "Point p;\np.x = 3;",
+    "highlightTokens": [
+      "p.x"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-07",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: x.field = v writes field",
+    "demoCode": "Point p;\np.x = 3;",
+    "highlightTokens": [
+      "p.x"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-07",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: x.field = v writes field",
+    "demoCode": "Point p;\np.x = 3;",
+    "highlightTokens": [
+      "p.x"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-07",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: x.field = v writes field",
+    "demoCode": "Point p;\np.x = 3;",
+    "highlightTokens": [
+      "p.x"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-09",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: struct can contain array field",
+    "demoCode": "struct stat_double {\n    double numbers[5];\n    double mystery;\n};",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-10",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: chained: data.arr[i]",
+    "demoCode": "stat_double d;\nd.numbers[0] = 1.0;",
+    "highlightTokens": [
+      "d.numbers"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-10",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: chained: data.arr[i]",
+    "demoCode": "stat_double d;\nd.numbers[0] = 1.0;",
+    "highlightTokens": [
+      "d.numbers"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-10",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: chained: data.arr[i]",
+    "demoCode": "stat_double d;\nd.numbers[0] = 1.0;",
+    "highlightTokens": [
+      "d.numbers"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-11",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: array of structs: Name list[N];",
+    "demoCode": "struct Point { int x; int y; };\nPoint list[3];",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-11",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: array of structs: Name list[N];",
+    "demoCode": "struct Point { int x; int y; };\nPoint list[3];",
+    "highlightTokens": [
+      "struct"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-12",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: list[i].field chained access",
+    "demoCode": "Point list[3];\nlist[0].x = 5;",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "T-12",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: list[i].field chained access",
+    "demoCode": "Point list[3];\nlist[0].x = 5;",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-02",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: void f(Name &x) shares struct",
+    "demoCode": "void update(Point &p) { p.x = 99; }",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-02",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: void f(Name &x) shares struct",
+    "demoCode": "void update(Point &p) { p.x = 99; }",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-02",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: void f(Name &x) shares struct",
+    "demoCode": "void update(Point &p) { p.x = 99; }",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-03",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: & lets struct mutation persist",
+    "demoCode": "void mutate(stat_double &d) {\n  d.mystery = 99.0;   // persists in caller\n}",
+    "highlightTokens": [
+      "stat_double &d",
+      "d.mystery = 99.0"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-03",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: & lets struct mutation persist",
+    "demoCode": "void mutate(stat_double &d) {\n  d.mystery = 99.0;   // persists in caller\n}",
+    "highlightTokens": [
+      "stat_double &d",
+      "d.mystery = 99.0"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-03",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: & lets struct mutation persist",
+    "demoCode": "void mutate(stat_double &d) {\n  d.mystery = 99.0;   // persists in caller\n}",
+    "highlightTokens": [
+      "stat_double &d",
+      "d.mystery = 99.0"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-04",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: &list[] passes array by ref",
+    "demoCode": "void read_items(Item &list[], int count) { ... }",
+    "highlightTokens": [
+      "Item &list[]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-04",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: &list[] passes array by ref",
+    "demoCode": "void read_items(Item &list[], int count) { ... }",
+    "highlightTokens": [
+      "Item &list[]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-05",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: list[i].field writes persist via &",
+    "demoCode": "void read_book(book &list[], int n) {\n  list[0].title = \"C++\";   // writes to caller's list\n}",
+    "highlightTokens": [
+      "list[0].title"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "PC-05",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: list[i].field writes persist via &",
+    "demoCode": "void read_book(book &list[], int n) {\n  list[0].title = \"C++\";   // writes to caller's list\n}",
+    "highlightTokens": [
+      "list[0].title"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-01",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: trace = mentally simulate code",
+    "demoCode": "// No code - meta-skill atom",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-02",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: track each var's value",
+    "demoCode": "int x = 5;\nint y = 10;\n// track: x=5, y=10",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-03",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: update value on each assignment",
+    "demoCode": "int x = 5;\nx = 10;\n// x trace: 5, 10  (two values, latest = 10)",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-04",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: for-loop: track i across iterations",
+    "demoCode": "for (int i = 0; i < 3; i++) {\n    // body\n}\n// i trace: 0, 1, 2, (loop ends when i==3)",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-05",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: conditional: pick branch by cond",
+    "demoCode": "int n = 7;\nif (n > 5) {\n    // branch A taken (cond is true)\n} else {\n    // branch B taken (cond is false)\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-06",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: function call: enter new frame",
+    "demoCode": "void f(int x) {\n    // new frame: x is local\n}\nint main() {\n    f(5);   // call: enter new frame\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-07",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: return: exit frame, locals die",
+    "demoCode": "void f() {\n    int local = 5;\n    // local lives here\n}\n// local does not exist here",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-08",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: & param: SAME box, persists",
+    "demoCode": "void incr(int &x) {\n    x = x + 1;        // mutates caller's box\n}\nint main() {\n    int n = 5;\n    incr(n);\n    // n trace: 5, 6  (mutation persisted via &)\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-09",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: arr[i] write persists if &",
+    "demoCode": "void fill(int &slot) {\n    slot = 99;\n}\nint main() {\n    int arr[3] = {1, 2, 3};\n    fill(arr[0]);\n    // arr trace: [1,2,3] -> [99,2,3]\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-10",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: trace x = 5; y = x; final state",
+    "demoCode": "int x = 5;\nint y = x;\n// final: x = 5, y = 5",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-11",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: trace arr[i] = v; final array",
+    "demoCode": "int arr[3] = {0, 0, 0};\narr[1] = 7;\narr[2] = arr[1] + 1;\n// final: arr = [0, 7, 8]",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-12",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: trace for-loop iterations",
+    "demoCode": "int sum = 0;\nfor (int i = 1; i <= 4; i++) {\n    sum = sum + i;\n}\n// final: sum = 10\n// i trace: 1, 2, 3, 4 (then exits)",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-13",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: trace if/else branches",
+    "demoCode": "int n = 7;\nint label;\nif (n > 5) {\n    label = 1;\n} else {\n    label = 2;\n}\n// final: label = 1",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-14",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: trace function call + return",
+    "demoCode": "int square(int x) {\n    return x * x;\n}\nint main() {\n    int r = square(5);\n    // call: enter square, x=5\n    // return 25, exit frame\n    // r = 25\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-15",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: trace pass-by-value vs &",
+    "demoCode": "void f_val(int x) {\n    x = 99;\n}\nvoid f_ref(int &x) {\n    x = 99;\n}\nint main() {\n    int n = 5;\n    f_val(n);    // n still 5\n    f_ref(n);    // n now 99\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-16",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: trace max-finder algorithm",
+    "demoCode": "// Max of an array of 5 doubles\ndouble nums[5] = {3.2, 7.1, 5.0, 9.4, 2.8};\ndouble max_val = nums[0];\nfor (int i = 1; i < 5; i++) {\n    if (nums[i] > max_val) {\n        max_val = nums[i];\n    }\n}\n// max_val = 9.4",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-17",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: trace struct field mutation via &",
+    "demoCode": "struct Point { int x; int y; };\nvoid shift(Point &p) {\n    p.x = p.x + 1;\n    p.y = p.y + 1;\n}\nint main() {\n    Point a = {3, 4};\n    shift(a);\n    // a trace: {3,4} -> {4,5}\n}",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "HE-18",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: trace data.numbers[i] > data.mystery",
+    "demoCode": "// Inner test of who_am_i:\n// if (data.numbers[i] > data.mystery)\n//     data.mystery = data.numbers[i];\n// Trace per i: read array elem, compare to scalar, conditionally update scalar",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "SW-01",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: write struct Name { ... };",
+    "demoCode": "struct computer_data {\n    int id;\n    string description;\n    string location;\n};",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "SW-02",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: write field: type fieldName;",
+    "demoCode": "int id;\nstring description;",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "SW-03",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: terminate struct with };",
+    "demoCode": "struct X {\n    int a;\n};",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "SW-04",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: choose types per spec",
+    "demoCode": "// pick types per spec\nstruct book {\n  int id;\n  string title;     // string for text\n  double price;     // double for amounts\n};",
+    "highlightTokens": [
+      "int id;",
+      "string title;",
+      "double price;"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "SW-05",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: field order is arbitrary",
+    "demoCode": "// any field order is fine\nstruct book {\n  string title;\n  double price;\n  int id;\n};",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-01",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: write void return signature",
+    "demoCode": "void read_items(...) { ... }",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-02",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: write Type &list[] parameter",
+    "demoCode": "void read_X(X &list[], int count) {}",
+    "highlightTokens": [
+      "X &list[]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-03",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: write int count parameter",
+    "demoCode": "void read_X(X &list[], int count) {}",
+    "highlightTokens": [
+      "int count"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-03",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: write int count parameter",
+    "demoCode": "void read_X(X &list[], int count) {}",
+    "highlightTokens": [
+      "int count"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-04",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: write for-loop with count bound",
+    "demoCode": "for (int i = 0; i < count; i++) { ... }",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-04",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: write for-loop with count bound",
+    "demoCode": "for (int i = 0; i < count; i++) { ... }",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-05",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: cin >> list[i].field; reads input",
+    "demoCode": "cin >> list[i].id;",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "RW-06",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: one cin per struct field",
+    "demoCode": "cin >> list[i].id;\ncin >> list[i].name;\ncin >> list[i].course;",
+    "highlightTokens": [],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-01",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: int main() { ... return 0; }",
+    "demoCode": "int main() {\n    // body here\n    return 0;\n}",
+    "highlightTokens": [
+      "int main()",
+      "return 0;"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-02",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: const int MAX = 100;",
+    "demoCode": "const int MAX = 100;",
+    "highlightTokens": [
+      "const int MAX = 100;"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-03",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: declare Type list[MAX];",
+    "demoCode": "computer_data list[MAX];",
+    "highlightTokens": [
+      "list[MAX]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-04",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: declare int count;",
+    "demoCode": "int count;\ncin >> count;",
+    "highlightTokens": [
+      "int count;"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-05",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: cin >> count; reads N",
+    "demoCode": "cin >> count;",
+    "highlightTokens": [
+      "cin >> count;"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-06",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: call read_X(list, count);",
+    "demoCode": "read_book(list, count);",
+    "highlightTokens": [
+      "read_book(list, count);"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-07",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: print loop: for-loop i < count",
+    "demoCode": "for (int i = 0; i < count; i++) printf(...);",
+    "highlightTokens": [
+      "for (int i = 0; i < count; i++)"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-08",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: printf(\"%d %s\n\", id, name);",
+    "demoCode": "printf(\"%d %s\\n\", list[i].id, list[i].title.c_str());",
+    "highlightTokens": [
+      "%d %s\\n",
+      ".c_str()"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "MW-09",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: .c_str() converts string for %s",
+    "demoCode": "string name = \"ada\";\nprintf(\"%s\\n\", name.c_str());   // C-string for %s",
+    "highlightTokens": [
+      ".c_str()"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-01",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: mock exam me-01",
+    "demoCode": "// Mock 1 — all four questions in one program\nstruct stat_double { double mystery; double a; double b; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.a + data.b;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  printf(\"%.2f\\n\", list[0].mystery);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "who_am_i",
+      "read_stat",
+      "int main()"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-01",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: mock exam me-01",
+    "demoCode": "// Mock 1 — all four questions in one program\nstruct stat_double { double mystery; double a; double b; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.a + data.b;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  printf(\"%.2f\\n\", list[0].mystery);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "who_am_i",
+      "read_stat",
+      "int main()"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-01",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: mock exam me-01",
+    "demoCode": "// Mock 1 — all four questions in one program\nstruct stat_double { double mystery; double a; double b; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.a + data.b;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  printf(\"%.2f\\n\", list[0].mystery);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "who_am_i",
+      "read_stat",
+      "int main()"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-01",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: mock exam me-01",
+    "demoCode": "// Mock 1 — all four questions in one program\nstruct stat_double { double mystery; double a; double b; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.a + data.b;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  printf(\"%.2f\\n\", list[0].mystery);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "who_am_i",
+      "read_stat",
+      "int main()"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-02",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: mock exam me-02",
+    "demoCode": "// Mock 2 — max-finder variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.numbers[0];\n  for (int i = 1; i < 5; i++) {\n    if (data.numbers[i] > data.mystery)\n      data.mystery = data.numbers[i];\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "who_am_i",
+      "data.numbers[i] > data.mystery"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-02",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: mock exam me-02",
+    "demoCode": "// Mock 2 — max-finder variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.numbers[0];\n  for (int i = 1; i < 5; i++) {\n    if (data.numbers[i] > data.mystery)\n      data.mystery = data.numbers[i];\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "who_am_i",
+      "data.numbers[i] > data.mystery"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-02",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: mock exam me-02",
+    "demoCode": "// Mock 2 — max-finder variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.numbers[0];\n  for (int i = 1; i < 5; i++) {\n    if (data.numbers[i] > data.mystery)\n      data.mystery = data.numbers[i];\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "who_am_i",
+      "data.numbers[i] > data.mystery"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-02",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: mock exam me-02",
+    "demoCode": "// Mock 2 — max-finder variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = data.numbers[0];\n  for (int i = 1; i < 5; i++) {\n    if (data.numbers[i] > data.mystery)\n      data.mystery = data.numbers[i];\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "who_am_i",
+      "data.numbers[i] > data.mystery"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-03",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: mock exam me-03",
+    "demoCode": "// Mock 3 — sum-accumulator variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    data.mystery = data.mystery + data.numbers[i];\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.mystery + data.numbers[i]"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-03",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: mock exam me-03",
+    "demoCode": "// Mock 3 — sum-accumulator variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    data.mystery = data.mystery + data.numbers[i];\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.mystery + data.numbers[i]"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-03",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: mock exam me-03",
+    "demoCode": "// Mock 3 — sum-accumulator variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    data.mystery = data.mystery + data.numbers[i];\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.mystery + data.numbers[i]"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-03",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: mock exam me-03",
+    "demoCode": "// Mock 3 — sum-accumulator variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    data.mystery = data.mystery + data.numbers[i];\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.mystery + data.numbers[i]"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-04",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: mock exam me-04",
+    "demoCode": "// Mock 4 — absolute difference variant\nstruct stat_double { double mystery; double a; double b; };\n\nvoid who_am_i(stat_double &data) {\n  if (data.a > data.b)\n    data.mystery = data.a - data.b;\n  else\n    data.mystery = data.b - data.a;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.a - data.b",
+      "data.b - data.a"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-04",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: mock exam me-04",
+    "demoCode": "// Mock 4 — absolute difference variant\nstruct stat_double { double mystery; double a; double b; };\n\nvoid who_am_i(stat_double &data) {\n  if (data.a > data.b)\n    data.mystery = data.a - data.b;\n  else\n    data.mystery = data.b - data.a;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.a - data.b",
+      "data.b - data.a"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-04",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: mock exam me-04",
+    "demoCode": "// Mock 4 — absolute difference variant\nstruct stat_double { double mystery; double a; double b; };\n\nvoid who_am_i(stat_double &data) {\n  if (data.a > data.b)\n    data.mystery = data.a - data.b;\n  else\n    data.mystery = data.b - data.a;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.a - data.b",
+      "data.b - data.a"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-04",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: mock exam me-04",
+    "demoCode": "// Mock 4 — absolute difference variant\nstruct stat_double { double mystery; double a; double b; };\n\nvoid who_am_i(stat_double &data) {\n  if (data.a > data.b)\n    data.mystery = data.a - data.b;\n  else\n    data.mystery = data.b - data.a;\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    cin >> list[i].a;\n    cin >> list[i].b;\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.a - data.b",
+      "data.b - data.a"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-05",
+    "whyOneLine": "Q1 asks you to trace through code like this by hand — predict what happens. Key concept: mock exam me-05",
+    "demoCode": "// Mock 5 — count-positive variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    if (data.numbers[i] > 0)\n      data.mystery = data.mystery + 1;\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.numbers[i] > 0",
+      "data.mystery + 1"
+    ],
+    "usedIn": [
+      "Q1"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-05",
+    "whyOneLine": "Q2 asks you to write struct code like this from scratch. Key concept: mock exam me-05",
+    "demoCode": "// Mock 5 — count-positive variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    if (data.numbers[i] > 0)\n      data.mystery = data.mystery + 1;\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.numbers[i] > 0",
+      "data.mystery + 1"
+    ],
+    "usedIn": [
+      "Q2"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-05",
+    "whyOneLine": "Q3 asks you to read a function like this and explain what it does. Key concept: mock exam me-05",
+    "demoCode": "// Mock 5 — count-positive variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    if (data.numbers[i] > 0)\n      data.mystery = data.mystery + 1;\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.numbers[i] > 0",
+      "data.mystery + 1"
+    ],
+    "usedIn": [
+      "Q3"
+    ]
+  },
+  {
+    "type": "demo",
+    "atomId": "ME-05",
+    "whyOneLine": "Q4 asks you to write a complete program using this pattern. Key concept: mock exam me-05",
+    "demoCode": "// Mock 5 — count-positive variant\nstruct stat_double { double mystery; double numbers[5]; };\n\nvoid who_am_i(stat_double &data) {\n  data.mystery = 0;\n  for (int i = 0; i < 5; i++) {\n    if (data.numbers[i] > 0)\n      data.mystery = data.mystery + 1;\n  }\n}\n\nvoid read_stat(stat_double &list[], int count) {\n  for (int i = 0; i < count; i++) {\n    for (int j = 0; j < 5; j++) {\n      cin >> list[i].numbers[j];\n    }\n  }\n}\n\nint main() {\n  const int MAX = 100;\n  stat_double list[MAX];\n  int count;\n  cin >> count;\n  read_stat(list, count);\n  return 0;\n}",
+    "highlightTokens": [
+      "stat_double",
+      "data.numbers[i] > 0",
+      "data.mystery + 1"
+    ],
+    "usedIn": [
+      "Q4"
+    ]
+  }
+]

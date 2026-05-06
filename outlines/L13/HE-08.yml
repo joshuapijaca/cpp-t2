@@ -1,0 +1,87 @@
+id: HE-08
+fact: '& param: SAME box, persists'
+words: 5
+level: 13
+deps:
+  - R-03
+  - R-05
+  - HE-03
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q01
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: data is &-bound to caller's d; mutations to data.mystery persist after return
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  void incr(int &x) {
+      x = x + 1;        // mutates caller's box
+  }
+  int main() {
+      int n = 5;
+      incr(n);
+      // n trace: 5, 6  (mutation persisted via &)
+  }
+expected_output: n = 6 (was 5; incr mutated via &)
+sit102_quirks:
+  - Trace renders ONE box, TWO labels for caller var + & param
+  - Mutation through either label updates the same box
+misconceptions:
+  - id: M01
+    description: Draws two separate boxes
+    student_says: x is its own box; n is another
+    correct_says: With &, ONE box, TWO labels (n and x both point to it)
+render_hints:
+  memorize_seed_phrases:
+    - ampersand param same box
+    - '& shares caller box'
+    - mutation through & persists
+    - one box two labels
+    - caller and param share storage
+  see_demo:
+    why_one_line: if the parameter has &, your traced edits write through to the caller box.
+    snippet: |
+      void incr(int &x) {
+          x = x + 1;        // mutates caller's box
+      }
+      int main() {
+          int n = 5;
+          incr(n);
+          // n trace: 5, 6  (mutation persisted via &)
+      }
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      void incr(int &x) {
+          x = x + 1;        // mutates caller's box
+      int main() {
+    correct_atoms:
+      - HE-08
+      - R-03
+      - R-05
+      - HE-03
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: same / share / one box / two labels / persists'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+    - '*'
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

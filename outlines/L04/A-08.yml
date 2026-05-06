@@ -1,0 +1,51 @@
+id: A-08
+fact: () overrides operator order
+words: 4
+level: 4
+deps:
+  - A-07
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - parens override precedence
+    - () forces evaluation order
+    - use () to control order
+    - parens evaluate first
+    - () group expressions
+  see_demo:
+    why_one_line: () force the desired evaluation order regardless of precedence.
+    snippet: |
+      int r = (1 + 2) * 3;    // 9
+    highlights:
+      - (1 + 2)
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int x = 5;
+      x++;
+      x--;
+      int y = (x + 2) * 3;
+      double z = 10.0 / 3;
+    correct_atoms:
+      - A-08
+      - A-07
+    distractors:
+      - A-01
+      - A-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,92 @@
+id: HE-16
+fact: trace max-finder algorithm
+words: 3
+level: 13
+deps:
+  - HE-12
+  - HE-13
+  - HE-03
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q03
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: Q1 IS max-finder across all 5 published variants
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  // Max of an array of 5 doubles
+  double nums[5] = {3.2, 7.1, 5.0, 9.4, 2.8};
+  double max_val = nums[0];
+  for (int i = 1; i < 5; i++) {
+      if (nums[i] > max_val) {
+          max_val = nums[i];
+      }
+  }
+  // max_val = 9.4
+expected_output: max_val = 9.4
+sit102_quirks:
+  - Initialize with first element, NOT zero
+  - Loop from 1, NOT 0 (first already used)
+  - Strict >, not >=
+misconceptions:
+  - id: M01
+    description: Initializes max to 0
+    student_says: max_val = 0
+    correct_says: Initialize with nums[0]; otherwise negative arrays break
+  - id: M02
+    description: Loop from 0
+    student_says: for (i = 0; i < 5; i++)
+    correct_says: Start from 1 - index 0 already in max_val
+render_hints:
+  memorize_seed_phrases:
+    - max-finder loops i from 1
+    - init max with first element
+    - compare > update max
+    - iterate compare update keep largest
+    - trace running maximum
+  see_demo:
+    why_one_line: 'Q1 is a max-finder algorithm: scan all numbers, keep the biggest.'
+    snippet: |
+      // Max of an array of 5 doubles
+      double nums[5] = {3.2, 7.1, 5.0, 9.4, 2.8};
+      double max_val = nums[0];
+      for (int i = 1; i < 5; i++) {
+          if (nums[i] > max_val) {
+              max_val = nums[i];
+          }
+      }
+      // max_val = 9.4
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      // Max of an array of 5 doubles
+      double nums[5] = {3.2, 7.1, 5.0, 9.4, 2.8};
+    correct_atoms:
+      - HE-16
+      - HE-12
+      - HE-13
+      - HE-03
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: max / largest / running / compare / update'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

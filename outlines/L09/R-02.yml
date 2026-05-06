@@ -1,0 +1,120 @@
+id: R-02
+fact: "mutating param doesn't change caller"
+words: 5
+level: 9
+deps:
+  - R-01
+
+q_tags:
+  Q1: C
+  Q2: N
+  Q3: C
+  Q4: C
+
+pfg_source:
+  - quote_id: Q01
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+  - quote_id: Q03
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+
+test2_evidence:
+  - question: Q3
+    instance: "Without &, mutations to list[i].field are lost - caller's array empty after return"
+    file_path: extraction/test2_bank/Q3_read_X_variants.md
+
+canonical_example: |
+  void increment_copy(int x) {
+    x = x + 1;
+  }
+  int main() {
+    int n = 5;
+    increment_copy(n);
+    cout << n << endl;
+    return 0;
+  }
+expected_output: "5"
+
+sit102_quirks:
+  - "Mutating local copy = no caller effect"
+  - "Locals die at return; mutations vanish"
+
+misconceptions:
+  - id: M01
+    description: "Expects param mutation visible in caller (Python/Java reference-type thinking)"
+    student_says: "I changed x in the function, n should be 6 now"
+    correct_says: "x was a copy; n in main is still 5"
+  - id: M02
+    description: "Thinks variable name binding = same variable"
+    student_says: "n and x are the same thing because I passed n in"
+    correct_says: "Without &, x is a separate box that received a copy of n's value"
+  - id: M03
+    description: "Misses that locals die at return"
+    student_says: "x persists somewhere after function returns"
+    correct_says: "x ceases to exist at return; only its returned value (or &-mutated caller box) survives"
+
+render_hints:
+  memorize_seed_phrases:
+    - "no & means change is local"
+    - "caller box untouched without &"
+    - "param mutation stays inside function"
+    - "copy mutates; original safe"
+    - "caller value preserved without &"
+  trace:
+    description: "Trace shows pre-call value, function-local mutation, post-return value of caller (unchanged)."
+    minimum_steps: 4
+    must_show:
+      - "pre-call: caller value"
+      - "binding: copy made"
+      - "during: param mutated"
+      - "post-return: caller value unchanged"
+  write_L1_fill:
+    template: "void f(int x) { x = 99; }\nint main() { int n = 5; f(n); cout << n; }\n// prints: ___"
+    blank_value: "5"
+  write_L2_complete:
+    template: "void f(int x) { x = x + 1; }\nint main() { int n = 5;\n  ___\n  cout << n; // prints 5\n}"
+    blank_value: "f(n);"
+  write_L3_free_spec: "Write code where a function tries to mutate its parameter but the caller's variable is unchanged."
+
+  see_demo:
+    why_one_line: "without &, a function's mutation lives only inside the frame and dies."
+    snippet: |
+      void increment_copy(int x) {
+        x = x + 1;
+      }
+      int main() {
+        int n = 5;
+        increment_copy(n);
+        cout << n << endl;
+        return 0;
+      }
+    highlights: []
+    used_in: [Q1, Q3, Q4]
+  see_decompose:
+    snippet: |
+      void increment_copy(int x) {
+        x = x + 1;
+    correct_atoms: [R-02, R-01]
+    distractors: [R-03, R-04, T-01]
+acceptance:
+  memorize:
+    - "Each variant <=7 words"
+    - "Mentions: caller unchanged / no effect / mutation local"
+    - "Does not contradict R-05 (which is the contrast)"
+  mcq:
+    - "Correct option: caller unchanged"
+    - "Distractor: caller changed (R-05 confused for R-02)"
+    - "Distractor: error / undefined behavior"
+  trace:
+    - "Final caller value matches pre-call value"
+  write:
+    - "L1 expected = pre-call caller value, NOT mutated value"
+    - "L3 forbidden: `&`"
+
+lint:
+  forbid_tokens: ["&", "*", "->", "nullptr"]
+  miller_max_words: 7
+
+status: locked
+locked_at: null
+locked_by: null
+revision_history: []

@@ -1,0 +1,53 @@
+id: V-18
+fact: '''a'' is char literal'
+words: 4
+level: 2
+deps:
+  - V-14
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - '''a'' = char literal'
+    - single quotes make char
+    - char literal in single quotes
+    - '''b'' is one char'
+    - single-quote each char
+  see_demo:
+    why_one_line: single-quoted 'a' is a char, not a string; mixing the two is a Q4 bug.
+    snippet: |
+      char letter = 'A';
+      char comma = ',';
+    highlights:
+      - '''A'''
+      - ''','''
+    used_in: []
+  see_decompose:
+    snippet: |-
+      const int MAX = 100;
+      int count = 0;
+      double total = 0.0;
+      count = count + 1;
+      total = total + 9.99;
+    correct_atoms:
+      - V-18
+      - V-14
+    distractors:
+      - V-01
+      - V-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

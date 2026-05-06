@@ -1,0 +1,55 @@
+id: G-04
+fact: arr[0] is first element
+words: 4
+level: 10
+deps:
+  - G-01
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: arr[0]   // first slot
+expected_output: first element of arr
+sit102_quirks: []
+misconceptions:
+  - id: M01
+    description: Thinks first index is 1
+    student_says: arr[1]
+    correct_says: arr[0] is the first; 0-based
+render_hints:
+  memorize_seed_phrases:
+    - first element is arr[0]
+    - index 0 is first slot
+    - arr[0] reads first value
+    - starts counting from zero
+    - 0 is the first index
+  see_demo:
+    why_one_line: arr[0] is the first slot; off-by-one bugs start when you forget this.
+    snippet: |
+      arr[0]   // first slot
+    highlights:
+      - arr[0]
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      arr[0]   // first slot
+    correct_atoms:
+      - G-04
+      - G-01
+    distractors:
+      - G-10
+      - G-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions 0 / first
+lint:
+  miller_max_words: 7
+status: locked

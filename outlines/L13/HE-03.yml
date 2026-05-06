@@ -1,0 +1,76 @@
+id: HE-03
+fact: update value on each assignment
+words: 5
+level: 13
+deps:
+  - A-05
+  - HE-02
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q04
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: data.mystery updates on each iteration where condition holds
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  int x = 5;
+  x = 10;
+  // x trace: 5, 10  (two values, latest = 10)
+expected_output: x = 10 (was 5, then reassigned)
+sit102_quirks:
+  - Strikethrough old value; bold current
+  - History strip preserved across iterations
+misconceptions:
+  - id: M01
+    description: Overwrites without preserving history
+    student_says: x = 10 means x is just 10
+    correct_says: x's history shows 5 then 10; strikethrough first, current bold
+  - id: M02
+    description: Skips value updates
+    student_says: Only the final value matters
+    correct_says: Each assignment is a step; intermediate values matter for trace
+render_hints:
+  memorize_seed_phrases:
+    - update on each assignment
+    - every assign creates new step
+    - '= triggers new value entry'
+    - strikethrough old current bold
+    - history strip per variable
+  see_demo:
+    why_one_line: every assignment overwrites the old value; record the new state.
+    snippet: |
+      int x = 5;
+      x = 10;
+      // x trace: 5, 10  (two values, latest = 10)
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      int x = 5;
+    correct_atoms:
+      - HE-03
+      - A-05
+      - HE-02
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: assign / update / step / history / strikethrough'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

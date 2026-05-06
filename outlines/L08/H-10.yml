@@ -1,0 +1,59 @@
+id: H-10
+fact: caller cannot see locals
+words: 5
+level: 8
+deps:
+  - H-04
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - locals are private to function
+    - caller has no access
+    - scope rules block external access
+    - each frame isolated
+    - locals not visible outside
+  see_demo:
+    why_one_line: main cannot poke at a function's locals; only what & or return exposes.
+    snippet: |
+      void f() {
+        int secret = 42;
+      }
+      int main() {
+        f();
+        // cout << secret;  // ERROR: out of scope
+        return 0;
+      }
+    highlights:
+      - int secret
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |-
+      int x = 42;
+      string s = to_string(x);
+      double d = stod("3.14");
+      int n = stoi("99");
+      cout << s << " " << d << " " << n << endl;
+    correct_atoms:
+      - H-10
+      - H-04
+    distractors:
+      - H-01
+      - H-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,118 @@
+id: R-06
+fact: "reference must bind real variable"
+words: 5
+level: 9
+deps:
+  - R-03
+
+q_tags:
+  Q1: S
+  Q2: N
+  Q3: S
+  Q4: S
+
+pfg_source:
+  - quote_id: Q06
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+  - quote_id: Q08
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+
+test2_evidence:
+  - question: Q4
+    instance: "main() must declare list[] before passing to read_X - cannot pass literal expression"
+    file_path: extraction/test2_bank/Q4_main_variants.md
+
+canonical_example: |
+  void increment(int &x) {
+    x = x + 1;
+  }
+  int main() {
+    int n = 5;
+    increment(n);    // OK: n is a variable
+    // increment(5); // ERROR: literal cannot bind to int&
+    return 0;
+  }
+expected_output: "(compiles only with the literal call commented out)"
+
+sit102_quirks:
+  - "Cannot pass literal (5, 'a', 3.14) to & param"
+  - "Cannot pass arithmetic expression (a + b) to & param"
+  - "Must pass variable name (n, x, list[i].field, etc.)"
+
+misconceptions:
+  - id: M01
+    description: "Tries to pass literal value"
+    student_says: "increment(5);"
+    correct_says: "Must declare int n; first, then increment(n);"
+  - id: M02
+    description: "Tries to pass arithmetic expression"
+    student_says: "increment(a + 1);"
+    correct_says: "Cannot bind temporary; pre-compute into variable first"
+  - id: M03
+    description: "Confuses with const & rule"
+    student_says: "Literals work with const & but not & - why?"
+    correct_says: "const & extends lifetime of temporary; plain & cannot"
+
+render_hints:
+  memorize_seed_phrases:
+    - "& needs real variable as argument"
+    - "no literal to & param"
+    - "no expression to & param"
+    - "& binds to existing box"
+    - "argument must be lvalue"
+  trace:
+    description: "Show two call attempts: legal (variable) vs illegal (literal). Compile error on illegal."
+    minimum_steps: 3
+    must_show:
+      - "increment(n) - succeeds, mutation visible"
+      - "increment(5) - compiler error (cannot bind to &)"
+      - "explanation: & needs writable target"
+  write_L1_fill:
+    template: "// Which call is legal?\n// A) increment(5)\n// B) increment(n)\nLegal: ___"
+    blank_value: "B"
+  write_L2_complete:
+    template: "int main() {\n  ___\n  increment(n);\n  return 0;\n}"
+    blank_value: "int n = 5;"
+  write_L3_free_spec: "Show a main() that creates a variable then passes it by reference. Why couldn't you pass a literal directly?"
+
+  see_demo:
+    why_one_line: "you cannot bind a reference to a literal; needs a real variable."
+    snippet: |
+      void increment(int &x) {
+        x = x + 1;
+      }
+      int main() {
+        int n = 5;
+        increment(n);    // OK: n is a variable
+        // increment(5); // ERROR: literal cannot bind to int&
+        return 0;
+      }
+    highlights: ["int &x"]
+    used_in: []
+  see_decompose:
+    snippet: |
+      void increment(int &x) {
+        x = x + 1;
+    correct_atoms: [R-06, R-03]
+    distractors: [R-01, R-02, T-01]
+acceptance:
+  memorize:
+    - "<=7 words"
+    - "Mentions: variable / lvalue / not literal / not expression"
+  mcq:
+    - "Correct: must pass variable"
+    - "Distractor: can pass literal if & is used (wrong)"
+  trace:
+    - "Shows compile-error case explicitly"
+  write:
+    - "L1 answer = 'B'"
+    - "L3 expected includes a variable declaration before call"
+
+lint:
+  forbid_tokens: ["nullptr", "->", "*"]
+  miller_max_words: 7
+
+status: locked
+locked_at: null
+locked_by: null
+revision_history: []

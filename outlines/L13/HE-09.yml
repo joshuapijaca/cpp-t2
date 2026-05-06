@@ -1,0 +1,86 @@
+id: HE-09
+fact: arr[i] write persists if &
+words: 5
+level: 13
+deps:
+  - G-12
+  - HE-08
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q01
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: data.numbers[i] = ... writes inside who_am_i persist via & on data
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+  - question: Q3
+    instance: list[i].field = cin >>... writes persist via & on list[]
+    file_path: extraction/test2_bank/Q3_read_X_variants.md
+canonical_example: |
+  void fill(int &slot) {
+      slot = 99;
+  }
+  int main() {
+      int arr[3] = {1, 2, 3};
+      fill(arr[0]);
+      // arr trace: [1,2,3] -> [99,2,3]
+  }
+expected_output: arr = {99, 2, 3} (arr[0] mutated via &)
+sit102_quirks:
+  - Indexed elements behave like other variables when &-bound
+  - Mutation persists in caller's array
+misconceptions:
+  - id: M01
+    description: Thinks array elements always copy
+    student_says: arr[0] passed always copies
+    correct_says: If parameter is int &, arr[0] is aliased; mutation persists
+render_hints:
+  memorize_seed_phrases:
+    - indexed element & persists
+    - arr[i] write through & stays
+    - '& on array element mutates'
+    - '& binds array slot'
+    - caller's arr[i] changed via &
+  see_demo:
+    why_one_line: arr[i] = v writes through to the caller array if the array param is &.
+    snippet: |
+      void fill(int &slot) {
+          slot = 99;
+      }
+      int main() {
+          int arr[3] = {1, 2, 3};
+          fill(arr[0]);
+          // arr trace: [1,2,3] -> [99,2,3]
+      }
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      void fill(int &slot) {
+          slot = 99;
+    correct_atoms:
+      - HE-09
+      - G-12
+      - HE-08
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: arr / index / & / persists'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

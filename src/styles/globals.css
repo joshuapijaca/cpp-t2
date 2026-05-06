@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0a0a0a;
+  --color-bg-card: #141414;
+  --color-bg-elevated: #1c1c1c;
+  --color-border: #2a2a2a;
+  --color-border-emph: #3a3a3a;
+
+  --color-text: #e5e5e5;
+  --color-text-mute: #888888;
+  --color-text-faint: #555555;
+
+  --color-accent: #39ff14;
+  --color-accent-mute: #2cb20e;
+  --color-success: #39ff14;
+  --color-warning: #ffd60a;
+  --color-danger: #ff3b30;
+  --color-info: #0a84ff;
+
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Consolas", monospace;
+
+  --text-xs: 12px;
+  --text-sm: 14px;
+  --text-md: 16px;
+  --text-lg: 20px;
+  --text-xl: 28px;
+
+  --radius: 6px;
+  --radius-lg: 10px;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-md);
+  line-height: 1.5;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* Disable font ligatures globally — student must see exact ASCII chars
+     they can type (e.g., `->` rendered as two chars, not as `→` glyph). */
+  font-variant-ligatures: none;
+  font-feature-settings: "liga" 0, "clig" 0, "calt" 0, "dlig" 0;
+}
+
+*, *::before, *::after {
+  font-variant-ligatures: inherit;
+  font-feature-settings: inherit;
+}
+
+code,
+pre,
+.font-mono {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+}
+
+input,
+textarea,
+button {
+  font-family: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,0 +1,54 @@
+id: A-07
+fact: '* / % before + -'
+words: 5
+level: 4
+deps:
+  - A-01
+  - A-03
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - multiply divide before add subtract
+    - 'precedence: * / % before + -'
+    - '* / % bind tighter than + -'
+    - PEMDAS-style ordering
+    - 'higher precedence: * / %'
+  see_demo:
+    why_one_line: '*, /, % bind tighter than + and -; matters in mixed expressions.'
+    snippet: |
+      int r = 1 + 2 * 3;      // 7, not 9
+    highlights:
+      - '*'
+      - +
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int x = 5;
+      x++;
+      x--;
+      int y = (x + 2) * 3;
+      double z = 10.0 / 3;
+    correct_atoms:
+      - A-07
+      - A-01
+      - A-03
+    distractors:
+      - A-10
+      - A-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,33 @@
+id: G-01
+fact: "array = sequence of N values"
+words: 5
+level: 10
+deps: []
+q_tags: { Q1: S, Q2: N, Q3: C, Q4: C }
+pfg_source: []
+test2_evidence: []
+canonical_example: "// array holds N items in a row"
+expected_output: ""
+sit102_quirks: ["Fixed N at compile time"]
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - "array holds N values in row"
+    - "array is sequence of values"
+    - "array stores fixed-size list"
+    - "N values in one variable"
+    - "array = ordered list of values"
+  see_demo:
+    why_one_line: "array stores N values of one type back-to-back in memory."
+    snippet: |
+      // array holds N items in a row
+    highlights: []
+    used_in: [Q3, Q4]
+  see_decompose:
+    snippet: |
+      // array holds N items in a row
+    correct_atoms: [G-01]
+    distractors: [G-10, G-02, R-01]
+acceptance: { memorize: ["<=7 words", "Mentions array / sequence / N / values"] }
+lint: { miller_max_words: 7 }
+status: locked

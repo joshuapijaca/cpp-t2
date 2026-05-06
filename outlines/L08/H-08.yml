@@ -1,0 +1,52 @@
+id: H-08
+fact: 'prototype: returnType name(types);'
+words: 4
+level: 8
+deps:
+  - H-07
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - prototype declares without body
+    - prototype ends with semicolon
+    - no body in prototype
+    - forward-declare with prototype
+    - prototype = signature only
+  see_demo:
+    why_one_line: prototype lets you put main first and define helpers later.
+    snippet: |
+      int square(int);      // prototype: types only
+      void greet(string);
+    highlights:
+      - int square(int);
+    used_in: []
+  see_decompose:
+    snippet: |-
+      int x = 42;
+      string s = to_string(x);
+      double d = stod("3.14");
+      int n = stoi("99");
+      cout << s << " " << d << " " << n << endl;
+    correct_atoms:
+      - H-08
+      - H-07
+    distractors:
+      - H-01
+      - H-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

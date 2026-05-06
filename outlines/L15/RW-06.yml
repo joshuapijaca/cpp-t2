@@ -1,0 +1,60 @@
+id: RW-06
+fact: one cin per struct field
+words: 5
+level: 15
+deps:
+  - RW-05
+q_tags:
+  Q1: 'N'
+  Q2: 'N'
+  Q3: C
+  Q4: 'N'
+pfg_source: []
+test2_evidence: []
+canonical_example: |
+  cin >> list[i].id;
+  cin >> list[i].name;
+  cin >> list[i].course;
+expected_output: 3 fields read per iteration
+sit102_quirks:
+  - 3 fields = 3 cin statements
+misconceptions:
+  - id: M01
+    description: Tries chained cin for whole struct
+    student_says: cin >> list[i]
+    correct_says: 'Read each field separately: cin >> list[i].field'
+render_hints:
+  memorize_seed_phrases:
+    - one cin per struct field
+    - read every field separately
+    - 3 cin lines for 3 fields
+    - cin >> per named field
+    - each field needs own cin
+  see_demo:
+    why_one_line: one cin line per struct field -- the function reads them all in order.
+    snippet: |
+      cin >> list[i].id;
+      cin >> list[i].name;
+      cin >> list[i].course;
+    highlights: []
+    used_in:
+      - Q3
+  see_decompose:
+    snippet: |
+      cin >> list[i].id;
+    correct_atoms:
+      - RW-06
+      - RW-05
+    distractors:
+      - RW-01
+      - RW-02
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions cin / field / each
+lint:
+  forbid_tokens:
+    - cin <<
+  miller_max_words: 7
+status: locked

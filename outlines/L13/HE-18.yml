@@ -1,0 +1,76 @@
+id: HE-18
+fact: trace data.numbers[i] > data.mystery
+words: 4
+level: 13
+deps:
+  - HE-09
+  - HE-17
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q03
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: 'Inner test of who_am_i: per-iter comparison'
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  // Inner test of who_am_i:
+  // if (data.numbers[i] > data.mystery)
+  //     data.mystery = data.numbers[i];
+  // Trace per i: read array elem, compare to scalar, conditionally update scalar
+expected_output: mystery updated only when numbers[i] > mystery
+sit102_quirks:
+  - 'Chained access: struct.array[index] reads array element'
+  - Comparison reads two doubles; produces bool
+misconceptions:
+  - id: M01
+    description: Misreads chained access
+    student_says: data.numbers[i] is unclear
+    correct_says: 'Read left-to-right: data is the struct; .numbers is the array field; [i] indexes that array'
+render_hints:
+  memorize_seed_phrases:
+    - data.numbers[i] reads array elem
+    - 'chained access: struct field index'
+    - compare elem to running max
+    - trace inner test per iteration
+    - scalar update on greater elem
+  see_demo:
+    why_one_line: data.numbers[i] > data.mystery is the comparison every Q1 mystery rests on.
+    snippet: |
+      // Inner test of who_am_i:
+      // if (data.numbers[i] > data.mystery)
+      //     data.mystery = data.numbers[i];
+      // Trace per i: read array elem, compare to scalar, conditionally update scalar
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      // Inner test of who_am_i:
+      // if (data.numbers[i] > data.mystery)
+      //     data.mystery = data.numbers[i];
+    correct_atoms:
+      - HE-18
+      - HE-09
+      - HE-17
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: chain / index / compare / elem'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

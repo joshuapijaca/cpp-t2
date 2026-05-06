@@ -1,0 +1,56 @@
+id: V-20
+fact: string needs <string> include
+words: 4
+level: 2
+deps:
+  - V-12
+q_tags:
+  Q1: 'N'
+  Q2: C
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - '#include <string> for string'
+    - string requires <string> header
+    - add <string> to use string
+    - string needs the string header
+    - forgetting <string> = compile error
+  see_demo:
+    why_one_line: 'without #include <string> the string type is not declared.'
+    snippet: |
+      #include <string>
+      using namespace std;
+      string title = "C++";
+    highlights:
+      - '#include <string>'
+    used_in:
+      - Q2
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int x = 5;
+      x = x + 1;
+      int y = x;
+      string greeting = "hi";
+      greeting = "hello";
+    correct_atoms:
+      - V-20
+      - V-12
+    distractors:
+      - V-01
+      - V-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

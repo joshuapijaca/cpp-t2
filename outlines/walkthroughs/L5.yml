@@ -1,0 +1,30 @@
+id: WT-L5
+level: 5
+level_label: "L5 comparison + logical -- bool from compare"
+anchor_atom_id: C-07
+status: locked
+full_code: |
+  #include <iostream>
+  using namespace std;
+  
+  int main() {
+    int score = 75;
+    bool passed = (score >= 50);
+    bool top = (score > 90);
+    bool either = passed || top;
+    cout << passed << " " << top << " " << either << endl;
+    return 0;
+  }
+steps:
+  - line: 6
+    code: "  bool passed = (score >= 50);"
+    annotation: ">= returns bool; stored directly."
+    atom_ids: [C-06, C-07, V-13]
+  - line: 7
+    code: "  bool top = (score > 90);"
+    annotation: "> compares greater-than."
+    atom_ids: [C-04, C-07]
+  - line: 8
+    code: "  bool either = passed || top;"
+    annotation: "|| chains two bools; true if either is true."
+    atom_ids: [L-02]

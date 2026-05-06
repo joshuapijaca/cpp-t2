@@ -1,0 +1,71 @@
+id: T-03
+fact: 'each field: type fieldName;'
+words: 4
+level: 11
+deps:
+  - T-02
+q_tags:
+  Q1: S
+  Q2: C
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence:
+  - question: Q2
+    instance: 'Each field: int id; string description;'
+    file_path: extraction/L14_struct_write/code_examples.cpp
+canonical_example: |
+  struct Point {
+      int x;
+      int y;
+  };
+expected_output: 'two fields: x (int), y (int)'
+sit102_quirks:
+  - One field per line; semicolon per field
+  - Type then space then name then ;
+misconceptions:
+  - id: M01
+    description: Comma between fields
+    student_says: int x, int y
+    correct_says: 'Each field its own statement: int x; int y;'
+render_hints:
+  memorize_seed_phrases:
+    - each field is type and name
+    - 'field syntax: type then name'
+    - field needs type plus name plus semicolon
+    - type space name ends each field
+    - field declared like a variable
+  see_demo:
+    why_one_line: each field has its own type and name; comma-separated lists are illegal.
+    snippet: |
+      struct Point {
+          int x;
+          int y;
+      };
+    highlights:
+      - struct
+    used_in:
+      - Q2
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |
+      struct Point {
+          int x;
+    correct_atoms:
+      - T-03
+      - T-02
+    distractors:
+      - T-01
+      - T-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions field / type / name
+lint:
+  forbid_tokens:
+    - class
+    - typedef
+  miller_max_words: 7
+status: locked

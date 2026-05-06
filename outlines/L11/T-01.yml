@@ -1,0 +1,47 @@
+id: T-01
+fact: "struct = named field group"
+words: 4
+level: 11
+deps: []
+q_tags: { Q1: S, Q2: C, Q3: C, Q4: C }
+pfg_source: []
+test2_evidence:
+  - question: Q2
+    instance: "Q2 asks to write struct definition with 3 fields"
+    file_path: extraction/L14_struct_write/notes.md
+canonical_example: "// struct = a named bundle of named fields"
+expected_output: ""
+sit102_quirks:
+  - "Use struct keyword, not class"
+  - "C++ form, not typedef struct"
+misconceptions:
+  - id: M01
+    description: "Confuses struct with class"
+    student_says: "Use class for grouping"
+    correct_says: "Use struct in SIT102; functionally similar but struct keyword expected"
+render_hints:
+  memorize_seed_phrases:
+    - "struct groups named fields"
+    - "struct is named field bundle"
+    - "struct = named field group"
+    - "struct collects related fields"
+    - "struct holds named fields"
+  see_demo:
+    why_one_line: "struct lets you carry several related fields under one variable name."
+    snippet: |
+      // struct = a named bundle of named fields
+    highlights: ["struct"]
+    used_in: [Q2, Q3, Q4]
+  see_decompose:
+    snippet: |
+      // struct = a named bundle of named fields
+    correct_atoms: [T-01]
+    distractors: [T-10, T-02, R-01]
+acceptance:
+  memorize:
+    - "<=7 words"
+    - "Mentions struct + fields"
+lint:
+  forbid_tokens: ["class", "typedef", "private", "public"]
+  miller_max_words: 7
+status: locked

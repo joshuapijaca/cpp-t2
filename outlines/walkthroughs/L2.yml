@@ -1,0 +1,39 @@
+id: WT-L2
+level: 2
+level_label: "L2 variables -- declare, init, mutate, read"
+anchor_atom_id: V-04
+status: locked
+full_code: |
+  #include <iostream>
+  #include <string>
+  using namespace std;
+  
+  int main() {
+    int n;
+    n = 5;
+    double price = 9.95;
+    string title = "C++";
+    cout << n << " " << price << " " << title << endl;
+    return 0;
+  }
+steps:
+  - line: 6
+    code: "  int n;"
+    annotation: "declare an int box named n. Value undefined until written."
+    atom_ids: [V-01, V-04, V-10]
+  - line: 7
+    code: "  n = 5;"
+    annotation: "assignment writes 5 into the box."
+    atom_ids: [V-07, V-08, V-15]
+  - line: 8
+    code: "  double price = 9.95;"
+    annotation: "declare + initialize in one line; double for decimals."
+    atom_ids: [V-05, V-11, V-16]
+  - line: 9
+    code: "  string title = \"C++\";"
+    annotation: "string holds text; needs <string> include."
+    atom_ids: [V-12, V-17, V-20]
+  - line: 10
+    code: "  cout << n << \" \" << price << \" \" << title << endl;"
+    annotation: "reading variables means using their names in expressions."
+    atom_ids: [V-06, O-07]

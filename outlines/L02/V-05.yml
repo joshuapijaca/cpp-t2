@@ -1,0 +1,57 @@
+id: V-05
+fact: 'initialize: type name = value;'
+words: 4
+level: 2
+deps:
+  - V-04
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - init at declaration with =
+    - type name = value sets initial
+    - int x = 5; both declares and inits
+    - declaration plus assignment
+    - 'one line: declare and assign'
+  see_demo:
+    why_one_line: type name = value; declares and initializes in one statement.
+    snippet: |
+      int x = 5;
+      string name = "ada";
+      // both declare AND store a value at once
+    highlights:
+      - '= 5'
+      - '= "ada"'
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      int x = 5;
+      x = x + 1;
+      int y = x;
+      string greeting = "hi";
+      greeting = "hello";
+    correct_atoms:
+      - V-05
+      - V-04
+    distractors:
+      - V-01
+      - V-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

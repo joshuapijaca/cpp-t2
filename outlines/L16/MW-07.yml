@@ -1,0 +1,40 @@
+id: MW-07
+fact: "print loop: for-loop i < count"
+words: 6
+level: 16
+deps: [MW-06]
+q_tags: { Q1: N, Q2: N, Q3: N, Q4: C }
+pfg_source: []
+test2_evidence: []
+canonical_example: ""
+expected_output: ""
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - "for-loop print every entry"
+    - "iterate list with for-loop"
+    - "for (int i = 0; i < count;)"
+    - "loop i from 0 to count"
+    - "print one per iteration"
+  write_L1_fill:
+    template: "for (int i = 0; i < ___; i++) printf(...);"
+    blank_value: "count"
+  see_demo:
+    why_one_line: "for (int i = 0; i < count; i++) loops over the records you just read."
+    snippet: |
+      for (int i = 0; i < count; i++) printf(...);
+    highlights: ["for (int i = 0; i < count; i++)"]
+    used_in: [Q4]
+  see_decompose:
+    snippet: |
+      for (int i = 0; i < count; i++) {
+        printf("%d %s\n", list[i].id, list[i].title.c_str());
+      }
+    correct_atoms: [MW-07, MW-06]
+    distractors: [MW-01, MW-02, R-01]
+acceptance:
+  memorize: ["<=7 words"]
+lint:
+  miller_max_words: 7
+status: locked

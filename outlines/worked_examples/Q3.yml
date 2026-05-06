@@ -1,0 +1,136 @@
+# Q3 -- 10 worked examples (M15 original, M19 atom_id redistribution)
+# Spec: cpp-t2/docs/14_see_cards_master_plan.md ("worked-example").
+# Each example anchored to a specific RW atom via atom_id.
+question: Q3
+status: locked
+examples:
+  - id: we-q3-01
+    atom_id: RW-01
+    variant_name: "read_book"
+    explanation: "canonical Q3: void + &list[] + int count + for-loop + cin per field."
+    highlights: ["book &list[]", "cin >> list[i].title"]
+    code: |
+      void read_book(book &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cout << "id: ";    cin >> list[i].id;
+          cout << "title: "; cin >> list[i].title;
+          cout << "price: "; cin >> list[i].price;
+        }
+      }
+  - id: we-q3-02
+    atom_id: RW-02
+    variant_name: "read_movie"
+    explanation: "movie variant: same shape, three different fields."
+    highlights: ["movie &list[]", "cin >> list[i].year"]
+    code: |
+      void read_movie(movie &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].id;
+          cin >> list[i].title;
+          cin >> list[i].year;
+        }
+      }
+  - id: we-q3-03
+    atom_id: RW-05
+    variant_name: "read_student"
+    explanation: "student variant; cin >> on a double field for gpa."
+    highlights: ["student &list[]", "list[i].gpa"]
+    code: |
+      void read_student(student &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].id;
+          cin >> list[i].name;
+          cin >> list[i].gpa;
+        }
+      }
+  - id: we-q3-04
+    atom_id: RW-06
+    variant_name: "read_product"
+    explanation: "product: id, description, price."
+    highlights: ["product &list[]"]
+    code: |
+      void read_product(product &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].id;
+          cin >> list[i].description;
+          cin >> list[i].price;
+        }
+      }
+  - id: we-q3-05
+    atom_id: RW-03
+    variant_name: "read_employee"
+    explanation: "employee variant; two strings."
+    highlights: ["employee &list[]"]
+    code: |
+      void read_employee(employee &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].id;
+          cin >> list[i].name;
+          cin >> list[i].department;
+        }
+      }
+  - id: we-q3-06
+    atom_id: RW-04
+    variant_name: "read_car"
+    explanation: "car: two string fields then int."
+    highlights: ["car &list[]"]
+    code: |
+      void read_car(car &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].make;
+          cin >> list[i].model;
+          cin >> list[i].year;
+        }
+      }
+  - id: we-q3-07
+    atom_id: RW-07
+    variant_name: "read_recipe"
+    explanation: "recipe: id, name, servings."
+    highlights: ["recipe &list[]"]
+    code: |
+      void read_recipe(recipe &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].id;
+          cin >> list[i].name;
+          cin >> list[i].servings;
+        }
+      }
+  - id: we-q3-08
+    atom_id: RW-01
+    variant_name: "read_song"
+    explanation: "song: title, artist, duration."
+    highlights: ["song &list[]"]
+    code: |
+      void read_song(song &list[], int count) {
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].title;
+          cin >> list[i].artist;
+          cin >> list[i].duration;
+        }
+      }
+  - id: we-q3-09
+    atom_id: RW-02
+    variant_name: "trap-no-ampersand"
+    explanation: "WRONG. Without &, writes vanish at return. Caller array stays empty."
+    highlights: ["book list[]"]
+    code: |
+      // WRONG: no & means writes never reach caller.
+      void read_book(book list[], int count) {   // <-- missing &
+        for (int i = 0; i < count; i++) {
+          cin >> list[i].id;          // local copy
+          cin >> list[i].title;
+          cin >> list[i].price;
+        }
+      }
+  - id: we-q3-10
+    atom_id: RW-04
+    variant_name: "trap-wrong-loop-bound"
+    explanation: "WRONG. i <= count walks one past the last record."
+    highlights: ["i <= count"]
+    code: |
+      // WRONG: i <= count is off-by-one.
+      void read_book(book &list[], int count) {
+        for (int i = 0; i <= count; i++) {        // <-- should be i < count
+          cin >> list[i].id;
+        }
+      }

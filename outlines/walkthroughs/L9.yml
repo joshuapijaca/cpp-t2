@@ -1,0 +1,40 @@
+id: WT-L9
+level: 9
+level_label: "L9 RDS -- pass-by-reference end-to-end"
+anchor_atom_id: R-03
+status: locked
+full_code: |
+  #include <iostream>
+  using namespace std;
+  
+  void increment(int &x) {
+    x = x + 1;
+  }
+  
+  int main() {
+    int n = 5;
+    increment(n);
+    cout << n << endl;
+    return 0;
+  }
+steps:
+  - line: 4
+    code: "void increment(int &x) {"
+    annotation: "& between type and name makes x an alias for caller box."
+    atom_ids: [H-02, R-03, R-04]
+  - line: 5
+    code: "  x = x + 1;"
+    annotation: "mutation writes through the alias to caller."
+    atom_ids: [R-05, A-01, A-05]
+  - line: 9
+    code: "  int n = 5;"
+    annotation: "caller variable."
+    atom_ids: [V-04, V-15]
+  - line: 10
+    code: "  increment(n);"
+    annotation: "no & at call site; binding happens inside the function frame."
+    atom_ids: [H-03]
+  - line: 11
+    code: "  cout << n << endl;"
+    annotation: "prints 6 (mutated), not 5. Compare to R-01/R-02 (no &)."
+    atom_ids: [R-08]

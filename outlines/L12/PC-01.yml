@@ -1,0 +1,49 @@
+id: PC-01
+fact: pass struct by value copies whole
+words: 6
+level: 12
+deps:
+  - R-01
+  - T-05
+q_tags:
+  Q1: S
+  Q2: 'N'
+  Q3: S
+  Q4: S
+pfg_source: []
+test2_evidence: []
+canonical_example: void f(Point p) { p.x = 99; }   // caller's p unchanged
+expected_output: caller's p unchanged; copy was modified
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - struct by value copies fields
+    - value param duplicates whole struct
+    - Point p copies all fields
+    - value-copy includes every field
+    - no & means struct copy
+  see_demo:
+    why_one_line: passing a struct by value copies every field; the caller is untouched.
+    snippet: |
+      void f(Point p) { p.x = 99; }   // caller's p unchanged
+    highlights: []
+    used_in: []
+  see_decompose:
+    snippet: |
+      void f(Point p) { p.x = 99; }   // caller's p unchanged
+    correct_atoms:
+      - PC-01
+      - R-01
+      - T-05
+    distractors:
+      - PC-02
+      - PC-03
+      - R-02
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions struct / copy / value
+lint:
+  miller_max_words: 7
+status: locked

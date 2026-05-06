@@ -1,0 +1,60 @@
+id: W-05
+fact: cond checked before each iter
+words: 5
+level: 7
+deps:
+  - W-03
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: C
+  Q4: C
+pfg_source: []
+test2_evidence: []
+canonical_example: ''
+expected_output: ''
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - cond tested at top of iter
+    - check cond each loop pass
+    - cond decides continue or stop
+    - 'before body: cond check'
+    - cond gate the body
+  see_demo:
+    why_one_line: the condition is checked BEFORE each iteration body runs.
+    snippet: |
+      for (int i = 0; i < 5; i++) {
+        // cond `i < 5` checked each iteration
+        cout << i;
+      }
+    highlights:
+      - i < 5
+    used_in:
+      - Q1
+      - Q3
+      - Q4
+  see_decompose:
+    snippet: |-
+      for (int i = 0; i < 5; i++) {
+        cout << i << " ";
+      }
+      cout << endl;
+      int sum = 0;
+      for (int i = 1; i <= 10; i++) {
+        sum = sum + i;
+      }
+    correct_atoms:
+      - W-05
+      - W-03
+    distractors:
+      - W-01
+      - W-10
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+lint:
+  miller_max_words: 7
+status: locked

@@ -1,0 +1,46 @@
+id: T-08
+fact: "cout << x.field reads field"
+words: 5
+level: 11
+deps: [T-06]
+q_tags: { Q1: N, Q2: N, Q3: S, Q4: S }
+pfg_source: []
+test2_evidence: []
+canonical_example: |
+  Point p; p.x = 3;
+  cout << p.x;
+expected_output: "3"
+sit102_quirks:
+  - "Field can be read in any expression"
+misconceptions:
+  - id: M01
+    description: "Tries to print whole struct"
+    student_says: "cout << p"
+    correct_says: "Print specific fields: cout << p.x << \" \" << p.y;"
+render_hints:
+  memorize_seed_phrases:
+    - "read field via dot"
+    - "cout shows struct field"
+    - "print x.field with cout"
+    - "use dot to read field"
+    - "x.field in any expression"
+  see_demo:
+    why_one_line: "cout << x.field prints the field's current value to the terminal."
+    snippet: |
+      Point p; p.x = 3;
+      cout << p.x;
+    highlights: ["p.x"]
+    used_in: []
+  see_decompose:
+    snippet: |
+      Point p; p.x = 3;
+    correct_atoms: [T-08, T-06]
+    distractors: [T-01, T-10, R-01]
+acceptance:
+  memorize:
+    - "<=7 words"
+    - "Mentions read / field"
+lint:
+  forbid_tokens: ["->"]
+  miller_max_words: 7
+status: locked

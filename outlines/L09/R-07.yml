@@ -1,0 +1,124 @@
+id: R-07
+fact: "const & is read-only alias"
+words: 5
+level: 9
+deps:
+  - R-03
+
+q_tags:
+  Q1: S
+  Q2: N
+  Q3: S
+  Q4: S
+
+pfg_source:
+  - quote_id: Q04
+    file_path: extraction/L09_RDS_passbyref/pfg_quotes.md
+    note: "PFG-coverage WEAK - single explicit mention. Compensate with code examples."
+  - code_example: EX-01 (draw_player const &)
+    file_path: extraction/L09_RDS_passbyref/code_examples.cpp
+  - code_example: EX-04 (print_user const &)
+    file_path: extraction/L09_RDS_passbyref/code_examples.cpp
+
+test2_evidence:
+  - question: none-direct
+    instance: "T2 questions don't directly require const &; understand for misconception filter"
+    file_path: extraction/test2_bank/
+
+canonical_example: |
+  void print_user(const user_data &user) {
+    cout << user.username << endl;
+    // user.username = "X";  // ERROR: cannot modify const
+  }
+
+  int main() {
+    user_data u;
+    u.username = "alice";
+    print_user(u);     // u stays "alice"
+    return 0;
+  }
+expected_output: "alice"
+
+sit102_quirks:
+  - "const & = pass-by-ref but compiler blocks mutation"
+  - "Used for read-only large structs (efficiency)"
+  - "Q3 read_X uses & (mutable) NOT const & (mutable required)"
+
+misconceptions:
+  - id: M01
+    description: "Believes & always requires const"
+    student_says: "Must always write const & in parameters"
+    correct_says: "& alone for mutable; const & for read-only"
+  - id: M02
+    description: "Tries to mutate const & param"
+    student_says: "user.username = newName;"
+    correct_says: "Compile error - const blocks mutation through this alias"
+  - id: M03
+    description: "Misuses const & where mutation needed"
+    student_says: "Used const X &list[] for read_X"
+    correct_says: "read_X must mutate list - use plain X &list[]"
+
+render_hints:
+  memorize_seed_phrases:
+    - "const & = read-only alias"
+    - "const blocks param mutation"
+    - "const & for safety not mutation"
+    - "read but don't write"
+    - "const & passes ref but locks"
+  trace:
+    description: "Show legal read through const &; show compile error on mutation attempt."
+    minimum_steps: 3
+    must_show:
+      - "alias bound (const)"
+      - "read OK"
+      - "write attempted -> compiler error"
+  write_L1_fill:
+    template: "void print_user(___ user_data &user) { cout << user.username; }"
+    blank_value: "const"
+  write_L2_complete:
+    template: "void print(const user_data &u) {\n  ___\n}"
+    blank_value: "cout << u.username;"
+  write_L3_free_spec: "Write a function that prints a user_data struct without allowing mutation. Use const &."
+
+  see_demo:
+    why_one_line: "const & lets the function read the caller box without ever writing it."
+    snippet: |
+      void print_user(const user_data &user) {
+        cout << user.username << endl;
+        // user.username = "X";  // ERROR: cannot modify const
+      }
+
+      int main() {
+        user_data u;
+        u.username = "alice";
+        print_user(u);     // u stays "alice"
+        return 0;
+      }
+    highlights: ["user_data &user"]
+    used_in: []
+  see_decompose:
+    snippet: |
+      void print_user(const user_data &user) {
+        cout << user.username << endl;
+    correct_atoms: [R-07, R-03]
+    distractors: [R-01, R-02, T-01]
+acceptance:
+  memorize:
+    - "<=7 words"
+    - "Mentions: const / read-only / no mutation / locked"
+  mcq:
+    - "Correct: const & blocks mutation"
+    - "Distractor: const & is required for all & params (M01)"
+  write:
+    - "L1 = 'const'"
+    - "L3 forbids mutation operators on user fields"
+
+lint:
+  forbid_tokens: ["nullptr", "->", "*"]
+  require_const_in_L3: true
+  miller_max_words: 7
+
+status: locked
+locked_at: null
+locked_by: null
+revision_history: []

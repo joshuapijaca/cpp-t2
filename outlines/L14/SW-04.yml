@@ -1,0 +1,72 @@
+id: SW-04
+fact: choose types per spec
+words: 4
+level: 14
+deps:
+  - SW-02
+q_tags:
+  Q1: 'N'
+  Q2: C
+  Q3: 'N'
+  Q4: 'N'
+pfg_source: []
+test2_evidence:
+  - question: Q2
+    instance: Q2 spec dictates types per field
+    file_path: extraction/L14_struct_write/notes.md
+canonical_example: ''
+expected_output: ''
+sit102_quirks:
+  - int for whole numbers, double for decimals, string for text
+  - 'string requires #include <string>'
+misconceptions:
+  - id: M01
+    description: Wrong type chosen
+    student_says: Used double for id
+    correct_says: 'Match the spec exactly: id is int unless otherwise stated'
+render_hints:
+  memorize_seed_phrases:
+    - match field types to spec
+    - int double or string per spec
+    - spec dictates each field type
+    - use type the spec says
+    - int for ints string for text
+  write_L3_free_spec: 'Q2 spec: id (whole number), name (text), age (whole number). Write the 3 field declarations.'
+  see_demo:
+    why_one_line: 'pick types per the spec: int for ids, string for names, double for amounts.'
+    snippet: |
+      // pick types per spec
+      struct book {
+        int id;
+        string title;     // string for text
+        double price;     // double for amounts
+      };
+    highlights:
+      - int id;
+      - string title;
+      - double price;
+    used_in:
+      - Q2
+  see_decompose:
+    snippet: |-
+      struct student {
+        int id;
+        string name;
+        double gpa;
+      };
+    correct_atoms:
+      - SW-04
+      - SW-02
+    distractors:
+      - SW-01
+      - SW-03
+      - R-01
+acceptance:
+  memorize:
+    - <=7 words
+    - Mentions type / spec
+lint:
+  forbid_tokens:
+    - typedef
+  miller_max_words: 7
+status: locked

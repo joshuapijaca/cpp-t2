@@ -1,0 +1,76 @@
+id: HE-04
+fact: 'for-loop: track i across iterations'
+words: 6
+level: 13
+deps:
+  - W-03
+  - HE-02
+q_tags:
+  Q1: C
+  Q2: 'N'
+  Q3: 'N'
+  Q4: 'N'
+pfg_source:
+  - quote_id: Q05
+    file_path: extraction/L13_hand_execution/pfg_quotes.md
+test2_evidence:
+  - question: Q1
+    instance: for (int i = 1; i < 5; i++) - track i = 1, 2, 3, 4
+    file_path: extraction/test2_bank/Q1_who_am_i_variants.md
+canonical_example: |
+  for (int i = 0; i < 3; i++) {
+      // body
+  }
+  // i trace: 0, 1, 2, (loop ends when i==3)
+expected_output: 'i: 0, 1, 2; loop exits when i = 3'
+sit102_quirks:
+  - Loop variable i is part of the trace
+  - i starts at init; ends at first false cond
+misconceptions:
+  - id: M01
+    description: Skips iterations
+    student_says: I'll just track final value
+    correct_says: Each iteration changes i; track i = 0, 1, 2, ...
+render_hints:
+  memorize_seed_phrases:
+    - track i across iterations
+    - loop var changes per iter
+    - i takes values init to bound
+    - for-loop iterates i
+    - i = 0, 1, 2 each iter
+  see_demo:
+    why_one_line: for-loop traces show i changing from start through cond exit.
+    snippet: |
+      for (int i = 0; i < 3; i++) {
+          // body
+      }
+      // i trace: 0, 1, 2, (loop ends when i==3)
+    highlights: []
+    used_in:
+      - Q1
+  see_decompose:
+    snippet: |
+      for (int i = 0; i < 3; i++) {
+          // body
+      // i trace: 0, 1, 2, (loop ends when i==3)
+    correct_atoms:
+      - HE-04
+      - W-03
+      - HE-02
+    distractors:
+      - HE-01
+      - HE-10
+      - R-01
+acceptance:
+  memorize:
+    - Each variant <=7 words
+    - 'Mentions: i / iteration / loop var'
+lint:
+  forbid_tokens:
+    - IDE
+    - debugger
+  miller_max_words: 7
+status: locked
+locked_at: 2026-05-04T00:00:00.000Z
+locked_by: M4
+revision_history: []

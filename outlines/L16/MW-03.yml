@@ -1,0 +1,39 @@
+id: MW-03
+fact: "declare Type list[MAX];"
+words: 3
+level: 16
+deps: [MW-02]
+q_tags: { Q1: N, Q2: N, Q3: N, Q4: C }
+pfg_source: []
+test2_evidence: []
+canonical_example: ""
+expected_output: ""
+sit102_quirks: []
+misconceptions: []
+render_hints:
+  memorize_seed_phrases:
+    - "Type list[MAX] declares array"
+    - "list[MAX] holds many items"
+    - "use array of structs"
+    - "declare struct array via Type list[MAX]"
+    - "list[MAX] is fixed-size array"
+  write_L1_fill:
+    template: "computer_data ___[MAX];"
+    blank_value: "list"
+  see_demo:
+    why_one_line: "Type list[MAX]; reserves storage for up to MAX records."
+    snippet: |
+      computer_data list[MAX];
+    highlights: ["list[MAX]"]
+    used_in: [Q4]
+  see_decompose:
+    snippet: |
+      const int MAX = 100;
+      book list[MAX];        // capacity-MAX storage
+    correct_atoms: [MW-03, MW-02]
+    distractors: [MW-01, MW-04, R-01]
+acceptance:
+  memorize: ["<=7 words"]
+lint:
+  miller_max_words: 7
+status: locked
