@@ -19208,8 +19208,7 @@
     "userInputs": [],
     "inputLabels": [],
     "terminalOutput": [
-      "7",
-      "2"
+      "72"
     ],
     "inputMode": "final-only",
     "teachMe": "Execute line by line. p=7, q=2, then print p then q. Terminal shows 7 then 2."
@@ -19237,8 +19236,7 @@
     "userInputs": [],
     "inputLabels": [],
     "terminalOutput": [
-      "4",
-      "6"
+      "46"
     ],
     "inputMode": "final-only",
     "teachMe": "Tracing = being the CPU. Process each statement in order. width=4, height=6, print both."
@@ -19471,8 +19469,7 @@
     "userInputs": [],
     "inputLabels": [],
     "terminalOutput": [
-      "0",
-      "100"
+      "0100"
     ],
     "inputMode": "final-only",
     "teachMe": "Each declaration creates a new variable with its initial value. count starts at 0, limit at 100."
@@ -21037,8 +21034,7 @@
     "userInputs": [],
     "inputLabels": [],
     "terminalOutput": [
-      "3",
-      "7"
+      "37"
     ],
     "inputMode": "final-only",
     "teachMe": "Each cout << prints one value. First prints 3, then 7. Two separate outputs."
@@ -22517,7 +22513,7 @@
       {
         "line": 2,
         "variable": "i",
-        "value": "4"
+        "value": "5"
       },
       {
         "line": 3,
@@ -22570,7 +22566,7 @@
       {
         "line": 2,
         "variable": "i",
-        "value": "3"
+        "value": "4"
       },
       {
         "line": 3,
@@ -22623,7 +22619,7 @@
       {
         "line": 2,
         "variable": "i",
-        "value": "2"
+        "value": "3"
       },
       {
         "line": 3,
@@ -22676,7 +22672,7 @@
       {
         "line": 2,
         "variable": "j",
-        "value": "3"
+        "value": "2"
       },
       {
         "line": 3,
@@ -22739,7 +22735,7 @@
       {
         "line": 2,
         "variable": "i",
-        "value": "3"
+        "value": "4"
       },
       {
         "line": 3,
@@ -22792,7 +22788,7 @@
       {
         "line": 2,
         "variable": "k",
-        "value": "6"
+        "value": "8"
       },
       {
         "line": 3,
@@ -29667,7 +29663,10 @@
       "count",
       "for",
       "cin",
-      "list[i]"
+      "list[i]",
+      "list[i].id",
+      "list[i].description",
+      "list[i].location"
     ],
     "forbidden": [],
     "explanation": "void read_X(Type &list[], int count) { for loop with cin >> list[i].field; }"
@@ -29742,7 +29741,10 @@
       "count",
       "for",
       "cin",
-      "list[i]"
+      "list[i]",
+      "list[i].id",
+      "list[i].name",
+      "list[i].course"
     ],
     "forbidden": [],
     "explanation": "void read_X(Type &list[], int count) { for loop with cin >> list[i].field; }"
@@ -29867,8 +29869,8 @@
     "type": "write",
     "atomId": "RW-02",
     "level": 2,
-    "spec": "Write void read_recipes(recipe_data &list[], int count) that reads title and prep_time for each recipe",
-    "expectedAnswer": "void read_recipes(recipe_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].title;\n        cin >> list[i].prep_time;\n    }\n}",
+    "spec": "Write void read_recipes(recipe_data &list[], int count) that reads name and prep_time for each recipe",
+    "expectedAnswer": "void read_recipes(recipe_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].name;\n        cin >> list[i].prep_time;\n    }\n}",
     "keyChecks": [
       "void",
       "read_recipes",
@@ -29877,18 +29879,18 @@
       "int count",
       "for",
       "cin >>",
-      "list[i].title",
+      "list[i].name",
       "list[i].prep_time"
     ],
     "forbidden": [],
-    "explanation": "Q3 pattern: signature with &list[] + for loop reading title and prep_time"
+    "explanation": "Q3 pattern: signature with &list[] + for loop reading name and prep_time"
   },
   {
     "type": "write",
     "atomId": "RW-02",
     "level": 2,
-    "spec": "Write void read_movies(movie_data &list[], int count) that reads title and rating for each movie",
-    "expectedAnswer": "void read_movies(movie_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].title;\n        cin >> list[i].rating;\n    }\n}",
+    "spec": "Write void read_movies(movie_data &list[], int count) that reads title and score for each movie",
+    "expectedAnswer": "void read_movies(movie_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].title;\n        cin >> list[i].score;\n    }\n}",
     "keyChecks": [
       "void",
       "read_movies",
@@ -29898,17 +29900,17 @@
       "for",
       "cin >>",
       "list[i].title",
-      "list[i].rating"
+      "list[i].score"
     ],
     "forbidden": [],
-    "explanation": "Q3 pattern: read_movies reads title and rating into each movie_data struct"
+    "explanation": "Q3 pattern: read_movies reads title and score into each movie_data struct"
   },
   {
     "type": "write",
     "atomId": "RW-02",
     "level": 2,
-    "spec": "Write void read_sensors(sensor_data &list[], int count) that reads id and reading for each sensor",
-    "expectedAnswer": "void read_sensors(sensor_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].reading;\n    }\n}",
+    "spec": "Write void read_sensors(sensor_data &list[], int count) that reads id and temperature for each sensor",
+    "expectedAnswer": "void read_sensors(sensor_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].id;\n        cin >> list[i].temperature;\n    }\n}",
     "keyChecks": [
       "void",
       "read_sensors",
@@ -29918,17 +29920,17 @@
       "for",
       "cin >>",
       "list[i].id",
-      "list[i].reading"
+      "list[i].temperature"
     ],
     "forbidden": [],
-    "explanation": "Q3 pattern: read_sensors reads id and reading into each sensor_data struct"
+    "explanation": "Q3 pattern: read_sensors reads id and temperature into each sensor_data struct"
   },
   {
     "type": "write",
     "atomId": "RW-02",
     "level": 2,
-    "spec": "Write void read_orders(order_data &list[], int count) that reads item and price for each order",
-    "expectedAnswer": "void read_orders(order_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].item;\n        cin >> list[i].price;\n    }\n}",
+    "spec": "Write void read_orders(order_data &list[], int count) that reads product and price for each order",
+    "expectedAnswer": "void read_orders(order_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].product;\n        cin >> list[i].price;\n    }\n}",
     "keyChecks": [
       "void",
       "read_orders",
@@ -29937,11 +29939,11 @@
       "int count",
       "for",
       "cin >>",
-      "list[i].item",
+      "list[i].product",
       "list[i].price"
     ],
     "forbidden": [],
-    "explanation": "Q3 pattern: read_orders reads item and price into each order_data struct"
+    "explanation": "Q3 pattern: read_orders reads product and price into each order_data struct"
   },
   {
     "type": "write",
@@ -29967,8 +29969,8 @@
     "type": "write",
     "atomId": "RW-02",
     "level": 2,
-    "spec": "Write void read_flights(flight_data &list[], int count) that reads origin and destination for each flight",
-    "expectedAnswer": "void read_flights(flight_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].origin;\n        cin >> list[i].destination;\n    }\n}",
+    "spec": "Write void read_flights(flight_data &list[], int count) that reads airline and seats for each flight",
+    "expectedAnswer": "void read_flights(flight_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].airline;\n        cin >> list[i].seats;\n    }\n}",
     "keyChecks": [
       "void",
       "read_flights",
@@ -29977,18 +29979,18 @@
       "int count",
       "for",
       "cin >>",
-      "list[i].origin",
-      "list[i].destination"
+      "list[i].airline",
+      "list[i].seats"
     ],
     "forbidden": [],
-    "explanation": "Q3 pattern: read_flights reads origin and destination into each flight_data struct"
+    "explanation": "Q3 pattern: read_flights reads airline and seats into each flight_data struct"
   },
   {
     "type": "write",
     "atomId": "RW-02",
     "level": 2,
-    "spec": "Write void read_courses(course_data &list[], int count) that reads code and credit for each course",
-    "expectedAnswer": "void read_courses(course_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].code;\n        cin >> list[i].credit;\n    }\n}",
+    "spec": "Write void read_courses(course_data &list[], int count) that reads code and credits for each course",
+    "expectedAnswer": "void read_courses(course_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].code;\n        cin >> list[i].credits;\n    }\n}",
     "keyChecks": [
       "void",
       "read_courses",
@@ -29998,10 +30000,10 @@
       "for",
       "cin >>",
       "list[i].code",
-      "list[i].credit"
+      "list[i].credits"
     ],
     "forbidden": [],
-    "explanation": "Q3 pattern: read_courses reads code and credit into each course_data struct"
+    "explanation": "Q3 pattern: read_courses reads code and credits into each course_data struct"
   },
   {
     "type": "write",
@@ -30027,8 +30029,8 @@
     "type": "write",
     "atomId": "RW-02",
     "level": 2,
-    "spec": "Write void read_games(game_data &list[], int count) that reads title and score for each game",
-    "expectedAnswer": "void read_games(game_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].title;\n        cin >> list[i].score;\n    }\n}",
+    "spec": "Write void read_games(game_data &list[], int count) that reads title and price for each game",
+    "expectedAnswer": "void read_games(game_data &list[], int count) {\n    for (int i = 0; i < count; i++) {\n        cin >> list[i].title;\n        cin >> list[i].price;\n    }\n}",
     "keyChecks": [
       "void",
       "read_games",
@@ -30038,10 +30040,10 @@
       "for",
       "cin >>",
       "list[i].title",
-      "list[i].score"
+      "list[i].price"
     ],
     "forbidden": [],
-    "explanation": "Q3 pattern: read_games reads title and score into each game_data struct"
+    "explanation": "Q3 pattern: read_games reads title and price into each game_data struct"
   },
   {
     "type": "write",
@@ -30057,7 +30059,10 @@
       "count",
       "for",
       "cin",
-      "list[i]"
+      "list[i]",
+      "list[i].year",
+      "list[i].title",
+      "list[i].author"
     ],
     "forbidden": [],
     "explanation": "void read_X(Type &list[], int count) { for loop with cin >> list[i].field; }"
@@ -31338,8 +31343,8 @@
     "type": "write",
     "atomId": "MW-01",
     "level": 3,
-    "spec": "Write a complete int main() for recipe_data: declare const MAX=100, array, count, cin>>count, call read_recipes, then printf loop printing title (%s) and prep_time (%d) with newline",
-    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    recipe_data list[MAX];\n    int count;\n    cin >> count;\n    read_recipes(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%s %d\\n\", list[i].title.c_str(), list[i].prep_time);\n    }\n    return 0;\n}",
+    "spec": "Write a complete int main() for recipe_data: declare const MAX=100, array, count, cin>>count, call read_recipes, then printf loop printing name (%s) and prep_time (%d) with newline",
+    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    recipe_data list[MAX];\n    int count;\n    cin >> count;\n    read_recipes(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%s %d\\n\", list[i].name.c_str(), list[i].prep_time);\n    }\n    return 0;\n}",
     "keyChecks": [
       "int main()",
       "const int MAX",
@@ -31361,8 +31366,8 @@
     "type": "write",
     "atomId": "MW-01",
     "level": 3,
-    "spec": "Write a complete int main() for movie_data: declare const MAX=100, array, count, cin>>count, call read_movies, then printf loop printing title (%s) and rating (%.2f) with newline",
-    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    movie_data list[MAX];\n    int count;\n    cin >> count;\n    read_movies(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%s %.2f\\n\", list[i].title.c_str(), list[i].rating);\n    }\n    return 0;\n}",
+    "spec": "Write a complete int main() for movie_data: declare const MAX=100, array, count, cin>>count, call read_movies, then printf loop printing title (%s) and score (%.2f) with newline",
+    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    movie_data list[MAX];\n    int count;\n    cin >> count;\n    read_movies(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%s %.2f\\n\", list[i].title.c_str(), list[i].score);\n    }\n    return 0;\n}",
     "keyChecks": [
       "int main()",
       "const int MAX",
@@ -31378,14 +31383,14 @@
       "return 0"
     ],
     "forbidden": [],
-    "explanation": "Q4 pattern: full main for movie_data — note %.2f for double rating"
+    "explanation": "Q4 pattern: full main for movie_data — note %.2f for double score"
   },
   {
     "type": "write",
     "atomId": "MW-01",
     "level": 3,
-    "spec": "Write a complete int main() for sensor_data: declare const MAX=100, array, count, cin>>count, call read_sensors, then printf loop printing id (%d) and reading (%.2f) with newline",
-    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    sensor_data list[MAX];\n    int count;\n    cin >> count;\n    read_sensors(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %.2f\\n\", list[i].id, list[i].reading);\n    }\n    return 0;\n}",
+    "spec": "Write a complete int main() for sensor_data: declare const MAX=100, array, count, cin>>count, call read_sensors, then printf loop printing id (%d) and temperature (%.2f) with newline",
+    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    sensor_data list[MAX];\n    int count;\n    cin >> count;\n    read_sensors(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%d %.2f\\n\", list[i].id, list[i].temperature);\n    }\n    return 0;\n}",
     "keyChecks": [
       "int main()",
       "const int MAX",
@@ -31400,14 +31405,14 @@
       "return 0"
     ],
     "forbidden": [],
-    "explanation": "Q4 pattern: full main for sensor_data — %d for int id, %.2f for double reading"
+    "explanation": "Q4 pattern: full main for sensor_data — %d for int id, %.2f for double temperature"
   },
   {
     "type": "write",
     "atomId": "MW-01",
     "level": 3,
-    "spec": "Write a complete int main() for order_data: declare const MAX=100, array, count, cin>>count, call read_orders, then printf loop printing item (%s) and price (%.2f) with newline",
-    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    order_data list[MAX];\n    int count;\n    cin >> count;\n    read_orders(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%s %.2f\\n\", list[i].item.c_str(), list[i].price);\n    }\n    return 0;\n}",
+    "spec": "Write a complete int main() for order_data: declare const MAX=100, array, count, cin>>count, call read_orders, then printf loop printing product (%s) and price (%.2f) with newline",
+    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    order_data list[MAX];\n    int count;\n    cin >> count;\n    read_orders(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%s %.2f\\n\", list[i].product.c_str(), list[i].price);\n    }\n    return 0;\n}",
     "keyChecks": [
       "int main()",
       "const int MAX",
@@ -31423,7 +31428,7 @@
       "return 0"
     ],
     "forbidden": [],
-    "explanation": "Q4 pattern: full main for order_data — %s + .c_str() for string item, %.2f for double price"
+    "explanation": "Q4 pattern: full main for order_data — %s + .c_str() for string product, %.2f for double price"
   },
   {
     "type": "write",
@@ -31452,8 +31457,8 @@
     "type": "write",
     "atomId": "MW-01",
     "level": 3,
-    "spec": "Write a complete int main() for flight_data: declare const MAX=100, array, count, cin>>count, call read_flights, then printf loop printing origin (%s) and destination (%s) with newline",
-    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    flight_data list[MAX];\n    int count;\n    cin >> count;\n    read_flights(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%s %s\\n\", list[i].origin.c_str(), list[i].destination.c_str());\n    }\n    return 0;\n}",
+    "spec": "Write a complete int main() for flight_data: declare const MAX=100, array, count, cin>>count, call read_flights, then printf loop printing airline (%s) and seats (%d) with newline",
+    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    flight_data list[MAX];\n    int count;\n    cin >> count;\n    read_flights(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%s %d\\n\", list[i].airline.c_str(), list[i].seats);\n    }\n    return 0;\n}",
     "keyChecks": [
       "int main()",
       "const int MAX",
@@ -31464,18 +31469,19 @@
       "for",
       "printf",
       "%s",
+      "%d",
       ".c_str()",
       "return 0"
     ],
     "forbidden": [],
-    "explanation": "Q4 pattern: full main for flight_data — both strings need .c_str()"
+    "explanation": "Q4 pattern: full main for flight_data — airline needs .c_str(), seats is int"
   },
   {
     "type": "write",
     "atomId": "MW-01",
     "level": 3,
-    "spec": "Write a complete int main() for course_data: declare const MAX=100, array, count, cin>>count, call read_courses, then printf loop printing code (%s) and credit (%d) with newline",
-    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    course_data list[MAX];\n    int count;\n    cin >> count;\n    read_courses(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%s %d\\n\", list[i].code.c_str(), list[i].credit);\n    }\n    return 0;\n}",
+    "spec": "Write a complete int main() for course_data: declare const MAX=100, array, count, cin>>count, call read_courses, then printf loop printing code (%s) and credits (%d) with newline",
+    "expectedAnswer": "int main() {\n    const int MAX = 100;\n    course_data list[MAX];\n    int count;\n    cin >> count;\n    read_courses(list, count);\n    for (int i = 0; i < count; i++) {\n        printf(\"%s %d\\n\", list[i].code.c_str(), list[i].credits);\n    }\n    return 0;\n}",
     "keyChecks": [
       "int main()",
       "const int MAX",
@@ -33371,7 +33377,8 @@
       "&data",
       "data.mystery",
       "data.a",
-      "data.b"
+      "data.b",
+      "+"
     ],
     "forbidden": [],
     "explanation": "Q1 shape: void who_am_i(Name &data) { data.mystery = formula; }"
@@ -34055,7 +34062,9 @@
       "data.mystery",
       "data.numbers",
       "for",
-      "if"
+      "if",
+      ">",
+      "data.numbers[0]"
     ],
     "forbidden": [],
     "explanation": "Q1 max pattern: init with [0], loop 1..4, if bigger update mystery."
@@ -34109,7 +34118,7 @@
     ],
     "expectedSteps": [
       {
-        "line": 7,
+        "line": 10,
         "variable": "data.mystery",
         "value": "8.5"
       }
@@ -34129,7 +34138,7 @@
     ],
     "expectedSteps": [
       {
-        "line": 7,
+        "line": 10,
         "variable": "data.mystery",
         "value": "5.5"
       }
@@ -34149,7 +34158,7 @@
     ],
     "expectedSteps": [
       {
-        "line": 7,
+        "line": 10,
         "variable": "data.mystery",
         "value": "9.0"
       }
@@ -34169,7 +34178,7 @@
     ],
     "expectedSteps": [
       {
-        "line": 7,
+        "line": 10,
         "variable": "data.mystery",
         "value": "10.4"
       }
@@ -34680,7 +34689,9 @@
       "&data",
       "data.mystery",
       "for",
-      "data.numbers"
+      "data.numbers",
+      "+",
+      "0"
     ],
     "forbidden": [],
     "explanation": "Q1 sum pattern: init mystery=0, loop all, accumulate."
@@ -34742,7 +34753,7 @@
     ],
     "expectedSteps": [
       {
-        "line": 7,
+        "line": 9,
         "variable": "data.mystery",
         "value": "15.0"
       }
@@ -34762,7 +34773,7 @@
     ],
     "expectedSteps": [
       {
-        "line": 7,
+        "line": 9,
         "variable": "data.mystery",
         "value": "8.0"
       }
@@ -34782,9 +34793,9 @@
     ],
     "expectedSteps": [
       {
-        "line": 7,
+        "line": 9,
         "variable": "data.mystery",
-        "value": "60.0"
+        "value": "150.0"
       }
     ],
     "userInputs": [],
@@ -34802,7 +34813,7 @@
     ],
     "expectedSteps": [
       {
-        "line": 7,
+        "line": 9,
         "variable": "data.mystery",
         "value": "12.5"
       }
@@ -35914,7 +35925,8 @@
       "data.mystery",
       "for",
       "if",
-      "> 0"
+      "> 0",
+      "+ 1"
     ],
     "forbidden": [],
     "explanation": "Q1 count pattern: init 0, loop all, if condition met increment."
@@ -35984,7 +35996,7 @@
     ],
     "expectedSteps": [
       {
-        "line": 7,
+        "line": 10,
         "variable": "data.mystery",
         "value": "3.0"
       }
@@ -36004,7 +36016,7 @@
     ],
     "expectedSteps": [
       {
-        "line": 7,
+        "line": 10,
         "variable": "data.mystery",
         "value": "0.0"
       }
@@ -36024,7 +36036,7 @@
     ],
     "expectedSteps": [
       {
-        "line": 7,
+        "line": 10,
         "variable": "data.mystery",
         "value": "5.0"
       }
@@ -36044,7 +36056,7 @@
     ],
     "expectedSteps": [
       {
-        "line": 7,
+        "line": 10,
         "variable": "data.mystery",
         "value": "2.0"
       }

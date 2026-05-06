@@ -38,12 +38,24 @@ export function normalize(input: string): string {
   return asciify(input).trim().toLowerCase().replace(/\s+/g, ' ');
 }
 
+/** Lenient normalize: also strips spaces around C++ operators.
+ *  "cin >> x" and "cin>>x" both become "cin>>x".
+ *  Used for keyCheck matching so valid compact C++ isn't rejected. */
+function normalizeLenient(input: string): string {
+  let s = normalize(input);
+  // Multi-char operators first (>> before >)
+  s = s.replace(/\s*(>>|<<|>=|<=|!=|==|\+=|-=|\*=|\/=|%=|&&|\|\|)\s*/g, '$1');
+  // Single-char operators
+  s = s.replace(/\s*([=<>+\-*/%&|!])\s*/g, '$1');
+  return s;
+}
+
 export function gradeMemorize(
   studentInput: string,
   keyChecks: string[]
 ): boolean {
-  const normInput = normalize(studentInput);
-  return keyChecks.every((token) => normInput.includes(normalize(token)));
+  const normInput = normalizeLenient(studentInput);
+  return keyChecks.every((token) => normInput.includes(normalizeLenient(token)));
 }
 
 export function gradeMCQ(selected: string, correct: string): boolean {
@@ -56,14 +68,17 @@ export function gradeWrite(
   keyChecks: string[],
   forbidden: string[] = []
 ): boolean {
-  const normStudent = normalize(studentCode);
-  const normExpected = normalize(expectedAnswer);
-  if (normStudent === normExpected) return true;
+  // Exact match (base normalize)
+  if (normalize(studentCode) === normalize(expectedAnswer)) return true;
+  // Exact match (lenient — ignore operator spacing)
+  if (normalizeLenient(studentCode) === normalizeLenient(expectedAnswer)) return true;
+  // KeyCheck fallback: lenient normalization
+  const normStudent = normalizeLenient(studentCode);
   const allKeysPresent = keyChecks.every((token) =>
-    normStudent.includes(normalize(token))
+    normStudent.includes(normalizeLenient(token))
   );
   const noForbidden = forbidden.every(
-    (token) => !normStudent.includes(normalize(token))
+    (token) => !normStudent.includes(normalizeLenient(token))
   );
   return allKeysPresent && noForbidden;
 }
