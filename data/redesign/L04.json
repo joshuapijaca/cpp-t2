@@ -1,0 +1,2071 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "A-01",
+    "levelLabel": "L4 -> arithmetic + (tax-calc)",
+    "fullCode": "int subtotal = 100;\nint tax = 10;\nint total = subtotal + tax;\ncout << total;",
+    "steps": [
+      { "line": 1, "code": "int subtotal = 100;", "annotation": "Declare subtotal as integer 100", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int tax = 10;", "annotation": "Declare tax amount as 10", "atomIds": ["V-10"] },
+      { "line": 3, "code": "int total = subtotal + tax;", "annotation": "Use + to sum the two values", "atomIds": ["A-01"] },
+      { "line": 4, "code": "cout << total;", "annotation": "Print total -> 110", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-01",
+    "levelLabel": "L4 -> arithmetic + (running total)",
+    "fullCode": "int a = 25;\nint b = 17;\nint sum = a + b;\ncout << sum;",
+    "steps": [
+      { "line": 1, "code": "int a = 25;", "annotation": "First operand", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int b = 17;", "annotation": "Second operand", "atomIds": ["V-10"] },
+      { "line": 3, "code": "int sum = a + b;", "annotation": "+ adds; result is 42", "atomIds": ["A-01"] },
+      { "line": 4, "code": "cout << sum;", "annotation": "Output 42", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "A-01",
+    "code": "int main() {\n  int subtotal = 80;\n  int tax = 8;\n  int total = subtotal + tax;\n  cout << total;\n  return 0;\n}",
+    "variables": ["subtotal", "tax", "total"],
+    "expectedSteps": [
+      { "line": 2, "variable": "subtotal", "value": "80" },
+      { "line": 3, "variable": "tax", "value": "8" },
+      { "line": 4, "variable": "total", "value": "88" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["88"],
+    "inputMode": "final-only",
+    "teachMe": "+ adds the two int operands. 80 + 8 = 88."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-01",
+    "code": "int main() {\n  int price = 199;\n  int gst = 19;\n  int final_amt = price + gst;\n  cout << final_amt;\n  return 0;\n}",
+    "variables": ["price", "gst", "final_amt"],
+    "expectedSteps": [
+      { "line": 2, "variable": "price", "value": "199" },
+      { "line": 3, "variable": "gst", "value": "19" },
+      { "line": 4, "variable": "final_amt", "value": "218" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["218"],
+    "inputMode": "final-only",
+    "teachMe": "+ on ints just sums. 199 + 19 = 218."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-01",
+    "code": "int main() {\n  int a = 7;\n  int b = 3;\n  int c = a + b + 10;\n  cout << c;\n  return 0;\n}",
+    "variables": ["a", "b", "c"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "7" },
+      { "line": 3, "variable": "b", "value": "3" },
+      { "line": 4, "variable": "c", "value": "20" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["20"],
+    "inputMode": "final-only",
+    "teachMe": "+ chains left-to-right: 7 + 3 = 10, then 10 + 10 = 20."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-01",
+    "code": "int main() {\n  double x = 1.5;\n  double y = 2.25;\n  double z = x + y;\n  cout << z;\n  return 0;\n}",
+    "variables": ["x", "y", "z"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "1.5" },
+      { "line": 3, "variable": "y", "value": "2.25" },
+      { "line": 4, "variable": "z", "value": "3.75" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3.75"],
+    "inputMode": "final-only",
+    "teachMe": "+ on doubles preserves the fractional part. 1.5 + 2.25 = 3.75."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-01",
+    "code": "int main() {\n  int items = 12;\n  int extra = 5;\n  int sum = items + extra;\n  cout << sum;\n  return 0;\n}",
+    "variables": ["items", "extra", "sum"],
+    "expectedSteps": [
+      { "line": 2, "variable": "items", "value": "12" },
+      { "line": 3, "variable": "extra", "value": "5" },
+      { "line": 4, "variable": "sum", "value": "17" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["17"],
+    "inputMode": "final-only",
+    "teachMe": "+ adds: 12 + 5 = 17."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-01",
+    "code": "int main() {\n  int base = 50;\n  int bonus = 25;\n  int paid = base + bonus;\n  cout << paid;\n  return 0;\n}",
+    "variables": ["base", "bonus", "paid"],
+    "expectedSteps": [
+      { "line": 2, "variable": "base", "value": "50" },
+      { "line": 3, "variable": "bonus", "value": "25" },
+      { "line": 4, "variable": "paid", "value": "75" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["75"],
+    "inputMode": "final-only",
+    "teachMe": "Simple +: 50 + 25 = 75."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-01",
+    "code": "int subtotal = 60;\nint tax = 6;\nint total = subtotal ___ tax;",
+    "clozeSentence": "Use the ___ operator to add two numbers",
+    "answer": "+",
+    "explanation": "+ is the addition operator. subtotal + tax = 66."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-01",
+    "code": "int total = price ___ shipping;",
+    "clozeSentence": "The ___ operator sums two ints",
+    "answer": "+",
+    "explanation": "+ adds the two operands. The result is stored in total."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-01",
+    "code": "int sum = a ___ b;",
+    "clozeSentence": "Fill in the addition operator",
+    "answer": "+",
+    "explanation": "+ is C++'s addition operator. sum holds a + b."
+  },
+  {
+    "type": "write",
+    "atomId": "A-01",
+    "level": 1,
+    "spec": "Write one line declaring int total equal to subtotal plus tax",
+    "expectedAnswer": "int total = subtotal + tax;",
+    "keyChecks": ["int", "total", "subtotal", "+", "tax", ";"],
+    "explanation": "Declaration with type int, name total, initialized to subtotal + tax."
+  },
+  {
+    "type": "write",
+    "atomId": "A-01",
+    "level": 2,
+    "spec": "Declare int a = 12, int b = 30, then declare int sum equal to a + b. Three lines.",
+    "expectedAnswer": "int a = 12;\nint b = 30;\nint sum = a + b;",
+    "keyChecks": ["int a = 12;", "int b = 30;", "int sum", "a + b"],
+    "explanation": "Two declarations, one sum using +."
+  },
+  {
+    "type": "procedural",
+    "atomId": "A-01",
+    "id": "PD-A01-01",
+    "section": "L4 arithmetic +",
+    "prompt": "Write a single line: int total declared and set to subtotal plus tax",
+    "expectedAnswer": "int total = subtotal + tax;",
+    "keyChecks": ["int", "total", "subtotal", "+", "tax", ";"],
+    "variants": [
+      { "prompt": "Declare int sum as a + b on one line", "expectedAnswer": "int sum = a + b;" },
+      { "prompt": "Declare int paid as base + bonus on one line", "expectedAnswer": "int paid = base + bonus;" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "A-01",
+    "id": "CM-A01-01",
+    "section": "L4 arithmetic +",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: int sum = a + b;", "code": "int sum = a + b;" },
+      { "label": "Example B: int total = price + tax;", "code": "int total = price + tax;" }
+    ],
+    "prompt": "By the same pattern, declare int paid as base plus bonus on one line.",
+    "expectedAnswer": "int paid = base + bonus;",
+    "keyChecks": ["int", "paid", "base", "+", "bonus", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "A-01",
+    "id": "CMEM-A01-01",
+    "section": "L4 arithmetic +",
+    "question": "Type the line that adds subtotal and tax into total",
+    "code": "int total = subtotal + tax;",
+    "keyChecks": ["int", "total", "subtotal", "+", "tax", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "A-02",
+    "levelLabel": "L4 -> arithmetic - (BMI delta)",
+    "fullCode": "int weight = 78;\nint target = 70;\nint diff = weight - target;\ncout << diff;",
+    "steps": [
+      { "line": 1, "code": "int weight = 78;", "annotation": "Current weight kg", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int target = 70;", "annotation": "Target weight kg", "atomIds": ["V-10"] },
+      { "line": 3, "code": "int diff = weight - target;", "annotation": "- subtracts; difference is 8", "atomIds": ["A-02"] },
+      { "line": 4, "code": "cout << diff;", "annotation": "Output 8", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-02",
+    "levelLabel": "L4 -> arithmetic - (height check)",
+    "fullCode": "int height = 180;\nint base = 165;\nint extra = height - base;\ncout << extra;",
+    "steps": [
+      { "line": 1, "code": "int height = 180;", "annotation": "Person height", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int base = 165;", "annotation": "Reference base", "atomIds": ["V-10"] },
+      { "line": 3, "code": "int extra = height - base;", "annotation": "- subtracts second from first", "atomIds": ["A-02"] },
+      { "line": 4, "code": "cout << extra;", "annotation": "Output 15", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "A-02",
+    "code": "int main() {\n  int weight = 82;\n  int target = 70;\n  int diff = weight - target;\n  cout << diff;\n  return 0;\n}",
+    "variables": ["weight", "target", "diff"],
+    "expectedSteps": [
+      { "line": 2, "variable": "weight", "value": "82" },
+      { "line": 3, "variable": "target", "value": "70" },
+      { "line": 4, "variable": "diff", "value": "12" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["12"],
+    "inputMode": "final-only",
+    "teachMe": "- subtracts second from first. 82 - 70 = 12."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-02",
+    "code": "int main() {\n  int a = 5;\n  int b = 12;\n  int c = a - b;\n  cout << c;\n  return 0;\n}",
+    "variables": ["a", "b", "c"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "5" },
+      { "line": 3, "variable": "b", "value": "12" },
+      { "line": 4, "variable": "c", "value": "-7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["-7"],
+    "inputMode": "final-only",
+    "teachMe": "5 - 12 = -7. ints can go negative."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-02",
+    "code": "int main() {\n  double a = 3.5;\n  double b = 1.2;\n  double c = a - b;\n  cout << c;\n  return 0;\n}",
+    "variables": ["a", "b", "c"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "3.5" },
+      { "line": 3, "variable": "b", "value": "1.2" },
+      { "line": 4, "variable": "c", "value": "2.3" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2.3"],
+    "inputMode": "final-only",
+    "teachMe": "- on doubles. 3.5 - 1.2 = 2.3."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-02",
+    "code": "int main() {\n  int balance = 100;\n  int withdraw = 35;\n  int after = balance - withdraw;\n  cout << after;\n  return 0;\n}",
+    "variables": ["balance", "withdraw", "after"],
+    "expectedSteps": [
+      { "line": 2, "variable": "balance", "value": "100" },
+      { "line": 3, "variable": "withdraw", "value": "35" },
+      { "line": 4, "variable": "after", "value": "65" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["65"],
+    "inputMode": "final-only",
+    "teachMe": "100 - 35 = 65."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-02",
+    "code": "int main() {\n  int x = 20;\n  int y = 5;\n  int z = x - y - 2;\n  cout << z;\n  return 0;\n}",
+    "variables": ["x", "y", "z"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "20" },
+      { "line": 3, "variable": "y", "value": "5" },
+      { "line": 4, "variable": "z", "value": "13" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["13"],
+    "inputMode": "final-only",
+    "teachMe": "- chains left-to-right: 20 - 5 = 15, then 15 - 2 = 13."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-02",
+    "code": "int main() {\n  int big = 100;\n  int small = 25;\n  int gap = big - small;\n  cout << gap;\n  return 0;\n}",
+    "variables": ["big", "small", "gap"],
+    "expectedSteps": [
+      { "line": 2, "variable": "big", "value": "100" },
+      { "line": 3, "variable": "small", "value": "25" },
+      { "line": 4, "variable": "gap", "value": "75" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["75"],
+    "inputMode": "final-only",
+    "teachMe": "100 - 25 = 75."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-02",
+    "code": "int diff = weight ___ target;",
+    "clozeSentence": "Use the ___ operator for subtraction",
+    "answer": "-",
+    "explanation": "- subtracts. weight - target."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-02",
+    "code": "int after = balance ___ withdraw;",
+    "clozeSentence": "Subtract withdraw from balance with the ___ operator",
+    "answer": "-",
+    "explanation": "- gives balance minus withdraw."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-02",
+    "code": "int gap = big ___ small;",
+    "clozeSentence": "Fill in the subtraction operator",
+    "answer": "-",
+    "explanation": "- yields the difference big - small."
+  },
+  {
+    "type": "write",
+    "atomId": "A-02",
+    "level": 1,
+    "spec": "Write one line declaring int diff equal to weight minus target",
+    "expectedAnswer": "int diff = weight - target;",
+    "keyChecks": ["int", "diff", "weight", "-", "target", ";"],
+    "explanation": "- subtracts target from weight."
+  },
+  {
+    "type": "write",
+    "atomId": "A-02",
+    "level": 2,
+    "spec": "Declare int balance = 200, int withdraw = 75, then declare int after equal to balance - withdraw. Three lines.",
+    "expectedAnswer": "int balance = 200;\nint withdraw = 75;\nint after = balance - withdraw;",
+    "keyChecks": ["int balance = 200;", "int withdraw = 75;", "int after", "balance - withdraw"],
+    "explanation": "Two values then a subtraction expression."
+  },
+  {
+    "type": "matrix",
+    "atomId": "A-02",
+    "id": "CM-A02-01",
+    "section": "L4 arithmetic -",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: int diff = weight - target;", "code": "int diff = weight - target;" },
+      { "label": "Example B: int gap = big - small;", "code": "int gap = big - small;" }
+    ],
+    "prompt": "By the same pattern, declare int after as balance minus withdraw on one line.",
+    "expectedAnswer": "int after = balance - withdraw;",
+    "keyChecks": ["int", "after", "balance", "-", "withdraw", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "A-03",
+    "levelLabel": "L4 -> arithmetic * (rectangle area)",
+    "fullCode": "int width = 5;\nint height = 8;\nint area = width * height;\ncout << area;",
+    "steps": [
+      { "line": 1, "code": "int width = 5;", "annotation": "Rectangle width", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int height = 8;", "annotation": "Rectangle height", "atomIds": ["V-10"] },
+      { "line": 3, "code": "int area = width * height;", "annotation": "* multiplies; 5 * 8 = 40", "atomIds": ["A-03"] },
+      { "line": 4, "code": "cout << area;", "annotation": "Output 40", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-03",
+    "levelLabel": "L4 -> arithmetic * (square area)",
+    "fullCode": "int side = 7;\nint area = side * side;\ncout << area;",
+    "steps": [
+      { "line": 1, "code": "int side = 7;", "annotation": "Square side length", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int area = side * side;", "annotation": "* multiplies side by itself", "atomIds": ["A-03"] },
+      { "line": 3, "code": "cout << area;", "annotation": "Output 49", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "A-03",
+    "code": "int main() {\n  int width = 4;\n  int height = 6;\n  int area = width * height;\n  cout << area;\n  return 0;\n}",
+    "variables": ["width", "height", "area"],
+    "expectedSteps": [
+      { "line": 2, "variable": "width", "value": "4" },
+      { "line": 3, "variable": "height", "value": "6" },
+      { "line": 4, "variable": "area", "value": "24" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["24"],
+    "inputMode": "final-only",
+    "teachMe": "* multiplies. 4 * 6 = 24."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-03",
+    "code": "int main() {\n  int side = 9;\n  int area = side * side;\n  cout << area;\n  return 0;\n}",
+    "variables": ["side", "area"],
+    "expectedSteps": [
+      { "line": 2, "variable": "side", "value": "9" },
+      { "line": 3, "variable": "area", "value": "81" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["81"],
+    "inputMode": "final-only",
+    "teachMe": "9 * 9 = 81. * works on the same variable twice."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-03",
+    "code": "int main() {\n  int a = 3;\n  int b = 4;\n  int c = a * b * 2;\n  cout << c;\n  return 0;\n}",
+    "variables": ["a", "b", "c"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "3" },
+      { "line": 3, "variable": "b", "value": "4" },
+      { "line": 4, "variable": "c", "value": "24" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["24"],
+    "inputMode": "final-only",
+    "teachMe": "3 * 4 = 12, then 12 * 2 = 24."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-03",
+    "code": "int main() {\n  double rate = 1.5;\n  int hours = 4;\n  double pay = rate * hours;\n  cout << pay;\n  return 0;\n}",
+    "variables": ["rate", "hours", "pay"],
+    "expectedSteps": [
+      { "line": 2, "variable": "rate", "value": "1.5" },
+      { "line": 3, "variable": "hours", "value": "4" },
+      { "line": 4, "variable": "pay", "value": "6" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["6"],
+    "inputMode": "final-only",
+    "teachMe": "Mixed double * int promotes to double. 1.5 * 4 = 6.0 printed as 6."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-03",
+    "code": "int main() {\n  int n = 7;\n  int doubled = n * 2;\n  cout << doubled;\n  return 0;\n}",
+    "variables": ["n", "doubled"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "7" },
+      { "line": 3, "variable": "doubled", "value": "14" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["14"],
+    "inputMode": "final-only",
+    "teachMe": "7 * 2 = 14."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-03",
+    "code": "int main() {\n  int x = 5;\n  int y = 0;\n  int z = x * y;\n  cout << z;\n  return 0;\n}",
+    "variables": ["x", "y", "z"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "5" },
+      { "line": 3, "variable": "y", "value": "0" },
+      { "line": 4, "variable": "z", "value": "0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "Anything * 0 = 0. 5 * 0 = 0."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-03",
+    "code": "int area = width ___ height;",
+    "clozeSentence": "Use the ___ operator for multiplication",
+    "answer": "*",
+    "explanation": "* multiplies. area = width * height."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-03",
+    "code": "int doubled = n ___ 2;",
+    "clozeSentence": "Multiply n by 2 with the ___ operator",
+    "answer": "*",
+    "explanation": "* gives n * 2."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-03",
+    "code": "int prod = a ___ b;",
+    "clozeSentence": "Fill in the multiplication operator",
+    "answer": "*",
+    "explanation": "* yields the product a * b."
+  },
+  {
+    "type": "write",
+    "atomId": "A-03",
+    "level": 1,
+    "spec": "Write one line declaring int area equal to width times height",
+    "expectedAnswer": "int area = width * height;",
+    "keyChecks": ["int", "area", "width", "*", "height", ";"],
+    "explanation": "* is the multiplication operator."
+  },
+  {
+    "type": "write",
+    "atomId": "A-03",
+    "level": 2,
+    "spec": "Declare int side = 6, then declare int area equal to side * side. Two lines.",
+    "expectedAnswer": "int side = 6;\nint area = side * side;",
+    "keyChecks": ["int side = 6;", "int area", "side * side"],
+    "explanation": "Square area uses side multiplied by itself."
+  },
+  {
+    "type": "matrix",
+    "atomId": "A-03",
+    "id": "CM-A03-01",
+    "section": "L4 arithmetic *",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: int area = width * height;", "code": "int area = width * height;" },
+      { "label": "Example B: int doubled = n * 2;", "code": "int doubled = n * 2;" }
+    ],
+    "prompt": "By the same pattern, declare int total as price multiplied by quantity on one line.",
+    "expectedAnswer": "int total = price * quantity;",
+    "keyChecks": ["int", "total", "price", "*", "quantity", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "A-03",
+    "id": "CMEM-A03-01",
+    "section": "L4 arithmetic *",
+    "question": "Type the line that computes area as width * height",
+    "code": "int area = width * height;",
+    "keyChecks": ["int", "area", "width", "*", "height", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "A-04",
+    "levelLabel": "L4 -> arithmetic / (avg of two)",
+    "fullCode": "int sum = 20;\nint count = 4;\nint avg = sum / count;\ncout << avg;",
+    "steps": [
+      { "line": 1, "code": "int sum = 20;", "annotation": "Total of values", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int count = 4;", "annotation": "Number of values", "atomIds": ["V-10"] },
+      { "line": 3, "code": "int avg = sum / count;", "annotation": "/ divides; 20 / 4 = 5", "atomIds": ["A-04"] },
+      { "line": 4, "code": "cout << avg;", "annotation": "Output 5", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-04",
+    "levelLabel": "L4 -> arithmetic / (split bill)",
+    "fullCode": "int bill = 90;\nint people = 3;\nint each = bill / people;\ncout << each;",
+    "steps": [
+      { "line": 1, "code": "int bill = 90;", "annotation": "Total bill", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int people = 3;", "annotation": "Splitting between 3", "atomIds": ["V-10"] },
+      { "line": 3, "code": "int each = bill / people;", "annotation": "/ divides bill into equal parts", "atomIds": ["A-04"] },
+      { "line": 4, "code": "cout << each;", "annotation": "Output 30", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "A-04",
+    "code": "int main() {\n  int sum = 20;\n  int count = 4;\n  int avg = sum / count;\n  cout << avg;\n  return 0;\n}",
+    "variables": ["sum", "count", "avg"],
+    "expectedSteps": [
+      { "line": 2, "variable": "sum", "value": "20" },
+      { "line": 3, "variable": "count", "value": "4" },
+      { "line": 4, "variable": "avg", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "/ divides. 20 / 4 = 5."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-04",
+    "code": "int main() {\n  int a = 100;\n  int b = 25;\n  int c = a / b;\n  cout << c;\n  return 0;\n}",
+    "variables": ["a", "b", "c"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "100" },
+      { "line": 3, "variable": "b", "value": "25" },
+      { "line": 4, "variable": "c", "value": "4" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["4"],
+    "inputMode": "final-only",
+    "teachMe": "100 / 25 = 4."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-04",
+    "code": "int main() {\n  double bill = 25.0;\n  double people = 4.0;\n  double each = bill / people;\n  cout << each;\n  return 0;\n}",
+    "variables": ["bill", "people", "each"],
+    "expectedSteps": [
+      { "line": 2, "variable": "bill", "value": "25" },
+      { "line": 3, "variable": "people", "value": "4" },
+      { "line": 4, "variable": "each", "value": "6.25" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["6.25"],
+    "inputMode": "final-only",
+    "teachMe": "/ on doubles preserves the fraction. 25.0 / 4.0 = 6.25."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-04",
+    "code": "int main() {\n  int x = 50;\n  int y = 10;\n  int z = x / y;\n  cout << z;\n  return 0;\n}",
+    "variables": ["x", "y", "z"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "50" },
+      { "line": 3, "variable": "y", "value": "10" },
+      { "line": 4, "variable": "z", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "50 / 10 = 5. Even division."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-04",
+    "code": "int main() {\n  int total = 30;\n  int parts = 6;\n  int each = total / parts;\n  cout << each;\n  return 0;\n}",
+    "variables": ["total", "parts", "each"],
+    "expectedSteps": [
+      { "line": 2, "variable": "total", "value": "30" },
+      { "line": 3, "variable": "parts", "value": "6" },
+      { "line": 4, "variable": "each", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "30 / 6 = 5."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-04",
+    "code": "int main() {\n  int dividend = 81;\n  int divisor = 9;\n  int q = dividend / divisor;\n  cout << q;\n  return 0;\n}",
+    "variables": ["dividend", "divisor", "q"],
+    "expectedSteps": [
+      { "line": 2, "variable": "dividend", "value": "81" },
+      { "line": 3, "variable": "divisor", "value": "9" },
+      { "line": 4, "variable": "q", "value": "9" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["9"],
+    "inputMode": "final-only",
+    "teachMe": "81 / 9 = 9."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-04",
+    "code": "int avg = sum ___ count;",
+    "clozeSentence": "Use the ___ operator for division",
+    "answer": "/",
+    "explanation": "/ divides sum by count."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-04",
+    "code": "int each = bill ___ people;",
+    "clozeSentence": "Split bill among people with the ___ operator",
+    "answer": "/",
+    "explanation": "/ gives bill divided by people."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-04",
+    "code": "int q = dividend ___ divisor;",
+    "clozeSentence": "Fill in the division operator",
+    "answer": "/",
+    "explanation": "/ yields the quotient."
+  },
+  {
+    "type": "write",
+    "atomId": "A-04",
+    "level": 1,
+    "spec": "Write one line declaring int avg equal to sum divided by count",
+    "expectedAnswer": "int avg = sum / count;",
+    "keyChecks": ["int", "avg", "sum", "/", "count", ";"],
+    "explanation": "/ is the division operator."
+  },
+  {
+    "type": "write",
+    "atomId": "A-04",
+    "level": 2,
+    "spec": "Declare int total = 60, int parts = 5, then declare int each as total / parts. Three lines.",
+    "expectedAnswer": "int total = 60;\nint parts = 5;\nint each = total / parts;",
+    "keyChecks": ["int total = 60;", "int parts = 5;", "int each", "total / parts"],
+    "explanation": "Standard division split."
+  },
+  {
+    "type": "procedural",
+    "atomId": "A-04",
+    "id": "PD-A04-01",
+    "section": "L4 arithmetic /",
+    "prompt": "Write a single line: int avg declared and set to sum / count",
+    "expectedAnswer": "int avg = sum / count;",
+    "keyChecks": ["int", "avg", "sum", "/", "count", ";"],
+    "variants": [
+      { "prompt": "Declare int each as total / parts", "expectedAnswer": "int each = total / parts;" },
+      { "prompt": "Declare int q as dividend / divisor", "expectedAnswer": "int q = dividend / divisor;" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "A-04",
+    "id": "CM-A04-01",
+    "section": "L4 arithmetic /",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: int avg = sum / count;", "code": "int avg = sum / count;" },
+      { "label": "Example B: int each = bill / people;", "code": "int each = bill / people;" }
+    ],
+    "prompt": "By the same pattern, declare int per as total divided by parts on one line.",
+    "expectedAnswer": "int per = total / parts;",
+    "keyChecks": ["int", "per", "total", "/", "parts", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "A-05",
+    "levelLabel": "L4 -> arithmetic % (modulo time)",
+    "fullCode": "int hour = 27;\nint mod = hour % 24;\ncout << mod;",
+    "steps": [
+      { "line": 1, "code": "int hour = 27;", "annotation": "27 hours of clock", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int mod = hour % 24;", "annotation": "% gives remainder; 27 mod 24 = 3", "atomIds": ["A-05"] },
+      { "line": 3, "code": "cout << mod;", "annotation": "Output 3", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-05",
+    "levelLabel": "L4 -> arithmetic % (parity check)",
+    "fullCode": "int n = 7;\nint rem = n % 2;\ncout << rem;",
+    "steps": [
+      { "line": 1, "code": "int n = 7;", "annotation": "Test for odd/even", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int rem = n % 2;", "annotation": "% by 2 -> 0 if even, 1 if odd", "atomIds": ["A-05"] },
+      { "line": 3, "code": "cout << rem;", "annotation": "Output 1 (7 is odd)", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "A-05",
+    "code": "int main() {\n  int n = 7;\n  int rem = n % 3;\n  cout << rem;\n  return 0;\n}",
+    "variables": ["n", "rem"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "7" },
+      { "line": 3, "variable": "rem", "value": "1" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1"],
+    "inputMode": "final-only",
+    "teachMe": "% gives the remainder. 7 / 3 = 2 remainder 1, so 7 % 3 = 1."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-05",
+    "code": "int main() {\n  int hour = 27;\n  int mod = hour % 24;\n  cout << mod;\n  return 0;\n}",
+    "variables": ["hour", "mod"],
+    "expectedSteps": [
+      { "line": 2, "variable": "hour", "value": "27" },
+      { "line": 3, "variable": "mod", "value": "3" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3"],
+    "inputMode": "final-only",
+    "teachMe": "27 mod 24 wraps the clock; 27 - 24 = 3."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-05",
+    "code": "int main() {\n  int x = 10;\n  int y = 4;\n  int r = x % y;\n  cout << r;\n  return 0;\n}",
+    "variables": ["x", "y", "r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "10" },
+      { "line": 3, "variable": "y", "value": "4" },
+      { "line": 4, "variable": "r", "value": "2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2"],
+    "inputMode": "final-only",
+    "teachMe": "10 / 4 = 2 remainder 2, so 10 % 4 = 2."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-05",
+    "code": "int main() {\n  int a = 9;\n  int b = 3;\n  int r = a % b;\n  cout << r;\n  return 0;\n}",
+    "variables": ["a", "b", "r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "9" },
+      { "line": 3, "variable": "b", "value": "3" },
+      { "line": 4, "variable": "r", "value": "0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "9 divides 3 evenly. 9 % 3 = 0."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-05",
+    "code": "int main() {\n  int n = 8;\n  int parity = n % 2;\n  cout << parity;\n  return 0;\n}",
+    "variables": ["n", "parity"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "8" },
+      { "line": 3, "variable": "parity", "value": "0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "Even number % 2 = 0. 8 is even."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-05",
+    "code": "int main() {\n  int min = 100;\n  int sec = min % 60;\n  cout << sec;\n  return 0;\n}",
+    "variables": ["min", "sec"],
+    "expectedSteps": [
+      { "line": 2, "variable": "min", "value": "100" },
+      { "line": 3, "variable": "sec", "value": "40" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["40"],
+    "inputMode": "final-only",
+    "teachMe": "100 / 60 = 1 remainder 40. 100 % 60 = 40."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-05",
+    "code": "int rem = n ___ 3;",
+    "clozeSentence": "Use the ___ operator for remainder",
+    "answer": "%",
+    "explanation": "% returns the modulo remainder."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-05",
+    "code": "int parity = n ___ 2;",
+    "clozeSentence": "Compute parity (0 even, 1 odd) with the ___ operator",
+    "answer": "%",
+    "explanation": "% by 2 gives 0 for even, 1 for odd."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-05",
+    "code": "int wrapped = hour ___ 24;",
+    "clozeSentence": "Wrap a 0-23 clock with the ___ operator",
+    "answer": "%",
+    "explanation": "% 24 keeps the value in [0, 23]."
+  },
+  {
+    "type": "write",
+    "atomId": "A-05",
+    "level": 1,
+    "spec": "Write one line declaring int rem equal to n modulo 3",
+    "expectedAnswer": "int rem = n % 3;",
+    "keyChecks": ["int", "rem", "n", "%", "3", ";"],
+    "explanation": "% computes the remainder. 7 % 3 = 1."
+  },
+  {
+    "type": "write",
+    "atomId": "A-05",
+    "level": 2,
+    "spec": "Declare int hour = 30, then declare int mod equal to hour % 24. Two lines.",
+    "expectedAnswer": "int hour = 30;\nint mod = hour % 24;",
+    "keyChecks": ["int hour = 30;", "int mod", "hour % 24"],
+    "explanation": "Wrap-around clock arithmetic via %."
+  },
+  {
+    "type": "matrix",
+    "atomId": "A-05",
+    "id": "CM-A05-01",
+    "section": "L4 arithmetic %",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: int rem = n % 3;", "code": "int rem = n % 3;" },
+      { "label": "Example B: int parity = n % 2;", "code": "int parity = n % 2;" }
+    ],
+    "prompt": "By the same pattern, declare int sec as min % 60 on one line.",
+    "expectedAnswer": "int sec = min % 60;",
+    "keyChecks": ["int", "sec", "min", "%", "60", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "A-05",
+    "id": "CMEM-A05-01",
+    "section": "L4 arithmetic %",
+    "question": "Type the line that gives the remainder of n divided by 3",
+    "code": "int rem = n % 3;",
+    "keyChecks": ["int", "rem", "n", "%", "3", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "A-06",
+    "levelLabel": "L4 -> int division truncates (percent)",
+    "fullCode": "int score = 7;\nint total = 10;\nint pct = score / total * 100;\ncout << pct;",
+    "steps": [
+      { "line": 1, "code": "int score = 7;", "annotation": "Score out of 10", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int total = 10;", "annotation": "Maximum score", "atomIds": ["V-10"] },
+      { "line": 3, "code": "int pct = score / total * 100;", "annotation": "TRAP: 7/10 in int = 0 (truncated). Then 0 * 100 = 0", "atomIds": ["A-06"] },
+      { "line": 4, "code": "cout << pct;", "annotation": "Output 0 — int div discards the fraction", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-06",
+    "levelLabel": "L4 -> int division truncates (5/2 trap)",
+    "fullCode": "int a = 5;\nint b = 2;\nint q = a / b;\ncout << q;",
+    "steps": [
+      { "line": 1, "code": "int a = 5;", "annotation": "Numerator", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int b = 2;", "annotation": "Denominator", "atomIds": ["V-10"] },
+      { "line": 3, "code": "int q = a / b;", "annotation": "5/2 = 2.5 mathematically but ints discard .5", "atomIds": ["A-06"] },
+      { "line": 4, "code": "cout << q;", "annotation": "Output 2, NOT 2.5", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "A-06",
+    "code": "int main() {\n  int a = 5;\n  int b = 2;\n  int q = a / b;\n  cout << q;\n  return 0;\n}",
+    "variables": ["a", "b", "q"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "5" },
+      { "line": 3, "variable": "b", "value": "2" },
+      { "line": 4, "variable": "q", "value": "2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2"],
+    "inputMode": "final-only",
+    "teachMe": "Int division: 5 / 2 = 2 (NOT 2.5). The decimal is dropped."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-06",
+    "code": "int main() {\n  int a = 7;\n  int b = 2;\n  int q = a / b;\n  cout << q;\n  return 0;\n}",
+    "variables": ["a", "b", "q"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "7" },
+      { "line": 3, "variable": "b", "value": "2" },
+      { "line": 4, "variable": "q", "value": "3" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3"],
+    "inputMode": "final-only",
+    "teachMe": "7 / 2 = 3.5 mathematically. Int division truncates to 3."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-06",
+    "code": "int main() {\n  int score = 7;\n  int total = 10;\n  int pct = score / total * 100;\n  cout << pct;\n  return 0;\n}",
+    "variables": ["score", "total", "pct"],
+    "expectedSteps": [
+      { "line": 2, "variable": "score", "value": "7" },
+      { "line": 3, "variable": "total", "value": "10" },
+      { "line": 4, "variable": "pct", "value": "0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "TRAP: 7 / 10 in ints = 0 (truncated), then 0 * 100 = 0. Reorder: score * 100 / total instead."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-06",
+    "code": "int main() {\n  int a = 9;\n  int b = 4;\n  int q = a / b;\n  cout << q;\n  return 0;\n}",
+    "variables": ["a", "b", "q"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "9" },
+      { "line": 3, "variable": "b", "value": "4" },
+      { "line": 4, "variable": "q", "value": "2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2"],
+    "inputMode": "final-only",
+    "teachMe": "9 / 4 = 2.25 mathematically. Int division gives 2."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-06",
+    "code": "int main() {\n  int a = 1;\n  int b = 2;\n  int q = a / b;\n  cout << q;\n  return 0;\n}",
+    "variables": ["a", "b", "q"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "1" },
+      { "line": 3, "variable": "b", "value": "2" },
+      { "line": 4, "variable": "q", "value": "0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "1 / 2 in ints = 0. The 0.5 disappears."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-06",
+    "code": "int main() {\n  double a = 5.0;\n  int b = 2;\n  double q = a / b;\n  cout << q;\n  return 0;\n}",
+    "variables": ["a", "b", "q"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "5" },
+      { "line": 3, "variable": "b", "value": "2" },
+      { "line": 4, "variable": "q", "value": "2.5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2.5"],
+    "inputMode": "final-only",
+    "teachMe": "When ONE operand is double, the other is promoted. 5.0 / 2 = 2.5."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-06",
+    "code": "int main() {\n  int a = 11;\n  int b = 4;\n  int q = a / b;\n  cout << q;\n  return 0;\n}",
+    "variables": ["a", "b", "q"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "11" },
+      { "line": 3, "variable": "b", "value": "4" },
+      { "line": 4, "variable": "q", "value": "2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2"],
+    "inputMode": "final-only",
+    "teachMe": "11 / 4 = 2.75 -> truncated to 2."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-06",
+    "code": "int q = 5 / 2;  // q is ___",
+    "clozeSentence": "5 / 2 with int operands gives ___",
+    "answer": "2",
+    "explanation": "Int division truncates 2.5 to 2."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-06",
+    "code": "int q = 7 / 2;  // q is ___",
+    "clozeSentence": "7 / 2 with int operands gives ___",
+    "answer": "3",
+    "explanation": "Int division truncates 3.5 to 3."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-06",
+    "code": "int q = 1 / 2;  // q is ___",
+    "clozeSentence": "1 / 2 with int operands gives ___",
+    "answer": "0",
+    "explanation": "Int division truncates 0.5 to 0."
+  },
+  {
+    "type": "write",
+    "atomId": "A-06",
+    "level": 1,
+    "spec": "Write one line declaring int q equal to 5 / 2 (using int division)",
+    "expectedAnswer": "int q = 5 / 2;",
+    "keyChecks": ["int", "q", "5", "/", "2", ";"],
+    "explanation": "5 / 2 in int = 2."
+  },
+  {
+    "type": "write",
+    "atomId": "A-06",
+    "level": 2,
+    "spec": "Declare int score = 7, int total = 10, then declare double pct = (double)score / total * 100. Three lines.",
+    "expectedAnswer": "int score = 7;\nint total = 10;\ndouble pct = (double)score / total * 100;",
+    "keyChecks": ["int score = 7;", "int total = 10;", "double pct", "(double)score", "/", "total", "* 100"],
+    "explanation": "Cast one operand to double to avoid int division truncation."
+  },
+  {
+    "type": "matrix",
+    "atomId": "A-06",
+    "id": "CM-A06-01",
+    "section": "L4 int division",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: int q = 5 / 2;  // q = 2", "code": "int q = 5 / 2;" },
+      { "label": "Example B: int q = 7 / 2;  // q = 3", "code": "int q = 7 / 2;" }
+    ],
+    "prompt": "By the same pattern, declare int q = 9 / 2.",
+    "expectedAnswer": "int q = 9 / 2;",
+    "keyChecks": ["int", "q", "9", "/", "2", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "A-07",
+    "levelLabel": "L4 -> precedence (mixed expr)",
+    "fullCode": "int r = 1 + 2 * 3;\ncout << r;",
+    "steps": [
+      { "line": 1, "code": "int r = 1 + 2 * 3;", "annotation": "* binds tighter than +. Compute 2 * 3 = 6 first, then 1 + 6 = 7", "atomIds": ["A-07"] },
+      { "line": 2, "code": "cout << r;", "annotation": "Output 7", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-07",
+    "levelLabel": "L4 -> precedence (with /)",
+    "fullCode": "int r = 10 - 6 / 2;\ncout << r;",
+    "steps": [
+      { "line": 1, "code": "int r = 10 - 6 / 2;", "annotation": "/ before -; 6/2 = 3 first, then 10 - 3 = 7", "atomIds": ["A-07"] },
+      { "line": 2, "code": "cout << r;", "annotation": "Output 7", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "A-07",
+    "code": "int main() {\n  int r = 1 + 2 * 3;\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "r", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "Precedence: 2*3 first = 6, then 1+6 = 7. Not 9."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-07",
+    "code": "int main() {\n  int r = 10 - 6 / 2;\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "r", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "/ before -. 6/2 = 3 first, then 10 - 3 = 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-07",
+    "code": "int main() {\n  int r = 5 + 3 * 4 - 2;\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "r", "value": "15" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["15"],
+    "inputMode": "final-only",
+    "teachMe": "3 * 4 = 12 first, then 5 + 12 - 2 left-to-right = 17 - 2 = 15."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-07",
+    "code": "int main() {\n  int r = 20 / 4 + 1;\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "r", "value": "6" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["6"],
+    "inputMode": "final-only",
+    "teachMe": "/ before +. 20/4 = 5, then 5 + 1 = 6."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-07",
+    "code": "int main() {\n  int r = 8 - 2 + 4;\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "r", "value": "10" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10"],
+    "inputMode": "final-only",
+    "teachMe": "Same precedence + and -: left-to-right. 8 - 2 = 6, then 6 + 4 = 10."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-07",
+    "code": "int main() {\n  int r = 2 * 3 + 4 * 5;\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "r", "value": "26" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["26"],
+    "inputMode": "final-only",
+    "teachMe": "* before +. 2*3=6 and 4*5=20, then 6 + 20 = 26."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-07",
+    "code": "int main() {\n  int r = 18 / 3 % 4;\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "r", "value": "2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2"],
+    "inputMode": "final-only",
+    "teachMe": "/ and % same precedence, left-to-right. 18/3 = 6, then 6 % 4 = 2."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-07",
+    "code": "int r = 1 + 2 * 3;  // r is ___",
+    "clozeSentence": "Multiplication binds tighter, so r is ___",
+    "answer": "7",
+    "explanation": "2*3=6 first, then 1+6=7."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-07",
+    "code": "int r = 10 - 6 / 2;  // r is ___",
+    "clozeSentence": "Division before subtraction, so r is ___",
+    "answer": "7",
+    "explanation": "6/2=3 first, then 10-3=7."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-07",
+    "code": "int r = 2 + 3 * 4;  // r is ___",
+    "clozeSentence": "Multiplication first, so r is ___",
+    "answer": "14",
+    "explanation": "3*4=12, then 2+12=14."
+  },
+  {
+    "type": "write",
+    "atomId": "A-07",
+    "level": 1,
+    "spec": "Write one line declaring int r equal to 1 + 2 * 3 (no parens)",
+    "expectedAnswer": "int r = 1 + 2 * 3;",
+    "keyChecks": ["int", "r", "1 + 2 * 3", ";"],
+    "explanation": "Use precedence: r will be 7."
+  },
+  {
+    "type": "write",
+    "atomId": "A-07",
+    "level": 2,
+    "spec": "Declare int x = 5, then int r = x + x * 2. Two lines, no parens.",
+    "expectedAnswer": "int x = 5;\nint r = x + x * 2;",
+    "keyChecks": ["int x = 5;", "int r", "x + x * 2"],
+    "explanation": "x*2 = 10 first, then x + 10 = 15."
+  },
+  {
+    "type": "matrix",
+    "atomId": "A-07",
+    "id": "CM-A07-01",
+    "section": "L4 precedence",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: int r = 1 + 2 * 3;  // r = 7", "code": "int r = 1 + 2 * 3;" },
+      { "label": "Example B: int r = 10 - 6 / 2;  // r = 7", "code": "int r = 10 - 6 / 2;" }
+    ],
+    "prompt": "By the same pattern, declare int r as 4 + 5 * 2 on one line.",
+    "expectedAnswer": "int r = 4 + 5 * 2;",
+    "keyChecks": ["int", "r", "4", "+", "5", "*", "2", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "A-08",
+    "levelLabel": "L4 -> parens override (forced order)",
+    "fullCode": "int r = (1 + 2) * 3;\ncout << r;",
+    "steps": [
+      { "line": 1, "code": "int r = (1 + 2) * 3;", "annotation": "Parens FORCE 1+2=3 first, then 3*3=9", "atomIds": ["A-08"] },
+      { "line": 2, "code": "cout << r;", "annotation": "Output 9 (was 7 without parens)", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-08",
+    "levelLabel": "L4 -> parens override (avg)",
+    "fullCode": "int a = 4;\nint b = 6;\nint avg = (a + b) / 2;\ncout << avg;",
+    "steps": [
+      { "line": 1, "code": "int a = 4;", "annotation": "First value", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int b = 6;", "annotation": "Second value", "atomIds": ["V-10"] },
+      { "line": 3, "code": "int avg = (a + b) / 2;", "annotation": "Parens force a+b=10 first, then 10/2=5", "atomIds": ["A-08"] },
+      { "line": 4, "code": "cout << avg;", "annotation": "Output 5", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "A-08",
+    "code": "int main() {\n  int r = (1 + 2) * 3;\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "r", "value": "9" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["9"],
+    "inputMode": "final-only",
+    "teachMe": "Parens first: (1+2)=3, then 3*3=9. Without parens you would get 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-08",
+    "code": "int main() {\n  int a = 4;\n  int b = 6;\n  int avg = (a + b) / 2;\n  cout << avg;\n  return 0;\n}",
+    "variables": ["a", "b", "avg"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "4" },
+      { "line": 3, "variable": "b", "value": "6" },
+      { "line": 4, "variable": "avg", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "(a+b)=10 first, then 10/2 = 5. Without parens: a + b/2 = 4 + 3 = 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-08",
+    "code": "int main() {\n  int r = (10 - 4) * (2 + 1);\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "r", "value": "18" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["18"],
+    "inputMode": "final-only",
+    "teachMe": "Both parens first: (10-4)=6 and (2+1)=3, then 6*3=18."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-08",
+    "code": "int main() {\n  int r = 20 / (2 + 3);\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "r", "value": "4" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["4"],
+    "inputMode": "final-only",
+    "teachMe": "Parens force 2+3=5 first, then 20/5=4."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-08",
+    "code": "int main() {\n  int r = ((1 + 2) * 3) - 4;\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "r", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "Innermost first: (1+2)=3, then (3*3)=9, then 9-4=5."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-08",
+    "code": "int main() {\n  int x = 5;\n  int r = (x + 3) * 2;\n  cout << r;\n  return 0;\n}",
+    "variables": ["x", "r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "5" },
+      { "line": 3, "variable": "r", "value": "16" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["16"],
+    "inputMode": "final-only",
+    "teachMe": "(5+3)=8 first, then 8*2=16."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-08",
+    "code": "int main() {\n  int r = 100 / (5 * 2);\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 2, "variable": "r", "value": "10" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10"],
+    "inputMode": "final-only",
+    "teachMe": "(5*2)=10 first, then 100/10=10."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-08",
+    "code": "int avg = ___ a + b ___ / 2;",
+    "clozeSentence": "Add the parens around a + b so it evaluates first; the opener is ___",
+    "answer": "(",
+    "explanation": "(a + b) / 2 forces the sum first."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-08",
+    "code": "int r = (1 + 2) * 3;  // r is ___",
+    "clozeSentence": "With parens, r is ___",
+    "answer": "9",
+    "explanation": "(1+2)=3, then 3*3=9."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-08",
+    "code": "int r = 20 / (2 + 3);  // r is ___",
+    "clozeSentence": "Parens force the sum first, so r is ___",
+    "answer": "4",
+    "explanation": "(2+3)=5, then 20/5=4."
+  },
+  {
+    "type": "write",
+    "atomId": "A-08",
+    "level": 1,
+    "spec": "Write one line declaring int r equal to (1 + 2) * 3",
+    "expectedAnswer": "int r = (1 + 2) * 3;",
+    "keyChecks": ["int", "r", "(1 + 2)", "*", "3", ";"],
+    "explanation": "Parens make 1+2 evaluate first."
+  },
+  {
+    "type": "write",
+    "atomId": "A-08",
+    "level": 2,
+    "spec": "Declare int a = 4 and int b = 6, then int avg as (a + b) / 2. Three lines.",
+    "expectedAnswer": "int a = 4;\nint b = 6;\nint avg = (a + b) / 2;",
+    "keyChecks": ["int a = 4;", "int b = 6;", "int avg", "(a + b)", "/", "2"],
+    "explanation": "Parens before /."
+  },
+  {
+    "type": "procedural",
+    "atomId": "A-08",
+    "id": "PD-A08-01",
+    "section": "L4 parens override",
+    "prompt": "Write a single line: int avg as the sum of a and b divided by 2, with parens to force the sum first",
+    "expectedAnswer": "int avg = (a + b) / 2;",
+    "keyChecks": ["int", "avg", "(a + b)", "/", "2", ";"],
+    "variants": [
+      { "prompt": "Declare int r = (x + 3) * 2 on one line", "expectedAnswer": "int r = (x + 3) * 2;" },
+      { "prompt": "Declare int total = (price + tax) * count on one line", "expectedAnswer": "int total = (price + tax) * count;" }
+    ]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "A-09",
+    "levelLabel": "L4 -> compound assign (running total)",
+    "fullCode": "int total = 0;\ntotal += 5;\ntotal += 3;\ncout << total;",
+    "steps": [
+      { "line": 1, "code": "int total = 0;", "annotation": "Start total at zero", "atomIds": ["V-10"] },
+      { "line": 2, "code": "total += 5;", "annotation": "+= adds 5; total becomes 5", "atomIds": ["A-09"] },
+      { "line": 3, "code": "total += 3;", "annotation": "+= adds 3; total becomes 8", "atomIds": ["A-09"] },
+      { "line": 4, "code": "cout << total;", "annotation": "Output 8", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-09",
+    "levelLabel": "L4 -> compound *= (currency scale)",
+    "fullCode": "int amount = 50;\namount *= 2;\ncout << amount;",
+    "steps": [
+      { "line": 1, "code": "int amount = 50;", "annotation": "Initial amount", "atomIds": ["V-10"] },
+      { "line": 2, "code": "amount *= 2;", "annotation": "*= 2 doubles; amount becomes 100", "atomIds": ["A-09"] },
+      { "line": 3, "code": "cout << amount;", "annotation": "Output 100", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "A-09",
+    "code": "int main() {\n  int total = 0;\n  total += 5;\n  total += 3;\n  cout << total;\n  return 0;\n}",
+    "variables": ["total"],
+    "expectedSteps": [
+      { "line": 2, "variable": "total", "value": "0" },
+      { "line": 3, "variable": "total", "value": "5" },
+      { "line": 4, "variable": "total", "value": "8" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "+= adds in place. 0 + 5 = 5, then 5 + 3 = 8."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-09",
+    "code": "int main() {\n  int x = 10;\n  x -= 3;\n  cout << x;\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "10" },
+      { "line": 3, "variable": "x", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "-= subtracts in place. 10 - 3 = 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-09",
+    "code": "int main() {\n  int amount = 50;\n  amount *= 2;\n  cout << amount;\n  return 0;\n}",
+    "variables": ["amount"],
+    "expectedSteps": [
+      { "line": 2, "variable": "amount", "value": "50" },
+      { "line": 3, "variable": "amount", "value": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["100"],
+    "inputMode": "final-only",
+    "teachMe": "*= multiplies in place. 50 * 2 = 100."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-09",
+    "code": "int main() {\n  int n = 100;\n  n /= 4;\n  cout << n;\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "100" },
+      { "line": 3, "variable": "n", "value": "25" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["25"],
+    "inputMode": "final-only",
+    "teachMe": "/= divides in place. 100 / 4 = 25."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-09",
+    "code": "int main() {\n  int x = 5;\n  x += 5;\n  x -= 2;\n  cout << x;\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "5" },
+      { "line": 3, "variable": "x", "value": "10" },
+      { "line": 4, "variable": "x", "value": "8" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "+= and -= chain. 5 + 5 = 10, then 10 - 2 = 8."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-09",
+    "code": "int main() {\n  int score = 0;\n  score += 10;\n  score += 25;\n  score += 5;\n  cout << score;\n  return 0;\n}",
+    "variables": ["score"],
+    "expectedSteps": [
+      { "line": 2, "variable": "score", "value": "0" },
+      { "line": 3, "variable": "score", "value": "10" },
+      { "line": 4, "variable": "score", "value": "35" },
+      { "line": 5, "variable": "score", "value": "40" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["40"],
+    "inputMode": "final-only",
+    "teachMe": "Three += in a row: 0+10=10, 10+25=35, 35+5=40."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-09",
+    "code": "int main() {\n  int x = 8;\n  x *= 3;\n  x -= 4;\n  cout << x;\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "8" },
+      { "line": 3, "variable": "x", "value": "24" },
+      { "line": 4, "variable": "x", "value": "20" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["20"],
+    "inputMode": "final-only",
+    "teachMe": "8 * 3 = 24, then 24 - 4 = 20."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-09",
+    "code": "int total = 0;\ntotal ___ 5;",
+    "clozeSentence": "Add 5 to total in place with the ___ operator",
+    "answer": "+=",
+    "explanation": "+= is shorthand for total = total + 5."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-09",
+    "code": "int x = 10;\nx ___ 3;",
+    "clozeSentence": "Subtract 3 from x in place with the ___ operator",
+    "answer": "-=",
+    "explanation": "-= is shorthand for x = x - 3."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-09",
+    "code": "int amount = 50;\namount ___ 2;",
+    "clozeSentence": "Double amount in place with the ___ operator",
+    "answer": "*=",
+    "explanation": "*= is shorthand for amount = amount * 2."
+  },
+  {
+    "type": "write",
+    "atomId": "A-09",
+    "level": 1,
+    "spec": "Write one line that adds 5 to total using compound assignment",
+    "expectedAnswer": "total += 5;",
+    "keyChecks": ["total", "+=", "5", ";"],
+    "explanation": "+= adds in place."
+  },
+  {
+    "type": "write",
+    "atomId": "A-09",
+    "level": 2,
+    "spec": "Declare int balance = 100, then on the next line subtract 30 from balance using compound assignment. Two lines.",
+    "expectedAnswer": "int balance = 100;\nbalance -= 30;",
+    "keyChecks": ["int balance = 100;", "balance", "-=", "30"],
+    "explanation": "-= subtracts in place."
+  },
+  {
+    "type": "matrix",
+    "atomId": "A-09",
+    "id": "CM-A09-01",
+    "section": "L4 compound assign",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: total += 5;", "code": "total += 5;" },
+      { "label": "Example B: x -= 3;", "code": "x -= 3;" }
+    ],
+    "prompt": "By the same pattern, double amount in place using compound multiply.",
+    "expectedAnswer": "amount *= 2;",
+    "keyChecks": ["amount", "*=", "2", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "A-09",
+    "id": "CMEM-A09-01",
+    "section": "L4 compound assign",
+    "question": "Type the line that adds 5 to total in place",
+    "code": "total += 5;",
+    "keyChecks": ["total", "+=", "5", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "A-10",
+    "levelLabel": "L4 -> increment ++ (counter)",
+    "fullCode": "int i = 0;\ni++;\ni++;\ncout << i;",
+    "steps": [
+      { "line": 1, "code": "int i = 0;", "annotation": "Start counter at zero", "atomIds": ["V-10"] },
+      { "line": 2, "code": "i++;", "annotation": "++ adds 1; i becomes 1", "atomIds": ["A-10"] },
+      { "line": 3, "code": "i++;", "annotation": "++ adds 1; i becomes 2", "atomIds": ["A-10"] },
+      { "line": 4, "code": "cout << i;", "annotation": "Output 2", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-10",
+    "levelLabel": "L4 -> increment ++ (lap counter)",
+    "fullCode": "int laps = 5;\nlaps++;\ncout << laps;",
+    "steps": [
+      { "line": 1, "code": "int laps = 5;", "annotation": "Five laps so far", "atomIds": ["V-10"] },
+      { "line": 2, "code": "laps++;", "annotation": "++ adds 1; laps becomes 6", "atomIds": ["A-10"] },
+      { "line": 3, "code": "cout << laps;", "annotation": "Output 6", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "A-10",
+    "code": "int main() {\n  int i = 0;\n  i++;\n  i++;\n  cout << i;\n  return 0;\n}",
+    "variables": ["i"],
+    "expectedSteps": [
+      { "line": 2, "variable": "i", "value": "0" },
+      { "line": 3, "variable": "i", "value": "1" },
+      { "line": 4, "variable": "i", "value": "2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2"],
+    "inputMode": "final-only",
+    "teachMe": "++ adds 1 each call. 0 -> 1 -> 2."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-10",
+    "code": "int main() {\n  int laps = 5;\n  laps++;\n  cout << laps;\n  return 0;\n}",
+    "variables": ["laps"],
+    "expectedSteps": [
+      { "line": 2, "variable": "laps", "value": "5" },
+      { "line": 3, "variable": "laps", "value": "6" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["6"],
+    "inputMode": "final-only",
+    "teachMe": "++ adds 1. 5 -> 6."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-10",
+    "code": "int main() {\n  int n = 10;\n  n++;\n  n++;\n  n++;\n  cout << n;\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "10" },
+      { "line": 3, "variable": "n", "value": "11" },
+      { "line": 4, "variable": "n", "value": "12" },
+      { "line": 5, "variable": "n", "value": "13" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["13"],
+    "inputMode": "final-only",
+    "teachMe": "Three ++ calls: 10 -> 11 -> 12 -> 13."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-10",
+    "code": "int main() {\n  int count = 99;\n  count++;\n  cout << count;\n  return 0;\n}",
+    "variables": ["count"],
+    "expectedSteps": [
+      { "line": 2, "variable": "count", "value": "99" },
+      { "line": 3, "variable": "count", "value": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["100"],
+    "inputMode": "final-only",
+    "teachMe": "++ on 99 gives 100."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-10",
+    "code": "int main() {\n  int x = -1;\n  x++;\n  cout << x;\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "-1" },
+      { "line": 3, "variable": "x", "value": "0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "++ on -1 gives 0."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-10",
+    "code": "int main() {\n  int a = 3;\n  a++;\n  int b = a + 1;\n  cout << b;\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "3" },
+      { "line": 3, "variable": "a", "value": "4" },
+      { "line": 4, "variable": "b", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "a++ makes a = 4, then b = a + 1 = 5."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-10",
+    "code": "int main() {\n  int i = 1;\n  i++;\n  i++;\n  i++;\n  i++;\n  cout << i;\n  return 0;\n}",
+    "variables": ["i"],
+    "expectedSteps": [
+      { "line": 2, "variable": "i", "value": "1" },
+      { "line": 3, "variable": "i", "value": "2" },
+      { "line": 4, "variable": "i", "value": "3" },
+      { "line": 5, "variable": "i", "value": "4" },
+      { "line": 6, "variable": "i", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "Four ++ from 1 gives 5."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-10",
+    "code": "int i = 0;\ni___;",
+    "clozeSentence": "Increment i by one with the ___ operator",
+    "answer": "++",
+    "explanation": "i++ adds 1 to i."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-10",
+    "code": "for (int i = 0; i < n; i___) {\n  cout << i;\n}",
+    "clozeSentence": "The standard for-loop step is i___",
+    "answer": "++",
+    "explanation": "i++ is the canonical step in Q3/Q4 for-loops."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-10",
+    "code": "int laps = 5;\nlaps___;  // laps is now 6",
+    "clozeSentence": "Add one to laps using the ___ operator",
+    "answer": "++",
+    "explanation": "++ adds 1."
+  },
+  {
+    "type": "write",
+    "atomId": "A-10",
+    "level": 1,
+    "spec": "Write one line that increments i using the postfix increment operator",
+    "expectedAnswer": "i++;",
+    "keyChecks": ["i", "++", ";"],
+    "explanation": "i++ adds 1."
+  },
+  {
+    "type": "write",
+    "atomId": "A-10",
+    "level": 2,
+    "spec": "Declare int count = 0, then increment count using ++. Two lines.",
+    "expectedAnswer": "int count = 0;\ncount++;",
+    "keyChecks": ["int count = 0;", "count", "++", ";"],
+    "explanation": "Initialise then increment."
+  },
+  {
+    "type": "matrix",
+    "atomId": "A-10",
+    "id": "CM-A10-01",
+    "section": "L4 increment ++",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: i++;", "code": "i++;" },
+      { "label": "Example B: laps++;", "code": "laps++;" }
+    ],
+    "prompt": "By the same pattern, increment count using the postfix operator.",
+    "expectedAnswer": "count++;",
+    "keyChecks": ["count", "++", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "A-10",
+    "id": "CMEM-A10-01",
+    "section": "L4 increment ++",
+    "question": "Type the line that increments i by one (postfix)",
+    "code": "i++;",
+    "keyChecks": ["i", "++", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "A-11",
+    "levelLabel": "L4 -> decrement -- (countdown)",
+    "fullCode": "int n = 10;\nn--;\nn--;\ncout << n;",
+    "steps": [
+      { "line": 1, "code": "int n = 10;", "annotation": "Start countdown at 10", "atomIds": ["V-10"] },
+      { "line": 2, "code": "n--;", "annotation": "-- subtracts 1; n becomes 9", "atomIds": ["A-11"] },
+      { "line": 3, "code": "n--;", "annotation": "-- subtracts 1; n becomes 8", "atomIds": ["A-11"] },
+      { "line": 4, "code": "cout << n;", "annotation": "Output 8", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "A-11",
+    "levelLabel": "L4 -> decrement -- (lives left)",
+    "fullCode": "int lives = 3;\nlives--;\ncout << lives;",
+    "steps": [
+      { "line": 1, "code": "int lives = 3;", "annotation": "Start with 3 lives", "atomIds": ["V-10"] },
+      { "line": 2, "code": "lives--;", "annotation": "-- subtracts 1; lives becomes 2", "atomIds": ["A-11"] },
+      { "line": 3, "code": "cout << lives;", "annotation": "Output 2", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "A-11",
+    "code": "int main() {\n  int n = 10;\n  n--;\n  n--;\n  cout << n;\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "10" },
+      { "line": 3, "variable": "n", "value": "9" },
+      { "line": 4, "variable": "n", "value": "8" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "-- subtracts 1 each call. 10 -> 9 -> 8."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-11",
+    "code": "int main() {\n  int lives = 3;\n  lives--;\n  cout << lives;\n  return 0;\n}",
+    "variables": ["lives"],
+    "expectedSteps": [
+      { "line": 2, "variable": "lives", "value": "3" },
+      { "line": 3, "variable": "lives", "value": "2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2"],
+    "inputMode": "final-only",
+    "teachMe": "-- removes one life. 3 -> 2."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-11",
+    "code": "int main() {\n  int n = 1;\n  n--;\n  cout << n;\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "1" },
+      { "line": 3, "variable": "n", "value": "0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "-- on 1 gives 0."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-11",
+    "code": "int main() {\n  int x = 5;\n  x--;\n  x--;\n  x--;\n  cout << x;\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "5" },
+      { "line": 3, "variable": "x", "value": "4" },
+      { "line": 4, "variable": "x", "value": "3" },
+      { "line": 5, "variable": "x", "value": "2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2"],
+    "inputMode": "final-only",
+    "teachMe": "Three -- from 5 gives 2."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-11",
+    "code": "int main() {\n  int count = 0;\n  count--;\n  cout << count;\n  return 0;\n}",
+    "variables": ["count"],
+    "expectedSteps": [
+      { "line": 2, "variable": "count", "value": "0" },
+      { "line": 3, "variable": "count", "value": "-1" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["-1"],
+    "inputMode": "final-only",
+    "teachMe": "-- on 0 gives -1. Ints can go negative."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-11",
+    "code": "int main() {\n  int a = 8;\n  int b = 3;\n  a--;\n  b--;\n  cout << a;\n  cout << b;\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "8" },
+      { "line": 3, "variable": "b", "value": "3" },
+      { "line": 4, "variable": "a", "value": "7" },
+      { "line": 5, "variable": "b", "value": "2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7", "2"],
+    "inputMode": "final-only",
+    "teachMe": "Two separate decrements. a 8->7, b 3->2."
+  },
+  {
+    "type": "trace",
+    "atomId": "A-11",
+    "code": "int main() {\n  int n = 100;\n  n--;\n  n--;\n  n--;\n  n--;\n  n--;\n  cout << n;\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "100" },
+      { "line": 3, "variable": "n", "value": "99" },
+      { "line": 4, "variable": "n", "value": "98" },
+      { "line": 5, "variable": "n", "value": "97" },
+      { "line": 6, "variable": "n", "value": "96" },
+      { "line": 7, "variable": "n", "value": "95" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["95"],
+    "inputMode": "final-only",
+    "teachMe": "Five -- from 100 gives 95."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-11",
+    "code": "int n = 10;\nn___;",
+    "clozeSentence": "Decrement n by one with the ___ operator",
+    "answer": "--",
+    "explanation": "n-- subtracts 1 from n."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-11",
+    "code": "int lives = 3;\nlives___;  // lives is now 2",
+    "clozeSentence": "Subtract one from lives using the ___ operator",
+    "answer": "--",
+    "explanation": "-- subtracts 1."
+  },
+  {
+    "type": "cloze",
+    "atomId": "A-11",
+    "code": "for (int i = 5; i > 0; i___) {\n  cout << i;\n}",
+    "clozeSentence": "A countdown loop steps with i___",
+    "answer": "--",
+    "explanation": "-- counts down."
+  },
+  {
+    "type": "write",
+    "atomId": "A-11",
+    "level": 1,
+    "spec": "Write one line that decrements n using the postfix decrement operator",
+    "expectedAnswer": "n--;",
+    "keyChecks": ["n", "--", ";"],
+    "explanation": "n-- subtracts 1."
+  },
+  {
+    "type": "write",
+    "atomId": "A-11",
+    "level": 2,
+    "spec": "Declare int lives = 3, then decrement lives using --. Two lines.",
+    "expectedAnswer": "int lives = 3;\nlives--;",
+    "keyChecks": ["int lives = 3;", "lives", "--", ";"],
+    "explanation": "Initialise then decrement."
+  },
+  {
+    "type": "matrix",
+    "atomId": "A-11",
+    "id": "CM-A11-01",
+    "section": "L4 decrement --",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: n--;", "code": "n--;" },
+      { "label": "Example B: lives--;", "code": "lives--;" }
+    ],
+    "prompt": "By the same pattern, decrement count using the postfix operator.",
+    "expectedAnswer": "count--;",
+    "keyChecks": ["count", "--", ";"]
+  }
+]

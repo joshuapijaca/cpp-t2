@@ -1,0 +1,3634 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "W-01",
+    "levelLabel": "L7 -> while loop",
+    "fullCode": "int lives = 3;\nwhile (lives > 0) {\n  cout << lives << \" \";\n  lives--;\n}\ncout << \"game over\";",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int lives = 3;",
+        "annotation": "Setup: lives starts at 3 before any check.",
+        "atomIds": [
+          "W-01",
+          "V-01"
+        ]
+      },
+      {
+        "line": 2,
+        "code": "while (lives > 0) {",
+        "annotation": "Condition checked first. 3 > 0 is true, enter body.",
+        "atomIds": [
+          "W-01"
+        ]
+      },
+      {
+        "line": 3,
+        "code": "  cout << lives << \" \";",
+        "annotation": "Print current value: 3, then 2, then 1 across iters.",
+        "atomIds": [
+          "W-01"
+        ]
+      },
+      {
+        "line": 4,
+        "code": "  lives--;",
+        "annotation": "Decrement so the cond eventually becomes false.",
+        "atomIds": [
+          "W-01"
+        ]
+      },
+      {
+        "line": 6,
+        "code": "cout << \"game over\";",
+        "annotation": "After lives hits 0, cond fails, fall through to here.",
+        "atomIds": [
+          "W-01"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-01",
+    "levelLabel": "L7 -> while loop accumulator",
+    "fullCode": "int score = 0;\nint i = 1;\nwhile (i <= 4) {\n  score = score + i;\n  i++;\n}\ncout << score;",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int score = 0;",
+        "annotation": "Accumulator starts at 0 — the running total box.",
+        "atomIds": [
+          "W-01"
+        ]
+      },
+      {
+        "line": 3,
+        "code": "while (i <= 4) {",
+        "annotation": "Loop while i is at most 4. Will run for i = 1,2,3,4.",
+        "atomIds": [
+          "W-01"
+        ]
+      },
+      {
+        "line": 4,
+        "code": "  score = score + i;",
+        "annotation": "Add i to score: 0+1, 1+2, 3+3, 6+4 = 10.",
+        "atomIds": [
+          "W-01"
+        ]
+      },
+      {
+        "line": 5,
+        "code": "  i++;",
+        "annotation": "Step the loop var so the cond eventually fails.",
+        "atomIds": [
+          "W-01"
+        ]
+      },
+      {
+        "line": 7,
+        "code": "cout << score;",
+        "annotation": "Print final 10 after loop exits at i = 5.",
+        "atomIds": [
+          "W-01"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "W-01",
+    "code": "int lives = 3;\nwhile (lives > 0) {\n  cout << lives;\n  lives--;\n}",
+    "variables": [
+      "lives"
+    ],
+    "expectedSteps": [
+      {
+        "line": 4,
+        "variable": "lives",
+        "value": "0"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "3",
+      "2",
+      "1"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Loop runs 3 times printing 3, 2, 1. Exits when lives becomes 0."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-01",
+    "code": "int n = 5;\nwhile (n > 1) {\n  n = n - 2;\n  cout << n << \" \";\n}",
+    "variables": [
+      "n"
+    ],
+    "expectedSteps": [
+      {
+        "line": 3,
+        "variable": "n",
+        "value": "-1"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "3 ",
+      "1 ",
+      "-1 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "n goes 5 -> 3 -> 1 -> -1. Each time body runs, n -= 2 first then cout."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-01",
+    "code": "int x = 10;\nwhile (x >= 7) {\n  cout << x << \" \";\n  x--;\n}",
+    "variables": [
+      "x"
+    ],
+    "expectedSteps": [
+      {
+        "line": 4,
+        "variable": "x",
+        "value": "6"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "10 ",
+      "9 ",
+      "8 ",
+      "7 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Loops while x >= 7: prints 10,9,8,7 then x-- makes 6, cond fails."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-01",
+    "code": "int total = 0;\nint i = 1;\nwhile (i <= 4) {\n  total = total + i;\n  i++;\n}\ncout << total;",
+    "variables": [
+      "total",
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 5,
+        "variable": "i",
+        "value": "5"
+      },
+      {
+        "line": 4,
+        "variable": "total",
+        "value": "10"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "10"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Accumulator: total = 1+2+3+4 = 10. i ends at 5 because that broke the cond."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-01",
+    "code": "int p = 1;\nwhile (p < 30) {\n  p = p * 2;\n}\ncout << p;",
+    "variables": [
+      "p"
+    ],
+    "expectedSteps": [
+      {
+        "line": 3,
+        "variable": "p",
+        "value": "32"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "32"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Doubling: 1,2,4,8,16,32. After 32, cond 32<30 is false so loop exits."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-01",
+    "code": "int n = 10;\nwhile (n > 5) {\n  cout << n << \"-\";\n  n = n - 1;\n}\ncout << \"end\";",
+    "variables": [
+      "n"
+    ],
+    "expectedSteps": [
+      {
+        "line": 4,
+        "variable": "n",
+        "value": "5"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "10-",
+      "9-",
+      "8-",
+      "7-",
+      "6-",
+      "end"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Prints 10 through 6, then n=5 fails 5>5, falls through to print end."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-01",
+    "code": "int a = 0;\nwhile (a < 4) {\n  a = a + 1;\n}\ncout << a;",
+    "variables": [
+      "a"
+    ],
+    "expectedSteps": [
+      {
+        "line": 3,
+        "variable": "a",
+        "value": "4"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "4"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "a counts up 1,2,3,4. When a hits 4, cond 4<4 is false, exit. Print 4."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-01",
+    "code": "int i = 0;\n___ (i < 3) {\n  cout << i;\n  i++;\n}",
+    "clozeSentence": "The ___ keyword starts a conditional repeat",
+    "answer": "while",
+    "explanation": "while (cond) { body } repeats while cond is true."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-01",
+    "code": "int n = 5;\nwhile (n ___ 0) {\n  cout << n;\n  n--;\n}",
+    "clozeSentence": "Use ___ as the comparison so the loop ends when n hits 0",
+    "answer": ">",
+    "explanation": "n > 0 stays true for 5,4,3,2,1 then becomes false at n = 0."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-01",
+    "code": "int i = 0;\nwhile (i < 5) {\n  cout << i;\n  ___;\n}",
+    "clozeSentence": "Without ___ the cond never changes -> infinite loop",
+    "answer": "i++",
+    "explanation": "i++ steps the loop var so cond eventually becomes false."
+  },
+  {
+    "type": "write",
+    "atomId": "W-01",
+    "level": 2,
+    "spec": "Write a while loop that prints the numbers 1, 2, 3, 4, 5 separated by spaces. Use int i starting at 1.",
+    "expectedAnswer": "int i = 1;\nwhile (i <= 5) {\n    cout << i << \" \";\n    i++;\n}",
+    "keyChecks": [
+      "int i = 1",
+      "while",
+      "i <= 5",
+      "cout",
+      "i++"
+    ],
+    "explanation": "Init i=1, cond i<=5, body prints + steps. Standard counting while."
+  },
+  {
+    "type": "write",
+    "atomId": "W-01",
+    "level": 2,
+    "spec": "Write a while loop that counts down from 10 to 1 and prints each value.",
+    "expectedAnswer": "int n = 10;\nwhile (n >= 1) {\n    cout << n << \" \";\n    n--;\n}",
+    "keyChecks": [
+      "int n = 10",
+      "while",
+      "n >= 1",
+      "cout",
+      "n--"
+    ],
+    "explanation": "Countdown: start at 10, decrement, stop when n drops below 1."
+  },
+  {
+    "type": "write",
+    "atomId": "W-01",
+    "level": 2,
+    "spec": "Write a while loop that doubles a value v starting at 1 until v reaches at least 100. Print final v.",
+    "expectedAnswer": "int v = 1;\nwhile (v < 100) {\n    v = v * 2;\n}\ncout << v;",
+    "keyChecks": [
+      "int v = 1",
+      "while",
+      "v < 100",
+      "v = v * 2",
+      "cout"
+    ],
+    "explanation": "Doubles 1,2,4,8,16,32,64,128 — exits at 128 once cond fails."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-02",
+    "levelLabel": "L7 -> do-while",
+    "fullCode": "int pin;\ndo {\n  cout << \"enter pin: \";\n  cin >> pin;\n} while (pin != 1234);\ncout << \"unlocked\";",
+    "steps": [
+      {
+        "line": 2,
+        "code": "do {",
+        "annotation": "do-while always runs the body at least once before the check.",
+        "atomIds": [
+          "W-02"
+        ]
+      },
+      {
+        "line": 3,
+        "code": "  cout << \"enter pin: \";",
+        "annotation": "Prompt user — guaranteed to print at least once.",
+        "atomIds": [
+          "W-02"
+        ]
+      },
+      {
+        "line": 4,
+        "code": "  cin >> pin;",
+        "annotation": "Read input.",
+        "atomIds": [
+          "W-02",
+          "I-02"
+        ]
+      },
+      {
+        "line": 5,
+        "code": "} while (pin != 1234);",
+        "annotation": "Check AFTER body. If wrong, loop back; if 1234, exit.",
+        "atomIds": [
+          "W-02"
+        ]
+      },
+      {
+        "line": 6,
+        "code": "cout << \"unlocked\";",
+        "annotation": "Reached only after correct pin entered.",
+        "atomIds": [
+          "W-02"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-02",
+    "levelLabel": "L7 -> do-while menu",
+    "fullCode": "int choice;\ndo {\n  cout << \"1=play 2=quit: \";\n  cin >> choice;\n} while (choice != 2);\ncout << \"bye\";",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int choice;",
+        "annotation": "Declare without init — will be assigned by cin in body.",
+        "atomIds": [
+          "W-02",
+          "V-01"
+        ]
+      },
+      {
+        "line": 2,
+        "code": "do {",
+        "annotation": "Body runs first, condition tested at the bottom.",
+        "atomIds": [
+          "W-02"
+        ]
+      },
+      {
+        "line": 4,
+        "code": "  cin >> choice;",
+        "annotation": "Read user's menu pick into choice.",
+        "atomIds": [
+          "W-02",
+          "I-02"
+        ]
+      },
+      {
+        "line": 5,
+        "code": "} while (choice != 2);",
+        "annotation": "Repeat until user picks 2.",
+        "atomIds": [
+          "W-02"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "W-02",
+    "code": "int n = 5;\ndo {\n  cout << n << \" \";\n  n++;\n} while (n < 3);",
+    "variables": [
+      "n"
+    ],
+    "expectedSteps": [
+      {
+        "line": 4,
+        "variable": "n",
+        "value": "6"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "5 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Body runs ONCE first (prints 5, n becomes 6) — then 6<3 fails so exit."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-02",
+    "code": "int x = 1;\ndo {\n  x = x * 3;\n} while (x < 20);\ncout << x;",
+    "variables": [
+      "x"
+    ],
+    "expectedSteps": [
+      {
+        "line": 3,
+        "variable": "x",
+        "value": "27"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "27"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Multiply by 3: 1->3->9->27. After 27, 27<20 fails. Print 27."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-02",
+    "code": "int a = 0;\ndo {\n  cout << a << \"-\";\n  a++;\n} while (a < 3);",
+    "variables": [
+      "a"
+    ],
+    "expectedSteps": [
+      {
+        "line": 4,
+        "variable": "a",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0-",
+      "1-",
+      "2-"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Body runs for a = 0,1,2. After a hits 3, cond 3<3 fails."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-02",
+    "code": "int k = 10;\ndo {\n  k = k - 4;\n  cout << k << \" \";\n} while (k > 0);",
+    "variables": [
+      "k"
+    ],
+    "expectedSteps": [
+      {
+        "line": 3,
+        "variable": "k",
+        "value": "-2"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "6 ",
+      "2 ",
+      "-2 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Subtract 4 then print: 10-4=6, 6-4=2, 2-4=-2. -2>0 fails, exit."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-02",
+    "code": "int t = 100;\ndo {\n  cout << t << \" \";\n  t = t / 2;\n} while (t > 5);",
+    "variables": [
+      "t"
+    ],
+    "expectedSteps": [
+      {
+        "line": 4,
+        "variable": "t",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "100 ",
+      "50 ",
+      "25 ",
+      "12 ",
+      "6 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Print then halve (int division). 100,50,25,12,6 print; then t=3, cond 3>5 false."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-02",
+    "code": "int q = 0;\ndo {\n  q = q + 5;\n} while (q < 15);\ncout << q;",
+    "variables": [
+      "q"
+    ],
+    "expectedSteps": [
+      {
+        "line": 3,
+        "variable": "q",
+        "value": "15"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "15"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "q goes 0->5->10->15. After 15, 15<15 fails. Print 15."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-02",
+    "code": "int s = 8;\ndo {\n  cout << s << \" \";\n  s = s - 3;\n} while (s >= 0);",
+    "variables": [
+      "s"
+    ],
+    "expectedSteps": [
+      {
+        "line": 4,
+        "variable": "s",
+        "value": "-1"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "8 ",
+      "5 ",
+      "2 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Print then subtract 3. 8,5,2 print; then s=-1, cond -1>=0 false."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-02",
+    "code": "int n;\n___ {\n  cin >> n;\n} while (n < 0);",
+    "clozeSentence": "The ___ keyword starts a body-first loop",
+    "answer": "do",
+    "explanation": "do { body } while (cond); runs body once before the first check."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-02",
+    "code": "int q = 0;\ndo {\n  q++;\n} while (q < 5)___",
+    "clozeSentence": "do-while ends with semicolon ___",
+    "answer": ";",
+    "explanation": "do-while is a statement so it ends in ; after the closing paren."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-02",
+    "code": "int x = 10;\ndo {\n  cout << x;\n  x--;\n} ___ (x > 7);",
+    "clozeSentence": "After the body, the ___ keyword introduces the cond",
+    "answer": "while",
+    "explanation": "do { ... } while (cond); — the while keyword closes the construct."
+  },
+  {
+    "type": "write",
+    "atomId": "W-02",
+    "level": 2,
+    "spec": "Write a do-while loop that reads int n from cin and repeats while n is less than 0. (i.e. keep prompting until non-negative.)",
+    "expectedAnswer": "int n;\ndo {\n    cin >> n;\n} while (n < 0);",
+    "keyChecks": [
+      "do",
+      "cin >> n",
+      "while",
+      "n < 0",
+      ";"
+    ],
+    "explanation": "do-while guarantees one cin call; loops if user enters a negative."
+  },
+  {
+    "type": "write",
+    "atomId": "W-02",
+    "level": 2,
+    "spec": "Write a do-while loop that prints i and increments i, looping while i < 4. Start i at 0.",
+    "expectedAnswer": "int i = 0;\ndo {\n    cout << i;\n    i++;\n} while (i < 4);",
+    "keyChecks": [
+      "int i = 0",
+      "do",
+      "cout << i",
+      "i++",
+      "while",
+      "i < 4"
+    ],
+    "explanation": "Prints 0,1,2,3. After i=4, cond 4<4 fails so loop exits."
+  },
+  {
+    "type": "write",
+    "atomId": "W-02",
+    "level": 2,
+    "spec": "Write a do-while loop that asks for choice (int) and repeats while choice != 2.",
+    "expectedAnswer": "int choice;\ndo {\n    cin >> choice;\n} while (choice != 2);",
+    "keyChecks": [
+      "int choice",
+      "do",
+      "cin >> choice",
+      "while",
+      "choice != 2"
+    ],
+    "explanation": "Body always runs once; loop continues until user enters 2."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-03",
+    "levelLabel": "L7 -> for loop",
+    "fullCode": "for (int i = 0; i < 4; i++) {\n  cout << i << \" \";\n}\ncout << \"done\";",
+    "steps": [
+      {
+        "line": 1,
+        "code": "for (int i = 0; i < 4; i++) {",
+        "annotation": "All three loop parts in one line: init=0, cond i<4, step i++.",
+        "atomIds": [
+          "W-03",
+          "W-04",
+          "W-05",
+          "W-06"
+        ]
+      },
+      {
+        "line": 2,
+        "code": "  cout << i << \" \";",
+        "annotation": "Body runs for each i = 0,1,2,3.",
+        "atomIds": [
+          "W-03"
+        ]
+      },
+      {
+        "line": 4,
+        "code": "cout << \"done\";",
+        "annotation": "After i becomes 4, cond fails so we fall through.",
+        "atomIds": [
+          "W-03"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-03",
+    "levelLabel": "L7 -> for print receipt",
+    "fullCode": "double prices[] = {2.5, 1.0, 4.5};\nfor (int i = 0; i < 3; i++) {\n  cout << prices[i] << endl;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "double prices[] = {2.5, 1.0, 4.5};",
+        "annotation": "Array of 3 prices.",
+        "atomIds": [
+          "W-03"
+        ]
+      },
+      {
+        "line": 2,
+        "code": "for (int i = 0; i < 3; i++) {",
+        "annotation": "Index loop — visits each slot 0,1,2.",
+        "atomIds": [
+          "W-03"
+        ]
+      },
+      {
+        "line": 3,
+        "code": "  cout << prices[i] << endl;",
+        "annotation": "Print element at current index.",
+        "atomIds": [
+          "W-03"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "W-03",
+    "code": "for (int i = 0; i < 3; i++) {\n  cout << i << \" \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0 ",
+      "1 ",
+      "2 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Prints 0,1,2. After body i++ makes i=3, cond 3<3 fails. Final i = 3."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-03",
+    "code": "for (int j = 1; j <= 4; j++) {\n  cout << j;\n}",
+    "variables": [
+      "j"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "j",
+        "value": "5"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Prints 1,2,3,4. j ends at 5 because 5<=4 is false."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-03",
+    "code": "for (int k = 5; k > 0; k--) {\n  cout << k << \" \";\n}",
+    "variables": [
+      "k"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "k",
+        "value": "0"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "5 ",
+      "4 ",
+      "3 ",
+      "2 ",
+      "1 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Countdown 5..1. After body k-- makes k=0, cond 0>0 fails."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-03",
+    "code": "for (int n = 0; n < 6; n = n + 2) {\n  cout << n << \" \";\n}",
+    "variables": [
+      "n"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "n",
+        "value": "6"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0 ",
+      "2 ",
+      "4 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Step is n+=2 not ++. Prints 0,2,4. n ends at 6, cond fails."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-03",
+    "code": "double prices[] = {2.5, 1.0, 4.5};\nfor (int i = 0; i < 3; i++) {\n  cout << prices[i] << \" \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 2,
+        "variable": "i",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "2.5 ",
+      "1 ",
+      "4.5 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Iterates array indices 0,1,2 printing each price."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-03",
+    "code": "int sum = 0;\nfor (int i = 1; i <= 3; i++) {\n  sum = sum + i;\n}\ncout << sum;",
+    "variables": [
+      "sum",
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 2,
+        "variable": "i",
+        "value": "4"
+      },
+      {
+        "line": 3,
+        "variable": "sum",
+        "value": "6"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "6"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Sum 1+2+3 = 6. i exits at 4 because 4<=3 fails."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-03",
+    "code": "for (int i = 10; i >= 5; i = i - 2) {\n  cout << i << \" \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "4"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "10 ",
+      "8 ",
+      "6 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Step i-=2: 10,8,6. After 6 step gives 4, cond 4>=5 fails."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-03",
+    "code": "___ (int i = 0; i < 5; i++) {\n  cout << i;\n}",
+    "clozeSentence": "The ___ keyword starts a counted loop",
+    "answer": "for",
+    "explanation": "for (init; cond; step) is the standard counting loop."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-03",
+    "code": "for (int i = 0; ___; i++) {\n  cout << i;\n}",
+    "clozeSentence": "Cond ___ keeps i below 5",
+    "answer": "i < 5",
+    "explanation": "Cond i<5 means body runs for i=0..4 then stops."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-03",
+    "code": "for (int i = 0; i < 5; ___) {\n  cout << i;\n}",
+    "clozeSentence": "Step clause ___ advances i each iter",
+    "answer": "i++",
+    "explanation": "i++ is the canonical step that adds 1 to i after each iter."
+  },
+  {
+    "type": "write",
+    "atomId": "W-03",
+    "level": 2,
+    "spec": "Write a for loop that prints 0 through 9 separated by spaces.",
+    "expectedAnswer": "for (int i = 0; i < 10; i++) {\n    cout << i << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < 10",
+      "i++",
+      "cout"
+    ],
+    "explanation": "Standard count-up: init 0, run while i<10, step i++."
+  },
+  {
+    "type": "write",
+    "atomId": "W-03",
+    "level": 2,
+    "spec": "Write a for loop that prints 1 through 5 inclusive.",
+    "expectedAnswer": "for (int i = 1; i <= 5; i++) {\n    cout << i << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 1",
+      "i <= 5",
+      "i++",
+      "cout"
+    ],
+    "explanation": "Inclusive 1..5 needs i <= 5 and i starts at 1."
+  },
+  {
+    "type": "write",
+    "atomId": "W-03",
+    "level": 2,
+    "spec": "Write a for loop that visits indices 0..n-1 of an array prices and prints each prices[i].",
+    "expectedAnswer": "for (int i = 0; i < n; i++) {\n    cout << prices[i] << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < n",
+      "i++",
+      "prices[i]"
+    ],
+    "explanation": "Array index loop: 0..n-1 reads each slot."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-04",
+    "levelLabel": "L7 -> init runs once",
+    "fullCode": "for (int g = 50; g <= 100; g = g + 25) {\n  cout << g << \" \";\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "for (int g = 50; g <= 100; g = g + 25) {",
+        "annotation": "int g = 50 runs ONCE — only at the very start. Never again.",
+        "atomIds": [
+          "W-04"
+        ]
+      },
+      {
+        "line": 2,
+        "code": "  cout << g << \" \";",
+        "annotation": "Print: g goes 50,75,100 across iters — but init never re-runs.",
+        "atomIds": [
+          "W-04"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-04",
+    "levelLabel": "L7 -> init declares a fresh var",
+    "fullCode": "for (int student = 1; student <= 3; student++) {\n  cout << \"student \" << student << endl;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "for (int student = 1; student <= 3; student++) {",
+        "annotation": "int student = 1 declares + initializes ONCE. After loop, student is gone.",
+        "atomIds": [
+          "W-04",
+          "V-01"
+        ]
+      },
+      {
+        "line": 2,
+        "code": "  cout << \"student \" << student << endl;",
+        "annotation": "Body sees current student value each iter.",
+        "atomIds": [
+          "W-04"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "W-04",
+    "code": "for (int g = 0; g < 3; g++) {\n  cout << g;\n}",
+    "variables": [
+      "g"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "g",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0",
+      "1",
+      "2"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "init g=0 runs once. Body prints g=0,1,2. Final g = 3."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-04",
+    "code": "for (int s = 50; s <= 100; s = s + 25) {\n  cout << s << \" \";\n}",
+    "variables": [
+      "s"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "s",
+        "value": "125"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "50 ",
+      "75 ",
+      "100 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Init s=50 once; step s+=25. Prints 50,75,100. s ends at 125."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-04",
+    "code": "for (int x = 100; x > 80; x = x - 5) {\n  cout << x << \" \";\n}",
+    "variables": [
+      "x"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "x",
+        "value": "80"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "100 ",
+      "95 ",
+      "90 ",
+      "85 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Init 100 once. Step -=5. Prints 100,95,90,85. Then x=80, cond fails."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-04",
+    "code": "for (int g = 1; g <= 3; g++) {\n  cout << g * 10 << \" \";\n}",
+    "variables": [
+      "g"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "g",
+        "value": "4"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "10 ",
+      "20 ",
+      "30 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "g initialized once to 1. Prints g*10 = 10,20,30. Final g = 4."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-04",
+    "code": "int total = 0;\nfor (int g = 65; g <= 95; g = g + 10) {\n  total = total + g;\n}\ncout << total;",
+    "variables": [
+      "total",
+      "g"
+    ],
+    "expectedSteps": [
+      {
+        "line": 2,
+        "variable": "g",
+        "value": "105"
+      },
+      {
+        "line": 3,
+        "variable": "total",
+        "value": "320"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "320"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "g visits 65,75,85,95. Sum = 65+75+85+95 = 320. Final g = 105."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-04",
+    "code": "for (int n = 2; n < 16; n = n * 2) {\n  cout << n << \" \";\n}",
+    "variables": [
+      "n"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "n",
+        "value": "16"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "2 ",
+      "4 ",
+      "8 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Init n=2. Step n*=2. Prints 2,4,8. After 8*2=16, cond 16<16 fails."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-04",
+    "code": "for (int i = 4; i >= 0; i--) {\n  cout << i << \"-\";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "-1"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "4-",
+      "3-",
+      "2-",
+      "1-",
+      "0-"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Init i=4 runs once. Prints 4,3,2,1,0. Then step gives -1, cond fails."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-04",
+    "code": "for (___ = 0; i < 5; i++) {\n  cout << i;\n}",
+    "clozeSentence": "Init declares the loop var: ___",
+    "answer": "int i",
+    "explanation": "Init usually declares a fresh loop var with int."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-04",
+    "code": "for (int score = ___; score <= 100; score = score + 10) {\n  cout << score;\n}",
+    "clozeSentence": "Init clause sets score to ___ before first iter",
+    "answer": "60",
+    "explanation": "Any starting integer works; init runs only once."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-04",
+    "code": "for (int j ___ 0; j < 3; j++) {\n  cout << j;\n}",
+    "clozeSentence": "Use ___ to assign j its initial value",
+    "answer": "=",
+    "explanation": "Init: int j = 0 — = is the assignment in init."
+  },
+  {
+    "type": "write",
+    "atomId": "W-04",
+    "level": 1,
+    "spec": "Write the for-loop header that initializes int g to 50, with cond g <= 100 and step g = g + 10.",
+    "expectedAnswer": "for (int g = 50; g <= 100; g = g + 10)",
+    "keyChecks": [
+      "for",
+      "int g = 50",
+      "g <= 100",
+      "g = g + 10"
+    ],
+    "explanation": "Init runs once setting g=50. Cond/step appear after."
+  },
+  {
+    "type": "write",
+    "atomId": "W-04",
+    "level": 1,
+    "spec": "Write a for-loop header that initializes student to 1, runs while student <= 5, with step student++.",
+    "expectedAnswer": "for (int student = 1; student <= 5; student++)",
+    "keyChecks": [
+      "for",
+      "int student = 1",
+      "student <= 5",
+      "student++"
+    ],
+    "explanation": "Standard counting header — init clause runs only once."
+  },
+  {
+    "type": "write",
+    "atomId": "W-04",
+    "level": 2,
+    "spec": "Write a for loop that initializes mark to 0, runs while mark < 100, step mark = mark + 25, and prints mark each iter.",
+    "expectedAnswer": "for (int mark = 0; mark < 100; mark = mark + 25) {\n    cout << mark << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int mark = 0",
+      "mark < 100",
+      "mark = mark + 25",
+      "cout"
+    ],
+    "explanation": "Init mark=0 once; step adds 25 each iter; print body."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-05",
+    "levelLabel": "L7 -> cond before each iter",
+    "fullCode": "int temp[] = {68, 70, 72, 75};\nfor (int i = 0; i < 4; i++) {\n  cout << temp[i] << \" \";\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "for (int i = 0; i < 4; i++) {",
+        "annotation": "Cond i<4 is checked at the TOP of each iteration before the body.",
+        "atomIds": [
+          "W-05"
+        ]
+      },
+      {
+        "line": 3,
+        "code": "  cout << temp[i] << \" \";",
+        "annotation": "Body runs only if cond was true. When i=4, cond fails so this won't run.",
+        "atomIds": [
+          "W-05"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-05",
+    "levelLabel": "L7 -> cond first means body may not run",
+    "fullCode": "int n = 0;\nfor (int i = 0; i < n; i++) {\n  cout << \"never\";\n}\ncout << \"after\";",
+    "steps": [
+      {
+        "line": 2,
+        "code": "for (int i = 0; i < n; i++) {",
+        "annotation": "First check: 0 < 0 is false. Body skipped entirely.",
+        "atomIds": [
+          "W-05"
+        ]
+      },
+      {
+        "line": 4,
+        "code": "cout << \"after\";",
+        "annotation": "Falls right through. for is pre-condition (vs do-while post-condition).",
+        "atomIds": [
+          "W-05"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "W-05",
+    "code": "for (int i = 0; i < 0; i++) {\n  cout << \"hi\";\n}\ncout << \"end\";",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "0"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "end"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Cond 0<0 is false at first check. Body skipped. Only end prints. i stays 0."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-05",
+    "code": "int t = 80;\nfor (int i = 0; i < 3 && t < 90; i++) {\n  t = t + 5;\n  cout << t << \" \";\n}",
+    "variables": [
+      "i",
+      "t"
+    ],
+    "expectedSteps": [
+      {
+        "line": 2,
+        "variable": "i",
+        "value": "2"
+      },
+      {
+        "line": 3,
+        "variable": "t",
+        "value": "90"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "85 ",
+      "90 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Cond checked each iter: i<3 AND t<90. Iter 1 t=85, iter 2 t=90 — next check fails."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-05",
+    "code": "for (int i = 5; i < 5; i++) {\n  cout << i;\n}\ncout << \"after\";",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "5"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "after"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Cond 5<5 false on first check. No iters. i remains 5."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-05",
+    "code": "for (int i = 0; i <= 2; i++) {\n  cout << i;\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0",
+      "1",
+      "2"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Cond i<=2: when i=3, fails. Prints 0,1,2. Final i=3."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-05",
+    "code": "int n = 4;\nfor (int i = 0; i < n; i++) {\n  cout << i << \"x \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 2,
+        "variable": "i",
+        "value": "4"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0x ",
+      "1x ",
+      "2x ",
+      "3x "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Cond i<n where n=4. Body runs for i=0..3. Then i=4 fails cond."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-05",
+    "code": "for (int i = 7; i > 7; i--) {\n  cout << i;\n}\ncout << \"x\";",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "7"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "x"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Cond 7>7 false at start. Zero iters. Final i=7. Just prints x."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-05",
+    "code": "for (int i = 1; i * i <= 20; i++) {\n  cout << i << \" \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "5"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "1 ",
+      "2 ",
+      "3 ",
+      "4 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Cond i*i<=20. i=4: 16<=20 ok. i=5: 25<=20 false. So 1,2,3,4."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-05",
+    "code": "for (int i = 0; ___; i++) {\n  cout << i;\n}",
+    "clozeSentence": "The middle clause is the ___ checked each iter",
+    "answer": "i < 10",
+    "explanation": "Middle clause is the cond — tested before each iter body."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-05",
+    "code": "for (int i = 0; i ___ 5; i++) {\n  cout << i;\n}",
+    "clozeSentence": "Use ___ so loop runs while i is below 5",
+    "answer": "<",
+    "explanation": "i < 5 means body runs for i=0..4 then stops."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-05",
+    "code": "for (int i = 0; i < n; i++) {\n  cout << i;\n}\n// when i becomes equal to n, cond ___ false",
+    "clozeSentence": "Cond becomes ___ when i == n",
+    "answer": "false",
+    "explanation": "i < n is false when i == n — so loop stops."
+  },
+  {
+    "type": "write",
+    "atomId": "W-05",
+    "level": 1,
+    "spec": "Write a for-loop header that runs while sensor < limit. Init int sensor = 0, step sensor++.",
+    "expectedAnswer": "for (int sensor = 0; sensor < limit; sensor++)",
+    "keyChecks": [
+      "for",
+      "int sensor = 0",
+      "sensor < limit",
+      "sensor++"
+    ],
+    "explanation": "Cond sensor < limit checked before each iter."
+  },
+  {
+    "type": "write",
+    "atomId": "W-05",
+    "level": 2,
+    "spec": "Write a for loop that prints i while i < 6. Start int i = 0, step i++.",
+    "expectedAnswer": "for (int i = 0; i < 6; i++) {\n    cout << i << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < 6",
+      "i++",
+      "cout"
+    ],
+    "explanation": "Pre-condition cond ensures we stop at i=6 without printing it."
+  },
+  {
+    "type": "write",
+    "atomId": "W-05",
+    "level": 2,
+    "spec": "Write a for loop that prints reading[i] for i in 0..count-1. Cond uses i < count.",
+    "expectedAnswer": "for (int i = 0; i < count; i++) {\n    cout << reading[i] << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < count",
+      "i++",
+      "reading[i]"
+    ],
+    "explanation": "Cond i<count is the standard array bound check."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-06",
+    "levelLabel": "L7 -> step after each iter",
+    "fullCode": "for (int t = 20; t < 25; t = t + 1) {\n  cout << \"temp \" << t << endl;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "for (int t = 20; t < 25; t = t + 1) {",
+        "annotation": "t = t + 1 is the STEP — runs at the END of each iter, after body.",
+        "atomIds": [
+          "W-06"
+        ]
+      },
+      {
+        "line": 2,
+        "code": "  cout << \"temp \" << t << endl;",
+        "annotation": "Body sees t before the step. Step happens AFTER this line.",
+        "atomIds": [
+          "W-06"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-06",
+    "levelLabel": "L7 -> step ordering",
+    "fullCode": "for (int i = 0; i < 3; i++) {\n  // 1) cond check\n  // 2) body runs\n  // 3) step i++ runs\n  cout << i;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "for (int i = 0; i < 3; i++) {",
+        "annotation": "Order each pass: cond, body, step. Step increments AFTER body.",
+        "atomIds": [
+          "W-06"
+        ]
+      },
+      {
+        "line": 5,
+        "code": "  cout << i;",
+        "annotation": "i is 0,1,2 here — step happens after, taking i to 1,2,3.",
+        "atomIds": [
+          "W-06"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "W-06",
+    "code": "for (int t = 20; t < 23; t = t + 1) {\n  cout << t << \" \";\n}",
+    "variables": [
+      "t"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "t",
+        "value": "23"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "20 ",
+      "21 ",
+      "22 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Step t+=1 after body. Prints 20,21,22. After 22 step gives 23, cond fails."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-06",
+    "code": "for (int i = 0; i < 4; i = i + 2) {\n  cout << i;\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "4"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0",
+      "2"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Step i+=2. After 2, step gives 4; 4<4 fails. Prints 0,2."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-06",
+    "code": "for (int x = 1; x <= 16; x = x * 2) {\n  cout << x << \" \";\n}",
+    "variables": [
+      "x"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "x",
+        "value": "32"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "1 ",
+      "2 ",
+      "4 ",
+      "8 ",
+      "16 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Step x*=2. Prints 1,2,4,8,16. Then x=32 > 16 fails cond."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-06",
+    "code": "for (int n = 10; n > 0; n = n - 3) {\n  cout << n << \" \";\n}",
+    "variables": [
+      "n"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "n",
+        "value": "-2"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "10 ",
+      "7 ",
+      "4 ",
+      "1 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Step n-=3. 10,7,4,1 print; then n=-2 fails -2>0."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-06",
+    "code": "int sum = 0;\nfor (int i = 1; i <= 5; i++) {\n  sum = sum + 2;\n}\ncout << sum;",
+    "variables": [
+      "sum",
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 2,
+        "variable": "i",
+        "value": "6"
+      },
+      {
+        "line": 3,
+        "variable": "sum",
+        "value": "10"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "10"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Body adds 2 each iter. 5 iters * 2 = 10. i ends at 6."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-06",
+    "code": "for (int k = 100; k >= 70; k = k - 10) {\n  cout << k << \"-\";\n}",
+    "variables": [
+      "k"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "k",
+        "value": "60"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "100-",
+      "90-",
+      "80-",
+      "70-"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Step k-=10. 100,90,80,70 print. After 70, step gives 60, 60>=70 false."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-06",
+    "code": "for (int i = 1; i < 100; i = i * 3) {\n  cout << i << \" \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "243"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "1 ",
+      "3 ",
+      "9 ",
+      "27 ",
+      "81 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Step i*=3: 1,3,9,27,81. Next step 243 > 100 fails cond."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-06",
+    "code": "for (int i = 0; i < 5; ___) {\n  cout << i;\n}",
+    "clozeSentence": "Step ___ runs after each iter to advance i",
+    "answer": "i++",
+    "explanation": "i++ is the most common step — adds 1 to i after each body."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-06",
+    "code": "for (int i = 10; i >= 0; ___) {\n  cout << i;\n}",
+    "clozeSentence": "Step ___ counts down by 1",
+    "answer": "i--",
+    "explanation": "i-- decrements i by 1 each iter, used for countdowns."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-06",
+    "code": "for (int n = 0; n < 50; n = n + ___) {\n  cout << n;\n}",
+    "clozeSentence": "Step n = n + ___ jumps by 5 each iter",
+    "answer": "5",
+    "explanation": "n = n + 5 advances n by 5 each iteration."
+  },
+  {
+    "type": "write",
+    "atomId": "W-06",
+    "level": 1,
+    "spec": "Write a for-loop step clause that divides count by 2 each iter (count = count / 2). Just the step clause text.",
+    "expectedAnswer": "count = count / 2",
+    "keyChecks": [
+      "count = count / 2"
+    ],
+    "explanation": "The step clause goes in the third for-slot — runs after each body."
+  },
+  {
+    "type": "write",
+    "atomId": "W-06",
+    "level": 2,
+    "spec": "Write a for loop that prints i for i = 0, 5, 10, 15 (step 5).",
+    "expectedAnswer": "for (int i = 0; i <= 15; i = i + 5) {\n    cout << i << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i <= 15",
+      "i = i + 5",
+      "cout"
+    ],
+    "explanation": "Step += 5 each iter; cond i<=15 includes 15."
+  },
+  {
+    "type": "write",
+    "atomId": "W-06",
+    "level": 2,
+    "spec": "Write a for loop that counts down from 5 to 1 inclusive.",
+    "expectedAnswer": "for (int i = 5; i >= 1; i--) {\n    cout << i << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 5",
+      "i >= 1",
+      "i--",
+      "cout"
+    ],
+    "explanation": "Step i-- after each iter takes 5 down to 0; cond stops at 0."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-07",
+    "levelLabel": "L7 -> break in inventory search",
+    "fullCode": "int items[] = {3, 7, 5, 9, 2};\nint target = 5;\nint found = -1;\nfor (int i = 0; i < 5; i++) {\n  if (items[i] == target) {\n    found = i;\n    break;\n  }\n}\ncout << found;",
+    "steps": [
+      {
+        "line": 4,
+        "code": "for (int i = 0; i < 5; i++) {",
+        "annotation": "Walk indices 0..4.",
+        "atomIds": [
+          "W-07"
+        ]
+      },
+      {
+        "line": 5,
+        "code": "  if (items[i] == target) {",
+        "annotation": "Check current slot.",
+        "atomIds": [
+          "W-07"
+        ]
+      },
+      {
+        "line": 7,
+        "code": "    break;",
+        "annotation": "When i=2 we hit 5. break exits the loop immediately — no more iters.",
+        "atomIds": [
+          "W-07"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-07",
+    "levelLabel": "L7 -> break stops loop",
+    "fullCode": "for (int i = 0; i < 100; i++) {\n  if (i == 4) break;\n  cout << i << \" \";\n}\ncout << \"after\";",
+    "steps": [
+      {
+        "line": 1,
+        "code": "for (int i = 0; i < 100; i++) {",
+        "annotation": "Loop is set up to go 0..99 but break may exit early.",
+        "atomIds": [
+          "W-07"
+        ]
+      },
+      {
+        "line": 2,
+        "code": "  if (i == 4) break;",
+        "annotation": "When i hits 4, break runs and we leave the loop entirely.",
+        "atomIds": [
+          "W-07"
+        ]
+      },
+      {
+        "line": 4,
+        "code": "cout << \"after\";",
+        "annotation": "Control jumps here after break.",
+        "atomIds": [
+          "W-07"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "W-07",
+    "code": "for (int i = 0; i < 10; i++) {\n  if (i == 3) break;\n  cout << i << \" \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0 ",
+      "1 ",
+      "2 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Prints 0,1,2. At i=3 break runs before cout. i stays 3 after break."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-07",
+    "code": "int items[] = {3, 7, 5, 9};\nint hit = -1;\nfor (int i = 0; i < 4; i++) {\n  if (items[i] == 5) {\n    hit = i;\n    break;\n  }\n}\ncout << hit;",
+    "variables": [
+      "i",
+      "hit"
+    ],
+    "expectedSteps": [
+      {
+        "line": 3,
+        "variable": "i",
+        "value": "2"
+      },
+      {
+        "line": 5,
+        "variable": "hit",
+        "value": "2"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "2"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "i=0 -> 3!=5; i=1 -> 7!=5; i=2 -> 5==5 hit=2 break. Print 2."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-07",
+    "code": "int n = 0;\nwhile (n < 100) {\n  cout << n << \" \";\n  if (n == 6) break;\n  n = n + 2;\n}",
+    "variables": [
+      "n"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "n",
+        "value": "6"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0 ",
+      "2 ",
+      "4 ",
+      "6 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Print first then check break. 0,2,4,6 print; at n=6 break exits."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-07",
+    "code": "int sum = 0;\nfor (int i = 1; i <= 100; i++) {\n  if (sum > 10) break;\n  sum = sum + i;\n}\ncout << sum;",
+    "variables": [
+      "sum",
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 2,
+        "variable": "i",
+        "value": "6"
+      },
+      {
+        "line": 4,
+        "variable": "sum",
+        "value": "15"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "15"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "i=1..5 grow sum to 1,3,6,10,15. At i=6, sum>10 true so break. sum stays 15."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-07",
+    "code": "for (int i = 0; i < 5; i++) {\n  if (i * i > 10) break;\n  cout << i << \" \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "4"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0 ",
+      "1 ",
+      "2 ",
+      "3 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "i=0,1,2,3: i*i = 0,1,4,9 all <=10 so print. i=4: 16>10 break."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-07",
+    "code": "int x = 1;\nwhile (x < 1000) {\n  if (x > 50) break;\n  x = x * 2;\n}\ncout << x;",
+    "variables": [
+      "x"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "x",
+        "value": "64"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "64"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Doubles 1,2,4,8,16,32,64. At x=64, 64>50 true so break. Print 64."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-07",
+    "code": "int found = 0;\nfor (int i = 1; i <= 5; i++) {\n  if (i == 4) {\n    found = i;\n    break;\n  }\n}\ncout << found;",
+    "variables": [
+      "found",
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 2,
+        "variable": "i",
+        "value": "4"
+      },
+      {
+        "line": 4,
+        "variable": "found",
+        "value": "4"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "4"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Iterate i=1..5. At i=4, found=4 then break. Print 4."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-07",
+    "code": "for (int i = 0; i < 100; i++) {\n  if (i == 5) ___;\n  cout << i;\n}",
+    "clozeSentence": "Use ___ to leave the loop early",
+    "answer": "break",
+    "explanation": "break ends the nearest enclosing loop immediately."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-07",
+    "code": "for (int i = 0; i < n; i++) {\n  if (arr[i] == target) {\n    found = i;\n    ___;\n  }\n}",
+    "clozeSentence": "After saving the index, ___ stops further searching",
+    "answer": "break",
+    "explanation": "Standard search pattern: record index then break."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-07",
+    "code": "while (true) {\n  cin >> n;\n  if (n == 0) ___;\n}",
+    "clozeSentence": "Use ___ to exit a while(true) loop",
+    "answer": "break",
+    "explanation": "break is required to escape an otherwise-infinite loop."
+  },
+  {
+    "type": "write",
+    "atomId": "W-07",
+    "level": 2,
+    "spec": "Write a for loop that prints i for i = 0..9 BUT stops as soon as i equals 5 (so prints 0..4 only).",
+    "expectedAnswer": "for (int i = 0; i < 10; i++) {\n    if (i == 5) break;\n    cout << i << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "if",
+      "i == 5",
+      "break",
+      "cout"
+    ],
+    "explanation": "Check before cout so 5 isn't printed."
+  },
+  {
+    "type": "write",
+    "atomId": "W-07",
+    "level": 2,
+    "spec": "Inside an existing for loop with index i and array stock[], write the if-block that breaks when stock[i] is 0.",
+    "expectedAnswer": "if (stock[i] == 0) {\n    break;\n}",
+    "keyChecks": [
+      "if",
+      "stock[i] == 0",
+      "break"
+    ],
+    "explanation": "When the slot is empty, exit the search loop."
+  },
+  {
+    "type": "write",
+    "atomId": "W-07",
+    "level": 3,
+    "spec": "Write a complete program that loops int i from 0 upward (use while). Inside, print i then break when i reaches 3. Print exit at end.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n    int i = 0;\n    while (true) {\n        cout << i << \" \";\n        if (i == 3) break;\n        i++;\n    }\n    cout << \"exit\";\n    return 0;\n}",
+    "keyChecks": [
+      "#include",
+      "int main",
+      "while",
+      "cout",
+      "break",
+      "i == 3",
+      "return 0"
+    ],
+    "explanation": "while(true) + break is the canonical \"exit when condition\" idiom."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-08",
+    "levelLabel": "L7 -> continue skips iter",
+    "fullCode": "for (int i = 0; i < 5; i++) {\n  if (i == 2) continue;\n  cout << i << \" \";\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "for (int i = 0; i < 5; i++) {",
+        "annotation": "Loop for i = 0..4.",
+        "atomIds": [
+          "W-08"
+        ]
+      },
+      {
+        "line": 2,
+        "code": "  if (i == 2) continue;",
+        "annotation": "When i=2, continue jumps PAST cout straight to step i++.",
+        "atomIds": [
+          "W-08"
+        ]
+      },
+      {
+        "line": 3,
+        "code": "  cout << i << \" \";",
+        "annotation": "Skipped when i=2; prints 0,1,3,4.",
+        "atomIds": [
+          "W-08"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-08",
+    "levelLabel": "L7 -> continue filter",
+    "fullCode": "int tickets[] = {12, 0, 7, 0, 4};\nfor (int i = 0; i < 5; i++) {\n  if (tickets[i] == 0) continue;\n  cout << tickets[i] << \" \";\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "for (int i = 0; i < 5; i++) {",
+        "annotation": "Visit each ticket slot.",
+        "atomIds": [
+          "W-08"
+        ]
+      },
+      {
+        "line": 3,
+        "code": "  if (tickets[i] == 0) continue;",
+        "annotation": "Skip empty (0) slots — cout below is bypassed for them.",
+        "atomIds": [
+          "W-08"
+        ]
+      },
+      {
+        "line": 4,
+        "code": "  cout << tickets[i] << \" \";",
+        "annotation": "Only nonzero values print: 12, 7, 4.",
+        "atomIds": [
+          "W-08"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "W-08",
+    "code": "for (int i = 0; i < 5; i++) {\n  if (i == 2) continue;\n  cout << i << \" \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "5"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0 ",
+      "1 ",
+      "3 ",
+      "4 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "i=2 is skipped via continue. Loop completes normally so i=5."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-08",
+    "code": "int sum = 0;\nfor (int i = 1; i <= 5; i++) {\n  if (i == 3) continue;\n  sum = sum + i;\n}\ncout << sum;",
+    "variables": [
+      "sum",
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 2,
+        "variable": "i",
+        "value": "6"
+      },
+      {
+        "line": 4,
+        "variable": "sum",
+        "value": "12"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "12"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Sum 1+2+4+5 = 12 (skipped 3). Final i = 6."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-08",
+    "code": "for (int i = 0; i < 6; i++) {\n  if (i % 2 == 0) continue;\n  cout << i << \" \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "6"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "1 ",
+      "3 ",
+      "5 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Skip evens via continue. Print only odds: 1,3,5."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-08",
+    "code": "int t[] = {12, 0, 7, 0, 4};\nfor (int i = 0; i < 5; i++) {\n  if (t[i] == 0) continue;\n  cout << t[i] << \" \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 2,
+        "variable": "i",
+        "value": "5"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "12 ",
+      "7 ",
+      "4 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Skip zeros. Print 12,7,4. Loop completes so i=5."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-08",
+    "code": "int count = 0;\nfor (int i = 1; i <= 10; i++) {\n  if (i % 3 != 0) continue;\n  count++;\n}\ncout << count;",
+    "variables": [
+      "count",
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 2,
+        "variable": "i",
+        "value": "11"
+      },
+      {
+        "line": 4,
+        "variable": "count",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "3"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Multiples of 3 in 1..10 are 3,6,9 — count=3. i ends 11."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-08",
+    "code": "for (int i = 0; i < 4; i++) {\n  if (i == 1 || i == 2) continue;\n  cout << i << \" \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "4"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0 ",
+      "3 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Skip both 1 and 2. Print 0 and 3."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-08",
+    "code": "int total = 0;\nfor (int i = 1; i <= 6; i++) {\n  if (i > 4) continue;\n  total = total + i;\n}\ncout << total;",
+    "variables": [
+      "total",
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 2,
+        "variable": "i",
+        "value": "7"
+      },
+      {
+        "line": 4,
+        "variable": "total",
+        "value": "10"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "10"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Skip i>4. Sum 1+2+3+4 = 10. i goes through 5,6 but both skip body."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-08",
+    "code": "for (int i = 0; i < 10; i++) {\n  if (i % 2 == 0) ___;\n  cout << i;\n}",
+    "clozeSentence": "Use ___ to skip rest of body and go to next iter",
+    "answer": "continue",
+    "explanation": "continue jumps to the step + cond, skipping the rest of body."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-08",
+    "code": "for (int i = 0; i < n; i++) {\n  if (arr[i] < 0) ___;\n  total = total + arr[i];\n}",
+    "clozeSentence": "Skip negatives via ___",
+    "answer": "continue",
+    "explanation": "continue to skip non-positive entries when summing."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-08",
+    "code": "for (int i = 1; i <= 20; i++) {\n  if (i ___ 2 != 0) continue;\n  cout << i;\n}",
+    "clozeSentence": "Skip odd numbers using ___",
+    "answer": "%",
+    "explanation": "i % 2 != 0 is true for odds, so continue skips them."
+  },
+  {
+    "type": "write",
+    "atomId": "W-08",
+    "level": 2,
+    "spec": "Write a for loop over i = 0..9 that prints only odd values, using continue to skip evens.",
+    "expectedAnswer": "for (int i = 0; i < 10; i++) {\n    if (i % 2 == 0) continue;\n    cout << i << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "i % 2 == 0",
+      "continue",
+      "cout"
+    ],
+    "explanation": "continue on even -> only odd values reach cout."
+  },
+  {
+    "type": "write",
+    "atomId": "W-08",
+    "level": 2,
+    "spec": "Inside a for loop with i and array vals[], write the if-line that uses continue to skip negative entries.",
+    "expectedAnswer": "if (vals[i] < 0) continue;",
+    "keyChecks": [
+      "if",
+      "vals[i] < 0",
+      "continue"
+    ],
+    "explanation": "Filter pattern: skip the rest of the body when condition holds."
+  },
+  {
+    "type": "write",
+    "atomId": "W-08",
+    "level": 3,
+    "spec": "Write a complete program that loops i from 1 to 10, skips i divisible by 3 via continue, and prints surviving i.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n    for (int i = 1; i <= 10; i++) {\n        if (i % 3 == 0) continue;\n        cout << i << \" \";\n    }\n    return 0;\n}",
+    "keyChecks": [
+      "#include",
+      "int main",
+      "for",
+      "i % 3 == 0",
+      "continue",
+      "cout",
+      "return 0"
+    ],
+    "explanation": "Standard filter via continue: 3,6,9 skipped; rest printed."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-09",
+    "levelLabel": "L7 -> nested loops 2D",
+    "fullCode": "for (int r = 0; r < 2; r++) {\n  for (int c = 0; c < 3; c++) {\n    cout << \"(\" << r << \",\" << c << \") \";\n  }\n  cout << endl;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "for (int r = 0; r < 2; r++) {",
+        "annotation": "OUTER loop — runs twice (r=0,1).",
+        "atomIds": [
+          "W-09"
+        ]
+      },
+      {
+        "line": 2,
+        "code": "  for (int c = 0; c < 3; c++) {",
+        "annotation": "INNER loop — runs 3 times for EACH outer iter. Total 2*3 = 6.",
+        "atomIds": [
+          "W-09"
+        ]
+      },
+      {
+        "line": 3,
+        "code": "    cout << \"(\" << r << \",\" << c << \") \";",
+        "annotation": "Prints all (r,c) pairs row by row.",
+        "atomIds": [
+          "W-09"
+        ]
+      },
+      {
+        "line": 5,
+        "code": "  cout << endl;",
+        "annotation": "After inner loop ends, print newline. Then outer steps.",
+        "atomIds": [
+          "W-09"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-09",
+    "levelLabel": "L7 -> nested print pattern",
+    "fullCode": "for (int i = 1; i <= 3; i++) {\n  for (int j = 0; j < i; j++) {\n    cout << \"*\";\n  }\n  cout << endl;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "for (int i = 1; i <= 3; i++) {",
+        "annotation": "Outer i = 1,2,3.",
+        "atomIds": [
+          "W-09"
+        ]
+      },
+      {
+        "line": 2,
+        "code": "  for (int j = 0; j < i; j++) {",
+        "annotation": "Inner runs i times: 1, 2, 3 stars per row.",
+        "atomIds": [
+          "W-09"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "W-09",
+    "code": "for (int r = 0; r < 2; r++) {\n  for (int c = 0; c < 2; c++) {\n    cout << r << c << \" \";\n  }\n}",
+    "variables": [
+      "r",
+      "c"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "r",
+        "value": "2"
+      },
+      {
+        "line": 2,
+        "variable": "c",
+        "value": "2"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "00 ",
+      "01 ",
+      "10 ",
+      "11 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Outer r=0,1; inner c=0,1 each. Pairs: 00,01,10,11. r ends 2, c ends 2."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-09",
+    "code": "for (int i = 1; i <= 3; i++) {\n  for (int j = 0; j < i; j++) {\n    cout << \"*\";\n  }\n  cout << \"|\";\n}",
+    "variables": [
+      "i",
+      "j"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "4"
+      },
+      {
+        "line": 2,
+        "variable": "j",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "*",
+      "|",
+      "*",
+      "*",
+      "|",
+      "*",
+      "*",
+      "*",
+      "|"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "i=1: 1 star then |. i=2: 2 stars then |. i=3: 3 stars then |."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-09",
+    "code": "int sum = 0;\nfor (int i = 1; i <= 2; i++) {\n  for (int j = 1; j <= 3; j++) {\n    sum = sum + 1;\n  }\n}\ncout << sum;",
+    "variables": [
+      "sum"
+    ],
+    "expectedSteps": [
+      {
+        "line": 4,
+        "variable": "sum",
+        "value": "6"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "6"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "2 outer * 3 inner = 6 total iters; sum increments 6 times."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-09",
+    "code": "for (int r = 0; r < 3; r++) {\n  for (int c = 0; c < 2; c++) {\n    cout << r * c << \" \";\n  }\n}",
+    "variables": [
+      "r",
+      "c"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "r",
+        "value": "3"
+      },
+      {
+        "line": 2,
+        "variable": "c",
+        "value": "2"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0 ",
+      "0 ",
+      "0 ",
+      "1 ",
+      "0 ",
+      "2 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "r*c: r=0 row gives 0,0; r=1 gives 0,1; r=2 gives 0,2."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-09",
+    "code": "for (int i = 0; i < 2; i++) {\n  for (int j = 0; j < 2; j++) {\n    cout << \"x\";\n  }\n  cout << \"-\";\n}",
+    "variables": [
+      "i",
+      "j"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "2"
+      },
+      {
+        "line": 2,
+        "variable": "j",
+        "value": "2"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "x",
+      "x",
+      "-",
+      "x",
+      "x",
+      "-"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Each outer iter: 2 x's then -. Twice total: xx-xx-."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-09",
+    "code": "int prod = 1;\nfor (int i = 1; i <= 2; i++) {\n  for (int j = 1; j <= 2; j++) {\n    prod = prod * (i + j);\n  }\n}\ncout << prod;",
+    "variables": [
+      "prod"
+    ],
+    "expectedSteps": [
+      {
+        "line": 4,
+        "variable": "prod",
+        "value": "72"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "72"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "i=1: (1+1)(1+2)=2*3=6. i=2: (2+1)(2+2)=3*4=12. Total 1*6*12=72."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-09",
+    "code": "for (int i = 0; i < 3; i++) {\n  for (int j = i; j < 3; j++) {\n    cout << j;\n  }\n  cout << \" \";\n}",
+    "variables": [
+      "i",
+      "j"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "3"
+      },
+      {
+        "line": 2,
+        "variable": "j",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0",
+      "1",
+      "2",
+      " ",
+      "1",
+      "2",
+      " ",
+      "2",
+      " "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Inner starts at j=i. i=0: 0,1,2 then space; i=1: 1,2 then space; i=2: 2 then space."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-09",
+    "code": "for (int r = 0; r < 3; r++) {\n  for (___ = 0; c < 4; c++) {\n    cout << r << c;\n  }\n}",
+    "clozeSentence": "Inner loop declares its own counter: ___",
+    "answer": "int c",
+    "explanation": "Each loop typically has its own counter; inner is independent."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-09",
+    "code": "for (int i = 0; i < 2; i++) {\n  for (int j = 0; j < 3; j++) {\n    cout << i;\n  }\n}\n// total iters = 2 * ___ = 6",
+    "clozeSentence": "Inner runs ___ times per outer iter",
+    "answer": "3",
+    "explanation": "Inner loops 3 times for each outer iter -> 2*3 = 6 total."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-09",
+    "code": "for (int r = 0; r < 2; r++) {\n  ___ (int c = 0; c < 2; c++) {\n    cout << r << c;\n  }\n}",
+    "clozeSentence": "Inner header keyword ___",
+    "answer": "for",
+    "explanation": "Both loops use for; the inner is just nested inside outer body."
+  },
+  {
+    "type": "write",
+    "atomId": "W-09",
+    "level": 2,
+    "spec": "Write nested for loops to print all (r,c) pairs for r in 0..1 and c in 0..2. Print as r,c then space.",
+    "expectedAnswer": "for (int r = 0; r < 2; r++) {\n    for (int c = 0; c < 3; c++) {\n        cout << r << \",\" << c << \" \";\n    }\n}",
+    "keyChecks": [
+      "for",
+      "int r = 0",
+      "int c = 0",
+      "r < 2",
+      "c < 3",
+      "cout"
+    ],
+    "explanation": "Standard nested loop — inner runs fully per outer iter."
+  },
+  {
+    "type": "write",
+    "atomId": "W-09",
+    "level": 2,
+    "spec": "Write nested for loops that print a 3x3 grid of stars (3 stars per row, 3 rows, with newline between rows).",
+    "expectedAnswer": "for (int r = 0; r < 3; r++) {\n    for (int c = 0; c < 3; c++) {\n        cout << \"*\";\n    }\n    cout << endl;\n}",
+    "keyChecks": [
+      "for",
+      "int r = 0",
+      "int c = 0",
+      "r < 3",
+      "c < 3",
+      "cout",
+      "endl"
+    ],
+    "explanation": "Inner loops print stars; outer prints newline after each row."
+  },
+  {
+    "type": "write",
+    "atomId": "W-09",
+    "level": 3,
+    "spec": "Write a complete program with nested loops printing a multiplication table for 1..3 (i*j as 'i*j=v' lines).",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n    for (int i = 1; i <= 3; i++) {\n        for (int j = 1; j <= 3; j++) {\n            cout << i << \"*\" << j << \"=\" << i * j << endl;\n        }\n    }\n    return 0;\n}",
+    "keyChecks": [
+      "#include",
+      "int main",
+      "for",
+      "i <= 3",
+      "j <= 3",
+      "i * j",
+      "endl",
+      "return 0"
+    ],
+    "explanation": "9 lines printed total (3*3). Inner runs full 3 iters per outer."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-10",
+    "levelLabel": "L7 -> infinite loop danger",
+    "fullCode": "int i = 0;\nwhile (i < 5) {\n  cout << i << \" \";\n  // forgot to step i!\n}\n// hangs forever",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int i = 0;",
+        "annotation": "Set up loop var.",
+        "atomIds": [
+          "W-10"
+        ]
+      },
+      {
+        "line": 2,
+        "code": "while (i < 5) {",
+        "annotation": "Cond i<5 — true forever because i never changes.",
+        "atomIds": [
+          "W-10"
+        ]
+      },
+      {
+        "line": 3,
+        "code": "  cout << i << \" \";",
+        "annotation": "Prints 0 over and over. Program hangs.",
+        "atomIds": [
+          "W-10"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "W-10",
+    "levelLabel": "L7 -> while(true) needs break",
+    "fullCode": "int n;\nwhile (true) {\n  cin >> n;\n  if (n == 0) break;\n  cout << n;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "while (true) {",
+        "annotation": "Always-true cond -> infinite unless break.",
+        "atomIds": [
+          "W-10"
+        ]
+      },
+      {
+        "line": 4,
+        "code": "  if (n == 0) break;",
+        "annotation": "break is the ONLY exit. Without it the loop never ends.",
+        "atomIds": [
+          "W-10",
+          "W-07"
+        ]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "W-10",
+    "code": "int i = 0;\nwhile (i < 3) {\n  cout << i;\n  i++;\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 4,
+        "variable": "i",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0",
+      "1",
+      "2"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "WITH i++ this terminates. 0,1,2 print. i=3 fails cond. Compare to forgetting i++."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-10",
+    "code": "int n = 1;\nwhile (n > 0) {\n  n = n + 1;\n  if (n > 4) break;\n  cout << n << \" \";\n}",
+    "variables": [
+      "n"
+    ],
+    "expectedSteps": [
+      {
+        "line": 3,
+        "variable": "n",
+        "value": "5"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "2 ",
+      "3 ",
+      "4 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Cond n>0 always true (n grows), but break at n=5 saves us. Prints 2,3,4."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-10",
+    "code": "int i = 0;\nwhile (true) {\n  cout << i;\n  if (i == 2) break;\n  i++;\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 5,
+        "variable": "i",
+        "value": "2"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0",
+      "1",
+      "2"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "while(true) needs break. Prints 0,1,2 then break at i=2 (after cout)."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-10",
+    "code": "int x = 10;\nwhile (x != 0) {\n  x = x - 2;\n  cout << x << \" \";\n}",
+    "variables": [
+      "x"
+    ],
+    "expectedSteps": [
+      {
+        "line": 3,
+        "variable": "x",
+        "value": "0"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "8 ",
+      "6 ",
+      "4 ",
+      "2 ",
+      "0 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "x-=2 reaches 0. If x started odd it'd never hit 0 -> infinite. Even is safe."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-10",
+    "code": "for (int i = 0; ; i++) {\n  if (i == 3) break;\n  cout << i << \" \";\n}",
+    "variables": [
+      "i"
+    ],
+    "expectedSteps": [
+      {
+        "line": 1,
+        "variable": "i",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "0 ",
+      "1 ",
+      "2 "
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Empty cond = forever. break is required exit. Prints 0,1,2."
+  },
+  {
+    "type": "trace",
+    "atomId": "W-10",
+    "code": "int n = 0;\nwhile (n < 5) {\n  if (n == 3) break;\n  n = n + 1;\n}\ncout << n;",
+    "variables": [
+      "n"
+    ],
+    "expectedSteps": [
+      {
+        "line": 4,
+        "variable": "n",
+        "value": "3"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "3"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "n grows 0,1,2,3 then break. n stays 3. (Without break would print 5.)"
+  },
+  {
+    "type": "trace",
+    "atomId": "W-10",
+    "code": "int p = 1;\nwhile (true) {\n  p = p * 2;\n  if (p > 30) break;\n}\ncout << p;",
+    "variables": [
+      "p"
+    ],
+    "expectedSteps": [
+      {
+        "line": 3,
+        "variable": "p",
+        "value": "32"
+      }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [
+      "32"
+    ],
+    "inputMode": "final-only",
+    "teachMe": "Doubling 1->2->4->8->16->32. At p=32 break. Print 32."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-10",
+    "code": "int i = 0;\nwhile (i < 5) {\n  cout << i;\n  ___;\n}",
+    "clozeSentence": "Add ___ so the cond eventually becomes false",
+    "answer": "i++",
+    "explanation": "Without i++ the cond never changes -> infinite loop."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-10",
+    "code": "while (___) {\n  cout << \"forever\";\n}",
+    "clozeSentence": "An always-true cond ___ produces an infinite loop",
+    "answer": "true",
+    "explanation": "while(true) is the canonical infinite loop — must use break inside."
+  },
+  {
+    "type": "cloze",
+    "atomId": "W-10",
+    "code": "while (true) {\n  cin >> n;\n  if (n == -1) ___;\n}",
+    "clozeSentence": "Use ___ to escape an infinite while",
+    "answer": "break",
+    "explanation": "break is required to escape from while(true)."
+  },
+  {
+    "type": "write",
+    "atomId": "W-10",
+    "level": 2,
+    "spec": "Write a while(true) loop reading int n from cin. Break when n equals -1. Print each non-sentinel n.",
+    "expectedAnswer": "int n;\nwhile (true) {\n    cin >> n;\n    if (n == -1) break;\n    cout << n << \" \";\n}",
+    "keyChecks": [
+      "int n",
+      "while",
+      "true",
+      "cin >> n",
+      "if",
+      "n == -1",
+      "break",
+      "cout"
+    ],
+    "explanation": "Sentinel-controlled loop: read until sentinel -> break."
+  },
+  {
+    "type": "write",
+    "atomId": "W-10",
+    "level": 2,
+    "spec": "Fix this infinite loop by adding the missing step inside the body. Original: while (i < 10) { cout << i; }. Provide the corrected loop.",
+    "expectedAnswer": "while (i < 10) {\n    cout << i;\n    i++;\n}",
+    "keyChecks": [
+      "while",
+      "i < 10",
+      "cout",
+      "i++"
+    ],
+    "explanation": "Forgotten step is the #1 cause of infinite loops."
+  },
+  {
+    "type": "write",
+    "atomId": "W-10",
+    "level": 1,
+    "spec": "Write the header for an infinite while loop. (No body needed; just the line up through the opening brace.)",
+    "expectedAnswer": "while (true) {",
+    "keyChecks": [
+      "while",
+      "true",
+      "{"
+    ],
+    "explanation": "while(true) is the canonical always-loop pattern; must break inside."
+  },
+  {
+    "type": "procedural",
+    "atomId": "W-01",
+    "id": "PD-W01-01",
+    "section": "while loop counter",
+    "prompt": "Write a while loop that prints i (separated by spaces) for i starting at 1 and incrementing while i <= 5.",
+    "expectedAnswer": "int i = 1;\nwhile (i <= 5) {\n    cout << i << \" \";\n    i++;\n}",
+    "keyChecks": [
+      "int i = 1",
+      "while",
+      "i <= 5",
+      "cout",
+      "i++"
+    ],
+    "variants": [
+      {
+        "prompt": "Write a while loop that prints i for i from 1 to 5 inclusive.",
+        "expectedAnswer": "int i = 1;\nwhile (i <= 5) {\n    cout << i << \" \";\n    i++;\n}"
+      },
+      {
+        "prompt": "Use while (no for) to print 1 through 5 inclusive separated by spaces.",
+        "expectedAnswer": "int i = 1;\nwhile (i <= 5) {\n    cout << i << \" \";\n    i++;\n}"
+      }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "W-03",
+    "id": "PD-W03-01",
+    "section": "for loop print",
+    "prompt": "Write a for loop that prints values 0..n-1 separated by spaces. Use int i.",
+    "expectedAnswer": "for (int i = 0; i < n; i++) {\n    cout << i << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < n",
+      "i++",
+      "cout"
+    ],
+    "variants": [
+      {
+        "prompt": "Print 0..n-1 with a for loop using int i, space-separated.",
+        "expectedAnswer": "for (int i = 0; i < n; i++) {\n    cout << i << \" \";\n}"
+      },
+      {
+        "prompt": "Standard zero-based for-loop printing each i in 0..n-1 with spaces.",
+        "expectedAnswer": "for (int i = 0; i < n; i++) {\n    cout << i << \" \";\n}"
+      }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "W-03",
+    "id": "PD-W03-02",
+    "section": "for loop array print",
+    "prompt": "Write a for loop that prints scores[i] for i in 0..count-1.",
+    "expectedAnswer": "for (int i = 0; i < count; i++) {\n    cout << scores[i] << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < count",
+      "i++",
+      "scores[i]"
+    ],
+    "variants": [
+      {
+        "prompt": "Loop scores from index 0 to count-1 and print each.",
+        "expectedAnswer": "for (int i = 0; i < count; i++) {\n    cout << scores[i] << \" \";\n}"
+      },
+      {
+        "prompt": "Iterate scores[] up to count and print every value with a space.",
+        "expectedAnswer": "for (int i = 0; i < count; i++) {\n    cout << scores[i] << \" \";\n}"
+      }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "W-06",
+    "id": "PD-W06-01",
+    "section": "for loop step",
+    "prompt": "Write a for loop with int i = 0; cond i < 20; step i = i + 5; print i each iter.",
+    "expectedAnswer": "for (int i = 0; i < 20; i = i + 5) {\n    cout << i << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < 20",
+      "i = i + 5",
+      "cout"
+    ],
+    "variants": [
+      {
+        "prompt": "Print 0,5,10,15 with a for loop.",
+        "expectedAnswer": "for (int i = 0; i < 20; i = i + 5) {\n    cout << i << \" \";\n}"
+      },
+      {
+        "prompt": "for-loop counting up by 5 from 0 to under 20, printing each.",
+        "expectedAnswer": "for (int i = 0; i < 20; i = i + 5) {\n    cout << i << \" \";\n}"
+      }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "W-09",
+    "id": "PD-W09-01",
+    "section": "nested loop print",
+    "prompt": "Write nested for loops that print all (r,c) for r in 0..1, c in 0..2 as r,c separated by spaces.",
+    "expectedAnswer": "for (int r = 0; r < 2; r++) {\n    for (int c = 0; c < 3; c++) {\n        cout << r << \",\" << c << \" \";\n    }\n}",
+    "keyChecks": [
+      "for",
+      "int r = 0",
+      "int c = 0",
+      "r < 2",
+      "c < 3",
+      "cout"
+    ],
+    "variants": [
+      {
+        "prompt": "Print all (r,c) pairs with r in 0..1 and c in 0..2 (comma between, space after).",
+        "expectedAnswer": "for (int r = 0; r < 2; r++) {\n    for (int c = 0; c < 3; c++) {\n        cout << r << \",\" << c << \" \";\n    }\n}"
+      },
+      {
+        "prompt": "Nested for loops over r=0..1 and c=0..2 printing 'r,c '.",
+        "expectedAnswer": "for (int r = 0; r < 2; r++) {\n    for (int c = 0; c < 3; c++) {\n        cout << r << \",\" << c << \" \";\n    }\n}"
+      }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "W-01",
+    "id": "CM-W01-01",
+    "section": "while -> for transfer",
+    "matrixType": "algorithm",
+    "examples": [
+      {
+        "label": "Example A: while loop printing 1..5",
+        "code": "int i = 1;\nwhile (i <= 5) {\n    cout << i << \" \";\n    i++;\n}"
+      },
+      {
+        "label": "Example B: equivalent for loop printing 1..5",
+        "code": "for (int i = 1; i <= 5; i++) {\n    cout << i << \" \";\n}"
+      }
+    ],
+    "prompt": "Convert this while loop to an equivalent for loop. while: int j = 0; while (j < 4) { cout << j; j++; }",
+    "expectedAnswer": "for (int j = 0; j < 4; j++) {\n    cout << j;\n}",
+    "keyChecks": [
+      "for",
+      "int j = 0",
+      "j < 4",
+      "j++",
+      "cout"
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "W-03",
+    "id": "CM-W03-01",
+    "section": "for loop scaling",
+    "matrixType": "progression",
+    "examples": [
+      {
+        "label": "Example A: print 1..3",
+        "code": "for (int i = 1; i <= 3; i++) {\n    cout << i << \" \";\n}"
+      },
+      {
+        "label": "Example B: print 1..5",
+        "code": "for (int i = 1; i <= 5; i++) {\n    cout << i << \" \";\n}"
+      }
+    ],
+    "prompt": "Following the pattern, write a for loop that prints 1..10 inclusive separated by spaces.",
+    "expectedAnswer": "for (int i = 1; i <= 10; i++) {\n    cout << i << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 1",
+      "i <= 10",
+      "i++",
+      "cout"
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "W-03",
+    "id": "CM-W03-02",
+    "section": "array iteration",
+    "matrixType": "entity",
+    "examples": [
+      {
+        "label": "Example A: print scores[]",
+        "code": "for (int i = 0; i < count; i++) {\n    cout << scores[i] << \" \";\n}"
+      },
+      {
+        "label": "Example B: print prices[]",
+        "code": "for (int i = 0; i < count; i++) {\n    cout << prices[i] << \" \";\n}"
+      }
+    ],
+    "prompt": "Following the same pattern, write a for loop that prints each book[i] for i in 0..count-1.",
+    "expectedAnswer": "for (int i = 0; i < count; i++) {\n    cout << book[i] << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < count",
+      "i++",
+      "book[i]"
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "W-04",
+    "id": "CM-W04-01",
+    "section": "init clause variant",
+    "matrixType": "progression",
+    "examples": [
+      {
+        "label": "Example A: start at 0",
+        "code": "for (int i = 0; i < 5; i++) {\n    cout << i;\n}"
+      },
+      {
+        "label": "Example B: start at 1",
+        "code": "for (int i = 1; i < 5; i++) {\n    cout << i;\n}"
+      }
+    ],
+    "prompt": "Following the pattern, write a for loop that starts at 5 and runs while i < 10, printing i.",
+    "expectedAnswer": "for (int i = 5; i < 10; i++) {\n    cout << i;\n}",
+    "keyChecks": [
+      "for",
+      "int i = 5",
+      "i < 10",
+      "i++",
+      "cout"
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "W-05",
+    "id": "CM-W05-01",
+    "section": "cond comparison",
+    "matrixType": "progression",
+    "examples": [
+      {
+        "label": "Example A: i < 5 (exclusive)",
+        "code": "for (int i = 0; i < 5; i++) {\n    cout << i;\n}"
+      },
+      {
+        "label": "Example B: i <= 5 (inclusive)",
+        "code": "for (int i = 0; i <= 5; i++) {\n    cout << i;\n}"
+      }
+    ],
+    "prompt": "Following the pattern, write a for loop running INCLUSIVE up to 8: print i for i in 0..8.",
+    "expectedAnswer": "for (int i = 0; i <= 8; i++) {\n    cout << i;\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i <= 8",
+      "i++",
+      "cout"
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "W-06",
+    "id": "CM-W06-01",
+    "section": "step variants",
+    "matrixType": "progression",
+    "examples": [
+      {
+        "label": "Example A: i++",
+        "code": "for (int i = 0; i < 10; i++) {\n    cout << i;\n}"
+      },
+      {
+        "label": "Example B: i = i + 2",
+        "code": "for (int i = 0; i < 10; i = i + 2) {\n    cout << i;\n}"
+      }
+    ],
+    "prompt": "Following the pattern, write a for loop with step i = i + 3, printing i for i in 0..(<15).",
+    "expectedAnswer": "for (int i = 0; i < 15; i = i + 3) {\n    cout << i;\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < 15",
+      "i = i + 3",
+      "cout"
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "W-07",
+    "id": "CM-W07-01",
+    "section": "break in loop",
+    "matrixType": "algorithm",
+    "examples": [
+      {
+        "label": "Example A: break at i==3",
+        "code": "for (int i = 0; i < 10; i++) {\n    if (i == 3) break;\n    cout << i;\n}"
+      },
+      {
+        "label": "Example B: break at i==5",
+        "code": "for (int i = 0; i < 10; i++) {\n    if (i == 5) break;\n    cout << i;\n}"
+      }
+    ],
+    "prompt": "Following the pattern, write a for loop 0..9 that breaks when i equals 7, printing i otherwise.",
+    "expectedAnswer": "for (int i = 0; i < 10; i++) {\n    if (i == 7) break;\n    cout << i;\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < 10",
+      "i++",
+      "if",
+      "i == 7",
+      "break",
+      "cout"
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "W-08",
+    "id": "CM-W08-01",
+    "section": "continue in loop",
+    "matrixType": "algorithm",
+    "examples": [
+      {
+        "label": "Example A: skip i==2",
+        "code": "for (int i = 0; i < 5; i++) {\n    if (i == 2) continue;\n    cout << i;\n}"
+      },
+      {
+        "label": "Example B: skip i==3",
+        "code": "for (int i = 0; i < 5; i++) {\n    if (i == 3) continue;\n    cout << i;\n}"
+      }
+    ],
+    "prompt": "Following the pattern, write a for loop 0..6 that skips i==4 via continue, printing i otherwise.",
+    "expectedAnswer": "for (int i = 0; i < 7; i++) {\n    if (i == 4) continue;\n    cout << i;\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < 7",
+      "i++",
+      "if",
+      "i == 4",
+      "continue",
+      "cout"
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "W-09",
+    "id": "CM-W09-01",
+    "section": "nested loop sizing",
+    "matrixType": "progression",
+    "examples": [
+      {
+        "label": "Example A: 2x3 grid",
+        "code": "for (int r = 0; r < 2; r++) {\n    for (int c = 0; c < 3; c++) {\n        cout << r << c;\n    }\n}"
+      },
+      {
+        "label": "Example B: 3x4 grid",
+        "code": "for (int r = 0; r < 3; r++) {\n    for (int c = 0; c < 4; c++) {\n        cout << r << c;\n    }\n}"
+      }
+    ],
+    "prompt": "Following the pattern, write nested for loops printing rc for r in 0..3 and c in 0..4.",
+    "expectedAnswer": "for (int r = 0; r < 4; r++) {\n    for (int c = 0; c < 5; c++) {\n        cout << r << c;\n    }\n}",
+    "keyChecks": [
+      "for",
+      "int r = 0",
+      "int c = 0",
+      "r < 4",
+      "c < 5",
+      "cout"
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "W-10",
+    "id": "CM-W10-01",
+    "section": "fix infinite loop",
+    "matrixType": "algorithm",
+    "examples": [
+      {
+        "label": "Example A: missing step (BAD)",
+        "code": "int i = 0;\nwhile (i < 5) {\n    cout << i;\n}"
+      },
+      {
+        "label": "Example B: fixed with i++",
+        "code": "int i = 0;\nwhile (i < 5) {\n    cout << i;\n    i++;\n}"
+      }
+    ],
+    "prompt": "Fix this infinite loop. Original: int n = 1; while (n != 10) { cout << n; }. Provide the corrected version.",
+    "expectedAnswer": "int n = 1;\nwhile (n != 10) {\n    cout << n;\n    n++;\n}",
+    "keyChecks": [
+      "int n = 1",
+      "while",
+      "n != 10",
+      "cout",
+      "n++"
+    ]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "W-01",
+    "id": "CMEM-W01-01",
+    "section": "while loop canonical",
+    "question": "Write the canonical while loop that prints i for i = 0..4. Use int i and i++.",
+    "code": "int i = 0;\nwhile (i < 5) {\n    cout << i << \" \";\n    i++;\n}",
+    "keyChecks": [
+      "int i = 0",
+      "while",
+      "i < 5",
+      "cout",
+      "i++"
+    ]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "W-02",
+    "id": "CMEM-W02-01",
+    "section": "do-while canonical",
+    "question": "Write a canonical do-while reading int n until non-negative.",
+    "code": "int n;\ndo {\n    cin >> n;\n} while (n < 0);",
+    "keyChecks": [
+      "int n",
+      "do",
+      "cin >> n",
+      "while",
+      "n < 0"
+    ]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "W-03",
+    "id": "CMEM-W03-01",
+    "section": "for loop canonical",
+    "question": "Write the canonical for loop that prints i for i = 0..n-1.",
+    "code": "for (int i = 0; i < n; i++) {\n    cout << i << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < n",
+      "i++",
+      "cout"
+    ]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "W-03",
+    "id": "CMEM-W03-02",
+    "section": "for loop array",
+    "question": "Write a canonical for loop that prints arr[i] for i = 0..count-1.",
+    "code": "for (int i = 0; i < count; i++) {\n    cout << arr[i] << \" \";\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < count",
+      "i++",
+      "arr[i]"
+    ]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "W-07",
+    "id": "CMEM-W07-01",
+    "section": "break in for",
+    "question": "Write a for loop 0..9 that breaks at i==5 and prints i otherwise.",
+    "code": "for (int i = 0; i < 10; i++) {\n    if (i == 5) break;\n    cout << i;\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < 10",
+      "i++",
+      "if",
+      "i == 5",
+      "break",
+      "cout"
+    ]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "W-08",
+    "id": "CMEM-W08-01",
+    "section": "continue in for",
+    "question": "Write a for loop 0..9 that skips i==3 with continue and prints i otherwise.",
+    "code": "for (int i = 0; i < 10; i++) {\n    if (i == 3) continue;\n    cout << i;\n}",
+    "keyChecks": [
+      "for",
+      "int i = 0",
+      "i < 10",
+      "i++",
+      "if",
+      "i == 3",
+      "continue",
+      "cout"
+    ]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "W-09",
+    "id": "CMEM-W09-01",
+    "section": "nested for canonical",
+    "question": "Write nested for loops walking r=0..1 and c=0..2, printing rc.",
+    "code": "for (int r = 0; r < 2; r++) {\n    for (int c = 0; c < 3; c++) {\n        cout << r << c;\n    }\n}",
+    "keyChecks": [
+      "for",
+      "int r = 0",
+      "int c = 0",
+      "r < 2",
+      "c < 3",
+      "cout"
+    ]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "W-10",
+    "id": "CMEM-W10-01",
+    "section": "while(true) + break",
+    "question": "Write a while(true) loop reading int n that breaks when n == -1 and prints n otherwise.",
+    "code": "int n;\nwhile (true) {\n    cin >> n;\n    if (n == -1) break;\n    cout << n << \" \";\n}",
+    "keyChecks": [
+      "int n",
+      "while",
+      "true",
+      "cin >> n",
+      "if",
+      "n == -1",
+      "break",
+      "cout"
+    ]
+  }
+]

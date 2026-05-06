@@ -1,0 +1,621 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "P-01",
+    "levelLabel": "L-1 -> computer runs programs",
+    "fullCode": "// File: hello.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "// File: hello.cpp",
+        "annotation": "This is the source file - text the compiler will read",
+        "atomIds": ["P-01"]
+      },
+      {
+        "line": 4,
+        "code": "int main() {",
+        "annotation": "Program entry point - the CPU starts running here",
+        "atomIds": ["P-01"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << \"Hello\" << endl;",
+        "annotation": "CPU executes this instruction - prints Hello",
+        "atomIds": ["P-01"]
+      },
+      {
+        "line": 6,
+        "code": "  return 0;",
+        "annotation": "Program ends - CPU stops running these instructions",
+        "atomIds": ["P-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "P-01",
+    "levelLabel": "L-1 -> CPU executes order",
+    "fullCode": "// File: sum.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  int a = 3;\n  int b = 4;\n  cout << a + b << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  int a = 3;",
+        "annotation": "CPU reserves memory and stores 3 in a",
+        "atomIds": ["P-01"]
+      },
+      {
+        "line": 6,
+        "code": "  int b = 4;",
+        "annotation": "CPU stores 4 in b",
+        "atomIds": ["P-01"]
+      },
+      {
+        "line": 7,
+        "code": "  cout << a + b << endl;",
+        "annotation": "CPU adds and prints 7",
+        "atomIds": ["P-01"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "P-01",
+    "code": "// terminal session\n$ g++ hello.cpp -o hello\n$ ./hello\nHello",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["$ g++ hello.cpp -o hello", "$ ./hello", "Hello"],
+    "inputMode": "final-only",
+    "teachMe": "g++ compiles hello.cpp into an executable. ./hello runs it. The program prints Hello to the terminal."
+  },
+  {
+    "type": "trace",
+    "atomId": "P-01",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Run\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Run"],
+    "inputMode": "final-only",
+    "teachMe": "When the .exe runs, the CPU executes each line of main() in order. cout prints Run."
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-01",
+    "code": "int ___() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "clozeSentence": "The CPU starts executing at the ___ function",
+    "answer": "main",
+    "explanation": "Every C++ program begins running at main(). The CPU follows instructions inside main from top to bottom."
+  },
+  {
+    "type": "write",
+    "atomId": "P-01",
+    "level": 3,
+    "spec": "Write a complete C++ program that prints Run to the terminal.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Run\" << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int main()", "cout", "Run", "return 0;"],
+    "explanation": "Includes iostream, declares main, prints Run, returns 0. The CPU runs each line in order."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "P-01",
+    "id": "CMEM-P01-01",
+    "section": "Process model: program entry",
+    "question": "Type the minimal C++ program that runs and exits cleanly",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "using namespace std;", "int main()", "return 0;"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "P-02",
+    "levelLabel": "L-1 -> source is text",
+    "fullCode": "// sum.cpp - this is plain text the compiler reads\n#include <iostream>\nusing namespace std;\nint main() {\n  int a = 5;\n  int b = 7;\n  cout << a + b << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "// sum.cpp - this is plain text the compiler reads",
+        "annotation": "Source code is text - you type it in any editor",
+        "atomIds": ["P-02"]
+      },
+      {
+        "line": 2,
+        "code": "#include <iostream>",
+        "annotation": "A line of text - the compiler reads it as a directive",
+        "atomIds": ["P-02"]
+      },
+      {
+        "line": 5,
+        "code": "  int a = 5;",
+        "annotation": "Each statement is a text instruction the compiler parses",
+        "atomIds": ["P-02"]
+      },
+      {
+        "line": 7,
+        "code": "  cout << a + b << endl;",
+        "annotation": "Text instruction telling CPU what to compute and print",
+        "atomIds": ["P-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "P-02",
+    "levelLabel": "L-1 -> instructions in sequence",
+    "fullCode": "// max.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  int x = 10;\n  int y = 4;\n  cout << x << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  int x = 10;",
+        "annotation": "Instruction 1: declare x with value 10",
+        "atomIds": ["P-02"]
+      },
+      {
+        "line": 6,
+        "code": "  int y = 4;",
+        "annotation": "Instruction 2: declare y with value 4",
+        "atomIds": ["P-02"]
+      },
+      {
+        "line": 7,
+        "code": "  cout << x << endl;",
+        "annotation": "Instruction 3: print x",
+        "atomIds": ["P-02"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "P-02",
+    "code": "// max.cpp - source code is text\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Max: 10\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Max: 10"],
+    "inputMode": "final-only",
+    "teachMe": "max.cpp is text. The compiler reads the text and turns it into a runnable program. Running prints Max: 10."
+  },
+  {
+    "type": "trace",
+    "atomId": "P-02",
+    "code": "// terminal\n$ cat sum.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << 12 << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["$ cat sum.cpp", "#include <iostream>", "using namespace std;", "int main() {", "  cout << 12 << endl;", "  return 0;", "}"],
+    "inputMode": "final-only",
+    "teachMe": "cat prints the file contents - it's all text. Source code is just text humans write and the compiler reads."
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-02",
+    "code": "// max.cpp\n___ <iostream>\nusing namespace std;\nint main() {\n  return 0;\n}",
+    "clozeSentence": "Source code is just text - type ___ to load the I/O library",
+    "answer": "#include",
+    "explanation": "The whole source file is plain text. #include is a text directive the compiler reads."
+  },
+  {
+    "type": "write",
+    "atomId": "P-02",
+    "level": 3,
+    "spec": "Write a complete C++ source file (max.cpp) that prints the number 25 to the terminal.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << 25 << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int main()", "cout", "25", "return 0;"],
+    "explanation": "Source code is text instructions. The compiler reads this text and produces an executable."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "P-02",
+    "id": "CMEM-P02-01",
+    "section": "Process model: source as text",
+    "question": "Type a one-line program that prints OK using cout",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"OK\" << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int main()", "cout", "OK", "return 0;"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "P-03",
+    "levelLabel": "L-1 -> .cpp file extension",
+    "fullCode": "// File: error_demo.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Test\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "// File: error_demo.cpp",
+        "annotation": "Source file ends with .cpp - this is what you type code into",
+        "atomIds": ["P-03"]
+      },
+      {
+        "line": 2,
+        "code": "#include <iostream>",
+        "annotation": "First non-comment line in any .cpp file is usually #include",
+        "atomIds": ["P-03"]
+      },
+      {
+        "line": 4,
+        "code": "int main() {",
+        "annotation": "Every .cpp executable file has int main()",
+        "atomIds": ["P-03"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "P-03",
+    "code": "// terminal\n$ ls\nerror_demo.cpp\n$ g++ error_demo.cpp -o error_demo\n$ ./error_demo\nTest",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["$ ls", "error_demo.cpp", "$ g++ error_demo.cpp -o error_demo", "$ ./error_demo", "Test"],
+    "inputMode": "final-only",
+    "teachMe": "Source code lives in .cpp files. ls shows error_demo.cpp. g++ compiles it. ./error_demo runs and prints Test."
+  },
+  {
+    "type": "trace",
+    "atomId": "P-03",
+    "code": "// File: runtime_demo.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << 100 << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["100"],
+    "inputMode": "final-only",
+    "teachMe": "runtime_demo.cpp is a source file. When compiled and run it prints 100."
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-03",
+    "code": "// File: runtime_demo.___\n#include <iostream>\nusing namespace std;\nint main() {\n  return 0;\n}",
+    "clozeSentence": "C++ source files end with the ___ extension",
+    "answer": "cpp",
+    "explanation": "C++ source files use the .cpp extension. The compiler g++ expects .cpp input."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "P-03",
+    "id": "CMEM-P03-01",
+    "section": "Process model: .cpp file extension",
+    "question": "Type a comment showing the canonical filename for a hello world C++ file, then the include line",
+    "code": "// File: hello.cpp\n#include <iostream>",
+    "keyChecks": ["// File:", "hello.cpp", "#include", "<iostream>"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "P-04",
+    "levelLabel": "L-1 -> compile step",
+    "fullCode": "// Step 1: write source to syntax_err.cpp\n// Step 2: g++ syntax_err.cpp -o syntax_err\n// Step 3: ./syntax_err\n// Output: 42\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << 42 << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "// Step 1: write source to syntax_err.cpp",
+        "annotation": "First you write text in a .cpp file",
+        "atomIds": ["P-04"]
+      },
+      {
+        "line": 2,
+        "code": "// Step 2: g++ syntax_err.cpp -o syntax_err",
+        "annotation": "g++ is the compiler - turns .cpp into an executable",
+        "atomIds": ["P-04"]
+      },
+      {
+        "line": 3,
+        "code": "// Step 3: ./syntax_err",
+        "annotation": "Run the executable",
+        "atomIds": ["P-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "P-04",
+    "levelLabel": "L-1 -> compiler output is exe",
+    "fullCode": "// syntax_err.cpp -> g++ -> syntax_err.exe\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Compiled\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "// syntax_err.cpp -> g++ -> syntax_err.exe",
+        "annotation": "Pipeline: text source becomes binary executable",
+        "atomIds": ["P-04"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << \"Compiled\" << endl;",
+        "annotation": "After compilation this line runs as machine code",
+        "atomIds": ["P-04"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "P-04",
+    "code": "// terminal\n$ ls\nsyntax_err.cpp\n$ g++ syntax_err.cpp -o syntax_err\n$ ls\nsyntax_err.cpp  syntax_err",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["$ ls", "syntax_err.cpp", "$ g++ syntax_err.cpp -o syntax_err", "$ ls", "syntax_err.cpp  syntax_err"],
+    "inputMode": "final-only",
+    "teachMe": "Before compile: only .cpp file. After g++ runs: both .cpp and the new executable exist."
+  },
+  {
+    "type": "trace",
+    "atomId": "P-04",
+    "code": "// terminal\n$ g++ syntax_err.cpp\n$ ls\na.out  syntax_err.cpp",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["$ g++ syntax_err.cpp", "$ ls", "a.out  syntax_err.cpp"],
+    "inputMode": "final-only",
+    "teachMe": "Without -o flag, g++ creates default a.out executable. Use -o to name it."
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-04",
+    "code": "$ ___ syntax_err.cpp -o syntax_err",
+    "clozeSentence": "The C++ compiler is invoked with ___",
+    "answer": "g++",
+    "explanation": "g++ is the GNU C++ compiler. It reads .cpp source and produces an executable."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "P-04",
+    "id": "CMEM-P04-01",
+    "section": "Process model: compile command",
+    "question": "Type the canonical g++ compile command for a file named program.cpp producing executable program",
+    "code": "g++ program.cpp -o program",
+    "keyChecks": ["g++", "program.cpp", "-o", "program"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "P-05",
+    "levelLabel": "L-1 -> running the exe",
+    "fullCode": "// runtime_prog.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Line 1\" << endl;\n  cout << \"Line 2\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  cout << \"Line 1\" << endl;",
+        "annotation": "When the exe runs, this is the first instruction CPU executes",
+        "atomIds": ["P-05"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << \"Line 2\" << endl;",
+        "annotation": "Second instruction executes after the first",
+        "atomIds": ["P-05"]
+      },
+      {
+        "line": 7,
+        "code": "  return 0;",
+        "annotation": "Last instruction - tells OS the program is done",
+        "atomIds": ["P-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "P-05",
+    "levelLabel": "L-1 -> top-down execution",
+    "fullCode": "// counter.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  int n = 0;\n  n = n + 1;\n  n = n + 1;\n  cout << n << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  int n = 0;",
+        "annotation": "Step 1: n becomes 0",
+        "atomIds": ["P-05"]
+      },
+      {
+        "line": 6,
+        "code": "  n = n + 1;",
+        "annotation": "Step 2: n becomes 1",
+        "atomIds": ["P-05"]
+      },
+      {
+        "line": 7,
+        "code": "  n = n + 1;",
+        "annotation": "Step 3: n becomes 2",
+        "atomIds": ["P-05"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << n << endl;",
+        "annotation": "Step 4: prints 2",
+        "atomIds": ["P-05"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "P-05",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"A\" << endl;\n  cout << \"B\" << endl;\n  cout << \"C\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["A", "B", "C"],
+    "inputMode": "final-only",
+    "teachMe": "Running the .exe executes each cout in order. A prints first, then B, then C."
+  },
+  {
+    "type": "trace",
+    "atomId": "P-05",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int n = 5;\n  n = n * 2;\n  cout << n << endl;\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 4, "variable": "n", "value": "5" },
+      { "line": 5, "variable": "n", "value": "10" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10"],
+    "inputMode": "final-only",
+    "teachMe": "CPU executes line 4 (n=5), then line 5 (n*=2 makes n=10), then line 6 prints 10."
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-05",
+    "code": "$ ___runtime_prog\nLine 1",
+    "clozeSentence": "On Linux/Mac, run an executable in the current directory with ___",
+    "answer": "./",
+    "explanation": "./ tells the shell to run the executable in the current directory. Without ./ the shell only searches PATH."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "P-05",
+    "id": "CMEM-P05-01",
+    "section": "Process model: run command",
+    "question": "Type the command to run an executable named myapp in the current directory",
+    "code": "./myapp",
+    "keyChecks": ["./", "myapp"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "P-06",
+    "levelLabel": "L-1 -> stdout to terminal",
+    "fullCode": "// exit_code.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Status: OK\" << endl;\n  cout << \"Code: 0\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  cout << \"Status: OK\" << endl;",
+        "annotation": "cout writes Status: OK to terminal stdout",
+        "atomIds": ["P-06"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << \"Code: 0\" << endl;",
+        "annotation": "Second cout call - second line in terminal",
+        "atomIds": ["P-06"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "P-06",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Score: \" << 95 << endl;\n  cout << \"Grade: A\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Score: 95", "Grade: A"],
+    "inputMode": "final-only",
+    "teachMe": "cout sends text to the terminal. Each cout statement appends to the terminal output."
+  },
+  {
+    "type": "trace",
+    "atomId": "P-06",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Done\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Done"],
+    "inputMode": "final-only",
+    "teachMe": "cout writes Done to terminal then endl ends the line."
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-06",
+    "code": "int main() {\n  ___ << \"Hi\" << endl;\n  return 0;\n}",
+    "clozeSentence": "To send output to the terminal, use ___",
+    "answer": "cout",
+    "explanation": "cout is the standard output stream. It sends characters to the terminal."
+  },
+  {
+    "type": "write",
+    "atomId": "P-06",
+    "level": 2,
+    "spec": "Write a main() function body that prints two lines: Status and the value 0 on separate lines.",
+    "expectedAnswer": "int main() {\n  cout << \"Status\" << endl;\n  cout << 0 << endl;\n  return 0;\n}",
+    "keyChecks": ["int main()", "cout", "Status", "endl", "0", "return 0;"],
+    "explanation": "Two cout statements with endl produce two separate lines in the terminal."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "P-06",
+    "id": "CMEM-P06-01",
+    "section": "Process model: terminal output",
+    "question": "Type a single cout statement that prints Hello followed by a newline",
+    "code": "cout << \"Hello\" << endl;",
+    "keyChecks": ["cout", "<<", "Hello", "endl", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "P-07",
+    "levelLabel": "L-1 -> stdin from terminal",
+    "fullCode": "// exit_code.cpp\n#include <iostream>\nusing namespace std;\nint main() {\n  int code;\n  cout << \"Enter exit code: \";\n  cin >> code;\n  cout << \"You entered \" << code << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  cout << \"Enter exit code: \";",
+        "annotation": "Prompt user with text - no endl so cursor stays on same line",
+        "atomIds": ["P-07"]
+      },
+      {
+        "line": 7,
+        "code": "  cin >> code;",
+        "annotation": "Program pauses - user types value, presses Enter, value goes into code",
+        "atomIds": ["P-07"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << \"You entered \" << code << endl;",
+        "annotation": "Echo back what user typed",
+        "atomIds": ["P-07"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "P-07",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int n;\n  cin >> n;\n  cout << n + 1 << endl;\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 5, "variable": "n", "value": "7" }
+    ],
+    "userInputs": ["7"],
+    "inputLabels": ["n"],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "User types 7 at the terminal. cin reads it into n. cout prints n+1 = 8."
+  },
+  {
+    "type": "trace",
+    "atomId": "P-07",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int code;\n  cout << \"Enter code: \";\n  cin >> code;\n  cout << code << endl;\n  return 0;\n}",
+    "variables": ["code"],
+    "expectedSteps": [
+      { "line": 6, "variable": "code", "value": "42" }
+    ],
+    "userInputs": ["42"],
+    "inputLabels": ["code"],
+    "terminalOutput": ["Enter code: 42", "42"],
+    "inputMode": "final-only",
+    "teachMe": "Program prints prompt, waits for input. User types 42, cin reads it, cout echoes 42 on next line."
+  },
+  {
+    "type": "cloze",
+    "atomId": "P-07",
+    "code": "int x;\n___ >> x;",
+    "clozeSentence": "To read what the user types in the terminal, use ___",
+    "answer": "cin",
+    "explanation": "cin is the standard input stream. It reads from what the user types in the terminal."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "P-07",
+    "id": "CMEM-P07-01",
+    "section": "Process model: terminal input",
+    "question": "Type a cin statement that reads an int variable named exitCode",
+    "code": "cin >> exitCode;",
+    "keyChecks": ["cin", ">>", "exitCode", ";"]
+  }
+]

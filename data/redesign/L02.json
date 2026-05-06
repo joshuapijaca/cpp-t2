@@ -1,0 +1,3424 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "V-01",
+    "levelLabel": "L2 -> variable as memory box",
+    "fullCode": "int balance = 100;\nbalance = balance + 50;\ncout << balance;",
+    "steps": [
+      { "line": 1, "code": "int balance = 100;", "annotation": "Create a labeled box named balance and put 100 inside.", "atomIds": ["V-01"] },
+      { "line": 2, "code": "balance = balance + 50;", "annotation": "Read the box (100), add 50, write 150 back into the same box.", "atomIds": ["V-01"] },
+      { "line": 3, "code": "cout << balance;", "annotation": "Print whatever the box currently holds: 150.", "atomIds": ["V-01"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-01",
+    "levelLabel": "L2 -> reading vs writing the box",
+    "fullCode": "int balance = 200;\nint deposit = 75;\nbalance = balance + deposit;",
+    "steps": [
+      { "line": 1, "code": "int balance = 200;", "annotation": "Box balance starts holding 200.", "atomIds": ["V-01"] },
+      { "line": 2, "code": "int deposit = 75;", "annotation": "Box deposit starts holding 75.", "atomIds": ["V-01"] },
+      { "line": 3, "code": "balance = balance + deposit;", "annotation": "Read both boxes, sum is 275, write 275 into balance.", "atomIds": ["V-01"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-01",
+    "code": "int balance = 100;\nbalance = 250;\ncout << balance;",
+    "variables": ["balance"],
+    "expectedSteps": [
+      { "line": 1, "variable": "balance", "value": "100" },
+      { "line": 2, "variable": "balance", "value": "250" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["250"],
+    "inputMode": "final-only",
+    "teachMe": "The box balance first holds 100, then is overwritten with 250. cout reads the latest value."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-01",
+    "code": "int balance = 50;\nbalance = balance + 25;\ncout << balance;",
+    "variables": ["balance"],
+    "expectedSteps": [
+      { "line": 1, "variable": "balance", "value": "50" },
+      { "line": 2, "variable": "balance", "value": "75" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["75"],
+    "inputMode": "final-only",
+    "teachMe": "balance + 25 reads the box (50), computes 75, and writes 75 back into balance."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-01",
+    "code": "int balance = 300;\nbalance = balance - 100;\nbalance = balance - 50;\ncout << balance;",
+    "variables": ["balance"],
+    "expectedSteps": [
+      { "line": 1, "variable": "balance", "value": "300" },
+      { "line": 2, "variable": "balance", "value": "200" },
+      { "line": 3, "variable": "balance", "value": "150" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["150"],
+    "inputMode": "final-only",
+    "teachMe": "Each subtraction overwrites balance with the new total."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-01",
+    "code": "int balance = 100;\nint savings = 200;\nsavings = balance;\ncout << savings;",
+    "variables": ["balance", "savings"],
+    "expectedSteps": [
+      { "line": 1, "variable": "balance", "value": "100" },
+      { "line": 2, "variable": "savings", "value": "200" },
+      { "line": 3, "variable": "savings", "value": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["100"],
+    "inputMode": "final-only",
+    "teachMe": "savings = balance copies the value out of balance into savings; balance is unchanged."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-01",
+    "code": "int balance = 100;\n___ = 250;\ncout << balance;",
+    "clozeSentence": "Fill in the variable name to overwrite the box.",
+    "answer": "balance",
+    "explanation": "We are writing into the existing box named balance."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-01",
+    "code": "int balance = 100;\nbalance = balance ___ 50;",
+    "clozeSentence": "Fill in the operator to add 50 to the box.",
+    "answer": "+",
+    "explanation": "Reading balance, adding 50, then writing the sum back uses the + operator."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-01",
+    "code": "int balance = 100;\nbalance = balance + 50;\ncout ___ balance;",
+    "clozeSentence": "Fill in the stream operator that prints the box.",
+    "answer": "<<",
+    "explanation": "cout uses << to send the value to the terminal."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-01",
+    "code": "int balance = 100;\nbalance = 0;\ncout << balance;\n// Prints: ___",
+    "clozeSentence": "After balance is overwritten with 0, what does cout print?",
+    "answer": "0",
+    "explanation": "The latest write is balance = 0, so cout prints 0."
+  },
+  {
+    "type": "write",
+    "atomId": "V-01",
+    "level": 1,
+    "spec": "Write a single line that creates an int box named balance holding the value 100.",
+    "expectedAnswer": "int balance = 100;",
+    "keyChecks": ["int", "balance", "=", "100", ";"],
+    "explanation": "type, name, =, value, semicolon — that is the full declaration with initialization."
+  },
+  {
+    "type": "write",
+    "atomId": "V-01",
+    "level": 1,
+    "spec": "Write the line that overwrites an existing int variable balance with 0.",
+    "expectedAnswer": "balance = 0;",
+    "keyChecks": ["balance", "=", "0", ";"],
+    "forbidden": ["int"],
+    "explanation": "Assignment uses just name = value;. The type was declared earlier so don't repeat int."
+  },
+  {
+    "type": "write",
+    "atomId": "V-01",
+    "level": 2,
+    "spec": "Write two lines: declare an int balance starting at 100, then add 50 to it.",
+    "expectedAnswer": "int balance = 100;\nbalance = balance + 50;",
+    "keyChecks": ["int", "balance", "= 100", "balance + 50", ";"],
+    "explanation": "First declare and init, then read-modify-write to update the box."
+  },
+  {
+    "type": "procedural",
+    "atomId": "V-01",
+    "id": "PD-V01-01",
+    "section": "Variable as memory box",
+    "prompt": "Declare an int variable balance set to 100, then write 250 into it.",
+    "expectedAnswer": "int balance = 100;\nbalance = 250;",
+    "keyChecks": ["int", "balance", "= 100", "balance = 250", ";"],
+    "variants": [
+      { "prompt": "Create int box account starting at 50, then overwrite with 75.", "expectedAnswer": "int account = 50;\naccount = 75;" },
+      { "prompt": "Make int variable cash holding 0, then assign it 500.", "expectedAnswer": "int cash = 0;\ncash = 500;" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-01",
+    "id": "CM-V01-01",
+    "section": "Box overwrite pattern",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: int box overwritten", "code": "int balance = 100;\nbalance = 200;" },
+      { "label": "Example B: int box added to", "code": "int balance = 100;\nbalance = balance + 50;" }
+    ],
+    "prompt": "Write two lines that declare an int balance starting at 100, then subtract 30 from it.",
+    "expectedAnswer": "int balance = 100;\nbalance = balance - 30;",
+    "keyChecks": ["int balance = 100", "balance = balance - 30", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-01",
+    "id": "CMEM-V01-01",
+    "section": "Variable as memory box",
+    "question": "Type the canonical line that creates an int box named balance with value 100.",
+    "code": "int balance = 100;",
+    "keyChecks": ["int", "balance", "= 100", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-02",
+    "levelLabel": "L2 -> variable name identifies the box",
+    "fullCode": "int weight = 70;\nint target = 65;\ncout << weight;",
+    "steps": [
+      { "line": 1, "code": "int weight = 70;", "annotation": "The name weight is how we refer to this box.", "atomIds": ["V-02"] },
+      { "line": 2, "code": "int target = 65;", "annotation": "A different name, target, refers to a different box.", "atomIds": ["V-02"] },
+      { "line": 3, "code": "cout << weight;", "annotation": "We name the box we want; cout prints weight, not target.", "atomIds": ["V-02"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-02",
+    "levelLabel": "L2 -> picking a meaningful name",
+    "fullCode": "int weight_kg = 80;\nint height_cm = 175;\ncout << weight_kg;",
+    "steps": [
+      { "line": 1, "code": "int weight_kg = 80;", "annotation": "Use snake_case names that say what the box holds.", "atomIds": ["V-02"] },
+      { "line": 2, "code": "int height_cm = 175;", "annotation": "Each variable has its own unique name.", "atomIds": ["V-02"] },
+      { "line": 3, "code": "cout << weight_kg;", "annotation": "Reading by name returns 80 from the weight_kg box.", "atomIds": ["V-02"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-02",
+    "code": "int weight = 70;\nint target = 65;\ncout << target;",
+    "variables": ["weight", "target"],
+    "expectedSteps": [
+      { "line": 1, "variable": "weight", "value": "70" },
+      { "line": 2, "variable": "target", "value": "65" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["65"],
+    "inputMode": "final-only",
+    "teachMe": "cout prints the variable named in the line, target, not weight."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-02",
+    "code": "int weight = 80;\nint weight2 = 90;\ncout << weight;",
+    "variables": ["weight", "weight2"],
+    "expectedSteps": [
+      { "line": 1, "variable": "weight", "value": "80" },
+      { "line": 2, "variable": "weight2", "value": "90" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["80"],
+    "inputMode": "final-only",
+    "teachMe": "weight and weight2 are completely separate boxes; the trailing 2 makes a new name."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-02",
+    "code": "int kg = 70;\nint lb = 154;\nkg = 75;\ncout << lb;",
+    "variables": ["kg", "lb"],
+    "expectedSteps": [
+      { "line": 1, "variable": "kg", "value": "70" },
+      { "line": 2, "variable": "lb", "value": "154" },
+      { "line": 3, "variable": "kg", "value": "75" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["154"],
+    "inputMode": "final-only",
+    "teachMe": "Writing to kg does not affect lb; they are independent named boxes."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-02",
+    "code": "int weight = 70;\nint copy = weight;\nweight = 100;\ncout << copy;",
+    "variables": ["weight", "copy"],
+    "expectedSteps": [
+      { "line": 1, "variable": "weight", "value": "70" },
+      { "line": 2, "variable": "copy", "value": "70" },
+      { "line": 3, "variable": "weight", "value": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["70"],
+    "inputMode": "final-only",
+    "teachMe": "copy got 70 from weight, but later changing weight does not change copy."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-02",
+    "code": "int ___ = 70;\ncout << weight;",
+    "clozeSentence": "Fill in the variable name so the cout line works.",
+    "answer": "weight",
+    "explanation": "The declared name must match the name used in cout."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-02",
+    "code": "int weight = 70;\nint target = 65;\ncout << ___;\n// Prints 65",
+    "clozeSentence": "Fill in which variable name prints 65.",
+    "answer": "target",
+    "explanation": "target holds 65; weight holds 70."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-02",
+    "code": "int weight_kg = 80;\nweight_kg = ___;\ncout << weight_kg;\n// Prints 90",
+    "clozeSentence": "Fill in the value that makes the trace print 90.",
+    "answer": "90",
+    "explanation": "Assigning 90 makes the box hold 90, then cout prints it."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-02",
+    "code": "// Pick a valid C++ variable name\nint ___ = 0; // a valid identifier",
+    "clozeSentence": "Fill in any valid identifier (lowercase letters or underscore).",
+    "answer": "weight",
+    "explanation": "weight starts with a letter — a valid identifier."
+  },
+  {
+    "type": "write",
+    "atomId": "V-02",
+    "level": 1,
+    "spec": "Declare an int variable named weight initialized to 70.",
+    "expectedAnswer": "int weight = 70;",
+    "keyChecks": ["int", "weight", "=", "70", ";"],
+    "explanation": "Use the meaningful name weight; numbers and the type come around the name."
+  },
+  {
+    "type": "write",
+    "atomId": "V-02",
+    "level": 1,
+    "spec": "Declare an int variable named weight_kg initialized to 80 (use snake_case).",
+    "expectedAnswer": "int weight_kg = 80;",
+    "keyChecks": ["int", "weight_kg", "=", "80", ";"],
+    "explanation": "Underscores are allowed inside identifiers; the box is named weight_kg."
+  },
+  {
+    "type": "write",
+    "atomId": "V-02",
+    "level": 2,
+    "spec": "Declare two separate int variables: weight set to 70 and target set to 65.",
+    "expectedAnswer": "int weight = 70;\nint target = 65;",
+    "keyChecks": ["int weight", "= 70", "int target", "= 65", ";"],
+    "explanation": "Two distinct names mean two distinct boxes."
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-02",
+    "id": "CM-V02-01",
+    "section": "Naming rotation",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: kg pair", "code": "int weight = 70;\nint target = 65;" },
+      { "label": "Example B: cm pair", "code": "int height = 175;\nint goal = 180;" }
+    ],
+    "prompt": "Declare int variables for current age 30 and retire_age 65.",
+    "expectedAnswer": "int age = 30;\nint retire_age = 65;",
+    "keyChecks": ["int age", "= 30", "int retire_age", "= 65", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-02",
+    "id": "CMEM-V02-01",
+    "section": "Variable name uniqueness",
+    "question": "Type two int declarations: weight=70 and target=65 on separate lines.",
+    "code": "int weight = 70;\nint target = 65;",
+    "keyChecks": ["int weight = 70", "int target = 65", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-03",
+    "levelLabel": "L2 -> type decides what fits in the box",
+    "fullCode": "int qty = 3;\ndouble price = 9.99;\nstring item = \"apple\";",
+    "steps": [
+      { "line": 1, "code": "int qty = 3;", "annotation": "int box: only whole numbers fit.", "atomIds": ["V-03"] },
+      { "line": 2, "code": "double price = 9.99;", "annotation": "double box: decimals allowed.", "atomIds": ["V-03"] },
+      { "line": 3, "code": "string item = \"apple\";", "annotation": "string box: text in double quotes.", "atomIds": ["V-03"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-03",
+    "levelLabel": "L2 -> wrong type = wrong shape",
+    "fullCode": "int price = 9;\ndouble price2 = 9.99;\ncout << price;\ncout << price2;",
+    "steps": [
+      { "line": 1, "code": "int price = 9;", "annotation": "int discards the .99 you might have wanted.", "atomIds": ["V-03"] },
+      { "line": 2, "code": "double price2 = 9.99;", "annotation": "double keeps the decimal part.", "atomIds": ["V-03"] },
+      { "line": 3, "code": "cout << price;", "annotation": "Prints 9 — the int box has no fraction.", "atomIds": ["V-03"] },
+      { "line": 4, "code": "cout << price2;", "annotation": "Prints 9.99 — the double held the full value.", "atomIds": ["V-03"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-03",
+    "code": "int price = 9;\ndouble price2 = 9.99;\ncout << price << \" \" << price2;",
+    "variables": ["price", "price2"],
+    "expectedSteps": [
+      { "line": 1, "variable": "price", "value": "9" },
+      { "line": 2, "variable": "price2", "value": "9.99" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["9 9.99"],
+    "inputMode": "final-only",
+    "teachMe": "int holds 9 only; double can hold 9.99 with the decimal."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-03",
+    "code": "double price = 9.99;\nint rounded = price;\ncout << rounded;",
+    "variables": ["price", "rounded"],
+    "expectedSteps": [
+      { "line": 1, "variable": "price", "value": "9.99" },
+      { "line": 2, "variable": "rounded", "value": "9" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["9"],
+    "inputMode": "final-only",
+    "teachMe": "Storing a double in an int truncates the decimal part. 9.99 becomes 9."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-03",
+    "code": "int qty = 3;\ndouble unit = 1.5;\ndouble total = qty * unit;\ncout << total;",
+    "variables": ["qty", "unit", "total"],
+    "expectedSteps": [
+      { "line": 1, "variable": "qty", "value": "3" },
+      { "line": 2, "variable": "unit", "value": "1.5" },
+      { "line": 3, "variable": "total", "value": "4.5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["4.5"],
+    "inputMode": "final-only",
+    "teachMe": "Mixing int (3) and double (1.5) in math gives a double result (4.5)."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-03",
+    "code": "string item = \"apple\";\nint count = 5;\ncout << item << count;",
+    "variables": ["item", "count"],
+    "expectedSteps": [
+      { "line": 1, "variable": "item", "value": "apple" },
+      { "line": 2, "variable": "count", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["apple5"],
+    "inputMode": "final-only",
+    "teachMe": "Two different types print fine to cout; each box keeps its own type."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-03",
+    "code": "___ price = 9.99;",
+    "clozeSentence": "Fill in the type that holds a decimal number.",
+    "answer": "double",
+    "explanation": "9.99 has a decimal — the type must be double (or float)."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-03",
+    "code": "___ qty = 3;",
+    "clozeSentence": "Fill in the type that holds a whole number.",
+    "answer": "int",
+    "explanation": "3 is a whole number — int is the standard integer type."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-03",
+    "code": "___ item = \"apple\";",
+    "clozeSentence": "Fill in the type that holds text.",
+    "answer": "string",
+    "explanation": "Text in double quotes is stored in a string."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-03",
+    "code": "double price = 9.99;\nint copy = price;\n// copy now holds: ___",
+    "clozeSentence": "What value ends up in the int copy?",
+    "answer": "9",
+    "explanation": "Storing 9.99 into an int truncates the decimal — copy holds 9."
+  },
+  {
+    "type": "write",
+    "atomId": "V-03",
+    "level": 1,
+    "spec": "Declare a double variable price set to 9.99.",
+    "expectedAnswer": "double price = 9.99;",
+    "keyChecks": ["double", "price", "=", "9.99", ";"],
+    "explanation": "double is the type for decimal numbers; the literal 9.99 has a dot."
+  },
+  {
+    "type": "write",
+    "atomId": "V-03",
+    "level": 1,
+    "spec": "Declare a string variable item set to apple (in double quotes).",
+    "expectedAnswer": "string item = \"apple\";",
+    "keyChecks": ["string", "item", "=", "\"apple\"", ";"],
+    "explanation": "Text in double quotes is a string literal; the type is string."
+  },
+  {
+    "type": "write",
+    "atomId": "V-03",
+    "level": 2,
+    "spec": "Declare three variables: int qty=3, double unit=1.5, string item=\"apple\".",
+    "expectedAnswer": "int qty = 3;\ndouble unit = 1.5;\nstring item = \"apple\";",
+    "keyChecks": ["int qty", "double unit", "string item", "= 3", "= 1.5", "= \"apple\"", ";"],
+    "explanation": "Three different types — match each value to the matching type."
+  },
+  {
+    "type": "procedural",
+    "atomId": "V-03",
+    "id": "PD-V03-01",
+    "section": "Type by literal",
+    "prompt": "Declare a double variable named price holding 9.99.",
+    "expectedAnswer": "double price = 9.99;",
+    "keyChecks": ["double", "price", "= 9.99", ";"],
+    "variants": [
+      { "prompt": "Declare a double rate holding 0.05.", "expectedAnswer": "double rate = 0.05;" },
+      { "prompt": "Declare a double tax holding 1.10.", "expectedAnswer": "double tax = 1.10;" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-03",
+    "id": "CM-V03-01",
+    "section": "Type matching literal",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: int with whole-number literal", "code": "int qty = 3;" },
+      { "label": "Example B: double with decimal literal", "code": "double price = 9.99;" }
+    ],
+    "prompt": "Declare a string variable item holding the text \"apple\".",
+    "expectedAnswer": "string item = \"apple\";",
+    "keyChecks": ["string", "item", "= \"apple\"", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-03",
+    "id": "CMEM-V03-01",
+    "section": "Type variety",
+    "question": "Type three different declarations: int qty=3, double price=9.99, string item=\"apple\".",
+    "code": "int qty = 3;\ndouble price = 9.99;\nstring item = \"apple\";",
+    "keyChecks": ["int qty = 3", "double price = 9.99", "string item = \"apple\"", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-04",
+    "levelLabel": "L2 -> declaration without init",
+    "fullCode": "int score;\nscore = 0;\ncout << score;",
+    "steps": [
+      { "line": 1, "code": "int score;", "annotation": "Declare an int box named score; value not yet set.", "atomIds": ["V-04"] },
+      { "line": 2, "code": "score = 0;", "annotation": "Now write 0 into the box.", "atomIds": ["V-04"] },
+      { "line": 3, "code": "cout << score;", "annotation": "Read the box and print: 0.", "atomIds": ["V-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-04",
+    "levelLabel": "L2 -> declaration syntax pieces",
+    "fullCode": "int score;\nstring player;\ndouble final_pts;",
+    "steps": [
+      { "line": 1, "code": "int score;", "annotation": "type (int), name (score), semicolon. No value yet.", "atomIds": ["V-04"] },
+      { "line": 2, "code": "string player;", "annotation": "Same shape: type, name, ;.", "atomIds": ["V-04"] },
+      { "line": 3, "code": "double final_pts;", "annotation": "Always: type, name, ;.", "atomIds": ["V-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-04",
+    "code": "int score;\nscore = 100;\ncout << score;",
+    "variables": ["score"],
+    "expectedSteps": [
+      { "line": 1, "variable": "score", "value": "?" },
+      { "line": 2, "variable": "score", "value": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["100"],
+    "inputMode": "final-only",
+    "teachMe": "int score; just creates the box. Line 2 puts 100 inside it."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-04",
+    "code": "int score;\nscore = 50;\nscore = 75;\ncout << score;",
+    "variables": ["score"],
+    "expectedSteps": [
+      { "line": 1, "variable": "score", "value": "?" },
+      { "line": 2, "variable": "score", "value": "50" },
+      { "line": 3, "variable": "score", "value": "75" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["75"],
+    "inputMode": "final-only",
+    "teachMe": "Each assignment overwrites the previous value; only the latest survives."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-04",
+    "code": "int score;\nint bonus;\nscore = 80;\nbonus = 20;\ncout << score + bonus;",
+    "variables": ["score", "bonus"],
+    "expectedSteps": [
+      { "line": 1, "variable": "score", "value": "?" },
+      { "line": 2, "variable": "bonus", "value": "?" },
+      { "line": 3, "variable": "score", "value": "80" },
+      { "line": 4, "variable": "bonus", "value": "20" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["100"],
+    "inputMode": "final-only",
+    "teachMe": "Two declarations make two boxes; assigning fills each independently."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-04",
+    "code": "double final_pts;\nfinal_pts = 92.5;\ncout << final_pts;",
+    "variables": ["final_pts"],
+    "expectedSteps": [
+      { "line": 1, "variable": "final_pts", "value": "?" },
+      { "line": 2, "variable": "final_pts", "value": "92.5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["92.5"],
+    "inputMode": "final-only",
+    "teachMe": "Declaration creates the double box; assignment fills it with 92.5."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-04",
+    "code": "___ score;",
+    "clozeSentence": "Fill in the type for a whole-number score variable.",
+    "answer": "int",
+    "explanation": "int is the standard integer type used for scores."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-04",
+    "code": "int score___",
+    "clozeSentence": "Fill in the punctuation that ends the declaration.",
+    "answer": ";",
+    "explanation": "Every C++ statement ends with a semicolon."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-04",
+    "code": "string ___;\ncout << \"declared\";",
+    "clozeSentence": "Fill in any valid identifier name for a string variable.",
+    "answer": "player",
+    "explanation": "player is a valid identifier; the line declares string player;."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-04",
+    "code": "double ___ ;\nfinal_pts = 92.5;",
+    "clozeSentence": "Fill in the variable name to match the assignment below.",
+    "answer": "final_pts",
+    "explanation": "Declaration name must match the name being assigned to."
+  },
+  {
+    "type": "write",
+    "atomId": "V-04",
+    "level": 1,
+    "spec": "Declare an int variable named score (no initial value).",
+    "expectedAnswer": "int score;",
+    "keyChecks": ["int", "score", ";"],
+    "forbidden": ["="],
+    "explanation": "Bare declaration: type, name, semicolon. No = since we don't initialize here."
+  },
+  {
+    "type": "write",
+    "atomId": "V-04",
+    "level": 1,
+    "spec": "Declare a string variable named player (no initial value).",
+    "expectedAnswer": "string player;",
+    "keyChecks": ["string", "player", ";"],
+    "forbidden": ["="],
+    "explanation": "type, name, ;. No assignment yet."
+  },
+  {
+    "type": "write",
+    "atomId": "V-04",
+    "level": 2,
+    "spec": "Declare an int score (uninitialized), then assign 100 to it on the next line.",
+    "expectedAnswer": "int score;\nscore = 100;",
+    "keyChecks": ["int score;", "score = 100", ";"],
+    "explanation": "Two-step pattern: declare, then assign. Each line ends with ;."
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-04",
+    "id": "CM-V04-01",
+    "section": "Bare declaration shape",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: bare int", "code": "int score;" },
+      { "label": "Example B: bare string", "code": "string player;" }
+    ],
+    "prompt": "Write a bare declaration of a double named final_pts (no initial value).",
+    "expectedAnswer": "double final_pts;",
+    "keyChecks": ["double", "final_pts", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-04",
+    "id": "CMEM-V04-01",
+    "section": "Bare declaration",
+    "question": "Type the bare declaration of an int variable score.",
+    "code": "int score;",
+    "keyChecks": ["int", "score", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-05",
+    "levelLabel": "L2 -> declare and init in one line",
+    "fullCode": "string name = \"Alice\";\ncout << name;",
+    "steps": [
+      { "line": 1, "code": "string name = \"Alice\";", "annotation": "type, name, =, value, ; — declared AND initialized at once.", "atomIds": ["V-05"] },
+      { "line": 2, "code": "cout << name;", "annotation": "Reads the string and prints Alice.", "atomIds": ["V-05"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-05",
+    "levelLabel": "L2 -> init from another variable",
+    "fullCode": "string first = \"Alice\";\nstring greeting = first;",
+    "steps": [
+      { "line": 1, "code": "string first = \"Alice\";", "annotation": "Initialize first with the string \"Alice\".", "atomIds": ["V-05"] },
+      { "line": 2, "code": "string greeting = first;", "annotation": "Initialize greeting with a copy of first's value.", "atomIds": ["V-05"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-05",
+    "code": "string name = \"Alice\";\ncout << name;",
+    "variables": ["name"],
+    "expectedSteps": [
+      { "line": 1, "variable": "name", "value": "Alice" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Alice"],
+    "inputMode": "final-only",
+    "teachMe": "= during declaration sets the initial value of the box in one step."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-05",
+    "code": "string name = \"Alice\";\nname = \"Bob\";\ncout << name;",
+    "variables": ["name"],
+    "expectedSteps": [
+      { "line": 1, "variable": "name", "value": "Alice" },
+      { "line": 2, "variable": "name", "value": "Bob" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Bob"],
+    "inputMode": "final-only",
+    "teachMe": "Initialization fills the box with Alice; later assignment overwrites with Bob."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-05",
+    "code": "int x = 5;\nint y = x;\ncout << y;",
+    "variables": ["x", "y"],
+    "expectedSteps": [
+      { "line": 1, "variable": "x", "value": "5" },
+      { "line": 2, "variable": "y", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "y is initialized from x's current value, copying 5 into y."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-05",
+    "code": "string first = \"Alice\";\nstring full = first;\nfirst = \"Zoe\";\ncout << full;",
+    "variables": ["first", "full"],
+    "expectedSteps": [
+      { "line": 1, "variable": "first", "value": "Alice" },
+      { "line": 2, "variable": "full", "value": "Alice" },
+      { "line": 3, "variable": "first", "value": "Zoe" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Alice"],
+    "inputMode": "final-only",
+    "teachMe": "full was initialized to a copy of first; changing first later doesn't affect full."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-05",
+    "code": "string name ___ \"Alice\";",
+    "clozeSentence": "Fill in the operator that initializes the variable.",
+    "answer": "=",
+    "explanation": "= during declaration sets the initial value."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-05",
+    "code": "string name = ___;",
+    "clozeSentence": "Fill in a valid string literal for a name.",
+    "answer": "\"Alice\"",
+    "explanation": "Strings need double quotes around the literal."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-05",
+    "code": "string name = \"Alice\"___",
+    "clozeSentence": "Fill in the punctuation that ends the statement.",
+    "answer": ";",
+    "explanation": "Every statement ends with a semicolon."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-05",
+    "code": "___ name = \"Alice\";",
+    "clozeSentence": "Fill in the type for storing a name as text.",
+    "answer": "string",
+    "explanation": "Text in double quotes is a string."
+  },
+  {
+    "type": "write",
+    "atomId": "V-05",
+    "level": 1,
+    "spec": "Declare and initialize a string variable name with the value Alice (in quotes).",
+    "expectedAnswer": "string name = \"Alice\";",
+    "keyChecks": ["string", "name", "=", "\"Alice\"", ";"],
+    "explanation": "Single-line: type, name, =, value, ;."
+  },
+  {
+    "type": "write",
+    "atomId": "V-05",
+    "level": 1,
+    "spec": "Declare an int variable count initialized to zero.",
+    "expectedAnswer": "int count = 0;",
+    "keyChecks": ["int", "count", "=", "0", ";"],
+    "explanation": "int with = 0 means the box starts holding 0."
+  },
+  {
+    "type": "write",
+    "atomId": "V-05",
+    "level": 2,
+    "spec": "Declare a string first_name initialized to \"Joshua\" and a string last_name initialized to \"Pijaca\".",
+    "expectedAnswer": "string first_name = \"Joshua\";\nstring last_name = \"Pijaca\";",
+    "keyChecks": ["string first_name", "= \"Joshua\"", "string last_name", "= \"Pijaca\"", ";"],
+    "explanation": "Two separate one-line declarations, each fully initialized."
+  },
+  {
+    "type": "procedural",
+    "atomId": "V-05",
+    "id": "PD-V05-01",
+    "section": "Declare-and-init",
+    "prompt": "Declare a string variable name initialized to \"Alice\".",
+    "expectedAnswer": "string name = \"Alice\";",
+    "keyChecks": ["string", "name", "= \"Alice\"", ";"],
+    "variants": [
+      { "prompt": "Declare a string variable user initialized to \"Bob\".", "expectedAnswer": "string user = \"Bob\";" },
+      { "prompt": "Declare a string variable player initialized to \"Zoe\".", "expectedAnswer": "string player = \"Zoe\";" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-05",
+    "id": "CM-V05-01",
+    "section": "Declare-init pattern",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: int init", "code": "int count = 0;" },
+      { "label": "Example B: double init", "code": "double pi = 3.14;" }
+    ],
+    "prompt": "Declare and initialize a string variable name with the value \"Alice\".",
+    "expectedAnswer": "string name = \"Alice\";",
+    "keyChecks": ["string", "name", "= \"Alice\"", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-05",
+    "id": "CMEM-V05-01",
+    "section": "Declare-and-init",
+    "question": "Type the canonical declare-and-init line: string name = \"Alice\";",
+    "code": "string name = \"Alice\";",
+    "keyChecks": ["string", "name", "= \"Alice\"", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-06",
+    "levelLabel": "L2 -> reading a variable to print",
+    "fullCode": "double height = 1.75;\ncout << height;",
+    "steps": [
+      { "line": 1, "code": "double height = 1.75;", "annotation": "Set up the box.", "atomIds": ["V-06"] },
+      { "line": 2, "code": "cout << height;", "annotation": "Using the name reads the box; cout prints 1.75.", "atomIds": ["V-06"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-06",
+    "levelLabel": "L2 -> reading inside an expression",
+    "fullCode": "double height = 1.75;\ndouble half = height / 2;\ncout << half;",
+    "steps": [
+      { "line": 1, "code": "double height = 1.75;", "annotation": "height holds 1.75.", "atomIds": ["V-06"] },
+      { "line": 2, "code": "double half = height / 2;", "annotation": "Read height (1.75), divide by 2, store 0.875 in half.", "atomIds": ["V-06"] },
+      { "line": 3, "code": "cout << half;", "annotation": "Print half: 0.875.", "atomIds": ["V-06"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-06",
+    "code": "double height = 1.75;\ncout << height;",
+    "variables": ["height"],
+    "expectedSteps": [
+      { "line": 1, "variable": "height", "value": "1.75" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1.75"],
+    "inputMode": "final-only",
+    "teachMe": "cout << height; reads the box without changing it, and prints the value."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-06",
+    "code": "double height = 1.80;\ncout << height << \" m\";",
+    "variables": ["height"],
+    "expectedSteps": [
+      { "line": 1, "variable": "height", "value": "1.8" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1.8 m"],
+    "inputMode": "final-only",
+    "teachMe": "cout reads height (1.8) and the literal \" m\" and prints them in order."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-06",
+    "code": "double height = 1.75;\ncout << height;\ncout << height;",
+    "variables": ["height"],
+    "expectedSteps": [
+      { "line": 1, "variable": "height", "value": "1.75" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1.751.75"],
+    "inputMode": "final-only",
+    "teachMe": "Reading does not change the box. Printing it twice prints the same value twice."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-06",
+    "code": "double height = 1.75;\ndouble copy = height;\ncout << copy;",
+    "variables": ["height", "copy"],
+    "expectedSteps": [
+      { "line": 1, "variable": "height", "value": "1.75" },
+      { "line": 2, "variable": "copy", "value": "1.75" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1.75"],
+    "inputMode": "final-only",
+    "teachMe": "= reads the right side (height) and writes the value into copy."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-06",
+    "code": "double height = 1.75;\ncout ___ height;",
+    "clozeSentence": "Fill in the operator that sends height to cout.",
+    "answer": "<<",
+    "explanation": "<< is the stream-insertion operator used with cout."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-06",
+    "code": "double height = 1.75;\ncout << ___;\n// Prints 1.75",
+    "clozeSentence": "Fill in the variable name being read.",
+    "answer": "height",
+    "explanation": "We read by name; cout << height; prints what's in the box."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-06",
+    "code": "double height = 1.80;\ndouble copy = ___;\ncout << copy;\n// Prints 1.8",
+    "clozeSentence": "Fill in the variable being read on the right side.",
+    "answer": "height",
+    "explanation": "= reads the right side; height's value (1.80) flows into copy."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-06",
+    "code": "double height = 1.75;\ncout << height << \" m\"___",
+    "clozeSentence": "Fill in the punctuation that ends the cout statement.",
+    "answer": ";",
+    "explanation": "All statements end in ;."
+  },
+  {
+    "type": "write",
+    "atomId": "V-06",
+    "level": 1,
+    "spec": "Print a double variable named height to cout.",
+    "expectedAnswer": "cout << height;",
+    "keyChecks": ["cout", "<<", "height", ";"],
+    "explanation": "cout << name; reads and prints the value in the named box."
+  },
+  {
+    "type": "write",
+    "atomId": "V-06",
+    "level": 1,
+    "spec": "Print height followed by the literal text \" m\" using one cout statement.",
+    "expectedAnswer": "cout << height << \" m\";",
+    "keyChecks": ["cout", "<< height", "<< \" m\"", ";"],
+    "explanation": "Chain << to push multiple values into cout in order."
+  },
+  {
+    "type": "write",
+    "atomId": "V-06",
+    "level": 2,
+    "spec": "Declare double height = 1.75; then print it.",
+    "expectedAnswer": "double height = 1.75;\ncout << height;",
+    "keyChecks": ["double height", "= 1.75", "cout", "<< height", ";"],
+    "explanation": "First declare-and-init, then read the box via cout."
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-06",
+    "id": "CM-V06-01",
+    "section": "Read variable to cout",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: print int", "code": "int count = 7;\ncout << count;" },
+      { "label": "Example B: print string", "code": "string name = \"Ada\";\ncout << name;" }
+    ],
+    "prompt": "Declare double height = 1.75 and print it on the next line.",
+    "expectedAnswer": "double height = 1.75;\ncout << height;",
+    "keyChecks": ["double height = 1.75", "cout << height", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-06",
+    "id": "CMEM-V06-01",
+    "section": "Print variable",
+    "question": "Type the line that prints the variable height to cout.",
+    "code": "cout << height;",
+    "keyChecks": ["cout", "<<", "height", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-07",
+    "levelLabel": "L2 -> assignment overwrites the box",
+    "fullCode": "int quantity = 10;\nquantity = 25;\ncout << quantity;",
+    "steps": [
+      { "line": 1, "code": "int quantity = 10;", "annotation": "Box quantity holds 10.", "atomIds": ["V-07"] },
+      { "line": 2, "code": "quantity = 25;", "annotation": "Overwrite the box with 25; the old 10 is gone.", "atomIds": ["V-07"] },
+      { "line": 3, "code": "cout << quantity;", "annotation": "Print the current contents: 25.", "atomIds": ["V-07"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-07",
+    "levelLabel": "L2 -> read-modify-write",
+    "fullCode": "int quantity = 10;\nquantity = quantity + 5;",
+    "steps": [
+      { "line": 1, "code": "int quantity = 10;", "annotation": "quantity holds 10.", "atomIds": ["V-07"] },
+      { "line": 2, "code": "quantity = quantity + 5;", "annotation": "Read 10, add 5, write 15 back into the same box.", "atomIds": ["V-07"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-07",
+    "code": "int quantity = 10;\nquantity = 25;\ncout << quantity;",
+    "variables": ["quantity"],
+    "expectedSteps": [
+      { "line": 1, "variable": "quantity", "value": "10" },
+      { "line": 2, "variable": "quantity", "value": "25" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["25"],
+    "inputMode": "final-only",
+    "teachMe": "Assignment replaces the value. The latest = wins."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-07",
+    "code": "int quantity = 10;\nquantity = quantity + 5;\nquantity = quantity - 2;\ncout << quantity;",
+    "variables": ["quantity"],
+    "expectedSteps": [
+      { "line": 1, "variable": "quantity", "value": "10" },
+      { "line": 2, "variable": "quantity", "value": "15" },
+      { "line": 3, "variable": "quantity", "value": "13" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["13"],
+    "inputMode": "final-only",
+    "teachMe": "Each line reads the latest value of quantity and writes a new one."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-07",
+    "code": "int quantity = 10;\nint price = 5;\nquantity = price;\ncout << quantity << \" \" << price;",
+    "variables": ["quantity", "price"],
+    "expectedSteps": [
+      { "line": 1, "variable": "quantity", "value": "10" },
+      { "line": 2, "variable": "price", "value": "5" },
+      { "line": 3, "variable": "quantity", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5 5"],
+    "inputMode": "final-only",
+    "teachMe": "quantity = price copies price's value into quantity. price is unchanged."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-07",
+    "code": "string quantity = \"low\";\nquantity = \"high\";\ncout << quantity;",
+    "variables": ["quantity"],
+    "expectedSteps": [
+      { "line": 1, "variable": "quantity", "value": "low" },
+      { "line": 2, "variable": "quantity", "value": "high" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["high"],
+    "inputMode": "final-only",
+    "teachMe": "Strings can be reassigned just like numbers — the box holds the latest text."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-07",
+    "code": "int quantity = 10;\nquantity ___ 25;",
+    "clozeSentence": "Fill in the operator that overwrites quantity.",
+    "answer": "=",
+    "explanation": "= writes the right-hand value into the left-hand box."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-07",
+    "code": "int quantity = 10;\nquantity = quantity ___ 5;\n// quantity now holds 15",
+    "clozeSentence": "Fill in the operator that yields 15 from 10.",
+    "answer": "+",
+    "explanation": "Adding 5 to 10 gives 15."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-07",
+    "code": "int quantity = 10;\n___ = 25;",
+    "clozeSentence": "Fill in the variable being assigned.",
+    "answer": "quantity",
+    "explanation": "Assignment writes into a named box; here that's quantity."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-07",
+    "code": "int quantity = 10;\nquantity = 25;\ncout << quantity;\n// Prints: ___",
+    "clozeSentence": "What does cout print after the reassignment?",
+    "answer": "25",
+    "explanation": "The latest assignment is 25, so cout prints 25."
+  },
+  {
+    "type": "write",
+    "atomId": "V-07",
+    "level": 1,
+    "spec": "Assign 25 to an existing int variable quantity (no type declaration).",
+    "expectedAnswer": "quantity = 25;",
+    "keyChecks": ["quantity", "=", "25", ";"],
+    "forbidden": ["int"],
+    "explanation": "Just name = value; — the variable already exists."
+  },
+  {
+    "type": "write",
+    "atomId": "V-07",
+    "level": 1,
+    "spec": "Add 5 to an existing int variable quantity using read-modify-write.",
+    "expectedAnswer": "quantity = quantity + 5;",
+    "keyChecks": ["quantity", "=", "quantity + 5", ";"],
+    "forbidden": ["int"],
+    "explanation": "Read quantity, add 5, write the result back to quantity."
+  },
+  {
+    "type": "write",
+    "atomId": "V-07",
+    "level": 2,
+    "spec": "Declare int quantity = 10; then on the next line increase it by 5.",
+    "expectedAnswer": "int quantity = 10;\nquantity = quantity + 5;",
+    "keyChecks": ["int quantity", "= 10", "quantity = quantity + 5", ";"],
+    "explanation": "Init then read-modify-write."
+  },
+  {
+    "type": "procedural",
+    "atomId": "V-07",
+    "id": "PD-V07-01",
+    "section": "Reassignment",
+    "prompt": "Declare int quantity = 10 then on the next line increase it by 5 (read-modify-write).",
+    "expectedAnswer": "int quantity = 10;\nquantity = quantity + 5;",
+    "keyChecks": ["int quantity = 10", "quantity = quantity + 5", ";"],
+    "variants": [
+      { "prompt": "int stock = 20 then add 3.", "expectedAnswer": "int stock = 20;\nstock = stock + 3;" },
+      { "prompt": "int items = 5 then double it (multiply by 2).", "expectedAnswer": "int items = 5;\nitems = items * 2;" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-07",
+    "id": "CM-V07-01",
+    "section": "Reassignment pattern",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: overwrite", "code": "int x = 10;\nx = 25;" },
+      { "label": "Example B: read-modify-write", "code": "int x = 10;\nx = x + 5;" }
+    ],
+    "prompt": "Declare int quantity = 10 then double it (multiply by 2).",
+    "expectedAnswer": "int quantity = 10;\nquantity = quantity * 2;",
+    "keyChecks": ["int quantity = 10", "quantity = quantity * 2", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-07",
+    "id": "CMEM-V07-01",
+    "section": "Reassignment",
+    "question": "Type two lines: int quantity = 10; then quantity = 25;",
+    "code": "int quantity = 10;\nquantity = 25;",
+    "keyChecks": ["int quantity = 10", "quantity = 25", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-08",
+    "levelLabel": "L2 -> = assigns, == compares",
+    "fullCode": "bool status = true;\nif (status == true) {\n  cout << \"on\";\n}",
+    "steps": [
+      { "line": 1, "code": "bool status = true;", "annotation": "Single = assigns: status now holds true.", "atomIds": ["V-08"] },
+      { "line": 2, "code": "if (status == true) {", "annotation": "Double == compares: yields a bool, no write.", "atomIds": ["V-08"] },
+      { "line": 3, "code": "  cout << \"on\";", "annotation": "Compare was true, so the if body runs.", "atomIds": ["V-08"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-08",
+    "levelLabel": "L2 -> the classic = vs == bug",
+    "fullCode": "int status = 0;\nif (status == 1) {\n  cout << \"active\";\n} else {\n  cout << \"idle\";\n}",
+    "steps": [
+      { "line": 1, "code": "int status = 0;", "annotation": "= writes 0 into status.", "atomIds": ["V-08"] },
+      { "line": 2, "code": "if (status == 1) {", "annotation": "== compares; status holds 0, not 1.", "atomIds": ["V-08"] },
+      { "line": 4, "code": "} else {", "annotation": "Comparison was false, so we enter else.", "atomIds": ["V-08"] },
+      { "line": 5, "code": "  cout << \"idle\";", "annotation": "Prints idle.", "atomIds": ["V-08"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-08",
+    "code": "int status = 0;\nstatus = 1;\ncout << status;",
+    "variables": ["status"],
+    "expectedSteps": [
+      { "line": 1, "variable": "status", "value": "0" },
+      { "line": 2, "variable": "status", "value": "1" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1"],
+    "inputMode": "final-only",
+    "teachMe": "Single = assigns. Two assignments later, status holds 1."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-08",
+    "code": "int status = 5;\nif (status == 5) {\n  cout << \"match\";\n}",
+    "variables": ["status"],
+    "expectedSteps": [
+      { "line": 1, "variable": "status", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["match"],
+    "inputMode": "final-only",
+    "teachMe": "== compares; 5 == 5 is true so the if body runs and prints match."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-08",
+    "code": "int status = 0;\nstatus = 1;\nif (status == 0) {\n  cout << \"zero\";\n} else {\n  cout << \"nonzero\";\n}",
+    "variables": ["status"],
+    "expectedSteps": [
+      { "line": 1, "variable": "status", "value": "0" },
+      { "line": 2, "variable": "status", "value": "1" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["nonzero"],
+    "inputMode": "final-only",
+    "teachMe": "After status = 1, status == 0 is false, so the else branch runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-08",
+    "code": "int status = 3;\nbool match = (status == 3);\ncout << match;",
+    "variables": ["status", "match"],
+    "expectedSteps": [
+      { "line": 1, "variable": "status", "value": "3" },
+      { "line": 2, "variable": "match", "value": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1"],
+    "inputMode": "final-only",
+    "teachMe": "== returns a bool. cout prints true as 1 by default."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-08",
+    "code": "int status = 0;\nstatus ___ 1;\n// assign 1 to status",
+    "clozeSentence": "Fill in the operator that assigns.",
+    "answer": "=",
+    "explanation": "Single = is assignment."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-08",
+    "code": "if (status ___ 1) {\n  cout << \"on\";\n}",
+    "clozeSentence": "Fill in the operator that compares status to 1.",
+    "answer": "==",
+    "explanation": "Double == is the equality comparison operator."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-08",
+    "code": "int status = 0;\nbool same = (status ___ 0);",
+    "clozeSentence": "Fill in the operator that compares status to 0 producing a bool.",
+    "answer": "==",
+    "explanation": "== returns a bool that goes into same."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-08",
+    "code": "int status = 5;\nstatus = 5;\nif (status == 5) {\n  cout << ___;\n}\n// Output: match",
+    "clozeSentence": "Fill in the literal that prints match (with quotes).",
+    "answer": "\"match\"",
+    "explanation": "String literals need double quotes."
+  },
+  {
+    "type": "write",
+    "atomId": "V-08",
+    "level": 1,
+    "spec": "Assign 1 to an int variable status using the assignment operator.",
+    "expectedAnswer": "status = 1;",
+    "keyChecks": ["status", "=", "1", ";"],
+    "forbidden": ["==", "int"],
+    "explanation": "Single = is assignment. == would be a comparison, not what we want here."
+  },
+  {
+    "type": "write",
+    "atomId": "V-08",
+    "level": 1,
+    "spec": "Write an if-statement header that compares status to 1 (assume status is already declared).",
+    "expectedAnswer": "if (status == 1) {",
+    "keyChecks": ["if", "(", "status", "==", "1", ")", "{"],
+    "forbidden": [],
+    "explanation": "Comparison uses ==, not =. The if header opens with { for the body."
+  },
+  {
+    "type": "write",
+    "atomId": "V-08",
+    "level": 2,
+    "spec": "Declare int status = 0; then if status equals 0 print \"idle\".",
+    "expectedAnswer": "int status = 0;\nif (status == 0) {\n  cout << \"idle\";\n}",
+    "keyChecks": ["int status", "= 0", "if (status == 0)", "cout", "<< \"idle\"", "}"],
+    "explanation": "= initializes; == compares inside the if condition."
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-08",
+    "id": "CM-V08-01",
+    "section": "= vs ==",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: assign", "code": "int x = 5;\nx = 10;" },
+      { "label": "Example B: compare", "code": "int x = 5;\nif (x == 5) cout << \"yes\";" }
+    ],
+    "prompt": "Declare int status = 1; then write an if that compares status to 1 and prints \"on\".",
+    "expectedAnswer": "int status = 1;\nif (status == 1) {\n  cout << \"on\";\n}",
+    "keyChecks": ["int status = 1", "if (status == 1)", "cout << \"on\"", "}"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-08",
+    "id": "CMEM-V08-01",
+    "section": "= vs ==",
+    "question": "Type two lines: assign 1 to status, then compare status to 1 inside an if.",
+    "code": "status = 1;\nif (status == 1) cout << \"on\";",
+    "keyChecks": ["status = 1", "if (status == 1)", "cout << \"on\"", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-09",
+    "levelLabel": "L2 -> declare before use",
+    "fullCode": "double temperature = 22.5;\ncout << temperature;",
+    "steps": [
+      { "line": 1, "code": "double temperature = 22.5;", "annotation": "Declaration must come first.", "atomIds": ["V-09"] },
+      { "line": 2, "code": "cout << temperature;", "annotation": "Now we can use the name.", "atomIds": ["V-09"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-09",
+    "levelLabel": "L2 -> wrong order = compile error",
+    "fullCode": "// THIS WILL NOT COMPILE:\n// cout << temperature;\n// double temperature = 22.5;\n\n// CORRECT ORDER:\ndouble temperature = 22.5;\ncout << temperature;",
+    "steps": [
+      { "line": 5, "code": "double temperature = 22.5;", "annotation": "Declare first — compiler now knows the name.", "atomIds": ["V-09"] },
+      { "line": 6, "code": "cout << temperature;", "annotation": "Use after declaration — compiler accepts it.", "atomIds": ["V-09"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-09",
+    "code": "double temperature = 22.5;\ncout << temperature;",
+    "variables": ["temperature"],
+    "expectedSteps": [
+      { "line": 1, "variable": "temperature", "value": "22.5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["22.5"],
+    "inputMode": "final-only",
+    "teachMe": "Declaration on line 1 makes the name temperature usable on line 2."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-09",
+    "code": "double temperature;\ntemperature = 22.5;\ncout << temperature;",
+    "variables": ["temperature"],
+    "expectedSteps": [
+      { "line": 1, "variable": "temperature", "value": "?" },
+      { "line": 2, "variable": "temperature", "value": "22.5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["22.5"],
+    "inputMode": "final-only",
+    "teachMe": "Declaration first, then assignment, then read. The order matters."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-09",
+    "code": "double temperature = 22.5;\ndouble feels_like = temperature - 2.0;\ncout << feels_like;",
+    "variables": ["temperature", "feels_like"],
+    "expectedSteps": [
+      { "line": 1, "variable": "temperature", "value": "22.5" },
+      { "line": 2, "variable": "feels_like", "value": "20.5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["20.5"],
+    "inputMode": "final-only",
+    "teachMe": "Line 2 uses temperature, which was declared on line 1 — that order is required."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-09",
+    "code": "double temperature = 22.5;\ntemperature = 25.0;\ndouble change = temperature - 22.5;\ncout << change;",
+    "variables": ["temperature", "change"],
+    "expectedSteps": [
+      { "line": 1, "variable": "temperature", "value": "22.5" },
+      { "line": 2, "variable": "temperature", "value": "25" },
+      { "line": 3, "variable": "change", "value": "2.5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2.5"],
+    "inputMode": "final-only",
+    "teachMe": "Each later line uses the latest value of temperature."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-09",
+    "code": "___ temperature = 22.5;\ncout << temperature;",
+    "clozeSentence": "Fill in the type so the declaration appears before use.",
+    "answer": "double",
+    "explanation": "double comes first; declaration must precede use."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-09",
+    "code": "double temperature = 22.5;\ncout << ___;",
+    "clozeSentence": "Fill in the variable name to read on line 2.",
+    "answer": "temperature",
+    "explanation": "We can use temperature because it was declared on the previous line."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-09",
+    "code": "double temperature___\ntemperature = 22.5;",
+    "clozeSentence": "Fill in the punctuation that ends the declaration on line 1.",
+    "answer": ";",
+    "explanation": "Every statement, including bare declarations, ends with ;."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-09",
+    "code": "double ___ = 22.5;\ncout << temperature;\n// Same name on both lines",
+    "clozeSentence": "Fill in the variable name (must match the cout below).",
+    "answer": "temperature",
+    "explanation": "The name in declaration must match the name in use."
+  },
+  {
+    "type": "write",
+    "atomId": "V-09",
+    "level": 1,
+    "spec": "Declare a double temperature initialized to 22.5 (the line that must come BEFORE any use).",
+    "expectedAnswer": "double temperature = 22.5;",
+    "keyChecks": ["double", "temperature", "=", "22.5", ";"],
+    "explanation": "Declaration first, full init: type, name, =, value, ;."
+  },
+  {
+    "type": "write",
+    "atomId": "V-09",
+    "level": 2,
+    "spec": "Write the two-line program that declares double temperature = 22.5; then prints it.",
+    "expectedAnswer": "double temperature = 22.5;\ncout << temperature;",
+    "keyChecks": ["double temperature", "= 22.5", "cout", "<< temperature", ";"],
+    "explanation": "Declare on line 1, then use on line 2 — declare-before-use."
+  },
+  {
+    "type": "write",
+    "atomId": "V-09",
+    "level": 2,
+    "spec": "Declare double temperature, assign it 22.5 on the next line, then print it.",
+    "expectedAnswer": "double temperature;\ntemperature = 22.5;\ncout << temperature;",
+    "keyChecks": ["double temperature;", "temperature = 22.5", "cout", "<< temperature", ";"],
+    "explanation": "Three lines: declaration, assignment, then print — each step legal because of the prior declaration."
+  },
+  {
+    "type": "procedural",
+    "atomId": "V-09",
+    "id": "PD-V09-01",
+    "section": "Declare-before-use",
+    "prompt": "Write the two ordered lines: declare double temperature = 22.5, then print it.",
+    "expectedAnswer": "double temperature = 22.5;\ncout << temperature;",
+    "keyChecks": ["double temperature = 22.5", "cout << temperature", ";"],
+    "variants": [
+      { "prompt": "Declare double weight = 80.5 then print it.", "expectedAnswer": "double weight = 80.5;\ncout << weight;" },
+      { "prompt": "Declare double speed = 12.0 then print it.", "expectedAnswer": "double speed = 12.0;\ncout << speed;" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-09",
+    "id": "CM-V09-01",
+    "section": "Declare-then-use",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: int", "code": "int x = 5;\ncout << x;" },
+      { "label": "Example B: string", "code": "string s = \"hi\";\ncout << s;" }
+    ],
+    "prompt": "Declare double temperature = 22.5 then print it.",
+    "expectedAnswer": "double temperature = 22.5;\ncout << temperature;",
+    "keyChecks": ["double temperature = 22.5", "cout << temperature", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-09",
+    "id": "CMEM-V09-01",
+    "section": "Declare-then-use",
+    "question": "Type the canonical declare-then-print pair for temperature = 22.5.",
+    "code": "double temperature = 22.5;\ncout << temperature;",
+    "keyChecks": ["double temperature = 22.5", "cout << temperature", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-10",
+    "levelLabel": "L2 -> int holds whole numbers",
+    "fullCode": "int days = 7;\ndays = days + 1;\ncout << days;",
+    "steps": [
+      { "line": 1, "code": "int days = 7;", "annotation": "int box: only whole numbers like 7 fit.", "atomIds": ["V-10"] },
+      { "line": 2, "code": "days = days + 1;", "annotation": "int + int = int. Box holds 8.", "atomIds": ["V-10"] },
+      { "line": 3, "code": "cout << days;", "annotation": "Prints 8 — no decimals on int.", "atomIds": ["V-10"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-10",
+    "levelLabel": "L2 -> int truncates division",
+    "fullCode": "int days = 7;\nint weeks = days / 5;\ncout << weeks;",
+    "steps": [
+      { "line": 1, "code": "int days = 7;", "annotation": "int days holds 7.", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int weeks = days / 5;", "annotation": "7 / 5 = 1 (int division drops the remainder).", "atomIds": ["V-10"] },
+      { "line": 3, "code": "cout << weeks;", "annotation": "Prints 1 — int division truncates.", "atomIds": ["V-10"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-10",
+    "code": "int days = 7;\ndays = days + 1;\ncout << days;",
+    "variables": ["days"],
+    "expectedSteps": [
+      { "line": 1, "variable": "days", "value": "7" },
+      { "line": 2, "variable": "days", "value": "8" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "int + int = int. The box now holds 8."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-10",
+    "code": "int days = 7;\nint weeks = days / 5;\ncout << weeks;",
+    "variables": ["days", "weeks"],
+    "expectedSteps": [
+      { "line": 1, "variable": "days", "value": "7" },
+      { "line": 2, "variable": "weeks", "value": "1" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1"],
+    "inputMode": "final-only",
+    "teachMe": "int division: 7 / 5 truncates to 1, dropping the 2/5 remainder."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-10",
+    "code": "int days = 5;\nint hours = days * 24;\ncout << hours;",
+    "variables": ["days", "hours"],
+    "expectedSteps": [
+      { "line": 1, "variable": "days", "value": "5" },
+      { "line": 2, "variable": "hours", "value": "120" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["120"],
+    "inputMode": "final-only",
+    "teachMe": "int math is exact for whole numbers as long as no division truncation happens."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-10",
+    "code": "int days = -3;\ndays = days + 10;\ncout << days;",
+    "variables": ["days"],
+    "expectedSteps": [
+      { "line": 1, "variable": "days", "value": "-3" },
+      { "line": 2, "variable": "days", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "int can hold negatives too. -3 + 10 = 7."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-10",
+    "code": "___ days = 7;",
+    "clozeSentence": "Fill in the type for whole numbers.",
+    "answer": "int",
+    "explanation": "int holds whole numbers like 7."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-10",
+    "code": "int days = ___;\n// must be a whole number, e.g. 7",
+    "clozeSentence": "Fill in any int literal.",
+    "answer": "7",
+    "explanation": "7 is a valid int literal."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-10",
+    "code": "int days = 7;\nint weeks = days / 5;\n// weeks holds: ___",
+    "clozeSentence": "What value ends up in weeks?",
+    "answer": "1",
+    "explanation": "int division truncates: 7 / 5 = 1."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-10",
+    "code": "int days = ___;\n// negative whole number example",
+    "clozeSentence": "Fill in any negative int literal.",
+    "answer": "-3",
+    "explanation": "-3 is a valid negative int literal."
+  },
+  {
+    "type": "write",
+    "atomId": "V-10",
+    "level": 1,
+    "spec": "Declare an int variable days initialized to 7.",
+    "expectedAnswer": "int days = 7;",
+    "keyChecks": ["int", "days", "=", "7", ";"],
+    "explanation": "int + whole-number literal."
+  },
+  {
+    "type": "write",
+    "atomId": "V-10",
+    "level": 1,
+    "spec": "Increase an existing int days by 1 using read-modify-write.",
+    "expectedAnswer": "days = days + 1;",
+    "keyChecks": ["days", "=", "days + 1", ";"],
+    "forbidden": ["int"],
+    "explanation": "int + 1 is still an int. Reassignment doesn't repeat the type."
+  },
+  {
+    "type": "write",
+    "atomId": "V-10",
+    "level": 2,
+    "spec": "Declare int days = 7; then declare int weeks = days / 5; (int division).",
+    "expectedAnswer": "int days = 7;\nint weeks = days / 5;",
+    "keyChecks": ["int days", "= 7", "int weeks", "= days / 5", ";"],
+    "explanation": "Both boxes are int. days / 5 truncates to 1."
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-10",
+    "id": "CM-V10-01",
+    "section": "int math",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: addition", "code": "int x = 7;\nx = x + 1;" },
+      { "label": "Example B: multiplication", "code": "int y = 3;\ny = y * 4;" }
+    ],
+    "prompt": "Declare int days = 7 then divide by 5 stored in int weeks.",
+    "expectedAnswer": "int days = 7;\nint weeks = days / 5;",
+    "keyChecks": ["int days = 7", "int weeks = days / 5", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-10",
+    "id": "CMEM-V10-01",
+    "section": "int declaration",
+    "question": "Type the canonical int declaration: int days = 7;",
+    "code": "int days = 7;",
+    "keyChecks": ["int", "days", "= 7", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-11",
+    "levelLabel": "L2 -> double holds decimals",
+    "fullCode": "double percentage = 87.5;\npercentage = percentage + 0.5;",
+    "steps": [
+      { "line": 1, "code": "double percentage = 87.5;", "annotation": "double box holds the decimal 87.5.", "atomIds": ["V-11"] },
+      { "line": 2, "code": "percentage = percentage + 0.5;", "annotation": "double + double = double. Box now holds 88.0.", "atomIds": ["V-11"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-11",
+    "levelLabel": "L2 -> double survives division",
+    "fullCode": "double percentage = 87.5;\ndouble half = percentage / 2;\ncout << half;",
+    "steps": [
+      { "line": 1, "code": "double percentage = 87.5;", "annotation": "Decimal stored in double.", "atomIds": ["V-11"] },
+      { "line": 2, "code": "double half = percentage / 2;", "annotation": "double / int = double. 87.5 / 2 = 43.75.", "atomIds": ["V-11"] },
+      { "line": 3, "code": "cout << half;", "annotation": "Prints 43.75 — fraction preserved.", "atomIds": ["V-11"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-11",
+    "code": "double percentage = 87.5;\npercentage = percentage + 0.5;\ncout << percentage;",
+    "variables": ["percentage"],
+    "expectedSteps": [
+      { "line": 1, "variable": "percentage", "value": "87.5" },
+      { "line": 2, "variable": "percentage", "value": "88" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["88"],
+    "inputMode": "final-only",
+    "teachMe": "double math: 87.5 + 0.5 = 88.0; cout typically prints 88 (trailing zero suppressed)."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-11",
+    "code": "double percentage = 87.5;\ndouble half = percentage / 2;\ncout << half;",
+    "variables": ["percentage", "half"],
+    "expectedSteps": [
+      { "line": 1, "variable": "percentage", "value": "87.5" },
+      { "line": 2, "variable": "half", "value": "43.75" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["43.75"],
+    "inputMode": "final-only",
+    "teachMe": "double / int = double. The fraction is preserved."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-11",
+    "code": "double percentage = 100.0;\ndouble share = percentage / 3;\ncout << share;",
+    "variables": ["percentage", "share"],
+    "expectedSteps": [
+      { "line": 1, "variable": "percentage", "value": "100" },
+      { "line": 2, "variable": "share", "value": "33.3333" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["33.3333"],
+    "inputMode": "final-only",
+    "teachMe": "double division produces a long decimal; cout shows ~6 digits by default."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-11",
+    "code": "double percentage = 50.5;\nint rounded = percentage;\ncout << rounded;",
+    "variables": ["percentage", "rounded"],
+    "expectedSteps": [
+      { "line": 1, "variable": "percentage", "value": "50.5" },
+      { "line": 2, "variable": "rounded", "value": "50" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["50"],
+    "inputMode": "final-only",
+    "teachMe": "double-to-int assignment truncates: 50.5 becomes 50."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-11",
+    "code": "___ percentage = 87.5;",
+    "clozeSentence": "Fill in the type that holds the decimal 87.5.",
+    "answer": "double",
+    "explanation": "double is the standard floating-point type for decimals."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-11",
+    "code": "double percentage = ___;\n// any decimal value",
+    "clozeSentence": "Fill in any double literal with a decimal point.",
+    "answer": "87.5",
+    "explanation": "87.5 has a dot — it's a double literal."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-11",
+    "code": "double percentage = 87.5;\ndouble half = percentage / 2;\n// half holds: ___",
+    "clozeSentence": "What value ends up in half?",
+    "answer": "43.75",
+    "explanation": "double / 2 keeps the decimal: 87.5 / 2 = 43.75."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-11",
+    "code": "double percentage = 87.5;\ncout << percentage___",
+    "clozeSentence": "Fill in the punctuation that ends the cout statement.",
+    "answer": ";",
+    "explanation": "Every statement ends with ;."
+  },
+  {
+    "type": "write",
+    "atomId": "V-11",
+    "level": 1,
+    "spec": "Declare a double variable percentage initialized to 87.5.",
+    "expectedAnswer": "double percentage = 87.5;",
+    "keyChecks": ["double", "percentage", "=", "87.5", ";"],
+    "explanation": "double + decimal literal."
+  },
+  {
+    "type": "write",
+    "atomId": "V-11",
+    "level": 1,
+    "spec": "Halve an existing double percentage by reassigning percentage / 2 to itself.",
+    "expectedAnswer": "percentage = percentage / 2;",
+    "keyChecks": ["percentage", "=", "percentage / 2", ";"],
+    "forbidden": ["double"],
+    "explanation": "Read-modify-write — type is already declared."
+  },
+  {
+    "type": "write",
+    "atomId": "V-11",
+    "level": 2,
+    "spec": "Declare double percentage = 87.5; then declare double half = percentage / 2; on the next line.",
+    "expectedAnswer": "double percentage = 87.5;\ndouble half = percentage / 2;",
+    "keyChecks": ["double percentage", "= 87.5", "double half", "= percentage / 2", ";"],
+    "explanation": "Two double declarations; the second uses the first."
+  },
+  {
+    "type": "procedural",
+    "atomId": "V-11",
+    "id": "PD-V11-01",
+    "section": "Double declaration",
+    "prompt": "Declare a double variable percentage initialized to 87.5.",
+    "expectedAnswer": "double percentage = 87.5;",
+    "keyChecks": ["double", "percentage", "= 87.5", ";"],
+    "variants": [
+      { "prompt": "Declare double rate initialized to 0.05.", "expectedAnswer": "double rate = 0.05;" },
+      { "prompt": "Declare double pi initialized to 3.14159.", "expectedAnswer": "double pi = 3.14159;" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-11",
+    "id": "CM-V11-01",
+    "section": "double math",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: add", "code": "double a = 1.5;\na = a + 0.5;" },
+      { "label": "Example B: divide", "code": "double b = 9.0;\nb = b / 3;" }
+    ],
+    "prompt": "Declare double percentage = 87.5 then halve it (write back to percentage).",
+    "expectedAnswer": "double percentage = 87.5;\npercentage = percentage / 2;",
+    "keyChecks": ["double percentage = 87.5", "percentage = percentage / 2", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-11",
+    "id": "CMEM-V11-01",
+    "section": "double declaration",
+    "question": "Type the canonical double declaration: double percentage = 87.5;",
+    "code": "double percentage = 87.5;",
+    "keyChecks": ["double", "percentage", "= 87.5", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-12",
+    "levelLabel": "L2 -> string holds text",
+    "fullCode": "string city = \"Geelong\";\ncout << city;",
+    "steps": [
+      { "line": 1, "code": "string city = \"Geelong\";", "annotation": "string box holds the text \"Geelong\".", "atomIds": ["V-12"] },
+      { "line": 2, "code": "cout << city;", "annotation": "Prints Geelong (without quotes in output).", "atomIds": ["V-12"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-12",
+    "levelLabel": "L2 -> string concat with +",
+    "fullCode": "string city = \"Geelong\";\nstring full = city + \", VIC\";\ncout << full;",
+    "steps": [
+      { "line": 1, "code": "string city = \"Geelong\";", "annotation": "city holds Geelong.", "atomIds": ["V-12"] },
+      { "line": 2, "code": "string full = city + \", VIC\";", "annotation": "+ joins strings: full holds \"Geelong, VIC\".", "atomIds": ["V-12"] },
+      { "line": 3, "code": "cout << full;", "annotation": "Prints Geelong, VIC.", "atomIds": ["V-12"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-12",
+    "code": "string city = \"Geelong\";\ncout << city;",
+    "variables": ["city"],
+    "expectedSteps": [
+      { "line": 1, "variable": "city", "value": "Geelong" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Geelong"],
+    "inputMode": "final-only",
+    "teachMe": "string holds the text. cout prints it without surrounding quotes."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-12",
+    "code": "string city = \"Sydney\";\ncity = city + \"!\";\ncout << city;",
+    "variables": ["city"],
+    "expectedSteps": [
+      { "line": 1, "variable": "city", "value": "Sydney" },
+      { "line": 2, "variable": "city", "value": "Sydney!" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Sydney!"],
+    "inputMode": "final-only",
+    "teachMe": "string + string concatenates and writes back into city."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-12",
+    "code": "string city = \"Geelong\";\nstring state = \"VIC\";\nstring full = city + \", \" + state;\ncout << full;",
+    "variables": ["city", "state", "full"],
+    "expectedSteps": [
+      { "line": 1, "variable": "city", "value": "Geelong" },
+      { "line": 2, "variable": "state", "value": "VIC" },
+      { "line": 3, "variable": "full", "value": "Geelong, VIC" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Geelong, VIC"],
+    "inputMode": "final-only",
+    "teachMe": "Chained + concatenates left-to-right into one string."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-12",
+    "code": "string city = \"\";\ncity = \"Sydney\";\ncout << city;",
+    "variables": ["city"],
+    "expectedSteps": [
+      { "line": 1, "variable": "city", "value": "" },
+      { "line": 2, "variable": "city", "value": "Sydney" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Sydney"],
+    "inputMode": "final-only",
+    "teachMe": "Empty string \"\" is a valid initial value; reassignment fills it."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-12",
+    "code": "___ city = \"Geelong\";",
+    "clozeSentence": "Fill in the type for storing text.",
+    "answer": "string",
+    "explanation": "string holds sequences of characters."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-12",
+    "code": "string city = ___;\n// Geelong as a literal",
+    "clozeSentence": "Fill in the literal \"Geelong\" with quotes.",
+    "answer": "\"Geelong\"",
+    "explanation": "Strings need double quotes."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-12",
+    "code": "string city = \"Sydney\";\ncity = city ___ \"!\";\n// city now holds Sydney!",
+    "clozeSentence": "Fill in the operator that concatenates strings.",
+    "answer": "+",
+    "explanation": "+ joins two strings end-to-end."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-12",
+    "code": "string city = \"Geelong\";\nstring state = \"VIC\";\nstring full = city + \", \" + state;\n// full holds: ___",
+    "clozeSentence": "What value ends up in full?",
+    "answer": "Geelong, VIC",
+    "explanation": "Concatenation left-to-right yields Geelong, VIC."
+  },
+  {
+    "type": "write",
+    "atomId": "V-12",
+    "level": 1,
+    "spec": "Declare a string variable city set to \"Geelong\".",
+    "expectedAnswer": "string city = \"Geelong\";",
+    "keyChecks": ["string", "city", "=", "\"Geelong\"", ";"],
+    "explanation": "string + double-quoted text literal."
+  },
+  {
+    "type": "write",
+    "atomId": "V-12",
+    "level": 1,
+    "spec": "Concatenate \"!\" onto an existing string city via reassignment.",
+    "expectedAnswer": "city = city + \"!\";",
+    "keyChecks": ["city", "=", "city + \"!\"", ";"],
+    "forbidden": ["string"],
+    "explanation": "Read city, append \"!\", write back."
+  },
+  {
+    "type": "write",
+    "atomId": "V-12",
+    "level": 2,
+    "spec": "Declare string city = \"Geelong\"; then declare string state = \"VIC\"; then string full = city + \", \" + state;",
+    "expectedAnswer": "string city = \"Geelong\";\nstring state = \"VIC\";\nstring full = city + \", \" + state;",
+    "keyChecks": ["string city", "= \"Geelong\"", "string state", "= \"VIC\"", "string full", "city + \", \" + state", ";"],
+    "explanation": "Three string declarations; the third concatenates the first two with a separator."
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-12",
+    "id": "CM-V12-01",
+    "section": "string concat",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: append exclamation", "code": "string s = \"hi\";\ns = s + \"!\";" },
+      { "label": "Example B: prefix", "code": "string s = \"world\";\ns = \"hello \" + s;" }
+    ],
+    "prompt": "Declare string city = \"Geelong\" then append \", VIC\" to it.",
+    "expectedAnswer": "string city = \"Geelong\";\ncity = city + \", VIC\";",
+    "keyChecks": ["string city = \"Geelong\"", "city = city + \", VIC\"", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-12",
+    "id": "CMEM-V12-01",
+    "section": "string declaration",
+    "question": "Type the canonical string declaration: string city = \"Geelong\";",
+    "code": "string city = \"Geelong\";",
+    "keyChecks": ["string", "city", "= \"Geelong\"", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-13",
+    "levelLabel": "L2 -> bool holds true or false",
+    "fullCode": "bool passed = true;\nif (passed) {\n  cout << \"A\";\n}",
+    "steps": [
+      { "line": 1, "code": "bool passed = true;", "annotation": "bool box holds true.", "atomIds": ["V-13"] },
+      { "line": 2, "code": "if (passed) {", "annotation": "if reads passed; true means body runs.", "atomIds": ["V-13"] },
+      { "line": 3, "code": "  cout << \"A\";", "annotation": "Prints A.", "atomIds": ["V-13"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-13",
+    "levelLabel": "L2 -> bool from a comparison",
+    "fullCode": "int score = 92;\nbool passed = (score >= 50);\ncout << passed;",
+    "steps": [
+      { "line": 1, "code": "int score = 92;", "annotation": "score holds 92.", "atomIds": ["V-13"] },
+      { "line": 2, "code": "bool passed = (score >= 50);", "annotation": ">= produces a bool. 92 >= 50 → true.", "atomIds": ["V-13"] },
+      { "line": 3, "code": "cout << passed;", "annotation": "cout prints bool true as 1 by default.", "atomIds": ["V-13"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-13",
+    "code": "bool passed = true;\ncout << passed;",
+    "variables": ["passed"],
+    "expectedSteps": [
+      { "line": 1, "variable": "passed", "value": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1"],
+    "inputMode": "final-only",
+    "teachMe": "bool true prints as 1 by default; bool false would print as 0."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-13",
+    "code": "int score = 92;\nbool passed = (score >= 50);\ncout << passed;",
+    "variables": ["score", "passed"],
+    "expectedSteps": [
+      { "line": 1, "variable": "score", "value": "92" },
+      { "line": 2, "variable": "passed", "value": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1"],
+    "inputMode": "final-only",
+    "teachMe": "(score >= 50) yields the bool true; cout prints true as 1."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-13",
+    "code": "bool passed = false;\nif (passed) {\n  cout << \"yes\";\n} else {\n  cout << \"no\";\n}",
+    "variables": ["passed"],
+    "expectedSteps": [
+      { "line": 1, "variable": "passed", "value": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["no"],
+    "inputMode": "final-only",
+    "teachMe": "if (false) skips the body; the else branch runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-13",
+    "code": "bool passed = true;\npassed = false;\ncout << passed;",
+    "variables": ["passed"],
+    "expectedSteps": [
+      { "line": 1, "variable": "passed", "value": "true" },
+      { "line": 2, "variable": "passed", "value": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "Reassignment overwrites bool; false prints as 0."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-13",
+    "code": "___ passed = true;",
+    "clozeSentence": "Fill in the type that stores true or false.",
+    "answer": "bool",
+    "explanation": "bool holds boolean values: true or false."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-13",
+    "code": "bool passed = ___;\n// the literal that means yes",
+    "clozeSentence": "Fill in the bool literal for yes.",
+    "answer": "true",
+    "explanation": "true is one of the two bool literals."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-13",
+    "code": "bool passed = ___;\n// the literal that means no",
+    "clozeSentence": "Fill in the bool literal for no.",
+    "answer": "false",
+    "explanation": "false is one of the two bool literals."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-13",
+    "code": "int score = 60;\nbool passed = (score ___ 50);",
+    "clozeSentence": "Fill in the operator that yields true when score is at least 50.",
+    "answer": ">=",
+    "explanation": ">= means greater-than-or-equal-to. 60 >= 50 is true."
+  },
+  {
+    "type": "write",
+    "atomId": "V-13",
+    "level": 1,
+    "spec": "Declare a bool variable passed initialized to true.",
+    "expectedAnswer": "bool passed = true;",
+    "keyChecks": ["bool", "passed", "=", "true", ";"],
+    "explanation": "bool + the literal true."
+  },
+  {
+    "type": "write",
+    "atomId": "V-13",
+    "level": 1,
+    "spec": "Declare bool failed initialized to false.",
+    "expectedAnswer": "bool failed = false;",
+    "keyChecks": ["bool", "failed", "=", "false", ";"],
+    "explanation": "bool + the literal false."
+  },
+  {
+    "type": "write",
+    "atomId": "V-13",
+    "level": 2,
+    "spec": "Declare int score = 92, then declare bool passed = (score >= 50).",
+    "expectedAnswer": "int score = 92;\nbool passed = (score >= 50);",
+    "keyChecks": ["int score", "= 92", "bool passed", "(score >= 50)", ";"],
+    "explanation": "Comparison >= returns a bool; store it in passed."
+  },
+  {
+    "type": "procedural",
+    "atomId": "V-13",
+    "id": "PD-V13-01",
+    "section": "Bool from comparison",
+    "prompt": "Declare int score = 92, then declare bool passed = (score >= 50).",
+    "expectedAnswer": "int score = 92;\nbool passed = (score >= 50);",
+    "keyChecks": ["int score = 92", "bool passed", "(score >= 50)", ";"],
+    "variants": [
+      { "prompt": "int marks = 75; bool passed = (marks >= 50);", "expectedAnswer": "int marks = 75;\nbool passed = (marks >= 50);" },
+      { "prompt": "int total = 30; bool passed = (total >= 50);", "expectedAnswer": "int total = 30;\nbool passed = (total >= 50);" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-13",
+    "id": "CM-V13-01",
+    "section": "bool literal & comparison",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: literal true", "code": "bool ok = true;" },
+      { "label": "Example B: from compare", "code": "int n = 10;\nbool big = (n > 5);" }
+    ],
+    "prompt": "Declare int score = 92, then bool passed from comparing score to 50 with >=.",
+    "expectedAnswer": "int score = 92;\nbool passed = (score >= 50);",
+    "keyChecks": ["int score = 92", "bool passed = (score >= 50)", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-13",
+    "id": "CMEM-V13-01",
+    "section": "bool declaration",
+    "question": "Type the canonical bool declaration: bool passed = true;",
+    "code": "bool passed = true;",
+    "keyChecks": ["bool", "passed", "= true", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-14",
+    "levelLabel": "L2 -> char holds one letter",
+    "fullCode": "char active = 'Y';\ncout << active;",
+    "steps": [
+      { "line": 1, "code": "char active = 'Y';", "annotation": "char box holds the single character Y.", "atomIds": ["V-14"] },
+      { "line": 2, "code": "cout << active;", "annotation": "Prints Y.", "atomIds": ["V-14"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-14",
+    "levelLabel": "L2 -> char vs string",
+    "fullCode": "char first = 'A';\nstring word = \"Apple\";",
+    "steps": [
+      { "line": 1, "code": "char first = 'A';", "annotation": "char with single quotes holds one letter only.", "atomIds": ["V-14"] },
+      { "line": 2, "code": "string word = \"Apple\";", "annotation": "string with double quotes can hold many letters.", "atomIds": ["V-14"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-14",
+    "code": "char active = 'Y';\ncout << active;",
+    "variables": ["active"],
+    "expectedSteps": [
+      { "line": 1, "variable": "active", "value": "Y" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Y"],
+    "inputMode": "final-only",
+    "teachMe": "char in single quotes holds one letter; cout prints the letter only."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-14",
+    "code": "char active = 'Y';\nactive = 'N';\ncout << active;",
+    "variables": ["active"],
+    "expectedSteps": [
+      { "line": 1, "variable": "active", "value": "Y" },
+      { "line": 2, "variable": "active", "value": "N" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["N"],
+    "inputMode": "final-only",
+    "teachMe": "char can be reassigned to a new single character."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-14",
+    "code": "char first = 'A';\nchar last = 'Z';\ncout << first << last;",
+    "variables": ["first", "last"],
+    "expectedSteps": [
+      { "line": 1, "variable": "first", "value": "A" },
+      { "line": 2, "variable": "last", "value": "Z" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["AZ"],
+    "inputMode": "final-only",
+    "teachMe": "Two chars side by side print the two letters together."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-14",
+    "code": "char digit = '7';\ncout << digit;",
+    "variables": ["digit"],
+    "expectedSteps": [
+      { "line": 1, "variable": "digit", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "'7' is a char, not the int 7. Single quotes always mean char."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-14",
+    "code": "___ active = 'Y';",
+    "clozeSentence": "Fill in the type for a single letter.",
+    "answer": "char",
+    "explanation": "char holds one character."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-14",
+    "code": "char active = ___;\n// the letter Y in single quotes",
+    "clozeSentence": "Fill in the char literal 'Y'.",
+    "answer": "'Y'",
+    "explanation": "char literals use single quotes."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-14",
+    "code": "char active = 'Y';\nactive = ___;\n// reassign to letter N",
+    "clozeSentence": "Fill in the char literal 'N'.",
+    "answer": "'N'",
+    "explanation": "char reassignment also uses single quotes."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-14",
+    "code": "char digit = '7'___",
+    "clozeSentence": "Fill in the punctuation that ends the statement.",
+    "answer": ";",
+    "explanation": "Statements end with ;."
+  },
+  {
+    "type": "write",
+    "atomId": "V-14",
+    "level": 1,
+    "spec": "Declare a char variable active set to the letter Y (single quotes).",
+    "expectedAnswer": "char active = 'Y';",
+    "keyChecks": ["char", "active", "=", "'Y'", ";"],
+    "explanation": "char + single-quoted single character."
+  },
+  {
+    "type": "write",
+    "atomId": "V-14",
+    "level": 1,
+    "spec": "Declare a char variable digit set to the character 7 (in single quotes — char, not int).",
+    "expectedAnswer": "char digit = '7';",
+    "keyChecks": ["char", "digit", "=", "'7'", ";"],
+    "explanation": "Single quotes around 7 make it a char, not an int."
+  },
+  {
+    "type": "write",
+    "atomId": "V-14",
+    "level": 2,
+    "spec": "Declare two chars: first = 'A' and last = 'Z'.",
+    "expectedAnswer": "char first = 'A';\nchar last = 'Z';",
+    "keyChecks": ["char first", "= 'A'", "char last", "= 'Z'", ";"],
+    "explanation": "Two char declarations on separate lines."
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-14",
+    "id": "CM-V14-01",
+    "section": "char vs string",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: char literal", "code": "char c = 'A';" },
+      { "label": "Example B: string literal", "code": "string s = \"Apple\";" }
+    ],
+    "prompt": "Declare a char active set to 'Y' (NOT a string).",
+    "expectedAnswer": "char active = 'Y';",
+    "keyChecks": ["char", "active", "= 'Y'", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-14",
+    "id": "CMEM-V14-01",
+    "section": "char declaration",
+    "question": "Type the canonical char declaration: char active = 'Y';",
+    "code": "char active = 'Y';",
+    "keyChecks": ["char", "active", "= 'Y'", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-15",
+    "levelLabel": "L2 -> 5 is an int literal",
+    "fullCode": "int distance = 5;\ndistance = distance + 1000000;",
+    "steps": [
+      { "line": 1, "code": "int distance = 5;", "annotation": "5 (no dot) is an int literal — fits in int.", "atomIds": ["V-15"] },
+      { "line": 2, "code": "distance = distance + 1000000;", "annotation": "1000000 is also an int literal — math is int + int = int.", "atomIds": ["V-15"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-15",
+    "levelLabel": "L2 -> int literal in expressions",
+    "fullCode": "int distance = 0;\ndistance = 5 * 100;\ncout << distance;",
+    "steps": [
+      { "line": 1, "code": "int distance = 0;", "annotation": "0 is an int literal.", "atomIds": ["V-15"] },
+      { "line": 2, "code": "distance = 5 * 100;", "annotation": "5 and 100 are int literals; product is 500.", "atomIds": ["V-15"] },
+      { "line": 3, "code": "cout << distance;", "annotation": "Prints 500.", "atomIds": ["V-15"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-15",
+    "code": "int distance = 5;\ndistance = distance + 100;\ncout << distance;",
+    "variables": ["distance"],
+    "expectedSteps": [
+      { "line": 1, "variable": "distance", "value": "5" },
+      { "line": 2, "variable": "distance", "value": "105" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["105"],
+    "inputMode": "final-only",
+    "teachMe": "Both 5 and 100 are int literals; their sum is the int 105."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-15",
+    "code": "int distance = 5 * 100;\ncout << distance;",
+    "variables": ["distance"],
+    "expectedSteps": [
+      { "line": 1, "variable": "distance", "value": "500" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["500"],
+    "inputMode": "final-only",
+    "teachMe": "5 * 100 is computed at compile-time; distance starts holding 500."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-15",
+    "code": "int distance = -50;\ndistance = distance + 100;\ncout << distance;",
+    "variables": ["distance"],
+    "expectedSteps": [
+      { "line": 1, "variable": "distance", "value": "-50" },
+      { "line": 2, "variable": "distance", "value": "50" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["50"],
+    "inputMode": "final-only",
+    "teachMe": "-50 is a negative int literal; -50 + 100 = 50."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-15",
+    "code": "int distance = 0;\ndistance = 1;\ndistance = 2;\ndistance = 3;\ncout << distance;",
+    "variables": ["distance"],
+    "expectedSteps": [
+      { "line": 1, "variable": "distance", "value": "0" },
+      { "line": 2, "variable": "distance", "value": "1" },
+      { "line": 3, "variable": "distance", "value": "2" },
+      { "line": 4, "variable": "distance", "value": "3" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3"],
+    "inputMode": "final-only",
+    "teachMe": "0, 1, 2, 3 are all int literals; only the last assignment survives."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-15",
+    "code": "int distance = ___;\n// any whole-number literal",
+    "clozeSentence": "Fill in any int literal (no decimal).",
+    "answer": "5",
+    "explanation": "5 is a whole-number literal — an int literal."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-15",
+    "code": "int distance = 5;\ndistance = distance + ___;\n// add the int 100",
+    "clozeSentence": "Fill in the int literal that adds 100.",
+    "answer": "100",
+    "explanation": "100 is an int literal."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-15",
+    "code": "int distance = ___;\n// negative int literal",
+    "clozeSentence": "Fill in a negative int literal like -50.",
+    "answer": "-50",
+    "explanation": "-50 (no dot) is a negative int literal."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-15",
+    "code": "int distance = 5 ___ 100;\n// product of two int literals",
+    "clozeSentence": "Fill in the operator that multiplies two ints.",
+    "answer": "*",
+    "explanation": "* is the multiplication operator."
+  },
+  {
+    "type": "write",
+    "atomId": "V-15",
+    "level": 1,
+    "spec": "Declare an int variable distance initialized to the int literal 5.",
+    "expectedAnswer": "int distance = 5;",
+    "keyChecks": ["int", "distance", "=", "5", ";"],
+    "explanation": "5 (no dot) is an int literal."
+  },
+  {
+    "type": "write",
+    "atomId": "V-15",
+    "level": 1,
+    "spec": "Declare an int distance set to the product of int literals 5 and 100.",
+    "expectedAnswer": "int distance = 5 * 100;",
+    "keyChecks": ["int", "distance", "=", "5 * 100", ";"],
+    "explanation": "Two int literals multiplied yield the int 500."
+  },
+  {
+    "type": "write",
+    "atomId": "V-15",
+    "level": 2,
+    "spec": "Declare int distance = 0; then add the int literal 1000 to it via reassignment.",
+    "expectedAnswer": "int distance = 0;\ndistance = distance + 1000;",
+    "keyChecks": ["int distance", "= 0", "distance = distance + 1000", ";"],
+    "explanation": "Init then read-modify-write with int literals."
+  },
+  {
+    "type": "procedural",
+    "atomId": "V-15",
+    "id": "PD-V15-01",
+    "section": "Int literal use",
+    "prompt": "Declare int distance = 5; then on the next line set it to 5 * 100.",
+    "expectedAnswer": "int distance = 5;\ndistance = 5 * 100;",
+    "keyChecks": ["int distance = 5", "distance = 5 * 100", ";"],
+    "variants": [
+      { "prompt": "int km = 10; km = 10 * 1000;", "expectedAnswer": "int km = 10;\nkm = 10 * 1000;" },
+      { "prompt": "int total = 1; total = 1 * 50;", "expectedAnswer": "int total = 1;\ntotal = 1 * 50;" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-15",
+    "id": "CM-V15-01",
+    "section": "Int literals",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: small int", "code": "int x = 5;" },
+      { "label": "Example B: big int", "code": "int y = 1000000;" }
+    ],
+    "prompt": "Declare an int distance set to the int literal 500000.",
+    "expectedAnswer": "int distance = 500000;",
+    "keyChecks": ["int", "distance", "= 500000", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-15",
+    "id": "CMEM-V15-01",
+    "section": "Int literal",
+    "question": "Type a declaration using a small int literal: int distance = 5;",
+    "code": "int distance = 5;",
+    "keyChecks": ["int", "distance", "= 5", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-16",
+    "levelLabel": "L2 -> 3.14 is a double literal",
+    "fullCode": "double timer = 3.14;\ntimer = timer + 0.5;",
+    "steps": [
+      { "line": 1, "code": "double timer = 3.14;", "annotation": "3.14 (with dot) is a double literal.", "atomIds": ["V-16"] },
+      { "line": 2, "code": "timer = timer + 0.5;", "annotation": "0.5 is also double; sum is 3.64.", "atomIds": ["V-16"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-16",
+    "levelLabel": "L2 -> double literal vs int literal",
+    "fullCode": "double timer = 5.0;\nint counter = 5;",
+    "steps": [
+      { "line": 1, "code": "double timer = 5.0;", "annotation": "5.0 has a dot — it's a double literal.", "atomIds": ["V-16"] },
+      { "line": 2, "code": "int counter = 5;", "annotation": "5 has no dot — it's an int literal.", "atomIds": ["V-16"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-16",
+    "code": "double timer = 3.14;\ntimer = timer + 0.5;\ncout << timer;",
+    "variables": ["timer"],
+    "expectedSteps": [
+      { "line": 1, "variable": "timer", "value": "3.14" },
+      { "line": 2, "variable": "timer", "value": "3.64" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3.64"],
+    "inputMode": "final-only",
+    "teachMe": "double + double = double. 3.14 + 0.5 = 3.64."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-16",
+    "code": "double timer = 0.5;\ntimer = timer * 4;\ncout << timer;",
+    "variables": ["timer"],
+    "expectedSteps": [
+      { "line": 1, "variable": "timer", "value": "0.5" },
+      { "line": 2, "variable": "timer", "value": "2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2"],
+    "inputMode": "final-only",
+    "teachMe": "0.5 (double) * 4 (int) = 2.0 (double); cout shows 2."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-16",
+    "code": "double timer = 5.0;\nint copy = timer;\ncout << copy;",
+    "variables": ["timer", "copy"],
+    "expectedSteps": [
+      { "line": 1, "variable": "timer", "value": "5" },
+      { "line": 2, "variable": "copy", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "5.0 → int truncates to 5 (the .0 is dropped)."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-16",
+    "code": "double timer = 3.14;\ndouble pi2 = 2 * 3.14;\ncout << pi2;",
+    "variables": ["timer", "pi2"],
+    "expectedSteps": [
+      { "line": 1, "variable": "timer", "value": "3.14" },
+      { "line": 2, "variable": "pi2", "value": "6.28" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["6.28"],
+    "inputMode": "final-only",
+    "teachMe": "int * double = double. 2 * 3.14 = 6.28."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-16",
+    "code": "double timer = ___;\n// double literal with a decimal",
+    "clozeSentence": "Fill in any double literal that has a decimal point.",
+    "answer": "3.14",
+    "explanation": "3.14 has a dot — it's a double literal."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-16",
+    "code": "double timer = 3.14;\ntimer = timer + ___;\n// add half a second",
+    "clozeSentence": "Fill in the double literal 0.5.",
+    "answer": "0.5",
+    "explanation": "0.5 has a dot — a double literal."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-16",
+    "code": "___ timer = 3.14;",
+    "clozeSentence": "Fill in the type that matches the double literal 3.14.",
+    "answer": "double",
+    "explanation": "Decimal literals like 3.14 fit in double."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-16",
+    "code": "double timer = 5___\n// make it a double literal",
+    "clozeSentence": "Fill in the missing characters that turn 5 into a double literal.",
+    "answer": ".0;",
+    "explanation": "5.0 (with dot, then ;) is a double literal."
+  },
+  {
+    "type": "write",
+    "atomId": "V-16",
+    "level": 1,
+    "spec": "Declare a double variable timer set to the double literal 3.14.",
+    "expectedAnswer": "double timer = 3.14;",
+    "keyChecks": ["double", "timer", "=", "3.14", ";"],
+    "explanation": "3.14 has a decimal point — a double literal."
+  },
+  {
+    "type": "write",
+    "atomId": "V-16",
+    "level": 1,
+    "spec": "Declare a double variable timer set to the double literal 0.5.",
+    "expectedAnswer": "double timer = 0.5;",
+    "keyChecks": ["double", "timer", "=", "0.5", ";"],
+    "explanation": "0.5 has a dot — a double literal."
+  },
+  {
+    "type": "write",
+    "atomId": "V-16",
+    "level": 2,
+    "spec": "Declare double timer = 3.14; then double pi2 = 2 * 3.14;",
+    "expectedAnswer": "double timer = 3.14;\ndouble pi2 = 2 * 3.14;",
+    "keyChecks": ["double timer", "= 3.14", "double pi2", "= 2 * 3.14", ";"],
+    "explanation": "Two double declarations; the second uses an expression with a double literal."
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-16",
+    "id": "CM-V16-01",
+    "section": "Double literals",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: pi", "code": "double pi = 3.14;" },
+      { "label": "Example B: half", "code": "double half = 0.5;" }
+    ],
+    "prompt": "Declare a double timer set to the double literal 1.5.",
+    "expectedAnswer": "double timer = 1.5;",
+    "keyChecks": ["double", "timer", "= 1.5", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-16",
+    "id": "CMEM-V16-01",
+    "section": "Double literal",
+    "question": "Type a declaration using a double literal with a dot: double timer = 3.14;",
+    "code": "double timer = 3.14;",
+    "keyChecks": ["double", "timer", "= 3.14", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-17",
+    "levelLabel": "L2 -> \"hi\" is a string literal",
+    "fullCode": "string currency = \"AUD\";\ncout << currency;",
+    "steps": [
+      { "line": 1, "code": "string currency = \"AUD\";", "annotation": "\"AUD\" in double quotes is a string literal.", "atomIds": ["V-17"] },
+      { "line": 2, "code": "cout << currency;", "annotation": "Prints AUD (without quotes).", "atomIds": ["V-17"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-17",
+    "levelLabel": "L2 -> string literal in cout",
+    "fullCode": "string currency = \"AUD\";\ncout << \"Currency: \" << currency;",
+    "steps": [
+      { "line": 1, "code": "string currency = \"AUD\";", "annotation": "Declare a string from a string literal.", "atomIds": ["V-17"] },
+      { "line": 2, "code": "cout << \"Currency: \" << currency;", "annotation": "\"Currency: \" is a string literal sent directly to cout, then the variable.", "atomIds": ["V-17"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-17",
+    "code": "string currency = \"AUD\";\ncout << currency;",
+    "variables": ["currency"],
+    "expectedSteps": [
+      { "line": 1, "variable": "currency", "value": "AUD" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["AUD"],
+    "inputMode": "final-only",
+    "teachMe": "\"AUD\" is a string literal; the box currency holds AUD; cout prints it."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-17",
+    "code": "string currency = \"AUD\";\ncout << \"Code: \" << currency;",
+    "variables": ["currency"],
+    "expectedSteps": [
+      { "line": 1, "variable": "currency", "value": "AUD" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Code: AUD"],
+    "inputMode": "final-only",
+    "teachMe": "Both \"Code: \" and currency are sent to cout in order."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-17",
+    "code": "string currency = \"USD\";\ncurrency = \"EUR\";\ncout << currency;",
+    "variables": ["currency"],
+    "expectedSteps": [
+      { "line": 1, "variable": "currency", "value": "USD" },
+      { "line": 2, "variable": "currency", "value": "EUR" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["EUR"],
+    "inputMode": "final-only",
+    "teachMe": "Two string literals overwrite currency; final value is EUR."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-17",
+    "code": "string a = \"AUD\";\nstring b = \"USD\";\nstring pair = a + \"/\" + b;\ncout << pair;",
+    "variables": ["a", "b", "pair"],
+    "expectedSteps": [
+      { "line": 1, "variable": "a", "value": "AUD" },
+      { "line": 2, "variable": "b", "value": "USD" },
+      { "line": 3, "variable": "pair", "value": "AUD/USD" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["AUD/USD"],
+    "inputMode": "final-only",
+    "teachMe": "String literals \"AUD\", \"USD\", and \"/\" combine via + into AUD/USD."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-17",
+    "code": "string currency = ___;\n// AUD as a string literal",
+    "clozeSentence": "Fill in the string literal \"AUD\" with double quotes.",
+    "answer": "\"AUD\"",
+    "explanation": "Strings need double quotes around the text."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-17",
+    "code": "cout << ___;\n// print the literal Hello with a comma",
+    "clozeSentence": "Fill in a string literal of your choice (must use double quotes).",
+    "answer": "\"Hello,\"",
+    "explanation": "\"Hello,\" is a string literal."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-17",
+    "code": "string a = \"AUD\";\nstring b = \"USD\";\nstring pair = a ___ \"/\" + b;",
+    "clozeSentence": "Fill in the operator that joins strings.",
+    "answer": "+",
+    "explanation": "+ concatenates strings."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-17",
+    "code": "string currency = \"AUD\"___",
+    "clozeSentence": "Fill in the punctuation that ends the statement.",
+    "answer": ";",
+    "explanation": "Statements end with a semicolon."
+  },
+  {
+    "type": "write",
+    "atomId": "V-17",
+    "level": 1,
+    "spec": "Declare a string variable currency with the string literal \"AUD\".",
+    "expectedAnswer": "string currency = \"AUD\";",
+    "keyChecks": ["string", "currency", "=", "\"AUD\"", ";"],
+    "explanation": "string + double-quoted literal."
+  },
+  {
+    "type": "write",
+    "atomId": "V-17",
+    "level": 1,
+    "spec": "Print the string literal \"Welcome\" using cout (no variable).",
+    "expectedAnswer": "cout << \"Welcome\";",
+    "keyChecks": ["cout", "<<", "\"Welcome\"", ";"],
+    "explanation": "Send a string literal directly to cout."
+  },
+  {
+    "type": "write",
+    "atomId": "V-17",
+    "level": 2,
+    "spec": "Declare string currency = \"AUD\"; then cout << \"Code: \" << currency;",
+    "expectedAnswer": "string currency = \"AUD\";\ncout << \"Code: \" << currency;",
+    "keyChecks": ["string currency", "= \"AUD\"", "cout", "<< \"Code: \"", "<< currency", ";"],
+    "explanation": "First a declaration, then chained << with a literal and a variable."
+  },
+  {
+    "type": "procedural",
+    "atomId": "V-17",
+    "id": "PD-V17-01",
+    "section": "String literal",
+    "prompt": "Declare a string currency holding the string literal \"AUD\".",
+    "expectedAnswer": "string currency = \"AUD\";",
+    "keyChecks": ["string", "currency", "= \"AUD\"", ";"],
+    "variants": [
+      { "prompt": "Declare string currency = \"USD\".", "expectedAnswer": "string currency = \"USD\";" },
+      { "prompt": "Declare string currency = \"EUR\".", "expectedAnswer": "string currency = \"EUR\";" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-17",
+    "id": "CM-V17-01",
+    "section": "String literals",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: greeting literal", "code": "string g = \"hello\";" },
+      { "label": "Example B: tag literal", "code": "string t = \"v1\";" }
+    ],
+    "prompt": "Declare a string currency set to the string literal \"AUD\".",
+    "expectedAnswer": "string currency = \"AUD\";",
+    "keyChecks": ["string", "currency", "= \"AUD\"", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-17",
+    "id": "CMEM-V17-01",
+    "section": "String literal",
+    "question": "Type a declaration using a string literal with double quotes: string currency = \"AUD\";",
+    "code": "string currency = \"AUD\";",
+    "keyChecks": ["string", "currency", "= \"AUD\"", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-18",
+    "levelLabel": "L2 -> 'a' is a char literal",
+    "fullCode": "char user_id = 'A';\ncout << user_id;",
+    "steps": [
+      { "line": 1, "code": "char user_id = 'A';", "annotation": "Single quotes around A make it a char literal.", "atomIds": ["V-18"] },
+      { "line": 2, "code": "cout << user_id;", "annotation": "Prints A.", "atomIds": ["V-18"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-18",
+    "levelLabel": "L2 -> char literal vs string literal",
+    "fullCode": "char single = 'A';\nstring multi = \"A\";",
+    "steps": [
+      { "line": 1, "code": "char single = 'A';", "annotation": "'A' (single quotes) is a char literal.", "atomIds": ["V-18"] },
+      { "line": 2, "code": "string multi = \"A\";", "annotation": "\"A\" (double quotes) is a string literal.", "atomIds": ["V-18"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-18",
+    "code": "char user_id = 'A';\ncout << user_id;",
+    "variables": ["user_id"],
+    "expectedSteps": [
+      { "line": 1, "variable": "user_id", "value": "A" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["A"],
+    "inputMode": "final-only",
+    "teachMe": "'A' is a char literal; the box holds A and cout prints it."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-18",
+    "code": "char user_id = 'A';\nuser_id = 'Z';\ncout << user_id;",
+    "variables": ["user_id"],
+    "expectedSteps": [
+      { "line": 1, "variable": "user_id", "value": "A" },
+      { "line": 2, "variable": "user_id", "value": "Z" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Z"],
+    "inputMode": "final-only",
+    "teachMe": "Both 'A' and 'Z' are char literals; reassignment overwrites."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-18",
+    "code": "char comma = ',';\nchar dot = '.';\ncout << comma << dot;",
+    "variables": ["comma", "dot"],
+    "expectedSteps": [
+      { "line": 1, "variable": "comma", "value": "," },
+      { "line": 2, "variable": "dot", "value": "." }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": [",."],
+    "inputMode": "final-only",
+    "teachMe": "Punctuation can be a char literal. Two chars side by side print ,."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-18",
+    "code": "char digit = '5';\nint num = 5;\ncout << digit << \" \" << num;",
+    "variables": ["digit", "num"],
+    "expectedSteps": [
+      { "line": 1, "variable": "digit", "value": "5" },
+      { "line": 2, "variable": "num", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5 5"],
+    "inputMode": "final-only",
+    "teachMe": "'5' (char) and 5 (int) print the same here, but they are different types."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-18",
+    "code": "char user_id = ___;\n// the letter A in single quotes",
+    "clozeSentence": "Fill in the char literal 'A'.",
+    "answer": "'A'",
+    "explanation": "char literals use single quotes."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-18",
+    "code": "char comma = ___;\n// punctuation char literal",
+    "clozeSentence": "Fill in a char literal ','.",
+    "answer": "','",
+    "explanation": "Punctuation can be a char literal — single quotes around the comma."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-18",
+    "code": "char user_id = 'A'___",
+    "clozeSentence": "Fill in the punctuation that ends the statement.",
+    "answer": ";",
+    "explanation": "All statements end with ;."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-18",
+    "code": "___ user_id = 'A';",
+    "clozeSentence": "Fill in the type matching the char literal 'A'.",
+    "answer": "char",
+    "explanation": "char holds a single character given by 'A'."
+  },
+  {
+    "type": "write",
+    "atomId": "V-18",
+    "level": 1,
+    "spec": "Declare a char user_id holding the char literal 'A'.",
+    "expectedAnswer": "char user_id = 'A';",
+    "keyChecks": ["char", "user_id", "=", "'A'", ";"],
+    "explanation": "char + single-quoted single character literal."
+  },
+  {
+    "type": "write",
+    "atomId": "V-18",
+    "level": 1,
+    "spec": "Declare a char comma holding the char literal ','.",
+    "expectedAnswer": "char comma = ',';",
+    "keyChecks": ["char", "comma", "=", "','", ";"],
+    "explanation": "Single quotes around the comma make a char literal."
+  },
+  {
+    "type": "write",
+    "atomId": "V-18",
+    "level": 2,
+    "spec": "Declare two chars: first = 'A' and last = 'Z'.",
+    "expectedAnswer": "char first = 'A';\nchar last = 'Z';",
+    "keyChecks": ["char first", "= 'A'", "char last", "= 'Z'", ";"],
+    "explanation": "Two char declarations using char literals."
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-18",
+    "id": "CM-V18-01",
+    "section": "Char literals",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: letter", "code": "char a = 'A';" },
+      { "label": "Example B: digit", "code": "char d = '5';" }
+    ],
+    "prompt": "Declare char user_id set to the char literal 'A'.",
+    "expectedAnswer": "char user_id = 'A';",
+    "keyChecks": ["char", "user_id", "= 'A'", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-18",
+    "id": "CMEM-V18-01",
+    "section": "Char literal",
+    "question": "Type the canonical char declaration: char user_id = 'A';",
+    "code": "char user_id = 'A';",
+    "keyChecks": ["char", "user_id", "= 'A'", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-19",
+    "levelLabel": "L2 -> true and false are bool literals",
+    "fullCode": "bool capacity_ok = true;\ncapacity_ok = false;",
+    "steps": [
+      { "line": 1, "code": "bool capacity_ok = true;", "annotation": "true is one of two bool literals.", "atomIds": ["V-19"] },
+      { "line": 2, "code": "capacity_ok = false;", "annotation": "false is the other bool literal.", "atomIds": ["V-19"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-19",
+    "levelLabel": "L2 -> bool literals have lowercase",
+    "fullCode": "bool a = true;\nbool b = false;",
+    "steps": [
+      { "line": 1, "code": "bool a = true;", "annotation": "Always lowercase: true (not True or TRUE).", "atomIds": ["V-19"] },
+      { "line": 2, "code": "bool b = false;", "annotation": "Always lowercase: false.", "atomIds": ["V-19"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-19",
+    "code": "bool capacity_ok = true;\ncout << capacity_ok;",
+    "variables": ["capacity_ok"],
+    "expectedSteps": [
+      { "line": 1, "variable": "capacity_ok", "value": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1"],
+    "inputMode": "final-only",
+    "teachMe": "true literal stored in bool prints as 1."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-19",
+    "code": "bool capacity_ok = false;\ncout << capacity_ok;",
+    "variables": ["capacity_ok"],
+    "expectedSteps": [
+      { "line": 1, "variable": "capacity_ok", "value": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "false literal stored in bool prints as 0."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-19",
+    "code": "bool capacity_ok = true;\ncapacity_ok = false;\ncapacity_ok = true;\ncout << capacity_ok;",
+    "variables": ["capacity_ok"],
+    "expectedSteps": [
+      { "line": 1, "variable": "capacity_ok", "value": "true" },
+      { "line": 2, "variable": "capacity_ok", "value": "false" },
+      { "line": 3, "variable": "capacity_ok", "value": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1"],
+    "inputMode": "final-only",
+    "teachMe": "Multiple reassignments; only the last value (true → 1) is printed."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-19",
+    "code": "bool a = true;\nbool b = false;\nif (a) {\n  cout << \"a\";\n}\nif (b) {\n  cout << \"b\";\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 1, "variable": "a", "value": "true" },
+      { "line": 2, "variable": "b", "value": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["a"],
+    "inputMode": "final-only",
+    "teachMe": "if (true) runs; if (false) is skipped. Only \"a\" prints."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-19",
+    "code": "bool capacity_ok = ___;\n// literal that means yes",
+    "clozeSentence": "Fill in the bool literal that means yes.",
+    "answer": "true",
+    "explanation": "true is the bool literal for the yes/affirmative case."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-19",
+    "code": "bool capacity_ok = ___;\n// literal that means no",
+    "clozeSentence": "Fill in the bool literal that means no.",
+    "answer": "false",
+    "explanation": "false is the bool literal for the no/negative case."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-19",
+    "code": "___ capacity_ok = true;",
+    "clozeSentence": "Fill in the type that holds true or false.",
+    "answer": "bool",
+    "explanation": "bool holds the two bool literals true and false."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-19",
+    "code": "bool capacity_ok = true;\ncapacity_ok = ___;\n// flip to false",
+    "clozeSentence": "Fill in the bool literal to flip capacity_ok.",
+    "answer": "false",
+    "explanation": "false is the opposite of true; reassignment overwrites the box."
+  },
+  {
+    "type": "write",
+    "atomId": "V-19",
+    "level": 1,
+    "spec": "Declare a bool variable capacity_ok set to true.",
+    "expectedAnswer": "bool capacity_ok = true;",
+    "keyChecks": ["bool", "capacity_ok", "=", "true", ";"],
+    "explanation": "bool + the literal true."
+  },
+  {
+    "type": "write",
+    "atomId": "V-19",
+    "level": 1,
+    "spec": "Declare a bool variable capacity_ok set to false.",
+    "expectedAnswer": "bool capacity_ok = false;",
+    "keyChecks": ["bool", "capacity_ok", "=", "false", ";"],
+    "explanation": "bool + the literal false."
+  },
+  {
+    "type": "write",
+    "atomId": "V-19",
+    "level": 2,
+    "spec": "Declare bool a = true; and bool b = false; on separate lines.",
+    "expectedAnswer": "bool a = true;\nbool b = false;",
+    "keyChecks": ["bool a", "= true", "bool b", "= false", ";"],
+    "explanation": "Two bool declarations using each of the two bool literals."
+  },
+  {
+    "type": "procedural",
+    "atomId": "V-19",
+    "id": "PD-V19-01",
+    "section": "Bool literals",
+    "prompt": "Declare bool a = true and bool b = false on two lines.",
+    "expectedAnswer": "bool a = true;\nbool b = false;",
+    "keyChecks": ["bool a = true", "bool b = false", ";"],
+    "variants": [
+      { "prompt": "Declare bool ok = true and bool fail = false.", "expectedAnswer": "bool ok = true;\nbool fail = false;" },
+      { "prompt": "Declare bool found = true and bool empty = false.", "expectedAnswer": "bool found = true;\nbool empty = false;" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-19",
+    "id": "CM-V19-01",
+    "section": "Bool literals",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: literal true", "code": "bool ok = true;" },
+      { "label": "Example B: literal false", "code": "bool failed = false;" }
+    ],
+    "prompt": "Declare bool capacity_ok set to true.",
+    "expectedAnswer": "bool capacity_ok = true;",
+    "keyChecks": ["bool", "capacity_ok", "= true", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-19",
+    "id": "CMEM-V19-01",
+    "section": "Bool literals",
+    "question": "Type a bool declaration using literal true: bool capacity_ok = true;",
+    "code": "bool capacity_ok = true;",
+    "keyChecks": ["bool", "capacity_ok", "= true", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "V-20",
+    "levelLabel": "L2 -> string needs <string> include",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string ratio = \"3:1\";\n  cout << ratio;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "#include <iostream>", "annotation": "Brings in cin/cout.", "atomIds": ["V-20"] },
+      { "line": 2, "code": "#include <string>", "annotation": "Required to use the string type.", "atomIds": ["V-20"] },
+      { "line": 5, "code": "  string ratio = \"3:1\";", "annotation": "Without #include <string>, this line would not compile.", "atomIds": ["V-20"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "V-20",
+    "levelLabel": "L2 -> the two essential includes",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;",
+    "steps": [
+      { "line": 1, "code": "#include <iostream>", "annotation": "Needed for cin and cout.", "atomIds": ["V-20"] },
+      { "line": 2, "code": "#include <string>", "annotation": "Needed whenever you use the string type.", "atomIds": ["V-20"] },
+      { "line": 3, "code": "using namespace std;", "annotation": "Lets you write string instead of std::string.", "atomIds": ["V-20"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "V-20",
+    "code": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string ratio = \"3:1\";\n  cout << ratio;\n  return 0;\n}",
+    "variables": ["ratio"],
+    "expectedSteps": [
+      { "line": 5, "variable": "ratio", "value": "3:1" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3:1"],
+    "inputMode": "final-only",
+    "teachMe": "Both #includes are present, so the string and cout work; ratio prints 3:1."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-20",
+    "code": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string a = \"3\";\n  string b = \"1\";\n  string ratio = a + \":\" + b;\n  cout << ratio;\n  return 0;\n}",
+    "variables": ["a", "b", "ratio"],
+    "expectedSteps": [
+      { "line": 5, "variable": "a", "value": "3" },
+      { "line": 6, "variable": "b", "value": "1" },
+      { "line": 7, "variable": "ratio", "value": "3:1" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3:1"],
+    "inputMode": "final-only",
+    "teachMe": "All three string operations rely on #include <string> being at the top."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-20",
+    "code": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string ratio;\n  ratio = \"3:1\";\n  cout << ratio;\n  return 0;\n}",
+    "variables": ["ratio"],
+    "expectedSteps": [
+      { "line": 5, "variable": "ratio", "value": "" },
+      { "line": 6, "variable": "ratio", "value": "3:1" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3:1"],
+    "inputMode": "final-only",
+    "teachMe": "string default-constructs to \"\". Then assignment fills it. Both rely on <string>."
+  },
+  {
+    "type": "trace",
+    "atomId": "V-20",
+    "code": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string parts = \"3:1\";\n  parts = parts + \":2\";\n  cout << parts;\n  return 0;\n}",
+    "variables": ["parts"],
+    "expectedSteps": [
+      { "line": 5, "variable": "parts", "value": "3:1" },
+      { "line": 6, "variable": "parts", "value": "3:1:2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3:1:2"],
+    "inputMode": "final-only",
+    "teachMe": "string + operator also requires #include <string>."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-20",
+    "code": "#include <iostream>\n___ <string>\nusing namespace std;",
+    "clozeSentence": "Fill in the preprocessor directive that loads a header.",
+    "answer": "#include",
+    "explanation": "#include is the directive; <string> is the header."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-20",
+    "code": "#include <iostream>\n#include ___\nusing namespace std;",
+    "clozeSentence": "Fill in the header for the string type.",
+    "answer": "<string>",
+    "explanation": "<string> provides the string type."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-20",
+    "code": "#include <iostream>\n#include <___>\nusing namespace std;\nstring ratio = \"3:1\";",
+    "clozeSentence": "Fill in the header name (between < and >).",
+    "answer": "string",
+    "explanation": "<string> = the C++ standard string header."
+  },
+  {
+    "type": "cloze",
+    "atomId": "V-20",
+    "code": "#include <iostream>\n#include <string>\nusing namespace ___;",
+    "clozeSentence": "Fill in the namespace name.",
+    "answer": "std",
+    "explanation": "std is the C++ standard library namespace."
+  },
+  {
+    "type": "write",
+    "atomId": "V-20",
+    "level": 1,
+    "spec": "Write the single line that includes the string header.",
+    "expectedAnswer": "#include <string>",
+    "keyChecks": ["#include", "<string>"],
+    "explanation": "#include + the header in angle brackets."
+  },
+  {
+    "type": "write",
+    "atomId": "V-20",
+    "level": 2,
+    "spec": "Write the three top lines: include iostream, include string, using namespace std.",
+    "expectedAnswer": "#include <iostream>\n#include <string>\nusing namespace std;",
+    "keyChecks": ["#include <iostream>", "#include <string>", "using namespace std", ";"],
+    "explanation": "These three lines start any program that uses cout/cin AND string."
+  },
+  {
+    "type": "write",
+    "atomId": "V-20",
+    "level": 3,
+    "spec": "Write a complete program that includes <iostream> and <string>, declares string ratio = \"3:1\";, and prints it from main, returning 0.",
+    "expectedAnswer": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string ratio = \"3:1\";\n  cout << ratio;\n  return 0;\n}",
+    "keyChecks": ["#include <iostream>", "#include <string>", "using namespace std;", "int main()", "string ratio", "= \"3:1\"", "cout", "<< ratio", "return 0", "}"],
+    "explanation": "Full minimal program: both includes, namespace, main, declare-and-print, return 0."
+  },
+  {
+    "type": "matrix",
+    "atomId": "V-20",
+    "id": "CM-V20-01",
+    "section": "Required header for string",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: only iostream", "code": "#include <iostream>\nusing namespace std;\nint main() { cout << 1; return 0; }" },
+      { "label": "Example B: iostream + string", "code": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() { string s = \"hi\"; cout << s; return 0; }" }
+    ],
+    "prompt": "Write a complete minimal program that uses both cout and a string variable greeting = \"hi\".",
+    "expectedAnswer": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string greeting = \"hi\";\n  cout << greeting;\n  return 0;\n}",
+    "keyChecks": ["#include <iostream>", "#include <string>", "using namespace std;", "int main()", "string greeting = \"hi\"", "cout << greeting", "return 0", "}"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "V-20",
+    "id": "CMEM-V20-01",
+    "section": "Header includes",
+    "question": "Type the three header lines in order: iostream, string, using namespace std.",
+    "code": "#include <iostream>\n#include <string>\nusing namespace std;",
+    "keyChecks": ["#include <iostream>", "#include <string>", "using namespace std", ";"]
+  }
+]

@@ -1,0 +1,802 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "S-01",
+    "levelLabel": "L00 -> #include <iostream>",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Hello\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "#include <iostream>",
+        "annotation": "Loads I/O library so cin and cout exist - without this line cout is undefined",
+        "atomIds": ["S-01"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << \"Hello\" << endl;",
+        "annotation": "cout works only because <iostream> was included above",
+        "atomIds": ["S-01"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "S-01",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"hello\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["hello"],
+    "inputMode": "final-only",
+    "teachMe": "iostream gives access to cout. The program prints hello."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-01",
+    "code": "#include <___>\nusing namespace std;\nint main() {\n  cout << \"Hi\";\n}",
+    "clozeSentence": "To use cout/cin, include the ___ header",
+    "answer": "iostream",
+    "explanation": "iostream is the C++ standard header for input/output streams cin and cout."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-01",
+    "code": "___ <iostream>\nusing namespace std;",
+    "clozeSentence": "Headers are loaded with the ___ directive",
+    "answer": "#include",
+    "explanation": "#include is a preprocessor directive that pastes the contents of the named header into your file."
+  },
+  {
+    "type": "write",
+    "atomId": "S-01",
+    "level": 1,
+    "spec": "Write the single line that loads the I/O library so you can use cin and cout.",
+    "expectedAnswer": "#include <iostream>",
+    "keyChecks": ["#include", "<iostream>"],
+    "explanation": "This header brings cin, cout, and endl into scope."
+  },
+  {
+    "type": "write",
+    "atomId": "S-01",
+    "level": 3,
+    "spec": "Write a complete program that includes iostream and prints Greetings.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Greetings\" << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int main()", "cout", "Greetings", "return 0;"],
+    "explanation": "Standard structure: include header, namespace, main with one cout, return 0."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-01",
+    "id": "CMEM-S01-01",
+    "section": "Boilerplate: include directive",
+    "question": "Type the include line for the C++ standard I/O library",
+    "code": "#include <iostream>",
+    "keyChecks": ["#include", "<iostream>"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-01",
+    "id": "CMEM-S01-02",
+    "section": "Boilerplate: complete header block",
+    "question": "Type the two-line header that goes at the top of every SIT102 program",
+    "code": "#include <iostream>\nusing namespace std;",
+    "keyChecks": ["#include", "<iostream>", "using namespace std;"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "S-02",
+    "levelLabel": "L00 -> using namespace std;",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int x = 10;\n  cout << x << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "using namespace std;",
+        "annotation": "Now cout, cin, endl, string can be used without std:: prefix",
+        "atomIds": ["S-02"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << x << endl;",
+        "annotation": "Without using namespace std this would have to be std::cout << x << std::endl",
+        "atomIds": ["S-02"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "S-02",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"calc starts\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["calc starts"],
+    "inputMode": "final-only",
+    "teachMe": "using namespace std lets you write cout instead of std::cout. Same output either way."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-02",
+    "code": "#include <iostream>\nusing namespace ___;\nint main() {\n  cout << \"hi\";\n}",
+    "clozeSentence": "Standard library names live in the ___ namespace",
+    "answer": "std",
+    "explanation": "std is the standard namespace. cout, cin, endl, string all live here."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-02",
+    "code": "#include <iostream>\nusing ___ std;\nint main() {\n  return 0;\n}",
+    "clozeSentence": "The keyword that imports a whole namespace is ___",
+    "answer": "namespace",
+    "explanation": "using namespace X imports all names from namespace X."
+  },
+  {
+    "type": "write",
+    "atomId": "S-02",
+    "level": 1,
+    "spec": "Write the line that lets you write cout instead of std::cout.",
+    "expectedAnswer": "using namespace std;",
+    "keyChecks": ["using", "namespace", "std", ";"],
+    "explanation": "using namespace std imports cout, cin, endl etc into global scope."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-02",
+    "id": "CMEM-S02-01",
+    "section": "Boilerplate: namespace",
+    "question": "Type the using-namespace line that goes after #include",
+    "code": "using namespace std;",
+    "keyChecks": ["using", "namespace", "std", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-02",
+    "id": "CMEM-S02-02",
+    "section": "Boilerplate: header + namespace pair",
+    "question": "Type the canonical 2-line preamble used by every SIT102 program",
+    "code": "#include <iostream>\nusing namespace std;",
+    "keyChecks": ["#include", "<iostream>", "using namespace std;"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "S-03",
+    "levelLabel": "L00 -> int main() entry",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"Age program\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "int main() {",
+        "annotation": "Entry point - the OS starts your program here. int means it returns an int exit code",
+        "atomIds": ["S-03"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << \"Age program\" << endl;",
+        "annotation": "First line of main runs first",
+        "atomIds": ["S-03"]
+      },
+      {
+        "line": 5,
+        "code": "  return 0;",
+        "annotation": "main must return an int - 0 means success",
+        "atomIds": ["S-03"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "S-03",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"start\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["start"],
+    "inputMode": "final-only",
+    "teachMe": "main() is the entry point. Code inside its braces runs when the program starts."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-03",
+    "code": "#include <iostream>\nusing namespace std;\n___ main() {\n  return 0;\n}",
+    "clozeSentence": "main returns the type ___",
+    "answer": "int",
+    "explanation": "main returns an int (the program exit code). 0 = success, non-zero = error."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-03",
+    "code": "#include <iostream>\nusing namespace std;\nint ___() {\n  return 0;\n}",
+    "clozeSentence": "The OS-required entry function is named ___",
+    "answer": "main",
+    "explanation": "The standard C++ entry point function is main. The OS calls main when running your program."
+  },
+  {
+    "type": "write",
+    "atomId": "S-03",
+    "level": 1,
+    "spec": "Write the function header line for main (no body, no return).",
+    "expectedAnswer": "int main() {",
+    "keyChecks": ["int", "main", "()", "{"],
+    "explanation": "Returns int (exit code), takes no parameters, opens function body."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-03",
+    "id": "CMEM-S03-01",
+    "section": "Boilerplate: main entry",
+    "question": "Type the absolute minimum program that compiles and exits successfully",
+    "code": "int main() {\n  return 0;\n}",
+    "keyChecks": ["int main()", "{", "return 0;", "}"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-03",
+    "id": "CMEM-S03-02",
+    "section": "Boilerplate: full skeleton",
+    "question": "Type the full minimal SIT102 skeleton: 2 header lines plus main returning 0",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "using namespace std;", "int main()", "return 0;"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "S-04",
+    "levelLabel": "L00 -> ; ends statement",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int balance = 100;\n  cout << balance << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int balance = 100;",
+        "annotation": "Statement ends with ; - declares balance and assigns 100",
+        "atomIds": ["S-04"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << balance << endl;",
+        "annotation": "; ends this cout statement",
+        "atomIds": ["S-04"]
+      },
+      {
+        "line": 6,
+        "code": "  return 0;",
+        "annotation": "; ends return statement",
+        "atomIds": ["S-04"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "S-04",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int x = 7;\n  cout << x << endl;\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 4, "variable": "x", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "Each statement ends with ; The program declares x=7 and prints 7."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-04",
+    "code": "int main() {\n  int n = 5___\n  return 0;\n}",
+    "clozeSentence": "Every C++ statement must end with ___",
+    "answer": ";",
+    "explanation": "Forgetting ; is the most common compile error. Every statement requires it."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-04",
+    "code": "cout << \"hi\" << endl___",
+    "clozeSentence": "End every statement with ___",
+    "answer": ";",
+    "explanation": "; tells the compiler the statement is finished. Required after every statement."
+  },
+  {
+    "type": "write",
+    "atomId": "S-04",
+    "level": 1,
+    "spec": "Write a single statement that declares an int named score and assigns it 90, properly terminated.",
+    "expectedAnswer": "int score = 90;",
+    "keyChecks": ["int", "score", "=", "90", ";"],
+    "explanation": "Declaration and initialization in one statement, ending with ;"
+  },
+  {
+    "type": "write",
+    "atomId": "S-04",
+    "level": 2,
+    "spec": "Write a 3-statement main body: declare int n=10, print n, return 0. Each statement must end with semicolon.",
+    "expectedAnswer": "int main() {\n  int n = 10;\n  cout << n << endl;\n  return 0;\n}",
+    "keyChecks": ["int n = 10;", "cout << n", "endl;", "return 0;"],
+    "explanation": "Three statements, each terminated by ;"
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-04",
+    "id": "CMEM-S04-01",
+    "section": "Syntax: semicolon termination",
+    "question": "Type a return-zero statement",
+    "code": "return 0;",
+    "keyChecks": ["return", "0", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-04",
+    "id": "CMEM-S04-02",
+    "section": "Syntax: declaration with semicolon",
+    "question": "Type a single statement declaring int total = 0, semicolon-terminated",
+    "code": "int total = 0;",
+    "keyChecks": ["int", "total", "=", "0", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "S-05",
+    "levelLabel": "L00 -> { opens block",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"line one\" << endl;\n  cout << \"line two\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "int main() {",
+        "annotation": "{ marks the start of main's function body",
+        "atomIds": ["S-05"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << \"line one\" << endl;",
+        "annotation": "Inside the { ... } block, statements run in order",
+        "atomIds": ["S-05"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "S-05",
+    "code": "int main() {\n  cout << \"open\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["open"],
+    "inputMode": "final-only",
+    "teachMe": "{ on line 1 opens main's block. The cout inside runs, prints open."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-05",
+    "code": "int main() ___\n  return 0;\n}",
+    "clozeSentence": "After int main() the next character is ___",
+    "answer": "{",
+    "explanation": "{ opens the function body block. Every { needs a matching }."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-05",
+    "code": "int main() {\n  if (x > 0) ___\n    cout << x;\n  }\n}",
+    "clozeSentence": "Open every code block with ___",
+    "answer": "{",
+    "explanation": "{ marks the start of any code block: function body, if body, loop body."
+  },
+  {
+    "type": "write",
+    "atomId": "S-05",
+    "level": 2,
+    "spec": "Write main() that opens a block, prints calculator, and returns 0. Show the opening brace.",
+    "expectedAnswer": "int main() {\n  cout << \"calculator\" << endl;\n  return 0;\n}",
+    "keyChecks": ["int main()", "{", "cout", "calculator", "return 0;", "}"],
+    "explanation": "{ after int main() opens the function body."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-05",
+    "id": "CMEM-S05-01",
+    "section": "Syntax: opening brace",
+    "question": "Type a main() function header that opens its body block",
+    "code": "int main() {",
+    "keyChecks": ["int", "main()", "{"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-05",
+    "id": "CMEM-S05-02",
+    "section": "Syntax: nested block",
+    "question": "Type an if-statement opener for condition x > 0 with opening brace",
+    "code": "if (x > 0) {",
+    "keyChecks": ["if", "(", "x", ">", "0", ")", "{"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "S-06",
+    "levelLabel": "L00 -> } closes block",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"multi\" << endl;\n  cout << \"cout\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  return 0;",
+        "annotation": "Last statement before block ends",
+        "atomIds": ["S-06"]
+      },
+      {
+        "line": 7,
+        "code": "}",
+        "annotation": "} closes main's block - matches the { on line 3",
+        "atomIds": ["S-06"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "S-06",
+    "code": "int main() {\n  cout << \"end\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["end"],
+    "inputMode": "final-only",
+    "teachMe": "} on line 4 closes main's block. Without it the program would not compile."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-06",
+    "code": "int main() {\n  cout << \"hi\";\n  return 0;\n___",
+    "clozeSentence": "Close every { with a matching ___",
+    "answer": "}",
+    "explanation": "Every { needs a matching }. Mismatched braces cause compile errors."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-06",
+    "code": "if (x > 0) {\n  cout << x;\n___",
+    "clozeSentence": "End an if-block with ___",
+    "answer": "}",
+    "explanation": "} closes the if-block that started with {."
+  },
+  {
+    "type": "write",
+    "atomId": "S-06",
+    "level": 3,
+    "spec": "Write a complete program that prints multi-cout. Make sure both { and } are present and balanced.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"multi-cout\" << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "int main()", "{", "cout", "multi-cout", "return 0;", "}"],
+    "explanation": "Opening { after main(), closing } at the end."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-06",
+    "id": "CMEM-S06-01",
+    "section": "Syntax: closing brace",
+    "question": "Type the closing brace that ends a main() function body",
+    "code": "}",
+    "keyChecks": ["}"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-06",
+    "id": "CMEM-S06-02",
+    "section": "Syntax: balanced braces",
+    "question": "Type a main() with empty body that returns 0 - both braces present",
+    "code": "int main() {\n  return 0;\n}",
+    "keyChecks": ["int main()", "{", "return 0;", "}"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "S-07",
+    "levelLabel": "L00 -> return 0; ends main",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"running\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << \"running\" << endl;",
+        "annotation": "Last work is done",
+        "atomIds": ["S-07"]
+      },
+      {
+        "line": 5,
+        "code": "  return 0;",
+        "annotation": "return 0 tells the OS the program completed successfully",
+        "atomIds": ["S-07"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "S-07",
+    "code": "int main() {\n  cout << \"done\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["done"],
+    "inputMode": "final-only",
+    "teachMe": "After printing done, return 0 ends main and signals success to the OS."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-07",
+    "code": "int main() {\n  cout << \"ok\";\n  return ___;\n}",
+    "clozeSentence": "Successful programs return ___ from main",
+    "answer": "0",
+    "explanation": "By convention 0 means success. Non-zero values indicate errors."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-07",
+    "code": "int main() {\n  cout << \"ok\";\n  ___ 0;\n}",
+    "clozeSentence": "The keyword that exits a function with a value is ___",
+    "answer": "return",
+    "explanation": "return X exits the function, returning X to the caller (or OS for main)."
+  },
+  {
+    "type": "write",
+    "atomId": "S-07",
+    "level": 1,
+    "spec": "Write the line that ends main with a successful exit code.",
+    "expectedAnswer": "return 0;",
+    "keyChecks": ["return", "0", ";"],
+    "explanation": "0 = success. Required final statement of main()."
+  },
+  {
+    "type": "write",
+    "atomId": "S-07",
+    "level": 3,
+    "spec": "Write a complete program with the canonical return-zero ending. Print the word zero before returning.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  cout << \"zero\" << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int main()", "cout", "zero", "return 0;"],
+    "explanation": "Standard SIT102 program structure ending with return 0;"
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-07",
+    "id": "CMEM-S07-01",
+    "section": "Boilerplate: success exit",
+    "question": "Type the line that ends main with success status",
+    "code": "return 0;",
+    "keyChecks": ["return", "0", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-07",
+    "id": "CMEM-S07-02",
+    "section": "Boilerplate: main close",
+    "question": "Type the last 2 lines of every SIT102 main(): return zero then close brace",
+    "code": "  return 0;\n}",
+    "keyChecks": ["return 0;", "}"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "S-08",
+    "levelLabel": "L00 -> // single-line comment",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  // Print a greeting\n  cout << \"Hello\" << endl;\n  // Done\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  // Print a greeting",
+        "annotation": "Comment - compiler ignores everything after //",
+        "atomIds": ["S-08"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << \"Hello\" << endl;",
+        "annotation": "This actually runs",
+        "atomIds": ["S-08"]
+      },
+      {
+        "line": 6,
+        "code": "  // Done",
+        "annotation": "Another comment - no effect on output",
+        "atomIds": ["S-08"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "S-08",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  // not printed\n  cout << \"yes\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["yes"],
+    "inputMode": "final-only",
+    "teachMe": "Comments are ignored. Only cout statements produce output. Result: yes (not 'not printed')."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-08",
+    "code": "int main() {\n  ___ this is a comment\n  cout << \"hi\";\n}",
+    "clozeSentence": "Single-line comments start with ___",
+    "answer": "//",
+    "explanation": "// makes the rest of the line a comment ignored by the compiler."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-08",
+    "code": "// File: ___.cpp\n#include <iostream>",
+    "clozeSentence": "After // you can write any text - the compiler ignores it",
+    "answer": "calculator",
+    "explanation": "// starts a comment. Everything after on that line is ignored by the compiler."
+  },
+  {
+    "type": "write",
+    "atomId": "S-08",
+    "level": 2,
+    "spec": "Write main() that prints OK with one comment above the cout explaining what it does.",
+    "expectedAnswer": "int main() {\n  // print OK to terminal\n  cout << \"OK\" << endl;\n  return 0;\n}",
+    "keyChecks": ["int main()", "//", "cout", "OK", "return 0;"],
+    "explanation": "// adds a comment above the cout. Comment is ignored at runtime."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-08",
+    "id": "CMEM-S08-01",
+    "section": "Syntax: comment",
+    "question": "Type a single-line comment saying 'This program prints the score'",
+    "code": "// This program prints the score",
+    "keyChecks": ["//", "This program prints the score"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-08",
+    "id": "CMEM-S08-02",
+    "section": "Syntax: filename comment",
+    "question": "Type the canonical file-header comment for a calculator C++ source file",
+    "code": "// File: calculator.cpp",
+    "keyChecks": ["//", "File:", "calculator.cpp"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "S-09",
+    "levelLabel": "L00 -> whitespace flexibility",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int   x =   42 ;\n  cout<<x<<endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int   x =   42 ;",
+        "annotation": "Extra spaces around tokens are fine - all ignored by compiler",
+        "atomIds": ["S-09"]
+      },
+      {
+        "line": 5,
+        "code": "  cout<<x<<endl;",
+        "annotation": "No spaces around << also fine - same meaning",
+        "atomIds": ["S-09"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "S-09",
+    "code": "int main(){int n=8;cout<<n<<endl;return 0;}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 1, "variable": "n", "value": "8" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "All on one line, no spaces. Compiler does not care - prints 8 just the same."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-09",
+    "code": "int    x   ___   5;",
+    "clozeSentence": "Spaces around the = operator are optional - the assignment operator is ___",
+    "answer": "=",
+    "explanation": "Whitespace around = is cosmetic. int x=5; and int x = 5; are identical."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-09",
+    "code": "cout___\"hi\"___endl;",
+    "clozeSentence": "Stream insertion uses ___ - whitespace around it is optional",
+    "answer": "<<",
+    "explanation": "<< is the stream insertion operator. Spaces around it are not required."
+  },
+  {
+    "type": "write",
+    "atomId": "S-09",
+    "level": 2,
+    "spec": "Write a single statement declaring int age=21 with no spaces around the equals sign.",
+    "expectedAnswer": "int age=21;",
+    "keyChecks": ["int", "age", "=", "21", ";"],
+    "explanation": "Whitespace around = is optional. The compiler accepts age=21 just as well as age = 21."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-09",
+    "id": "CMEM-S09-01",
+    "section": "Syntax: tight whitespace",
+    "question": "Type a one-line main with no extra spaces - declares int n equal to 5 then returns 0",
+    "code": "int main(){int n=5;return 0;}",
+    "keyChecks": ["int main()", "{", "int n=5;", "return 0;", "}"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-09",
+    "id": "CMEM-S09-02",
+    "section": "Syntax: spaces optional",
+    "question": "Type cout shifting Hi then endl with no whitespace around <<",
+    "code": "cout<<\"Hi\"<<endl;",
+    "keyChecks": ["cout", "<<", "Hi", "endl", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "S-10",
+    "levelLabel": "L00 -> indentation is style",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\ncout << \"flat\" << endl;\n      cout << \"deep\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "cout << \"flat\" << endl;",
+        "annotation": "No indent - compiler does not care",
+        "atomIds": ["S-10"]
+      },
+      {
+        "line": 5,
+        "code": "      cout << \"deep\" << endl;",
+        "annotation": "Lots of indent - compiler still does not care",
+        "atomIds": ["S-10"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "S-10",
+    "code": "int main() {\ncout << \"a\" << endl;\n   cout << \"b\" << endl;\n      return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["a", "b"],
+    "inputMode": "final-only",
+    "teachMe": "Indentation is for humans. The compiler ignores it. Output: a then b."
+  },
+  {
+    "type": "cloze",
+    "atomId": "S-10",
+    "code": "int main() {\n  cout << \"hi\";\n}\n// indentation is just ___",
+    "clozeSentence": "Indentation is ___ not syntax",
+    "answer": "style",
+    "explanation": "C++ does not care about indentation. Use it for human readability only."
+  },
+  {
+    "type": "write",
+    "atomId": "S-10",
+    "level": 2,
+    "spec": "Write main() that prints two greetings - your indentation can be anything you like.",
+    "expectedAnswer": "int main() {\n  cout << \"Hello\" << endl;\n  cout << \"World\" << endl;\n  return 0;\n}",
+    "keyChecks": ["int main()", "cout", "Hello", "World", "return 0;"],
+    "explanation": "Two cout calls, indentation conventional but flexible."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-10",
+    "id": "CMEM-S10-01",
+    "section": "Syntax: any indentation",
+    "question": "Type a main with deliberately weird indentation that prints the word style",
+    "code": "int main() {\n      cout << \"style\" << endl;\n   return 0;\n}",
+    "keyChecks": ["int main()", "cout", "style", "return 0;", "}"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "S-10",
+    "id": "CMEM-S10-02",
+    "section": "Syntax: standard 2-space indent",
+    "question": "Type main with standard 2-space indented body that prints zero",
+    "code": "int main() {\n  cout << \"zero\" << endl;\n  return 0;\n}",
+    "keyChecks": ["int main()", "  cout", "zero", "  return 0;", "}"]
+  }
+]

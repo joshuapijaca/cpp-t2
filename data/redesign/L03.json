@@ -1,0 +1,1079 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "I-01",
+    "levelLabel": "L03 -> cin reads input (name-input)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  string name;\n  cout << \"Enter name: \";\n  cin >> name;\n  cout << \"Hi \" << name << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  string name;",
+        "annotation": "Declare a string to hold the input",
+        "atomIds": ["I-01"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << \"Enter name: \";",
+        "annotation": "Prompt the user (no endl - cursor stays on same line)",
+        "atomIds": ["I-01"]
+      },
+      {
+        "line": 6,
+        "code": "  cin >> name;",
+        "annotation": "cin pauses, waits for user to type, stores typed text in name",
+        "atomIds": ["I-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-01",
+    "levelLabel": "L03 -> cin reads numbers (age-input)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int age;\n  cout << \"Enter age: \";\n  cin >> age;\n  cout << \"You are \" << age << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int age;",
+        "annotation": "Declare int to receive the age value",
+        "atomIds": ["I-01"]
+      },
+      {
+        "line": 6,
+        "code": "  cin >> age;",
+        "annotation": "cin reads from terminal stdin into age",
+        "atomIds": ["I-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-01",
+    "levelLabel": "L03 -> cin works for any type",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double price;\n  cin >> price;\n  cout << price << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  cin >> price;",
+        "annotation": "cin can read into int, double, string - matches the variable type",
+        "atomIds": ["I-01"]
+      }
+    ]
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-01",
+    "code": "string user;\n___ >> user;",
+    "clozeSentence": "Standard input stream is ___",
+    "answer": "cin",
+    "explanation": "cin reads from terminal stdin. It pauses and waits for the user to type."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-01",
+    "code": "int x;\n// reads from terminal\n___ >> x;",
+    "clozeSentence": "To read user input, use ___",
+    "answer": "cin",
+    "explanation": "cin gets data from the keyboard / terminal stdin."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-01",
+    "code": "string name;\ncout << \"Name: \";\n___ >> name;",
+    "clozeSentence": "Read what the user typed into name with ___",
+    "answer": "cin",
+    "explanation": "cin reads from stdin into the variable on the right of >>."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-01",
+    "code": "int n;\ncin >> ___;",
+    "clozeSentence": "Read input into the variable named ___",
+    "answer": "n",
+    "explanation": "cin >> stores the typed input into the variable that follows."
+  },
+  {
+    "type": "write",
+    "atomId": "I-01",
+    "level": 1,
+    "spec": "Write a single statement to read a string from the terminal into a variable named name.",
+    "expectedAnswer": "cin >> name;",
+    "keyChecks": ["cin", ">>", "name", ";"],
+    "explanation": "cin >> reads the next token from stdin into name."
+  },
+  {
+    "type": "write",
+    "atomId": "I-01",
+    "level": 2,
+    "spec": "Write code that declares a string username, then reads it from the terminal.",
+    "expectedAnswer": "string username;\ncin >> username;",
+    "keyChecks": ["string", "username", ";", "cin", ">>", "username"],
+    "explanation": "Declare the variable, then use cin to fill it."
+  },
+  {
+    "type": "write",
+    "atomId": "I-01",
+    "level": 2,
+    "spec": "Write code that declares an int age and reads it from the terminal.",
+    "expectedAnswer": "int age;\ncin >> age;",
+    "keyChecks": ["int", "age", ";", "cin", ">>", "age"],
+    "explanation": "Declare int variable, then read into it with cin >>."
+  },
+  {
+    "type": "write",
+    "atomId": "I-01",
+    "level": 3,
+    "spec": "Write a complete program that reads a name from the terminal and prints Hello name.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  string name;\n  cin >> name;\n  cout << \"Hello \" << name << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "string name;", "cin", ">>", "name", "cout", "Hello", "return 0;"],
+    "explanation": "Declare string, read with cin, then output greeting using cout."
+  },
+  {
+    "type": "write",
+    "atomId": "I-01",
+    "level": 3,
+    "spec": "Write a complete program that reads an int age and prints the age back.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int age;\n  cin >> age;\n  cout << age << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int age;", "cin", ">>", "age", "cout", "return 0;"],
+    "explanation": "Standard read-then-print pattern using cin and cout."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "I-01",
+    "id": "CMEM-I01-01",
+    "section": "Input: cin basic",
+    "question": "Type the standard cin call to read into variable n",
+    "code": "cin >> n;",
+    "keyChecks": ["cin", ">>", "n", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "I-02",
+    "levelLabel": "L03 -> >> stores into variable (two-numbers)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int a;\n  int b;\n  cin >> a;\n  cin >> b;\n  cout << a + b << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  cin >> a;",
+        "annotation": "First >> stores typed input into a",
+        "atomIds": ["I-02"]
+      },
+      {
+        "line": 7,
+        "code": "  cin >> b;",
+        "annotation": "Second >> stores next typed input into b",
+        "atomIds": ["I-02"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << a + b << endl;",
+        "annotation": "Use the values that >> placed into a and b",
+        "atomIds": ["I-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-02",
+    "levelLabel": "L03 -> >> direction shows flow",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  string word;\n  cin >> word;\n  cout << word;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  cin >> word;",
+        "annotation": "Arrow >> points away from cin TOWARD word - data flows that direction",
+        "atomIds": ["I-02"]
+      }
+    ]
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-02",
+    "code": "int x;\ncin ___ x;",
+    "clozeSentence": "The input operator is ___",
+    "answer": ">>",
+    "explanation": ">> is the input operator. It reads from cin into the variable on its right."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-02",
+    "code": "string item;\ncin >> ___;",
+    "clozeSentence": "Read into the variable named ___",
+    "answer": "item",
+    "explanation": ">> stores the input into the variable on its right side."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-02",
+    "code": "double weight;\ncin >> weight;\n// the value of weight comes from ___",
+    "clozeSentence": "The value comes from typed input via the ___ stream",
+    "answer": "cin",
+    "explanation": "cin is the input source. >> moves a value from cin into the variable."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-02",
+    "code": "int a, b;\ncin >> a;\ncin ___ b;",
+    "clozeSentence": "Reuse the same operator ___ to read another value",
+    "answer": ">>",
+    "explanation": ">> reads each value. You can repeat it for each variable."
+  },
+  {
+    "type": "write",
+    "atomId": "I-02",
+    "level": 1,
+    "spec": "Write a single statement to read a double named price from terminal input.",
+    "expectedAnswer": "cin >> price;",
+    "keyChecks": ["cin", ">>", "price", ";"],
+    "explanation": ">> reads the next token from cin into price."
+  },
+  {
+    "type": "write",
+    "atomId": "I-02",
+    "level": 2,
+    "spec": "Write two separate statements to read int a then int b from the terminal (no chaining).",
+    "expectedAnswer": "cin >> a;\ncin >> b;",
+    "keyChecks": ["cin", ">>", "a", ";", "cin", ">>", "b"],
+    "explanation": "Two separate cin calls, each using >> to read one value."
+  },
+  {
+    "type": "write",
+    "atomId": "I-02",
+    "level": 2,
+    "spec": "Write code that declares string firstName then reads input into it.",
+    "expectedAnswer": "string firstName;\ncin >> firstName;",
+    "keyChecks": ["string", "firstName", ";", "cin", ">>", "firstName"],
+    "explanation": ">> reads into firstName from terminal stdin."
+  },
+  {
+    "type": "write",
+    "atomId": "I-02",
+    "level": 3,
+    "spec": "Write a complete program that reads two int values a and b and prints their sum.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int a;\n  int b;\n  cin >> a;\n  cin >> b;\n  cout << a + b << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int a;", "int b;", "cin", ">>", "a", "b", "cout", "a + b", "return 0;"],
+    "explanation": "Two cin reads, then cout prints the sum."
+  },
+  {
+    "type": "write",
+    "atomId": "I-02",
+    "level": 3,
+    "spec": "Write a complete program that reads a string color and prints it back.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  string color;\n  cin >> color;\n  cout << color << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "string color;", "cin", ">>", "color", "cout", "return 0;"],
+    "explanation": "Read string from input, echo with cout."
+  },
+  {
+    "type": "procedural",
+    "atomId": "I-02",
+    "id": "PD-I02-01",
+    "section": "Input: cin >> patterns",
+    "prompt": "Write the cin statement to read into int variable score.",
+    "expectedAnswer": "cin >> score;",
+    "keyChecks": ["cin", ">>", "score", ";"],
+    "variants": [
+      {
+        "prompt": "Write the cin statement to read into double variable temperature.",
+        "expectedAnswer": "cin >> temperature;"
+      },
+      {
+        "prompt": "Write the cin statement to read into string variable city.",
+        "expectedAnswer": "cin >> city;"
+      }
+    ]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "I-03",
+    "levelLabel": "L03 -> cin >> waits (multiline-input)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int a;\n  int b;\n  cin >> a;\n  cout << \"got a\" << endl;\n  cin >> b;\n  cout << \"got b\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  cin >> a;",
+        "annotation": "Program PAUSES here until user types a value and presses Enter",
+        "atomIds": ["I-03"]
+      },
+      {
+        "line": 7,
+        "code": "  cout << \"got a\" << endl;",
+        "annotation": "Only runs after user has typed something for a",
+        "atomIds": ["I-03"]
+      },
+      {
+        "line": 8,
+        "code": "  cin >> b;",
+        "annotation": "PAUSES again, waits for second value",
+        "atomIds": ["I-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-03",
+    "levelLabel": "L03 -> cin blocks until Enter",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int n;\n  cout << \"Enter number: \";\n  cin >> n;\n  cout << \"Read: \" << n << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  cin >> n;",
+        "annotation": "Even after typing a number, program waits for Enter to release",
+        "atomIds": ["I-03"]
+      }
+    ]
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-03",
+    "code": "int x;\n___ >> x;\n// program is paused here waiting for user",
+    "clozeSentence": "What pauses the program for input is ___",
+    "answer": "cin",
+    "explanation": "cin >> blocks the program until the user provides input."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-03",
+    "code": "cin ___ value;\n// pauses until Enter pressed",
+    "clozeSentence": "The input operator that triggers waiting is ___",
+    "answer": ">>",
+    "explanation": "cin >> blocks. Without >> nothing actually triggers a read."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-03",
+    "code": "int pin;\ncin >> ___;\n// program halts here",
+    "clozeSentence": "Read into the variable named ___",
+    "answer": "pin",
+    "explanation": "cin >> pin pauses the program until pin gets a value from stdin."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-03",
+    "code": "// reads into k, blocks for input\ncin ___ k;",
+    "clozeSentence": "Use ___ between cin and k",
+    "answer": ">>",
+    "explanation": "cin >> k blocks until user enters a value for k."
+  },
+  {
+    "type": "write",
+    "atomId": "I-03",
+    "level": 2,
+    "spec": "Write code that prompts Enter PIN: then reads an int pin and echoes it back.",
+    "expectedAnswer": "int pin;\ncout << \"Enter PIN: \";\ncin >> pin;\ncout << pin << endl;",
+    "keyChecks": ["int pin;", "cout", "Enter PIN:", "cin", ">>", "pin"],
+    "explanation": "Prompt with cout (no endl), read with cin, echo with cout."
+  },
+  {
+    "type": "write",
+    "atomId": "I-03",
+    "level": 2,
+    "spec": "Write code that reads an int code from terminal then prints code received.",
+    "expectedAnswer": "int code;\ncin >> code;\ncout << \"code received\" << endl;",
+    "keyChecks": ["int code;", "cin", ">>", "code", "cout", "code received"],
+    "explanation": "cin >> code blocks until user types. Then the cout runs."
+  },
+  {
+    "type": "write",
+    "atomId": "I-03",
+    "level": 2,
+    "spec": "Write code that reads a string command and an int count separately (two cin calls).",
+    "expectedAnswer": "string command;\nint count;\ncin >> command;\ncin >> count;",
+    "keyChecks": ["string command;", "int count;", "cin", ">>", "command", "cin", ">>", "count"],
+    "explanation": "Each cin call blocks for one value. Two calls = two input pauses."
+  },
+  {
+    "type": "write",
+    "atomId": "I-03",
+    "level": 3,
+    "spec": "Write a complete program that prompts Enter line one: then reads a string s, then prompts Enter line two: then reads another string t, then prints s and t on one line.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  string s;\n  string t;\n  cout << \"Enter line one: \";\n  cin >> s;\n  cout << \"Enter line two: \";\n  cin >> t;\n  cout << s << \" \" << t << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "string s;", "string t;", "Enter line one:", "cin", ">>", "s", "Enter line two:", "t", "return 0;"],
+    "explanation": "Two prompts, two reads, then print both with a space separator."
+  },
+  {
+    "type": "write",
+    "atomId": "I-03",
+    "level": 3,
+    "spec": "Write a complete program that reads an int n and prints n squared (n times n).",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int n;\n  cin >> n;\n  cout << n * n << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int n;", "cin", ">>", "n", "cout", "n * n", "return 0;"],
+    "explanation": "Read with cin, compute n*n, print with cout."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "I-03",
+    "id": "CMEM-I03-01",
+    "section": "Input: cin pauses",
+    "question": "Type the canonical pause-for-input statement that reads int x",
+    "code": "cin >> x;",
+    "keyChecks": ["cin", ">>", "x", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "I-04",
+    "levelLabel": "L03 -> whitespace splits (prompt-then-read)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int a;\n  int b;\n  // user types: 3 7\n  cin >> a;\n  cin >> b;\n  cout << a << \" and \" << b << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  cin >> a;",
+        "annotation": "Reads up to first whitespace - reads 3",
+        "atomIds": ["I-04"]
+      },
+      {
+        "line": 8,
+        "code": "  cin >> b;",
+        "annotation": "Skips space, reads next token - 7",
+        "atomIds": ["I-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-04",
+    "levelLabel": "L03 -> spaces or newlines both work",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int x;\n  int y;\n  // user can type 4 5 OR 4 then Enter then 5\n  cin >> x;\n  cin >> y;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  cin >> x;",
+        "annotation": "Reads next non-whitespace token - 4",
+        "atomIds": ["I-04"]
+      },
+      {
+        "line": 8,
+        "code": "  cin >> y;",
+        "annotation": "Skips any whitespace (space, tab, newline), reads 5",
+        "atomIds": ["I-04"]
+      }
+    ]
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-04",
+    "code": "int a, b;\ncin >> a;\ncin >> b;\n// user types: 5___10",
+    "clozeSentence": "Values are separated by ___ in the input",
+    "answer": " ",
+    "explanation": "Whitespace (space/tab/newline) separates input tokens. Either a space or newline between 5 and 10 works."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-04",
+    "code": "int x;\ncin ___ x;\n// reads up to first whitespace",
+    "clozeSentence": "The operator that splits at whitespace is ___",
+    "answer": ">>",
+    "explanation": ">> reads a single whitespace-delimited token from the input stream."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-04",
+    "code": "string firstWord;\n// user types: hello world\ncin >> ___;",
+    "clozeSentence": "After cin >>, only the first word goes into ___",
+    "answer": "firstWord",
+    "explanation": "cin >> reads up to whitespace. So 'hello world' fills firstWord with 'hello'."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-04",
+    "code": "// input: 12 34\nint x, y;\ncin >> x;\n// x is now ___",
+    "clozeSentence": "x receives the value ___",
+    "answer": "12",
+    "explanation": "cin >> reads up to whitespace. The first token 12 fills x; 34 stays in the buffer for the next read."
+  },
+  {
+    "type": "write",
+    "atomId": "I-04",
+    "level": 1,
+    "spec": "Write code to read two ints x and y from one line of input separated by space.",
+    "expectedAnswer": "cin >> x;\ncin >> y;",
+    "keyChecks": ["cin", ">>", "x", ";", "cin", ">>", "y"],
+    "explanation": "Two separate cin >> calls. cin >> automatically skips whitespace between tokens."
+  },
+  {
+    "type": "write",
+    "atomId": "I-04",
+    "level": 2,
+    "spec": "Write code that declares string colorA and string colorB then reads two color words from input separated by whitespace.",
+    "expectedAnswer": "string colorA;\nstring colorB;\ncin >> colorA;\ncin >> colorB;",
+    "keyChecks": ["string colorA;", "string colorB;", "cin", ">>", "colorA", "colorB"],
+    "explanation": "Two reads. Whitespace between colors splits them into separate tokens."
+  },
+  {
+    "type": "write",
+    "atomId": "I-04",
+    "level": 2,
+    "spec": "Write code that reads three ints a, b, c using one cin call per variable.",
+    "expectedAnswer": "cin >> a;\ncin >> b;\ncin >> c;",
+    "keyChecks": ["cin", ">>", "a", ";", "cin", ">>", "b", "cin", ">>", "c"],
+    "explanation": "Three reads. Each >> skips whitespace and grabs one token."
+  },
+  {
+    "type": "write",
+    "atomId": "I-04",
+    "level": 2,
+    "spec": "Write code that prompts Enter two numbers: then reads int p then int q.",
+    "expectedAnswer": "int p;\nint q;\ncout << \"Enter two numbers: \";\ncin >> p;\ncin >> q;",
+    "keyChecks": ["int p;", "int q;", "cout", "Enter two numbers:", "cin", ">>", "p", "q"],
+    "explanation": "Prompt once, then read two whitespace-separated ints."
+  },
+  {
+    "type": "write",
+    "atomId": "I-04",
+    "level": 3,
+    "spec": "Write a complete program that reads two ints from one line and prints their product.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int a;\n  int b;\n  cin >> a;\n  cin >> b;\n  cout << a * b << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int a;", "int b;", "cin", ">>", "a", "b", "cout", "a * b", "return 0;"],
+    "explanation": "Two cin calls split on whitespace. Then product printed."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "I-05",
+    "levelLabel": "L03 -> cin parses by type (validate-input)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int score;\n  string grade;\n  // user types: 85 A\n  cin >> score;\n  cin >> grade;\n  cout << score << \" \" << grade << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  cin >> score;",
+        "annotation": "score is int - cin parses digits 85 as integer",
+        "atomIds": ["I-05"]
+      },
+      {
+        "line": 8,
+        "code": "  cin >> grade;",
+        "annotation": "grade is string - cin reads next word A",
+        "atomIds": ["I-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-05",
+    "levelLabel": "L03 -> double parses decimal",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  double price;\n  // user types: 3.14\n  cin >> price;\n  cout << price << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  cin >> price;",
+        "annotation": "double type - cin reads digits including decimal point",
+        "atomIds": ["I-05"]
+      }
+    ]
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-05",
+    "code": "// reads: 42\nint count;\ncin >> ___;\n// count = 42",
+    "clozeSentence": "cin parses '42' as int because the variable is int. Read into ___",
+    "answer": "count",
+    "explanation": "cin >> matches the input format to the variable's type. count is int so 42 parses as int."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-05",
+    "code": "// reads: hello\n___ word;\ncin >> word;",
+    "clozeSentence": "To read a word into a string, declare type ___",
+    "answer": "string",
+    "explanation": "string variable + cin >> reads one whitespace-delimited word."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-05",
+    "code": "// reads: 9.8\n___ gravity;\ncin >> gravity;",
+    "clozeSentence": "To read a decimal value, declare type ___",
+    "answer": "double",
+    "explanation": "double holds floating-point numbers. cin >> parses 9.8 according to double's format."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-05",
+    "code": "int n;\nstring s;\ncin >> n;\ncin >> s;\n// types must match the format of input - declare n as ___",
+    "clozeSentence": "For numeric input, declare ___",
+    "answer": "int",
+    "explanation": "int matches integer input format. cin >> reads digits into the int variable."
+  },
+  {
+    "type": "write",
+    "atomId": "I-05",
+    "level": 1,
+    "spec": "Write code that reads a double value into a variable named height.",
+    "expectedAnswer": "double height;\ncin >> height;",
+    "keyChecks": ["double", "height", ";", "cin", ">>", "height"],
+    "explanation": "double type - cin reads decimal-format numbers into it."
+  },
+  {
+    "type": "write",
+    "atomId": "I-05",
+    "level": 2,
+    "spec": "Write code that reads an int year and a string month from terminal.",
+    "expectedAnswer": "int year;\nstring month;\ncin >> year;\ncin >> month;",
+    "keyChecks": ["int year;", "string month;", "cin", ">>", "year", "cin", ">>", "month"],
+    "explanation": "Different types - cin parses each according to declared type."
+  },
+  {
+    "type": "write",
+    "atomId": "I-05",
+    "level": 2,
+    "spec": "Write code that reads a double weight and an int reps from terminal.",
+    "expectedAnswer": "double weight;\nint reps;\ncin >> weight;\ncin >> reps;",
+    "keyChecks": ["double weight;", "int reps;", "cin", ">>", "weight", "cin", ">>", "reps"],
+    "explanation": "Mixed types each read with cin >>; parsing matches declared variable type."
+  },
+  {
+    "type": "write",
+    "atomId": "I-05",
+    "level": 3,
+    "spec": "Write a complete program that reads a string username and an int userId then prints them on separate lines.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  string username;\n  int userId;\n  cin >> username;\n  cin >> userId;\n  cout << username << endl;\n  cout << userId << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "string username;", "int userId;", "cin", ">>", "username", "userId", "cout", "endl", "return 0;"],
+    "explanation": "Different types - cin parses each accordingly."
+  },
+  {
+    "type": "write",
+    "atomId": "I-05",
+    "level": 3,
+    "spec": "Write a complete program that reads a double temperature and prints it back.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  double temperature;\n  cin >> temperature;\n  cout << temperature << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "double temperature;", "cin", ">>", "temperature", "cout", "return 0;"],
+    "explanation": "double type. cin reads decimal input into temperature."
+  },
+  {
+    "type": "matrix",
+    "atomId": "I-05",
+    "id": "CM-I05-01",
+    "section": "Input: type-aware read",
+    "matrixType": "entity",
+    "examples": [
+      {
+        "label": "Example A: read int balance",
+        "code": "int balance;\ncin >> balance;"
+      },
+      {
+        "label": "Example B: read double price",
+        "code": "double price;\ncin >> price;"
+      }
+    ],
+    "prompt": "Write the declaration and read for a string named city.",
+    "expectedAnswer": "string city;\ncin >> city;",
+    "keyChecks": ["string", "city", ";", "cin", ">>", "city"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "I-05",
+    "id": "CMEM-I05-01",
+    "section": "Input: typed variable read",
+    "question": "Type the canonical 2-line pattern: declare int age then read it",
+    "code": "int age;\ncin >> age;",
+    "keyChecks": ["int", "age", ";", "cin", ">>", "age"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "I-06",
+    "levelLabel": "L03 -> chained >> (echo)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int a;\n  int b;\n  int c;\n  cin >> a >> b >> c;\n  cout << a << \" \" << b << \" \" << c << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  cin >> a >> b >> c;",
+        "annotation": "Single statement reads three values - same as 3 separate cin calls",
+        "atomIds": ["I-06"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << a << \" \" << b << \" \" << c << endl;",
+        "annotation": "All three values now hold what user typed",
+        "atomIds": ["I-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-06",
+    "levelLabel": "L03 -> chain reads name then age",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  string name;\n  int age;\n  cin >> name >> age;\n  cout << name << \" age \" << age << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  cin >> name >> age;",
+        "annotation": "Reads next word into name, then next token into age",
+        "atomIds": ["I-06"]
+      }
+    ]
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-06",
+    "code": "int x, y;\ncin >> x ___ y;",
+    "clozeSentence": "Chain reads using ___",
+    "answer": ">>",
+    "explanation": "Repeated >> chains reads. cin >> x >> y reads two values in one statement."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-06",
+    "code": "int a, b, c;\ncin >> a >> ___ >> c;",
+    "clozeSentence": "Read three values with chained >>: a, ___, c",
+    "answer": "b",
+    "explanation": "Chain reads variable by variable. a then b then c."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-06",
+    "code": "string first, last;\n___ >> first >> last;",
+    "clozeSentence": "Chain begins with the input stream ___",
+    "answer": "cin",
+    "explanation": "The chain starts at cin. cin >> first >> last reads two words."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-06",
+    "code": "int p, q;\ncin >> ___ >> q;",
+    "clozeSentence": "Read p first then q - fill in ___",
+    "answer": "p",
+    "explanation": "cin >> p >> q reads p first, then q."
+  },
+  {
+    "type": "write",
+    "atomId": "I-06",
+    "level": 1,
+    "spec": "Write a single chained cin statement that reads two ints x and y.",
+    "expectedAnswer": "cin >> x >> y;",
+    "keyChecks": ["cin", ">>", "x", ">>", "y", ";"],
+    "explanation": "Chain >> in one statement to read multiple values."
+  },
+  {
+    "type": "write",
+    "atomId": "I-06",
+    "level": 1,
+    "spec": "Write a chained cin statement that reads three values: int a, double b, string c.",
+    "expectedAnswer": "cin >> a >> b >> c;",
+    "keyChecks": ["cin", ">>", "a", ">>", "b", ">>", "c", ";"],
+    "explanation": "One statement, three reads via chained >>."
+  },
+  {
+    "type": "write",
+    "atomId": "I-06",
+    "level": 2,
+    "spec": "Write code that declares int hours and int minutes then reads both with one chained cin.",
+    "expectedAnswer": "int hours;\nint minutes;\ncin >> hours >> minutes;",
+    "keyChecks": ["int hours;", "int minutes;", "cin", ">>", "hours", ">>", "minutes"],
+    "explanation": "Declare both ints, then chain >> to read both in one statement."
+  },
+  {
+    "type": "write",
+    "atomId": "I-06",
+    "level": 2,
+    "spec": "Write code that reads a string firstName, string lastName, and int age all in one chained cin.",
+    "expectedAnswer": "string firstName;\nstring lastName;\nint age;\ncin >> firstName >> lastName >> age;",
+    "keyChecks": ["string firstName;", "string lastName;", "int age;", "cin", ">>", "firstName", ">>", "lastName", ">>", "age"],
+    "explanation": "Three declarations, one chained read."
+  },
+  {
+    "type": "write",
+    "atomId": "I-06",
+    "level": 3,
+    "spec": "Write a complete program that reads three ints in one chained cin and prints their sum.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int a;\n  int b;\n  int c;\n  cin >> a >> b >> c;\n  cout << a + b + c << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int a;", "int b;", "int c;", "cin", ">>", "a", ">>", "b", ">>", "c", "cout", "a + b + c", "return 0;"],
+    "explanation": "Chained read into 3 vars, then sum and print."
+  },
+  {
+    "type": "procedural",
+    "atomId": "I-06",
+    "id": "PD-I06-01",
+    "section": "Input: chained cin",
+    "prompt": "Write a chained cin to read int width and int height.",
+    "expectedAnswer": "cin >> width >> height;",
+    "keyChecks": ["cin", ">>", "width", ">>", "height", ";"],
+    "variants": [
+      {
+        "prompt": "Write a chained cin to read string name and int age.",
+        "expectedAnswer": "cin >> name >> age;"
+      },
+      {
+        "prompt": "Write a chained cin to read double x, double y, double z.",
+        "expectedAnswer": "cin >> x >> y >> z;"
+      }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "I-06",
+    "id": "CM-I06-01",
+    "section": "Input: chained read pattern",
+    "matrixType": "progression",
+    "examples": [
+      {
+        "label": "Example A: 2 ints",
+        "code": "int a, b;\ncin >> a >> b;"
+      },
+      {
+        "label": "Example B: 3 ints",
+        "code": "int a, b, c;\ncin >> a >> b >> c;"
+      }
+    ],
+    "prompt": "Write the declaration and chained cin for FOUR ints: a, b, c, d.",
+    "expectedAnswer": "int a, b, c, d;\ncin >> a >> b >> c >> d;",
+    "keyChecks": ["int", "a", "b", "c", "d", ";", "cin", ">>", "a", ">>", "b", ">>", "c", ">>", "d"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "I-07",
+    "levelLabel": "L03 -> getline reads full line",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string fullLine;\n  getline(cin, fullLine);\n  cout << fullLine << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  getline(cin, fullLine);",
+        "annotation": "Reads everything until Enter - INCLUDING spaces - into fullLine",
+        "atomIds": ["I-07"]
+      },
+      {
+        "line": 7,
+        "code": "  cout << fullLine << endl;",
+        "annotation": "Print the entire line back",
+        "atomIds": ["I-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-07",
+    "levelLabel": "L03 -> getline vs cin >> for sentences",
+    "fullCode": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string sentence;\n  // user types: hello world\n  getline(cin, sentence);\n  cout << sentence << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  getline(cin, sentence);",
+        "annotation": "cin >> would only read 'hello'. getline reads the full 'hello world' including space",
+        "atomIds": ["I-07"]
+      }
+    ]
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-07",
+    "code": "string s;\n___(cin, s);",
+    "clozeSentence": "Read a whole line including spaces using ___",
+    "answer": "getline",
+    "explanation": "getline(cin, s) reads up to newline - keeps internal spaces."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-07",
+    "code": "string addr;\ngetline(___, addr);",
+    "clozeSentence": "First argument to getline is the input stream ___",
+    "answer": "cin",
+    "explanation": "getline(cin, var) - cin is the source of input."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-07",
+    "code": "string line;\ngetline(cin, ___);",
+    "clozeSentence": "getline reads into the second argument variable ___",
+    "answer": "line",
+    "explanation": "Second argument is the destination string."
+  },
+  {
+    "type": "cloze",
+    "atomId": "I-07",
+    "code": "// reads 'hello world' fully - both words\nstring msg;\n___(cin, msg);",
+    "clozeSentence": "To read a sentence with spaces use ___",
+    "answer": "getline",
+    "explanation": "getline preserves embedded whitespace; cin >> would stop at the first space."
+  },
+  {
+    "type": "write",
+    "atomId": "I-07",
+    "level": 1,
+    "spec": "Write a single getline call that reads into a string named line.",
+    "expectedAnswer": "getline(cin, line);",
+    "keyChecks": ["getline", "(", "cin", ",", "line", ")", ";"],
+    "explanation": "getline(cin, line) reads a full line into the string."
+  },
+  {
+    "type": "write",
+    "atomId": "I-07",
+    "level": 2,
+    "spec": "Write code that declares string address then uses getline to read it.",
+    "expectedAnswer": "string address;\ngetline(cin, address);",
+    "keyChecks": ["string", "address", ";", "getline", "(", "cin", ",", "address", ")", ";"],
+    "explanation": "getline reads into address - keeps spaces in the address."
+  },
+  {
+    "type": "write",
+    "atomId": "I-07",
+    "level": 2,
+    "spec": "Write code that prompts Enter full name: then reads an entire line with getline into string fullName.",
+    "expectedAnswer": "string fullName;\ncout << \"Enter full name: \";\ngetline(cin, fullName);",
+    "keyChecks": ["string fullName;", "cout", "Enter full name:", "getline", "(", "cin", ",", "fullName"],
+    "explanation": "Prompt with cout, then getline reads full line with spaces."
+  },
+  {
+    "type": "write",
+    "atomId": "I-07",
+    "level": 3,
+    "spec": "Write a complete program that uses getline to read a string sentence and prints it back.",
+    "expectedAnswer": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string sentence;\n  getline(cin, sentence);\n  cout << sentence << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "string sentence;", "getline", "(", "cin", ",", "sentence", ")", "cout", "return 0;"],
+    "explanation": "Read full line with getline, echo with cout."
+  },
+  {
+    "type": "write",
+    "atomId": "I-07",
+    "level": 3,
+    "spec": "Write a complete program that uses getline to read a string question and prints It said: question.",
+    "expectedAnswer": "#include <iostream>\n#include <string>\nusing namespace std;\nint main() {\n  string question;\n  getline(cin, question);\n  cout << \"It said: \" << question << endl;\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "string question;", "getline", "(", "cin", ",", "question", ")", "cout", "It said:", "return 0;"],
+    "explanation": "getline grabs the whole line including any spaces in the question."
+  },
+  {
+    "type": "matrix",
+    "atomId": "I-07",
+    "id": "CM-I07-01",
+    "section": "Input: getline pattern",
+    "matrixType": "entity",
+    "examples": [
+      {
+        "label": "Example A: getline into name",
+        "code": "string name;\ngetline(cin, name);"
+      },
+      {
+        "label": "Example B: getline into address",
+        "code": "string address;\ngetline(cin, address);"
+      }
+    ],
+    "prompt": "Write the declaration and getline for a variable named comment of type string.",
+    "expectedAnswer": "string comment;\ngetline(cin, comment);",
+    "keyChecks": ["string", "comment", ";", "getline", "(", "cin", ",", "comment", ")", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "I-07",
+    "id": "CMEM-I07-01",
+    "section": "Input: getline canonical",
+    "question": "Type the canonical getline call to read into string line",
+    "code": "getline(cin, line);",
+    "keyChecks": ["getline", "(", "cin", ",", "line", ")", ";"]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-01",
+    "levelLabel": "L03 -> cin with prompt-then-read pattern",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int qty;\n  cout << \"Quantity: \";\n  cin >> qty;\n  cout << qty << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  cout << \"Quantity: \";",
+        "annotation": "Show prompt without endl - cursor stays on same line",
+        "atomIds": ["I-01"]
+      },
+      {
+        "line": 6,
+        "code": "  cin >> qty;",
+        "annotation": "User types value next to prompt - cin reads it into qty",
+        "atomIds": ["I-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "I-04",
+    "levelLabel": "L03 -> input echo on one line",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int x;\n  int y;\n  cin >> x >> y;\n  cout << x << \"+\" << y << \"=\" << (x+y) << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 6,
+        "code": "  cin >> x >> y;",
+        "annotation": "Whitespace splits the input into x and y",
+        "atomIds": ["I-04"]
+      },
+      {
+        "line": 7,
+        "code": "  cout << x << \"+\" << y << \"=\" << (x+y) << endl;",
+        "annotation": "Echo input plus computed sum",
+        "atomIds": ["I-04"]
+      }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "I-01",
+    "id": "PD-I01-01",
+    "section": "Input: read pattern",
+    "prompt": "Write declaration and read for int variable count.",
+    "expectedAnswer": "int count;\ncin >> count;",
+    "keyChecks": ["int", "count", ";", "cin", ">>", "count"],
+    "variants": [
+      {
+        "prompt": "Write declaration and read for double variable rate.",
+        "expectedAnswer": "double rate;\ncin >> rate;"
+      },
+      {
+        "prompt": "Write declaration and read for string variable code.",
+        "expectedAnswer": "string code;\ncin >> code;"
+      }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "I-03",
+    "id": "PD-I03-01",
+    "section": "Input: prompt + read",
+    "prompt": "Write code that prompts Enter age: then reads int age.",
+    "expectedAnswer": "int age;\ncout << \"Enter age: \";\ncin >> age;",
+    "keyChecks": ["int age;", "cout", "Enter age:", "cin", ">>", "age"],
+    "variants": [
+      {
+        "prompt": "Write code that prompts Enter score: then reads int score.",
+        "expectedAnswer": "int score;\ncout << \"Enter score: \";\ncin >> score;"
+      },
+      {
+        "prompt": "Write code that prompts Enter name: then reads string name.",
+        "expectedAnswer": "string name;\ncout << \"Enter name: \";\ncin >> name;"
+      }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "I-04",
+    "id": "CM-I04-01",
+    "section": "Input: multi-token reads",
+    "matrixType": "progression",
+    "examples": [
+      {
+        "label": "Example A: read 1 int",
+        "code": "int x;\ncin >> x;"
+      },
+      {
+        "label": "Example B: read 2 ints separately",
+        "code": "int x;\nint y;\ncin >> x;\ncin >> y;"
+      }
+    ],
+    "prompt": "Write declarations and 3 separate cin reads for ints a, b, c.",
+    "expectedAnswer": "int a;\nint b;\nint c;\ncin >> a;\ncin >> b;\ncin >> c;",
+    "keyChecks": ["int a;", "int b;", "int c;", "cin", ">>", "a", "b", "c"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "I-02",
+    "id": "CMEM-I02-01",
+    "section": "Input: cin >> idiom",
+    "question": "Type the idiomatic 2-line pattern: declare string name, then read into it",
+    "code": "string name;\ncin >> name;",
+    "keyChecks": ["string", "name", ";", "cin", ">>", "name"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "I-06",
+    "id": "CMEM-I06-01",
+    "section": "Input: chained cin canonical",
+    "question": "Type a chained cin reading two ints w and h",
+    "code": "cin >> w >> h;",
+    "keyChecks": ["cin", ">>", "w", ">>", "h", ";"]
+  }
+]

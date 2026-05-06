@@ -1,0 +1,2517 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "T-01",
+    "levelLabel": "L11 -> struct concept (book)",
+    "fullCode": "struct book {\n  string title;\n  string author;\n  int year;\n};\nint main() {\n  book novel;\n  novel.title = \"Frankenstein\";\n  novel.author = \"Shelley\";\n  novel.year = 1818;\n  cout << novel.title << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "struct book {", "annotation": "struct keyword introduces a NAMED bundle of related fields. Here the bundle is called 'book'.", "atomIds": ["T-01"] },
+      { "line": 2, "code": "  string title;", "annotation": "First field: a string named title. One field per line.", "atomIds": ["T-01"] },
+      { "line": 5, "code": "};", "annotation": "Close brace AND semicolon end the struct definition.", "atomIds": ["T-01"] },
+      { "line": 7, "code": "  book novel;", "annotation": "Now book is a usable type. novel is one bundle of three fields.", "atomIds": ["T-01"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-01",
+    "levelLabel": "L11 -> related fields under one name",
+    "fullCode": "struct book {\n  string title;\n  int pages;\n};\nint main() {\n  book b;\n  b.title = \"Dune\";\n  b.pages = 412;\n  cout << b.title << \" (\" << b.pages << \")\" << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "struct book {", "annotation": "A struct gathers logically related fields under one name -- here 'book'.", "atomIds": ["T-01"] },
+      { "line": 2, "code": "  string title;", "annotation": "Each field has its type and name. They all live inside one book together.", "atomIds": ["T-01"] },
+      { "line": 6, "code": "  book b;", "annotation": "b is a book -- it has a title field AND a pages field, bundled together.", "atomIds": ["T-01"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-01",
+    "levelLabel": "L11 -> struct = named field group",
+    "fullCode": "struct book {\n  string title;\n};\nint main() {\n  book one;\n  book two;\n  one.title = \"Iliad\";\n  two.title = \"Odyssey\";\n  cout << one.title << \", \" << two.title << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "struct book {", "annotation": "struct book is a TYPE. It is not yet a value -- it's a recipe for values.", "atomIds": ["T-01"] },
+      { "line": 5, "code": "  book one;", "annotation": "one is the first instance of book.", "atomIds": ["T-01"] },
+      { "line": 6, "code": "  book two;", "annotation": "two is a second, independent instance.", "atomIds": ["T-01"] },
+      { "line": 9, "code": "  cout << one.title << \", \" << two.title << endl;", "annotation": "Each book has its own title field. one and two are separate.", "atomIds": ["T-01"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "T-01",
+    "code": "struct book {\n  string title;\n  int year;\n};\nint main() {\n  book novel;\n  novel.title = \"1984\";\n  novel.year = 1949;\n  cout << novel.title << \" \" << novel.year << endl;\n  return 0;\n}",
+    "variables": ["novel.title", "novel.year"],
+    "expectedSteps": [
+      { "line": 7, "variable": "novel.title", "value": "\"1984\"" },
+      { "line": 8, "variable": "novel.year", "value": "1949" },
+      { "line": 9, "variable": "novel.title", "value": "\"1984\"" },
+      { "line": 9, "variable": "novel.year", "value": "1949" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1984 1949"],
+    "inputMode": "final-only",
+    "teachMe": "novel is one book with two fields. Print title then year separated by space."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-01",
+    "code": "struct book {\n  string title;\n  int pages;\n};\nint main() {\n  book one;\n  one.title = \"Dune\";\n  one.pages = 412;\n  cout << one.pages << endl;\n  return 0;\n}",
+    "variables": ["one.title", "one.pages"],
+    "expectedSteps": [
+      { "line": 7, "variable": "one.title", "value": "\"Dune\"" },
+      { "line": 8, "variable": "one.pages", "value": "412" },
+      { "line": 9, "variable": "one.pages", "value": "412" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["412"],
+    "inputMode": "final-only",
+    "teachMe": "Print just the pages field of book 'one'. Output: 412."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-01",
+    "code": "struct book {\n  string title;\n};\nint main() {\n  book one;\n  book two;\n  one.title = \"Iliad\";\n  two.title = \"Odyssey\";\n  cout << one.title << \" \" << two.title << endl;\n  return 0;\n}",
+    "variables": ["one.title", "two.title"],
+    "expectedSteps": [
+      { "line": 7, "variable": "one.title", "value": "\"Iliad\"" },
+      { "line": 8, "variable": "two.title", "value": "\"Odyssey\"" },
+      { "line": 9, "variable": "one.title", "value": "\"Iliad\"" },
+      { "line": 9, "variable": "two.title", "value": "\"Odyssey\"" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Iliad Odyssey"],
+    "inputMode": "final-only",
+    "teachMe": "Two book instances are independent. Each has its own title field."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-01",
+    "code": "struct book {\n  string title;\n  int year;\n};\nint main() {\n  book b;\n  b.title = \"\";\n  b.year = 0;\n  b.year = 2024;\n  cout << b.year << endl;\n  return 0;\n}",
+    "variables": ["b.title", "b.year"],
+    "expectedSteps": [
+      { "line": 7, "variable": "b.title", "value": "\"\"" },
+      { "line": 8, "variable": "b.year", "value": "0" },
+      { "line": 9, "variable": "b.year", "value": "2024" },
+      { "line": 10, "variable": "b.year", "value": "2024" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2024"],
+    "inputMode": "final-only",
+    "teachMe": "Multiple writes to b.year overwrite the field. Final value: 2024."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "T-01",
+    "code": "___ book {\n  string title;\n  int year;\n};",
+    "clozeSentence": "Fill in the keyword that introduces a named field group",
+    "answer": "struct",
+    "explanation": "struct is the C++ keyword for declaring a named bundle of fields."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-01",
+    "code": "// A struct holds related ___ under one name.",
+    "clozeSentence": "What kinds of things are bundled inside a struct?",
+    "answer": "fields",
+    "explanation": "A struct is a named bundle of fields (each with its own type and name)."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-01",
+    "code": "struct book {\n  string title;\n  int year;\n};\nbook ___;",
+    "clozeSentence": "Declare an instance of book named 'novel'",
+    "answer": "novel",
+    "explanation": "After defining struct book, you can declare instances: 'book novel;'."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-01",
+    "code": "struct book {\n  string title;  // field 1\n  int year;      // field ___\n};",
+    "clozeSentence": "Number of the second field (1-based):",
+    "answer": "2",
+    "explanation": "year is the second field. Each line is one field."
+  },
+
+  {
+    "type": "write",
+    "atomId": "T-01",
+    "level": 1,
+    "spec": "Write the keyword that begins a struct definition",
+    "expectedAnswer": "struct",
+    "keyChecks": ["struct"],
+    "explanation": "struct is the keyword to introduce a named bundle of fields."
+  },
+  {
+    "type": "write",
+    "atomId": "T-01",
+    "level": 2,
+    "spec": "Complete the struct definition: book with one string field title (don't forget };)",
+    "template": "___ book {\n  string title;\n___",
+    "expectedAnswer": "struct book {\n  string title;\n};",
+    "keyChecks": ["struct book", "string title;", "};"],
+    "explanation": "struct + name + { fields } + };  -- the basic shape of a struct definition."
+  },
+  {
+    "type": "write",
+    "atomId": "T-01",
+    "level": 3,
+    "spec": "Write a struct named 'book' with three fields: string title, string author, int year. Don't forget the trailing };.",
+    "expectedAnswer": "struct book {\n  string title;\n  string author;\n  int year;\n};",
+    "keyChecks": ["struct book", "string title;", "string author;", "int year;", "};"],
+    "explanation": "Three fields, each on its own line, ending with };."
+  },
+  {
+    "type": "write",
+    "atomId": "T-01",
+    "level": 3,
+    "spec": "Write a struct named 'book' with two fields: string title, int pages. End with };.",
+    "expectedAnswer": "struct book {\n  string title;\n  int pages;\n};",
+    "keyChecks": ["struct book", "string title;", "int pages;", "};"],
+    "explanation": "Simple two-field struct. struct keyword, fields, };."
+  },
+  {
+    "type": "write",
+    "atomId": "T-01",
+    "level": 3,
+    "spec": "Write a struct named 'book' with two fields: string title, double rating. End with };.",
+    "expectedAnswer": "struct book {\n  string title;\n  double rating;\n};",
+    "keyChecks": ["struct book", "string title;", "double rating;", "};"],
+    "explanation": "Field types are int, double, string, etc. Each field type then name then ;."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "T-02",
+    "levelLabel": "L11 -> struct Name { fields }; defines a TYPE (employee)",
+    "fullCode": "struct employee_data {\n  int id;\n  string name;\n  double salary;\n};\nint main() {\n  employee_data e;\n  e.id = 101;\n  e.name = \"Sara\";\n  e.salary = 65000.00;\n  cout << e.name << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "struct employee_data {", "annotation": "After this line up to };, you are DEFINING a new type called employee_data.", "atomIds": ["T-02"] },
+      { "line": 5, "code": "};", "annotation": "Once };is reached, employee_data is now a usable type just like int or string.", "atomIds": ["T-02"] },
+      { "line": 7, "code": "  employee_data e;", "annotation": "Use it like any type: 'employee_data e;' creates an instance.", "atomIds": ["T-02"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-02",
+    "levelLabel": "L11 -> definition makes a new type",
+    "fullCode": "struct employee_data {\n  string name;\n};\nint main() {\n  employee_data manager;\n  employee_data intern;\n  manager.name = \"Alex\";\n  intern.name = \"Jordan\";\n  cout << manager.name << \", \" << intern.name << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "struct employee_data {", "annotation": "Defining the type. employee_data is a TEMPLATE/SHAPE, not a value.", "atomIds": ["T-02"] },
+      { "line": 5, "code": "  employee_data manager;", "annotation": "After the type exists, you can instantiate as many as you want.", "atomIds": ["T-02"] },
+      { "line": 6, "code": "  employee_data intern;", "annotation": "Each instance has its own copy of all fields, totally independent.", "atomIds": ["T-02"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-02",
+    "levelLabel": "L11 -> }; is mandatory",
+    "fullCode": "struct employee_data {\n  int id;\n  string name;\n};   // <- semicolon required!\nint main() {\n  employee_data e;\n  e.id = 7;\n  e.name = \"Bo\";\n  cout << e.id << \" \" << e.name << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 4, "code": "};   // <- semicolon required!", "annotation": "The closing brace must be followed by a semicolon. } alone = compile error.", "atomIds": ["T-02"] },
+      { "line": 6, "code": "  employee_data e;", "annotation": "After }; the type is registered. Code below can declare instances.", "atomIds": ["T-02"] },
+      { "line": 9, "code": "  cout << e.id << \" \" << e.name << endl;", "annotation": "Output: '7 Bo'. Each field accessed via e.fieldname.", "atomIds": ["T-02"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "T-02",
+    "code": "struct employee_data {\n  int id;\n  string name;\n};\nint main() {\n  employee_data e;\n  e.id = 7;\n  e.name = \"Bo\";\n  cout << e.id << \" \" << e.name << endl;\n  return 0;\n}",
+    "variables": ["e.id", "e.name"],
+    "expectedSteps": [
+      { "line": 7, "variable": "e.id", "value": "7" },
+      { "line": 8, "variable": "e.name", "value": "\"Bo\"" },
+      { "line": 9, "variable": "e.id", "value": "7" },
+      { "line": 9, "variable": "e.name", "value": "\"Bo\"" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7 Bo"],
+    "inputMode": "final-only",
+    "teachMe": "Once struct defined with };, e is an employee_data instance. Output: '7 Bo'."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-02",
+    "code": "struct employee_data {\n  string name;\n};\nint main() {\n  employee_data manager;\n  employee_data intern;\n  manager.name = \"Alex\";\n  intern.name = \"Jordan\";\n  cout << manager.name << endl;\n  cout << intern.name << endl;\n  return 0;\n}",
+    "variables": ["manager.name", "intern.name"],
+    "expectedSteps": [
+      { "line": 7, "variable": "manager.name", "value": "\"Alex\"" },
+      { "line": 8, "variable": "intern.name", "value": "\"Jordan\"" },
+      { "line": 9, "variable": "manager.name", "value": "\"Alex\"" },
+      { "line": 10, "variable": "intern.name", "value": "\"Jordan\"" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Alex", "Jordan"],
+    "inputMode": "final-only",
+    "teachMe": "Two independent employee_data instances; each has its own name field."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-02",
+    "code": "struct employee_data {\n  int id;\n  double salary;\n};\nint main() {\n  employee_data e;\n  e.id = 42;\n  e.salary = 50000.0;\n  e.salary = e.salary + 1500.0;\n  cout << e.id << \" \" << e.salary << endl;\n  return 0;\n}",
+    "variables": ["e.id", "e.salary"],
+    "expectedSteps": [
+      { "line": 7, "variable": "e.id", "value": "42" },
+      { "line": 8, "variable": "e.salary", "value": "50000.0" },
+      { "line": 9, "variable": "e.salary", "value": "51500.0" },
+      { "line": 10, "variable": "e.id", "value": "42" },
+      { "line": 10, "variable": "e.salary", "value": "51500.0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["42 51500"],
+    "inputMode": "final-only",
+    "teachMe": "Use struct fields like normal variables. 50000 + 1500 = 51500. Output: '42 51500'."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-02",
+    "code": "struct employee_data {\n  string name;\n  int years;\n};\nint main() {\n  employee_data e;\n  e.name = \"Lin\";\n  e.years = 0;\n  e.years = 5;\n  cout << e.name << \" \" << e.years << endl;\n  return 0;\n}",
+    "variables": ["e.name", "e.years"],
+    "expectedSteps": [
+      { "line": 7, "variable": "e.name", "value": "\"Lin\"" },
+      { "line": 8, "variable": "e.years", "value": "0" },
+      { "line": 9, "variable": "e.years", "value": "5" },
+      { "line": 10, "variable": "e.name", "value": "\"Lin\"" },
+      { "line": 10, "variable": "e.years", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Lin 5"],
+    "inputMode": "final-only",
+    "teachMe": "Reassigning a struct field overwrites it. Output: 'Lin 5'."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "T-02",
+    "code": "struct employee_data {\n  int id;\n  string name;\n}___",
+    "clozeSentence": "Symbol(s) needed at the very end",
+    "answer": ";",
+    "explanation": "After the closing } of a struct definition, you MUST write a semicolon."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-02",
+    "code": "struct ___ {\n  int id;\n  string name;\n};",
+    "clozeSentence": "Name the struct (use 'employee_data')",
+    "answer": "employee_data",
+    "explanation": "After 'struct' comes the type name -- here employee_data."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-02",
+    "code": "// After 'struct employee_data { ... };' you can declare:\n___ e;",
+    "clozeSentence": "Type name to use:",
+    "answer": "employee_data",
+    "explanation": "Once the struct is defined, the name is a usable type. Use it like int."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-02",
+    "code": "struct employee_data {\n  int id;\n  string name;\n};\n// Trailing semicolon: ___",
+    "clozeSentence": "Required (yes/no)?",
+    "answer": "yes",
+    "explanation": "C++ struct definitions REQUIRE a trailing semicolon after };."
+  },
+
+  {
+    "type": "write",
+    "atomId": "T-02",
+    "level": 1,
+    "spec": "Write just the closing two characters of a struct definition (close-brace and semicolon)",
+    "expectedAnswer": "};",
+    "keyChecks": ["};"],
+    "explanation": "Every struct definition ends with }; (close brace + semicolon)."
+  },
+  {
+    "type": "write",
+    "atomId": "T-02",
+    "level": 2,
+    "spec": "Complete the struct: employee_data with int id and string name. End with };.",
+    "template": "struct employee_data {\n  int id;\n  ___\n___",
+    "expectedAnswer": "struct employee_data {\n  int id;\n  string name;\n};",
+    "keyChecks": ["struct employee_data", "int id;", "string name;", "};"],
+    "explanation": "Standard SIT102 employee_data struct shape."
+  },
+  {
+    "type": "write",
+    "atomId": "T-02",
+    "level": 3,
+    "spec": "Write a struct named 'employee_data' with three fields: int id, string name, double salary. End with };.",
+    "expectedAnswer": "struct employee_data {\n  int id;\n  string name;\n  double salary;\n};",
+    "keyChecks": ["struct employee_data", "int id;", "string name;", "double salary;", "};"],
+    "explanation": "This is one of the canonical Q2 struct shapes."
+  },
+  {
+    "type": "write",
+    "atomId": "T-02",
+    "level": 3,
+    "spec": "Write a struct named 'employee_data' with these fields: int id, string name, string department. End with };.",
+    "expectedAnswer": "struct employee_data {\n  int id;\n  string name;\n  string department;\n};",
+    "keyChecks": ["struct employee_data", "int id;", "string name;", "string department;", "};"],
+    "explanation": "Three fields. Two strings + one int. Trailing };."
+  },
+  {
+    "type": "write",
+    "atomId": "T-02",
+    "level": 3,
+    "spec": "Write a struct named 'employee_data' with: int id, double hours, double rate. End with };.",
+    "expectedAnswer": "struct employee_data {\n  int id;\n  double hours;\n  double rate;\n};",
+    "keyChecks": ["struct employee_data", "int id;", "double hours;", "double rate;", "};"],
+    "explanation": "Mix of int and doubles. Each field is one line ending in ;."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "T-03",
+    "levelLabel": "L11 -> field syntax (point)",
+    "fullCode": "struct point {\n  int x;\n  int y;\n};\nint main() {\n  point p;\n  p.x = 3;\n  p.y = 4;\n  cout << p.x << \",\" << p.y << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 2, "code": "  int x;", "annotation": "Field syntax: TYPE space NAME semicolon. Just like declaring a normal variable.", "atomIds": ["T-03"] },
+      { "line": 3, "code": "  int y;", "annotation": "Each field on its own line. NEVER write 'int x, y;' inside a struct (style for SIT102).", "atomIds": ["T-03"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-03",
+    "levelLabel": "L11 -> one field per line",
+    "fullCode": "struct point {\n  double x;\n  double y;\n};\nint main() {\n  point p;\n  p.x = 1.5;\n  p.y = 2.7;\n  cout << \"(\" << p.x << \",\" << p.y << \")\" << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 2, "code": "  double x;", "annotation": "Field type 'double', name 'x', terminating ';'. Reads like a single-variable declaration.", "atomIds": ["T-03"] },
+      { "line": 3, "code": "  double y;", "annotation": "Same pattern again for y. The two fields are independent slots.", "atomIds": ["T-03"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-03",
+    "levelLabel": "L11 -> mixed-type fields",
+    "fullCode": "struct point {\n  int x;\n  int y;\n  string label;\n};\nint main() {\n  point p;\n  p.x = 0;\n  p.y = 0;\n  p.label = \"origin\";\n  cout << p.label << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 2, "code": "  int x;", "annotation": "First field: int x;", "atomIds": ["T-03"] },
+      { "line": 4, "code": "  string label;", "annotation": "Mixed-type fields are normal: int, int, string -- each its own line.", "atomIds": ["T-03"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "T-03",
+    "code": "struct point {\n  int x;\n  int y;\n};\nint main() {\n  point p;\n  p.x = 3;\n  p.y = 4;\n  cout << p.x << \",\" << p.y << endl;\n  return 0;\n}",
+    "variables": ["p.x", "p.y"],
+    "expectedSteps": [
+      { "line": 7, "variable": "p.x", "value": "3" },
+      { "line": 8, "variable": "p.y", "value": "4" },
+      { "line": 9, "variable": "p.x", "value": "3" },
+      { "line": 9, "variable": "p.y", "value": "4" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3,4"],
+    "inputMode": "final-only",
+    "teachMe": "Two int fields x and y; assigned then printed with comma between them."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-03",
+    "code": "struct point {\n  double x;\n  double y;\n};\nint main() {\n  point p;\n  p.x = 1.5;\n  p.y = 2.5;\n  double sum = p.x + p.y;\n  cout << sum << endl;\n  return 0;\n}",
+    "variables": ["p.x", "p.y", "sum"],
+    "expectedSteps": [
+      { "line": 7, "variable": "p.x", "value": "1.5" },
+      { "line": 8, "variable": "p.y", "value": "2.5" },
+      { "line": 9, "variable": "sum", "value": "4" },
+      { "line": 10, "variable": "sum", "value": "4" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["4"],
+    "inputMode": "final-only",
+    "teachMe": "double fields used in arithmetic. 1.5 + 2.5 = 4 (no decimal because exact)."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-03",
+    "code": "struct point {\n  int x;\n  int y;\n  string label;\n};\nint main() {\n  point p;\n  p.x = 0;\n  p.y = 0;\n  p.label = \"origin\";\n  cout << p.label << endl;\n  return 0;\n}",
+    "variables": ["p.x", "p.y", "p.label"],
+    "expectedSteps": [
+      { "line": 8, "variable": "p.x", "value": "0" },
+      { "line": 9, "variable": "p.y", "value": "0" },
+      { "line": 10, "variable": "p.label", "value": "\"origin\"" },
+      { "line": 11, "variable": "p.label", "value": "\"origin\"" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["origin"],
+    "inputMode": "final-only",
+    "teachMe": "Three fields with different types. Print just the label string field."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-03",
+    "code": "struct point {\n  int x;\n  int y;\n};\nint main() {\n  point a;\n  point b;\n  a.x = 1; a.y = 2;\n  b.x = 9; b.y = 8;\n  cout << a.x << \" \" << b.x << endl;\n  return 0;\n}",
+    "variables": ["a.x", "a.y", "b.x", "b.y"],
+    "expectedSteps": [
+      { "line": 8, "variable": "a.x", "value": "1" },
+      { "line": 8, "variable": "a.y", "value": "2" },
+      { "line": 9, "variable": "b.x", "value": "9" },
+      { "line": 9, "variable": "b.y", "value": "8" },
+      { "line": 10, "variable": "a.x", "value": "1" },
+      { "line": 10, "variable": "b.x", "value": "9" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1 9"],
+    "inputMode": "final-only",
+    "teachMe": "Two point instances each with their own x and y. Output: '1 9'."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "T-03",
+    "code": "struct point {\n  int x___\n  int y;\n};",
+    "clozeSentence": "Symbol after each field declaration:",
+    "answer": ";",
+    "explanation": "Each field ends with a semicolon. 'int x;' is one field declaration."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-03",
+    "code": "struct point {\n  int ___;\n  int y;\n};",
+    "clozeSentence": "Field name (use 'x'):",
+    "answer": "x",
+    "explanation": "Field syntax: TYPE NAME ;. Here 'int x;'."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-03",
+    "code": "struct point {\n  ___ x;\n  ___ y;\n};\n// Both fields are integers",
+    "clozeSentence": "Type for both fields:",
+    "answer": "int",
+    "explanation": "Both fields are int. Type comes before name."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-03",
+    "code": "// WRONG: 'int x, y;' uses comma. Inside a struct, write each on its own line.\nstruct point {\n  int x;\n  int y;\n};\n// Number of separate field declarations: ___",
+    "clozeSentence": "Count of field declarations:",
+    "answer": "2",
+    "explanation": "Two separate field declarations: 'int x;' and 'int y;'."
+  },
+
+  {
+    "type": "write",
+    "atomId": "T-03",
+    "level": 1,
+    "spec": "Write a single field declaration: type int, name x",
+    "expectedAnswer": "int x;",
+    "keyChecks": ["int", "x", ";"],
+    "explanation": "Field syntax: TYPE NAME ;. So 'int x;'."
+  },
+  {
+    "type": "write",
+    "atomId": "T-03",
+    "level": 2,
+    "spec": "Complete: struct point with two int fields named x and y. End with };.",
+    "template": "struct point {\n  ___\n  ___\n};",
+    "expectedAnswer": "struct point {\n  int x;\n  int y;\n};",
+    "keyChecks": ["struct point", "int x;", "int y;", "};"],
+    "explanation": "Each field on its own line: int x; then int y;"
+  },
+  {
+    "type": "write",
+    "atomId": "T-03",
+    "level": 3,
+    "spec": "Write a struct named 'point' with three fields: int x, int y, string label. End with };.",
+    "expectedAnswer": "struct point {\n  int x;\n  int y;\n  string label;\n};",
+    "keyChecks": ["struct point", "int x;", "int y;", "string label;", "};"],
+    "explanation": "Three field declarations, mixed int and string."
+  },
+  {
+    "type": "write",
+    "atomId": "T-03",
+    "level": 3,
+    "spec": "Write a struct named 'point' with two double fields: x and y. End with };.",
+    "expectedAnswer": "struct point {\n  double x;\n  double y;\n};",
+    "keyChecks": ["struct point", "double x;", "double y;", "};"],
+    "explanation": "double fields. Same pattern: TYPE NAME ;."
+  },
+  {
+    "type": "write",
+    "atomId": "T-03",
+    "level": 3,
+    "spec": "Write a struct named 'point' with: int x, int y, double weight. End with };.",
+    "expectedAnswer": "struct point {\n  int x;\n  int y;\n  double weight;\n};",
+    "keyChecks": ["struct point", "int x;", "int y;", "double weight;", "};"],
+    "explanation": "Mixed int and double fields, each its own line."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "T-04",
+    "levelLabel": "L11 -> always end struct with }; (rectangle)",
+    "fullCode": "struct rectangle {\n  double width;\n  double height;\n};\nint main() {\n  rectangle r;\n  r.width = 5.0;\n  r.height = 3.0;\n  cout << r.width * r.height << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 4, "code": "};", "annotation": "Close brace immediately followed by semicolon. Forgetting the ; is the #1 SIT102 Q2 error.", "atomIds": ["T-04"] },
+      { "line": 5, "code": "int main() {", "annotation": "Without the };, this line would generate a confusing compiler error.", "atomIds": ["T-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-04",
+    "levelLabel": "L11 -> }; vs } (function vs struct)",
+    "fullCode": "struct rectangle {\n  int w;\n  int h;\n};                     // <- struct ends with };\nint area(rectangle r) {\n  return r.w * r.h;\n}                       // <- function ends with } (no ;)\nint main() {\n  rectangle r;\n  r.w = 4; r.h = 6;\n  cout << area(r) << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 4, "code": "};                     // <- struct ends with };", "annotation": "Struct definition: } SEMICOLON. The struct is a definition statement.", "atomIds": ["T-04"] },
+      { "line": 7, "code": "}                       // <- function ends with } (no ;)", "annotation": "Function body: } only, no semicolon. Different rule from struct.", "atomIds": ["T-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-04",
+    "levelLabel": "L11 -> trailing semicolon mandatory",
+    "fullCode": "struct rectangle {\n  double width;\n  double height;\n};   // semicolon -- mandatory\nint main() {\n  rectangle r;\n  r.width = 2.5;\n  r.height = 4.0;\n  cout << \"area=\" << r.width * r.height << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "struct rectangle {", "annotation": "Begin a struct definition.", "atomIds": ["T-04"] },
+      { "line": 4, "code": "};   // semicolon -- mandatory", "annotation": "End with }; -- this is a complete C++ statement.", "atomIds": ["T-04"] },
+      { "line": 9, "code": "  cout << \"area=\" << r.width * r.height << endl;", "annotation": "Now rectangle works as a type. Output: 'area=10' (2.5 * 4.0).", "atomIds": ["T-04"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "T-04",
+    "code": "struct rectangle {\n  double width;\n  double height;\n};\nint main() {\n  rectangle r;\n  r.width = 5.0;\n  r.height = 3.0;\n  cout << r.width * r.height << endl;\n  return 0;\n}",
+    "variables": ["r.width", "r.height"],
+    "expectedSteps": [
+      { "line": 7, "variable": "r.width", "value": "5.0" },
+      { "line": 8, "variable": "r.height", "value": "3.0" },
+      { "line": 9, "variable": "r.width", "value": "5.0" },
+      { "line": 9, "variable": "r.height", "value": "3.0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["15"],
+    "inputMode": "final-only",
+    "teachMe": "5.0 * 3.0 = 15.0; cout shows '15' (trailing zero not displayed by default)."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-04",
+    "code": "struct rectangle {\n  int w;\n  int h;\n};\nint main() {\n  rectangle r;\n  r.w = 4;\n  r.h = 6;\n  cout << 2 * (r.w + r.h) << endl;\n  return 0;\n}",
+    "variables": ["r.w", "r.h"],
+    "expectedSteps": [
+      { "line": 7, "variable": "r.w", "value": "4" },
+      { "line": 8, "variable": "r.h", "value": "6" },
+      { "line": 9, "variable": "r.w", "value": "4" },
+      { "line": 9, "variable": "r.h", "value": "6" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["20"],
+    "inputMode": "final-only",
+    "teachMe": "Perimeter: 2 * (4 + 6) = 20."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-04",
+    "code": "struct rectangle {\n  double width;\n  double height;\n};\nint main() {\n  rectangle r;\n  r.width = 2.5;\n  r.height = 4.0;\n  cout << \"area=\" << r.width * r.height << endl;\n  return 0;\n}",
+    "variables": ["r.width", "r.height"],
+    "expectedSteps": [
+      { "line": 7, "variable": "r.width", "value": "2.5" },
+      { "line": 8, "variable": "r.height", "value": "4.0" },
+      { "line": 9, "variable": "r.width", "value": "2.5" },
+      { "line": 9, "variable": "r.height", "value": "4.0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["area=10"],
+    "inputMode": "final-only",
+    "teachMe": "2.5 * 4.0 = 10. Output prefixed with 'area='."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-04",
+    "code": "struct rectangle {\n  int w;\n  int h;\n};\nint main() {\n  rectangle a;\n  rectangle b;\n  a.w = 2; a.h = 3;\n  b.w = 5; b.h = 7;\n  cout << a.w * a.h + b.w * b.h << endl;\n  return 0;\n}",
+    "variables": ["a.w", "a.h", "b.w", "b.h"],
+    "expectedSteps": [
+      { "line": 8, "variable": "a.w", "value": "2" },
+      { "line": 8, "variable": "a.h", "value": "3" },
+      { "line": 9, "variable": "b.w", "value": "5" },
+      { "line": 9, "variable": "b.h", "value": "7" },
+      { "line": 10, "variable": "a.w", "value": "2" },
+      { "line": 10, "variable": "b.w", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["41"],
+    "inputMode": "final-only",
+    "teachMe": "2*3 + 5*7 = 6 + 35 = 41."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "T-04",
+    "code": "struct rectangle {\n  double width;\n  double height;\n}___",
+    "clozeSentence": "Final character of a struct definition:",
+    "answer": ";",
+    "explanation": "Struct must end with }; -- the semicolon after } is mandatory."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-04",
+    "code": "struct rectangle {\n  int w;\n  int h;\n___\nint main() { ... }",
+    "clozeSentence": "Two characters that close the struct definition:",
+    "answer": "};",
+    "explanation": "}; -- the closing brace then a semicolon. Both are required."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-04",
+    "code": "// Struct closing: }___\n// Function closing: }\n// (the difference is the semicolon)",
+    "clozeSentence": "Character that follows } for struct (but not function):",
+    "answer": ";",
+    "explanation": "Struct ends with };  Functions end with } only."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-04",
+    "code": "struct rectangle {\n  double width;\n  double height;\n};\n// Trailing ;: ___",
+    "clozeSentence": "Required (yes/no)?",
+    "answer": "yes",
+    "explanation": "Yes -- C++ requires the trailing semicolon after the closing }."
+  },
+
+  {
+    "type": "write",
+    "atomId": "T-04",
+    "level": 1,
+    "spec": "Write the two characters that close every struct definition (close brace then semicolon)",
+    "expectedAnswer": "};",
+    "keyChecks": ["};"],
+    "explanation": "}; -- close brace + semicolon. Mandatory."
+  },
+  {
+    "type": "write",
+    "atomId": "T-04",
+    "level": 2,
+    "spec": "Complete this struct definition by adding the proper closing (don't forget };)",
+    "template": "struct rectangle {\n  double width;\n  double height;\n___",
+    "expectedAnswer": "struct rectangle {\n  double width;\n  double height;\n};",
+    "keyChecks": ["struct rectangle", "double width;", "double height;", "};"],
+    "explanation": "}; closes the struct. Common mistake is }, alone -- that's a compile error."
+  },
+  {
+    "type": "write",
+    "atomId": "T-04",
+    "level": 3,
+    "spec": "Write a struct named 'rectangle' with two int fields w and h. End with };.",
+    "expectedAnswer": "struct rectangle {\n  int w;\n  int h;\n};",
+    "keyChecks": ["struct rectangle", "int w;", "int h;", "};"],
+    "explanation": "Two int fields, struct ending with };."
+  },
+  {
+    "type": "write",
+    "atomId": "T-04",
+    "level": 3,
+    "spec": "Write a struct named 'rectangle' with double width, double height, string color. End with };.",
+    "expectedAnswer": "struct rectangle {\n  double width;\n  double height;\n  string color;\n};",
+    "keyChecks": ["struct rectangle", "double width;", "double height;", "string color;", "};"],
+    "explanation": "Three fields, struct ending };."
+  },
+  {
+    "type": "write",
+    "atomId": "T-04",
+    "level": 3,
+    "spec": "Write a struct named 'rectangle' with int w, int h, bool filled. End with };.",
+    "expectedAnswer": "struct rectangle {\n  int w;\n  int h;\n  bool filled;\n};",
+    "keyChecks": ["struct rectangle", "int w;", "int h;", "bool filled;", "};"],
+    "explanation": "Mixed types in struct fields. Don't forget };."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "T-05",
+    "levelLabel": "L11 -> using the struct as a type (weather)",
+    "fullCode": "struct weather_record {\n  double temp;\n  int humidity;\n};\nint main() {\n  weather_record today;\n  today.temp = 22.5;\n  today.humidity = 65;\n  cout << today.temp << \" / \" << today.humidity << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 5, "code": "  weather_record today;", "annotation": "Use weather_record as a TYPE -- like int or double. 'today' is one weather_record.", "atomIds": ["T-05"] },
+      { "line": 6, "code": "  today.temp = 22.5;", "annotation": "today is a single weather_record value. Access its fields with the dot.", "atomIds": ["T-05"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-05",
+    "levelLabel": "L11 -> declare instances like ints",
+    "fullCode": "struct weather_record {\n  double temp;\n};\nint main() {\n  weather_record monday;\n  weather_record tuesday;\n  weather_record wednesday;\n  monday.temp = 18.0;\n  tuesday.temp = 21.5;\n  wednesday.temp = 19.5;\n  cout << tuesday.temp << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 5, "code": "  weather_record monday;", "annotation": "Each declaration creates a fresh independent struct value.", "atomIds": ["T-05"] },
+      { "line": 6, "code": "  weather_record tuesday;", "annotation": "tuesday and monday are completely separate.", "atomIds": ["T-05"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-05",
+    "levelLabel": "L11 -> no struct keyword at use-site",
+    "fullCode": "struct weather_record {\n  double temp;\n};\nint main() {\n  // C++: just write the type name, NO 'struct' keyword needed\n  weather_record reading;\n  reading.temp = 30.0;\n  cout << reading.temp << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 5, "code": "  // C++: just write the type name, NO 'struct' keyword needed", "annotation": "Unlike C, C++ doesn't need 'struct' before the name when declaring an instance.", "atomIds": ["T-05"] },
+      { "line": 6, "code": "  weather_record reading;", "annotation": "Just the type name -- 'weather_record' -- followed by the variable name.", "atomIds": ["T-05"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "T-05",
+    "code": "struct weather_record {\n  double temp;\n  int humidity;\n};\nint main() {\n  weather_record today;\n  today.temp = 22.5;\n  today.humidity = 65;\n  cout << today.temp << \" \" << today.humidity << endl;\n  return 0;\n}",
+    "variables": ["today.temp", "today.humidity"],
+    "expectedSteps": [
+      { "line": 7, "variable": "today.temp", "value": "22.5" },
+      { "line": 8, "variable": "today.humidity", "value": "65" },
+      { "line": 9, "variable": "today.temp", "value": "22.5" },
+      { "line": 9, "variable": "today.humidity", "value": "65" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["22.5 65"],
+    "inputMode": "final-only",
+    "teachMe": "weather_record used as a type. today is one instance with two fields."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-05",
+    "code": "struct weather_record {\n  double temp;\n};\nint main() {\n  weather_record mon;\n  weather_record tue;\n  mon.temp = 18.0;\n  tue.temp = 21.5;\n  cout << mon.temp << \" \" << tue.temp << endl;\n  return 0;\n}",
+    "variables": ["mon.temp", "tue.temp"],
+    "expectedSteps": [
+      { "line": 7, "variable": "mon.temp", "value": "18.0" },
+      { "line": 8, "variable": "tue.temp", "value": "21.5" },
+      { "line": 9, "variable": "mon.temp", "value": "18.0" },
+      { "line": 9, "variable": "tue.temp", "value": "21.5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["18 21.5"],
+    "inputMode": "final-only",
+    "teachMe": "Two independent weather_records. Each has its own temp field."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-05",
+    "code": "struct weather_record {\n  double temp;\n  int humidity;\n};\nint main() {\n  weather_record r;\n  r.temp = 0.0;\n  r.humidity = 0;\n  r.temp = 25.0;\n  r.humidity = 80;\n  cout << r.humidity << endl;\n  return 0;\n}",
+    "variables": ["r.temp", "r.humidity"],
+    "expectedSteps": [
+      { "line": 7, "variable": "r.temp", "value": "0.0" },
+      { "line": 8, "variable": "r.humidity", "value": "0" },
+      { "line": 9, "variable": "r.temp", "value": "25.0" },
+      { "line": 10, "variable": "r.humidity", "value": "80" },
+      { "line": 11, "variable": "r.humidity", "value": "80" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["80"],
+    "inputMode": "final-only",
+    "teachMe": "Reassigning fields overwrites them. Final humidity = 80."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-05",
+    "code": "struct weather_record {\n  double temp;\n};\nint main() {\n  weather_record r;\n  r.temp = 19.5;\n  double t = r.temp;\n  cout << t << endl;\n  return 0;\n}",
+    "variables": ["r.temp", "t"],
+    "expectedSteps": [
+      { "line": 6, "variable": "r.temp", "value": "19.5" },
+      { "line": 7, "variable": "t", "value": "19.5" },
+      { "line": 8, "variable": "t", "value": "19.5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["19.5"],
+    "inputMode": "final-only",
+    "teachMe": "Field value can be assigned to a normal double. r.temp reads the field."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "T-05",
+    "code": "struct weather_record { double temp; };\n___ today;",
+    "clozeSentence": "Type to declare an instance:",
+    "answer": "weather_record",
+    "explanation": "Use the struct's name as a type, just like 'int' or 'double'."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-05",
+    "code": "struct weather_record { double temp; };\nweather_record ___;",
+    "clozeSentence": "Variable name (use 'today'):",
+    "answer": "today",
+    "explanation": "After the type comes the variable name -- here 'today'."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-05",
+    "code": "// Pattern for declaring a struct instance:\n// ___Type___ varName;\n// Example: weather_record today;",
+    "clozeSentence": "What kind of name comes first when declaring a struct instance?",
+    "answer": "Type",
+    "explanation": "Pattern: TYPE varName; -- like 'int x;' or 'weather_record today;'."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-05",
+    "code": "// In C++ you write 'weather_record today;' (NO struct keyword).\n// Whereas in C you'd write 'struct weather_record today;'\n// SIT102 uses ___",
+    "clozeSentence": "Language used in SIT102 (C or C++):",
+    "answer": "C++",
+    "explanation": "SIT102 is C++. In C++ you don't need 'struct' before the type at use-site."
+  },
+
+  {
+    "type": "write",
+    "atomId": "T-05",
+    "level": 1,
+    "spec": "Given `struct weather_record { double temp; };` -- write the line that declares an instance named 'today'",
+    "expectedAnswer": "weather_record today;",
+    "keyChecks": ["weather_record", "today", ";"],
+    "explanation": "Type name + space + variable name + semicolon. Just like int."
+  },
+  {
+    "type": "write",
+    "atomId": "T-05",
+    "level": 2,
+    "spec": "Define a struct weather_record with double temp, then declare an instance named 'today' inside main",
+    "template": "___\nint main() {\n  ___\n  return 0;\n}",
+    "expectedAnswer": "struct weather_record {\n  double temp;\n};\nint main() {\n  weather_record today;\n  return 0;\n}",
+    "keyChecks": ["struct weather_record", "double temp;", "};", "weather_record today;"],
+    "explanation": "Define the type first, then declare an instance using that type."
+  },
+  {
+    "type": "write",
+    "atomId": "T-05",
+    "level": 3,
+    "spec": "Write a complete program: struct weather_record with double temp and int humidity. main() declares an instance 'today', sets today.temp = 22.5 and today.humidity = 65, prints them separated by space.",
+    "expectedAnswer": "struct weather_record {\n  double temp;\n  int humidity;\n};\nint main() {\n  weather_record today;\n  today.temp = 22.5;\n  today.humidity = 65;\n  cout << today.temp << \" \" << today.humidity << endl;\n  return 0;\n}",
+    "keyChecks": ["struct weather_record", "double temp;", "int humidity;", "};", "weather_record today;", "today.temp = 22.5;", "today.humidity = 65;", "cout << today.temp"],
+    "explanation": "struct + instance + field writes + cout. Standard SIT102 program shape."
+  },
+  {
+    "type": "write",
+    "atomId": "T-05",
+    "level": 3,
+    "spec": "Write a complete program: struct weather_record with double temp. main() declares instance 'reading', sets reading.temp = 30.0, prints reading.temp.",
+    "expectedAnswer": "struct weather_record {\n  double temp;\n};\nint main() {\n  weather_record reading;\n  reading.temp = 30.0;\n  cout << reading.temp << endl;\n  return 0;\n}",
+    "keyChecks": ["struct weather_record", "double temp;", "};", "weather_record reading;", "reading.temp = 30.0;", "cout << reading.temp"],
+    "explanation": "Single-field struct, declared as a type, used in main."
+  },
+  {
+    "type": "write",
+    "atomId": "T-05",
+    "level": 3,
+    "spec": "Write a complete program: struct weather_record with int humidity. Declare TWO instances 'mon' and 'tue', set mon.humidity = 60 and tue.humidity = 80. Print mon.humidity then tue.humidity space-separated.",
+    "expectedAnswer": "struct weather_record {\n  int humidity;\n};\nint main() {\n  weather_record mon;\n  weather_record tue;\n  mon.humidity = 60;\n  tue.humidity = 80;\n  cout << mon.humidity << \" \" << tue.humidity << endl;\n  return 0;\n}",
+    "keyChecks": ["struct weather_record", "int humidity;", "};", "weather_record mon;", "weather_record tue;", "mon.humidity = 60;", "tue.humidity = 80;"],
+    "explanation": "Two independent struct instances, each with their own field."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "T-06",
+    "levelLabel": "L11 -> .field accesses member (student)",
+    "fullCode": "struct student_record {\n  int id;\n  string name;\n  double gpa;\n};\nint main() {\n  student_record s;\n  s.id = 12345;\n  s.name = \"Riley\";\n  s.gpa = 3.85;\n  cout << s.name << \" (\" << s.gpa << \")\" << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 8, "code": "  s.id = 12345;", "annotation": "The dot operator '.' selects which field of the struct to access.", "atomIds": ["T-06"] },
+      { "line": 11, "code": "  cout << s.name << \" (\" << s.gpa << \")\" << endl;", "annotation": "Read each field with the dot. s.name and s.gpa work like normal variables in expressions.", "atomIds": ["T-06"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-06",
+    "levelLabel": "L11 -> dot reaches into struct",
+    "fullCode": "struct student_record {\n  string name;\n};\nint main() {\n  student_record s;\n  s.name = \"Avery\";\n  cout << s.name << endl;\n  s.name = \"Avery Smith\";\n  cout << s.name << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 6, "code": "  s.name = \"Avery\";", "annotation": "Write to a field using s.fieldname = value.", "atomIds": ["T-06"] },
+      { "line": 7, "code": "  cout << s.name << endl;", "annotation": "Read the same field by the same syntax (s.name).", "atomIds": ["T-06"] },
+      { "line": 8, "code": "  s.name = \"Avery Smith\";", "annotation": "You can write to a field many times. Each write overwrites.", "atomIds": ["T-06"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-06",
+    "levelLabel": "L11 -> never use -> in SIT102",
+    "fullCode": "struct student_record {\n  int id;\n};\nint main() {\n  student_record s;\n  // s->id = 1;  // ERROR: -> is for pointers, not structs in SIT102\n  s.id = 1;       // CORRECT: . for struct value\n  cout << s.id << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 6, "code": "  // s->id = 1;  // ERROR: -> is for pointers, not structs in SIT102", "annotation": "DO NOT use -> in SIT102. -> is for pointers (you don't have those in Test 2).", "atomIds": ["T-06"] },
+      { "line": 7, "code": "  s.id = 1;       // CORRECT: . for struct value", "annotation": "Always use . for direct struct access.", "atomIds": ["T-06"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "T-06",
+    "code": "struct student_record {\n  int id;\n  string name;\n};\nint main() {\n  student_record s;\n  s.id = 100;\n  s.name = \"Riley\";\n  cout << s.id << \" \" << s.name << endl;\n  return 0;\n}",
+    "variables": ["s.id", "s.name"],
+    "expectedSteps": [
+      { "line": 7, "variable": "s.id", "value": "100" },
+      { "line": 8, "variable": "s.name", "value": "\"Riley\"" },
+      { "line": 9, "variable": "s.id", "value": "100" },
+      { "line": 9, "variable": "s.name", "value": "\"Riley\"" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["100 Riley"],
+    "inputMode": "final-only",
+    "teachMe": "Use s.id and s.name to write and read fields. Output: '100 Riley'."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-06",
+    "code": "struct student_record {\n  double gpa;\n};\nint main() {\n  student_record s;\n  s.gpa = 3.5;\n  s.gpa = s.gpa + 0.25;\n  cout << s.gpa << endl;\n  return 0;\n}",
+    "variables": ["s.gpa"],
+    "expectedSteps": [
+      { "line": 6, "variable": "s.gpa", "value": "3.5" },
+      { "line": 7, "variable": "s.gpa", "value": "3.75" },
+      { "line": 8, "variable": "s.gpa", "value": "3.75" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3.75"],
+    "inputMode": "final-only",
+    "teachMe": "Field can be on both sides of =. s.gpa = s.gpa + 0.25 reads then writes."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-06",
+    "code": "struct student_record {\n  int id;\n  int grade;\n};\nint main() {\n  student_record s;\n  s.id = 7;\n  s.grade = 85;\n  if (s.grade >= 50) {\n    cout << \"PASS\" << endl;\n  }\n  return 0;\n}",
+    "variables": ["s.id", "s.grade"],
+    "expectedSteps": [
+      { "line": 7, "variable": "s.id", "value": "7" },
+      { "line": 8, "variable": "s.grade", "value": "85" },
+      { "line": 9, "variable": "s.grade", "value": "85" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["PASS"],
+    "inputMode": "final-only",
+    "teachMe": "s.grade is 85; condition s.grade >= 50 is true; print PASS."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-06",
+    "code": "struct student_record {\n  int id;\n  string name;\n};\nint main() {\n  student_record a;\n  student_record b;\n  a.id = 1; a.name = \"Sam\";\n  b.id = 2; b.name = \"Lee\";\n  cout << a.name << \"/\" << b.name << endl;\n  return 0;\n}",
+    "variables": ["a.id", "a.name", "b.id", "b.name"],
+    "expectedSteps": [
+      { "line": 8, "variable": "a.id", "value": "1" },
+      { "line": 8, "variable": "a.name", "value": "\"Sam\"" },
+      { "line": 9, "variable": "b.id", "value": "2" },
+      { "line": 9, "variable": "b.name", "value": "\"Lee\"" },
+      { "line": 10, "variable": "a.name", "value": "\"Sam\"" },
+      { "line": 10, "variable": "b.name", "value": "\"Lee\"" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Sam/Lee"],
+    "inputMode": "final-only",
+    "teachMe": "Two student_record instances each with their own .id and .name. Output: 'Sam/Lee'."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "T-06",
+    "code": "student_record s;\ns___id = 42;",
+    "clozeSentence": "Operator that accesses a struct field:",
+    "answer": ".",
+    "explanation": "Use the dot . to access fields of a struct value."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-06",
+    "code": "student_record s;\ns.___ = 100;\n// (set the id field to 100)",
+    "clozeSentence": "Field name (use 'id'):",
+    "answer": "id",
+    "explanation": "After the dot, write the field name. Here: id."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-06",
+    "code": "// SIT102 uses ___ to access struct fields (single character).",
+    "clozeSentence": "Operator name/symbol:",
+    "answer": ".",
+    "explanation": "Dot operator (single character: .) for direct struct field access."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-06",
+    "code": "student_record s;\ns.name = \"Riley\";\ncout << s.___ << endl;\n// prints: Riley",
+    "clozeSentence": "Field to print:",
+    "answer": "name",
+    "explanation": "Read the name field via s.name. cout prints 'Riley'."
+  },
+
+  {
+    "type": "write",
+    "atomId": "T-06",
+    "level": 1,
+    "spec": "Given `student_record s;` -- write the line that sets the id field to 100",
+    "expectedAnswer": "s.id = 100;",
+    "keyChecks": ["s.id", "100", ";"],
+    "explanation": "Use the dot to select the field, then assign."
+  },
+  {
+    "type": "write",
+    "atomId": "T-06",
+    "level": 1,
+    "spec": "Given `student_record s; s.name = \"Riley\";` -- write the cout that prints just the name field with endl",
+    "expectedAnswer": "cout << s.name << endl;",
+    "keyChecks": ["cout << s.name", "endl"],
+    "explanation": "cout << s.name reads the field. endl ends the line."
+  },
+  {
+    "type": "write",
+    "atomId": "T-06",
+    "level": 2,
+    "spec": "Given the struct below, complete main: set id to 100, set name to \"Riley\", set gpa to 3.85",
+    "template": "struct student_record {\n  int id;\n  string name;\n  double gpa;\n};\nint main() {\n  student_record s;\n  ___\n  ___\n  ___\n  return 0;\n}",
+    "expectedAnswer": "struct student_record {\n  int id;\n  string name;\n  double gpa;\n};\nint main() {\n  student_record s;\n  s.id = 100;\n  s.name = \"Riley\";\n  s.gpa = 3.85;\n  return 0;\n}",
+    "keyChecks": ["s.id = 100;", "s.name = \"Riley\";", "s.gpa = 3.85;"],
+    "explanation": "Three field assignments using the dot operator."
+  },
+  {
+    "type": "write",
+    "atomId": "T-06",
+    "level": 3,
+    "spec": "Write a complete program: struct student_record with int id, string name. main() declares instance s, sets s.id=100, s.name=\"Riley\", prints id and name space-separated.",
+    "expectedAnswer": "struct student_record {\n  int id;\n  string name;\n};\nint main() {\n  student_record s;\n  s.id = 100;\n  s.name = \"Riley\";\n  cout << s.id << \" \" << s.name << endl;\n  return 0;\n}",
+    "keyChecks": ["struct student_record", "int id;", "string name;", "};", "s.id = 100;", "s.name = \"Riley\";", "cout << s.id"],
+    "explanation": "struct + instance + dot writes + cout reads via dot."
+  },
+  {
+    "type": "write",
+    "atomId": "T-06",
+    "level": 3,
+    "spec": "Write a complete program: struct student_record with int id, double gpa. main() sets s.id=12, s.gpa=3.7, prints id then gpa space-separated.",
+    "expectedAnswer": "struct student_record {\n  int id;\n  double gpa;\n};\nint main() {\n  student_record s;\n  s.id = 12;\n  s.gpa = 3.7;\n  cout << s.id << \" \" << s.gpa << endl;\n  return 0;\n}",
+    "keyChecks": ["struct student_record", "int id;", "double gpa;", "};", "s.id = 12;", "s.gpa = 3.7;", "cout << s.id"],
+    "explanation": "Each field accessed with dot. Print both."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "T-07",
+    "levelLabel": "L11 -> writing a struct field (printer)",
+    "fullCode": "struct printer {\n  string model;\n  int pages_left;\n};\nint main() {\n  printer office;\n  office.model = \"LaserJet\";\n  office.pages_left = 500;\n  office.pages_left = office.pages_left - 1;\n  cout << office.pages_left << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 7, "code": "  office.model = \"LaserJet\";", "annotation": "Field write: instance.fieldname = value;", "atomIds": ["T-07"] },
+      { "line": 9, "code": "  office.pages_left = office.pages_left - 1;", "annotation": "Read-modify-write a field: read on RHS, write on LHS.", "atomIds": ["T-07"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-07",
+    "levelLabel": "L11 -> assignment to one field at a time",
+    "fullCode": "struct printer {\n  string status;\n  int jobs;\n};\nint main() {\n  printer p;\n  p.status = \"idle\";\n  p.jobs = 0;\n  p.status = \"busy\";\n  p.jobs = 1;\n  cout << p.status << \" / \" << p.jobs << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 7, "code": "  p.status = \"idle\";", "annotation": "Write to one field. Other fields are untouched.", "atomIds": ["T-07"] },
+      { "line": 9, "code": "  p.status = \"busy\";", "annotation": "Reassigning a field overwrites it (just like a normal variable).", "atomIds": ["T-07"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-07",
+    "levelLabel": "L11 -> field assignment via cin",
+    "fullCode": "struct printer {\n  int pages;\n};\nint main() {\n  printer office;\n  cin >> office.pages;\n  cout << office.pages << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 6, "code": "  cin >> office.pages;", "annotation": "cin >> is also a field write. The user's number is stored into office.pages.", "atomIds": ["T-07"] },
+      { "line": 7, "code": "  cout << office.pages << endl;", "annotation": "Then read the field back out and print it.", "atomIds": ["T-07"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "T-07",
+    "code": "struct printer {\n  string model;\n  int pages_left;\n};\nint main() {\n  printer office;\n  office.model = \"LaserJet\";\n  office.pages_left = 500;\n  cout << office.model << \" \" << office.pages_left << endl;\n  return 0;\n}",
+    "variables": ["office.model", "office.pages_left"],
+    "expectedSteps": [
+      { "line": 7, "variable": "office.model", "value": "\"LaserJet\"" },
+      { "line": 8, "variable": "office.pages_left", "value": "500" },
+      { "line": 9, "variable": "office.model", "value": "\"LaserJet\"" },
+      { "line": 9, "variable": "office.pages_left", "value": "500" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["LaserJet 500"],
+    "inputMode": "final-only",
+    "teachMe": "Two field writes, then a print of both fields space-separated."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-07",
+    "code": "struct printer {\n  int pages_left;\n};\nint main() {\n  printer p;\n  p.pages_left = 100;\n  p.pages_left = p.pages_left - 1;\n  p.pages_left = p.pages_left - 1;\n  p.pages_left = p.pages_left - 1;\n  cout << p.pages_left << endl;\n  return 0;\n}",
+    "variables": ["p.pages_left"],
+    "expectedSteps": [
+      { "line": 6, "variable": "p.pages_left", "value": "100" },
+      { "line": 7, "variable": "p.pages_left", "value": "99" },
+      { "line": 8, "variable": "p.pages_left", "value": "98" },
+      { "line": 9, "variable": "p.pages_left", "value": "97" },
+      { "line": 10, "variable": "p.pages_left", "value": "97" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["97"],
+    "inputMode": "final-only",
+    "teachMe": "Three decrements: 100 -> 99 -> 98 -> 97."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-07",
+    "code": "struct printer {\n  string status;\n  int jobs;\n};\nint main() {\n  printer p;\n  p.status = \"idle\";\n  p.jobs = 0;\n  p.status = \"busy\";\n  p.jobs = 5;\n  cout << p.status << \" \" << p.jobs << endl;\n  return 0;\n}",
+    "variables": ["p.status", "p.jobs"],
+    "expectedSteps": [
+      { "line": 7, "variable": "p.status", "value": "\"idle\"" },
+      { "line": 8, "variable": "p.jobs", "value": "0" },
+      { "line": 9, "variable": "p.status", "value": "\"busy\"" },
+      { "line": 10, "variable": "p.jobs", "value": "5" },
+      { "line": 11, "variable": "p.status", "value": "\"busy\"" },
+      { "line": 11, "variable": "p.jobs", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["busy 5"],
+    "inputMode": "final-only",
+    "teachMe": "Reassigning fields overwrites previous values. Final: status='busy', jobs=5."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-07",
+    "code": "struct printer {\n  int jobs;\n};\nint main() {\n  printer p;\n  p.jobs = 0;\n  p.jobs = p.jobs + 3;\n  p.jobs = p.jobs * 2;\n  cout << p.jobs << endl;\n  return 0;\n}",
+    "variables": ["p.jobs"],
+    "expectedSteps": [
+      { "line": 6, "variable": "p.jobs", "value": "0" },
+      { "line": 7, "variable": "p.jobs", "value": "3" },
+      { "line": 8, "variable": "p.jobs", "value": "6" },
+      { "line": 9, "variable": "p.jobs", "value": "6" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["6"],
+    "inputMode": "final-only",
+    "teachMe": "0 + 3 = 3, then 3 * 2 = 6."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "T-07",
+    "code": "printer p;\np.pages_left ___ 500;",
+    "clozeSentence": "Operator that writes a value to a field:",
+    "answer": "=",
+    "explanation": "Standard assignment: p.pages_left = 500;"
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-07",
+    "code": "printer p;\np.pages_left = 100;\np.pages_left = p.pages_left - ___;\n// Now pages_left is 99",
+    "clozeSentence": "Number to subtract:",
+    "answer": "1",
+    "explanation": "100 - 1 = 99. Read-modify-write pattern with the dot."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-07",
+    "code": "printer office;\noffice.model ___ \"LaserJet\";\n// (assign the model)",
+    "clozeSentence": "Assignment operator:",
+    "answer": "=",
+    "explanation": "Use = to assign a value to a struct field."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-07",
+    "code": "printer p;\n___ >> p.pages_left;\n// Read user's number into the field",
+    "clozeSentence": "Stream used to read input:",
+    "answer": "cin",
+    "explanation": "cin >> reads input directly into a struct field."
+  },
+
+  {
+    "type": "write",
+    "atomId": "T-07",
+    "level": 1,
+    "spec": "Given `printer p;` -- write the line that sets p.pages_left to 500",
+    "expectedAnswer": "p.pages_left = 500;",
+    "keyChecks": ["p.pages_left", "500", ";"],
+    "explanation": "Field assignment: instance.field = value;"
+  },
+  {
+    "type": "write",
+    "atomId": "T-07",
+    "level": 1,
+    "spec": "Given `printer p; p.pages_left = 100;` -- write the line that decrements p.pages_left by 1 (read-modify-write)",
+    "expectedAnswer": "p.pages_left = p.pages_left - 1;",
+    "keyChecks": ["p.pages_left", "p.pages_left - 1", ";"],
+    "explanation": "Read p.pages_left, subtract 1, write back."
+  },
+  {
+    "type": "write",
+    "atomId": "T-07",
+    "level": 2,
+    "spec": "Given the struct below, complete main: assign printer's model to \"LaserJet\" and pages_left to 500",
+    "template": "struct printer {\n  string model;\n  int pages_left;\n};\nint main() {\n  printer office;\n  ___\n  ___\n  return 0;\n}",
+    "expectedAnswer": "struct printer {\n  string model;\n  int pages_left;\n};\nint main() {\n  printer office;\n  office.model = \"LaserJet\";\n  office.pages_left = 500;\n  return 0;\n}",
+    "keyChecks": ["office.model = \"LaserJet\";", "office.pages_left = 500;"],
+    "explanation": "Two field assignments after the instance is declared."
+  },
+  {
+    "type": "write",
+    "atomId": "T-07",
+    "level": 3,
+    "spec": "Write a complete program: struct printer with string model and int pages_left. main() declares 'office', sets office.model=\"LaserJet\", office.pages_left=500, prints them space-separated.",
+    "expectedAnswer": "struct printer {\n  string model;\n  int pages_left;\n};\nint main() {\n  printer office;\n  office.model = \"LaserJet\";\n  office.pages_left = 500;\n  cout << office.model << \" \" << office.pages_left << endl;\n  return 0;\n}",
+    "keyChecks": ["struct printer", "string model;", "int pages_left;", "};", "office.model = \"LaserJet\";", "office.pages_left = 500;", "cout << office.model"],
+    "explanation": "struct + instance + writes + cout. Mirrors Q3-style struct-write programs."
+  },
+  {
+    "type": "write",
+    "atomId": "T-07",
+    "level": 3,
+    "spec": "Write a complete program: struct printer with int jobs. main() declares 'p', sets p.jobs = 0, then writes p.jobs = p.jobs + 3 twice, then prints p.jobs. Output: 6.",
+    "expectedAnswer": "struct printer {\n  int jobs;\n};\nint main() {\n  printer p;\n  p.jobs = 0;\n  p.jobs = p.jobs + 3;\n  p.jobs = p.jobs + 3;\n  cout << p.jobs << endl;\n  return 0;\n}",
+    "keyChecks": ["struct printer", "int jobs;", "};", "p.jobs = 0;", "p.jobs = p.jobs + 3;", "cout << p.jobs"],
+    "explanation": "Read-modify-write a field. 0 + 3 + 3 = 6."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "T-08",
+    "levelLabel": "L11 -> reading a struct field via cout (ticket)",
+    "fullCode": "struct ticket {\n  int seat;\n  double price;\n};\nint main() {\n  ticket t;\n  t.seat = 12;\n  t.price = 49.95;\n  cout << t.seat << endl;\n  cout << t.price << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 9, "code": "  cout << t.seat << endl;", "annotation": "Read t.seat with the dot, send to cout. Prints 12.", "atomIds": ["T-08"] },
+      { "line": 10, "code": "  cout << t.price << endl;", "annotation": "Same syntax for any field. Prints 49.95.", "atomIds": ["T-08"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-08",
+    "levelLabel": "L11 -> read field anywhere expressions go",
+    "fullCode": "struct ticket {\n  double price;\n};\nint main() {\n  ticket t;\n  t.price = 80.0;\n  double discounted = t.price * 0.9;\n  cout << discounted << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 7, "code": "  double discounted = t.price * 0.9;", "annotation": "t.price reads the field. Use it in any expression.", "atomIds": ["T-08"] },
+      { "line": 8, "code": "  cout << discounted << endl;", "annotation": "Prints 72 (80 * 0.9).", "atomIds": ["T-08"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-08",
+    "levelLabel": "L11 -> chained cout prints fields",
+    "fullCode": "struct ticket {\n  int seat;\n  double price;\n  string holder;\n};\nint main() {\n  ticket t;\n  t.seat = 7;\n  t.price = 35.50;\n  t.holder = \"Mira\";\n  cout << t.holder << \" seat \" << t.seat << \" $\" << t.price << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 11, "code": "  cout << t.holder << \" seat \" << t.seat << \" $\" << t.price << endl;", "annotation": "Chain << to print multiple fields with literal text in between.", "atomIds": ["T-08"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "T-08",
+    "code": "struct ticket {\n  int seat;\n  double price;\n};\nint main() {\n  ticket t;\n  t.seat = 12;\n  t.price = 49.95;\n  cout << t.seat << endl;\n  cout << t.price << endl;\n  return 0;\n}",
+    "variables": ["t.seat", "t.price"],
+    "expectedSteps": [
+      { "line": 7, "variable": "t.seat", "value": "12" },
+      { "line": 8, "variable": "t.price", "value": "49.95" },
+      { "line": 9, "variable": "t.seat", "value": "12" },
+      { "line": 10, "variable": "t.price", "value": "49.95" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["12", "49.95"],
+    "inputMode": "final-only",
+    "teachMe": "Two cout lines, each printing one field of t."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-08",
+    "code": "struct ticket {\n  double price;\n};\nint main() {\n  ticket t;\n  t.price = 80.0;\n  double discounted = t.price * 0.9;\n  cout << discounted << endl;\n  return 0;\n}",
+    "variables": ["t.price", "discounted"],
+    "expectedSteps": [
+      { "line": 6, "variable": "t.price", "value": "80.0" },
+      { "line": 7, "variable": "discounted", "value": "72" },
+      { "line": 8, "variable": "discounted", "value": "72" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["72"],
+    "inputMode": "final-only",
+    "teachMe": "Reading t.price (80.0) used in arithmetic. 80 * 0.9 = 72."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-08",
+    "code": "struct ticket {\n  int seat;\n  double price;\n  string holder;\n};\nint main() {\n  ticket t;\n  t.seat = 7;\n  t.price = 35.50;\n  t.holder = \"Mira\";\n  cout << t.holder << \" seat \" << t.seat << endl;\n  return 0;\n}",
+    "variables": ["t.seat", "t.price", "t.holder"],
+    "expectedSteps": [
+      { "line": 8, "variable": "t.seat", "value": "7" },
+      { "line": 9, "variable": "t.price", "value": "35.50" },
+      { "line": 10, "variable": "t.holder", "value": "\"Mira\"" },
+      { "line": 11, "variable": "t.holder", "value": "\"Mira\"" },
+      { "line": 11, "variable": "t.seat", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Mira seat 7"],
+    "inputMode": "final-only",
+    "teachMe": "Chained cout reads multiple fields with text between. Output: 'Mira seat 7'."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-08",
+    "code": "struct ticket {\n  double price;\n};\nint main() {\n  ticket a;\n  ticket b;\n  a.price = 20.0;\n  b.price = 30.0;\n  cout << a.price + b.price << endl;\n  return 0;\n}",
+    "variables": ["a.price", "b.price"],
+    "expectedSteps": [
+      { "line": 7, "variable": "a.price", "value": "20.0" },
+      { "line": 8, "variable": "b.price", "value": "30.0" },
+      { "line": 9, "variable": "a.price", "value": "20.0" },
+      { "line": 9, "variable": "b.price", "value": "30.0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["50"],
+    "inputMode": "final-only",
+    "teachMe": "Field reads in expression: 20 + 30 = 50."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "T-08",
+    "code": "ticket t; t.seat = 12;\n___ << t.seat;\n// (print the seat field)",
+    "clozeSentence": "Stream used to print:",
+    "answer": "cout",
+    "explanation": "cout << reads the field via the dot and writes to terminal."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-08",
+    "code": "ticket t;\nt.price = 80.0;\ndouble half = t.price / ___;\n// half is now 40",
+    "clozeSentence": "Number to divide by:",
+    "answer": "2",
+    "explanation": "80 / 2 = 40. Reading t.price in arithmetic."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-08",
+    "code": "ticket t; t.holder = \"Mira\";\ncout << t.___ << endl;\n// prints Mira",
+    "clozeSentence": "Field to read:",
+    "answer": "holder",
+    "explanation": "cout << t.holder reads and prints the holder field."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-08",
+    "code": "// Wrong: cout << t   (prints whole struct -- not allowed)\n// Right: cout << t.___;",
+    "clozeSentence": "Word for the named member of a struct (with dot):",
+    "answer": "field",
+    "explanation": "Print specific FIELDS via the dot. C++ doesn't auto-print whole structs."
+  },
+
+  {
+    "type": "write",
+    "atomId": "T-08",
+    "level": 1,
+    "spec": "Given `ticket t; t.seat = 12;` -- write a single line cout that prints t.seat followed by endl",
+    "expectedAnswer": "cout << t.seat << endl;",
+    "keyChecks": ["cout << t.seat", "endl"],
+    "explanation": "cout << t.seat reads the field. Followed by endl to end the line."
+  },
+  {
+    "type": "write",
+    "atomId": "T-08",
+    "level": 1,
+    "spec": "Given `ticket t; t.price = 49.95;` -- write a cout line that prints just t.price with endl",
+    "expectedAnswer": "cout << t.price << endl;",
+    "keyChecks": ["cout << t.price", "endl"],
+    "explanation": "Read the price field via dot and print it."
+  },
+  {
+    "type": "write",
+    "atomId": "T-08",
+    "level": 2,
+    "spec": "Given the struct below, complete main: print t.seat and t.price separated by a single space",
+    "template": "struct ticket {\n  int seat;\n  double price;\n};\nint main() {\n  ticket t;\n  t.seat = 7;\n  t.price = 35.50;\n  ___\n  return 0;\n}",
+    "expectedAnswer": "struct ticket {\n  int seat;\n  double price;\n};\nint main() {\n  ticket t;\n  t.seat = 7;\n  t.price = 35.50;\n  cout << t.seat << \" \" << t.price << endl;\n  return 0;\n}",
+    "keyChecks": ["cout << t.seat", "<< t.price", "endl"],
+    "explanation": "Chain << to print two fields with a literal space between."
+  },
+  {
+    "type": "write",
+    "atomId": "T-08",
+    "level": 3,
+    "spec": "Write a complete program: struct ticket with int seat, double price. main() declares t, sets seat=12 and price=49.95, prints them on one line space-separated.",
+    "expectedAnswer": "struct ticket {\n  int seat;\n  double price;\n};\nint main() {\n  ticket t;\n  t.seat = 12;\n  t.price = 49.95;\n  cout << t.seat << \" \" << t.price << endl;\n  return 0;\n}",
+    "keyChecks": ["struct ticket", "int seat;", "double price;", "};", "t.seat = 12;", "t.price = 49.95;", "cout << t.seat", "<< t.price"],
+    "explanation": "struct + writes + chained cout reads."
+  },
+  {
+    "type": "write",
+    "atomId": "T-08",
+    "level": 3,
+    "spec": "Write a complete program: struct ticket with double price. main() declares t, sets price=80.0, prints t.price * 2 with endl.",
+    "expectedAnswer": "struct ticket {\n  double price;\n};\nint main() {\n  ticket t;\n  t.price = 80.0;\n  cout << t.price * 2 << endl;\n  return 0;\n}",
+    "keyChecks": ["struct ticket", "double price;", "};", "t.price = 80.0;", "cout << t.price * 2"],
+    "explanation": "Field reads work in any expression -- here multiplied by 2."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "T-09",
+    "levelLabel": "L11 -> struct can hold an array (song)",
+    "fullCode": "struct song {\n  string title;\n  double track_lengths[3];\n};\nint main() {\n  song album;\n  album.title = \"Greatest Hits\";\n  album.track_lengths[0] = 3.5;\n  album.track_lengths[1] = 4.2;\n  album.track_lengths[2] = 2.8;\n  cout << album.track_lengths[1] << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 3, "code": "  double track_lengths[3];", "annotation": "Field with array: TYPE NAME[SIZE]; -- here a 3-double array.", "atomIds": ["T-09"] },
+      { "line": 11, "code": "  cout << album.track_lengths[1] << endl;", "annotation": "Access the array field, then index it with [1]. Prints 4.2.", "atomIds": ["T-09"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-09",
+    "levelLabel": "L11 -> array field declared like normal field plus [N]",
+    "fullCode": "struct song {\n  int durations[5];\n};\nint main() {\n  song s;\n  for (int i = 0; i < 5; i++) {\n    s.durations[i] = i * 60;\n  }\n  cout << s.durations[2] << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 2, "code": "  int durations[5];", "annotation": "Array field: 5 ints stored together as part of song.", "atomIds": ["T-09"] },
+      { "line": 7, "code": "    s.durations[i] = i * 60;", "annotation": "Loop fills the array field. Use s.durations[i] just like a normal array.", "atomIds": ["T-09"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-09",
+    "levelLabel": "L11 -> Q1 stat_double-style struct",
+    "fullCode": "struct song {\n  double numbers[5];\n  double mystery;\n};\nint main() {\n  song s;\n  s.numbers[0] = 10.0;\n  s.mystery = 0.0;\n  s.mystery = s.numbers[0];\n  cout << s.mystery << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 2, "code": "  double numbers[5];", "annotation": "Array field of 5 doubles -- exactly like the Q1 stat_double pattern.", "atomIds": ["T-09"] },
+      { "line": 3, "code": "  double mystery;", "annotation": "Scalar double field beside the array.", "atomIds": ["T-09"] },
+      { "line": 9, "code": "  s.mystery = s.numbers[0];", "annotation": "Read the array element (s.numbers[0]) and write it into s.mystery.", "atomIds": ["T-09"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "T-09",
+    "code": "struct song {\n  double track_lengths[3];\n};\nint main() {\n  song album;\n  album.track_lengths[0] = 3.5;\n  album.track_lengths[1] = 4.2;\n  album.track_lengths[2] = 2.8;\n  cout << album.track_lengths[1] << endl;\n  return 0;\n}",
+    "variables": ["album.track_lengths[0]", "album.track_lengths[1]", "album.track_lengths[2]"],
+    "expectedSteps": [
+      { "line": 6, "variable": "album.track_lengths[0]", "value": "3.5" },
+      { "line": 7, "variable": "album.track_lengths[1]", "value": "4.2" },
+      { "line": 8, "variable": "album.track_lengths[2]", "value": "2.8" },
+      { "line": 9, "variable": "album.track_lengths[1]", "value": "4.2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["4.2"],
+    "inputMode": "final-only",
+    "teachMe": "Array field filled at three indices; print element at index 1. Output: 4.2."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-09",
+    "code": "struct song {\n  int durations[3];\n};\nint main() {\n  song s;\n  s.durations[0] = 60;\n  s.durations[1] = 120;\n  s.durations[2] = 180;\n  int sum = s.durations[0] + s.durations[1] + s.durations[2];\n  cout << sum << endl;\n  return 0;\n}",
+    "variables": ["s.durations[0]", "s.durations[1]", "s.durations[2]", "sum"],
+    "expectedSteps": [
+      { "line": 6, "variable": "s.durations[0]", "value": "60" },
+      { "line": 7, "variable": "s.durations[1]", "value": "120" },
+      { "line": 8, "variable": "s.durations[2]", "value": "180" },
+      { "line": 9, "variable": "sum", "value": "360" },
+      { "line": 10, "variable": "sum", "value": "360" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["360"],
+    "inputMode": "final-only",
+    "teachMe": "60 + 120 + 180 = 360."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-09",
+    "code": "struct song {\n  double numbers[5];\n  double mystery;\n};\nint main() {\n  song s;\n  s.numbers[0] = 1.0;\n  s.numbers[1] = 2.0;\n  s.mystery = s.numbers[1];\n  cout << s.mystery << endl;\n  return 0;\n}",
+    "variables": ["s.numbers[0]", "s.numbers[1]", "s.mystery"],
+    "expectedSteps": [
+      { "line": 7, "variable": "s.numbers[0]", "value": "1.0" },
+      { "line": 8, "variable": "s.numbers[1]", "value": "2.0" },
+      { "line": 9, "variable": "s.mystery", "value": "2.0" },
+      { "line": 10, "variable": "s.mystery", "value": "2.0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2"],
+    "inputMode": "final-only",
+    "teachMe": "Q1 pattern: read s.numbers[1] (=2.0), write into s.mystery."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-09",
+    "code": "struct song {\n  int durations[4];\n};\nint main() {\n  song s;\n  for (int i = 0; i < 4; i++) {\n    s.durations[i] = i;\n  }\n  cout << s.durations[3] << endl;\n  return 0;\n}",
+    "variables": ["s.durations[0]", "s.durations[1]", "s.durations[2]", "s.durations[3]"],
+    "expectedSteps": [
+      { "line": 7, "variable": "s.durations[0]", "value": "0" },
+      { "line": 7, "variable": "s.durations[1]", "value": "1" },
+      { "line": 7, "variable": "s.durations[2]", "value": "2" },
+      { "line": 7, "variable": "s.durations[3]", "value": "3" },
+      { "line": 9, "variable": "s.durations[3]", "value": "3" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3"],
+    "inputMode": "final-only",
+    "teachMe": "Loop fills s.durations[0..3] with 0..3. Print s.durations[3] = 3."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "T-09",
+    "code": "struct song {\n  double track_lengths[___];\n};",
+    "clozeSentence": "Size of the array field (use 3):",
+    "answer": "3",
+    "explanation": "Array field: TYPE NAME[SIZE]; -- the size goes inside [ ]."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-09",
+    "code": "struct song {\n  ___ durations[5];\n};\n// Each element is an int",
+    "clozeSentence": "Type for each element:",
+    "answer": "int",
+    "explanation": "int is the element type. Whole field is 'int durations[5];'."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-09",
+    "code": "struct song {\n  double numbers[5];\n  double mystery;\n};\n// Number of fields: ___",
+    "clozeSentence": "Field count:",
+    "answer": "2",
+    "explanation": "Two fields: an array and a scalar. Both are members."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-09",
+    "code": "song album;\nalbum.track_lengths[___] = 3.5;\n// Set the FIRST element",
+    "clozeSentence": "Index of first element:",
+    "answer": "0",
+    "explanation": "C++ arrays are 0-indexed. First element is at index 0."
+  },
+
+  {
+    "type": "write",
+    "atomId": "T-09",
+    "level": 1,
+    "spec": "Write a single field declaration: array of 5 doubles named 'numbers'",
+    "expectedAnswer": "double numbers[5];",
+    "keyChecks": ["double", "numbers[5]", ";"],
+    "explanation": "Field with array: TYPE NAME[SIZE];"
+  },
+  {
+    "type": "write",
+    "atomId": "T-09",
+    "level": 2,
+    "spec": "Complete: struct song with array field 'durations' of 3 ints. End with };.",
+    "template": "struct song {\n  ___\n};",
+    "expectedAnswer": "struct song {\n  int durations[3];\n};",
+    "keyChecks": ["struct song", "int durations[3];", "};"],
+    "explanation": "One array field inside the struct."
+  },
+  {
+    "type": "write",
+    "atomId": "T-09",
+    "level": 3,
+    "spec": "Write a struct named 'song' with two fields: string title, double track_lengths[3]. End with };.",
+    "expectedAnswer": "struct song {\n  string title;\n  double track_lengths[3];\n};",
+    "keyChecks": ["struct song", "string title;", "double track_lengths[3];", "};"],
+    "explanation": "A struct can hold both scalar and array fields."
+  },
+  {
+    "type": "write",
+    "atomId": "T-09",
+    "level": 3,
+    "spec": "Write a struct named 'song' modeled on stat_double: double numbers[5], double mystery. End with };.",
+    "expectedAnswer": "struct song {\n  double numbers[5];\n  double mystery;\n};",
+    "keyChecks": ["struct song", "double numbers[5];", "double mystery;", "};"],
+    "explanation": "Q1 stat_double-style. Array + scalar."
+  },
+  {
+    "type": "write",
+    "atomId": "T-09",
+    "level": 3,
+    "spec": "Write a struct named 'song' with: string title, int durations[4]. End with };.",
+    "expectedAnswer": "struct song {\n  string title;\n  int durations[4];\n};",
+    "keyChecks": ["struct song", "string title;", "int durations[4];", "};"],
+    "explanation": "Two fields: a string and an array of 4 ints."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "T-10",
+    "levelLabel": "L11 -> chained dot then index (contact)",
+    "fullCode": "struct contact {\n  string name;\n  string phones[3];\n};\nint main() {\n  contact c;\n  c.name = \"Sam\";\n  c.phones[0] = \"555-0101\";\n  c.phones[1] = \"555-0102\";\n  c.phones[2] = \"555-0103\";\n  cout << c.phones[0] << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 8, "code": "  c.phones[0] = \"555-0101\";", "annotation": "Read left to right: 'c' is the contact, .phones is the array field, [0] is the first element.", "atomIds": ["T-10"] },
+      { "line": 11, "code": "  cout << c.phones[0] << endl;", "annotation": "Same pattern for reading. c.phones[0] is one string slot.", "atomIds": ["T-10"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-10",
+    "levelLabel": "L11 -> dot first, then index",
+    "fullCode": "struct contact {\n  string emails[2];\n};\nint main() {\n  contact c;\n  c.emails[0] = \"a@x.com\";\n  c.emails[1] = \"b@x.com\";\n  cout << c.emails[1] << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 5, "code": "  c.emails[0] = \"a@x.com\";", "annotation": "c.emails: pick the array field. [0]: pick the first element of that field.", "atomIds": ["T-10"] },
+      { "line": 7, "code": "  cout << c.emails[1] << endl;", "annotation": "Same chain to read the second element of the array field.", "atomIds": ["T-10"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-10",
+    "levelLabel": "L11 -> Q1 chained access pattern",
+    "fullCode": "struct contact {\n  double scores[5];\n  double mystery;\n};\nint main() {\n  contact c;\n  c.scores[0] = 7.5;\n  c.scores[1] = 8.0;\n  c.mystery = c.scores[0];\n  cout << c.mystery << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 6, "code": "  c.scores[0] = 7.5;", "annotation": "Write to chain: c.scores[0]. Same shape as Q1's data.numbers[i].", "atomIds": ["T-10"] },
+      { "line": 8, "code": "  c.mystery = c.scores[0];", "annotation": "Read c.scores[0] and copy into c.mystery -- mimics who_am_i Q1 pattern.", "atomIds": ["T-10"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "T-10",
+    "code": "struct contact {\n  string phones[3];\n};\nint main() {\n  contact c;\n  c.phones[0] = \"555-0101\";\n  c.phones[1] = \"555-0102\";\n  c.phones[2] = \"555-0103\";\n  cout << c.phones[1] << endl;\n  return 0;\n}",
+    "variables": ["c.phones[0]", "c.phones[1]", "c.phones[2]"],
+    "expectedSteps": [
+      { "line": 6, "variable": "c.phones[0]", "value": "\"555-0101\"" },
+      { "line": 7, "variable": "c.phones[1]", "value": "\"555-0102\"" },
+      { "line": 8, "variable": "c.phones[2]", "value": "\"555-0103\"" },
+      { "line": 9, "variable": "c.phones[1]", "value": "\"555-0102\"" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["555-0102"],
+    "inputMode": "final-only",
+    "teachMe": "Three writes to the array field at distinct indices. Read c.phones[1]: '555-0102'."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-10",
+    "code": "struct contact {\n  double scores[3];\n  double mystery;\n};\nint main() {\n  contact c;\n  c.scores[0] = 7.0;\n  c.scores[1] = 8.0;\n  c.scores[2] = 9.0;\n  c.mystery = c.scores[2];\n  cout << c.mystery << endl;\n  return 0;\n}",
+    "variables": ["c.scores[0]", "c.scores[1]", "c.scores[2]", "c.mystery"],
+    "expectedSteps": [
+      { "line": 7, "variable": "c.scores[0]", "value": "7.0" },
+      { "line": 8, "variable": "c.scores[1]", "value": "8.0" },
+      { "line": 9, "variable": "c.scores[2]", "value": "9.0" },
+      { "line": 10, "variable": "c.mystery", "value": "9.0" },
+      { "line": 11, "variable": "c.mystery", "value": "9.0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["9"],
+    "inputMode": "final-only",
+    "teachMe": "Q1 pattern: read c.scores[2] = 9.0, copy into c.mystery."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-10",
+    "code": "struct contact {\n  int counts[4];\n};\nint main() {\n  contact c;\n  for (int i = 0; i < 4; i++) {\n    c.counts[i] = i * i;\n  }\n  cout << c.counts[3] << endl;\n  return 0;\n}",
+    "variables": ["c.counts[0]", "c.counts[1]", "c.counts[2]", "c.counts[3]"],
+    "expectedSteps": [
+      { "line": 7, "variable": "c.counts[0]", "value": "0" },
+      { "line": 7, "variable": "c.counts[1]", "value": "1" },
+      { "line": 7, "variable": "c.counts[2]", "value": "4" },
+      { "line": 7, "variable": "c.counts[3]", "value": "9" },
+      { "line": 9, "variable": "c.counts[3]", "value": "9" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["9"],
+    "inputMode": "final-only",
+    "teachMe": "Loop fills c.counts[i] = i*i. c.counts[3] = 9."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-10",
+    "code": "struct contact {\n  double values[3];\n};\nint main() {\n  contact c;\n  c.values[0] = 1.0;\n  c.values[1] = 2.0;\n  c.values[2] = 3.0;\n  double total = c.values[0] + c.values[1] + c.values[2];\n  cout << total << endl;\n  return 0;\n}",
+    "variables": ["c.values[0]", "c.values[1]", "c.values[2]", "total"],
+    "expectedSteps": [
+      { "line": 6, "variable": "c.values[0]", "value": "1.0" },
+      { "line": 7, "variable": "c.values[1]", "value": "2.0" },
+      { "line": 8, "variable": "c.values[2]", "value": "3.0" },
+      { "line": 9, "variable": "total", "value": "6" },
+      { "line": 10, "variable": "total", "value": "6" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["6"],
+    "inputMode": "final-only",
+    "teachMe": "Sum chained accesses: c.values[0] + c.values[1] + c.values[2] = 6."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "T-10",
+    "code": "contact c;\nc.phones[___] = \"555-0101\";\n// Set the first phone slot",
+    "clozeSentence": "Index for first slot:",
+    "answer": "0",
+    "explanation": "Arrays are 0-indexed. First slot is [0]."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-10",
+    "code": "contact c;\nc.scores[2] = 9.0;\n// reads as: instance dot field then index\n// pattern: c.field[___]",
+    "clozeSentence": "Index used:",
+    "answer": "2",
+    "explanation": "[2] picks the third slot of c.scores. Chain: c -> .scores -> [2]."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-10",
+    "code": "// Chain order: c ___ scores ___ 0 ___\n// (correct: c.scores[0])",
+    "clozeSentence": "What goes between 'c' and 'scores' in the chain?",
+    "answer": ".",
+    "explanation": "Dot first to reach the field, then [index] to pick an element."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-10",
+    "code": "// Wrong chain: c[0].scores -- index BEFORE the field is wrong\n// Correct: c.scores[0] -- field FIRST, then index\n// The dot comes ___",
+    "clozeSentence": "before or after the bracket?",
+    "answer": "before",
+    "explanation": "Dot first (to pick the field), then bracket (to index that field's array)."
+  },
+
+  {
+    "type": "write",
+    "atomId": "T-10",
+    "level": 1,
+    "spec": "Given `contact c;` -- write one line that sets c.phones[0] to \"555-0101\"",
+    "expectedAnswer": "c.phones[0] = \"555-0101\";",
+    "keyChecks": ["c.phones[0]", "\"555-0101\"", ";"],
+    "explanation": "Chain: c.phones[0]. Then = and the value."
+  },
+  {
+    "type": "write",
+    "atomId": "T-10",
+    "level": 1,
+    "spec": "Given `contact c; c.scores[0] = 7.0; c.scores[1] = 8.0;` -- write one cout line that prints c.scores[1] with endl",
+    "expectedAnswer": "cout << c.scores[1] << endl;",
+    "keyChecks": ["cout << c.scores[1]", "endl"],
+    "explanation": "Chain: c -> .scores -> [1] to read element."
+  },
+  {
+    "type": "write",
+    "atomId": "T-10",
+    "level": 2,
+    "spec": "Given the struct, complete main: assign 5.0, 6.0, 7.0 into c.values[0], c.values[1], c.values[2]",
+    "template": "struct contact {\n  double values[3];\n};\nint main() {\n  contact c;\n  ___\n  ___\n  ___\n  return 0;\n}",
+    "expectedAnswer": "struct contact {\n  double values[3];\n};\nint main() {\n  contact c;\n  c.values[0] = 5.0;\n  c.values[1] = 6.0;\n  c.values[2] = 7.0;\n  return 0;\n}",
+    "keyChecks": ["c.values[0] = 5.0;", "c.values[1] = 6.0;", "c.values[2] = 7.0;"],
+    "explanation": "Three chained-access writes to the array field."
+  },
+  {
+    "type": "write",
+    "atomId": "T-10",
+    "level": 3,
+    "spec": "Write a complete program: struct contact with double scores[3]. main() declares c, fills c.scores[0]=7.0, [1]=8.0, [2]=9.0, then prints c.scores[2] with endl.",
+    "expectedAnswer": "struct contact {\n  double scores[3];\n};\nint main() {\n  contact c;\n  c.scores[0] = 7.0;\n  c.scores[1] = 8.0;\n  c.scores[2] = 9.0;\n  cout << c.scores[2] << endl;\n  return 0;\n}",
+    "keyChecks": ["struct contact", "double scores[3];", "};", "c.scores[0] = 7.0;", "c.scores[1] = 8.0;", "c.scores[2] = 9.0;", "cout << c.scores[2]"],
+    "explanation": "struct + array field + chained access."
+  },
+  {
+    "type": "write",
+    "atomId": "T-10",
+    "level": 3,
+    "spec": "Write a complete program (Q1-style): struct contact with double scores[3] and double mystery. main() sets c.scores[0]=10.0, c.mystery=c.scores[0], prints c.mystery.",
+    "expectedAnswer": "struct contact {\n  double scores[3];\n  double mystery;\n};\nint main() {\n  contact c;\n  c.scores[0] = 10.0;\n  c.mystery = c.scores[0];\n  cout << c.mystery << endl;\n  return 0;\n}",
+    "keyChecks": ["struct contact", "double scores[3];", "double mystery;", "};", "c.scores[0] = 10.0;", "c.mystery = c.scores[0];", "cout << c.mystery"],
+    "explanation": "Q1-style chained read into another field."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "T-11",
+    "levelLabel": "L11 -> array of structs (sensor)",
+    "fullCode": "struct sensor {\n  int id;\n  double value;\n};\nint main() {\n  sensor list[3];\n  list[0].id = 1;\n  list[1].id = 2;\n  list[2].id = 3;\n  cout << list[1].id << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 6, "code": "  sensor list[3];", "annotation": "An array of 3 sensors. Each list[i] is a full sensor struct.", "atomIds": ["T-11"] },
+      { "line": 10, "code": "  cout << list[1].id << endl;", "annotation": "Print the id of the second sensor: list[1].id.", "atomIds": ["T-11"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-11",
+    "levelLabel": "L11 -> Q3-style array declaration",
+    "fullCode": "const int MAX = 5;\nstruct sensor {\n  int id;\n  double value;\n};\nint main() {\n  sensor list[MAX];\n  // Now list has MAX sensor instances at indices 0..MAX-1\n  list[0].id = 100;\n  cout << list[0].id << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 7, "code": "  sensor list[MAX];", "annotation": "Use a constant for the array size. Standard Q3/Q4 pattern.", "atomIds": ["T-11"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-11",
+    "levelLabel": "L11 -> standard array syntax with struct element type",
+    "fullCode": "struct sensor {\n  double value;\n};\nint main() {\n  sensor readings[2];\n  readings[0].value = 22.5;\n  readings[1].value = 25.0;\n  cout << readings[0].value << \" \" << readings[1].value << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 5, "code": "  sensor readings[2];", "annotation": "Same shape as 'int x[2];' but element type is sensor instead of int.", "atomIds": ["T-11"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "T-11",
+    "code": "struct sensor {\n  int id;\n};\nint main() {\n  sensor list[3];\n  list[0].id = 1;\n  list[1].id = 2;\n  list[2].id = 3;\n  cout << list[2].id << endl;\n  return 0;\n}",
+    "variables": ["list[0].id", "list[1].id", "list[2].id"],
+    "expectedSteps": [
+      { "line": 6, "variable": "list[0].id", "value": "1" },
+      { "line": 7, "variable": "list[1].id", "value": "2" },
+      { "line": 8, "variable": "list[2].id", "value": "3" },
+      { "line": 9, "variable": "list[2].id", "value": "3" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3"],
+    "inputMode": "final-only",
+    "teachMe": "Three sensors in list, each with its own id field. Print list[2].id = 3."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-11",
+    "code": "struct sensor {\n  double value;\n};\nint main() {\n  sensor list[2];\n  list[0].value = 10.0;\n  list[1].value = 20.0;\n  double total = list[0].value + list[1].value;\n  cout << total << endl;\n  return 0;\n}",
+    "variables": ["list[0].value", "list[1].value", "total"],
+    "expectedSteps": [
+      { "line": 6, "variable": "list[0].value", "value": "10.0" },
+      { "line": 7, "variable": "list[1].value", "value": "20.0" },
+      { "line": 8, "variable": "total", "value": "30" },
+      { "line": 9, "variable": "total", "value": "30" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["30"],
+    "inputMode": "final-only",
+    "teachMe": "10 + 20 = 30."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-11",
+    "code": "struct sensor {\n  int id;\n  double value;\n};\nint main() {\n  sensor list[2];\n  list[0].id = 1;\n  list[0].value = 22.5;\n  list[1].id = 2;\n  list[1].value = 30.0;\n  cout << list[0].id << \" \" << list[0].value << endl;\n  cout << list[1].id << \" \" << list[1].value << endl;\n  return 0;\n}",
+    "variables": ["list[0].id", "list[0].value", "list[1].id", "list[1].value"],
+    "expectedSteps": [
+      { "line": 7, "variable": "list[0].id", "value": "1" },
+      { "line": 8, "variable": "list[0].value", "value": "22.5" },
+      { "line": 9, "variable": "list[1].id", "value": "2" },
+      { "line": 10, "variable": "list[1].value", "value": "30.0" },
+      { "line": 11, "variable": "list[0].id", "value": "1" },
+      { "line": 12, "variable": "list[1].id", "value": "2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1 22.5", "2 30"],
+    "inputMode": "final-only",
+    "teachMe": "Each list[i] has its own id and value fields. Two sensors, two output lines."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-11",
+    "code": "struct sensor {\n  int id;\n};\nint main() {\n  sensor readings[3];\n  for (int i = 0; i < 3; i++) {\n    readings[i].id = i * 10;\n  }\n  cout << readings[2].id << endl;\n  return 0;\n}",
+    "variables": ["readings[0].id", "readings[1].id", "readings[2].id"],
+    "expectedSteps": [
+      { "line": 7, "variable": "readings[0].id", "value": "0" },
+      { "line": 7, "variable": "readings[1].id", "value": "10" },
+      { "line": 7, "variable": "readings[2].id", "value": "20" },
+      { "line": 9, "variable": "readings[2].id", "value": "20" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["20"],
+    "inputMode": "final-only",
+    "teachMe": "Loop fills each readings[i].id. readings[2].id = 20."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "T-11",
+    "code": "struct sensor { int id; };\nsensor list[___];\n// Array of 3 sensors",
+    "clozeSentence": "Number of elements:",
+    "answer": "3",
+    "explanation": "Size goes inside [ ]. Here we want 3 elements."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-11",
+    "code": "struct sensor { int id; };\n___ list[3];\n// Array element type",
+    "clozeSentence": "Element type:",
+    "answer": "sensor",
+    "explanation": "Use the struct name as the array element type, like int or double."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-11",
+    "code": "// 'sensor list[3]' creates ___ sensor instances (number)",
+    "clozeSentence": "How many sensors?",
+    "answer": "3",
+    "explanation": "Array of 3 sensors. Each list[0..2] is one full sensor."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-11",
+    "code": "const int MAX = 5;\nsensor ___[MAX];\n// Standard Q3/Q4 array name",
+    "clozeSentence": "Array name (use 'list'):",
+    "answer": "list",
+    "explanation": "SIT102 convention: 'list' for the array of structs in Q3/Q4."
+  },
+
+  {
+    "type": "write",
+    "atomId": "T-11",
+    "level": 1,
+    "spec": "Given `struct sensor { int id; };` -- declare an array of 3 sensors named 'list'",
+    "expectedAnswer": "sensor list[3];",
+    "keyChecks": ["sensor", "list[3]", ";"],
+    "explanation": "Type name + variable name + [size] + ;."
+  },
+  {
+    "type": "write",
+    "atomId": "T-11",
+    "level": 2,
+    "spec": "Define a struct sensor with int id, then declare an array list of 3 sensors inside main",
+    "template": "___\nint main() {\n  ___\n  return 0;\n}",
+    "expectedAnswer": "struct sensor {\n  int id;\n};\nint main() {\n  sensor list[3];\n  return 0;\n}",
+    "keyChecks": ["struct sensor", "int id;", "};", "sensor list[3];"],
+    "explanation": "Define struct, then declare an array of that struct."
+  },
+  {
+    "type": "write",
+    "atomId": "T-11",
+    "level": 3,
+    "spec": "Write a complete program: struct sensor with int id and double value. main() declares sensor list[2], sets list[0].id=1, list[0].value=22.5, prints list[0].id then space then list[0].value.",
+    "expectedAnswer": "struct sensor {\n  int id;\n  double value;\n};\nint main() {\n  sensor list[2];\n  list[0].id = 1;\n  list[0].value = 22.5;\n  cout << list[0].id << \" \" << list[0].value << endl;\n  return 0;\n}",
+    "keyChecks": ["struct sensor", "int id;", "double value;", "};", "sensor list[2];", "list[0].id = 1;", "list[0].value = 22.5;", "cout << list[0].id"],
+    "explanation": "struct + array of structs + chained writes/reads (matches Q3/Q4)."
+  },
+  {
+    "type": "write",
+    "atomId": "T-11",
+    "level": 3,
+    "spec": "Write a complete program: struct sensor with int id. Use const int MAX = 4; declare sensor list[MAX]; in main, set list[0].id=99 and print it.",
+    "expectedAnswer": "struct sensor {\n  int id;\n};\nint main() {\n  const int MAX = 4;\n  sensor list[MAX];\n  list[0].id = 99;\n  cout << list[0].id << endl;\n  return 0;\n}",
+    "keyChecks": ["struct sensor", "int id;", "};", "const int MAX = 4;", "sensor list[MAX];", "list[0].id = 99;"],
+    "explanation": "Q3-style: const MAX size + array of structs + chained access."
+  },
+  {
+    "type": "write",
+    "atomId": "T-11",
+    "level": 3,
+    "spec": "Write a complete program: struct sensor with double value. Declare sensor readings[2]; set readings[0].value=10.0 and readings[1].value=20.0. Print their sum.",
+    "expectedAnswer": "struct sensor {\n  double value;\n};\nint main() {\n  sensor readings[2];\n  readings[0].value = 10.0;\n  readings[1].value = 20.0;\n  cout << readings[0].value + readings[1].value << endl;\n  return 0;\n}",
+    "keyChecks": ["struct sensor", "double value;", "};", "sensor readings[2];", "readings[0].value = 10.0;", "readings[1].value = 20.0;"],
+    "explanation": "Two struct array elements; sum their value field."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "T-12",
+    "levelLabel": "L11 -> list[i].field chained access (transaction)",
+    "fullCode": "struct transaction {\n  int id;\n  double amount;\n};\nint main() {\n  transaction list[2];\n  list[0].id = 100;\n  list[0].amount = 50.0;\n  list[1].id = 101;\n  list[1].amount = 75.0;\n  cout << list[1].id << \" $\" << list[1].amount << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 6, "code": "  transaction list[2];", "annotation": "Array of 2 transactions. list[i] is a transaction struct.", "atomIds": ["T-12"] },
+      { "line": 7, "code": "  list[0].id = 100;", "annotation": "Chain: list[0] picks the first transaction; .id picks its id field.", "atomIds": ["T-12"] },
+      { "line": 11, "code": "  cout << list[1].id << \" $\" << list[1].amount << endl;", "annotation": "Same chain reads each field. Output: '101 $75'.", "atomIds": ["T-12"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-12",
+    "levelLabel": "L11 -> Q3 read pattern (cin >> list[i].field)",
+    "fullCode": "struct transaction {\n  int id;\n  double amount;\n};\nvoid read_transactions(transaction list[], int n) {\n  for (int i = 0; i < n; i++) {\n    cin >> list[i].id;\n    cin >> list[i].amount;\n  }\n}",
+    "steps": [
+      { "line": 5, "code": "void read_transactions(transaction list[], int n) {", "annotation": "Q3 read function: takes array of structs and a count.", "atomIds": ["T-12"] },
+      { "line": 7, "code": "    cin >> list[i].id;", "annotation": "Chain: list[i] picks the i-th transaction; .id picks its id field. Then cin reads into it.", "atomIds": ["T-12"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "T-12",
+    "levelLabel": "L11 -> bracket then dot per element",
+    "fullCode": "struct transaction {\n  double amount;\n};\nint main() {\n  transaction list[3];\n  for (int i = 0; i < 3; i++) {\n    list[i].amount = (i + 1) * 10.0;\n  }\n  cout << list[2].amount << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 7, "code": "    list[i].amount = (i + 1) * 10.0;", "annotation": "Pattern: list[i] picks element, .amount picks field, = writes value.", "atomIds": ["T-12"] },
+      { "line": 9, "code": "  cout << list[2].amount << endl;", "annotation": "Read list[2].amount: (2+1)*10.0 = 30.0.", "atomIds": ["T-12"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "T-12",
+    "code": "struct transaction {\n  int id;\n  double amount;\n};\nint main() {\n  transaction list[2];\n  list[0].id = 100;\n  list[0].amount = 50.0;\n  list[1].id = 101;\n  list[1].amount = 75.0;\n  cout << list[1].id << \" \" << list[1].amount << endl;\n  return 0;\n}",
+    "variables": ["list[0].id", "list[0].amount", "list[1].id", "list[1].amount"],
+    "expectedSteps": [
+      { "line": 7, "variable": "list[0].id", "value": "100" },
+      { "line": 8, "variable": "list[0].amount", "value": "50.0" },
+      { "line": 9, "variable": "list[1].id", "value": "101" },
+      { "line": 10, "variable": "list[1].amount", "value": "75.0" },
+      { "line": 11, "variable": "list[1].id", "value": "101" },
+      { "line": 11, "variable": "list[1].amount", "value": "75.0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["101 75"],
+    "inputMode": "final-only",
+    "teachMe": "Two transactions; print list[1] fields. Output: '101 75'."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-12",
+    "code": "struct transaction {\n  double amount;\n};\nint main() {\n  transaction list[3];\n  for (int i = 0; i < 3; i++) {\n    list[i].amount = (i + 1) * 10.0;\n  }\n  cout << list[2].amount << endl;\n  return 0;\n}",
+    "variables": ["list[0].amount", "list[1].amount", "list[2].amount"],
+    "expectedSteps": [
+      { "line": 7, "variable": "list[0].amount", "value": "10.0" },
+      { "line": 7, "variable": "list[1].amount", "value": "20.0" },
+      { "line": 7, "variable": "list[2].amount", "value": "30.0" },
+      { "line": 9, "variable": "list[2].amount", "value": "30.0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["30"],
+    "inputMode": "final-only",
+    "teachMe": "Loop fills list[i].amount = (i+1)*10. list[2].amount = 30."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-12",
+    "code": "struct transaction {\n  double amount;\n};\nint main() {\n  transaction list[2];\n  list[0].amount = 25.0;\n  list[1].amount = 75.0;\n  double total = list[0].amount + list[1].amount;\n  cout << total << endl;\n  return 0;\n}",
+    "variables": ["list[0].amount", "list[1].amount", "total"],
+    "expectedSteps": [
+      { "line": 6, "variable": "list[0].amount", "value": "25.0" },
+      { "line": 7, "variable": "list[1].amount", "value": "75.0" },
+      { "line": 8, "variable": "total", "value": "100" },
+      { "line": 9, "variable": "total", "value": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["100"],
+    "inputMode": "final-only",
+    "teachMe": "Sum the chained accesses: 25 + 75 = 100."
+  },
+  {
+    "type": "trace",
+    "atomId": "T-12",
+    "code": "struct transaction {\n  int id;\n};\nint main() {\n  transaction list[3];\n  for (int i = 0; i < 3; i++) {\n    list[i].id = 200 + i;\n  }\n  cout << list[0].id << \" \" << list[2].id << endl;\n  return 0;\n}",
+    "variables": ["list[0].id", "list[1].id", "list[2].id"],
+    "expectedSteps": [
+      { "line": 7, "variable": "list[0].id", "value": "200" },
+      { "line": 7, "variable": "list[1].id", "value": "201" },
+      { "line": 7, "variable": "list[2].id", "value": "202" },
+      { "line": 9, "variable": "list[0].id", "value": "200" },
+      { "line": 9, "variable": "list[2].id", "value": "202" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["200 202"],
+    "inputMode": "final-only",
+    "teachMe": "Three transactions filled with 200, 201, 202. Print first and last."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "T-12",
+    "code": "transaction list[3];\nlist[___].id = 100;\n// Set the FIRST transaction's id",
+    "clozeSentence": "Index of first element:",
+    "answer": "0",
+    "explanation": "C++ arrays are 0-indexed. First element is list[0]."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-12",
+    "code": "// Q3 read pattern:\nfor (int i = 0; i < n; i++) {\n  cin >> list[i].___;\n}",
+    "clozeSentence": "Sample field name to read into (use 'id'):",
+    "answer": "id",
+    "explanation": "cin >> list[i].id reads the user input into the i-th transaction's id field."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-12",
+    "code": "// Wrong: list.id[i] -- field BEFORE bracket\n// Right: list[___].id\n// (index first, then dot)",
+    "clozeSentence": "Symbol/letter inside the bracket:",
+    "answer": "i",
+    "explanation": "Bracket the array first to pick the element, then dot for the field."
+  },
+  {
+    "type": "cloze",
+    "atomId": "T-12",
+    "code": "transaction list[2];\n// Read order in chain: bracket then ___",
+    "clozeSentence": "What comes after the bracket in 'list[i].field'?",
+    "answer": "dot",
+    "explanation": "Dot follows bracket: list[i].field is the canonical chain."
+  },
+
+  {
+    "type": "write",
+    "atomId": "T-12",
+    "level": 1,
+    "spec": "Given `transaction list[3];` -- write one line that sets list[0].id to 100",
+    "expectedAnswer": "list[0].id = 100;",
+    "keyChecks": ["list[0].id", "100", ";"],
+    "explanation": "Chain list[0].id then assign 100."
+  },
+  {
+    "type": "write",
+    "atomId": "T-12",
+    "level": 1,
+    "spec": "Given `transaction list[3]; list[1].amount = 50.0;` -- write a cout line that prints list[1].amount with endl",
+    "expectedAnswer": "cout << list[1].amount << endl;",
+    "keyChecks": ["cout << list[1].amount", "endl"],
+    "explanation": "Chain list[1].amount in cout."
+  },
+  {
+    "type": "write",
+    "atomId": "T-12",
+    "level": 2,
+    "spec": "Complete: write a for loop that reads (cin) id and amount into list[i] for i=0..n-1",
+    "template": "for (int i = 0; i < n; i++) {\n  ___\n  ___\n}",
+    "expectedAnswer": "for (int i = 0; i < n; i++) {\n  cin >> list[i].id;\n  cin >> list[i].amount;\n}",
+    "keyChecks": ["for (int i = 0;", "cin >> list[i].id", "cin >> list[i].amount"],
+    "explanation": "Q3 read pattern: cin >> list[i].field for each field."
+  },
+  {
+    "type": "write",
+    "atomId": "T-12",
+    "level": 3,
+    "spec": "Write a complete program: struct transaction with int id and double amount. main() declares list[2], sets list[0].id=100, list[0].amount=50.0, list[1].id=101, list[1].amount=75.0, prints list[1].id space list[1].amount.",
+    "expectedAnswer": "struct transaction {\n  int id;\n  double amount;\n};\nint main() {\n  transaction list[2];\n  list[0].id = 100;\n  list[0].amount = 50.0;\n  list[1].id = 101;\n  list[1].amount = 75.0;\n  cout << list[1].id << \" \" << list[1].amount << endl;\n  return 0;\n}",
+    "keyChecks": ["struct transaction", "int id;", "double amount;", "};", "transaction list[2];", "list[0].id = 100;", "list[1].amount = 75.0;", "cout << list[1].id"],
+    "explanation": "Full Q3-shape: struct + array of structs + chained field writes/reads."
+  },
+  {
+    "type": "write",
+    "atomId": "T-12",
+    "level": 3,
+    "spec": "Write a Q3-style read function: void read_transactions(transaction list[], int n) reads id and amount into list[i] for i=0..n-1 using cin.",
+    "expectedAnswer": "void read_transactions(transaction list[], int n) {\n  for (int i = 0; i < n; i++) {\n    cin >> list[i].id;\n    cin >> list[i].amount;\n  }\n}",
+    "keyChecks": ["void read_transactions(transaction list[], int n)", "for (int i = 0;", "cin >> list[i].id", "cin >> list[i].amount"],
+    "explanation": "The canonical Q3 read pattern -- list[i].field chained access in a loop."
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "T-02",
+    "id": "PD-T02-01",
+    "section": "Struct definition skeleton",
+    "prompt": "Write the struct definition for employee_data with fields: int id, string name, double salary",
+    "expectedAnswer": "struct employee_data {\n  int id;\n  string name;\n  double salary;\n};",
+    "keyChecks": ["struct employee_data", "int id;", "string name;", "double salary;", "};"],
+    "variants": [
+      { "prompt": "Write struct employee_data with: int id, string name, string department", "expectedAnswer": "struct employee_data {\n  int id;\n  string name;\n  string department;\n};" },
+      { "prompt": "Write struct employee_data with: int id, double hours, double rate", "expectedAnswer": "struct employee_data {\n  int id;\n  double hours;\n  double rate;\n};" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "T-04",
+    "id": "PD-T04-01",
+    "section": "Trailing semicolon discipline",
+    "prompt": "Write struct rectangle with double width and double height -- include the trailing };",
+    "expectedAnswer": "struct rectangle {\n  double width;\n  double height;\n};",
+    "keyChecks": ["struct rectangle", "double width;", "double height;", "};"],
+    "variants": [
+      { "prompt": "Write struct rectangle with int w and int h -- include trailing };", "expectedAnswer": "struct rectangle {\n  int w;\n  int h;\n};" },
+      { "prompt": "Write struct rectangle with double width, double height, string color -- with };", "expectedAnswer": "struct rectangle {\n  double width;\n  double height;\n  string color;\n};" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "T-06",
+    "id": "PD-T06-01",
+    "section": "Field access with dot",
+    "prompt": "Given `student_record s;` -- write the line that sets s.id to 100",
+    "expectedAnswer": "s.id = 100;",
+    "keyChecks": ["s.id", "100", ";"],
+    "variants": [
+      { "prompt": "Given `student_record s;` -- write the line that sets s.gpa to 3.5", "expectedAnswer": "s.gpa = 3.5;" },
+      { "prompt": "Given `student_record s;` -- write the line that sets s.name to \"Riley\"", "expectedAnswer": "s.name = \"Riley\";" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "T-12",
+    "id": "PD-T12-01",
+    "section": "list[i].field chained access",
+    "prompt": "Given `transaction list[3];` -- write the line that sets list[0].id to 100",
+    "expectedAnswer": "list[0].id = 100;",
+    "keyChecks": ["list[0].id", "100", ";"],
+    "variants": [
+      { "prompt": "Given `transaction list[3];` -- write the line that sets list[1].amount to 50.0", "expectedAnswer": "list[1].amount = 50.0;" },
+      { "prompt": "Given `transaction list[3];` -- write the line that reads list[2].id with cin", "expectedAnswer": "cin >> list[2].id;" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "T-09",
+    "id": "PD-T09-01",
+    "section": "Array field declaration",
+    "prompt": "Write the field declaration for an array of 5 doubles named 'numbers'",
+    "expectedAnswer": "double numbers[5];",
+    "keyChecks": ["double", "numbers[5]", ";"],
+    "variants": [
+      { "prompt": "Write the field declaration for an array of 3 ints named 'durations'", "expectedAnswer": "int durations[3];" },
+      { "prompt": "Write the field declaration for an array of 4 strings named 'tags'", "expectedAnswer": "string tags[4];" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "T-11",
+    "id": "PD-T11-01",
+    "section": "Array of structs declaration",
+    "prompt": "Given `struct sensor { int id; };` -- declare an array of 3 sensors named 'list'",
+    "expectedAnswer": "sensor list[3];",
+    "keyChecks": ["sensor", "list[3]", ";"],
+    "variants": [
+      { "prompt": "Given `struct sensor { int id; };` -- declare an array of 5 sensors named 'readings'", "expectedAnswer": "sensor readings[5];" },
+      { "prompt": "Given `struct sensor { int id; };` -- declare a const int MAX = 4 then sensor list[MAX]", "expectedAnswer": "const int MAX = 4;\nsensor list[MAX];" }
+    ]
+  },
+
+  {
+    "type": "matrix",
+    "atomId": "T-02",
+    "id": "CM-T02-01",
+    "section": "Struct definition transfer",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: book", "code": "struct book {\n  string title;\n  int year;\n};" },
+      { "label": "Example B: employee_data", "code": "struct employee_data {\n  int id;\n  string name;\n  double salary;\n};" }
+    ],
+    "prompt": "Write `struct point` with fields int x, int y.",
+    "expectedAnswer": "struct point {\n  int x;\n  int y;\n};",
+    "keyChecks": ["struct point", "int x;", "int y;", "};"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "T-04",
+    "id": "CM-T04-01",
+    "section": "Trailing }; discipline",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: short struct ends with };", "code": "struct book {\n  string title;\n};" },
+      { "label": "Example B: longer struct ends with };", "code": "struct employee_data {\n  int id;\n  string name;\n};" }
+    ],
+    "prompt": "Write `struct rectangle` with double width, double height. Include trailing };",
+    "expectedAnswer": "struct rectangle {\n  double width;\n  double height;\n};",
+    "keyChecks": ["struct rectangle", "double width;", "double height;", "};"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "T-06",
+    "id": "CM-T06-01",
+    "section": "Field access pattern",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: write s.id", "code": "student_record s;\ns.id = 100;" },
+      { "label": "Example B: write s.name", "code": "student_record s;\ns.name = \"Riley\";" }
+    ],
+    "prompt": "Write the line: declare `student_record s;` then set s.gpa to 3.85.",
+    "expectedAnswer": "student_record s;\ns.gpa = 3.85;",
+    "keyChecks": ["student_record s;", "s.gpa = 3.85;"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "T-09",
+    "id": "CM-T09-01",
+    "section": "Array field in struct",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: 5 doubles", "code": "struct stat_double {\n  double numbers[5];\n  double mystery;\n};" },
+      { "label": "Example B: 3 ints + scalar", "code": "struct counter {\n  int counts[3];\n  int total;\n};" }
+    ],
+    "prompt": "Write `struct song` with array field `int durations[4]` and scalar field `string title`.",
+    "expectedAnswer": "struct song {\n  int durations[4];\n  string title;\n};",
+    "keyChecks": ["struct song", "int durations[4];", "string title;", "};"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "T-12",
+    "id": "CM-T12-01",
+    "section": "Q3 read function transfer",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: read employees", "code": "void read_employees(employee_data list[], int n) {\n  for (int i = 0; i < n; i++) {\n    cin >> list[i].id;\n    cin >> list[i].name;\n  }\n}" },
+      { "label": "Example B: read books", "code": "void read_books(book list[], int n) {\n  for (int i = 0; i < n; i++) {\n    cin >> list[i].title;\n    cin >> list[i].year;\n  }\n}" }
+    ],
+    "prompt": "Write `void read_transactions(transaction list[], int n)` that reads id and amount into list[i] for i=0..n-1.",
+    "expectedAnswer": "void read_transactions(transaction list[], int n) {\n  for (int i = 0; i < n; i++) {\n    cin >> list[i].id;\n    cin >> list[i].amount;\n  }\n}",
+    "keyChecks": ["void read_transactions(transaction list[], int n)", "for (int i = 0;", "cin >> list[i].id", "cin >> list[i].amount"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "T-11",
+    "id": "CM-T11-01",
+    "section": "Array of structs pattern",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: 3 books", "code": "book list[3];" },
+      { "label": "Example B: MAX sensors", "code": "const int MAX = 5;\nsensor list[MAX];" }
+    ],
+    "prompt": "Declare const int MAX = 4; then declare 'transaction list[MAX];'.",
+    "expectedAnswer": "const int MAX = 4;\ntransaction list[MAX];",
+    "keyChecks": ["const int MAX = 4;", "transaction list[MAX];"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "T-07",
+    "id": "CM-T07-01",
+    "section": "Field write transfer",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: write int field", "code": "printer p;\np.pages_left = 500;" },
+      { "label": "Example B: write string field", "code": "printer p;\np.model = \"LaserJet\";" }
+    ],
+    "prompt": "Given `printer p;` -- write the line that sets p.jobs to 0.",
+    "expectedAnswer": "printer p;\np.jobs = 0;",
+    "keyChecks": ["printer p;", "p.jobs = 0;"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "T-10",
+    "id": "CM-T10-01",
+    "section": "Chained dot-then-bracket",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: scalar field of array slot", "code": "stat d;\nd.numbers[0] = 1.0;" },
+      { "label": "Example B: write all 3 elements", "code": "stat d;\nd.numbers[0] = 1.0;\nd.numbers[1] = 2.0;\nd.numbers[2] = 3.0;" }
+    ],
+    "prompt": "Given `contact c;` (with double scores[3]) -- write three lines that set c.scores[0]=5.0, c.scores[1]=6.0, c.scores[2]=7.0.",
+    "expectedAnswer": "c.scores[0] = 5.0;\nc.scores[1] = 6.0;\nc.scores[2] = 7.0;",
+    "keyChecks": ["c.scores[0] = 5.0;", "c.scores[1] = 6.0;", "c.scores[2] = 7.0;"]
+  },
+
+  {
+    "type": "code-memorize",
+    "atomId": "T-02",
+    "id": "CMEM-T02-01",
+    "section": "Canonical employee_data struct",
+    "question": "Type the canonical employee_data struct: int id, string name, double salary",
+    "code": "struct employee_data {\n  int id;\n  string name;\n  double salary;\n};",
+    "keyChecks": ["struct employee_data", "int id;", "string name;", "double salary;", "};"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "T-03",
+    "id": "CMEM-T03-01",
+    "section": "Canonical point struct",
+    "question": "Type the canonical point struct: int x, int y",
+    "code": "struct point {\n  int x;\n  int y;\n};",
+    "keyChecks": ["struct point", "int x;", "int y;", "};"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "T-04",
+    "id": "CMEM-T04-01",
+    "section": "Canonical rectangle struct",
+    "question": "Type the canonical rectangle struct: double width, double height",
+    "code": "struct rectangle {\n  double width;\n  double height;\n};",
+    "keyChecks": ["struct rectangle", "double width;", "double height;", "};"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "T-06",
+    "id": "CMEM-T06-01",
+    "section": "student_record + field access",
+    "question": "Type a complete program: struct student_record (int id, string name), main declares s, sets s.id=12345 and s.name=\"Riley\", prints both",
+    "code": "struct student_record {\n  int id;\n  string name;\n};\nint main() {\n  student_record s;\n  s.id = 12345;\n  s.name = \"Riley\";\n  cout << s.id << \" \" << s.name << endl;\n  return 0;\n}",
+    "keyChecks": ["struct student_record", "int id;", "string name;", "};", "s.id = 12345;", "s.name = \"Riley\";", "cout << s.id"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "T-09",
+    "id": "CMEM-T09-01",
+    "section": "stat_double-style struct",
+    "question": "Type the Q1 stat_double-shaped struct: double numbers[5], double mystery",
+    "code": "struct stat_double {\n  double numbers[5];\n  double mystery;\n};",
+    "keyChecks": ["struct stat_double", "double numbers[5];", "double mystery;", "};"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "T-11",
+    "id": "CMEM-T11-01",
+    "section": "Array of structs with MAX",
+    "question": "Type: const int MAX = 5; struct sensor with int id; declare sensor list[MAX]; in main",
+    "code": "const int MAX = 5;\nstruct sensor {\n  int id;\n};\nint main() {\n  sensor list[MAX];\n  return 0;\n}",
+    "keyChecks": ["const int MAX = 5;", "struct sensor", "int id;", "};", "sensor list[MAX];"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "T-12",
+    "id": "CMEM-T12-01",
+    "section": "Q3 read_X canonical pattern",
+    "question": "Type the Q3 read_transactions function: takes (transaction list[], int n), loops cin >> list[i].id and list[i].amount",
+    "code": "void read_transactions(transaction list[], int n) {\n  for (int i = 0; i < n; i++) {\n    cin >> list[i].id;\n    cin >> list[i].amount;\n  }\n}",
+    "keyChecks": ["void read_transactions(transaction list[], int n)", "for (int i = 0;", "cin >> list[i].id", "cin >> list[i].amount"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "T-01",
+    "id": "CMEM-T01-01",
+    "section": "Canonical book struct",
+    "question": "Type the book struct: string title, string author, int year",
+    "code": "struct book {\n  string title;\n  string author;\n  int year;\n};",
+    "keyChecks": ["struct book", "string title;", "string author;", "int year;", "};"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "T-05",
+    "id": "CMEM-T05-01",
+    "section": "Declare struct instance",
+    "question": "Type: struct weather_record (double temp, int humidity), then in main declare weather_record today, set today.temp=22.5 and today.humidity=65, print both",
+    "code": "struct weather_record {\n  double temp;\n  int humidity;\n};\nint main() {\n  weather_record today;\n  today.temp = 22.5;\n  today.humidity = 65;\n  cout << today.temp << \" \" << today.humidity << endl;\n  return 0;\n}",
+    "keyChecks": ["struct weather_record", "double temp;", "int humidity;", "};", "weather_record today;", "today.temp = 22.5;", "today.humidity = 65;"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "T-07",
+    "id": "CMEM-T07-01",
+    "section": "Struct field assignment",
+    "question": "Type: struct printer (string model, int pages_left). main declares 'office', sets office.model=\"LaserJet\", office.pages_left=500, prints both",
+    "code": "struct printer {\n  string model;\n  int pages_left;\n};\nint main() {\n  printer office;\n  office.model = \"LaserJet\";\n  office.pages_left = 500;\n  cout << office.model << \" \" << office.pages_left << endl;\n  return 0;\n}",
+    "keyChecks": ["struct printer", "string model;", "int pages_left;", "};", "office.model = \"LaserJet\";", "office.pages_left = 500;"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "T-08",
+    "id": "CMEM-T08-01",
+    "section": "Reading struct field via cout",
+    "question": "Type: struct ticket (int seat, double price). main declares t, sets seat=12 and price=49.95, prints them space-separated",
+    "code": "struct ticket {\n  int seat;\n  double price;\n};\nint main() {\n  ticket t;\n  t.seat = 12;\n  t.price = 49.95;\n  cout << t.seat << \" \" << t.price << endl;\n  return 0;\n}",
+    "keyChecks": ["struct ticket", "int seat;", "double price;", "};", "t.seat = 12;", "t.price = 49.95;", "cout << t.seat"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "T-10",
+    "id": "CMEM-T10-01",
+    "section": "Chained dot then index access",
+    "question": "Type: struct contact (double scores[3], double mystery). main sets c.scores[0]=10.0, c.mystery=c.scores[0], prints c.mystery",
+    "code": "struct contact {\n  double scores[3];\n  double mystery;\n};\nint main() {\n  contact c;\n  c.scores[0] = 10.0;\n  c.mystery = c.scores[0];\n  cout << c.mystery << endl;\n  return 0;\n}",
+    "keyChecks": ["struct contact", "double scores[3];", "double mystery;", "};", "c.scores[0] = 10.0;", "c.mystery = c.scores[0];"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "T-01",
+    "id": "CM-T01-01",
+    "section": "struct keyword + name",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: struct book", "code": "struct book {\n  string title;\n};" },
+      { "label": "Example B: struct rectangle", "code": "struct rectangle {\n  int w;\n  int h;\n};" }
+    ],
+    "prompt": "Write a struct named 'point' with one int field named 'value'. Don't forget };",
+    "expectedAnswer": "struct point {\n  int value;\n};",
+    "keyChecks": ["struct point", "int value;", "};"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "T-05",
+    "id": "CM-T05-01",
+    "section": "Declare struct instance",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: declare a book", "code": "book novel;" },
+      { "label": "Example B: declare a printer", "code": "printer office;" }
+    ],
+    "prompt": "Given `struct weather_record { double temp; };` -- write the line that declares an instance named 'today'.",
+    "expectedAnswer": "weather_record today;",
+    "keyChecks": ["weather_record", "today", ";"]
+  }
+]

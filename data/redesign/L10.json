@@ -1,0 +1,2353 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "G-01",
+    "levelLabel": "L10 -> what an array is (scores)",
+    "fullCode": "int main() {\n  int scores[3] = {88, 92, 75};\n  cout << scores[0] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int scores[3] = {88, 92, 75};",
+        "annotation": "scores holds 3 ints in a row: position 0 has 88, position 1 has 92, position 2 has 75.",
+        "atomIds": ["G-01", "G-03"]
+      },
+      {
+        "line": 3,
+        "code": "  cout << scores[0] << endl;",
+        "annotation": "scores[0] is the first slot. cout prints 88.",
+        "atomIds": ["G-01", "G-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-01",
+    "levelLabel": "L10 -> what an array is (sensor readings)",
+    "fullCode": "int main() {\n  int readings[4] = {21, 22, 23, 24};\n  cout << readings[3] << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int readings[4] = {21, 22, 23, 24};",
+        "annotation": "readings is one variable that stores four ints in a fixed sequence.",
+        "atomIds": ["G-01"]
+      },
+      {
+        "line": 3,
+        "code": "  cout << readings[3] << endl;",
+        "annotation": "Reads the last slot (index 3 of size 4) and prints 24.",
+        "atomIds": ["G-04"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-01",
+    "code": "int main() {\n  int data[3] = {10, 20, 30};\n  cout << data[1];\n  return 0;\n}",
+    "variables": ["data[0]", "data[1]", "data[2]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "data[0]", "value": "10" },
+      { "line": 2, "variable": "data[1]", "value": "20" },
+      { "line": 2, "variable": "data[2]", "value": "30" },
+      { "line": 3, "variable": "", "value": "", "output": "20" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["20"],
+    "inputMode": "final-only",
+    "teachMe": "data is one array variable holding three ints. data[1] reads the middle slot."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-01",
+    "code": "int main() {\n  int box[5] = {1, 2, 3, 4, 5};\n  cout << box[4];\n  return 0;\n}",
+    "variables": ["box[0]", "box[4]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "box[0]", "value": "1" },
+      { "line": 2, "variable": "box[4]", "value": "5" },
+      { "line": 3, "variable": "", "value": "", "output": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "An array of 5 ints lays the values out in slots 0-4. box[4] is the last slot, value 5."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-01",
+    "code": "int main() {\n  int row[2] = {99, 100};\n  cout << row[0] << \" \" << row[1];\n  return 0;\n}",
+    "variables": ["row[0]", "row[1]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "row[0]", "value": "99" },
+      { "line": 2, "variable": "row[1]", "value": "100" },
+      { "line": 3, "variable": "", "value": "", "output": "99 100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["99 100"],
+    "inputMode": "final-only",
+    "teachMe": "row holds two values laid back-to-back. Both slots print on one line."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-01",
+    "code": "int prices[3] = {5, 10, 15};\ncout << prices[___];",
+    "clozeSentence": "Fill in the index that reads the first slot of prices.",
+    "answer": "0",
+    "explanation": "Arrays are 0-indexed. The first slot is index 0."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-01",
+    "code": "int items[___] = {1, 2, 3, 4};",
+    "clozeSentence": "Fill in the size that matches the four initializer values.",
+    "answer": "4",
+    "explanation": "An array with 4 initializers needs size 4."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-01",
+    "code": "int seq[5] = {___};",
+    "clozeSentence": "Fill in five comma-separated int literals to initialize seq.",
+    "answer": "1, 2, 3, 4, 5",
+    "explanation": "An initializer list inside braces fills the array slots in order."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-01",
+    "code": "int box[3] = {7, 8, 9};\ncout << box[2];\n// terminal shows ___",
+    "clozeSentence": "Fill in the value that prints from box[2].",
+    "answer": "9",
+    "explanation": "Index 2 is the third (last for size 3) slot, which holds 9."
+  },
+  {
+    "type": "write",
+    "atomId": "G-01",
+    "level": 1,
+    "spec": "Declare and initialize an int array of size 3 named scores with values 70, 80, 90.",
+    "expectedAnswer": "int scores[3] = {70, 80, 90};",
+    "keyChecks": ["int scores[3]", "{70, 80, 90}", ";"],
+    "explanation": "Type, name, [size], = { values }, semicolon."
+  },
+  {
+    "type": "write",
+    "atomId": "G-01",
+    "level": 1,
+    "spec": "Declare and initialize an int array of size 4 named temps with values 18, 19, 20, 21.",
+    "expectedAnswer": "int temps[4] = {18, 19, 20, 21};",
+    "keyChecks": ["int temps[4]", "{18, 19, 20, 21}", ";"],
+    "explanation": "Use {} initializer with four comma-separated values."
+  },
+  {
+    "type": "write",
+    "atomId": "G-01",
+    "level": 1,
+    "spec": "Declare and initialize an int array of size 5 named nums with values 1 through 5.",
+    "expectedAnswer": "int nums[5] = {1, 2, 3, 4, 5};",
+    "keyChecks": ["int nums[5]", "{1, 2, 3, 4, 5}", ";"],
+    "explanation": "Five values inside braces fill slots 0-4 in order."
+  },
+  {
+    "type": "write",
+    "atomId": "G-01",
+    "level": 1,
+    "spec": "Declare and initialize an int array of size 3 named heights with values 150, 160, 170.",
+    "expectedAnswer": "int heights[3] = {150, 160, 170};",
+    "keyChecks": ["int heights[3]", "{150, 160, 170}", ";"],
+    "explanation": "Three init values for a size-3 array."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "G-01",
+    "id": "CMEM-G01-01",
+    "section": "L10 array concept",
+    "question": "Type the canonical array declaration with init list.",
+    "code": "int arr[3] = {1, 2, 3};",
+    "keyChecks": ["int arr[3]", "{1, 2, 3}", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-02",
+    "levelLabel": "L10 -> declare without init (inventory)",
+    "fullCode": "int main() {\n  int inv[5];\n  inv[0] = 10;\n  cout << inv[0];\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int inv[5];",
+        "annotation": "Declares inv with 5 int slots. The slots are uninitialized until you write to them.",
+        "atomIds": ["G-02"]
+      },
+      {
+        "line": 3,
+        "code": "  inv[0] = 10;",
+        "annotation": "Write 10 into slot 0.",
+        "atomIds": ["G-12"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-02",
+    "levelLabel": "L10 -> declare without init (counts)",
+    "fullCode": "int main() {\n  int counts[3];\n  counts[0] = 5;\n  counts[1] = 6;\n  counts[2] = 7;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int counts[3];",
+        "annotation": "Reserves 3 int slots; values are undefined until assigned.",
+        "atomIds": ["G-02"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-02",
+    "code": "int main() {\n  int marks[3];\n  marks[0] = 80;\n  marks[1] = 85;\n  marks[2] = 90;\n  cout << marks[1];\n  return 0;\n}",
+    "variables": ["marks[0]", "marks[1]", "marks[2]"],
+    "expectedSteps": [
+      { "line": 3, "variable": "marks[0]", "value": "80" },
+      { "line": 4, "variable": "marks[1]", "value": "85" },
+      { "line": 5, "variable": "marks[2]", "value": "90" },
+      { "line": 6, "variable": "", "value": "", "output": "85" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["85"],
+    "inputMode": "final-only",
+    "teachMe": "Declare without init, then assign each slot. marks[1] is 85."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-02",
+    "code": "int main() {\n  int data[2];\n  data[0] = 1;\n  data[1] = 2;\n  cout << data[0] + data[1];\n  return 0;\n}",
+    "variables": ["data[0]", "data[1]"],
+    "expectedSteps": [
+      { "line": 3, "variable": "data[0]", "value": "1" },
+      { "line": 4, "variable": "data[1]", "value": "2" },
+      { "line": 5, "variable": "", "value": "", "output": "3" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3"],
+    "inputMode": "final-only",
+    "teachMe": "Declared without init, then values written into both slots; sum is 3."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-02",
+    "code": "int main() {\n  int seats[4];\n  seats[3] = 99;\n  cout << seats[3];\n  return 0;\n}",
+    "variables": ["seats[3]"],
+    "expectedSteps": [
+      { "line": 3, "variable": "seats[3]", "value": "99" },
+      { "line": 4, "variable": "", "value": "", "output": "99" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["99"],
+    "inputMode": "final-only",
+    "teachMe": "Only slot 3 was written; the other slots remain undefined. We only read slot 3."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-02",
+    "code": "int marks___;",
+    "clozeSentence": "Fill in the bracketed size to declare a 5-element array.",
+    "answer": "[5]",
+    "explanation": "The size goes in brackets right after the name."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-02",
+    "code": "___ items[10];",
+    "clozeSentence": "Fill in the type to declare an int array of 10.",
+    "answer": "int",
+    "explanation": "Type comes first in any declaration."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-02",
+    "code": "int counts[___];",
+    "clozeSentence": "Fill in the size to declare a 3-element int array.",
+    "answer": "3",
+    "explanation": "The size in brackets is the number of slots."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-02",
+    "code": "int prices[20]___",
+    "clozeSentence": "Fill in the punctuation that ends the declaration.",
+    "answer": ";",
+    "explanation": "All declarations end with a semicolon."
+  },
+  {
+    "type": "write",
+    "atomId": "G-02",
+    "level": 1,
+    "spec": "Declare an uninitialized int array of size 10 named buf.",
+    "expectedAnswer": "int buf[10];",
+    "keyChecks": ["int buf[10]", ";"],
+    "explanation": "Type name brackets size semicolon, no init list."
+  },
+  {
+    "type": "write",
+    "atomId": "G-02",
+    "level": 1,
+    "spec": "Declare an uninitialized int array of size 6 named items.",
+    "expectedAnswer": "int items[6];",
+    "keyChecks": ["int items[6]", ";"],
+    "explanation": "An int array of fixed size 6 with no initializer."
+  },
+  {
+    "type": "write",
+    "atomId": "G-02",
+    "level": 1,
+    "spec": "Declare an uninitialized int array of size 100 named entries.",
+    "expectedAnswer": "int entries[100];",
+    "keyChecks": ["int entries[100]", ";"],
+    "explanation": "Size 100 in brackets after the name."
+  },
+  {
+    "type": "write",
+    "atomId": "G-02",
+    "level": 1,
+    "spec": "Declare an uninitialized double array of size 5 named ratios.",
+    "expectedAnswer": "double ratios[5];",
+    "keyChecks": ["double ratios[5]", ";"],
+    "explanation": "Type can be any C++ type, like double."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-03",
+    "levelLabel": "L10 -> initializer list (grades)",
+    "fullCode": "int main() {\n  int grades[3] = {65, 72, 88};\n  cout << grades[2];\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int grades[3] = {65, 72, 88};",
+        "annotation": "= followed by braces fills slots 0,1,2 with 65, 72, 88 in order.",
+        "atomIds": ["G-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-03",
+    "levelLabel": "L10 -> initializer list (weights)",
+    "fullCode": "int main() {\n  double weights[4] = {1.5, 2.5, 3.5, 4.5};\n  cout << weights[1];\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  double weights[4] = {1.5, 2.5, 3.5, 4.5};",
+        "annotation": "Initializer fills the four double slots from left to right.",
+        "atomIds": ["G-03"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-03",
+    "code": "int main() {\n  int xs[3] = {7, 8, 9};\n  cout << xs[0] << xs[1] << xs[2];\n  return 0;\n}",
+    "variables": ["xs[0]", "xs[1]", "xs[2]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "xs[0]", "value": "7" },
+      { "line": 2, "variable": "xs[1]", "value": "8" },
+      { "line": 2, "variable": "xs[2]", "value": "9" },
+      { "line": 3, "variable": "", "value": "", "output": "789" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["789"],
+    "inputMode": "final-only",
+    "teachMe": "Initializer 7,8,9 fills slots 0,1,2. Concatenated they print 789."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-03",
+    "code": "int main() {\n  int ages[5] = {10, 20, 30, 40, 50};\n  cout << ages[3];\n  return 0;\n}",
+    "variables": ["ages[3]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "ages[3]", "value": "40" },
+      { "line": 3, "variable": "", "value": "", "output": "40" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["40"],
+    "inputMode": "final-only",
+    "teachMe": "ages[3] is the fourth slot. Initializer placed 40 there."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-03",
+    "code": "int main() {\n  int v[2] = {100, 200};\n  cout << v[0] + v[1];\n  return 0;\n}",
+    "variables": ["v[0]", "v[1]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "v[0]", "value": "100" },
+      { "line": 2, "variable": "v[1]", "value": "200" },
+      { "line": 3, "variable": "", "value": "", "output": "300" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["300"],
+    "inputMode": "final-only",
+    "teachMe": "Initializer fills two slots. Sum: 100 + 200 = 300."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-03",
+    "code": "int data[3] = ___;",
+    "clozeSentence": "Fill in a brace-enclosed initializer with values 1, 2, 3.",
+    "answer": "{1, 2, 3}",
+    "explanation": "Braces wrap the comma-separated initializer values."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-03",
+    "code": "int t[4] = {2, 4, ___, 8};",
+    "clozeSentence": "Fill in the int that goes in slot 2 of the initializer.",
+    "answer": "6",
+    "explanation": "Initializer fills slots in order; the third value goes to index 2."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-03",
+    "code": "int p[3] ___ {1, 2, 3};",
+    "clozeSentence": "Fill in the assignment operator before the initializer braces.",
+    "answer": "=",
+    "explanation": "The = signals the initializer."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-03",
+    "code": "int q[2] = {___, 50};\n// q[0] should be 25",
+    "clozeSentence": "Fill in the int literal that initializes q[0] to 25.",
+    "answer": "25",
+    "explanation": "First value in the brace list goes to slot 0."
+  },
+  {
+    "type": "write",
+    "atomId": "G-03",
+    "level": 1,
+    "spec": "Declare and initialize an int array of size 3 named ranks with values 1, 2, 3.",
+    "expectedAnswer": "int ranks[3] = {1, 2, 3};",
+    "keyChecks": ["int ranks[3]", "= {1, 2, 3}", ";"],
+    "explanation": "Initializer list with comma-separated values."
+  },
+  {
+    "type": "write",
+    "atomId": "G-03",
+    "level": 1,
+    "spec": "Declare and initialize an int array of size 4 named coords with values 0, 0, 0, 0.",
+    "expectedAnswer": "int coords[4] = {0, 0, 0, 0};",
+    "keyChecks": ["int coords[4]", "= {0, 0, 0, 0}", ";"],
+    "explanation": "All zeros initializer for a 4-element array."
+  },
+  {
+    "type": "write",
+    "atomId": "G-03",
+    "level": 1,
+    "spec": "Declare and initialize a double array of size 3 named avgs with values 1.0, 2.0, 3.0.",
+    "expectedAnswer": "double avgs[3] = {1.0, 2.0, 3.0};",
+    "keyChecks": ["double avgs[3]", "= {1.0, 2.0, 3.0}", ";"],
+    "explanation": "Initializer with double literals."
+  },
+  {
+    "type": "write",
+    "atomId": "G-03",
+    "level": 1,
+    "spec": "Declare and initialize an int array of size 5 named primes with values 2, 3, 5, 7, 11.",
+    "expectedAnswer": "int primes[5] = {2, 3, 5, 7, 11};",
+    "keyChecks": ["int primes[5]", "= {2, 3, 5, 7, 11}", ";"],
+    "explanation": "Initializer list with five values."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-04",
+    "levelLabel": "L10 -> arr[0] is first (queue)",
+    "fullCode": "int main() {\n  int queue[3] = {1, 2, 3};\n  cout << queue[0];\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  cout << queue[0];",
+        "annotation": "queue[0] is the first slot. Output: 1.",
+        "atomIds": ["G-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-04",
+    "levelLabel": "L10 -> arr[0] is first (logs)",
+    "fullCode": "int main() {\n  int logs[5] = {100, 200, 300, 400, 500};\n  cout << \"first=\" << logs[0];\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  cout << \"first=\" << logs[0];",
+        "annotation": "logs[0] returns 100, the first element. Not logs[1].",
+        "atomIds": ["G-04"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-04",
+    "code": "int main() {\n  int arr[3] = {77, 88, 99};\n  cout << arr[0];\n  return 0;\n}",
+    "variables": ["arr[0]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "arr[0]", "value": "77" },
+      { "line": 3, "variable": "", "value": "", "output": "77" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["77"],
+    "inputMode": "final-only",
+    "teachMe": "arr[0] is the first slot. It holds 77, not 88."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-04",
+    "code": "int main() {\n  int q[4] = {5, 10, 15, 20};\n  cout << q[0] << \" \" << q[1];\n  return 0;\n}",
+    "variables": ["q[0]", "q[1]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "q[0]", "value": "5" },
+      { "line": 2, "variable": "q[1]", "value": "10" },
+      { "line": 3, "variable": "", "value": "", "output": "5 10" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5 10"],
+    "inputMode": "final-only",
+    "teachMe": "q[0] is 5; q[1] is 10. Indexing is 0-based."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-04",
+    "code": "int main() {\n  int items[2] = {42, 88};\n  cout << items[0];\n  cout << \"-\";\n  cout << items[1];\n  return 0;\n}",
+    "variables": ["items[0]", "items[1]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "items[0]", "value": "42" },
+      { "line": 2, "variable": "items[1]", "value": "88" },
+      { "line": 3, "variable": "", "value": "", "output": "42" },
+      { "line": 4, "variable": "", "value": "", "output": "-" },
+      { "line": 5, "variable": "", "value": "", "output": "88" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["42-88"],
+    "inputMode": "final-only",
+    "teachMe": "items[0]=42, items[1]=88. Output: 42-88."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-04",
+    "code": "int log[3] = {7, 8, 9};\ncout << log[___];",
+    "clozeSentence": "Fill in the index that reads the first slot.",
+    "answer": "0",
+    "explanation": "Index 0 is the first element."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-04",
+    "code": "int seq[2] = {11, 22};\ncout << seq[0];\n// terminal shows ___",
+    "clozeSentence": "Fill in the value that prints from seq[0].",
+    "answer": "11",
+    "explanation": "Index 0 gives 11."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-04",
+    "code": "// To read the FIRST element of arr write arr[___]",
+    "clozeSentence": "Fill in the index for the first element.",
+    "answer": "0",
+    "explanation": "Off-by-one bugs come from forgetting that index 0 is first."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-04",
+    "code": "int v[3] = {6, 5, 4};\nint first = v[___];",
+    "clozeSentence": "Fill in the index that captures v's first element into first.",
+    "answer": "0",
+    "explanation": "Use index 0 to read the head."
+  },
+  {
+    "type": "write",
+    "atomId": "G-04",
+    "level": 1,
+    "spec": "Given int arr[3] = {10, 20, 30}; write a single cout statement that prints the first element of arr.",
+    "expectedAnswer": "cout << arr[0];",
+    "keyChecks": ["cout", "<<", "arr[0]", ";"],
+    "explanation": "arr[0] is the first slot."
+  },
+  {
+    "type": "write",
+    "atomId": "G-04",
+    "level": 1,
+    "spec": "Given int data[5]; write the assignment that puts 99 into the first slot.",
+    "expectedAnswer": "data[0] = 99;",
+    "keyChecks": ["data[0]", "= 99", ";"],
+    "explanation": "Index 0 means first."
+  },
+  {
+    "type": "write",
+    "atomId": "G-04",
+    "level": 1,
+    "spec": "Given int q[4]; write the assignment that puts 7 into q's first slot.",
+    "expectedAnswer": "q[0] = 7;",
+    "keyChecks": ["q[0]", "= 7", ";"],
+    "explanation": "Always start at index 0."
+  },
+  {
+    "type": "write",
+    "atomId": "G-04",
+    "level": 1,
+    "spec": "Given int v[3] = {2, 4, 6}; write a cout statement that prints v's first element.",
+    "expectedAnswer": "cout << v[0];",
+    "keyChecks": ["cout", "<<", "v[0]", ";"],
+    "explanation": "v[0] reads the first element."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-05",
+    "levelLabel": "L10 -> arr[i] arbitrary index (table)",
+    "fullCode": "int main() {\n  int row[5] = {10, 20, 30, 40, 50};\n  int i = 2;\n  cout << row[i];\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << row[i];",
+        "annotation": "row[i] reads slot at the value of i. With i = 2, that's 30.",
+        "atomIds": ["G-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-05",
+    "levelLabel": "L10 -> arr[i] arbitrary index (lookup)",
+    "fullCode": "int main() {\n  int prices[3] = {100, 200, 300};\n  for (int i = 0; i < 3; i++) {\n    cout << prices[i] << \" \";\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "    cout << prices[i] << \" \";",
+        "annotation": "prices[i] reads slot i; the loop varies i so we read each slot in turn.",
+        "atomIds": ["G-05", "G-11"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-05",
+    "code": "int main() {\n  int arr[4] = {2, 4, 6, 8};\n  int i = 3;\n  cout << arr[i];\n  return 0;\n}",
+    "variables": ["i"],
+    "expectedSteps": [
+      { "line": 3, "variable": "i", "value": "3" },
+      { "line": 4, "variable": "", "value": "", "output": "8" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "arr[i] uses the variable i (=3) to pick slot 3, value 8."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-05",
+    "code": "int main() {\n  int v[5] = {11, 22, 33, 44, 55};\n  for (int i = 0; i < 3; i++) cout << v[i];\n  return 0;\n}",
+    "variables": ["i"],
+    "expectedSteps": [
+      { "line": 3, "variable": "i", "value": "3" },
+      { "line": 3, "variable": "", "value": "", "output": "112233" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["112233"],
+    "inputMode": "final-only",
+    "teachMe": "Loop reads v[0], v[1], v[2] -> 11, 22, 33 -> printed back-to-back as 112233. After loop i = 3."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-05",
+    "code": "int main() {\n  int data[3] = {1, 5, 9};\n  int k = 1;\n  cout << data[k] + data[k+1];\n  return 0;\n}",
+    "variables": ["k"],
+    "expectedSteps": [
+      { "line": 3, "variable": "k", "value": "1" },
+      { "line": 4, "variable": "", "value": "", "output": "14" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["14"],
+    "inputMode": "final-only",
+    "teachMe": "data[k] = data[1] = 5; data[k+1] = data[2] = 9; sum = 14."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-05",
+    "code": "int v[5] = {1,2,3,4,5};\nint i = 2;\nint x = v[___];",
+    "clozeSentence": "Fill in the index expression that uses i to access v.",
+    "answer": "i",
+    "explanation": "v[i] reads the slot at the current value of i."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-05",
+    "code": "int q[3] = {7, 8, 9};\nint i = 1;\ncout << q[i];\n// terminal shows ___",
+    "clozeSentence": "Fill in the value that prints when i = 1.",
+    "answer": "8",
+    "explanation": "q[1] is 8."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-05",
+    "code": "int box[10];\nint k = 3;\nbox[___] = 42;",
+    "clozeSentence": "Fill in the index expression that uses k.",
+    "answer": "k",
+    "explanation": "box[k] writes 42 into slot 3."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-05",
+    "code": "int s[5] = {10, 20, 30, 40, 50};\nint i = 4;\ncout << s[i];\n// terminal shows ___",
+    "clozeSentence": "Fill in the value printed when i = 4.",
+    "answer": "50",
+    "explanation": "s[4] is the last slot, value 50."
+  },
+  {
+    "type": "write",
+    "atomId": "G-05",
+    "level": 1,
+    "spec": "Given int v[5] and int i; write a single cout statement that prints v at index i.",
+    "expectedAnswer": "cout << v[i];",
+    "keyChecks": ["cout", "<<", "v[i]", ";"],
+    "explanation": "v[i] uses i as the runtime index."
+  },
+  {
+    "type": "write",
+    "atomId": "G-05",
+    "level": 1,
+    "spec": "Given int data[5] and int k; write the assignment that puts 100 into slot k of data.",
+    "expectedAnswer": "data[k] = 100;",
+    "keyChecks": ["data[k]", "= 100", ";"],
+    "explanation": "data[k] is the slot at index k."
+  },
+  {
+    "type": "write",
+    "atomId": "G-05",
+    "level": 1,
+    "spec": "Given int arr[10] and int idx; write a cout statement that prints arr at idx followed by a space.",
+    "expectedAnswer": "cout << arr[idx] << \" \";",
+    "keyChecks": ["cout", "<<", "arr[idx]", "\" \"", ";"],
+    "explanation": "arr[idx] reads the slot named by idx."
+  },
+  {
+    "type": "write",
+    "atomId": "G-05",
+    "level": 2,
+    "spec": "Given int marks[3]; write three cout statements that print marks at indices 0, 1, and 2 each followed by a newline using endl.",
+    "expectedAnswer": "cout << marks[0] << endl;\ncout << marks[1] << endl;\ncout << marks[2] << endl;",
+    "keyChecks": ["cout", "marks[0]", "marks[1]", "marks[2]", "endl"],
+    "explanation": "Three statements, each indexes a different slot."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "G-05",
+    "id": "CMEM-G05-01",
+    "section": "L10 indexing",
+    "question": "Type the canonical index expression that reads slot i of arr.",
+    "code": "arr[i]",
+    "keyChecks": ["arr[i]"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-06",
+    "levelLabel": "L10 -> 0-based indexing (records)",
+    "fullCode": "int main() {\n  int rec[3] = {7, 8, 9};\n  cout << rec[0] << \" \" << rec[1] << \" \" << rec[2];\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  cout << rec[0] << \" \" << rec[1] << \" \" << rec[2];",
+        "annotation": "Three valid indices: 0, 1, 2. Never rec[3] for a size-3 array.",
+        "atomIds": ["G-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-06",
+    "levelLabel": "L10 -> 0-based indexing (slots)",
+    "fullCode": "int main() {\n  int slots[5] = {10, 20, 30, 40, 50};\n  cout << slots[0]; // not slots[1] for the first\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  cout << slots[0]; // not slots[1] for the first",
+        "annotation": "C++ counts from 0. The first element is slots[0].",
+        "atomIds": ["G-06"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-06",
+    "code": "int main() {\n  int data[3] = {10, 20, 30};\n  cout << data[0];\n  return 0;\n}",
+    "variables": ["data[0]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "data[0]", "value": "10" },
+      { "line": 3, "variable": "", "value": "", "output": "10" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10"],
+    "inputMode": "final-only",
+    "teachMe": "First slot is index 0. 1-based thinking would wrongly read 20."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-06",
+    "code": "int main() {\n  int v[4] = {2, 4, 6, 8};\n  for (int i = 0; i < 4; i++) cout << v[i] << \" \";\n  return 0;\n}",
+    "variables": ["i"],
+    "expectedSteps": [
+      { "line": 3, "variable": "i", "value": "4" },
+      { "line": 3, "variable": "", "value": "", "output": "2 4 6 8 " }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2 4 6 8 "],
+    "inputMode": "final-only",
+    "teachMe": "Loop visits indices 0, 1, 2, 3. Then i = 4 ends the loop."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-06",
+    "code": "int main() {\n  int row[3] = {100, 200, 300};\n  cout << row[2];\n  return 0;\n}",
+    "variables": ["row[2]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "row[2]", "value": "300" },
+      { "line": 3, "variable": "", "value": "", "output": "300" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["300"],
+    "inputMode": "final-only",
+    "teachMe": "For size 3 the valid indices are 0, 1, 2. row[2] is the third (last) slot."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-06",
+    "code": "// First valid index of any C++ array is ___\nint v[5];",
+    "clozeSentence": "Fill in the first valid index.",
+    "answer": "0",
+    "explanation": "Arrays are zero-based in C++."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-06",
+    "code": "int v[3] = {a, b, c};\n// Last valid index is ___",
+    "clozeSentence": "Fill in the last valid index for a size-3 array.",
+    "answer": "2",
+    "explanation": "Size 3 means indices 0, 1, 2."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-06",
+    "code": "int z[5];\nfor (int i = 0; i < ___; i++) z[i] = 0;",
+    "clozeSentence": "Fill in the loop bound that visits all 5 slots without going out of bounds.",
+    "answer": "5",
+    "explanation": "i < 5 visits i = 0, 1, 2, 3, 4."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-06",
+    "code": "int t[4] = {1,2,3,4};\n// To print last slot use t[___]",
+    "clozeSentence": "Fill in the last valid index for a size-4 array.",
+    "answer": "3",
+    "explanation": "For size 4 the last valid index is 3."
+  },
+  {
+    "type": "write",
+    "atomId": "G-06",
+    "level": 1,
+    "spec": "Given int v[5] = {10, 20, 30, 40, 50}; write a cout statement that prints the first element using zero-based indexing.",
+    "expectedAnswer": "cout << v[0];",
+    "keyChecks": ["cout", "<<", "v[0]", ";"],
+    "explanation": "First element is index 0."
+  },
+  {
+    "type": "write",
+    "atomId": "G-06",
+    "level": 1,
+    "spec": "Given int items[4] = {1, 2, 3, 4}; write a cout statement that prints the third element using zero-based indexing.",
+    "expectedAnswer": "cout << items[2];",
+    "keyChecks": ["cout", "<<", "items[2]", ";"],
+    "explanation": "Third element = index 2 in 0-based indexing."
+  },
+  {
+    "type": "write",
+    "atomId": "G-06",
+    "level": 1,
+    "spec": "Given int q[6]; write a for loop that sets every slot of q to 0 using i from 0 to 5 inclusive.",
+    "expectedAnswer": "for (int i = 0; i < 6; i++) q[i] = 0;",
+    "keyChecks": ["for", "int i = 0", "i < 6", "i++", "q[i] = 0", ";"],
+    "explanation": "Start at 0, condition i < 6, write q[i] each step."
+  },
+  {
+    "type": "write",
+    "atomId": "G-06",
+    "level": 1,
+    "spec": "Given int arr[3]; write a single statement that puts 5 into the first element using zero-based indexing.",
+    "expectedAnswer": "arr[0] = 5;",
+    "keyChecks": ["arr[0]", "= 5", ";"],
+    "explanation": "First element index is 0."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-07",
+    "levelLabel": "L10 -> last is arr[N-1] (results)",
+    "fullCode": "int main() {\n  int results[5] = {1, 2, 3, 4, 5};\n  cout << results[4];\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  cout << results[4];",
+        "annotation": "For size 5 the last valid index is 4 (= N-1). Output: 5.",
+        "atomIds": ["G-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-07",
+    "levelLabel": "L10 -> last is arr[N-1] (slots)",
+    "fullCode": "int main() {\n  const int N = 3;\n  int slots[N] = {10, 20, 30};\n  cout << slots[N - 1];\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << slots[N - 1];",
+        "annotation": "Using N - 1 in code makes it explicit you are reading the last slot. Output: 30.",
+        "atomIds": ["G-07"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-07",
+    "code": "int main() {\n  int arr[4] = {7, 8, 9, 10};\n  cout << arr[3];\n  return 0;\n}",
+    "variables": ["arr[3]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "arr[3]", "value": "10" },
+      { "line": 3, "variable": "", "value": "", "output": "10" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10"],
+    "inputMode": "final-only",
+    "teachMe": "For N = 4 the last valid index is 3. arr[3] is 10."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-07",
+    "code": "int main() {\n  int v[3] = {100, 200, 300};\n  int n = 3;\n  cout << v[n-1];\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 3, "variable": "n", "value": "3" },
+      { "line": 4, "variable": "", "value": "", "output": "300" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["300"],
+    "inputMode": "final-only",
+    "teachMe": "v[n-1] = v[2] = 300, the last slot."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-07",
+    "code": "int main() {\n  int q[2] = {88, 99};\n  cout << q[1];\n  return 0;\n}",
+    "variables": ["q[1]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "q[1]", "value": "99" },
+      { "line": 3, "variable": "", "value": "", "output": "99" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["99"],
+    "inputMode": "final-only",
+    "teachMe": "Size 2 means last index is 1. q[1] is 99."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-07",
+    "code": "int v[10];\n// Last valid index is ___",
+    "clozeSentence": "Fill in the last valid index for size 10.",
+    "answer": "9",
+    "explanation": "N - 1 = 10 - 1 = 9."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-07",
+    "code": "int data[N];\n// last slot is data[N - ___]",
+    "clozeSentence": "Fill in the number subtracted from N for the last slot.",
+    "answer": "1",
+    "explanation": "Last index = N - 1."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-07",
+    "code": "int t[5] = {1,2,3,4,5};\ncout << t[___];\n// terminal shows 5",
+    "clozeSentence": "Fill in the index that prints the last element.",
+    "answer": "4",
+    "explanation": "Last index for size 5 is 4."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-07",
+    "code": "const int N = 6;\nint q[N];\n// last valid index = ___",
+    "clozeSentence": "Fill in the last valid index when N = 6.",
+    "answer": "5",
+    "explanation": "6 - 1 = 5."
+  },
+  {
+    "type": "write",
+    "atomId": "G-07",
+    "level": 1,
+    "spec": "Given int v[5] = {10, 20, 30, 40, 50}; write a cout that prints the last element by literal index.",
+    "expectedAnswer": "cout << v[4];",
+    "keyChecks": ["cout", "<<", "v[4]", ";"],
+    "explanation": "v[4] is the last for size 5."
+  },
+  {
+    "type": "write",
+    "atomId": "G-07",
+    "level": 1,
+    "spec": "Given const int N = 4; int arr[N]; write a cout that prints the last element using N - 1.",
+    "expectedAnswer": "cout << arr[N - 1];",
+    "keyChecks": ["cout", "<<", "arr[N - 1]", ";"],
+    "explanation": "Use N - 1 when the size is named."
+  },
+  {
+    "type": "write",
+    "atomId": "G-07",
+    "level": 1,
+    "spec": "Given int row[10]; write the assignment that puts 99 into the last slot using N - 1 with N = 10.",
+    "expectedAnswer": "row[9] = 99;",
+    "keyChecks": ["row[9]", "= 99", ";"],
+    "explanation": "Index 9 is the last for size 10."
+  },
+  {
+    "type": "write",
+    "atomId": "G-07",
+    "level": 1,
+    "spec": "Given int data[6]; write a cout that prints the last element by literal index.",
+    "expectedAnswer": "cout << data[5];",
+    "keyChecks": ["cout", "<<", "data[5]", ";"],
+    "explanation": "Last index for size 6 is 5."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-08",
+    "levelLabel": "L10 -> arr[N] is out of bounds (warning)",
+    "fullCode": "int main() {\n  int arr[3] = {1, 2, 3};\n  // arr[3] is past the end -- undefined behavior\n  // valid range is arr[0]..arr[2]\n  cout << arr[2];\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  cout << arr[2];",
+        "annotation": "arr[2] is the last valid slot. Reading arr[3] would be undefined behavior.",
+        "atomIds": ["G-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-08",
+    "levelLabel": "L10 -> safe loop bound (avoid OOB)",
+    "fullCode": "int main() {\n  int v[5] = {0, 0, 0, 0, 0};\n  for (int i = 0; i < 5; i++) {\n    v[i] = i;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  for (int i = 0; i < 5; i++) {",
+        "annotation": "i < 5 stops i at 4 -- the last valid index. i <= 5 would write arr[5] which is out of bounds.",
+        "atomIds": ["G-08", "G-11"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-08",
+    "code": "int main() {\n  int v[3] = {7, 8, 9};\n  cout << v[0] << v[1] << v[2];\n  return 0;\n}",
+    "variables": ["v[0]", "v[1]", "v[2]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "v[0]", "value": "7" },
+      { "line": 2, "variable": "v[1]", "value": "8" },
+      { "line": 2, "variable": "v[2]", "value": "9" },
+      { "line": 3, "variable": "", "value": "", "output": "789" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["789"],
+    "inputMode": "final-only",
+    "teachMe": "Only indices 0, 1, 2 are valid for size 3. v[3] would be out of bounds."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-08",
+    "code": "int main() {\n  int n[4] = {10, 20, 30, 40};\n  for (int i = 0; i < 4; i++) cout << n[i] << \" \";\n  return 0;\n}",
+    "variables": ["i"],
+    "expectedSteps": [
+      { "line": 3, "variable": "i", "value": "4" },
+      { "line": 3, "variable": "", "value": "", "output": "10 20 30 40 " }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10 20 30 40 "],
+    "inputMode": "final-only",
+    "teachMe": "i < 4 stops just before going out of bounds."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-08",
+    "code": "int main() {\n  int q[5] = {1, 2, 3, 4, 5};\n  cout << q[4];\n  return 0;\n}",
+    "variables": ["q[4]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "q[4]", "value": "5" },
+      { "line": 3, "variable": "", "value": "", "output": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "q[4] is the last valid slot. q[5] would be out of bounds."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-08",
+    "code": "int arr[3] = {1, 2, 3};\n// arr[___] is out of bounds",
+    "clozeSentence": "Fill in any out-of-bounds index for a size-3 array (one past the end).",
+    "answer": "3",
+    "explanation": "Index 3 is one past the last valid index 2."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-08",
+    "code": "int v[5];\nfor (int i = 0; i ___ 5; i++) v[i] = 0;",
+    "clozeSentence": "Fill in the comparison that keeps i in bounds.",
+    "answer": "<",
+    "explanation": "i < 5 stops at i = 4. i <= 5 would overshoot."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-08",
+    "code": "int t[4];\n// Valid range is t[0] to t[___]",
+    "clozeSentence": "Fill in the last valid index.",
+    "answer": "3",
+    "explanation": "For size 4 the valid range is 0..3."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-08",
+    "code": "int data[10];\nfor (int i = 0; i < ___; i++) data[i] = 1;",
+    "clozeSentence": "Fill in the safe loop bound for size 10.",
+    "answer": "10",
+    "explanation": "i < 10 visits 0..9 only."
+  },
+  {
+    "type": "write",
+    "atomId": "G-08",
+    "level": 1,
+    "spec": "Given int v[5]; write a for loop that sets each valid slot to 0 without going out of bounds.",
+    "expectedAnswer": "for (int i = 0; i < 5; i++) v[i] = 0;",
+    "keyChecks": ["for", "int i = 0", "i < 5", "i++", "v[i] = 0", ";"],
+    "explanation": "i < 5 stops at the last valid index 4."
+  },
+  {
+    "type": "write",
+    "atomId": "G-08",
+    "level": 1,
+    "spec": "Given int arr[8]; write a for loop using i from 0 to 7 inclusive that prints each element followed by a space.",
+    "expectedAnswer": "for (int i = 0; i < 8; i++) cout << arr[i] << \" \";",
+    "keyChecks": ["for", "int i = 0", "i < 8", "i++", "arr[i]", "\" \""],
+    "explanation": "i < 8 visits all valid indices for size 8."
+  },
+  {
+    "type": "write",
+    "atomId": "G-08",
+    "level": 1,
+    "spec": "Given const int MAX = 6 and int q[MAX]; write a for loop that sets each slot to its index without going out of bounds.",
+    "expectedAnswer": "for (int i = 0; i < MAX; i++) q[i] = i;",
+    "keyChecks": ["for", "int i = 0", "i < MAX", "i++", "q[i] = i", ";"],
+    "explanation": "Use the named size MAX as the loop bound."
+  },
+  {
+    "type": "write",
+    "atomId": "G-08",
+    "level": 1,
+    "spec": "Given int data[3]; write a for loop with i from 0 to 2 inclusive that sets each slot to 99.",
+    "expectedAnswer": "for (int i = 0; i < 3; i++) data[i] = 99;",
+    "keyChecks": ["for", "int i = 0", "i < 3", "i++", "data[i] = 99", ";"],
+    "explanation": "Stops just before reaching the size."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-09",
+    "levelLabel": "L10 -> const size (Q4 idiom)",
+    "fullCode": "int main() {\n  const int MAX = 100;\n  int items[MAX];\n  items[0] = 1;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  const int MAX = 100;",
+        "annotation": "MAX is a compile-time constant. Naming the size makes the array shape clear and reusable.",
+        "atomIds": ["G-09"]
+      },
+      {
+        "line": 3,
+        "code": "  int items[MAX];",
+        "annotation": "The size is MAX (= 100). Fixed at compile time.",
+        "atomIds": ["G-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-09",
+    "levelLabel": "L10 -> const size (capacity)",
+    "fullCode": "int main() {\n  const int CAP = 50;\n  int data[CAP];\n  for (int i = 0; i < CAP; i++) data[i] = 0;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  for (int i = 0; i < CAP; i++) data[i] = 0;",
+        "annotation": "Using CAP as the loop bound keeps the size and traversal in sync.",
+        "atomIds": ["G-09"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-09",
+    "code": "int main() {\n  const int N = 3;\n  int v[N] = {10, 20, 30};\n  cout << v[N - 1];\n  return 0;\n}",
+    "variables": ["v[N-1]"],
+    "expectedSteps": [
+      { "line": 4, "variable": "", "value": "", "output": "30" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["30"],
+    "inputMode": "final-only",
+    "teachMe": "N is fixed at compile time = 3. v has 3 slots; last is index 2."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-09",
+    "code": "int main() {\n  const int CAP = 4;\n  int q[CAP] = {2, 4, 6, 8};\n  cout << q[CAP - 1];\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 4, "variable": "", "value": "", "output": "8" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "CAP fixes the size at 4. Last index is CAP - 1 = 3, value 8."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-09",
+    "code": "int main() {\n  const int K = 2;\n  int t[K];\n  t[0] = 5;\n  t[1] = 10;\n  cout << t[0] + t[1];\n  return 0;\n}",
+    "variables": ["t[0]", "t[1]"],
+    "expectedSteps": [
+      { "line": 4, "variable": "t[0]", "value": "5" },
+      { "line": 5, "variable": "t[1]", "value": "10" },
+      { "line": 6, "variable": "", "value": "", "output": "15" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["15"],
+    "inputMode": "final-only",
+    "teachMe": "K is fixed at compile time. t holds 2 ints; sum is 15."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-09",
+    "code": "___ int MAX = 100;\nint arr[MAX];",
+    "clozeSentence": "Fill in the keyword that makes MAX a compile-time constant.",
+    "answer": "const",
+    "explanation": "const is the SIT102 idiom for naming an array's fixed size."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-09",
+    "code": "const int N = 5;\nint v[___];",
+    "clozeSentence": "Fill in the size name to declare an int array sized by N.",
+    "answer": "N",
+    "explanation": "N is a const int so it can be used as an array size."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-09",
+    "code": "const int CAP = ___;\nint items[CAP];",
+    "clozeSentence": "Fill in any positive int literal that sets CAP.",
+    "answer": "10",
+    "explanation": "CAP can be any int literal; it fixes the size at compile time."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-09",
+    "code": "const int N = 3;\nint v[N];\n// v has ___ slots",
+    "clozeSentence": "Fill in the number of slots in v.",
+    "answer": "3",
+    "explanation": "N = 3, so v has 3 slots."
+  },
+  {
+    "type": "write",
+    "atomId": "G-09",
+    "level": 1,
+    "spec": "Declare a compile-time constant MAX equal to 100, then declare an int array of size MAX named items.",
+    "expectedAnswer": "const int MAX = 100;\nint items[MAX];",
+    "keyChecks": ["const int MAX = 100", "int items[MAX]", ";"],
+    "explanation": "const int names the size; then use the name in [..]."
+  },
+  {
+    "type": "write",
+    "atomId": "G-09",
+    "level": 1,
+    "spec": "Declare a compile-time constant N equal to 5, then declare an int array of size N named scores.",
+    "expectedAnswer": "const int N = 5;\nint scores[N];",
+    "keyChecks": ["const int N = 5", "int scores[N]", ";"],
+    "explanation": "Same pattern: const int N then array sized by N."
+  },
+  {
+    "type": "write",
+    "atomId": "G-09",
+    "level": 1,
+    "spec": "Declare a compile-time constant CAPACITY equal to 50, then declare a double array of size CAPACITY named data.",
+    "expectedAnswer": "const int CAPACITY = 50;\ndouble data[CAPACITY];",
+    "keyChecks": ["const int CAPACITY = 50", "double data[CAPACITY]", ";"],
+    "explanation": "Type can be any C++ type; size is the named const."
+  },
+  {
+    "type": "write",
+    "atomId": "G-09",
+    "level": 2,
+    "spec": "Declare a compile-time constant SIZE equal to 4, then declare and initialize an int array of size SIZE named t with values 1, 2, 3, 4.",
+    "expectedAnswer": "const int SIZE = 4;\nint t[SIZE] = {1, 2, 3, 4};",
+    "keyChecks": ["const int SIZE = 4", "int t[SIZE]", "= {1, 2, 3, 4}", ";"],
+    "explanation": "Const for size, then init list of matching length."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "G-09",
+    "id": "CMEM-G09-01",
+    "section": "L10 const size",
+    "question": "Type the canonical Q4 array declaration with a const-named size.",
+    "code": "const int MAX = 100;\nint arr[MAX];",
+    "keyChecks": ["const int MAX = 100", "int arr[MAX]", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-10",
+    "levelLabel": "L10 -> arrays via & not return (read function)",
+    "fullCode": "void fill(int arr[], int n) {\n  for (int i = 0; i < n; i++) arr[i] = i;\n}\nint main() {\n  int v[3];\n  fill(v, 3);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void fill(int arr[], int n) {",
+        "annotation": "C++ does not allow returning an array. The function fills the caller's array via the parameter.",
+        "atomIds": ["G-10", "G-13"]
+      },
+      {
+        "line": 5,
+        "code": "  fill(v, 3);",
+        "annotation": "Pass the array and its size. fill writes into v's slots directly.",
+        "atomIds": ["G-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-10",
+    "levelLabel": "L10 -> no return arr; (read pattern)",
+    "fullCode": "void read_into(int arr[], int n) {\n  for (int i = 0; i < n; i++) cin >> arr[i];\n}\nint main() {\n  int data[3];\n  read_into(data, 3);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void read_into(int arr[], int n) {",
+        "annotation": "void return type. The function fills the caller's array; we never write return arr;.",
+        "atomIds": ["G-10"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-10",
+    "code": "void zero(int arr[], int n) {\n  for (int i = 0; i < n; i++) arr[i] = 0;\n}\nint main() {\n  int v[3] = {7, 8, 9};\n  zero(v, 3);\n  cout << v[0] << v[1] << v[2];\n  return 0;\n}",
+    "variables": ["v[0]", "v[1]", "v[2]"],
+    "expectedSteps": [
+      { "line": 5, "variable": "v[0]", "value": "0" },
+      { "line": 5, "variable": "v[1]", "value": "0" },
+      { "line": 5, "variable": "v[2]", "value": "0" },
+      { "line": 6, "variable": "", "value": "", "output": "000" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["000"],
+    "inputMode": "final-only",
+    "teachMe": "Cannot return arr. Function writes through arr[] to update the caller's array."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-10",
+    "code": "void doubler(int arr[], int n) {\n  for (int i = 0; i < n; i++) arr[i] = arr[i] * 2;\n}\nint main() {\n  int v[3] = {1, 2, 3};\n  doubler(v, 3);\n  cout << v[2];\n  return 0;\n}",
+    "variables": ["v[2]"],
+    "expectedSteps": [
+      { "line": 5, "variable": "v[2]", "value": "6" },
+      { "line": 6, "variable": "", "value": "", "output": "6" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["6"],
+    "inputMode": "final-only",
+    "teachMe": "Function modifies caller's v in place; v[2] = 3 * 2 = 6."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-10",
+    "code": "void set_first(int arr[], int n) {\n  arr[0] = 99;\n}\nint main() {\n  int q[2] = {1, 2};\n  set_first(q, 2);\n  cout << q[0];\n  return 0;\n}",
+    "variables": ["q[0]"],
+    "expectedSteps": [
+      { "line": 6, "variable": "q[0]", "value": "99" },
+      { "line": 7, "variable": "", "value": "", "output": "99" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["99"],
+    "inputMode": "final-only",
+    "teachMe": "Function writes to caller's q via arr[0] = 99. Output: 99."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-10",
+    "code": "___ fill(int arr[], int n) {\n  for (int i = 0; i < n; i++) arr[i] = i;\n}",
+    "clozeSentence": "Fill in the return type (a function that does not return a value).",
+    "answer": "void",
+    "explanation": "Use void; you cannot return an array directly."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-10",
+    "code": "void zero(int arr___, int n) {\n  for (int i = 0; i < n; i++) arr[i] = 0;\n}",
+    "clozeSentence": "Fill in the empty bracket pair so arr is an array param.",
+    "answer": "[]",
+    "explanation": "Empty [] makes arr an array parameter."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-10",
+    "code": "// In C++ you ___ return an array directly",
+    "clozeSentence": "Fill in the word that completes the rule (cannot or can).",
+    "answer": "cannot",
+    "explanation": "C++ has no `return arr;` for raw arrays."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-10",
+    "code": "void f(int arr[], int n) {\n  // do work via arr[i] = ...\n}\nint main() {\n  int v[3];\n  ___(v, 3);\n}",
+    "clozeSentence": "Fill in the function name to invoke f on v with size 3.",
+    "answer": "f",
+    "explanation": "Pass the array and size; the function modifies v in place."
+  },
+  {
+    "type": "write",
+    "atomId": "G-10",
+    "level": 2,
+    "spec": "Write a void function fill that takes an int array arr and an int n, and writes 0 into every slot from 0 to n - 1.",
+    "expectedAnswer": "void fill(int arr[], int n) {\n  for (int i = 0; i < n; i++) arr[i] = 0;\n}",
+    "keyChecks": ["void fill", "int arr[]", "int n", "for", "i < n", "arr[i] = 0", ";"],
+    "explanation": "Void return; loop bounds match n; write each slot."
+  },
+  {
+    "type": "write",
+    "atomId": "G-10",
+    "level": 2,
+    "spec": "Write a void function set_to that takes int arr[], int n, and int v, and writes v into every slot from 0 to n - 1.",
+    "expectedAnswer": "void set_to(int arr[], int n, int v) {\n  for (int i = 0; i < n; i++) arr[i] = v;\n}",
+    "keyChecks": ["void set_to", "int arr[]", "int n", "int v", "for", "i < n", "arr[i] = v", ";"],
+    "explanation": "Pass the value to write, loop and assign."
+  },
+  {
+    "type": "write",
+    "atomId": "G-10",
+    "level": 1,
+    "spec": "Write the void function header for a function fill that takes int arr[] and int n.",
+    "expectedAnswer": "void fill(int arr[], int n)",
+    "keyChecks": ["void fill", "int arr[]", "int n"],
+    "explanation": "void return type; array param uses empty brackets."
+  },
+  {
+    "type": "write",
+    "atomId": "G-10",
+    "level": 1,
+    "spec": "Write the void function header for read_into that takes int arr[] and int count.",
+    "expectedAnswer": "void read_into(int arr[], int count)",
+    "keyChecks": ["void read_into", "int arr[]", "int count"],
+    "explanation": "Array params use empty brackets in the declaration."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-11",
+    "levelLabel": "L10 -> for loop walks array (sum)",
+    "fullCode": "int main() {\n  int v[5] = {10, 20, 30, 40, 50};\n  int total = 0;\n  for (int i = 0; i < 5; i++) {\n    total = total + v[i];\n  }\n  cout << total;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  for (int i = 0; i < 5; i++) {",
+        "annotation": "Standard 0-based traversal: i goes 0, 1, 2, 3, 4.",
+        "atomIds": ["G-11"]
+      },
+      {
+        "line": 5,
+        "code": "    total = total + v[i];",
+        "annotation": "Each iteration adds v[i] into the running total.",
+        "atomIds": ["G-11"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-11",
+    "levelLabel": "L10 -> for loop walks array (print)",
+    "fullCode": "int main() {\n  int q[3] = {7, 8, 9};\n  for (int i = 0; i < 3; i++) {\n    cout << q[i] << \" \";\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  for (int i = 0; i < 3; i++) {",
+        "annotation": "Walk indices 0, 1, 2 in order.",
+        "atomIds": ["G-11"]
+      },
+      {
+        "line": 4,
+        "code": "    cout << q[i] << \" \";",
+        "annotation": "Print q[i] then a space. Output: 7 8 9 (with trailing space).",
+        "atomIds": ["G-11"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-11",
+    "code": "int main() {\n  int v[4] = {1, 2, 3, 4};\n  int sum = 0;\n  for (int i = 0; i < 4; i++) sum += v[i];\n  cout << sum;\n  return 0;\n}",
+    "variables": ["sum", "i"],
+    "expectedSteps": [
+      { "line": 3, "variable": "sum", "value": "0" },
+      { "line": 4, "variable": "i", "value": "4" },
+      { "line": 4, "variable": "sum", "value": "10" },
+      { "line": 5, "variable": "", "value": "", "output": "10" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10"],
+    "inputMode": "final-only",
+    "teachMe": "Loop sums 1 + 2 + 3 + 4 = 10. After loop i = 4."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-11",
+    "code": "int main() {\n  int t[3] = {5, 5, 5};\n  for (int i = 0; i < 3; i++) cout << t[i];\n  return 0;\n}",
+    "variables": ["i"],
+    "expectedSteps": [
+      { "line": 3, "variable": "i", "value": "3" },
+      { "line": 3, "variable": "", "value": "", "output": "555" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["555"],
+    "inputMode": "final-only",
+    "teachMe": "Loop prints t[0], t[1], t[2] back-to-back: 555."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-11",
+    "code": "int main() {\n  int arr[5] = {2, 4, 6, 8, 10};\n  int last = 0;\n  for (int i = 0; i < 5; i++) last = arr[i];\n  cout << last;\n  return 0;\n}",
+    "variables": ["last", "i"],
+    "expectedSteps": [
+      { "line": 4, "variable": "i", "value": "5" },
+      { "line": 4, "variable": "last", "value": "10" },
+      { "line": 5, "variable": "", "value": "", "output": "10" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10"],
+    "inputMode": "final-only",
+    "teachMe": "After loop, last holds the value from the final iteration: arr[4] = 10."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-11",
+    "code": "int v[5];\nfor (int i = 0; i < 5; ___) v[i] = 0;",
+    "clozeSentence": "Fill in the loop step expression.",
+    "answer": "i++",
+    "explanation": "i++ increments i each iteration."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-11",
+    "code": "int q[N];\nfor (int i = ___; i < N; i++) q[i] = 0;",
+    "clozeSentence": "Fill in the loop start to traverse from the first slot.",
+    "answer": "0",
+    "explanation": "Start i at 0 to visit every slot."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-11",
+    "code": "for (int i = 0; i < N; i++) ___[i] = 0;",
+    "clozeSentence": "Fill in the array name (use arr).",
+    "answer": "arr",
+    "explanation": "arr[i] is the slot at index i."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-11",
+    "code": "int t[5] = {1,2,3,4,5};\nint sum = 0;\nfor (int i = 0; i < 5; i++) sum = sum + ___;",
+    "clozeSentence": "Fill in the indexed expression for the i-th element of t.",
+    "answer": "t[i]",
+    "explanation": "t[i] reads the slot the loop is currently visiting."
+  },
+  {
+    "type": "write",
+    "atomId": "G-11",
+    "level": 2,
+    "spec": "Given int v[5] and int N = 5; write a for loop that prints each element of v followed by a space.",
+    "expectedAnswer": "for (int i = 0; i < N; i++) cout << v[i] << \" \";",
+    "keyChecks": ["for", "int i = 0", "i < N", "i++", "cout", "<<", "v[i]", "\" \""],
+    "explanation": "Standard 0-to-N traversal printing each slot."
+  },
+  {
+    "type": "write",
+    "atomId": "G-11",
+    "level": 2,
+    "spec": "Given int data[10]; write a for loop that sets every slot of data to its index.",
+    "expectedAnswer": "for (int i = 0; i < 10; i++) data[i] = i;",
+    "keyChecks": ["for", "int i = 0", "i < 10", "i++", "data[i] = i", ";"],
+    "explanation": "Use i as both index and value."
+  },
+  {
+    "type": "write",
+    "atomId": "G-11",
+    "level": 3,
+    "spec": "Write a complete program that declares int arr[3] = {10, 20, 30}; computes the sum of all elements with a for loop, and prints the sum.",
+    "expectedAnswer": "int main() {\n  int arr[3] = {10, 20, 30};\n  int sum = 0;\n  for (int i = 0; i < 3; i++) sum = sum + arr[i];\n  cout << sum;\n  return 0;\n}",
+    "keyChecks": ["int main()", "int arr[3] = {10, 20, 30}", "int sum = 0", "for", "i < 3", "sum = sum + arr[i]", "cout", "sum", "return 0"],
+    "explanation": "Declare, init, accumulate via loop, print."
+  },
+  {
+    "type": "write",
+    "atomId": "G-11",
+    "level": 1,
+    "spec": "Given int q[5]; write a for loop that sets every slot of q to 0 using i from 0 to 4 inclusive.",
+    "expectedAnswer": "for (int i = 0; i < 5; i++) q[i] = 0;",
+    "keyChecks": ["for", "int i = 0", "i < 5", "i++", "q[i] = 0", ";"],
+    "explanation": "Standard zero-fill loop."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "G-11",
+    "id": "CMEM-G11-01",
+    "section": "L10 array traversal",
+    "question": "Type the canonical for-loop that visits every slot of an N-element array arr.",
+    "code": "for (int i = 0; i < N; i++) arr[i] = 0;",
+    "keyChecks": ["for", "int i = 0", "i < N", "i++", "arr[i] = 0", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-12",
+    "levelLabel": "L10 -> arr[i] = v writes (assign)",
+    "fullCode": "int main() {\n  int v[3];\n  v[0] = 10;\n  v[1] = 20;\n  v[2] = 30;\n  cout << v[1];\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  v[0] = 10;",
+        "annotation": "= writes 10 into slot 0 of v.",
+        "atomIds": ["G-12"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << v[1];",
+        "annotation": "Read slot 1, which holds 20.",
+        "atomIds": ["G-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-12",
+    "levelLabel": "L10 -> arr[i] = v writes (overwrite)",
+    "fullCode": "int main() {\n  int q[3] = {1, 2, 3};\n  q[0] = 99;\n  cout << q[0];\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  q[0] = 99;",
+        "annotation": "Overwrites slot 0 with 99. The old value 1 is gone.",
+        "atomIds": ["G-12"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-12",
+    "code": "int main() {\n  int arr[3] = {1, 2, 3};\n  arr[1] = 50;\n  cout << arr[1];\n  return 0;\n}",
+    "variables": ["arr[1]"],
+    "expectedSteps": [
+      { "line": 2, "variable": "arr[1]", "value": "2" },
+      { "line": 3, "variable": "arr[1]", "value": "50" },
+      { "line": 4, "variable": "", "value": "", "output": "50" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["50"],
+    "inputMode": "final-only",
+    "teachMe": "arr[1] starts as 2, then is overwritten to 50 by the assignment."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-12",
+    "code": "int main() {\n  int v[2] = {0, 0};\n  v[0] = 11;\n  v[1] = 22;\n  cout << v[0] + v[1];\n  return 0;\n}",
+    "variables": ["v[0]", "v[1]"],
+    "expectedSteps": [
+      { "line": 3, "variable": "v[0]", "value": "11" },
+      { "line": 4, "variable": "v[1]", "value": "22" },
+      { "line": 5, "variable": "", "value": "", "output": "33" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["33"],
+    "inputMode": "final-only",
+    "teachMe": "Two writes update slots 0 and 1; sum is 33."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-12",
+    "code": "int main() {\n  int t[4] = {0, 0, 0, 0};\n  for (int i = 0; i < 4; i++) t[i] = i + 1;\n  cout << t[0] << t[1] << t[2] << t[3];\n  return 0;\n}",
+    "variables": ["i"],
+    "expectedSteps": [
+      { "line": 3, "variable": "i", "value": "4" },
+      { "line": 4, "variable": "", "value": "", "output": "1234" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1234"],
+    "inputMode": "final-only",
+    "teachMe": "Loop writes i+1 into each slot. After the loop t = {1, 2, 3, 4}."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-12",
+    "code": "int v[5];\nv[2] ___ 99;",
+    "clozeSentence": "Fill in the assignment operator.",
+    "answer": "=",
+    "explanation": "= writes the value on the right into the slot on the left."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-12",
+    "code": "int arr[3] = {0, 0, 0};\narr[___] = 7;\n// after: arr is {0, 7, 0}",
+    "clozeSentence": "Fill in the index that targets the middle slot.",
+    "answer": "1",
+    "explanation": "Index 1 is the middle of size 3."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-12",
+    "code": "int q[4];\nq[0] = 5;\nq[1] = ___;\n// q[1] should be 10",
+    "clozeSentence": "Fill in the literal value to put into slot 1.",
+    "answer": "10",
+    "explanation": "Direct literal write into q[1]."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-12",
+    "code": "int data[10];\nfor (int i = 0; i < 10; i++) data[i] ___ i;",
+    "clozeSentence": "Fill in the assignment operator.",
+    "answer": "=",
+    "explanation": "data[i] = i writes the index value into each slot."
+  },
+  {
+    "type": "write",
+    "atomId": "G-12",
+    "level": 1,
+    "spec": "Given int v[5]; write a single statement that puts 99 into slot 2 of v.",
+    "expectedAnswer": "v[2] = 99;",
+    "keyChecks": ["v[2]", "= 99", ";"],
+    "explanation": "Index then = then value."
+  },
+  {
+    "type": "write",
+    "atomId": "G-12",
+    "level": 1,
+    "spec": "Given int q[3]; write three statements that put 1, 2, 3 into slots 0, 1, 2 in order.",
+    "expectedAnswer": "q[0] = 1;\nq[1] = 2;\nq[2] = 3;",
+    "keyChecks": ["q[0]", "= 1", "q[1]", "= 2", "q[2]", "= 3", ";"],
+    "explanation": "Three direct writes."
+  },
+  {
+    "type": "write",
+    "atomId": "G-12",
+    "level": 1,
+    "spec": "Given int marks[5]; write a single statement that puts 100 into the last slot using literal index 4.",
+    "expectedAnswer": "marks[4] = 100;",
+    "keyChecks": ["marks[4]", "= 100", ";"],
+    "explanation": "Last slot for size 5 is index 4."
+  },
+  {
+    "type": "write",
+    "atomId": "G-12",
+    "level": 2,
+    "spec": "Given int data[10]; write a for loop that puts i*i into each slot from 0 to 9.",
+    "expectedAnswer": "for (int i = 0; i < 10; i++) data[i] = i * i;",
+    "keyChecks": ["for", "int i = 0", "i < 10", "i++", "data[i] = i * i", ";"],
+    "explanation": "i*i is the squared value at each index."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-13",
+    "levelLabel": "L10 -> array param empty brackets (sum fn)",
+    "fullCode": "int sum_arr(int arr[], int n) {\n  int s = 0;\n  for (int i = 0; i < n; i++) s = s + arr[i];\n  return s;\n}\nint main() {\n  int v[3] = {1, 2, 3};\n  cout << sum_arr(v, 3);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int sum_arr(int arr[], int n) {",
+        "annotation": "Empty brackets after arr means it is an array parameter. The size goes in n separately.",
+        "atomIds": ["G-13"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-13",
+    "levelLabel": "L10 -> array param empty brackets (print fn)",
+    "fullCode": "void print_all(int arr[], int n) {\n  for (int i = 0; i < n; i++) cout << arr[i] << \" \";\n}\nint main() {\n  int v[4] = {2, 4, 6, 8};\n  print_all(v, 4);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void print_all(int arr[], int n) {",
+        "annotation": "int arr[] is the standard form. Don't write int arr[5] in a parameter -- the size is not part of the type.",
+        "atomIds": ["G-13"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-13",
+    "code": "int max_val(int arr[], int n) {\n  int m = arr[0];\n  for (int i = 1; i < n; i++) if (arr[i] > m) m = arr[i];\n  return m;\n}\nint main() {\n  int v[3] = {3, 1, 9};\n  cout << max_val(v, 3);\n  return 0;\n}",
+    "variables": ["m"],
+    "expectedSteps": [
+      { "line": 2, "variable": "m", "value": "3" },
+      { "line": 3, "variable": "m", "value": "9" },
+      { "line": 8, "variable": "", "value": "", "output": "9" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["9"],
+    "inputMode": "final-only",
+    "teachMe": "arr[] receives v. Loop finds 9 as the maximum."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-13",
+    "code": "void show(int arr[], int n) {\n  for (int i = 0; i < n; i++) cout << arr[i];\n}\nint main() {\n  int v[3] = {7, 8, 9};\n  show(v, 3);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 6, "variable": "", "value": "", "output": "789" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["789"],
+    "inputMode": "final-only",
+    "teachMe": "show takes arr[] (no size in brackets) and prints each element."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-13",
+    "code": "int sum3(int arr[], int n) {\n  int s = 0;\n  for (int i = 0; i < n; i++) s += arr[i];\n  return s;\n}\nint main() {\n  int q[3] = {10, 20, 30};\n  cout << sum3(q, 3);\n  return 0;\n}",
+    "variables": ["s"],
+    "expectedSteps": [
+      { "line": 2, "variable": "s", "value": "0" },
+      { "line": 3, "variable": "s", "value": "60" },
+      { "line": 8, "variable": "", "value": "", "output": "60" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["60"],
+    "inputMode": "final-only",
+    "teachMe": "10 + 20 + 30 = 60. arr[] receives the array address."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-13",
+    "code": "void f(int arr___, int n) { }",
+    "clozeSentence": "Fill in the empty brackets that mark arr as an array parameter.",
+    "answer": "[]",
+    "explanation": "Empty [] in a parameter signals an array."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-13",
+    "code": "void zero(int arr[], int ___) { }",
+    "clozeSentence": "Fill in the parameter name that carries the array's size.",
+    "answer": "n",
+    "explanation": "Pass the size as a separate int param."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-13",
+    "code": "// Bad:  void f(int arr[5])\n// Good: void f(int arr[], int ___)",
+    "clozeSentence": "Fill in the size parameter name (use n).",
+    "answer": "n",
+    "explanation": "Take size as a separate int argument."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-13",
+    "code": "void show(___ arr[], int n) {\n  for (int i = 0; i < n; i++) cout << arr[i];\n}",
+    "clozeSentence": "Fill in the element type to show int arrays.",
+    "answer": "int",
+    "explanation": "The element type comes before the array name."
+  },
+  {
+    "type": "write",
+    "atomId": "G-13",
+    "level": 1,
+    "spec": "Write the void function header for print_arr that takes int arr[] and int n.",
+    "expectedAnswer": "void print_arr(int arr[], int n)",
+    "keyChecks": ["void print_arr", "int arr[]", "int n"],
+    "explanation": "Empty brackets, then a separate int n for size."
+  },
+  {
+    "type": "write",
+    "atomId": "G-13",
+    "level": 2,
+    "spec": "Write a complete void function show that takes int arr[] and int n, and prints each element followed by a space.",
+    "expectedAnswer": "void show(int arr[], int n) {\n  for (int i = 0; i < n; i++) cout << arr[i] << \" \";\n}",
+    "keyChecks": ["void show", "int arr[]", "int n", "for", "i < n", "arr[i]", "\" \""],
+    "explanation": "Loop bound is n; print each slot."
+  },
+  {
+    "type": "write",
+    "atomId": "G-13",
+    "level": 2,
+    "spec": "Write an int function total that takes int arr[] and int n, and returns the sum of all elements.",
+    "expectedAnswer": "int total(int arr[], int n) {\n  int s = 0;\n  for (int i = 0; i < n; i++) s = s + arr[i];\n  return s;\n}",
+    "keyChecks": ["int total", "int arr[]", "int n", "int s = 0", "for", "i < n", "s = s + arr[i]", "return s"],
+    "explanation": "Accumulate via for loop, then return s."
+  },
+  {
+    "type": "write",
+    "atomId": "G-13",
+    "level": 1,
+    "spec": "Write the void function header for fill_zero that takes int arr[] and int n.",
+    "expectedAnswer": "void fill_zero(int arr[], int n)",
+    "keyChecks": ["void fill_zero", "int arr[]", "int n"],
+    "explanation": "Empty [] is the array param shape."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "G-14",
+    "levelLabel": "L10 -> &arr[] aliases caller (read fn idiom)",
+    "fullCode": "void read_into(int &arr[], int n) {\n  for (int i = 0; i < n; i++) cin >> arr[i];\n}\nint main() {\n  int v[3];\n  read_into(v, 3);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void read_into(int &arr[], int n) {",
+        "annotation": "& between int and arr[] makes this a reference parameter. arr is the caller's array.",
+        "atomIds": ["G-14"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "G-14",
+    "levelLabel": "L10 -> &arr[] aliases caller (Q3 idiom)",
+    "fullCode": "void read_records(int &list[], int count) {\n  for (int i = 0; i < count; i++) cin >> list[i];\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void read_records(int &list[], int count) {",
+        "annotation": "Q3 SIT102 idiom: &list[] for the array, int count for the size.",
+        "atomIds": ["G-14"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "G-14",
+    "code": "void zero_first(int &arr[], int n) {\n  arr[0] = 0;\n}\nint main() {\n  int v[3] = {7, 8, 9};\n  zero_first(v, 3);\n  cout << v[0] << v[1] << v[2];\n  return 0;\n}",
+    "variables": ["v[0]", "v[1]", "v[2]"],
+    "expectedSteps": [
+      { "line": 6, "variable": "v[0]", "value": "0" },
+      { "line": 7, "variable": "", "value": "", "output": "089" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["089"],
+    "inputMode": "final-only",
+    "teachMe": "&arr[] aliases caller's v. Writing arr[0] = 0 zeros v[0]. v[1] and v[2] unchanged."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-14",
+    "code": "void doubler(int &arr[], int n) {\n  for (int i = 0; i < n; i++) arr[i] = arr[i] * 2;\n}\nint main() {\n  int v[3] = {1, 2, 3};\n  doubler(v, 3);\n  cout << v[2];\n  return 0;\n}",
+    "variables": ["v[2]"],
+    "expectedSteps": [
+      { "line": 6, "variable": "v[2]", "value": "6" },
+      { "line": 7, "variable": "", "value": "", "output": "6" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["6"],
+    "inputMode": "final-only",
+    "teachMe": "Writes through &arr[] mutate caller's v. v[2] becomes 6."
+  },
+  {
+    "type": "trace",
+    "atomId": "G-14",
+    "code": "void set_all(int &arr[], int n, int val) {\n  for (int i = 0; i < n; i++) arr[i] = val;\n}\nint main() {\n  int q[2] = {5, 6};\n  set_all(q, 2, 99);\n  cout << q[0] << q[1];\n  return 0;\n}",
+    "variables": ["q[0]", "q[1]"],
+    "expectedSteps": [
+      { "line": 6, "variable": "q[0]", "value": "99" },
+      { "line": 6, "variable": "q[1]", "value": "99" },
+      { "line": 7, "variable": "", "value": "", "output": "9999" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["9999"],
+    "inputMode": "final-only",
+    "teachMe": "&arr[] writes go straight to caller. Output: 9999."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-14",
+    "code": "void f(int ___arr[], int n) { arr[0] = 99; }",
+    "clozeSentence": "Fill in the SIT102 reference token between the type and the array name.",
+    "answer": "&",
+    "explanation": "& in front of arr[] is the SIT102 idiom for pass-by-reference of arrays."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-14",
+    "code": "// SIT102 Q3 idiom\nvoid read_X(X &list[], int ___) { ... }",
+    "clozeSentence": "Fill in the size parameter name used in the Q3 idiom.",
+    "answer": "count",
+    "explanation": "int count is the SIT102 size parameter convention for Q3."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-14",
+    "code": "void zero(int &arr[], int n) {\n  for (int i = 0; i < n; i++) arr[___] = 0;\n}",
+    "clozeSentence": "Fill in the loop index expression for the i-th slot.",
+    "answer": "i",
+    "explanation": "arr[i] writes to slot i through the reference."
+  },
+  {
+    "type": "cloze",
+    "atomId": "G-14",
+    "code": "void f(int &arr[], int n) { ___[0] = 1; }",
+    "clozeSentence": "Fill in the parameter name to write to its first slot.",
+    "answer": "arr",
+    "explanation": "arr is the parameter name; arr[0] writes through the reference."
+  },
+  {
+    "type": "write",
+    "atomId": "G-14",
+    "level": 1,
+    "spec": "Write the void function header for read_X that takes int &list[] and int count.",
+    "expectedAnswer": "void read_X(int &list[], int count)",
+    "keyChecks": ["void read_X", "int &list[]", "int count"],
+    "explanation": "& makes list[] alias the caller; int count carries the size."
+  },
+  {
+    "type": "write",
+    "atomId": "G-14",
+    "level": 2,
+    "spec": "Write a complete void function fill_with that takes int &arr[], int n, and int v, and writes v into every slot.",
+    "expectedAnswer": "void fill_with(int &arr[], int n, int v) {\n  for (int i = 0; i < n; i++) arr[i] = v;\n}",
+    "keyChecks": ["void fill_with", "int &arr[]", "int n", "int v", "for", "i < n", "arr[i] = v", ";"],
+    "explanation": "Reference param shares caller's array; loop writes through it."
+  },
+  {
+    "type": "write",
+    "atomId": "G-14",
+    "level": 2,
+    "spec": "Write a complete void function read_int_list that takes int &list[] and int count, using cin to read each slot.",
+    "expectedAnswer": "void read_int_list(int &list[], int count) {\n  for (int i = 0; i < count; i++) cin >> list[i];\n}",
+    "keyChecks": ["void read_int_list", "int &list[]", "int count", "for", "i < count", "cin", "list[i]", ";"],
+    "explanation": "Standard Q3 read function shape."
+  },
+  {
+    "type": "write",
+    "atomId": "G-14",
+    "level": 1,
+    "spec": "Write the void function header for set_zeros that takes int &arr[] and int n.",
+    "expectedAnswer": "void set_zeros(int &arr[], int n)",
+    "keyChecks": ["void set_zeros", "int &arr[]", "int n"],
+    "explanation": "Reference array param uses & before the name."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "G-14",
+    "id": "CMEM-G14-01",
+    "section": "L10 ref array Q3 idiom",
+    "question": "Type the canonical Q3 read-function header that uses a reference array.",
+    "code": "void read_X(int &list[], int count)",
+    "keyChecks": ["void read_X", "int &list[]", "int count"]
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "G-02",
+    "id": "PD-G02-01",
+    "section": "L10 declare",
+    "prompt": "Declare an uninitialized int array of size 5 named buf.",
+    "expectedAnswer": "int buf[5];",
+    "keyChecks": ["int buf[5]", ";"],
+    "variants": [
+      { "prompt": "Declare an uninitialized int array of size 8 named items.", "expectedAnswer": "int items[8];" },
+      { "prompt": "Declare an uninitialized int array of size 20 named data.", "expectedAnswer": "int data[20];" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "G-03",
+    "id": "PD-G03-01",
+    "section": "L10 init list",
+    "prompt": "Declare and initialize an int array of size 3 named t with values 4, 5, 6.",
+    "expectedAnswer": "int t[3] = {4, 5, 6};",
+    "keyChecks": ["int t[3]", "= {4, 5, 6}", ";"],
+    "variants": [
+      { "prompt": "Declare and initialize an int array of size 3 named v with values 7, 8, 9.", "expectedAnswer": "int v[3] = {7, 8, 9};" },
+      { "prompt": "Declare and initialize an int array of size 3 named w with values 1, 2, 3.", "expectedAnswer": "int w[3] = {1, 2, 3};" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "G-11",
+    "id": "PD-G11-01",
+    "section": "L10 traversal",
+    "prompt": "Given int v[5]; write a for loop that sets every slot of v to 0.",
+    "expectedAnswer": "for (int i = 0; i < 5; i++) v[i] = 0;",
+    "keyChecks": ["for", "int i = 0", "i < 5", "i++", "v[i] = 0", ";"],
+    "variants": [
+      { "prompt": "Given int q[10]; write a for loop that sets every slot to 0.", "expectedAnswer": "for (int i = 0; i < 10; i++) q[i] = 0;" },
+      { "prompt": "Given int data[3]; write a for loop that sets every slot to 0.", "expectedAnswer": "for (int i = 0; i < 3; i++) data[i] = 0;" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "G-13",
+    "id": "PD-G13-01",
+    "section": "L10 array param",
+    "prompt": "Write the void function header for print_arr that takes int arr[] and int n.",
+    "expectedAnswer": "void print_arr(int arr[], int n)",
+    "keyChecks": ["void print_arr", "int arr[]", "int n"],
+    "variants": [
+      { "prompt": "Write the void function header for show_arr that takes int arr[] and int n.", "expectedAnswer": "void show_arr(int arr[], int n)" },
+      { "prompt": "Write the void function header for dump that takes int arr[] and int n.", "expectedAnswer": "void dump(int arr[], int n)" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "G-14",
+    "id": "PD-G14-01",
+    "section": "L10 ref array (Q3)",
+    "prompt": "Write the void function header for read_X that takes int &list[] and int count.",
+    "expectedAnswer": "void read_X(int &list[], int count)",
+    "keyChecks": ["void read_X", "int &list[]", "int count"],
+    "variants": [
+      { "prompt": "Write the void function header for read_marks that takes int &list[] and int count.", "expectedAnswer": "void read_marks(int &list[], int count)" },
+      { "prompt": "Write the void function header for read_data that takes int &list[] and int count.", "expectedAnswer": "void read_data(int &list[], int count)" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "G-09",
+    "id": "PD-G09-01",
+    "section": "L10 const size",
+    "prompt": "Declare const int MAX = 100; then declare int items[MAX].",
+    "expectedAnswer": "const int MAX = 100;\nint items[MAX];",
+    "keyChecks": ["const int MAX = 100", "int items[MAX]", ";"],
+    "variants": [
+      { "prompt": "Declare const int N = 50; then declare int data[N].", "expectedAnswer": "const int N = 50;\nint data[N];" },
+      { "prompt": "Declare const int CAP = 25; then declare int q[CAP].", "expectedAnswer": "const int CAP = 25;\nint q[CAP];" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "G-12",
+    "id": "PD-G12-01",
+    "section": "L10 element write",
+    "prompt": "Given int v[5]; write a single statement that puts 99 into slot 2.",
+    "expectedAnswer": "v[2] = 99;",
+    "keyChecks": ["v[2]", "= 99", ";"],
+    "variants": [
+      { "prompt": "Given int q[5]; write a single statement that puts 7 into slot 3.", "expectedAnswer": "q[3] = 7;" },
+      { "prompt": "Given int t[5]; write a single statement that puts 50 into slot 0.", "expectedAnswer": "t[0] = 50;" }
+    ]
+  },
+
+  {
+    "type": "matrix",
+    "atomId": "G-03",
+    "id": "CM-G03-01",
+    "section": "L10 init pattern",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: int size 3 with 1,2,3", "code": "int a[3] = {1, 2, 3};" },
+      { "label": "Example B: int size 4 with 10,20,30,40", "code": "int b[4] = {10, 20, 30, 40};" }
+    ],
+    "prompt": "Write the same pattern: declare int c of size 5 with values 5, 10, 15, 20, 25.",
+    "expectedAnswer": "int c[5] = {5, 10, 15, 20, 25};",
+    "keyChecks": ["int c[5]", "= {5, 10, 15, 20, 25}", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "G-11",
+    "id": "CM-G11-01",
+    "section": "L10 zero-fill loop",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: zero a 3-array", "code": "for (int i = 0; i < 3; i++) v[i] = 0;" },
+      { "label": "Example B: zero a 5-array", "code": "for (int i = 0; i < 5; i++) v[i] = 0;" }
+    ],
+    "prompt": "Write the same pattern: zero a 10-array v.",
+    "expectedAnswer": "for (int i = 0; i < 10; i++) v[i] = 0;",
+    "keyChecks": ["for", "int i = 0", "i < 10", "i++", "v[i] = 0", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "G-13",
+    "id": "CM-G13-01",
+    "section": "L10 array param",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: print int array", "code": "void show_int(int arr[], int n) {\n  for (int i = 0; i < n; i++) cout << arr[i];\n}" },
+      { "label": "Example B: zero int array", "code": "void zero_int(int arr[], int n) {\n  for (int i = 0; i < n; i++) arr[i] = 0;\n}" }
+    ],
+    "prompt": "Write the same pattern: void function double_int that doubles each int in arr of length n.",
+    "expectedAnswer": "void double_int(int arr[], int n) {\n  for (int i = 0; i < n; i++) arr[i] = arr[i] * 2;\n}",
+    "keyChecks": ["void double_int", "int arr[]", "int n", "for", "i < n", "arr[i] = arr[i] * 2", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "G-14",
+    "id": "CM-G14-01",
+    "section": "L10 read function",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: read ints into &list", "code": "void read_ints(int &list[], int count) {\n  for (int i = 0; i < count; i++) cin >> list[i];\n}" },
+      { "label": "Example B: read doubles into &list", "code": "void read_doubles(double &list[], int count) {\n  for (int i = 0; i < count; i++) cin >> list[i];\n}" }
+    ],
+    "prompt": "Write the same pattern: read_strings that reads strings into string &list[] of length count.",
+    "expectedAnswer": "void read_strings(string &list[], int count) {\n  for (int i = 0; i < count; i++) cin >> list[i];\n}",
+    "keyChecks": ["void read_strings", "string &list[]", "int count", "for", "i < count", "cin", "list[i]", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "G-04",
+    "id": "CM-G04-01",
+    "section": "L10 first element",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: first of v", "code": "cout << v[0];" },
+      { "label": "Example B: first of arr", "code": "cout << arr[0];" }
+    ],
+    "prompt": "Write the same pattern: print the first element of data.",
+    "expectedAnswer": "cout << data[0];",
+    "keyChecks": ["cout", "<<", "data[0]", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "G-07",
+    "id": "CM-G07-01",
+    "section": "L10 last element",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: last of size-5 v", "code": "cout << v[4];" },
+      { "label": "Example B: last of size-3 arr", "code": "cout << arr[2];" }
+    ],
+    "prompt": "Write the same pattern: print the last element of items where items has size 7.",
+    "expectedAnswer": "cout << items[6];",
+    "keyChecks": ["cout", "<<", "items[6]", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "G-09",
+    "id": "CM-G09-01",
+    "section": "L10 const size pattern",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: MAX=100 with int", "code": "const int MAX = 100;\nint items[MAX];" },
+      { "label": "Example B: N=50 with double", "code": "const int N = 50;\ndouble vals[N];" }
+    ],
+    "prompt": "Write the same pattern: const int CAP = 200; then declare a string array names of size CAP.",
+    "expectedAnswer": "const int CAP = 200;\nstring names[CAP];",
+    "keyChecks": ["const int CAP = 200", "string names[CAP]", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "G-12",
+    "id": "CM-G12-01",
+    "section": "L10 single write",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: write 99 to slot 2", "code": "v[2] = 99;" },
+      { "label": "Example B: write 0 to slot 4", "code": "arr[4] = 0;" }
+    ],
+    "prompt": "Write the same pattern: put 50 into slot 1 of data.",
+    "expectedAnswer": "data[1] = 50;",
+    "keyChecks": ["data[1]", "= 50", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "G-08",
+    "id": "CM-G08-01",
+    "section": "L10 safe loop bound",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: walk 5 ints safely", "code": "for (int i = 0; i < 5; i++) v[i] = 0;" },
+      { "label": "Example B: walk 8 ints safely", "code": "for (int i = 0; i < 8; i++) v[i] = 0;" }
+    ],
+    "prompt": "Write the same pattern: walk N ints safely setting each to 0 where N is a const int.",
+    "expectedAnswer": "for (int i = 0; i < N; i++) v[i] = 0;",
+    "keyChecks": ["for", "int i = 0", "i < N", "i++", "v[i] = 0", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "G-10",
+    "id": "CM-G10-01",
+    "section": "L10 fill via param",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: zero via param", "code": "void zero(int arr[], int n) {\n  for (int i = 0; i < n; i++) arr[i] = 0;\n}" },
+      { "label": "Example B: set to 1 via param", "code": "void to_ones(int arr[], int n) {\n  for (int i = 0; i < n; i++) arr[i] = 1;\n}" }
+    ],
+    "prompt": "Write the same pattern: a void function set_to_index that puts i into each slot from 0 to n-1.",
+    "expectedAnswer": "void set_to_index(int arr[], int n) {\n  for (int i = 0; i < n; i++) arr[i] = i;\n}",
+    "keyChecks": ["void set_to_index", "int arr[]", "int n", "for", "i < n", "arr[i] = i", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "G-05",
+    "id": "CM-G05-01",
+    "section": "L10 indexed read",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: print v[i]", "code": "cout << v[i];" },
+      { "label": "Example B: print arr[k]", "code": "cout << arr[k];" }
+    ],
+    "prompt": "Write the same pattern: print data at index j.",
+    "expectedAnswer": "cout << data[j];",
+    "keyChecks": ["cout", "<<", "data[j]", ";"]
+  }
+]

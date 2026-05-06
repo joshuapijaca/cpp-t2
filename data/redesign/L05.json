@@ -1,0 +1,1925 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "C-01",
+    "levelLabel": "L5 -> == equality (pass-fail check)",
+    "fullCode": "int score = 50;\nif (score == 50) {\n  cout << \"on the edge\";\n}",
+    "steps": [
+      { "line": 1, "code": "int score = 50;", "annotation": "Score exactly 50", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (score == 50) {", "annotation": "== tests equality. score == 50 is true", "atomIds": ["C-01"] },
+      { "line": 3, "code": "  cout << \"on the edge\";", "annotation": "Body executes because the condition was true", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-01",
+    "levelLabel": "L5 -> == equality (PIN match)",
+    "fullCode": "int pin = 1234;\nif (pin == 1234) {\n  cout << \"unlocked\";\n}",
+    "steps": [
+      { "line": 1, "code": "int pin = 1234;", "annotation": "Stored PIN", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (pin == 1234) {", "annotation": "== compares pin to 1234. == NOT = (assignment trap)", "atomIds": ["C-01"] },
+      { "line": 3, "code": "  cout << \"unlocked\";", "annotation": "Match -> unlocked prints", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "C-01",
+    "code": "int main() {\n  int score = 50;\n  if (score == 50) {\n    cout << \"pass\";\n  } else {\n    cout << \"fail\";\n  }\n  return 0;\n}",
+    "variables": ["score"],
+    "expectedSteps": [
+      { "line": 2, "variable": "score", "value": "50" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["pass"],
+    "inputMode": "final-only",
+    "teachMe": "score == 50 is true, so the if-body runs and prints pass."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-01",
+    "code": "int main() {\n  int pin = 1234;\n  if (pin == 0000) {\n    cout << \"open\";\n  } else {\n    cout << \"locked\";\n  }\n  return 0;\n}",
+    "variables": ["pin"],
+    "expectedSteps": [
+      { "line": 2, "variable": "pin", "value": "1234" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["locked"],
+    "inputMode": "final-only",
+    "teachMe": "pin == 0 is false (1234 != 0), else branch runs, prints locked."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-01",
+    "code": "int main() {\n  int x = 5;\n  if (x == 5) {\n    cout << \"yes\";\n  }\n  cout << \"done\";\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "5" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["yes", "done"],
+    "inputMode": "final-only",
+    "teachMe": "x == 5 true -> prints yes; then unconditional cout prints done."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-01",
+    "code": "int main() {\n  int n = 7;\n  if (n == 8) {\n    cout << \"eight\";\n  } else {\n    cout << \"not eight\";\n  }\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "7" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["not eight"],
+    "inputMode": "final-only",
+    "teachMe": "n == 8 is false (7 != 8), else branch runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-01",
+    "code": "int main() {\n  int code = 42;\n  if (code == 42) {\n    cout << \"match\";\n  }\n  return 0;\n}",
+    "variables": ["code"],
+    "expectedSteps": [
+      { "line": 2, "variable": "code", "value": "42" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["match"],
+    "inputMode": "final-only",
+    "teachMe": "code == 42 is true. Body runs, prints match."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-01",
+    "code": "int main() {\n  int a = 10;\n  int b = 10;\n  if (a == b) {\n    cout << \"same\";\n  }\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "10" },
+      { "line": 3, "variable": "b", "value": "10" },
+      { "line": 4, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["same"],
+    "inputMode": "final-only",
+    "teachMe": "Two variables can be == compared. 10 == 10 true."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-01",
+    "code": "if (score ___ 50) {\n  cout << \"exact\";\n}",
+    "clozeSentence": "Test for equality with the ___ operator",
+    "answer": "==",
+    "explanation": "== tests equality (don't confuse with =, the assignment operator)."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-01",
+    "code": "if (pin ___ 1234) {\n  cout << \"unlocked\";\n}",
+    "clozeSentence": "PIN match uses the ___ operator",
+    "answer": "==",
+    "explanation": "== compares two values. = would assign and is wrong here."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-01",
+    "code": "if (a ___ b) {\n  cout << \"same\";\n}",
+    "clozeSentence": "Two variables compare with the ___ operator",
+    "answer": "==",
+    "explanation": "== checks if a equals b."
+  },
+  {
+    "type": "write",
+    "atomId": "C-01",
+    "level": 1,
+    "spec": "Write an if header that runs when score equals 50 (just the if line, ending with the open brace)",
+    "expectedAnswer": "if (score == 50) {",
+    "keyChecks": ["if", "(", "score", "==", "50", ")", "{"],
+    "forbidden": ["="],
+    "explanation": "== tests equality. = would assign and would be wrong."
+  },
+  {
+    "type": "write",
+    "atomId": "C-01",
+    "level": 2,
+    "spec": "Write an if-block that prints \"exact\" when score == 50. Use cout. Three lines (open brace on line 1, cout on line 2, close brace on line 3).",
+    "expectedAnswer": "if (score == 50) {\n  cout << \"exact\";\n}",
+    "keyChecks": ["if", "score == 50", "cout <<", "\"exact\"", "}"],
+    "explanation": "== compares; cout prints when condition holds."
+  },
+  {
+    "type": "write",
+    "atomId": "C-01",
+    "level": 3,
+    "spec": "Write a complete program that declares int pin = 1234, then prints \"unlocked\" if pin == 1234 else \"locked\"",
+    "expectedAnswer": "int main() {\n  int pin = 1234;\n  if (pin == 1234) {\n    cout << \"unlocked\";\n  } else {\n    cout << \"locked\";\n  }\n  return 0;\n}",
+    "keyChecks": ["int main()", "int pin = 1234;", "pin == 1234", "cout << \"unlocked\"", "else", "cout << \"locked\"", "return 0;"],
+    "explanation": "Full if-else with the equality operator on int pin."
+  },
+  {
+    "type": "matrix",
+    "atomId": "C-01",
+    "id": "CM-C01-01",
+    "section": "L5 == equality",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: equality test for score", "code": "if (score == 50) {\n  cout << \"exact\";\n}" },
+      { "label": "Example B: equality test for pin", "code": "if (pin == 1234) {\n  cout << \"unlocked\";\n}" }
+    ],
+    "prompt": "By the same pattern, write an if that prints \"match\" when code equals 42.",
+    "expectedAnswer": "if (code == 42) {\n  cout << \"match\";\n}",
+    "keyChecks": ["if", "code == 42", "cout", "\"match\"", "}"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "C-02",
+    "levelLabel": "L5 -> != not equal (age-band exclusion)",
+    "fullCode": "int age = 18;\nif (age != 17) {\n  cout << \"not 17\";\n}",
+    "steps": [
+      { "line": 1, "code": "int age = 18;", "annotation": "Age value", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (age != 17) {", "annotation": "!= true if values differ. 18 != 17 true", "atomIds": ["C-02"] },
+      { "line": 3, "code": "  cout << \"not 17\";", "annotation": "Body runs because condition was true", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-02",
+    "levelLabel": "L5 -> != not equal (nonzero check)",
+    "fullCode": "int x = 5;\nif (x != 0) {\n  cout << \"nonzero\";\n}",
+    "steps": [
+      { "line": 1, "code": "int x = 5;", "annotation": "Test value", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (x != 0) {", "annotation": "!= 0 means \"not zero\"", "atomIds": ["C-02"] },
+      { "line": 3, "code": "  cout << \"nonzero\";", "annotation": "Output nonzero", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "C-02",
+    "code": "int main() {\n  int age = 18;\n  if (age != 17) {\n    cout << \"adult\";\n  } else {\n    cout << \"teen\";\n  }\n  return 0;\n}",
+    "variables": ["age"],
+    "expectedSteps": [
+      { "line": 2, "variable": "age", "value": "18" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["adult"],
+    "inputMode": "final-only",
+    "teachMe": "age != 17 -> 18 != 17 true. if-body runs, prints adult."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-02",
+    "code": "int main() {\n  int age = 17;\n  if (age != 17) {\n    cout << \"adult\";\n  } else {\n    cout << \"seventeen\";\n  }\n  return 0;\n}",
+    "variables": ["age"],
+    "expectedSteps": [
+      { "line": 2, "variable": "age", "value": "17" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["seventeen"],
+    "inputMode": "final-only",
+    "teachMe": "age != 17 -> 17 != 17 false. else runs, prints seventeen."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-02",
+    "code": "int main() {\n  int x = 0;\n  if (x != 0) {\n    cout << \"nonzero\";\n  } else {\n    cout << \"zero\";\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "0" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["zero"],
+    "inputMode": "final-only",
+    "teachMe": "x != 0 -> 0 != 0 false. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-02",
+    "code": "int main() {\n  int a = 10;\n  int b = 12;\n  if (a != b) {\n    cout << \"differ\";\n  }\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "10" },
+      { "line": 3, "variable": "b", "value": "12" },
+      { "line": 4, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["differ"],
+    "inputMode": "final-only",
+    "teachMe": "a != b -> 10 != 12 true. Body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-02",
+    "code": "int main() {\n  int a = 5;\n  int b = 5;\n  if (a != b) {\n    cout << \"differ\";\n  } else {\n    cout << \"same\";\n  }\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "5" },
+      { "line": 3, "variable": "b", "value": "5" },
+      { "line": 4, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["same"],
+    "inputMode": "final-only",
+    "teachMe": "a != b -> 5 != 5 false. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-02",
+    "code": "int main() {\n  int code = 7;\n  if (code != 0) {\n    cout << \"got code\";\n  }\n  return 0;\n}",
+    "variables": ["code"],
+    "expectedSteps": [
+      { "line": 2, "variable": "code", "value": "7" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["got code"],
+    "inputMode": "final-only",
+    "teachMe": "code != 0 -> 7 != 0 true. Prints got code."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-02",
+    "code": "int main() {\n  int n = 100;\n  if (n != 100) {\n    cout << \"changed\";\n  } else {\n    cout << \"same\";\n  }\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "100" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["same"],
+    "inputMode": "final-only",
+    "teachMe": "n != 100 -> 100 != 100 false. else runs."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-02",
+    "code": "if (x ___ 0) {\n  cout << \"nonzero\";\n}",
+    "clozeSentence": "Use the ___ operator to test \"not equal\"",
+    "answer": "!=",
+    "explanation": "!= is the not-equal operator."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-02",
+    "code": "if (age ___ 17) {\n  cout << \"not 17\";\n}",
+    "clozeSentence": "Exclude the value 17 with the ___ operator",
+    "answer": "!=",
+    "explanation": "age != 17 is true for everything except 17."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-02",
+    "code": "if (a ___ b) {\n  cout << \"differ\";\n}",
+    "clozeSentence": "Two values differ when the ___ operator is true",
+    "answer": "!=",
+    "explanation": "!= returns true when the operands are not equal."
+  },
+  {
+    "type": "write",
+    "atomId": "C-02",
+    "level": 1,
+    "spec": "Write an if header that runs when x is not equal to 0 (just the if line ending with the open brace)",
+    "expectedAnswer": "if (x != 0) {",
+    "keyChecks": ["if", "(", "x", "!=", "0", ")", "{"],
+    "explanation": "!= is the not-equal operator."
+  },
+  {
+    "type": "write",
+    "atomId": "C-02",
+    "level": 2,
+    "spec": "Write an if-block that prints \"differ\" when a != b. Three lines.",
+    "expectedAnswer": "if (a != b) {\n  cout << \"differ\";\n}",
+    "keyChecks": ["if", "a != b", "cout <<", "\"differ\"", "}"],
+    "explanation": "Body runs only when the operands are not equal."
+  },
+  {
+    "type": "matrix",
+    "atomId": "C-02",
+    "id": "CM-C02-01",
+    "section": "L5 != not equal",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: not-equal nonzero check", "code": "if (x != 0) {\n  cout << \"nonzero\";\n}" },
+      { "label": "Example B: not-equal age exclusion", "code": "if (age != 17) {\n  cout << \"not 17\";\n}" }
+    ],
+    "prompt": "By the same pattern, write an if that prints \"differ\" when a is not equal to b.",
+    "expectedAnswer": "if (a != b) {\n  cout << \"differ\";\n}",
+    "keyChecks": ["if", "a != b", "cout", "\"differ\"", "}"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "C-03",
+    "levelLabel": "L5 -> < less than (voting age check)",
+    "fullCode": "int age = 17;\nif (age < 18) {\n  cout << \"too young\";\n}",
+    "steps": [
+      { "line": 1, "code": "int age = 17;", "annotation": "Age below voting", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (age < 18) {", "annotation": "< is strict; 17 < 18 is true. 18 < 18 would be FALSE", "atomIds": ["C-03"] },
+      { "line": 3, "code": "  cout << \"too young\";", "annotation": "Body runs", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-03",
+    "levelLabel": "L5 -> < less than (loop guard)",
+    "fullCode": "for (int i = 0; i < 3; i++) {\n  cout << i;\n}",
+    "steps": [
+      { "line": 1, "code": "for (int i = 0; i < 3; i++) {", "annotation": "i < 3 is the loop guard. STRICT < means i = 3 stops the loop", "atomIds": ["C-03"] },
+      { "line": 2, "code": "  cout << i;", "annotation": "Prints 0, 1, 2 (NOT 3 — because < not <=)", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "C-03",
+    "code": "int main() {\n  int age = 17;\n  if (age < 18) {\n    cout << \"too young\";\n  } else {\n    cout << \"can vote\";\n  }\n  return 0;\n}",
+    "variables": ["age"],
+    "expectedSteps": [
+      { "line": 2, "variable": "age", "value": "17" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["too young"],
+    "inputMode": "final-only",
+    "teachMe": "age < 18 -> 17 < 18 true. if-body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-03",
+    "code": "int main() {\n  int age = 18;\n  if (age < 18) {\n    cout << \"too young\";\n  } else {\n    cout << \"can vote\";\n  }\n  return 0;\n}",
+    "variables": ["age"],
+    "expectedSteps": [
+      { "line": 2, "variable": "age", "value": "18" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["can vote"],
+    "inputMode": "final-only",
+    "teachMe": "BOUNDARY trap: 18 < 18 is FALSE (strict <). else branch runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-03",
+    "code": "int main() {\n  int x = 5;\n  if (x < 10) {\n    cout << \"small\";\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "5" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["small"],
+    "inputMode": "final-only",
+    "teachMe": "5 < 10 true. Body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-03",
+    "code": "int main() {\n  int n = 100;\n  if (n < 100) {\n    cout << \"under\";\n  } else {\n    cout << \"at or above\";\n  }\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "100" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["at or above"],
+    "inputMode": "final-only",
+    "teachMe": "100 < 100 false (strict <). else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-03",
+    "code": "int main() {\n  int a = 3;\n  int b = 7;\n  if (a < b) {\n    cout << \"a smaller\";\n  }\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "3" },
+      { "line": 3, "variable": "b", "value": "7" },
+      { "line": 4, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["a smaller"],
+    "inputMode": "final-only",
+    "teachMe": "3 < 7 true."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-03",
+    "code": "int main() {\n  int x = -5;\n  if (x < 0) {\n    cout << \"negative\";\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "-5" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["negative"],
+    "inputMode": "final-only",
+    "teachMe": "-5 < 0 true. Body runs and prints negative."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-03",
+    "code": "int main() {\n  int p = 50;\n  if (p < 50) {\n    cout << \"under\";\n  } else {\n    cout << \"not under\";\n  }\n  return 0;\n}",
+    "variables": ["p"],
+    "expectedSteps": [
+      { "line": 2, "variable": "p", "value": "50" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["not under"],
+    "inputMode": "final-only",
+    "teachMe": "50 < 50 false (strict <). else runs."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-03",
+    "code": "if (age ___ 18) {\n  cout << \"too young\";\n}",
+    "clozeSentence": "Strict less-than uses the ___ operator",
+    "answer": "<",
+    "explanation": "< is strict. 18 < 18 is false."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-03",
+    "code": "for (int i = 0; i ___ n; i++) {\n  cout << i;\n}",
+    "clozeSentence": "The standard for-loop guard uses the ___ operator",
+    "answer": "<",
+    "explanation": "i < n is the canonical guard."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-03",
+    "code": "if (x ___ 0) {\n  cout << \"negative\";\n}",
+    "clozeSentence": "Detect negative values with the ___ operator",
+    "answer": "<",
+    "explanation": "x < 0 is true for any negative number."
+  },
+  {
+    "type": "write",
+    "atomId": "C-03",
+    "level": 1,
+    "spec": "Write an if header that runs when age is strictly less than 18 (just the if line ending with the open brace)",
+    "expectedAnswer": "if (age < 18) {",
+    "keyChecks": ["if", "(", "age", "<", "18", ")", "{"],
+    "explanation": "Strict <. 18 itself does not match."
+  },
+  {
+    "type": "write",
+    "atomId": "C-03",
+    "level": 2,
+    "spec": "Write an if-block that prints \"too young\" when age < 18. Three lines.",
+    "expectedAnswer": "if (age < 18) {\n  cout << \"too young\";\n}",
+    "keyChecks": ["if", "age < 18", "cout <<", "\"too young\"", "}"],
+    "explanation": "Strict less-than test."
+  },
+  {
+    "type": "write",
+    "atomId": "C-03",
+    "level": 3,
+    "spec": "Write a complete program that declares int age = 17 and prints \"too young\" if age < 18 else \"can vote\"",
+    "expectedAnswer": "int main() {\n  int age = 17;\n  if (age < 18) {\n    cout << \"too young\";\n  } else {\n    cout << \"can vote\";\n  }\n  return 0;\n}",
+    "keyChecks": ["int main()", "int age = 17;", "age < 18", "cout << \"too young\"", "else", "cout << \"can vote\"", "return 0;"],
+    "explanation": "Full voting-age check using strict <."
+  },
+  {
+    "type": "procedural",
+    "atomId": "C-03",
+    "id": "PD-C03-01",
+    "section": "L5 < less than",
+    "prompt": "Write an if-block that prints \"too young\" when age is strictly less than 18",
+    "expectedAnswer": "if (age < 18) {\n  cout << \"too young\";\n}",
+    "keyChecks": ["if", "age < 18", "cout", "\"too young\"", "}"],
+    "variants": [
+      { "prompt": "Write an if-block that prints \"under\" when n is less than 100", "expectedAnswer": "if (n < 100) {\n  cout << \"under\";\n}" },
+      { "prompt": "Write an if-block that prints \"negative\" when x is less than 0", "expectedAnswer": "if (x < 0) {\n  cout << \"negative\";\n}" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "C-03",
+    "id": "CM-C03-01",
+    "section": "L5 < less than",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: voting-age check", "code": "if (age < 18) {\n  cout << \"too young\";\n}" },
+      { "label": "Example B: negative number check", "code": "if (x < 0) {\n  cout << \"negative\";\n}" }
+    ],
+    "prompt": "By the same pattern, write an if that prints \"under\" when n is strictly less than 100.",
+    "expectedAnswer": "if (n < 100) {\n  cout << \"under\";\n}",
+    "keyChecks": ["if", "n < 100", "cout", "\"under\"", "}"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "C-03",
+    "id": "CMEM-C03-01",
+    "section": "L5 < less than",
+    "question": "Type an if-block that prints \"too young\" when age < 18",
+    "code": "if (age < 18) {\n  cout << \"too young\";\n}",
+    "keyChecks": ["if", "age < 18", "cout", "\"too young\"", "}"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "C-04",
+    "levelLabel": "L5 -> > greater than (fee tier)",
+    "fullCode": "int amount = 1000;\nif (amount > 500) {\n  cout << \"premium fee\";\n}",
+    "steps": [
+      { "line": 1, "code": "int amount = 1000;", "annotation": "Transaction amount", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (amount > 500) {", "annotation": "Strict >; 1000 > 500 true. 500 > 500 would be FALSE", "atomIds": ["C-04"] },
+      { "line": 3, "code": "  cout << \"premium fee\";", "annotation": "Body runs", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-04",
+    "levelLabel": "L5 -> > greater than (max-finder pattern)",
+    "fullCode": "int max_val = 0;\nint x = 7;\nif (x > max_val) {\n  max_val = x;\n}",
+    "steps": [
+      { "line": 1, "code": "int max_val = 0;", "annotation": "Running max starts at 0", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int x = 7;", "annotation": "Current value", "atomIds": ["V-10"] },
+      { "line": 3, "code": "if (x > max_val) {", "annotation": "> is strict; checks if x beats current max", "atomIds": ["C-04"] },
+      { "line": 4, "code": "  max_val = x;", "annotation": "Update running max to x", "atomIds": ["S-03"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "C-04",
+    "code": "int main() {\n  int amount = 1000;\n  if (amount > 500) {\n    cout << \"premium\";\n  } else {\n    cout << \"basic\";\n  }\n  return 0;\n}",
+    "variables": ["amount"],
+    "expectedSteps": [
+      { "line": 2, "variable": "amount", "value": "1000" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["premium"],
+    "inputMode": "final-only",
+    "teachMe": "1000 > 500 true. if-body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-04",
+    "code": "int main() {\n  int amount = 500;\n  if (amount > 500) {\n    cout << \"premium\";\n  } else {\n    cout << \"basic\";\n  }\n  return 0;\n}",
+    "variables": ["amount"],
+    "expectedSteps": [
+      { "line": 2, "variable": "amount", "value": "500" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["basic"],
+    "inputMode": "final-only",
+    "teachMe": "BOUNDARY: 500 > 500 false (strict >). else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-04",
+    "code": "int main() {\n  int x = 7;\n  int max_val = 5;\n  if (x > max_val) {\n    max_val = x;\n  }\n  cout << max_val;\n  return 0;\n}",
+    "variables": ["x", "max_val"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "7" },
+      { "line": 3, "variable": "max_val", "value": "5" },
+      { "line": 4, "variable": "", "value": "", "condition": "true" },
+      { "line": 5, "variable": "max_val", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "7 > 5 true. max_val updates to 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-04",
+    "code": "int main() {\n  int x = 3;\n  int max_val = 5;\n  if (x > max_val) {\n    max_val = x;\n  }\n  cout << max_val;\n  return 0;\n}",
+    "variables": ["x", "max_val"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "3" },
+      { "line": 3, "variable": "max_val", "value": "5" },
+      { "line": 4, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "3 > 5 false. max_val stays 5."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-04",
+    "code": "int main() {\n  int n = 0;\n  if (n > 0) {\n    cout << \"positive\";\n  } else {\n    cout << \"zero or negative\";\n  }\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "0" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["zero or negative"],
+    "inputMode": "final-only",
+    "teachMe": "0 > 0 false. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-04",
+    "code": "int main() {\n  int score = 85;\n  if (score > 80) {\n    cout << \"A band\";\n  }\n  return 0;\n}",
+    "variables": ["score"],
+    "expectedSteps": [
+      { "line": 2, "variable": "score", "value": "85" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["A band"],
+    "inputMode": "final-only",
+    "teachMe": "85 > 80 true. Body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-04",
+    "code": "int main() {\n  int a = 4;\n  int b = 4;\n  if (a > b) {\n    cout << \"a bigger\";\n  } else {\n    cout << \"not bigger\";\n  }\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "4" },
+      { "line": 3, "variable": "b", "value": "4" },
+      { "line": 4, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["not bigger"],
+    "inputMode": "final-only",
+    "teachMe": "4 > 4 false (strict >). else runs."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-04",
+    "code": "if (amount ___ 500) {\n  cout << \"premium\";\n}",
+    "clozeSentence": "Strict greater-than uses the ___ operator",
+    "answer": ">",
+    "explanation": "> is strict. 500 > 500 is false."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-04",
+    "code": "if (x ___ max_val) {\n  max_val = x;\n}",
+    "clozeSentence": "Max-finder pattern uses the ___ operator",
+    "answer": ">",
+    "explanation": "x > max_val updates the running maximum."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-04",
+    "code": "if (n ___ 0) {\n  cout << \"positive\";\n}",
+    "clozeSentence": "Detect strictly positive values with the ___ operator",
+    "answer": ">",
+    "explanation": "n > 0 is true only for positive numbers."
+  },
+  {
+    "type": "write",
+    "atomId": "C-04",
+    "level": 1,
+    "spec": "Write an if header that runs when amount is strictly greater than 500 (just the if line)",
+    "expectedAnswer": "if (amount > 500) {",
+    "keyChecks": ["if", "(", "amount", ">", "500", ")", "{"],
+    "explanation": "Strict >. 500 itself does not match."
+  },
+  {
+    "type": "write",
+    "atomId": "C-04",
+    "level": 2,
+    "spec": "Write an if-block that updates max_val to x when x > max_val. Three lines.",
+    "expectedAnswer": "if (x > max_val) {\n  max_val = x;\n}",
+    "keyChecks": ["if", "x > max_val", "max_val = x", "}"],
+    "explanation": "Max-finder pattern."
+  },
+  {
+    "type": "matrix",
+    "atomId": "C-04",
+    "id": "CM-C04-01",
+    "section": "L5 > greater than",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: premium fee tier", "code": "if (amount > 500) {\n  cout << \"premium\";\n}" },
+      { "label": "Example B: max-finder update", "code": "if (x > max_val) {\n  max_val = x;\n}" }
+    ],
+    "prompt": "By the same pattern, write an if that prints \"A band\" when score is strictly greater than 80.",
+    "expectedAnswer": "if (score > 80) {\n  cout << \"A band\";\n}",
+    "keyChecks": ["if", "score > 80", "cout", "\"A band\"", "}"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "C-04",
+    "id": "CMEM-C04-01",
+    "section": "L5 > greater than",
+    "question": "Type an if-block that prints \"premium\" when amount > 500",
+    "code": "if (amount > 500) {\n  cout << \"premium\";\n}",
+    "keyChecks": ["if", "amount > 500", "cout", "\"premium\"", "}"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "C-05",
+    "levelLabel": "L5 -> <= less or equal (traffic-light count)",
+    "fullCode": "int reds = 3;\nif (reds <= 3) {\n  cout << \"OK\";\n}",
+    "steps": [
+      { "line": 1, "code": "int reds = 3;", "annotation": "Number of red lights", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (reds <= 3) {", "annotation": "<= is INCLUSIVE; 3 <= 3 is TRUE (unlike strict <)", "atomIds": ["C-05"] },
+      { "line": 3, "code": "  cout << \"OK\";", "annotation": "Body runs (3 included)", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-05",
+    "levelLabel": "L5 -> <= less or equal (range cap)",
+    "fullCode": "int n = 10;\nif (n <= 10) {\n  cout << \"in range\";\n}",
+    "steps": [
+      { "line": 1, "code": "int n = 10;", "annotation": "Test value at the cap", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (n <= 10) {", "annotation": "<= includes the boundary 10", "atomIds": ["C-05"] },
+      { "line": 3, "code": "  cout << \"in range\";", "annotation": "Body runs because 10 <= 10 is true", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "C-05",
+    "code": "int main() {\n  int reds = 3;\n  if (reds <= 3) {\n    cout << \"OK\";\n  } else {\n    cout << \"too many\";\n  }\n  return 0;\n}",
+    "variables": ["reds"],
+    "expectedSteps": [
+      { "line": 2, "variable": "reds", "value": "3" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["OK"],
+    "inputMode": "final-only",
+    "teachMe": "BOUNDARY: 3 <= 3 TRUE (unlike strict <). Body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-05",
+    "code": "int main() {\n  int reds = 4;\n  if (reds <= 3) {\n    cout << \"OK\";\n  } else {\n    cout << \"too many\";\n  }\n  return 0;\n}",
+    "variables": ["reds"],
+    "expectedSteps": [
+      { "line": 2, "variable": "reds", "value": "4" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["too many"],
+    "inputMode": "final-only",
+    "teachMe": "4 <= 3 false. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-05",
+    "code": "int main() {\n  int n = 10;\n  if (n <= 10) {\n    cout << \"in range\";\n  }\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "10" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["in range"],
+    "inputMode": "final-only",
+    "teachMe": "10 <= 10 true. Inclusive boundary."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-05",
+    "code": "int main() {\n  int x = 5;\n  if (x <= 5) {\n    cout << \"yes\";\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "5" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["yes"],
+    "inputMode": "final-only",
+    "teachMe": "5 <= 5 true."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-05",
+    "code": "int main() {\n  int n = 11;\n  if (n <= 10) {\n    cout << \"in range\";\n  } else {\n    cout << \"over\";\n  }\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "11" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["over"],
+    "inputMode": "final-only",
+    "teachMe": "11 <= 10 false. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-05",
+    "code": "int main() {\n  int i = 3;\n  int count = 5;\n  if (i <= count) {\n    cout << \"within\";\n  }\n  return 0;\n}",
+    "variables": ["i", "count"],
+    "expectedSteps": [
+      { "line": 2, "variable": "i", "value": "3" },
+      { "line": 3, "variable": "count", "value": "5" },
+      { "line": 4, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["within"],
+    "inputMode": "final-only",
+    "teachMe": "3 <= 5 true."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-05",
+    "code": "int main() {\n  int t = 0;\n  if (t <= 0) {\n    cout << \"non-positive\";\n  }\n  return 0;\n}",
+    "variables": ["t"],
+    "expectedSteps": [
+      { "line": 2, "variable": "t", "value": "0" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["non-positive"],
+    "inputMode": "final-only",
+    "teachMe": "0 <= 0 true."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-05",
+    "code": "if (n ___ 10) {\n  cout << \"in range\";\n}",
+    "clozeSentence": "Inclusive less-than-or-equal uses the ___ operator",
+    "answer": "<=",
+    "explanation": "<= is inclusive at the boundary. 10 <= 10 is true."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-05",
+    "code": "if (i ___ count) {\n  cout << \"within\";\n}",
+    "clozeSentence": "Inclusive upper bound uses the ___ operator",
+    "answer": "<=",
+    "explanation": "i <= count includes count itself."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-05",
+    "code": "if (t ___ 0) {\n  cout << \"non-positive\";\n}",
+    "clozeSentence": "Test for zero or negative with the ___ operator",
+    "answer": "<=",
+    "explanation": "t <= 0 catches zero AND negative values."
+  },
+  {
+    "type": "write",
+    "atomId": "C-05",
+    "level": 1,
+    "spec": "Write an if header that runs when n is less than or equal to 10 (just the if line)",
+    "expectedAnswer": "if (n <= 10) {",
+    "keyChecks": ["if", "(", "n", "<=", "10", ")", "{"],
+    "explanation": "<= is inclusive."
+  },
+  {
+    "type": "write",
+    "atomId": "C-05",
+    "level": 2,
+    "spec": "Write an if-block that prints \"in range\" when n <= 10. Three lines.",
+    "expectedAnswer": "if (n <= 10) {\n  cout << \"in range\";\n}",
+    "keyChecks": ["if", "n <= 10", "cout <<", "\"in range\"", "}"],
+    "explanation": "Inclusive boundary check."
+  },
+  {
+    "type": "write",
+    "atomId": "C-05",
+    "level": 2,
+    "spec": "Write an if-block that prints \"OK\" when reds is less than or equal to 3. Three lines.",
+    "expectedAnswer": "if (reds <= 3) {\n  cout << \"OK\";\n}",
+    "keyChecks": ["if", "reds <= 3", "cout <<", "\"OK\"", "}"],
+    "explanation": "Inclusive limit using <=."
+  },
+  {
+    "type": "matrix",
+    "atomId": "C-05",
+    "id": "CM-C05-01",
+    "section": "L5 <= less or equal",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: cap at 3 traffic lights", "code": "if (reds <= 3) {\n  cout << \"OK\";\n}" },
+      { "label": "Example B: cap at 10 inclusive", "code": "if (n <= 10) {\n  cout << \"in range\";\n}" }
+    ],
+    "prompt": "By the same pattern, write an if that prints \"non-positive\" when t is less than or equal to 0.",
+    "expectedAnswer": "if (t <= 0) {\n  cout << \"non-positive\";\n}",
+    "keyChecks": ["if", "t <= 0", "cout", "\"non-positive\"", "}"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "C-06",
+    "levelLabel": "L5 -> >= greater or equal (score-grade pass)",
+    "fullCode": "int score = 50;\nif (score >= 50) {\n  cout << \"pass\";\n}",
+    "steps": [
+      { "line": 1, "code": "int score = 50;", "annotation": "Score exactly at pass mark", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (score >= 50) {", "annotation": ">= INCLUSIVE; 50 >= 50 is TRUE", "atomIds": ["C-06"] },
+      { "line": 3, "code": "  cout << \"pass\";", "annotation": "Body runs because boundary included", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-06",
+    "levelLabel": "L5 -> >= greater or equal (age check)",
+    "fullCode": "int age = 18;\nif (age >= 18) {\n  cout << \"can vote\";\n}",
+    "steps": [
+      { "line": 1, "code": "int age = 18;", "annotation": "Age exactly at threshold", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (age >= 18) {", "annotation": ">= 18 includes 18 itself", "atomIds": ["C-06"] },
+      { "line": 3, "code": "  cout << \"can vote\";", "annotation": "Body runs", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "C-06",
+    "code": "int main() {\n  int score = 50;\n  if (score >= 50) {\n    cout << \"pass\";\n  } else {\n    cout << \"fail\";\n  }\n  return 0;\n}",
+    "variables": ["score"],
+    "expectedSteps": [
+      { "line": 2, "variable": "score", "value": "50" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["pass"],
+    "inputMode": "final-only",
+    "teachMe": "BOUNDARY: 50 >= 50 TRUE (inclusive). pass."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-06",
+    "code": "int main() {\n  int score = 49;\n  if (score >= 50) {\n    cout << \"pass\";\n  } else {\n    cout << \"fail\";\n  }\n  return 0;\n}",
+    "variables": ["score"],
+    "expectedSteps": [
+      { "line": 2, "variable": "score", "value": "49" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["fail"],
+    "inputMode": "final-only",
+    "teachMe": "49 >= 50 false. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-06",
+    "code": "int main() {\n  int age = 18;\n  if (age >= 18) {\n    cout << \"can vote\";\n  }\n  return 0;\n}",
+    "variables": ["age"],
+    "expectedSteps": [
+      { "line": 2, "variable": "age", "value": "18" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["can vote"],
+    "inputMode": "final-only",
+    "teachMe": "18 >= 18 true. Inclusive."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-06",
+    "code": "int main() {\n  int n = 100;\n  if (n >= 100) {\n    cout << \"at cap\";\n  }\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "100" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["at cap"],
+    "inputMode": "final-only",
+    "teachMe": "100 >= 100 true."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-06",
+    "code": "int main() {\n  int x = 0;\n  if (x >= 0) {\n    cout << \"non-negative\";\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "0" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["non-negative"],
+    "inputMode": "final-only",
+    "teachMe": "0 >= 0 true."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-06",
+    "code": "int main() {\n  int p = 3;\n  int q = 5;\n  if (p >= q) {\n    cout << \"p wins\";\n  } else {\n    cout << \"q wins\";\n  }\n  return 0;\n}",
+    "variables": ["p", "q"],
+    "expectedSteps": [
+      { "line": 2, "variable": "p", "value": "3" },
+      { "line": 3, "variable": "q", "value": "5" },
+      { "line": 4, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["q wins"],
+    "inputMode": "final-only",
+    "teachMe": "3 >= 5 false. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-06",
+    "code": "int main() {\n  int items = 10;\n  if (items >= 1) {\n    cout << \"have items\";\n  }\n  return 0;\n}",
+    "variables": ["items"],
+    "expectedSteps": [
+      { "line": 2, "variable": "items", "value": "10" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["have items"],
+    "inputMode": "final-only",
+    "teachMe": "10 >= 1 true."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-06",
+    "code": "if (score ___ 50) {\n  cout << \"pass\";\n}",
+    "clozeSentence": "Inclusive greater-than-or-equal uses the ___ operator",
+    "answer": ">=",
+    "explanation": ">= is inclusive. 50 >= 50 is true."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-06",
+    "code": "if (age ___ 18) {\n  cout << \"can vote\";\n}",
+    "clozeSentence": "Voting age check (18 included) uses the ___ operator",
+    "answer": ">=",
+    "explanation": ">= 18 includes age 18 itself."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-06",
+    "code": "if (x ___ 0) {\n  cout << \"non-negative\";\n}",
+    "clozeSentence": "Detect non-negative values with the ___ operator",
+    "answer": ">=",
+    "explanation": "x >= 0 is true for zero and positive values."
+  },
+  {
+    "type": "write",
+    "atomId": "C-06",
+    "level": 1,
+    "spec": "Write an if header that runs when score is greater than or equal to 50 (just the if line)",
+    "expectedAnswer": "if (score >= 50) {",
+    "keyChecks": ["if", "(", "score", ">=", "50", ")", "{"],
+    "explanation": ">= is inclusive."
+  },
+  {
+    "type": "write",
+    "atomId": "C-06",
+    "level": 2,
+    "spec": "Write an if-block that prints \"pass\" when score >= 50. Three lines.",
+    "expectedAnswer": "if (score >= 50) {\n  cout << \"pass\";\n}",
+    "keyChecks": ["if", "score >= 50", "cout <<", "\"pass\"", "}"],
+    "explanation": "Score-grade pass mark using inclusive >=."
+  },
+  {
+    "type": "matrix",
+    "atomId": "C-06",
+    "id": "CM-C06-01",
+    "section": "L5 >= greater or equal",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: pass mark inclusive", "code": "if (score >= 50) {\n  cout << \"pass\";\n}" },
+      { "label": "Example B: voting age inclusive", "code": "if (age >= 18) {\n  cout << \"can vote\";\n}" }
+    ],
+    "prompt": "By the same pattern, write an if that prints \"non-negative\" when x is greater than or equal to 0.",
+    "expectedAnswer": "if (x >= 0) {\n  cout << \"non-negative\";\n}",
+    "keyChecks": ["if", "x >= 0", "cout", "\"non-negative\"", "}"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "C-07",
+    "levelLabel": "L5 -> comparison returns bool (valid pin)",
+    "fullCode": "int pin = 1234;\nbool match = (pin == 1234);\nif (match) {\n  cout << \"unlocked\";\n}",
+    "steps": [
+      { "line": 1, "code": "int pin = 1234;", "annotation": "Stored PIN", "atomIds": ["V-10"] },
+      { "line": 2, "code": "bool match = (pin == 1234);", "annotation": "== returns bool. match holds true/false", "atomIds": ["C-07"] },
+      { "line": 3, "code": "if (match) {", "annotation": "Test the bool directly. true triggers body", "atomIds": ["C-07"] },
+      { "line": 4, "code": "  cout << \"unlocked\";", "annotation": "Body runs", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "C-07",
+    "levelLabel": "L5 -> comparison returns bool (storing the test)",
+    "fullCode": "int score = 75;\nbool passed = (score >= 50);\ncout << passed;",
+    "steps": [
+      { "line": 1, "code": "int score = 75;", "annotation": "Score value", "atomIds": ["V-10"] },
+      { "line": 2, "code": "bool passed = (score >= 50);", "annotation": ">= produces a bool. passed is true", "atomIds": ["C-07"] },
+      { "line": 3, "code": "cout << passed;", "annotation": "Prints 1 (true)", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "C-07",
+    "code": "int main() {\n  int x = 5;\n  bool match = (x == 5);\n  if (match) {\n    cout << \"y\";\n  }\n  return 0;\n}",
+    "variables": ["x", "match"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "5" },
+      { "line": 3, "variable": "match", "value": "true" },
+      { "line": 4, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["y"],
+    "inputMode": "final-only",
+    "teachMe": "x == 5 evaluates to true. match holds true. if(match) is true."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-07",
+    "code": "int main() {\n  int score = 75;\n  bool passed = (score >= 50);\n  cout << passed;\n  return 0;\n}",
+    "variables": ["score", "passed"],
+    "expectedSteps": [
+      { "line": 2, "variable": "score", "value": "75" },
+      { "line": 3, "variable": "passed", "value": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1"],
+    "inputMode": "final-only",
+    "teachMe": ">= returns bool. cout prints true as 1."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-07",
+    "code": "int main() {\n  int n = 4;\n  bool small = (n < 10);\n  cout << small;\n  return 0;\n}",
+    "variables": ["n", "small"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "4" },
+      { "line": 3, "variable": "small", "value": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1"],
+    "inputMode": "final-only",
+    "teachMe": "< returns bool. small = true. cout prints 1."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-07",
+    "code": "int main() {\n  int n = 20;\n  bool small = (n < 10);\n  cout << small;\n  return 0;\n}",
+    "variables": ["n", "small"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "20" },
+      { "line": 3, "variable": "small", "value": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "20 < 10 false. cout prints false as 0."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-07",
+    "code": "int main() {\n  int a = 7;\n  int b = 7;\n  bool same = (a == b);\n  if (same) {\n    cout << \"equal\";\n  }\n  return 0;\n}",
+    "variables": ["a", "b", "same"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "7" },
+      { "line": 3, "variable": "b", "value": "7" },
+      { "line": 4, "variable": "same", "value": "true" },
+      { "line": 5, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["equal"],
+    "inputMode": "final-only",
+    "teachMe": "== bool stored in same. if(same) runs body."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-07",
+    "code": "int main() {\n  int x = 10;\n  bool big = (x > 5);\n  if (big) {\n    cout << \"yes\";\n  } else {\n    cout << \"no\";\n  }\n  return 0;\n}",
+    "variables": ["x", "big"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "10" },
+      { "line": 3, "variable": "big", "value": "true" },
+      { "line": 4, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["yes"],
+    "inputMode": "final-only",
+    "teachMe": "> returns bool. big = true. if-body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "C-07",
+    "code": "int main() {\n  int x = 3;\n  bool big = (x > 5);\n  if (big) {\n    cout << \"yes\";\n  } else {\n    cout << \"no\";\n  }\n  return 0;\n}",
+    "variables": ["x", "big"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "3" },
+      { "line": 3, "variable": "big", "value": "false" },
+      { "line": 4, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["no"],
+    "inputMode": "final-only",
+    "teachMe": "3 > 5 false. else runs."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-07",
+    "code": "___ match = (pin == 1234);",
+    "clozeSentence": "A comparison returns a value of type ___",
+    "answer": "bool",
+    "explanation": "All comparisons (==, !=, <, >, <=, >=) return a bool."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-07",
+    "code": "bool passed = ___score >= 50);",
+    "clozeSentence": "Wrap the comparison so it can be assigned; the opener is ___",
+    "answer": "(",
+    "explanation": "Parens make the comparison a single boolean expression."
+  },
+  {
+    "type": "cloze",
+    "atomId": "C-07",
+    "code": "bool small = (n < 10);\nif (___) {\n  cout << \"yes\";\n}",
+    "clozeSentence": "An if can test a bool variable directly; the test is ___",
+    "answer": "small",
+    "explanation": "if (small) is true when small holds true."
+  },
+  {
+    "type": "write",
+    "atomId": "C-07",
+    "level": 1,
+    "spec": "Write one line storing the result of x == 5 in a bool called match",
+    "expectedAnswer": "bool match = (x == 5);",
+    "keyChecks": ["bool", "match", "(x == 5)", ";"],
+    "explanation": "== returns a bool that can be stored."
+  },
+  {
+    "type": "write",
+    "atomId": "C-07",
+    "level": 2,
+    "spec": "Declare int score = 75, then bool passed = (score >= 50). Two lines.",
+    "expectedAnswer": "int score = 75;\nbool passed = (score >= 50);",
+    "keyChecks": ["int score = 75;", "bool passed", "(score >= 50)"],
+    "explanation": "Comparison stored in a bool variable."
+  },
+  {
+    "type": "matrix",
+    "atomId": "C-07",
+    "id": "CM-C07-01",
+    "section": "L5 comparison returns bool",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: store == result", "code": "bool match = (x == 5);" },
+      { "label": "Example B: store >= result", "code": "bool passed = (score >= 50);" }
+    ],
+    "prompt": "By the same pattern, store the result of n < 10 into a bool called small.",
+    "expectedAnswer": "bool small = (n < 10);",
+    "keyChecks": ["bool", "small", "(n < 10)", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "C-07",
+    "id": "CMEM-C07-01",
+    "section": "L5 comparison returns bool",
+    "question": "Type the line that stores x == 5 into a bool called match",
+    "code": "bool match = (x == 5);",
+    "keyChecks": ["bool", "match", "(x == 5)", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "L-01",
+    "levelLabel": "L5 -> && AND (range check)",
+    "fullCode": "int x = 10;\nif (x > 5 && x < 20) {\n  cout << \"in range\";\n}",
+    "steps": [
+      { "line": 1, "code": "int x = 10;", "annotation": "Test value", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (x > 5 && x < 20) {", "annotation": "&& requires BOTH true. 10 > 5 true AND 10 < 20 true", "atomIds": ["L-01"] },
+      { "line": 3, "code": "  cout << \"in range\";", "annotation": "Body runs because both conditions hold", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "L-01",
+    "levelLabel": "L5 -> && AND (short-circuit)",
+    "fullCode": "int x = 0;\nint y = 5;\nif (x != 0 && y / x > 1) {\n  cout << \"safe\";\n} else {\n  cout << \"skipped\";\n}",
+    "steps": [
+      { "line": 1, "code": "int x = 0;", "annotation": "x is zero — division would crash", "atomIds": ["V-10"] },
+      { "line": 2, "code": "int y = 5;", "annotation": "y value", "atomIds": ["V-10"] },
+      { "line": 3, "code": "if (x != 0 && y / x > 1) {", "annotation": "&& SHORT-CIRCUITS: left is false, RIGHT NEVER EVALUATED. No crash.", "atomIds": ["L-01"] },
+      { "line": 4, "code": "  cout << \"safe\";", "annotation": "Skipped because && was false", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "L-01",
+    "code": "int main() {\n  int x = 10;\n  if (x > 5 && x < 20) {\n    cout << \"in range\";\n  } else {\n    cout << \"out\";\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "10" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["in range"],
+    "inputMode": "final-only",
+    "teachMe": "10 > 5 true && 10 < 20 true -> overall true. Body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-01",
+    "code": "int main() {\n  int x = 25;\n  if (x > 5 && x < 20) {\n    cout << \"in range\";\n  } else {\n    cout << \"out\";\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "25" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["out"],
+    "inputMode": "final-only",
+    "teachMe": "25 > 5 true BUT 25 < 20 false. && needs both. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-01",
+    "code": "int main() {\n  int x = 3;\n  if (x > 5 && x < 20) {\n    cout << \"in range\";\n  } else {\n    cout << \"out\";\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "3" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["out"],
+    "inputMode": "final-only",
+    "teachMe": "3 > 5 false. && SHORT-CIRCUITS: right side never evaluated. Result false. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-01",
+    "code": "int main() {\n  int a = 1;\n  int b = 1;\n  if (a == 1 && b == 1) {\n    cout << \"both 1\";\n  }\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "1" },
+      { "line": 3, "variable": "b", "value": "1" },
+      { "line": 4, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["both 1"],
+    "inputMode": "final-only",
+    "teachMe": "Both true -> && true. Body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-01",
+    "code": "int main() {\n  int a = 1;\n  int b = 0;\n  if (a == 1 && b == 1) {\n    cout << \"both 1\";\n  } else {\n    cout << \"not both\";\n  }\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "1" },
+      { "line": 3, "variable": "b", "value": "0" },
+      { "line": 4, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["not both"],
+    "inputMode": "final-only",
+    "teachMe": "a==1 true, b==1 false. && fails. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-01",
+    "code": "int main() {\n  int x = 0;\n  int y = 5;\n  if (x != 0 && y / x > 1) {\n    cout << \"safe\";\n  } else {\n    cout << \"skipped\";\n  }\n  return 0;\n}",
+    "variables": ["x", "y"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "0" },
+      { "line": 3, "variable": "y", "value": "5" },
+      { "line": 4, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["skipped"],
+    "inputMode": "final-only",
+    "teachMe": "x != 0 false. && SHORT-CIRCUITS — y/x never evaluated, no crash. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-01",
+    "code": "int main() {\n  int score = 80;\n  int attendance = 90;\n  if (score >= 50 && attendance >= 80) {\n    cout << \"pass\";\n  } else {\n    cout << \"fail\";\n  }\n  return 0;\n}",
+    "variables": ["score", "attendance"],
+    "expectedSteps": [
+      { "line": 2, "variable": "score", "value": "80" },
+      { "line": 3, "variable": "attendance", "value": "90" },
+      { "line": 4, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["pass"],
+    "inputMode": "final-only",
+    "teachMe": "Both >=50 and >=80 true. && true. pass."
+  },
+  {
+    "type": "cloze",
+    "atomId": "L-01",
+    "code": "if (x > 5 ___ x < 20) {\n  cout << \"in range\";\n}",
+    "clozeSentence": "Both conditions must hold; use the ___ operator",
+    "answer": "&&",
+    "explanation": "&& requires both sides to be true."
+  },
+  {
+    "type": "cloze",
+    "atomId": "L-01",
+    "code": "if (a == 1 ___ b == 1) {\n  cout << \"both 1\";\n}",
+    "clozeSentence": "Logical AND uses the ___ operator",
+    "answer": "&&",
+    "explanation": "&& chains two boolean tests."
+  },
+  {
+    "type": "cloze",
+    "atomId": "L-01",
+    "code": "if (score >= 50 ___ attendance >= 80) {\n  cout << \"pass\";\n}",
+    "clozeSentence": "Two pass conditions joined by AND use the ___ operator",
+    "answer": "&&",
+    "explanation": "&& gives logical AND."
+  },
+  {
+    "type": "write",
+    "atomId": "L-01",
+    "level": 1,
+    "spec": "Write an if header that runs when x > 5 AND x < 20 (just the if line)",
+    "expectedAnswer": "if (x > 5 && x < 20) {",
+    "keyChecks": ["if", "x > 5", "&&", "x < 20", "{"],
+    "explanation": "&& joins two comparisons. Both must hold."
+  },
+  {
+    "type": "write",
+    "atomId": "L-01",
+    "level": 2,
+    "spec": "Write an if-block that prints \"in range\" when x > 5 && x < 20. Three lines.",
+    "expectedAnswer": "if (x > 5 && x < 20) {\n  cout << \"in range\";\n}",
+    "keyChecks": ["if", "x > 5 && x < 20", "cout <<", "\"in range\"", "}"],
+    "explanation": "Range check using &&."
+  },
+  {
+    "type": "write",
+    "atomId": "L-01",
+    "level": 3,
+    "spec": "Write a complete program: declare int score = 80, int attendance = 90, then print \"pass\" if score >= 50 && attendance >= 80 else \"fail\"",
+    "expectedAnswer": "int main() {\n  int score = 80;\n  int attendance = 90;\n  if (score >= 50 && attendance >= 80) {\n    cout << \"pass\";\n  } else {\n    cout << \"fail\";\n  }\n  return 0;\n}",
+    "keyChecks": ["int main()", "int score = 80;", "int attendance = 90;", "score >= 50 && attendance >= 80", "cout << \"pass\"", "else", "cout << \"fail\"", "return 0;"],
+    "explanation": "Two-condition pass/fail using &&."
+  },
+  {
+    "type": "procedural",
+    "atomId": "L-01",
+    "id": "PD-L01-01",
+    "section": "L5 && AND",
+    "prompt": "Write an if-block that prints \"in range\" when x is greater than 5 AND less than 20",
+    "expectedAnswer": "if (x > 5 && x < 20) {\n  cout << \"in range\";\n}",
+    "keyChecks": ["if", "x > 5 && x < 20", "cout", "\"in range\"", "}"],
+    "variants": [
+      { "prompt": "Write an if-block that prints \"both 1\" when a == 1 && b == 1", "expectedAnswer": "if (a == 1 && b == 1) {\n  cout << \"both 1\";\n}" },
+      { "prompt": "Write an if-block that prints \"pass\" when score >= 50 && attendance >= 80", "expectedAnswer": "if (score >= 50 && attendance >= 80) {\n  cout << \"pass\";\n}" }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "L-01",
+    "id": "CM-L01-01",
+    "section": "L5 && AND",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: range check 5..20", "code": "if (x > 5 && x < 20) {\n  cout << \"in range\";\n}" },
+      { "label": "Example B: two-flag check", "code": "if (a == 1 && b == 1) {\n  cout << \"both 1\";\n}" }
+    ],
+    "prompt": "By the same pattern, write an if that prints \"pass\" when score >= 50 AND attendance >= 80.",
+    "expectedAnswer": "if (score >= 50 && attendance >= 80) {\n  cout << \"pass\";\n}",
+    "keyChecks": ["if", "score >= 50 && attendance >= 80", "cout", "\"pass\"", "}"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "L-02",
+    "levelLabel": "L5 -> || OR (out of bounds)",
+    "fullCode": "int x = -5;\nif (x < 0 || x > 100) {\n  cout << \"out of bounds\";\n}",
+    "steps": [
+      { "line": 1, "code": "int x = -5;", "annotation": "Negative value", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (x < 0 || x > 100) {", "annotation": "|| true if EITHER side is true. -5 < 0 true -> overall true", "atomIds": ["L-02"] },
+      { "line": 3, "code": "  cout << \"out of bounds\";", "annotation": "Body runs", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "L-02",
+    "levelLabel": "L5 -> || OR (special day)",
+    "fullCode": "int day = 6;\nif (day == 6 || day == 7) {\n  cout << \"weekend\";\n}",
+    "steps": [
+      { "line": 1, "code": "int day = 6;", "annotation": "Day of week", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (day == 6 || day == 7) {", "annotation": "|| accepts EITHER day. day == 6 true -> overall true", "atomIds": ["L-02"] },
+      { "line": 3, "code": "  cout << \"weekend\";", "annotation": "Body runs", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "L-02",
+    "code": "int main() {\n  int x = -5;\n  if (x < 0 || x > 100) {\n    cout << \"out\";\n  } else {\n    cout << \"in\";\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "-5" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["out"],
+    "inputMode": "final-only",
+    "teachMe": "-5 < 0 true. || short-circuits true and right side may not run. Body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-02",
+    "code": "int main() {\n  int x = 200;\n  if (x < 0 || x > 100) {\n    cout << \"out\";\n  } else {\n    cout << \"in\";\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "200" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["out"],
+    "inputMode": "final-only",
+    "teachMe": "200 < 0 false but 200 > 100 true. || true. Body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-02",
+    "code": "int main() {\n  int x = 50;\n  if (x < 0 || x > 100) {\n    cout << \"out\";\n  } else {\n    cout << \"in\";\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "50" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["in"],
+    "inputMode": "final-only",
+    "teachMe": "Both sides false: 50 not < 0, 50 not > 100. || false. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-02",
+    "code": "int main() {\n  int day = 7;\n  if (day == 6 || day == 7) {\n    cout << \"weekend\";\n  } else {\n    cout << \"weekday\";\n  }\n  return 0;\n}",
+    "variables": ["day"],
+    "expectedSteps": [
+      { "line": 2, "variable": "day", "value": "7" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["weekend"],
+    "inputMode": "final-only",
+    "teachMe": "day == 6 false, day == 7 true. || true. weekend."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-02",
+    "code": "int main() {\n  int day = 3;\n  if (day == 6 || day == 7) {\n    cout << \"weekend\";\n  } else {\n    cout << \"weekday\";\n  }\n  return 0;\n}",
+    "variables": ["day"],
+    "expectedSteps": [
+      { "line": 2, "variable": "day", "value": "3" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["weekday"],
+    "inputMode": "final-only",
+    "teachMe": "day == 6 false, day == 7 false. || false. weekday."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-02",
+    "code": "int main() {\n  int a = 0;\n  int b = 5;\n  if (a == 0 || b == 0) {\n    cout << \"got zero\";\n  }\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "0" },
+      { "line": 3, "variable": "b", "value": "5" },
+      { "line": 4, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["got zero"],
+    "inputMode": "final-only",
+    "teachMe": "a == 0 true. || short-circuits true. Body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-02",
+    "code": "int main() {\n  int a = 1;\n  int b = 2;\n  if (a == 0 || b == 0) {\n    cout << \"got zero\";\n  } else {\n    cout << \"none zero\";\n  }\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "1" },
+      { "line": 3, "variable": "b", "value": "2" },
+      { "line": 4, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["none zero"],
+    "inputMode": "final-only",
+    "teachMe": "Both nonzero. || false. else runs."
+  },
+  {
+    "type": "cloze",
+    "atomId": "L-02",
+    "code": "if (x < 0 ___ x > 100) {\n  cout << \"out\";\n}",
+    "clozeSentence": "Either condition makes it true; use the ___ operator",
+    "answer": "||",
+    "explanation": "|| is logical OR. True if either side is true."
+  },
+  {
+    "type": "cloze",
+    "atomId": "L-02",
+    "code": "if (day == 6 ___ day == 7) {\n  cout << \"weekend\";\n}",
+    "clozeSentence": "Match either of two values with the ___ operator",
+    "answer": "||",
+    "explanation": "|| accepts either match."
+  },
+  {
+    "type": "cloze",
+    "atomId": "L-02",
+    "code": "if (a == 0 ___ b == 0) {\n  cout << \"got zero\";\n}",
+    "clozeSentence": "Either a or b is zero; the operator is ___",
+    "answer": "||",
+    "explanation": "|| triggers when either side is true."
+  },
+  {
+    "type": "write",
+    "atomId": "L-02",
+    "level": 1,
+    "spec": "Write an if header that runs when x is out of bounds: x < 0 OR x > 100 (just the if line)",
+    "expectedAnswer": "if (x < 0 || x > 100) {",
+    "keyChecks": ["if", "x < 0", "||", "x > 100", "{"],
+    "explanation": "|| logical OR. Either side triggers it."
+  },
+  {
+    "type": "write",
+    "atomId": "L-02",
+    "level": 2,
+    "spec": "Write an if-block that prints \"weekend\" when day == 6 || day == 7. Three lines.",
+    "expectedAnswer": "if (day == 6 || day == 7) {\n  cout << \"weekend\";\n}",
+    "keyChecks": ["if", "day == 6 || day == 7", "cout <<", "\"weekend\"", "}"],
+    "explanation": "Match either of two day values."
+  },
+  {
+    "type": "matrix",
+    "atomId": "L-02",
+    "id": "CM-L02-01",
+    "section": "L5 || OR",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: out of bounds", "code": "if (x < 0 || x > 100) {\n  cout << \"out\";\n}" },
+      { "label": "Example B: weekend day", "code": "if (day == 6 || day == 7) {\n  cout << \"weekend\";\n}" }
+    ],
+    "prompt": "By the same pattern, write an if that prints \"got zero\" when a == 0 OR b == 0.",
+    "expectedAnswer": "if (a == 0 || b == 0) {\n  cout << \"got zero\";\n}",
+    "keyChecks": ["if", "a == 0 || b == 0", "cout", "\"got zero\"", "}"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "L-03",
+    "levelLabel": "L5 -> ! NOT (missing flag)",
+    "fullCode": "bool found = false;\nif (!found) {\n  cout << \"missing\";\n}",
+    "steps": [
+      { "line": 1, "code": "bool found = false;", "annotation": "Flag starts false", "atomIds": ["V-10"] },
+      { "line": 2, "code": "if (!found) {", "annotation": "! flips false to true. Condition is true", "atomIds": ["L-03"] },
+      { "line": 3, "code": "  cout << \"missing\";", "annotation": "Body runs", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "L-03",
+    "levelLabel": "L5 -> ! NOT (negate range)",
+    "fullCode": "int x = 5;\nbool valid = !(x < 0);\ncout << valid;",
+    "steps": [
+      { "line": 1, "code": "int x = 5;", "annotation": "Test value", "atomIds": ["V-10"] },
+      { "line": 2, "code": "bool valid = !(x < 0);", "annotation": "5 < 0 false. !false = true. valid = true", "atomIds": ["L-03"] },
+      { "line": 3, "code": "cout << valid;", "annotation": "Prints 1 (true)", "atomIds": ["S-04"] }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "L-03",
+    "code": "int main() {\n  bool found = false;\n  if (!found) {\n    cout << \"missing\";\n  }\n  return 0;\n}",
+    "variables": ["found"],
+    "expectedSteps": [
+      { "line": 2, "variable": "found", "value": "false" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["missing"],
+    "inputMode": "final-only",
+    "teachMe": "found is false. !found is true. Body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-03",
+    "code": "int main() {\n  bool found = true;\n  if (!found) {\n    cout << \"missing\";\n  } else {\n    cout << \"here\";\n  }\n  return 0;\n}",
+    "variables": ["found"],
+    "expectedSteps": [
+      { "line": 2, "variable": "found", "value": "true" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["here"],
+    "inputMode": "final-only",
+    "teachMe": "found is true. !found is false. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-03",
+    "code": "int main() {\n  int x = 5;\n  bool valid = !(x < 0);\n  cout << valid;\n  return 0;\n}",
+    "variables": ["x", "valid"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "5" },
+      { "line": 3, "variable": "valid", "value": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1"],
+    "inputMode": "final-only",
+    "teachMe": "5 < 0 false. !false = true. cout prints 1."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-03",
+    "code": "int main() {\n  int x = -3;\n  bool valid = !(x < 0);\n  cout << valid;\n  return 0;\n}",
+    "variables": ["x", "valid"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "-3" },
+      { "line": 3, "variable": "valid", "value": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "-3 < 0 true. !true = false. cout prints 0."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-03",
+    "code": "int main() {\n  bool ok = true;\n  if (!ok) {\n    cout << \"problem\";\n  } else {\n    cout << \"fine\";\n  }\n  return 0;\n}",
+    "variables": ["ok"],
+    "expectedSteps": [
+      { "line": 2, "variable": "ok", "value": "true" },
+      { "line": 3, "variable": "", "value": "", "condition": "false" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["fine"],
+    "inputMode": "final-only",
+    "teachMe": "ok is true. !ok is false. else runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-03",
+    "code": "int main() {\n  int n = 10;\n  if (!(n == 0)) {\n    cout << \"nonzero\";\n  }\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "10" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["nonzero"],
+    "inputMode": "final-only",
+    "teachMe": "n == 0 false. !false = true. Body runs."
+  },
+  {
+    "type": "trace",
+    "atomId": "L-03",
+    "code": "int main() {\n  bool empty = false;\n  if (!empty) {\n    cout << \"has data\";\n  }\n  return 0;\n}",
+    "variables": ["empty"],
+    "expectedSteps": [
+      { "line": 2, "variable": "empty", "value": "false" },
+      { "line": 3, "variable": "", "value": "", "condition": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["has data"],
+    "inputMode": "final-only",
+    "teachMe": "empty is false. !empty is true. Body runs."
+  },
+  {
+    "type": "cloze",
+    "atomId": "L-03",
+    "code": "if (___found) {\n  cout << \"missing\";\n}",
+    "clozeSentence": "Negate a bool with the ___ operator",
+    "answer": "!",
+    "explanation": "! flips a bool. !false = true."
+  },
+  {
+    "type": "cloze",
+    "atomId": "L-03",
+    "code": "bool valid = ___(x < 0);",
+    "clozeSentence": "Negate a comparison with the ___ operator",
+    "answer": "!",
+    "explanation": "!(x < 0) is true when x is NOT less than 0."
+  },
+  {
+    "type": "cloze",
+    "atomId": "L-03",
+    "code": "if (___ok) {\n  cout << \"problem\";\n}",
+    "clozeSentence": "Test for the opposite of ok with the ___ operator",
+    "answer": "!",
+    "explanation": "!ok is true when ok is false."
+  },
+  {
+    "type": "write",
+    "atomId": "L-03",
+    "level": 1,
+    "spec": "Write an if header that runs when found is false (using the ! operator on found)",
+    "expectedAnswer": "if (!found) {",
+    "keyChecks": ["if", "(", "!", "found", ")", "{"],
+    "explanation": "!found is true when found is false."
+  },
+  {
+    "type": "write",
+    "atomId": "L-03",
+    "level": 2,
+    "spec": "Write a line that stores the negation of (x < 0) in a bool called valid",
+    "expectedAnswer": "bool valid = !(x < 0);",
+    "keyChecks": ["bool", "valid", "!", "(x < 0)", ";"],
+    "explanation": "Negate the comparison; valid is true when x is NOT less than 0."
+  }
+]

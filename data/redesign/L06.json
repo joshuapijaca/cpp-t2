@@ -1,0 +1,1100 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "F-01",
+    "levelLabel": "L06 -> if (cond) runs body",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int score = 85;\n  if (score >= 50) {\n    cout << \"pass\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int score = 85;",
+        "annotation": "score is 85",
+        "atomIds": ["F-01"]
+      },
+      {
+        "line": 5,
+        "code": "  if (score >= 50) {",
+        "annotation": "Test condition: 85 >= 50 is TRUE - enter the block",
+        "atomIds": ["F-01"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"pass\" << endl;",
+        "annotation": "Body runs because condition was true - prints pass",
+        "atomIds": ["F-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-01",
+    "levelLabel": "L06 -> if false skips body",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int balance = 100;\n  if (balance < 0) {\n    cout << \"overdrawn\" << endl;\n  }\n  cout << \"done\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (balance < 0) {",
+        "annotation": "100 < 0 is FALSE - skip the block",
+        "atomIds": ["F-01"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"overdrawn\" << endl;",
+        "annotation": "Skipped - never runs",
+        "atomIds": ["F-01"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << \"done\" << endl;",
+        "annotation": "Runs after if - always",
+        "atomIds": ["F-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-01",
+    "levelLabel": "L06 -> if with sensor reading",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int temp = 75;\n  if (temp > 70) {\n    cout << \"hot\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (temp > 70) {",
+        "annotation": "75 > 70 is true - enter block",
+        "atomIds": ["F-01"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"hot\" << endl;",
+        "annotation": "Prints hot",
+        "atomIds": ["F-01"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "F-01",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int x = 5;\n  if (x > 0) {\n    cout << \"positive\" << endl;\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 4, "variable": "x", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["positive"],
+    "inputMode": "final-only",
+    "teachMe": "5 > 0 is true. The if-body runs and prints positive."
+  },
+  {
+    "type": "trace",
+    "atomId": "F-01",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int y = -3;\n  if (y > 0) {\n    cout << \"positive\" << endl;\n  }\n  cout << \"end\" << endl;\n  return 0;\n}",
+    "variables": ["y"],
+    "expectedSteps": [
+      { "line": 4, "variable": "y", "value": "-3" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["end"],
+    "inputMode": "final-only",
+    "teachMe": "-3 > 0 is false. if-body skipped. Only end prints."
+  },
+  {
+    "type": "trace",
+    "atomId": "F-01",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int balance = 50;\n  if (balance >= 100) {\n    cout << \"vip\" << endl;\n  }\n  cout << \"bye\" << endl;\n  return 0;\n}",
+    "variables": ["balance"],
+    "expectedSteps": [
+      { "line": 4, "variable": "balance", "value": "50" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["bye"],
+    "inputMode": "final-only",
+    "teachMe": "50 >= 100 is false. vip skipped, only bye prints."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-01",
+    "code": "int x = 10;\n___ (x > 0) {\n  cout << \"positive\";\n}",
+    "clozeSentence": "Conditional execution starts with the keyword ___",
+    "answer": "if",
+    "explanation": "if is the keyword for conditional execution. It checks a condition before running its block."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-01",
+    "code": "int score = 90;\nif (score ___ 80) {\n  cout << \"high\";\n}",
+    "clozeSentence": "To test for greater-than, use the operator ___",
+    "answer": ">",
+    "explanation": "> is the greater-than relational operator. score > 80 evaluates to true if score is bigger."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-01",
+    "code": "if (a == b) ___\n  cout << \"equal\";\n}",
+    "clozeSentence": "After the condition, open the body block with ___",
+    "answer": "{",
+    "explanation": "{ opens the if-body. Statements between { and } only run when condition is true."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-01",
+    "code": "int n = 5;\nif (___ > 0) {\n  cout << \"good\";\n}",
+    "clozeSentence": "The variable being tested is ___",
+    "answer": "n",
+    "explanation": "The condition n > 0 references the variable n."
+  },
+  {
+    "type": "write",
+    "atomId": "F-01",
+    "level": 1,
+    "spec": "Write an if statement (no body content) with condition score >= 50, opening brace included.",
+    "expectedAnswer": "if (score >= 50) {",
+    "keyChecks": ["if", "(", "score", ">=", "50", ")", "{"],
+    "explanation": "if (cond) { tests the condition, opens block."
+  },
+  {
+    "type": "write",
+    "atomId": "F-01",
+    "level": 2,
+    "spec": "Write an if block: if balance >= 1000 print VIP customer.",
+    "expectedAnswer": "if (balance >= 1000) {\n  cout << \"VIP customer\" << endl;\n}",
+    "keyChecks": ["if", "(", "balance", ">=", "1000", ")", "{", "cout", "VIP customer", "}"],
+    "explanation": "if checks balance >= 1000. Body prints when condition is true."
+  },
+  {
+    "type": "write",
+    "atomId": "F-01",
+    "level": 2,
+    "spec": "Write an if block: if temp > 100 print boiling.",
+    "expectedAnswer": "if (temp > 100) {\n  cout << \"boiling\" << endl;\n}",
+    "keyChecks": ["if", "(", "temp", ">", "100", ")", "{", "cout", "boiling", "}"],
+    "explanation": "Standard if-block pattern. Body runs when temp > 100."
+  },
+  {
+    "type": "write",
+    "atomId": "F-01",
+    "level": 3,
+    "spec": "Write a complete program: declare int score = 75. If score >= 50 print pass.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int score = 75;\n  if (score >= 50) {\n    cout << \"pass\" << endl;\n  }\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int score = 75;", "if", "(", "score", ">=", "50", ")", "cout", "pass", "return 0;"],
+    "explanation": "Standard if pattern: condition true -> body executes."
+  },
+  {
+    "type": "write",
+    "atomId": "F-01",
+    "level": 3,
+    "spec": "Write a complete program: read int age, if age >= 18 print adult.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int age;\n  cin >> age;\n  if (age >= 18) {\n    cout << \"adult\" << endl;\n  }\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int age;", "cin", ">>", "age", "if", "(", "age", ">=", "18", "cout", "adult", "return 0;"],
+    "explanation": "Read input, then test with if and print accordingly."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "F-01",
+    "id": "CMEM-F01-01",
+    "section": "Branching: if pattern",
+    "question": "Type the canonical if-block that prints positive when x > 0",
+    "code": "if (x > 0) {\n  cout << \"positive\" << endl;\n}",
+    "keyChecks": ["if", "(", "x", ">", "0", ")", "{", "cout", "positive", "endl", "}"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "F-02",
+    "levelLabel": "L06 -> else handles false (area decision)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int width = 5;\n  if (width > 10) {\n    cout << \"large\" << endl;\n  } else {\n    cout << \"small\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (width > 10) {",
+        "annotation": "5 > 10 is false - skip if-body",
+        "atomIds": ["F-02"]
+      },
+      {
+        "line": 7,
+        "code": "  } else {",
+        "annotation": "else block runs because if was false",
+        "atomIds": ["F-02"]
+      },
+      {
+        "line": 8,
+        "code": "    cout << \"small\" << endl;",
+        "annotation": "else body runs - prints small",
+        "atomIds": ["F-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-02",
+    "levelLabel": "L06 -> if true skips else",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int balance = 500;\n  if (balance > 0) {\n    cout << \"in credit\" << endl;\n  } else {\n    cout << \"overdrawn\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (balance > 0) {",
+        "annotation": "500 > 0 is true",
+        "atomIds": ["F-02"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"in credit\" << endl;",
+        "annotation": "if-body runs - prints in credit",
+        "atomIds": ["F-02"]
+      },
+      {
+        "line": 8,
+        "code": "    cout << \"overdrawn\" << endl;",
+        "annotation": "else SKIPPED because if was true",
+        "atomIds": ["F-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-02",
+    "levelLabel": "L06 -> if/else exclusive paths",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int n = 0;\n  if (n != 0) {\n    cout << \"nonzero\" << endl;\n  } else {\n    cout << \"zero\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (n != 0) {",
+        "annotation": "0 != 0 is false",
+        "atomIds": ["F-02"]
+      },
+      {
+        "line": 8,
+        "code": "    cout << \"zero\" << endl;",
+        "annotation": "else runs - prints zero",
+        "atomIds": ["F-02"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "F-02",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int x = 7;\n  if (x > 10) {\n    cout << \"big\" << endl;\n  } else {\n    cout << \"small\" << endl;\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 4, "variable": "x", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["small"],
+    "inputMode": "final-only",
+    "teachMe": "7 > 10 is false. if skipped, else runs - prints small."
+  },
+  {
+    "type": "trace",
+    "atomId": "F-02",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int y = 100;\n  if (y > 50) {\n    cout << \"high\" << endl;\n  } else {\n    cout << \"low\" << endl;\n  }\n  return 0;\n}",
+    "variables": ["y"],
+    "expectedSteps": [
+      { "line": 4, "variable": "y", "value": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["high"],
+    "inputMode": "final-only",
+    "teachMe": "100 > 50 is true. if-body runs, else skipped. Prints high."
+  },
+  {
+    "type": "trace",
+    "atomId": "F-02",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int n = 0;\n  if (n) {\n    cout << \"truthy\" << endl;\n  } else {\n    cout << \"falsy\" << endl;\n  }\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 4, "variable": "n", "value": "0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["falsy"],
+    "inputMode": "final-only",
+    "teachMe": "0 is false in if context. else runs - prints falsy."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-02",
+    "code": "if (x > 0) {\n  cout << \"pos\";\n} ___ {\n  cout << \"not pos\";\n}",
+    "clozeSentence": "The keyword for the false branch is ___",
+    "answer": "else",
+    "explanation": "else runs when the if condition was false."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-02",
+    "code": "if (a == b) {\n  cout << \"same\";\n} else {\n  cout << \"___\";\n}",
+    "clozeSentence": "When a is not equal to b, print ___",
+    "answer": "diff",
+    "explanation": "else runs when a == b is false. The text inside the else body is what to fill."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-02",
+    "code": "int v = 5;\nif (v > 10) {\n  cout << \"big\";\n} else {\n  cout << \"small\";\n}\n// runs the ___ branch",
+    "clozeSentence": "Since 5 > 10 is false, the ___ branch runs",
+    "answer": "else",
+    "explanation": "When if condition is false, the else branch executes."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-02",
+    "code": "if (active) {\n  cout << \"on\";\n} ___ {\n  cout << \"off\";\n}",
+    "clozeSentence": "Pair the if with ___ for the false case",
+    "answer": "else",
+    "explanation": "if-else gives two exclusive paths. else handles when the condition fails."
+  },
+  {
+    "type": "write",
+    "atomId": "F-02",
+    "level": 1,
+    "spec": "Write only the else clause: open brace, cout small, close brace.",
+    "expectedAnswer": "else {\n  cout << \"small\" << endl;\n}",
+    "keyChecks": ["else", "{", "cout", "small", "endl", "}"],
+    "explanation": "else block prints small when paired if was false."
+  },
+  {
+    "type": "write",
+    "atomId": "F-02",
+    "level": 2,
+    "spec": "Write an if/else block: if temp > 100 print hot else print cool.",
+    "expectedAnswer": "if (temp > 100) {\n  cout << \"hot\" << endl;\n} else {\n  cout << \"cool\" << endl;\n}",
+    "keyChecks": ["if", "(", "temp", ">", "100", ")", "{", "cout", "hot", "else", "cool", "}"],
+    "explanation": "Two exclusive branches based on temp > 100."
+  },
+  {
+    "type": "write",
+    "atomId": "F-02",
+    "level": 2,
+    "spec": "Write an if/else block: if score >= 50 print pass else print fail.",
+    "expectedAnswer": "if (score >= 50) {\n  cout << \"pass\" << endl;\n} else {\n  cout << \"fail\" << endl;\n}",
+    "keyChecks": ["if", "(", "score", ">=", "50", ")", "{", "cout", "pass", "else", "fail"],
+    "explanation": "Standard if/else for binary classification."
+  },
+  {
+    "type": "write",
+    "atomId": "F-02",
+    "level": 3,
+    "spec": "Write a complete program: read int balance, if balance >= 0 print in credit else print overdrawn.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int balance;\n  cin >> balance;\n  if (balance >= 0) {\n    cout << \"in credit\" << endl;\n  } else {\n    cout << \"overdrawn\" << endl;\n  }\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int balance;", "cin", ">>", "balance", "if", "(", "balance", ">=", "0", "in credit", "else", "overdrawn", "return 0;"],
+    "explanation": "Read input, branch on sign with if/else."
+  },
+  {
+    "type": "write",
+    "atomId": "F-02",
+    "level": 3,
+    "spec": "Write a complete program: read int age. If age >= 18 print adult else print minor.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int age;\n  cin >> age;\n  if (age >= 18) {\n    cout << \"adult\" << endl;\n  } else {\n    cout << \"minor\" << endl;\n  }\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int age;", "cin", ">>", "age", "if", "(", "age", ">=", "18", "adult", "else", "minor", "return 0;"],
+    "explanation": "if/else handles two age categories."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "F-02",
+    "id": "CMEM-F02-01",
+    "section": "Branching: if/else canonical",
+    "question": "Type a canonical if/else: if x > 0 print pos else print neg",
+    "code": "if (x > 0) {\n  cout << \"pos\" << endl;\n} else {\n  cout << \"neg\" << endl;\n}",
+    "keyChecks": ["if", "(", "x", ">", "0", ")", "{", "cout", "pos", "endl", "else", "neg", "}"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "F-03",
+    "levelLabel": "L06 -> else if chains (ticket grading)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int score = 75;\n  if (score >= 90) {\n    cout << \"A\" << endl;\n  } else if (score >= 70) {\n    cout << \"B\" << endl;\n  } else {\n    cout << \"C\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (score >= 90) {",
+        "annotation": "75 >= 90 is false - skip",
+        "atomIds": ["F-03"]
+      },
+      {
+        "line": 7,
+        "code": "  } else if (score >= 70) {",
+        "annotation": "75 >= 70 is true - enter this block",
+        "atomIds": ["F-03"]
+      },
+      {
+        "line": 8,
+        "code": "    cout << \"B\" << endl;",
+        "annotation": "Prints B - the else branch is skipped",
+        "atomIds": ["F-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-03",
+    "levelLabel": "L06 -> first true wins",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int n = 5;\n  if (n > 0) {\n    cout << \"positive\" << endl;\n  } else if (n < 0) {\n    cout << \"negative\" << endl;\n  } else {\n    cout << \"zero\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (n > 0) {",
+        "annotation": "5 > 0 is true - run this branch",
+        "atomIds": ["F-03"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"positive\" << endl;",
+        "annotation": "Prints positive. The else if and else are SKIPPED",
+        "atomIds": ["F-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-03",
+    "levelLabel": "L06 -> three-way decision",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int day = 7;\n  if (day == 1) {\n    cout << \"Mon\" << endl;\n  } else if (day == 7) {\n    cout << \"Sun\" << endl;\n  } else {\n    cout << \"other\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (day == 1) {",
+        "annotation": "7 == 1 false - skip",
+        "atomIds": ["F-03"]
+      },
+      {
+        "line": 7,
+        "code": "  } else if (day == 7) {",
+        "annotation": "7 == 7 true - this branch runs",
+        "atomIds": ["F-03"]
+      },
+      {
+        "line": 8,
+        "code": "    cout << \"Sun\" << endl;",
+        "annotation": "Prints Sun",
+        "atomIds": ["F-03"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "F-03",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int g = 85;\n  if (g >= 90) {\n    cout << \"A\" << endl;\n  } else if (g >= 80) {\n    cout << \"B\" << endl;\n  } else {\n    cout << \"C\" << endl;\n  }\n  return 0;\n}",
+    "variables": ["g"],
+    "expectedSteps": [
+      { "line": 4, "variable": "g", "value": "85" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["B"],
+    "inputMode": "final-only",
+    "teachMe": "85 >= 90 false. 85 >= 80 true - prints B."
+  },
+  {
+    "type": "trace",
+    "atomId": "F-03",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int x = -2;\n  if (x > 0) {\n    cout << \"pos\" << endl;\n  } else if (x < 0) {\n    cout << \"neg\" << endl;\n  } else {\n    cout << \"zero\" << endl;\n  }\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 4, "variable": "x", "value": "-2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["neg"],
+    "inputMode": "final-only",
+    "teachMe": "-2 > 0 false. -2 < 0 true - prints neg."
+  },
+  {
+    "type": "trace",
+    "atomId": "F-03",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int t = 0;\n  if (t > 0) {\n    cout << \"hot\" << endl;\n  } else if (t < 0) {\n    cout << \"cold\" << endl;\n  } else {\n    cout << \"zero\" << endl;\n  }\n  return 0;\n}",
+    "variables": ["t"],
+    "expectedSteps": [
+      { "line": 4, "variable": "t", "value": "0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["zero"],
+    "inputMode": "final-only",
+    "teachMe": "0 > 0 false. 0 < 0 false. else runs - prints zero."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-03",
+    "code": "if (x > 10) {\n  cout << \"big\";\n} ___ if (x > 5) {\n  cout << \"med\";\n} else {\n  cout << \"small\";\n}",
+    "clozeSentence": "Chain another condition with ___ if",
+    "answer": "else",
+    "explanation": "else if chains another test. Only runs when previous if was false."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-03",
+    "code": "if (a == 1) {\n  cout << \"one\";\n} else ___ (a == 2) {\n  cout << \"two\";\n}",
+    "clozeSentence": "After else comes the keyword ___",
+    "answer": "if",
+    "explanation": "else if is two keywords: else, then if with another condition."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-03",
+    "code": "if (s >= 90) cout << \"A\";\n___ ___ (s >= 80) cout << \"B\";",
+    "clozeSentence": "Chain conditions with ___ ___",
+    "answer": "else if",
+    "explanation": "else if chains - first matching branch wins."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-03",
+    "code": "if (n == 1) cout << \"one\";\nelse if (n == 2) cout << \"two\";\nelse cout << \"___\";",
+    "clozeSentence": "After all conditions fail, else runs the default ___",
+    "answer": "other",
+    "explanation": "Final else is the catch-all when no else if matched."
+  },
+  {
+    "type": "write",
+    "atomId": "F-03",
+    "level": 1,
+    "spec": "Write only the else if clause testing score >= 70 with body cout B.",
+    "expectedAnswer": "else if (score >= 70) {\n  cout << \"B\" << endl;\n}",
+    "keyChecks": ["else", "if", "(", "score", ">=", "70", ")", "{", "cout", "B", "endl", "}"],
+    "explanation": "else if pairs else with another conditional test."
+  },
+  {
+    "type": "write",
+    "atomId": "F-03",
+    "level": 2,
+    "spec": "Write a 3-way chain for n: if n > 0 print pos else if n < 0 print neg else print zero.",
+    "expectedAnswer": "if (n > 0) {\n  cout << \"pos\" << endl;\n} else if (n < 0) {\n  cout << \"neg\" << endl;\n} else {\n  cout << \"zero\" << endl;\n}",
+    "keyChecks": ["if", "(", "n", ">", "0", "pos", "else if", "(", "n", "<", "0", "neg", "else", "zero"],
+    "explanation": "Classic 3-way sign test using if/else if/else."
+  },
+  {
+    "type": "write",
+    "atomId": "F-03",
+    "level": 2,
+    "spec": "Write grade chain: if score >= 90 A, else if >= 80 B, else C.",
+    "expectedAnswer": "if (score >= 90) {\n  cout << \"A\" << endl;\n} else if (score >= 80) {\n  cout << \"B\" << endl;\n} else {\n  cout << \"C\" << endl;\n}",
+    "keyChecks": ["if", "(", "score", ">=", "90", "A", "else if", "(", "score", ">=", "80", "B", "else", "C"],
+    "explanation": "else if chain handles three score brackets."
+  },
+  {
+    "type": "write",
+    "atomId": "F-03",
+    "level": 3,
+    "spec": "Write a complete program: read int score, classify as A (>=90), B (>=70), or C otherwise.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int score;\n  cin >> score;\n  if (score >= 90) {\n    cout << \"A\" << endl;\n  } else if (score >= 70) {\n    cout << \"B\" << endl;\n  } else {\n    cout << \"C\" << endl;\n  }\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int score;", "cin", ">>", "score", "if", "(", "score", ">=", "90", "A", "else if", "70", "B", "else", "C", "return 0;"],
+    "explanation": "Complete classifier with read + 3-way chain."
+  },
+  {
+    "type": "write",
+    "atomId": "F-03",
+    "level": 3,
+    "spec": "Write a complete program: read int hour, if hour < 12 print morning, else if hour < 18 print afternoon, else print evening.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int hour;\n  cin >> hour;\n  if (hour < 12) {\n    cout << \"morning\" << endl;\n  } else if (hour < 18) {\n    cout << \"afternoon\" << endl;\n  } else {\n    cout << \"evening\" << endl;\n  }\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int hour;", "cin", ">>", "hour", "if", "(", "hour", "<", "12", "morning", "else if", "<", "18", "afternoon", "else", "evening", "return 0;"],
+    "explanation": "Three-way classification of time-of-day."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "F-03",
+    "id": "CMEM-F03-01",
+    "section": "Branching: 3-way chain",
+    "question": "Type a canonical 3-way if/else-if/else for n testing positive/negative/zero",
+    "code": "if (n > 0) {\n  cout << \"pos\" << endl;\n} else if (n < 0) {\n  cout << \"neg\" << endl;\n} else {\n  cout << \"zero\" << endl;\n}",
+    "keyChecks": ["if", "(", "n", ">", "0", "pos", "else if", "(", "n", "<", "0", "neg", "else", "zero"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "F-04",
+    "levelLabel": "L06 -> condition is bool (library catalog)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  bool available = true;\n  if (available) {\n    cout << \"can borrow\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  bool available = true;",
+        "annotation": "bool variable - holds true or false",
+        "atomIds": ["F-04"]
+      },
+      {
+        "line": 5,
+        "code": "  if (available) {",
+        "annotation": "Condition is the bool itself - if available is true, enter",
+        "atomIds": ["F-04"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"can borrow\" << endl;",
+        "annotation": "Runs because available was true",
+        "atomIds": ["F-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-04",
+    "levelLabel": "L06 -> comparison produces bool",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int stock = 0;\n  bool inStock = (stock > 0);\n  if (inStock) {\n    cout << \"available\" << endl;\n  } else {\n    cout << \"out\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  bool inStock = (stock > 0);",
+        "annotation": "stock > 0 is a bool expression - 0 > 0 is false. inStock = false",
+        "atomIds": ["F-04"]
+      },
+      {
+        "line": 6,
+        "code": "  if (inStock) {",
+        "annotation": "Test the bool - false skips body",
+        "atomIds": ["F-04"]
+      },
+      {
+        "line": 9,
+        "code": "    cout << \"out\" << endl;",
+        "annotation": "else runs - prints out",
+        "atomIds": ["F-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-04",
+    "levelLabel": "L06 -> equality also returns bool",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int code = 200;\n  if (code == 200) {\n    cout << \"OK\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (code == 200) {",
+        "annotation": "code == 200 is a bool expression. 200 == 200 -> true",
+        "atomIds": ["F-04"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"OK\" << endl;",
+        "annotation": "Body runs because expression evaluated to true",
+        "atomIds": ["F-04"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "F-04",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  bool ready = true;\n  if (ready) {\n    cout << \"go\" << endl;\n  }\n  return 0;\n}",
+    "variables": ["ready"],
+    "expectedSteps": [
+      { "line": 4, "variable": "ready", "value": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["go"],
+    "inputMode": "final-only",
+    "teachMe": "ready is true. if(ready) means if(true) - body runs, prints go."
+  },
+  {
+    "type": "trace",
+    "atomId": "F-04",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int n = 5;\n  bool small = (n < 10);\n  if (small) {\n    cout << \"yes\" << endl;\n  }\n  return 0;\n}",
+    "variables": ["n", "small"],
+    "expectedSteps": [
+      { "line": 4, "variable": "n", "value": "5" },
+      { "line": 5, "variable": "small", "value": "true" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["yes"],
+    "inputMode": "final-only",
+    "teachMe": "n=5. small = (5<10) = true. if(small) is true - prints yes."
+  },
+  {
+    "type": "trace",
+    "atomId": "F-04",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int a = 3;\n  int b = 3;\n  if (a == b) {\n    cout << \"equal\" << endl;\n  } else {\n    cout << \"diff\" << endl;\n  }\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 4, "variable": "a", "value": "3" },
+      { "line": 5, "variable": "b", "value": "3" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["equal"],
+    "inputMode": "final-only",
+    "teachMe": "a==b is 3==3 = true. if-body runs, prints equal."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-04",
+    "code": "___ ok = (x > 0);\nif (ok) cout << \"yes\";",
+    "clozeSentence": "A variable holding true/false has type ___",
+    "answer": "bool",
+    "explanation": "bool is the C++ type for true/false values."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-04",
+    "code": "bool flag = ___;\nif (flag) cout << \"on\";",
+    "clozeSentence": "The bool literal for the on-state is ___",
+    "answer": "true",
+    "explanation": "true and false are the bool literals. true means the condition succeeds."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-04",
+    "code": "if (count == ___) cout << \"empty\";",
+    "clozeSentence": "Test for zero count - the value is ___",
+    "answer": "0",
+    "explanation": "count == 0 is a bool expression true when count equals zero."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-04",
+    "code": "bool good = (score >= 50);\nif (___) cout << \"pass\";",
+    "clozeSentence": "Use the bool variable directly as the if condition: ___",
+    "answer": "good",
+    "explanation": "if (good) reads the bool directly. No need to compare to true."
+  },
+  {
+    "type": "write",
+    "atomId": "F-04",
+    "level": 1,
+    "spec": "Write a bool declaration that initializes a variable named valid to true.",
+    "expectedAnswer": "bool valid = true;",
+    "keyChecks": ["bool", "valid", "=", "true", ";"],
+    "explanation": "bool type with literal true."
+  },
+  {
+    "type": "write",
+    "atomId": "F-04",
+    "level": 2,
+    "spec": "Write code: declare bool inStock = (qty > 0). Then if inStock print available.",
+    "expectedAnswer": "bool inStock = (qty > 0);\nif (inStock) {\n  cout << \"available\" << endl;\n}",
+    "keyChecks": ["bool inStock", "=", "(", "qty", ">", "0", ")", ";", "if", "(", "inStock", ")", "{", "cout", "available"],
+    "explanation": "Comparison produces a bool. Use the bool var as condition."
+  },
+  {
+    "type": "write",
+    "atomId": "F-04",
+    "level": 2,
+    "spec": "Write an if-block testing that sensor == 1: print active.",
+    "expectedAnswer": "if (sensor == 1) {\n  cout << \"active\" << endl;\n}",
+    "keyChecks": ["if", "(", "sensor", "==", "1", ")", "{", "cout", "active", "endl"],
+    "explanation": "== produces bool. Use it directly in if condition."
+  },
+  {
+    "type": "write",
+    "atomId": "F-04",
+    "level": 3,
+    "spec": "Write a complete program: read int qty, declare bool inStock = (qty > 0), if inStock print available else out.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int qty;\n  cin >> qty;\n  bool inStock = (qty > 0);\n  if (inStock) {\n    cout << \"available\" << endl;\n  } else {\n    cout << \"out\" << endl;\n  }\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int qty;", "cin", ">>", "qty", "bool inStock", "=", "(", "qty", ">", "0", ")", "if", "(", "inStock", "available", "else", "out", "return 0;"],
+    "explanation": "Read input, build bool from comparison, branch on bool."
+  },
+  {
+    "type": "write",
+    "atomId": "F-04",
+    "level": 3,
+    "spec": "Write a complete program: read int code, if code == 200 print OK else print Error.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int code;\n  cin >> code;\n  if (code == 200) {\n    cout << \"OK\" << endl;\n  } else {\n    cout << \"Error\" << endl;\n  }\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int code;", "cin", ">>", "code", "if", "(", "code", "==", "200", ")", "OK", "else", "Error", "return 0;"],
+    "explanation": "== gives bool. Branch on equality test."
+  },
+  {
+    "type": "procedural",
+    "atomId": "F-04",
+    "id": "PD-F04-01",
+    "section": "Branching: bool conditions",
+    "prompt": "Write a bool variable named ok set to (count > 5).",
+    "expectedAnswer": "bool ok = (count > 5);",
+    "keyChecks": ["bool", "ok", "=", "(", "count", ">", "5", ")", ";"],
+    "variants": [
+      {
+        "prompt": "Write a bool variable named bigEnough set to (size >= 100).",
+        "expectedAnswer": "bool bigEnough = (size >= 100);"
+      },
+      {
+        "prompt": "Write a bool variable named matched set to (id == target).",
+        "expectedAnswer": "bool matched = (id == target);"
+      }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "F-04",
+    "id": "CM-F04-01",
+    "section": "Branching: bool patterns",
+    "matrixType": "entity",
+    "examples": [
+      {
+        "label": "Example A: bool from > comparison",
+        "code": "bool isHigh = (temp > 30);"
+      },
+      {
+        "label": "Example B: bool from == comparison",
+        "code": "bool isOK = (status == 200);"
+      }
+    ],
+    "prompt": "Write a bool isAdult from age >= 18.",
+    "expectedAnswer": "bool isAdult = (age >= 18);",
+    "keyChecks": ["bool", "isAdult", "=", "(", "age", ">=", "18", ")", ";"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "F-04",
+    "id": "CMEM-F04-01",
+    "section": "Branching: bool from comparison",
+    "question": "Type the canonical bool-from-comparison: bool ok = (x > 0)",
+    "code": "bool ok = (x > 0);",
+    "keyChecks": ["bool", "ok", "=", "(", "x", ">", "0", ")", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "F-05",
+    "levelLabel": "L06 -> always use {} (inventory check)",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int stock = 5;\n  if (stock > 0) {\n    cout << \"in stock\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (stock > 0) {",
+        "annotation": "ALWAYS open with {",
+        "atomIds": ["F-05"]
+      },
+      {
+        "line": 6,
+        "code": "    cout << \"in stock\" << endl;",
+        "annotation": "Body inside braces - even one line",
+        "atomIds": ["F-05"]
+      },
+      {
+        "line": 7,
+        "code": "  }",
+        "annotation": "Always close with } - SIT102 grading needs braces",
+        "atomIds": ["F-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-05",
+    "levelLabel": "L06 -> braces clarify single statement",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int n = 5;\n  if (n > 0) {\n    cout << \"yes\" << endl;\n  }\n  cout << \"done\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (n > 0) {",
+        "annotation": "Open brace makes scope clear",
+        "atomIds": ["F-05"]
+      },
+      {
+        "line": 7,
+        "code": "  }",
+        "annotation": "Close brace ends if-body. Lines after are unconditional",
+        "atomIds": ["F-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "F-05",
+    "levelLabel": "L06 -> braces with else block",
+    "fullCode": "#include <iostream>\nusing namespace std;\nint main() {\n  int x = 0;\n  if (x > 0) {\n    cout << \"pos\" << endl;\n  } else {\n    cout << \"not pos\" << endl;\n  }\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  if (x > 0) {",
+        "annotation": "Brace pair around if body",
+        "atomIds": ["F-05"]
+      },
+      {
+        "line": 7,
+        "code": "  } else {",
+        "annotation": "Close if, then open else. Brace per body",
+        "atomIds": ["F-05"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "F-05",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int q = 3;\n  if (q > 0) {\n    cout << \"yes\" << endl;\n  }\n  cout << \"end\" << endl;\n  return 0;\n}",
+    "variables": ["q"],
+    "expectedSteps": [
+      { "line": 4, "variable": "q", "value": "3" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["yes", "end"],
+    "inputMode": "final-only",
+    "teachMe": "Body runs, prints yes. Then code after braces runs unconditionally - prints end."
+  },
+  {
+    "type": "trace",
+    "atomId": "F-05",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int q = -1;\n  if (q > 0) {\n    cout << \"yes\" << endl;\n  }\n  cout << \"end\" << endl;\n  return 0;\n}",
+    "variables": ["q"],
+    "expectedSteps": [
+      { "line": 4, "variable": "q", "value": "-1" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["end"],
+    "inputMode": "final-only",
+    "teachMe": "-1>0 false. if-body skipped. After } runs unconditionally - prints end."
+  },
+  {
+    "type": "trace",
+    "atomId": "F-05",
+    "code": "#include <iostream>\nusing namespace std;\nint main() {\n  int q = 5;\n  if (q > 0) {\n    cout << \"a\" << endl;\n    cout << \"b\" << endl;\n  }\n  return 0;\n}",
+    "variables": ["q"],
+    "expectedSteps": [
+      { "line": 4, "variable": "q", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["a", "b"],
+    "inputMode": "final-only",
+    "teachMe": "Both lines inside { } run when condition is true. Prints a then b."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-05",
+    "code": "if (x > 0) ___\n  cout << \"pos\";\n}",
+    "clozeSentence": "Always open the if-body with ___ even for one line",
+    "answer": "{",
+    "explanation": "Always wrap the body in {} - SIT102 expects this style."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-05",
+    "code": "if (n > 0) {\n  cout << \"pos\";\n___",
+    "clozeSentence": "Close the if-block with ___",
+    "answer": "}",
+    "explanation": "Every { needs a matching }."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-05",
+    "code": "if (a == b) {\n  cout << \"same\";\n} else ___\n  cout << \"diff\";\n}",
+    "clozeSentence": "Open the else-body with ___",
+    "answer": "{",
+    "explanation": "Always brace the else body too. Same rule as if."
+  },
+  {
+    "type": "cloze",
+    "atomId": "F-05",
+    "code": "if (true) {\n  cout << \"yes\";\n___ else {\n  cout << \"no\";\n}",
+    "clozeSentence": "Close the if-body before else with ___",
+    "answer": "}",
+    "explanation": "Each block needs its own pair of braces."
+  },
+  {
+    "type": "write",
+    "atomId": "F-05",
+    "level": 1,
+    "spec": "Write a properly braced if-block: if x > 0 print pos, single statement body but with braces.",
+    "expectedAnswer": "if (x > 0) {\n  cout << \"pos\" << endl;\n}",
+    "keyChecks": ["if", "(", "x", ">", "0", ")", "{", "cout", "pos", "endl", "}"],
+    "explanation": "Always brace - even single-statement bodies."
+  },
+  {
+    "type": "write",
+    "atomId": "F-05",
+    "level": 2,
+    "spec": "Write a properly braced if/else: if active print on else print off. Each body in its own braces.",
+    "expectedAnswer": "if (active) {\n  cout << \"on\" << endl;\n} else {\n  cout << \"off\" << endl;\n}",
+    "keyChecks": ["if", "(", "active", ")", "{", "cout", "on", "endl", "}", "else", "{", "off"],
+    "explanation": "Both bodies must be braced - even single line."
+  },
+  {
+    "type": "write",
+    "atomId": "F-05",
+    "level": 2,
+    "spec": "Write a properly braced if-block: if items > 0 print Has items then print Stocked. Both lines inside the braces.",
+    "expectedAnswer": "if (items > 0) {\n  cout << \"Has items\" << endl;\n  cout << \"Stocked\" << endl;\n}",
+    "keyChecks": ["if", "(", "items", ">", "0", ")", "{", "cout", "Has items", "Stocked", "endl", "}"],
+    "explanation": "Multiple statements need braces; group both inside one { }."
+  },
+  {
+    "type": "write",
+    "atomId": "F-05",
+    "level": 3,
+    "spec": "Write a complete program: read int n. If n > 0 print pos, else print not pos. Use braces on every body.",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int n;\n  cin >> n;\n  if (n > 0) {\n    cout << \"pos\" << endl;\n  } else {\n    cout << \"not pos\" << endl;\n  }\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int n;", "cin", ">>", "n", "if", "(", "n", ">", "0", ")", "{", "pos", "}", "else", "{", "not pos", "return 0;"],
+    "explanation": "Both branches braced even for single statements."
+  },
+  {
+    "type": "write",
+    "atomId": "F-05",
+    "level": 3,
+    "spec": "Write a complete program: read int stock. If stock > 0 print stocked twice (two cout calls inside one if-body).",
+    "expectedAnswer": "#include <iostream>\nusing namespace std;\nint main() {\n  int stock;\n  cin >> stock;\n  if (stock > 0) {\n    cout << \"stocked\" << endl;\n    cout << \"stocked\" << endl;\n  }\n  return 0;\n}",
+    "keyChecks": ["#include", "<iostream>", "int stock;", "cin", ">>", "stock", "if", "(", "stock", ">", "0", ")", "{", "stocked", "endl", "}", "return 0;"],
+    "explanation": "Two-statement body must be braced."
+  },
+  {
+    "type": "matrix",
+    "atomId": "F-05",
+    "id": "CM-F05-01",
+    "section": "Branching: braced bodies",
+    "matrixType": "progression",
+    "examples": [
+      {
+        "label": "Example A: 1-line braced body",
+        "code": "if (x > 0) {\n  cout << \"a\";\n}"
+      },
+      {
+        "label": "Example B: 2-line braced body",
+        "code": "if (x > 0) {\n  cout << \"a\";\n  cout << \"b\";\n}"
+      }
+    ],
+    "prompt": "Write an if-block with a 3-line body printing a, b, c when x > 0.",
+    "expectedAnswer": "if (x > 0) {\n  cout << \"a\";\n  cout << \"b\";\n  cout << \"c\";\n}",
+    "keyChecks": ["if", "(", "x", ">", "0", ")", "{", "cout", "a", "b", "c", "}"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "F-05",
+    "id": "CMEM-F05-01",
+    "section": "Branching: braced if",
+    "question": "Type a fully-braced if-block where condition is x > 0 and body prints pos",
+    "code": "if (x > 0) {\n  cout << \"pos\" << endl;\n}",
+    "keyChecks": ["if", "(", "x", ">", "0", ")", "{", "cout", "pos", "endl", "}"]
+  },
+  {
+    "type": "procedural",
+    "atomId": "F-01",
+    "id": "PD-F01-01",
+    "section": "Branching: if-block",
+    "prompt": "Write an if-block testing score >= 50 that prints pass.",
+    "expectedAnswer": "if (score >= 50) {\n  cout << \"pass\" << endl;\n}",
+    "keyChecks": ["if", "(", "score", ">=", "50", ")", "{", "cout", "pass", "endl", "}"],
+    "variants": [
+      {
+        "prompt": "Write an if-block testing temp > 100 that prints boiling.",
+        "expectedAnswer": "if (temp > 100) {\n  cout << \"boiling\" << endl;\n}"
+      },
+      {
+        "prompt": "Write an if-block testing balance < 0 that prints overdrawn.",
+        "expectedAnswer": "if (balance < 0) {\n  cout << \"overdrawn\" << endl;\n}"
+      }
+    ]
+  },
+  {
+    "type": "matrix",
+    "atomId": "F-03",
+    "id": "CM-F03-01",
+    "section": "Branching: chain progression",
+    "matrixType": "progression",
+    "examples": [
+      {
+        "label": "Example A: if/else only",
+        "code": "if (x > 0) {\n  cout << \"a\";\n} else {\n  cout << \"b\";\n}"
+      },
+      {
+        "label": "Example B: if/else if/else",
+        "code": "if (x > 10) {\n  cout << \"a\";\n} else if (x > 0) {\n  cout << \"b\";\n} else {\n  cout << \"c\";\n}"
+      }
+    ],
+    "prompt": "Write a 4-way chain for n: > 10 print big, > 0 print pos, == 0 print zero, else print neg.",
+    "expectedAnswer": "if (n > 10) {\n  cout << \"big\";\n} else if (n > 0) {\n  cout << \"pos\";\n} else if (n == 0) {\n  cout << \"zero\";\n} else {\n  cout << \"neg\";\n}",
+    "keyChecks": ["if", "(", "n", ">", "10", "big", "else if", "(", "n", ">", "0", "pos", "else if", "(", "n", "==", "0", "zero", "else", "neg"]
+  }
+]

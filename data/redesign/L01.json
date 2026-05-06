@@ -1,0 +1,1839 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "O-01",
+    "levelLabel": "L1 -> cout basics (greeting)",
+    "fullCode": "int main() {\n  cout << \"Welcome to SIT102\";\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  cout << \"Welcome to SIT102\";",
+        "annotation": "cout is the output stream. The text in quotes goes straight to the terminal.",
+        "atomIds": ["O-01"]
+      },
+      {
+        "line": 3,
+        "code": "  return 0;",
+        "annotation": "main returns 0 to signal the program ran without errors.",
+        "atomIds": ["O-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-01",
+    "levelLabel": "L1 -> cout basics (sensor)",
+    "fullCode": "int main() {\n  cout << \"sensor online\";\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  cout << \"sensor online\";",
+        "annotation": "cout sends the literal text between the quotes to standard output.",
+        "atomIds": ["O-01"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-01",
+    "code": "int main() {\n  cout << \"hello\";\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "hello" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["hello"],
+    "inputMode": "final-only",
+    "teachMe": "cout sends the string literal hello to the terminal. No newline is added."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-01",
+    "code": "int main() {\n  cout << \"start\";\n  cout << \"end\";\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "start" },
+      { "line": 3, "variable": "", "value": "", "output": "end" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["startend"],
+    "inputMode": "final-only",
+    "teachMe": "Two cout statements with no newline produce one continuous line: startend."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-01",
+    "code": "int main() {\n  cout << \"login ok\";\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "login ok" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["login ok"],
+    "inputMode": "final-only",
+    "teachMe": "Spaces inside the quoted string are part of the output."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-01",
+    "code": "int main() {\n  ___ << \"welcome\";\n  return 0;\n}",
+    "clozeSentence": "The ___ stream prints text to the terminal.",
+    "answer": "cout",
+    "explanation": "cout is the standard output stream. It is what every Q4 print line uses."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-01",
+    "code": "int main() {\n  cout << ___;\n  return 0;\n}",
+    "clozeSentence": "Fill in a string literal in quotes that prints the word ready.",
+    "answer": "\"ready\"",
+    "explanation": "A string literal in double quotes is the simplest thing cout can print."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-01",
+    "code": "int main() {\n  cout << \"system online\"___\n  return 0;\n}",
+    "clozeSentence": "Every C++ statement ends with a ___.",
+    "answer": ";",
+    "explanation": "Statements end with a semicolon. Without it, the compiler errors before the next line."
+  },
+  {
+    "type": "write",
+    "atomId": "O-01",
+    "level": 1,
+    "spec": "Write a single line that prints the literal text greetings to the terminal using cout.",
+    "expectedAnswer": "cout << \"greetings\";",
+    "keyChecks": ["cout", "<<", "\"greetings\"", ";"],
+    "explanation": "cout, then <<, then the literal in quotes, then a semicolon."
+  },
+  {
+    "type": "write",
+    "atomId": "O-01",
+    "level": 1,
+    "spec": "Write a single cout line that prints the word ok.",
+    "expectedAnswer": "cout << \"ok\";",
+    "keyChecks": ["cout", "<<", "\"ok\"", ";"],
+    "explanation": "cout sends the quoted string to standard output."
+  },
+  {
+    "type": "write",
+    "atomId": "O-01",
+    "level": 1,
+    "spec": "Write a single cout line that prints the literal text done.",
+    "expectedAnswer": "cout << \"done\";",
+    "keyChecks": ["cout", "<<", "\"done\"", ";"],
+    "explanation": "Use cout, the << operator, the string literal, and a semicolon."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "O-01",
+    "id": "CMEM-O01-01",
+    "section": "L1 cout basics",
+    "question": "Type the canonical one-line cout that prints hello.",
+    "code": "cout << \"hello\";",
+    "keyChecks": ["cout", "<<", "\"hello\"", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "O-02",
+    "levelLabel": "L1 -> the << operator (receipt)",
+    "fullCode": "int main() {\n  int total = 42;\n  cout << total;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int total = 42;",
+        "annotation": "Declare and assign an int variable.",
+        "atomIds": ["O-02"]
+      },
+      {
+        "line": 3,
+        "code": "  cout << total;",
+        "annotation": "<< sends the value held by total into the cout stream.",
+        "atomIds": ["O-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-02",
+    "levelLabel": "L1 -> the << operator (score)",
+    "fullCode": "int main() {\n  int score = 88;\n  cout << \"score: \" << score;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  cout << \"score: \" << score;",
+        "annotation": "<< feeds each value to cout left-to-right. Two arrows = two outputs in one statement.",
+        "atomIds": ["O-02", "O-07"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-02",
+    "code": "int main() {\n  int x = 7;\n  cout << x;\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "7" },
+      { "line": 3, "variable": "", "value": "", "output": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "<< takes the value of x (which is 7) and writes it as decimal digits to the terminal."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-02",
+    "code": "int main() {\n  int n = 100;\n  cout << n;\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "100" },
+      { "line": 3, "variable": "", "value": "", "output": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["100"],
+    "inputMode": "final-only",
+    "teachMe": "<< sends n's current value to cout. The terminal shows 100."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-02",
+    "code": "int main() {\n  int a = 3;\n  int b = 4;\n  cout << a;\n  cout << b;\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "3" },
+      { "line": 3, "variable": "b", "value": "4" },
+      { "line": 4, "variable": "", "value": "", "output": "3" },
+      { "line": 5, "variable": "", "value": "", "output": "4" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["34"],
+    "inputMode": "final-only",
+    "teachMe": "Two separate cout statements with no newline produce: 34. The values run together."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-02",
+    "code": "int total = 50;\ncout ___ total;",
+    "clozeSentence": "The ___ operator sends a value into cout.",
+    "answer": "<<",
+    "explanation": "<< is the stream insertion operator. It feeds the value on its right into cout on its left."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-02",
+    "code": "int score = 90;\n___ << score;",
+    "clozeSentence": "Fill in the output stream that goes on the left of <<.",
+    "answer": "cout",
+    "explanation": "cout is the receiver; values flow into it through <<."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-02",
+    "code": "int x = 9;\ncout << ___;",
+    "clozeSentence": "Fill in the variable name whose value should print.",
+    "answer": "x",
+    "explanation": "Putting the variable name after << prints its current value."
+  },
+  {
+    "type": "write",
+    "atomId": "O-02",
+    "level": 1,
+    "spec": "Given int count = 5; write a single cout line that prints the value of count.",
+    "expectedAnswer": "cout << count;",
+    "keyChecks": ["cout", "<<", "count", ";"],
+    "explanation": "<< pulls the current value out of count and writes it to the terminal."
+  },
+  {
+    "type": "write",
+    "atomId": "O-02",
+    "level": 1,
+    "spec": "Given int total = 42; write a single cout line that prints the value of total.",
+    "expectedAnswer": "cout << total;",
+    "keyChecks": ["cout", "<<", "total", ";"],
+    "explanation": "Use cout << then the variable name."
+  },
+  {
+    "type": "write",
+    "atomId": "O-02",
+    "level": 1,
+    "spec": "Given int n = 7; write a single cout line that prints the value of n.",
+    "expectedAnswer": "cout << n;",
+    "keyChecks": ["cout", "<<", "n", ";"],
+    "explanation": "<< sends n's value to cout."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "O-03",
+    "levelLabel": "L1 -> string literal output (sensor)",
+    "fullCode": "int main() {\n  cout << \"sensor: ok\";\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  cout << \"sensor: ok\";",
+        "annotation": "Anything inside double quotes is printed verbatim, including the colon and space.",
+        "atomIds": ["O-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-03",
+    "levelLabel": "L1 -> string literal output (label)",
+    "fullCode": "int main() {\n  cout << \"---menu---\";\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  cout << \"---menu---\";",
+        "annotation": "Dashes and other characters inside the quotes are printed exactly as typed.",
+        "atomIds": ["O-03"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-03",
+    "code": "int main() {\n  cout << \"abc\";\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "abc" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["abc"],
+    "inputMode": "final-only",
+    "teachMe": "The literal abc inside quotes is sent to stdout."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-03",
+    "code": "int main() {\n  cout << \"sum = \";\n  cout << \"value\";\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "sum = " },
+      { "line": 3, "variable": "", "value": "", "output": "value" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["sum = value"],
+    "inputMode": "final-only",
+    "teachMe": "Two literal strings concatenate on the same line: sum = value (with a trailing space before value)."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-03",
+    "code": "int main() {\n  cout << \"PIN: \" << \"1234\";\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "PIN: 1234" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["PIN: 1234"],
+    "inputMode": "final-only",
+    "teachMe": "Two chained string literals print in sequence on the same line."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-03",
+    "code": "cout << ___;",
+    "clozeSentence": "Fill in the literal that prints the word done in double quotes.",
+    "answer": "\"done\"",
+    "explanation": "A string literal must be wrapped in double quotes."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-03",
+    "code": "cout << \"score=___;",
+    "clozeSentence": "Fill in the closing double quote so the literal score= prints correctly.",
+    "answer": "\"",
+    "explanation": "Every opening quote needs a matching closing quote."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-03",
+    "code": "cout << \"___ ok\";",
+    "clozeSentence": "Fill in the word that completes the literal status ok.",
+    "answer": "status",
+    "explanation": "Whatever you type inside the quotes is printed exactly as is."
+  },
+  {
+    "type": "write",
+    "atomId": "O-03",
+    "level": 1,
+    "spec": "Write a single cout line that prints the literal text result is fine.",
+    "expectedAnswer": "cout << \"result is fine\";",
+    "keyChecks": ["cout", "<<", "\"result is fine\"", ";"],
+    "explanation": "Wrap the whole phrase in one pair of double quotes."
+  },
+  {
+    "type": "write",
+    "atomId": "O-03",
+    "level": 1,
+    "spec": "Write a single cout line that prints the literal label score=.",
+    "expectedAnswer": "cout << \"score=\";",
+    "keyChecks": ["cout", "<<", "\"score=\"", ";"],
+    "explanation": "The literal includes the equals sign with no space."
+  },
+  {
+    "type": "write",
+    "atomId": "O-03",
+    "level": 1,
+    "spec": "Write a single cout line that prints the literal text loading data.",
+    "expectedAnswer": "cout << \"loading data\";",
+    "keyChecks": ["cout", "<<", "\"loading data\"", ";"],
+    "explanation": "The space inside the quotes is preserved on the terminal."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "O-04",
+    "levelLabel": "L1 -> printing a number (count display)",
+    "fullCode": "int main() {\n  cout << 12;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  cout << 12;",
+        "annotation": "An integer literal goes straight to cout. No quotes; the value 12 prints as decimal digits.",
+        "atomIds": ["O-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-04",
+    "levelLabel": "L1 -> printing a number (debug-msg)",
+    "fullCode": "int main() {\n  cout << 0;\n  cout << 1;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  cout << 0;",
+        "annotation": "Print the literal int 0.",
+        "atomIds": ["O-04"]
+      },
+      {
+        "line": 3,
+        "code": "  cout << 1;",
+        "annotation": "Print the literal int 1. With no newline between, output is 01.",
+        "atomIds": ["O-04"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-04",
+    "code": "int main() {\n  cout << 5;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "An integer literal sent to cout is printed as decimal digits with no quotes around it."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-04",
+    "code": "int main() {\n  cout << 42;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "42" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["42"],
+    "inputMode": "final-only",
+    "teachMe": "cout prints the int 42 as the two decimal characters 4 and 2."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-04",
+    "code": "int main() {\n  cout << 5 + 3;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "8" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "5 + 3 evaluates to 8 first, then cout prints 8."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-04",
+    "code": "cout << ___;",
+    "clozeSentence": "Fill in the int literal that prints 99.",
+    "answer": "99",
+    "explanation": "Integer literals have no quotes; cout converts them to decimal text."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-04",
+    "code": "cout << 10 ___ 5;",
+    "clozeSentence": "Fill in the operator so the program prints 15.",
+    "answer": "+",
+    "explanation": "10 + 5 evaluates to 15 before cout prints it."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-04",
+    "code": "cout << ___;\n// terminal shows 0",
+    "clozeSentence": "Fill in the int literal that prints the digit 0.",
+    "answer": "0",
+    "explanation": "0 sent to cout produces a single character: 0."
+  },
+  {
+    "type": "write",
+    "atomId": "O-04",
+    "level": 1,
+    "spec": "Write a single cout line that prints the integer literal 100.",
+    "expectedAnswer": "cout << 100;",
+    "keyChecks": ["cout", "<<", "100", ";"],
+    "explanation": "Number literals do not need quotes when sent to cout."
+  },
+  {
+    "type": "write",
+    "atomId": "O-04",
+    "level": 1,
+    "spec": "Write a single cout line that prints the integer literal 7.",
+    "expectedAnswer": "cout << 7;",
+    "keyChecks": ["cout", "<<", "7", ";"],
+    "explanation": "cout prints 7 as a single decimal digit."
+  },
+  {
+    "type": "write",
+    "atomId": "O-04",
+    "level": 1,
+    "spec": "Write a single cout line that prints the result of 4 + 3 as one expression.",
+    "expectedAnswer": "cout << 4 + 3;",
+    "keyChecks": ["cout", "<<", "4 + 3", ";"],
+    "explanation": "cout receives the value of the expression after C++ evaluates it."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "O-04",
+    "id": "CMEM-O04-01",
+    "section": "L1 number output",
+    "question": "Type the canonical one-line cout that prints the int 42.",
+    "code": "cout << 42;",
+    "keyChecks": ["cout", "<<", "42", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "O-05",
+    "levelLabel": "L1 -> endl (multi-line-out)",
+    "fullCode": "int main() {\n  cout << \"row 1\" << endl;\n  cout << \"row 2\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  cout << \"row 1\" << endl;",
+        "annotation": "Print row 1 then a newline. The cursor moves to the next line.",
+        "atomIds": ["O-05"]
+      },
+      {
+        "line": 3,
+        "code": "  cout << \"row 2\" << endl;",
+        "annotation": "Print row 2 on the next line, then another newline.",
+        "atomIds": ["O-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-05",
+    "levelLabel": "L1 -> endl (separator)",
+    "fullCode": "int main() {\n  cout << \"---\" << endl;\n  cout << \"end\" << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  cout << \"---\" << endl;",
+        "annotation": "Each endl ends the current output line and moves to a new one.",
+        "atomIds": ["O-05"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-05",
+    "code": "int main() {\n  cout << \"hello\" << endl;\n  cout << \"world\";\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "hello\\n" },
+      { "line": 3, "variable": "", "value": "", "output": "world" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["hello", "world"],
+    "inputMode": "final-only",
+    "teachMe": "endl prints a newline. The terminal shows hello on one line and world on the next."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-05",
+    "code": "int main() {\n  cout << \"line one\" << endl << \"line two\";\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "line one\\nline two" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["line one", "line two"],
+    "inputMode": "final-only",
+    "teachMe": "endl in the middle of a chain ends the current line; what follows starts a new line."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-05",
+    "code": "int main() {\n  cout << \"a\" << endl;\n  cout << \"b\" << endl;\n  cout << \"c\" << endl;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "a\\n" },
+      { "line": 3, "variable": "", "value": "", "output": "b\\n" },
+      { "line": 4, "variable": "", "value": "", "output": "c\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["a", "b", "c"],
+    "inputMode": "final-only",
+    "teachMe": "Three lines print, each ended by endl. Each output line is independent."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-05",
+    "code": "cout << \"done\" << ___;",
+    "clozeSentence": "Fill in the manipulator that prints a newline and flushes.",
+    "answer": "endl",
+    "explanation": "endl ends the line and flushes the output buffer."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-05",
+    "code": "cout << \"row\" << ___ << \"row\";",
+    "clozeSentence": "Fill in the manipulator that ends the first line.",
+    "answer": "endl",
+    "explanation": "endl in a chain causes the rest of the chain to print on a new line."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-05",
+    "code": "cout << ___ << endl;",
+    "clozeSentence": "Fill in a literal that prints the word ready.",
+    "answer": "\"ready\"",
+    "explanation": "A literal in quotes goes before endl in the chain."
+  },
+  {
+    "type": "write",
+    "atomId": "O-05",
+    "level": 1,
+    "spec": "Write a single cout line that prints the literal text done followed by a newline using endl.",
+    "expectedAnswer": "cout << \"done\" << endl;",
+    "keyChecks": ["cout", "<<", "\"done\"", "endl", ";"],
+    "explanation": "Chain the literal then << endl to end the line."
+  },
+  {
+    "type": "write",
+    "atomId": "O-05",
+    "level": 1,
+    "spec": "Write a single cout line that prints the literal text saved followed by endl.",
+    "expectedAnswer": "cout << \"saved\" << endl;",
+    "keyChecks": ["cout", "<<", "\"saved\"", "endl", ";"],
+    "explanation": "endl finishes the line and flushes."
+  },
+  {
+    "type": "write",
+    "atomId": "O-05",
+    "level": 2,
+    "spec": "Write two cout statements that print abc on one line and xyz on the next, each ended by endl.",
+    "expectedAnswer": "cout << \"abc\" << endl;\ncout << \"xyz\" << endl;",
+    "keyChecks": ["cout", "\"abc\"", "endl", "\"xyz\""],
+    "explanation": "Two statements; each uses endl to break the line."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "O-05",
+    "id": "CMEM-O05-01",
+    "section": "L1 newline via endl",
+    "question": "Type the canonical line that prints done and ends the line.",
+    "code": "cout << \"done\" << endl;",
+    "keyChecks": ["cout", "<<", "\"done\"", "endl", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "O-06",
+    "levelLabel": "L1 -> \\n inside string (table-row)",
+    "fullCode": "int main() {\n  cout << \"id\\nname\";\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  cout << \"id\\nname\";",
+        "annotation": "\\n inside the literal is a newline character. id prints, then a line break, then name.",
+        "atomIds": ["O-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-06",
+    "levelLabel": "L1 -> \\n shorthand",
+    "fullCode": "int main() {\n  cout << \"top\\n\";\n  cout << \"bottom\\n\";\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  cout << \"top\\n\";",
+        "annotation": "\\n is the newline escape. Shorter than endl when a flush is not required.",
+        "atomIds": ["O-06"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-06",
+    "code": "int main() {\n  cout << \"alpha\\n\";\n  cout << \"beta\";\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "alpha\\n" },
+      { "line": 3, "variable": "", "value": "", "output": "beta" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["alpha", "beta"],
+    "inputMode": "final-only",
+    "teachMe": "\\n inside the literal moves the cursor to the next line, just like endl."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-06",
+    "code": "int main() {\n  cout << \"a\\nb\\nc\";\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "a\\nb\\nc" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["a", "b", "c"],
+    "inputMode": "final-only",
+    "teachMe": "Each \\n in the literal breaks to a new terminal line."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-06",
+    "code": "int main() {\n  cout << \"row1\\n\" << \"row2\\n\";\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "row1\\nrow2\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["row1", "row2"],
+    "inputMode": "final-only",
+    "teachMe": "Two literals each ending in \\n produce two separate lines."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-06",
+    "code": "cout << \"hello___\";",
+    "clozeSentence": "Fill in the escape sequence that adds a newline inside the literal.",
+    "answer": "\\n",
+    "explanation": "\\n inside a string literal is the newline escape."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-06",
+    "code": "cout << \"top\\n___\";",
+    "clozeSentence": "Fill in any text that prints on the next line after top.",
+    "answer": "bottom",
+    "explanation": "Whatever follows the \\n appears on the new line."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-06",
+    "code": "cout << \"a\\n___\\nc\";",
+    "clozeSentence": "Fill in any letter so abc prints on three lines.",
+    "answer": "b",
+    "explanation": "The \\n escapes make each character print on its own line."
+  },
+  {
+    "type": "write",
+    "atomId": "O-06",
+    "level": 1,
+    "spec": "Write a single cout line that prints the literal text done with a newline character at the end using \\n inside the quotes.",
+    "expectedAnswer": "cout << \"done\\n\";",
+    "keyChecks": ["cout", "<<", "\"done\\n\"", ";"],
+    "explanation": "\\n inside the literal is a newline. Shorter than chaining endl."
+  },
+  {
+    "type": "write",
+    "atomId": "O-06",
+    "level": 1,
+    "spec": "Write a single cout line that prints alpha and beta on two separate lines using one literal with \\n.",
+    "expectedAnswer": "cout << \"alpha\\nbeta\";",
+    "keyChecks": ["cout", "<<", "\"alpha\\nbeta\"", ";"],
+    "explanation": "\\n in the middle splits the literal across two terminal lines."
+  },
+  {
+    "type": "write",
+    "atomId": "O-06",
+    "level": 1,
+    "spec": "Write a single cout line that prints a label hi followed by a newline using \\n.",
+    "expectedAnswer": "cout << \"hi\\n\";",
+    "keyChecks": ["cout", "<<", "\"hi\\n\"", ";"],
+    "explanation": "Use the \\n escape inside the quoted literal."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "O-07",
+    "levelLabel": "L1 -> chained << (label)",
+    "fullCode": "int main() {\n  int score = 95;\n  cout << \"score: \" << score << endl;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  cout << \"score: \" << score << endl;",
+        "annotation": "Each << pushes the next item onto the same output line. Three things in one statement: a label, a value, a newline.",
+        "atomIds": ["O-07", "O-02", "O-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-07",
+    "levelLabel": "L1 -> chained << (formatted-num)",
+    "fullCode": "int main() {\n  int a = 4;\n  int b = 9;\n  cout << a << \" + \" << b;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << a << \" + \" << b;",
+        "annotation": "Three values in one chain: int, literal string, int. Output: 4 + 9.",
+        "atomIds": ["O-07"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-07",
+    "code": "int main() {\n  int x = 7;\n  cout << \"x = \" << x;\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "7" },
+      { "line": 3, "variable": "", "value": "", "output": "x = 7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["x = 7"],
+    "inputMode": "final-only",
+    "teachMe": "Chained << prints label and value on the same line: x = 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-07",
+    "code": "int main() {\n  int total = 50;\n  cout << \"Total: \" << total << \" pts\";\n  return 0;\n}",
+    "variables": ["total"],
+    "expectedSteps": [
+      { "line": 2, "variable": "total", "value": "50" },
+      { "line": 3, "variable": "", "value": "", "output": "Total: 50 pts" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Total: 50 pts"],
+    "inputMode": "final-only",
+    "teachMe": "Three pieces in one chain produce: Total: 50 pts."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-07",
+    "code": "int main() {\n  int a = 1;\n  int b = 2;\n  int c = 3;\n  cout << a << b << c;\n  return 0;\n}",
+    "variables": ["a", "b", "c"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "1" },
+      { "line": 3, "variable": "b", "value": "2" },
+      { "line": 4, "variable": "c", "value": "3" },
+      { "line": 5, "variable": "", "value": "", "output": "123" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["123"],
+    "inputMode": "final-only",
+    "teachMe": "Three ints chained with no separator print as 123 (no spaces)."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-07",
+    "code": "int x = 5;\ncout << \"x = \" ___ x;",
+    "clozeSentence": "Fill in the operator that chains the value of x onto the same output statement.",
+    "answer": "<<",
+    "explanation": "Each piece in the chain is connected by <<."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-07",
+    "code": "int n = 9;\ncout << ___ << n;",
+    "clozeSentence": "Fill in a string literal that labels the number.",
+    "answer": "\"n=\"",
+    "explanation": "The label is just a string literal preceding the value."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-07",
+    "code": "int a = 1, b = 2;\ncout << a << ___ << b;",
+    "clozeSentence": "Fill in a single-character space literal between the two numbers.",
+    "answer": "\" \"",
+    "explanation": "A space literal separates the two values: 1 2."
+  },
+  {
+    "type": "write",
+    "atomId": "O-07",
+    "level": 1,
+    "spec": "Given int x = 5; write a single cout line that prints x = 5 by chaining a label and the variable.",
+    "expectedAnswer": "cout << \"x = \" << x;",
+    "keyChecks": ["cout", "<<", "\"x = \"", "x", ";"],
+    "explanation": "Two pieces chained: the label string then the variable."
+  },
+  {
+    "type": "write",
+    "atomId": "O-07",
+    "level": 2,
+    "spec": "Given int a = 4 and int b = 5; write a single cout line that chains a, the literal +, b, and endl to produce: 4+5\\n",
+    "expectedAnswer": "cout << a << \"+\" << b << endl;",
+    "keyChecks": ["cout", "<<", "a", "\"+\"", "b", "endl", ";"],
+    "explanation": "Four pieces in one chain: int, label, int, newline."
+  },
+  {
+    "type": "write",
+    "atomId": "O-07",
+    "level": 1,
+    "spec": "Given int n = 8; write a single cout line that prints n=8 with no spaces by chaining the label and the variable.",
+    "expectedAnswer": "cout << \"n=\" << n;",
+    "keyChecks": ["cout", "<<", "\"n=\"", "n", ";"],
+    "explanation": "Chain the label literal then the variable."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "O-08",
+    "levelLabel": "L1 -> printf basics (status-msg)",
+    "fullCode": "int main() {\n  int code = 200;\n  printf(\"status: %d\\n\", code);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  printf(\"status: %d\\n\", code);",
+        "annotation": "printf takes a format string then values. %d gets replaced by the int code.",
+        "atomIds": ["O-08", "O-09", "O-12"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-08",
+    "levelLabel": "L1 -> printf basics (debug-msg)",
+    "fullCode": "int main() {\n  printf(\"debug: started\\n\");\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  printf(\"debug: started\\n\");",
+        "annotation": "printf with only a format string and no placeholders prints the literal text.",
+        "atomIds": ["O-08"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-08",
+    "code": "int main() {\n  printf(\"hello\\n\");\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "hello\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["hello"],
+    "inputMode": "final-only",
+    "teachMe": "printf with no placeholders prints the literal followed by a newline."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-08",
+    "code": "int main() {\n  int n = 7;\n  printf(\"%d\\n\", n);\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "7" },
+      { "line": 3, "variable": "", "value": "", "output": "7\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "%d is replaced by the int value of n. Then \\n ends the line."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-08",
+    "code": "int main() {\n  printf(\"start\\n\");\n  printf(\"end\\n\");\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "start\\n" },
+      { "line": 3, "variable": "", "value": "", "output": "end\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["start", "end"],
+    "inputMode": "final-only",
+    "teachMe": "Each printf call prints its format string. Two calls -> two lines."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-08",
+    "code": "int n = 5;\n___(\"n=%d\\n\", n);",
+    "clozeSentence": "Fill in the C-style output function.",
+    "answer": "printf",
+    "explanation": "printf is the C-style formatted output function used in Q4 of SIT102."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-08",
+    "code": "printf(___);",
+    "clozeSentence": "Fill in a format string that prints hello with a newline.",
+    "answer": "\"hello\\n\"",
+    "explanation": "When there are no placeholders, printf takes only the format string."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-08",
+    "code": "int x = 9;\nprintf(\"x=%d\\n\", ___);",
+    "clozeSentence": "Fill in the variable that supplies the value for %d.",
+    "answer": "x",
+    "explanation": "After the format string, you list the values that fill the % placeholders in order."
+  },
+  {
+    "type": "write",
+    "atomId": "O-08",
+    "level": 1,
+    "spec": "Write a printf call that prints the literal text done followed by a newline with no placeholders.",
+    "expectedAnswer": "printf(\"done\\n\");",
+    "keyChecks": ["printf", "\"done\\n\"", ";"],
+    "explanation": "printf takes just the format string when there are no values to fill in."
+  },
+  {
+    "type": "write",
+    "atomId": "O-08",
+    "level": 1,
+    "spec": "Write a printf call that prints the literal label start followed by a newline.",
+    "expectedAnswer": "printf(\"start\\n\");",
+    "keyChecks": ["printf", "\"start\\n\"", ";"],
+    "explanation": "Just the format string, no extra args."
+  },
+  {
+    "type": "write",
+    "atomId": "O-08",
+    "level": 1,
+    "spec": "Write a printf call that prints the literal text loading followed by a newline.",
+    "expectedAnswer": "printf(\"loading\\n\");",
+    "keyChecks": ["printf", "\"loading\\n\"", ";"],
+    "explanation": "printf with only the format string when there are no placeholders."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "O-08",
+    "id": "CMEM-O08-01",
+    "section": "L1 printf basic",
+    "question": "Type the canonical printf line that prints done with a trailing newline.",
+    "code": "printf(\"done\\n\");",
+    "keyChecks": ["printf", "\"done\\n\"", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "O-09",
+    "levelLabel": "L1 -> %d for ints (count-display)",
+    "fullCode": "int main() {\n  int items = 12;\n  printf(\"items: %d\\n\", items);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  printf(\"items: %d\\n\", items);",
+        "annotation": "%d in the format string is replaced by the int value of items, producing items: 12.",
+        "atomIds": ["O-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-09",
+    "levelLabel": "L1 -> %d for ints (formatted-num)",
+    "fullCode": "int main() {\n  int year = 2026;\n  printf(\"year=%d\\n\", year);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  printf(\"year=%d\\n\", year);",
+        "annotation": "%d takes the int year and prints it as decimal digits.",
+        "atomIds": ["O-09"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-09",
+    "code": "int main() {\n  int n = 3;\n  printf(\"%d\\n\", n);\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "3" },
+      { "line": 3, "variable": "", "value": "", "output": "3\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3"],
+    "inputMode": "final-only",
+    "teachMe": "%d is the placeholder for an int. printf substitutes 3 in its place."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-09",
+    "code": "int main() {\n  int score = 88;\n  printf(\"score=%d\\n\", score);\n  return 0;\n}",
+    "variables": ["score"],
+    "expectedSteps": [
+      { "line": 2, "variable": "score", "value": "88" },
+      { "line": 3, "variable": "", "value": "", "output": "score=88\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["score=88"],
+    "inputMode": "final-only",
+    "teachMe": "%d is replaced by score's value 88. Output: score=88."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-09",
+    "code": "int main() {\n  int a = 5;\n  int b = 10;\n  printf(\"%d %d\\n\", a, b);\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "5" },
+      { "line": 3, "variable": "b", "value": "10" },
+      { "line": 4, "variable": "", "value": "", "output": "5 10\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5 10"],
+    "inputMode": "final-only",
+    "teachMe": "Two %d placeholders take two int args in order. Output: 5 10."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-09",
+    "code": "int n = 50;\nprintf(\"%___\\n\", n);",
+    "clozeSentence": "Fill in the format specifier letter for an int.",
+    "answer": "d",
+    "explanation": "%d is the printf format specifier for a decimal int."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-09",
+    "code": "int x = 7;\nprintf(\"x=___\\n\", x);",
+    "clozeSentence": "Fill in the printf format specifier that prints an int value.",
+    "answer": "%d",
+    "explanation": "%d substitutes the matching int argument."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-09",
+    "code": "printf(\"%d %d\\n\", 1, ___);",
+    "clozeSentence": "Fill in any int literal that pairs with the second %d.",
+    "answer": "2",
+    "explanation": "After the format string, args fill placeholders in order."
+  },
+  {
+    "type": "write",
+    "atomId": "O-09",
+    "level": 1,
+    "spec": "Given int count = 5; write a single printf line that prints count=5 followed by a newline using %d.",
+    "expectedAnswer": "printf(\"count=%d\\n\", count);",
+    "keyChecks": ["printf", "%d", "count", ";"],
+    "explanation": "%d in the format string takes the int count."
+  },
+  {
+    "type": "write",
+    "atomId": "O-09",
+    "level": 1,
+    "spec": "Given int year = 2026; write a single printf line that prints year=2026 followed by a newline using %d.",
+    "expectedAnswer": "printf(\"year=%d\\n\", year);",
+    "keyChecks": ["printf", "%d", "year", ";"],
+    "explanation": "Use %d as the placeholder; pass year as the second arg."
+  },
+  {
+    "type": "write",
+    "atomId": "O-09",
+    "level": 1,
+    "spec": "Given int n = 9; write a single printf line that prints just the int n followed by a newline.",
+    "expectedAnswer": "printf(\"%d\\n\", n);",
+    "keyChecks": ["printf", "%d", "n", ";"],
+    "explanation": "%d alone in the format prints the int with a trailing newline."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "O-10",
+    "levelLabel": "L1 -> %s for C-strings (greeting)",
+    "fullCode": "int main() {\n  string name = \"Alice\";\n  printf(\"hello %s\\n\", name.c_str());\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  printf(\"hello %s\\n\", name.c_str());",
+        "annotation": "%s expects a C-string. .c_str() converts the C++ string to a const char*.",
+        "atomIds": ["O-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-10",
+    "levelLabel": "L1 -> %s for C-strings (label)",
+    "fullCode": "int main() {\n  string status = \"ok\";\n  printf(\"status=%s\\n\", status.c_str());\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  printf(\"status=%s\\n\", status.c_str());",
+        "annotation": "%s is replaced by the C-string returned from status.c_str().",
+        "atomIds": ["O-10"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-10",
+    "code": "int main() {\n  string name = \"Bob\";\n  printf(\"%s\\n\", name.c_str());\n  return 0;\n}",
+    "variables": ["name"],
+    "expectedSteps": [
+      { "line": 2, "variable": "name", "value": "\"Bob\"" },
+      { "line": 3, "variable": "", "value": "", "output": "Bob\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Bob"],
+    "inputMode": "final-only",
+    "teachMe": "%s prints the C-string. Output: Bob."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-10",
+    "code": "int main() {\n  string n = \"Cat\";\n  printf(\"name=%s\\n\", n.c_str());\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "\"Cat\"" },
+      { "line": 3, "variable": "", "value": "", "output": "name=Cat\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["name=Cat"],
+    "inputMode": "final-only",
+    "teachMe": "%s slot is filled by n.c_str() yielding name=Cat."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-10",
+    "code": "int main() {\n  string a = \"red\";\n  string b = \"blue\";\n  printf(\"%s %s\\n\", a.c_str(), b.c_str());\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "\"red\"" },
+      { "line": 3, "variable": "b", "value": "\"blue\"" },
+      { "line": 4, "variable": "", "value": "", "output": "red blue\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["red blue"],
+    "inputMode": "final-only",
+    "teachMe": "Two %s placeholders take two C-strings in order. Output: red blue."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-10",
+    "code": "string n = \"ada\";\nprintf(\"%___\\n\", n.c_str());",
+    "clozeSentence": "Fill in the format specifier letter for a C-string.",
+    "answer": "s",
+    "explanation": "%s is the placeholder for a null-terminated C-string."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-10",
+    "code": "string s = \"hi\";\nprintf(\"%s\\n\", s.___());",
+    "clozeSentence": "Fill in the C++ string method that returns a C-string for printf.",
+    "answer": "c_str",
+    "explanation": ".c_str() returns const char* compatible with %s."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-10",
+    "code": "string user = \"jo\";\nprintf(\"hi ___\\n\", user.c_str());",
+    "clozeSentence": "Fill in the printf format specifier for a C-string.",
+    "answer": "%s",
+    "explanation": "%s is replaced by the C-string argument."
+  },
+  {
+    "type": "write",
+    "atomId": "O-10",
+    "level": 1,
+    "spec": "Given string name = \"Joshua\"; write a printf call that prints name followed by a newline using %s and .c_str().",
+    "expectedAnswer": "printf(\"%s\\n\", name.c_str());",
+    "keyChecks": ["printf", "%s", "name.c_str()", ";"],
+    "explanation": "%s requires a C-string, so use name.c_str() to convert."
+  },
+  {
+    "type": "write",
+    "atomId": "O-10",
+    "level": 1,
+    "spec": "Given string title = \"Manager\"; write a printf call that prints title=Manager followed by a newline using %s.",
+    "expectedAnswer": "printf(\"title=%s\\n\", title.c_str());",
+    "keyChecks": ["printf", "%s", "title.c_str()", ";"],
+    "explanation": "Use %s as the placeholder and .c_str() on the C++ string."
+  },
+  {
+    "type": "write",
+    "atomId": "O-10",
+    "level": 1,
+    "spec": "Given string code = \"OK\"; write a printf call that prints code=OK followed by a newline using %s.",
+    "expectedAnswer": "printf(\"code=%s\\n\", code.c_str());",
+    "keyChecks": ["printf", "%s", "code.c_str()", ";"],
+    "explanation": "%s plus .c_str() is the SIT102 idiom for printing strings."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "O-10",
+    "id": "CMEM-O10-01",
+    "section": "L1 printf string",
+    "question": "Type the canonical printf line that prints a C++ string variable name with %s.",
+    "code": "printf(\"%s\\n\", name.c_str());",
+    "keyChecks": ["printf", "%s", "name.c_str()", ";"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "O-11",
+    "levelLabel": "L1 -> \\n in printf format (status-msg)",
+    "fullCode": "int main() {\n  printf(\"connected\\n\");\n  printf(\"running\\n\");\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  printf(\"connected\\n\");",
+        "annotation": "\\n in the format string is a newline character. Each printf line ends with one in SIT102 Q4.",
+        "atomIds": ["O-11"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-11",
+    "levelLabel": "L1 -> \\n in printf format (table-row)",
+    "fullCode": "int main() {\n  int id = 1;\n  printf(\"row id=%d\\n\", id);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  printf(\"row id=%d\\n\", id);",
+        "annotation": "\\n at the end of the format string moves the cursor to the next line.",
+        "atomIds": ["O-11", "O-09"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-11",
+    "code": "int main() {\n  printf(\"a\\n\");\n  printf(\"b\\n\");\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "a\\n" },
+      { "line": 3, "variable": "", "value": "", "output": "b\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["a", "b"],
+    "inputMode": "final-only",
+    "teachMe": "Each printf ends its format string with \\n, producing two separate lines."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-11",
+    "code": "int main() {\n  int x = 5;\n  printf(\"x=%d\\n\", x);\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 2, "variable": "x", "value": "5" },
+      { "line": 3, "variable": "", "value": "", "output": "x=5\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["x=5"],
+    "inputMode": "final-only",
+    "teachMe": "\\n at the end of the format breaks the line after the value."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-11",
+    "code": "int main() {\n  printf(\"top\\nbottom\\n\");\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "top\\nbottom\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["top", "bottom"],
+    "inputMode": "final-only",
+    "teachMe": "Two \\n in one format string produce two terminal lines."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-11",
+    "code": "printf(\"hello___\");",
+    "clozeSentence": "Fill in the escape sequence inside the format string that adds a newline.",
+    "answer": "\\n",
+    "explanation": "\\n inside the printf format is a newline character."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-11",
+    "code": "int n = 7;\nprintf(\"n=%d___\", n);",
+    "clozeSentence": "Fill in the newline escape at the end of the format string.",
+    "answer": "\\n",
+    "explanation": "Q4 print lines almost always end with \\n."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-11",
+    "code": "printf(\"___\");",
+    "clozeSentence": "Fill in a format string that prints just a blank newline.",
+    "answer": "\"\\n\"",
+    "explanation": "A format that is just \\n prints a single empty line."
+  },
+  {
+    "type": "write",
+    "atomId": "O-11",
+    "level": 1,
+    "spec": "Write a printf call whose format string is just a newline so it prints a blank line.",
+    "expectedAnswer": "printf(\"\\n\");",
+    "keyChecks": ["printf", "\"\\n\"", ";"],
+    "explanation": "A bare \\n format prints an empty line."
+  },
+  {
+    "type": "write",
+    "atomId": "O-11",
+    "level": 1,
+    "spec": "Write a printf call that prints two lines hi and bye in one call using \\n inside the format string.",
+    "expectedAnswer": "printf(\"hi\\nbye\\n\");",
+    "keyChecks": ["printf", "\"hi\\nbye\\n\"", ";"],
+    "explanation": "Two \\n make two lines from one format string."
+  },
+  {
+    "type": "write",
+    "atomId": "O-11",
+    "level": 1,
+    "spec": "Write a printf call that prints the literal text ok with a trailing newline.",
+    "expectedAnswer": "printf(\"ok\\n\");",
+    "keyChecks": ["printf", "\"ok\\n\"", ";"],
+    "explanation": "End the format with \\n to break to a new line."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "O-12",
+    "levelLabel": "L1 -> printf format-first arg (label)",
+    "fullCode": "int main() {\n  int id = 42;\n  printf(\"id = %d\\n\", id);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  printf(\"id = %d\\n\", id);",
+        "annotation": "First arg is the format string. The id value goes in second to fill %d.",
+        "atomIds": ["O-12"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-12",
+    "levelLabel": "L1 -> printf format-first arg (sensor)",
+    "fullCode": "int main() {\n  int reading = 25;\n  printf(\"reading=%d\\n\", reading);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  printf(\"reading=%d\\n\", reading);",
+        "annotation": "Format string always comes first; args follow in placeholder order.",
+        "atomIds": ["O-12"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-12",
+    "code": "int main() {\n  int n = 50;\n  printf(\"n=%d\\n\", n);\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "50" },
+      { "line": 3, "variable": "", "value": "", "output": "n=50\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["n=50"],
+    "inputMode": "final-only",
+    "teachMe": "First arg is the format. n is the second arg, filling %d."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-12",
+    "code": "int main() {\n  int a = 1, b = 2;\n  printf(\"a=%d b=%d\\n\", a, b);\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "1" },
+      { "line": 2, "variable": "b", "value": "2" },
+      { "line": 3, "variable": "", "value": "", "output": "a=1 b=2\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["a=1 b=2"],
+    "inputMode": "final-only",
+    "teachMe": "Format string is first; a fills the first %d, b fills the second."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-12",
+    "code": "int main() {\n  printf(\"static format\\n\");\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "static format\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["static format"],
+    "inputMode": "final-only",
+    "teachMe": "When no placeholders exist, the format string itself is the entire output."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-12",
+    "code": "int x = 3;\nprintf(___, x);",
+    "clozeSentence": "Fill in the first arg: a format string that prints x=3 with a newline.",
+    "answer": "\"x=%d\\n\"",
+    "explanation": "First arg of printf must be the format string."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-12",
+    "code": "int n = 8;\nprintf(\"n=%d\\n\", ___);",
+    "clozeSentence": "Fill in the second arg supplying the int for %d.",
+    "answer": "n",
+    "explanation": "Format goes first, then values in placeholder order."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-12",
+    "code": "string s = \"hi\";\nprintf(\"%s\\n\", ___);",
+    "clozeSentence": "Fill in the second arg supplying the C-string for %s.",
+    "answer": "s.c_str()",
+    "explanation": "%s requires a C-string; use .c_str() on a C++ string."
+  },
+  {
+    "type": "write",
+    "atomId": "O-12",
+    "level": 1,
+    "spec": "Given int score = 90; write a printf call where the first arg is the format string score=%d\\n and the second arg is score.",
+    "expectedAnswer": "printf(\"score=%d\\n\", score);",
+    "keyChecks": ["printf", "\"score=%d\\n\"", "score", ";"],
+    "explanation": "Format first, then the value."
+  },
+  {
+    "type": "write",
+    "atomId": "O-12",
+    "level": 1,
+    "spec": "Given int x = 4 and int y = 7; write a printf call with format x=%d y=%d\\n and args x then y.",
+    "expectedAnswer": "printf(\"x=%d y=%d\\n\", x, y);",
+    "keyChecks": ["printf", "\"x=%d y=%d\\n\"", "x", "y", ";"],
+    "explanation": "Format string first; args in placeholder order."
+  },
+  {
+    "type": "write",
+    "atomId": "O-12",
+    "level": 1,
+    "spec": "Given int v = 2; write a printf call whose first arg is the format \"v=%d\\n\" and whose second arg is v.",
+    "expectedAnswer": "printf(\"v=%d\\n\", v);",
+    "keyChecks": ["printf", "\"v=%d\\n\"", "v", ";"],
+    "explanation": "Format always first; %d gets v."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "O-13",
+    "levelLabel": "L1 -> args fill placeholders (formatted-num)",
+    "fullCode": "int main() {\n  printf(\"%d + %d = %d\\n\", 2, 3, 5);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  printf(\"%d + %d = %d\\n\", 2, 3, 5);",
+        "annotation": "Three %d placeholders match three int args in order: 2, 3, 5.",
+        "atomIds": ["O-13"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "O-13",
+    "levelLabel": "L1 -> args fill placeholders (multi-line-out)",
+    "fullCode": "int main() {\n  string n = \"Bob\";\n  int age = 21;\n  printf(\"%s is %d\\n\", n.c_str(), age);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  printf(\"%s is %d\\n\", n.c_str(), age);",
+        "annotation": "%s gets the C-string from n.c_str(); %d gets the int age. Order matters.",
+        "atomIds": ["O-13"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "O-13",
+    "code": "int main() {\n  printf(\"%d + %d = %d\\n\", 2, 3, 5);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [
+      { "line": 2, "variable": "", "value": "", "output": "2 + 3 = 5\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["2 + 3 = 5"],
+    "inputMode": "final-only",
+    "teachMe": "Three %d placeholders are filled by 2, 3, 5 in order."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-13",
+    "code": "int main() {\n  int a = 10;\n  int b = 20;\n  int c = 30;\n  printf(\"%d %d %d\\n\", a, b, c);\n  return 0;\n}",
+    "variables": ["a", "b", "c"],
+    "expectedSteps": [
+      { "line": 2, "variable": "a", "value": "10" },
+      { "line": 3, "variable": "b", "value": "20" },
+      { "line": 4, "variable": "c", "value": "30" },
+      { "line": 5, "variable": "", "value": "", "output": "10 20 30\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10 20 30"],
+    "inputMode": "final-only",
+    "teachMe": "a, b, c fill the three %d placeholders in order: 10 20 30."
+  },
+  {
+    "type": "trace",
+    "atomId": "O-13",
+    "code": "int main() {\n  string n = \"Eve\";\n  int score = 100;\n  printf(\"%s: %d\\n\", n.c_str(), score);\n  return 0;\n}",
+    "variables": ["n", "score"],
+    "expectedSteps": [
+      { "line": 2, "variable": "n", "value": "\"Eve\"" },
+      { "line": 3, "variable": "score", "value": "100" },
+      { "line": 4, "variable": "", "value": "", "output": "Eve: 100\\n" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["Eve: 100"],
+    "inputMode": "final-only",
+    "teachMe": "%s pulls the first arg, %d the second. Output: Eve: 100."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-13",
+    "code": "printf(\"%d %d\\n\", 7, ___);",
+    "clozeSentence": "Fill in the second int argument to match the second %d placeholder.",
+    "answer": "8",
+    "explanation": "Args after the format fill placeholders left-to-right."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-13",
+    "code": "string n = \"Sam\";\nint age = 30;\nprintf(\"%s %d\\n\", n.c_str(), ___);",
+    "clozeSentence": "Fill in the second arg matching the %d placeholder.",
+    "answer": "age",
+    "explanation": "%s takes n.c_str(); %d takes age."
+  },
+  {
+    "type": "cloze",
+    "atomId": "O-13",
+    "code": "printf(\"%d-%d-%d\\n\", 2026, 5, ___);",
+    "clozeSentence": "Fill in any int literal that matches the third %d placeholder.",
+    "answer": "7",
+    "explanation": "Three %d slots take three int args in order."
+  },
+  {
+    "type": "write",
+    "atomId": "O-13",
+    "level": 2,
+    "spec": "Given int x = 4 and int y = 5; write a printf call with format x=%d y=%d\\n that fills both placeholders with x then y.",
+    "expectedAnswer": "printf(\"x=%d y=%d\\n\", x, y);",
+    "keyChecks": ["printf", "%d", "x", "y", ";"],
+    "explanation": "Two %d placeholders take two int args in order."
+  },
+  {
+    "type": "write",
+    "atomId": "O-13",
+    "level": 2,
+    "spec": "Given string name = \"Eve\" and int age = 22; write a printf call that prints Eve is 22\\n using %s and %d in that order.",
+    "expectedAnswer": "printf(\"%s is %d\\n\", name.c_str(), age);",
+    "keyChecks": ["printf", "%s", "%d", "name.c_str()", "age", ";"],
+    "explanation": "%s pulls the C-string first, then %d takes the int."
+  },
+  {
+    "type": "write",
+    "atomId": "O-13",
+    "level": 2,
+    "spec": "Given int a = 1, int b = 2, int c = 3; write a printf call that prints 1-2-3\\n using three %d placeholders.",
+    "expectedAnswer": "printf(\"%d-%d-%d\\n\", a, b, c);",
+    "keyChecks": ["printf", "%d", "a", "b", "c", ";"],
+    "explanation": "Three placeholders, three args, in order."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "O-13",
+    "id": "CMEM-O13-01",
+    "section": "L1 printf args order",
+    "question": "Type the canonical printf line that prints int x followed by string s using %d and %s in order.",
+    "code": "printf(\"%d %s\\n\", x, s.c_str());",
+    "keyChecks": ["printf", "%d", "%s", "x", "s.c_str()", ";"]
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "O-01",
+    "id": "PD-O01-01",
+    "section": "L1 cout basics",
+    "prompt": "Write a one-line cout statement that prints the literal text hello.",
+    "expectedAnswer": "cout << \"hello\";",
+    "keyChecks": ["cout", "<<", "\"hello\"", ";"],
+    "variants": [
+      { "prompt": "Write one cout line that prints the literal text done.", "expectedAnswer": "cout << \"done\";" },
+      { "prompt": "Write one cout line that prints the literal text ok.", "expectedAnswer": "cout << \"ok\";" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "O-05",
+    "id": "PD-O05-01",
+    "section": "L1 endl",
+    "prompt": "Write a one-line cout statement that prints the literal text saved followed by endl.",
+    "expectedAnswer": "cout << \"saved\" << endl;",
+    "keyChecks": ["cout", "<<", "\"saved\"", "endl", ";"],
+    "variants": [
+      { "prompt": "Write one cout line that prints done then endl.", "expectedAnswer": "cout << \"done\" << endl;" },
+      { "prompt": "Write one cout line that prints ready then endl.", "expectedAnswer": "cout << \"ready\" << endl;" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "O-09",
+    "id": "PD-O09-01",
+    "section": "L1 printf int",
+    "prompt": "Given int n write a one-line printf that prints n=N followed by \\n using %d.",
+    "expectedAnswer": "printf(\"n=%d\\n\", n);",
+    "keyChecks": ["printf", "%d", "n", ";"],
+    "variants": [
+      { "prompt": "Given int x write a one-line printf that prints x=X followed by \\n using %d.", "expectedAnswer": "printf(\"x=%d\\n\", x);" },
+      { "prompt": "Given int v write a one-line printf that prints v=V followed by \\n using %d.", "expectedAnswer": "printf(\"v=%d\\n\", v);" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "O-10",
+    "id": "PD-O10-01",
+    "section": "L1 printf string",
+    "prompt": "Given string s write a one-line printf that prints s with %s and a trailing newline.",
+    "expectedAnswer": "printf(\"%s\\n\", s.c_str());",
+    "keyChecks": ["printf", "%s", "s.c_str()", ";"],
+    "variants": [
+      { "prompt": "Given string name write a one-line printf with %s and \\n.", "expectedAnswer": "printf(\"%s\\n\", name.c_str());" },
+      { "prompt": "Given string title write a one-line printf with %s and \\n.", "expectedAnswer": "printf(\"%s\\n\", title.c_str());" }
+    ]
+  },
+
+  {
+    "type": "matrix",
+    "atomId": "O-07",
+    "id": "CM-O07-01",
+    "section": "L1 chained <<",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: print int x with label", "code": "int x = 5;\ncout << \"x=\" << x;" },
+      { "label": "Example B: print int y with label", "code": "int y = 7;\ncout << \"y=\" << y;" }
+    ],
+    "prompt": "Write the same pattern for int z = 9; chain a label z= and the variable.",
+    "expectedAnswer": "int z = 9;\ncout << \"z=\" << z;",
+    "keyChecks": ["int z = 9", "cout", "<<", "\"z=\"", "z", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "O-09",
+    "id": "CM-O09-01",
+    "section": "L1 printf %d",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: printf an int count", "code": "int count = 4;\nprintf(\"count=%d\\n\", count);" },
+      { "label": "Example B: printf an int total", "code": "int total = 99;\nprintf(\"total=%d\\n\", total);" }
+    ],
+    "prompt": "Write the same pattern for int score = 88; printf with label score= and \\n.",
+    "expectedAnswer": "int score = 88;\nprintf(\"score=%d\\n\", score);",
+    "keyChecks": ["int score = 88", "printf", "score=%d", "score", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "O-13",
+    "id": "CM-O13-01",
+    "section": "L1 printf args",
+    "matrixType": "algorithm",
+    "examples": [
+      { "label": "Example A: %d and %s", "code": "int n = 1;\nstring t = \"a\";\nprintf(\"%d %s\\n\", n, t.c_str());" },
+      { "label": "Example B: %s and %d", "code": "string n = \"Bob\";\nint a = 30;\nprintf(\"%s %d\\n\", n.c_str(), a);" }
+    ],
+    "prompt": "Write the same pattern: given string c = \"red\" and int v = 5; printf c then v with %s and %d.",
+    "expectedAnswer": "string c = \"red\";\nint v = 5;\nprintf(\"%s %d\\n\", c.c_str(), v);",
+    "keyChecks": ["string c = \"red\"", "int v = 5", "printf", "%s %d", "c.c_str()", "v", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "O-05",
+    "id": "CM-O05-01",
+    "section": "L1 cout endl",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: print line one", "code": "cout << \"alpha\" << endl;" },
+      { "label": "Example B: print line two", "code": "cout << \"beta\" << endl;" }
+    ],
+    "prompt": "Write the same pattern for the literal gamma followed by endl.",
+    "expectedAnswer": "cout << \"gamma\" << endl;",
+    "keyChecks": ["cout", "<<", "\"gamma\"", "endl", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "O-11",
+    "id": "CM-O11-01",
+    "section": "L1 printf newline",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: printf hello with newline", "code": "printf(\"hello\\n\");" },
+      { "label": "Example B: printf done with newline", "code": "printf(\"done\\n\");" }
+    ],
+    "prompt": "Write the same pattern: printf the literal ready with a trailing newline.",
+    "expectedAnswer": "printf(\"ready\\n\");",
+    "keyChecks": ["printf", "\"ready\\n\"", ";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "O-02",
+    "id": "CM-O02-01",
+    "section": "L1 << operator",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: print int a", "code": "int a = 1;\ncout << a;" },
+      { "label": "Example B: print int b", "code": "int b = 2;\ncout << b;" }
+    ],
+    "prompt": "Write the same pattern: declare int c = 3; print it with cout.",
+    "expectedAnswer": "int c = 3;\ncout << c;",
+    "keyChecks": ["int c = 3", "cout", "<<", "c", ";"]
+  }
+]

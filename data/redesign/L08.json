@@ -1,0 +1,2100 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "H-01",
+    "levelLabel": "L8 -> function = named block",
+    "fullCode": "void greet() {\n  cout << \"hello\";\n}\nint main() {\n  greet();\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void greet() {",
+        "annotation": "Define a function named greet. Body holds reusable code.",
+        "atomIds": ["H-01", "H-02"]
+      },
+      {
+        "line": 2,
+        "code": "  cout << \"hello\";",
+        "annotation": "Body — runs when greet() is called from anywhere.",
+        "atomIds": ["H-01"]
+      },
+      {
+        "line": 5,
+        "code": "  greet();",
+        "annotation": "main calls greet by name + parens. Control jumps into greet body.",
+        "atomIds": ["H-01", "H-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-01",
+    "levelLabel": "L8 -> reuse via function",
+    "fullCode": "void line() {\n  cout << \"---\" << endl;\n}\nint main() {\n  line();\n  cout << \"middle\" << endl;\n  line();\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void line() {",
+        "annotation": "One named block — call as many times as you want.",
+        "atomIds": ["H-01"]
+      },
+      {
+        "line": 5,
+        "code": "  line();",
+        "annotation": "First use. Prints --- via the function body.",
+        "atomIds": ["H-01", "H-03"]
+      },
+      {
+        "line": 7,
+        "code": "  line();",
+        "annotation": "Reuse — no copy/paste of cout. That's the point of functions.",
+        "atomIds": ["H-01"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-01",
+    "levelLabel": "L8 -> grouped statements",
+    "fullCode": "void scoreboard() {\n  cout << \"Home: 0\" << endl;\n  cout << \"Away: 0\" << endl;\n  cout << \"---\" << endl;\n}\nint main() {\n  scoreboard();\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void scoreboard() {",
+        "annotation": "Function bundles 3 cout statements under one name.",
+        "atomIds": ["H-01"]
+      },
+      {
+        "line": 7,
+        "code": "  scoreboard();",
+        "annotation": "One call runs all 3 statements in order.",
+        "atomIds": ["H-01", "H-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-01",
+    "levelLabel": "L8 -> functions before main",
+    "fullCode": "void hello() {\n  cout << \"hi\";\n}\nint main() {\n  hello();\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void hello() {",
+        "annotation": "Define hello above main so the compiler sees it before any call.",
+        "atomIds": ["H-01", "H-07"]
+      },
+      {
+        "line": 4,
+        "code": "int main() {",
+        "annotation": "main is the entry point — execution starts here.",
+        "atomIds": ["H-01"]
+      },
+      {
+        "line": 5,
+        "code": "  hello();",
+        "annotation": "Call hello. Control jumps up into the function body.",
+        "atomIds": ["H-01", "H-03"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "H-01",
+    "code": "void hi() {\n  cout << \"hi\";\n}\nint main() {\n  hi();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["hi"],
+    "inputMode": "final-only",
+    "teachMe": "main calls hi() which runs cout << hi. Then return ends the program."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-01",
+    "code": "void line() {\n  cout << \"-\";\n}\nint main() {\n  line();\n  line();\n  line();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["-", "-", "-"],
+    "inputMode": "final-only",
+    "teachMe": "Three calls to line() = three dashes. Same body re-used."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-01",
+    "code": "void say() {\n  cout << \"a\";\n  cout << \"b\";\n}\nint main() {\n  say();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["a", "b"],
+    "inputMode": "final-only",
+    "teachMe": "Function bundles two cout statements; one call runs both."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-01",
+    "code": "void greet() {\n  cout << \"hi \";\n}\nint main() {\n  greet();\n  cout << \"world\";\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["hi ", "world"],
+    "inputMode": "final-only",
+    "teachMe": "After greet() returns, control resumes at line 5 in main."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-01",
+    "code": "void start() {\n  cout << \"start \";\n}\nvoid stop() {\n  cout << \"stop\";\n}\nint main() {\n  start();\n  stop();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["start ", "stop"],
+    "inputMode": "final-only",
+    "teachMe": "Two separate functions. main calls them in order."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-01",
+    "code": "void box() {\n  cout << \"[]\";\n}\nint main() {\n  for (int i = 0; i < 3; i++) {\n    box();\n  }\n  return 0;\n}",
+    "variables": ["i"],
+    "expectedSteps": [
+      { "line": 4, "variable": "i", "value": "3" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["[]", "[]", "[]"],
+    "inputMode": "final-only",
+    "teachMe": "Loop calls box() three times — each call prints []."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-01",
+    "code": "void hi() {\n  cout << \"hi \";\n}\nvoid main2() {\n  hi();\n}\nint main() {\n  main2();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["hi "],
+    "inputMode": "final-only",
+    "teachMe": "main calls main2 which calls hi. Chain: main -> main2 -> hi."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-01",
+    "code": "___ greet() {\n  cout << \"hi\";\n}",
+    "clozeSentence": "Use ___ when the function returns no value",
+    "answer": "void",
+    "explanation": "void means no return value — the function does work without producing one."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-01",
+    "code": "void greet() ___\n  cout << \"hi\";\n}",
+    "clozeSentence": "Function body opens with ___",
+    "answer": "{",
+    "explanation": "Body of any function is enclosed in { }."
+  },
+  {
+    "type": "write",
+    "atomId": "H-01",
+    "level": 2,
+    "spec": "Write a function named line that takes no arguments, returns nothing, and prints --- followed by endl.",
+    "expectedAnswer": "void line() {\n    cout << \"---\" << endl;\n}",
+    "keyChecks": ["void", "line()", "cout", "---", "endl"],
+    "explanation": "void = no return; () = no params; body has the cout statement."
+  },
+  {
+    "type": "write",
+    "atomId": "H-01",
+    "level": 2,
+    "spec": "Write a function named scoreboard that takes no args, returns nothing, and prints two lines: 'Home: 0' and 'Away: 0'.",
+    "expectedAnswer": "void scoreboard() {\n    cout << \"Home: 0\" << endl;\n    cout << \"Away: 0\" << endl;\n}",
+    "keyChecks": ["void", "scoreboard()", "cout", "Home: 0", "Away: 0", "endl"],
+    "explanation": "Function body holds the two print statements; one call runs both."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-02",
+    "levelLabel": "L8 -> signature shape",
+    "fullCode": "int add(int a, int b) {\n  return a + b;\n}\nint main() {\n  cout << add(3, 4);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int add(int a, int b) {",
+        "annotation": "Signature: returnType int, name add, params (int a, int b).",
+        "atomIds": ["H-02", "H-04"]
+      },
+      {
+        "line": 2,
+        "code": "  return a + b;",
+        "annotation": "Body uses params and returns a value matching the type.",
+        "atomIds": ["H-02", "H-05"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << add(3, 4);",
+        "annotation": "Caller must match the signature: 2 ints in, 1 int out.",
+        "atomIds": ["H-02", "H-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-02",
+    "levelLabel": "L8 -> signature variations",
+    "fullCode": "void greet(string name) {\n  cout << \"hi \" << name;\n}\nint square(int n) {\n  return n * n;\n}\ndouble half(double x) {\n  return x / 2.0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void greet(string name) {",
+        "annotation": "void return + 1 param.",
+        "atomIds": ["H-02", "H-06"]
+      },
+      {
+        "line": 4,
+        "code": "int square(int n) {",
+        "annotation": "int return + 1 int param.",
+        "atomIds": ["H-02"]
+      },
+      {
+        "line": 7,
+        "code": "double half(double x) {",
+        "annotation": "double return + 1 double param. Same shape, different types.",
+        "atomIds": ["H-02"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-02",
+    "levelLabel": "L8 -> no-arg signature",
+    "fullCode": "int next_id() {\n  return 42;\n}\nint main() {\n  cout << next_id();\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int next_id() {",
+        "annotation": "() means no parameters. Empty parens still required.",
+        "atomIds": ["H-02"]
+      },
+      {
+        "line": 2,
+        "code": "  return 42;",
+        "annotation": "int return: must produce an int.",
+        "atomIds": ["H-02", "H-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-02",
+    "levelLabel": "L8 -> multi-param signature",
+    "fullCode": "double area(double w, double h) {\n  return w * h;\n}\nint main() {\n  cout << area(2.5, 4.0);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "double area(double w, double h) {",
+        "annotation": "Two params separated by comma; each needs its own type.",
+        "atomIds": ["H-02", "H-04"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << area(2.5, 4.0);",
+        "annotation": "Caller passes two doubles in matching order.",
+        "atomIds": ["H-02", "H-03"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "H-02",
+    "code": "int add(int a, int b) {\n  return a + b;\n}\nint main() {\n  cout << add(3, 4);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "Caller matches signature: 2 ints in, 1 int out. Returns 3+4 = 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-02",
+    "code": "int square(int n) {\n  return n * n;\n}\nint main() {\n  cout << square(5);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["25"],
+    "inputMode": "final-only",
+    "teachMe": "Signature int square(int) matches call square(5). Returns 5*5=25."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-02",
+    "code": "int sub(int a, int b) {\n  return a - b;\n}\nint main() {\n  cout << sub(10, 3);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "Call passes 10 and 3 in order. Returns 10-3 = 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-02",
+    "code": "double half(double x) {\n  return x / 2.0;\n}\nint main() {\n  cout << half(7.0);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3.5"],
+    "inputMode": "final-only",
+    "teachMe": "double type matches. 7.0/2.0 = 3.5."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-02",
+    "code": "int triple(int n) {\n  return n * 3;\n}\nint main() {\n  cout << triple(8);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["24"],
+    "inputMode": "final-only",
+    "teachMe": "n=8 in body. Returns 8*3 = 24."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-02",
+    "code": "int sum3(int a, int b, int c) {\n  return a + b + c;\n}\nint main() {\n  cout << sum3(1, 2, 3);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["6"],
+    "inputMode": "final-only",
+    "teachMe": "Three params, three args, in matching order: 1+2+3 = 6."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-02",
+    "code": "int next_id() {\n  return 42;\n}\nint main() {\n  cout << next_id();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["42"],
+    "inputMode": "final-only",
+    "teachMe": "No-arg signature (). Always returns 42."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-02",
+    "code": "int add(int a, ___ b) {\n  return a + b;\n}",
+    "clozeSentence": "Each param needs its own type. Second param: ___",
+    "answer": "int",
+    "explanation": "Both params need their own type — you cannot share like 'int a, b'."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-02",
+    "code": "___ greet(string name) {\n  cout << name;\n}",
+    "clozeSentence": "No return value -> use ___ as return type",
+    "answer": "void",
+    "explanation": "void marks the function as returning nothing."
+  },
+  {
+    "type": "write",
+    "atomId": "H-02",
+    "level": 1,
+    "spec": "Write the function header for an int-returning function named area that takes int width and int height (no body).",
+    "expectedAnswer": "int area(int width, int height)",
+    "keyChecks": ["int", "area", "int width", "int height"],
+    "explanation": "Signature shape: returnType name(paramList) — matches int area(int, int)."
+  },
+  {
+    "type": "write",
+    "atomId": "H-02",
+    "level": 1,
+    "spec": "Write the function header for a double-returning function named average that takes double total and int count.",
+    "expectedAnswer": "double average(double total, int count)",
+    "keyChecks": ["double", "average", "double total", "int count"],
+    "explanation": "Each param has its own type: (double total, int count)."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-03",
+    "levelLabel": "L8 -> call syntax",
+    "fullCode": "int add(int a, int b) {\n  return a + b;\n}\nint main() {\n  int sum = add(3, 4);\n  cout << sum;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  int sum = add(3, 4);",
+        "annotation": "name(args) is the call. Args 3 and 4 fill params a and b.",
+        "atomIds": ["H-03", "H-04"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << sum;",
+        "annotation": "Returned value lives in sum. Print it.",
+        "atomIds": ["H-03", "H-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-03",
+    "levelLabel": "L8 -> call as expression",
+    "fullCode": "int square(int n) {\n  return n * n;\n}\nint main() {\n  cout << square(5);\n  cout << \" \" << square(3) + 1;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  cout << square(5);",
+        "annotation": "Call returns a value — used directly as cout argument.",
+        "atomIds": ["H-03"]
+      },
+      {
+        "line": 6,
+        "code": "  cout << \" \" << square(3) + 1;",
+        "annotation": "Calls also work in expressions: 9 + 1 = 10.",
+        "atomIds": ["H-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-03",
+    "levelLabel": "L8 -> void call as statement",
+    "fullCode": "void greet(string name) {\n  cout << \"hi \" << name;\n}\nint main() {\n  greet(\"Alice\");\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 5,
+        "code": "  greet(\"Alice\");",
+        "annotation": "void calls become standalone statements ending in ;.",
+        "atomIds": ["H-03", "H-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-03",
+    "levelLabel": "L8 -> arg order matters",
+    "fullCode": "int sub(int a, int b) {\n  return a - b;\n}\nint main() {\n  cout << sub(10, 3);\n  cout << \" \" << sub(3, 10);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 4,
+        "code": "  cout << sub(10, 3);",
+        "annotation": "Args fill params left-to-right: a=10, b=3 -> 7.",
+        "atomIds": ["H-03"]
+      },
+      {
+        "line": 5,
+        "code": "  cout << \" \" << sub(3, 10);",
+        "annotation": "Reverse order: a=3, b=10 -> -7. Order changes meaning.",
+        "atomIds": ["H-03"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "H-03",
+    "code": "int add(int a, int b) {\n  return a + b;\n}\nint main() {\n  int s = add(3, 4);\n  cout << s;\n  return 0;\n}",
+    "variables": ["s"],
+    "expectedSteps": [
+      { "line": 5, "variable": "s", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "Call add(3,4) returns 7. Stored in s. Print 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-03",
+    "code": "int triple(int n) {\n  return n * 3;\n}\nint main() {\n  cout << triple(7);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["21"],
+    "inputMode": "final-only",
+    "teachMe": "Call returns 21 used directly in cout."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-03",
+    "code": "int square(int n) {\n  return n * n;\n}\nint main() {\n  cout << square(2) + square(3);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["13"],
+    "inputMode": "final-only",
+    "teachMe": "square(2)=4 + square(3)=9 -> 13."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-03",
+    "code": "int sub(int a, int b) {\n  return a - b;\n}\nint main() {\n  cout << sub(3, 10);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["-7"],
+    "inputMode": "final-only",
+    "teachMe": "Order matters: a=3, b=10 -> 3-10 = -7."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-03",
+    "code": "int dbl(int n) {\n  return n * 2;\n}\nint main() {\n  cout << dbl(dbl(3));\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["12"],
+    "inputMode": "final-only",
+    "teachMe": "Inner call dbl(3) = 6. Outer dbl(6) = 12."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-03",
+    "code": "int inc(int x) {\n  return x + 1;\n}\nint main() {\n  int a = inc(5);\n  int b = inc(a);\n  cout << b;\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 5, "variable": "a", "value": "6" },
+      { "line": 6, "variable": "b", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "a = inc(5) = 6. b = inc(6) = 7. Print 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-03",
+    "code": "void shout(string s) {\n  cout << s << \"!\";\n}\nint main() {\n  shout(\"go\");\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["go", "!"],
+    "inputMode": "final-only",
+    "teachMe": "void call is a statement. Prints go then !."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-03",
+    "code": "int add(int a, int b) { return a + b; }\nint main() {\n  cout << add___;\n}",
+    "clozeSentence": "Call provides arguments inside parens: ___",
+    "answer": "(2, 3)",
+    "explanation": "name(args) — args inside (). Order matches param order."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-03",
+    "code": "void hi() { cout << \"x\"; }\nint main() {\n  hi___;\n}",
+    "clozeSentence": "Even with no args, call still uses ___",
+    "answer": "()",
+    "explanation": "Call needs () even when no args. Without () it's not a call."
+  },
+  {
+    "type": "write",
+    "atomId": "H-03",
+    "level": 1,
+    "spec": "Given int add(int a, int b), call it with 5 and 9 inside cout to print the result.",
+    "expectedAnswer": "cout << add(5, 9);",
+    "keyChecks": ["cout", "add(5, 9)"],
+    "explanation": "Call returns int; cout uses returned value directly."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-04",
+    "levelLabel": "L8 -> params are local boxes",
+    "fullCode": "void f(int x) {\n  x = 99;\n  cout << x;\n}\nint main() {\n  int n = 5;\n  f(n);\n  cout << \" \" << n;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void f(int x) {",
+        "annotation": "x is a fresh local box inside f, separate from caller's variable.",
+        "atomIds": ["H-04"]
+      },
+      {
+        "line": 2,
+        "code": "  x = 99;",
+        "annotation": "Assign 99 to LOCAL x. Caller's n is untouched.",
+        "atomIds": ["H-04"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << \" \" << n;",
+        "annotation": "n is still 5 in main — params get a copy by default.",
+        "atomIds": ["H-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-04",
+    "levelLabel": "L8 -> args fill param boxes",
+    "fullCode": "int add(int a, int b) {\n  return a + b;\n}\nint main() {\n  int x = 3;\n  int y = 4;\n  cout << add(x, y);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 7,
+        "code": "  cout << add(x, y);",
+        "annotation": "x copies into param a; y copies into param b.",
+        "atomIds": ["H-04"]
+      },
+      {
+        "line": 1,
+        "code": "int add(int a, int b) {",
+        "annotation": "Inside, a and b are local boxes holding the copies.",
+        "atomIds": ["H-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-04",
+    "levelLabel": "L8 -> param scope ends at }",
+    "fullCode": "void show(int n) {\n  cout << n;\n}\nint main() {\n  show(7);\n  // n is gone here\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void show(int n) {",
+        "annotation": "Param n exists only inside show's body.",
+        "atomIds": ["H-04", "H-09"]
+      },
+      {
+        "line": 5,
+        "code": "  show(7);",
+        "annotation": "7 fills n. After show returns, n is destroyed.",
+        "atomIds": ["H-04"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-04",
+    "levelLabel": "L8 -> changing param doesn't affect caller",
+    "fullCode": "void zero(int v) {\n  v = 0;\n}\nint main() {\n  int balance = 500;\n  zero(balance);\n  cout << balance;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  v = 0;",
+        "annotation": "v is the local copy. Setting v doesn't change balance.",
+        "atomIds": ["H-04"]
+      },
+      {
+        "line": 7,
+        "code": "  cout << balance;",
+        "annotation": "Prints 500 — caller's balance untouched (no & in param).",
+        "atomIds": ["H-04"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "H-04",
+    "code": "void f(int x) {\n  x = 99;\n}\nint main() {\n  int n = 5;\n  f(n);\n  cout << n;\n  return 0;\n}",
+    "variables": ["n"],
+    "expectedSteps": [
+      { "line": 5, "variable": "n", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "f's x is a copy. Assign in f doesn't change main's n. Prints 5."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-04",
+    "code": "void grow(int v) {\n  v = v + 10;\n}\nint main() {\n  int score = 50;\n  grow(score);\n  cout << score;\n  return 0;\n}",
+    "variables": ["score"],
+    "expectedSteps": [
+      { "line": 5, "variable": "score", "value": "50" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["50"],
+    "inputMode": "final-only",
+    "teachMe": "grow's v is local; v+=10 only changes the copy. score stays 50."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-04",
+    "code": "int dbl(int n) {\n  n = n * 2;\n  return n;\n}\nint main() {\n  int x = 7;\n  int y = dbl(x);\n  cout << x << \" \" << y;\n  return 0;\n}",
+    "variables": ["x", "y"],
+    "expectedSteps": [
+      { "line": 6, "variable": "x", "value": "7" },
+      { "line": 7, "variable": "y", "value": "14" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7 14"],
+    "inputMode": "final-only",
+    "teachMe": "Inside dbl, n becomes 14. Returns 14 -> y. But x in main stays 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-04",
+    "code": "void show(int a, int b) {\n  cout << a + b;\n}\nint main() {\n  show(3, 5);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "Args 3,5 fill params a,b. cout prints 3+5 = 8."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-04",
+    "code": "void rotate(int x, int y) {\n  int t = x;\n  x = y;\n  y = t;\n}\nint main() {\n  int a = 1, b = 2;\n  rotate(a, b);\n  cout << a << \" \" << b;\n  return 0;\n}",
+    "variables": ["a", "b"],
+    "expectedSteps": [
+      { "line": 7, "variable": "a", "value": "1" },
+      { "line": 7, "variable": "b", "value": "2" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1 2"],
+    "inputMode": "final-only",
+    "teachMe": "Swap inside rotate touches local x,y only. main's a,b stay 1,2."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-04",
+    "code": "void inc(int v) {\n  v++;\n}\nint main() {\n  int counter = 10;\n  inc(counter);\n  inc(counter);\n  cout << counter;\n  return 0;\n}",
+    "variables": ["counter"],
+    "expectedSteps": [
+      { "line": 5, "variable": "counter", "value": "10" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10"],
+    "inputMode": "final-only",
+    "teachMe": "Each inc gets a fresh copy in v. counter never changes — prints 10."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-04",
+    "code": "int square(int n) {\n  return n * n;\n}\nint main() {\n  int v = 4;\n  cout << square(v);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["16"],
+    "inputMode": "final-only",
+    "teachMe": "v=4 is copied into param n. n*n = 16 returned."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-04",
+    "code": "void f(int x) {\n  // x is a ___ variable inside f\n  x = 0;\n}",
+    "clozeSentence": "Params behave like ___ variables of the function",
+    "answer": "local",
+    "explanation": "Each param is a local box; changes don't escape unless & is used."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-04",
+    "code": "int add(int a, int b) {\n  return a + b;\n}\nint main() {\n  int n = 3;\n  cout << add(___, 4);\n}",
+    "clozeSentence": "Use ___ as the first arg to fill param a",
+    "answer": "n",
+    "explanation": "Args fill params left to right: n -> a, 4 -> b."
+  },
+  {
+    "type": "write",
+    "atomId": "H-04",
+    "level": 2,
+    "spec": "Write a void function named bump that takes int v and increments v by 1. (No effect on caller — just demonstrates locals.)",
+    "expectedAnswer": "void bump(int v) {\n    v = v + 1;\n}",
+    "keyChecks": ["void", "bump", "int v", "v = v + 1"],
+    "explanation": "Without &, v is local. Caller's variable unaffected."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-05",
+    "levelLabel": "L8 -> return sends back",
+    "fullCode": "int square(int n) {\n  return n * n;\n}\nint main() {\n  int s = square(4);\n  cout << s;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  return n * n;",
+        "annotation": "return ENDS the function and hands back the value to the caller.",
+        "atomIds": ["H-05"]
+      },
+      {
+        "line": 5,
+        "code": "  int s = square(4);",
+        "annotation": "Returned 16 lands in s.",
+        "atomIds": ["H-05", "H-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-05",
+    "levelLabel": "L8 -> return ends function early",
+    "fullCode": "int abs_val(int n) {\n  if (n < 0) return -n;\n  return n;\n}\nint main() {\n  cout << abs_val(-5);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  if (n < 0) return -n;",
+        "annotation": "Early return — function exits HERE if n is negative. Skips line 3.",
+        "atomIds": ["H-05"]
+      },
+      {
+        "line": 3,
+        "code": "  return n;",
+        "annotation": "Only reached when n is non-negative.",
+        "atomIds": ["H-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-05",
+    "levelLabel": "L8 -> caller uses returned value",
+    "fullCode": "double tax(double price) {\n  return price * 0.1;\n}\nint main() {\n  double total = 50.0 + tax(50.0);\n  cout << total;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  return price * 0.1;",
+        "annotation": "Function gives a value back; caller uses it in math.",
+        "atomIds": ["H-05"]
+      },
+      {
+        "line": 5,
+        "code": "  double total = 50.0 + tax(50.0);",
+        "annotation": "Returned 5.0 added to 50.0 -> total = 55.0.",
+        "atomIds": ["H-05", "H-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-05",
+    "levelLabel": "L8 -> return type must match",
+    "fullCode": "int half(int n) {\n  return n / 2;\n}\ndouble half_d(int n) {\n  return n / 2.0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int half(int n) {",
+        "annotation": "Declared int return — must return an int (n/2 is int division).",
+        "atomIds": ["H-05", "H-02"]
+      },
+      {
+        "line": 4,
+        "code": "double half_d(int n) {",
+        "annotation": "Declared double return — must return a double (n/2.0 stays double).",
+        "atomIds": ["H-05"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "H-05",
+    "code": "int sq(int n) {\n  return n * n;\n}\nint main() {\n  cout << sq(6);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["36"],
+    "inputMode": "final-only",
+    "teachMe": "return n*n hands 36 back. Used directly in cout."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-05",
+    "code": "int abs_val(int n) {\n  if (n < 0) return -n;\n  return n;\n}\nint main() {\n  cout << abs_val(-7);\n  cout << \" \" << abs_val(4);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7", " 4"],
+    "inputMode": "final-only",
+    "teachMe": "abs_val(-7): early return -(-7)=7. abs_val(4): falls through to return 4."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-05",
+    "code": "int max(int a, int b) {\n  if (a > b) return a;\n  return b;\n}\nint main() {\n  cout << max(8, 3);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "8>3 true so early return 8. Skip second return."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-05",
+    "code": "int sign(int n) {\n  if (n > 0) return 1;\n  if (n < 0) return -1;\n  return 0;\n}\nint main() {\n  cout << sign(0);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "Both ifs false. Falls to return 0."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-05",
+    "code": "int add(int a, int b) {\n  return a + b;\n}\nint main() {\n  int s = add(2, 3) + add(4, 1);\n  cout << s;\n  return 0;\n}",
+    "variables": ["s"],
+    "expectedSteps": [
+      { "line": 5, "variable": "s", "value": "10" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10"],
+    "inputMode": "final-only",
+    "teachMe": "First call returns 5; second returns 5; total 10."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-05",
+    "code": "int half(int n) {\n  return n / 2;\n}\nint main() {\n  cout << half(7);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3"],
+    "inputMode": "final-only",
+    "teachMe": "int return: 7/2 = 3 (integer division)."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-05",
+    "code": "int test(int n) {\n  return n;\n  cout << \"never\";\n}\nint main() {\n  cout << test(5);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "After return, code below is dead. cout never runs. Returns 5."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-05",
+    "code": "int sq(int n) {\n  ___ n * n;\n}",
+    "clozeSentence": "Send the value back with ___",
+    "answer": "return",
+    "explanation": "return ends the function and reports a value to the caller."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-05",
+    "code": "int sq(int n) {\n  return n * n___\n}",
+    "clozeSentence": "return statements end with ___",
+    "answer": ";",
+    "explanation": "return is a statement; needs ; to terminate."
+  },
+  {
+    "type": "write",
+    "atomId": "H-05",
+    "level": 2,
+    "spec": "Write a function int square(int n) that returns n*n.",
+    "expectedAnswer": "int square(int n) {\n    return n * n;\n}",
+    "keyChecks": ["int square", "int n", "return", "n * n"],
+    "explanation": "int return type, int param, body returns the squared value."
+  },
+  {
+    "type": "write",
+    "atomId": "H-05",
+    "level": 2,
+    "spec": "Write a function double tax(double price) that returns price * 0.1.",
+    "expectedAnswer": "double tax(double price) {\n    return price * 0.1;\n}",
+    "keyChecks": ["double tax", "double price", "return", "price * 0.1"],
+    "explanation": "double return type matches the body's float multiplication."
+  },
+  {
+    "type": "procedural",
+    "atomId": "H-05",
+    "id": "PD-H05-01",
+    "section": "function with return",
+    "prompt": "Write a function int dbl(int n) that returns n*2.",
+    "expectedAnswer": "int dbl(int n) {\n    return n * 2;\n}",
+    "keyChecks": ["int dbl", "int n", "return", "n * 2"],
+    "variants": [
+      {
+        "prompt": "Write int dbl(int n) returning twice its arg.",
+        "expectedAnswer": "int dbl(int n) {\n    return n * 2;\n}"
+      },
+      {
+        "prompt": "Function dbl that doubles an int and returns it.",
+        "expectedAnswer": "int dbl(int n) {\n    return n * 2;\n}"
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-06",
+    "levelLabel": "L8 -> void = no return",
+    "fullCode": "void greet() {\n  cout << \"hi\";\n}\nint main() {\n  greet();\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void greet() {",
+        "annotation": "void = no return value. Function does work but reports nothing.",
+        "atomIds": ["H-06"]
+      },
+      {
+        "line": 2,
+        "code": "  cout << \"hi\";",
+        "annotation": "Body has side effects (prints) but no return statement.",
+        "atomIds": ["H-06"]
+      },
+      {
+        "line": 5,
+        "code": "  greet();",
+        "annotation": "Call as a statement — can't put it in cout because no value.",
+        "atomIds": ["H-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-06",
+    "levelLabel": "L8 -> void can use bare return",
+    "fullCode": "void check(int n) {\n  if (n < 0) return;\n  cout << n;\n}\nint main() {\n  check(-5);\n  check(7);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  if (n < 0) return;",
+        "annotation": "void function can return; (no value) to exit early.",
+        "atomIds": ["H-06"]
+      },
+      {
+        "line": 3,
+        "code": "  cout << n;",
+        "annotation": "Only reached when n>=0.",
+        "atomIds": ["H-06"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-06",
+    "levelLabel": "L8 -> void vs int contrast",
+    "fullCode": "void show(int n) {\n  cout << n;\n}\nint twice(int n) {\n  return n * 2;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void show(int n) {",
+        "annotation": "void: prints but doesn't return — used for its side effect.",
+        "atomIds": ["H-06"]
+      },
+      {
+        "line": 4,
+        "code": "int twice(int n) {",
+        "annotation": "int: returns a value the caller can use.",
+        "atomIds": ["H-06", "H-05"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-06",
+    "levelLabel": "L8 -> sensor read function",
+    "fullCode": "void log_temp(double t) {\n  cout << \"temp=\" << t << endl;\n}\nint main() {\n  log_temp(22.5);\n  log_temp(23.1);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void log_temp(double t) {",
+        "annotation": "void function for side effect (logging) — no value to return.",
+        "atomIds": ["H-06"]
+      },
+      {
+        "line": 5,
+        "code": "  log_temp(22.5);",
+        "annotation": "Call as statement; can't be used as a value.",
+        "atomIds": ["H-06"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "H-06",
+    "code": "void say() {\n  cout << \"x\";\n}\nint main() {\n  say();\n  say();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["x", "x"],
+    "inputMode": "final-only",
+    "teachMe": "void function called twice prints x twice."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-06",
+    "code": "void check(int n) {\n  if (n < 0) return;\n  cout << n;\n}\nint main() {\n  check(-5);\n  check(7);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "First call returns early (no print). Second prints 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-06",
+    "code": "void log(double t) {\n  cout << t << \" \";\n}\nint main() {\n  log(22.5);\n  log(23.0);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["22.5 ", "23 "],
+    "inputMode": "final-only",
+    "teachMe": "void log called twice. Note 23.0 prints as 23 by default."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-06",
+    "code": "void multi() {\n  cout << \"a\";\n  cout << \"b\";\n  cout << \"c\";\n}\nint main() {\n  multi();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["a", "b", "c"],
+    "inputMode": "final-only",
+    "teachMe": "void with multiple statements — all run on each call."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-06",
+    "code": "void show(int n) {\n  cout << n * 2;\n}\nint main() {\n  show(5);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10"],
+    "inputMode": "final-only",
+    "teachMe": "void prints n*2 = 10. No return value."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-06",
+    "code": "void greet(string n) {\n  cout << \"hi \" << n;\n}\nint main() {\n  greet(\"Bo\");\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["hi ", "Bo"],
+    "inputMode": "final-only",
+    "teachMe": "void with string param. Concatenates greeting."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-06",
+    "code": "void early() {\n  cout << \"a\";\n  return;\n  cout << \"b\";\n}\nint main() {\n  early();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["a"],
+    "inputMode": "final-only",
+    "teachMe": "Bare return; ends void function. Code after never runs."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-06",
+    "code": "___ greet() {\n  cout << \"hi\";\n}",
+    "clozeSentence": "Function returns nothing -> use ___",
+    "answer": "void",
+    "explanation": "void marks no return value."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-06",
+    "code": "void f() {\n  if (bad) ___;\n  do_work();\n}",
+    "clozeSentence": "Bare ___ exits void early without a value",
+    "answer": "return",
+    "explanation": "return; (no value) ends a void function early."
+  },
+  {
+    "type": "write",
+    "atomId": "H-06",
+    "level": 2,
+    "spec": "Write a void function named log_msg that takes a string m and prints it followed by endl.",
+    "expectedAnswer": "void log_msg(string m) {\n    cout << m << endl;\n}",
+    "keyChecks": ["void", "log_msg", "string m", "cout", "endl"],
+    "explanation": "void = no return; one string param; body prints + endl."
+  },
+  {
+    "type": "write",
+    "atomId": "H-06",
+    "level": 2,
+    "spec": "Write a void function named pulse that takes no args and prints 'beep' three times each on its own line.",
+    "expectedAnswer": "void pulse() {\n    cout << \"beep\" << endl;\n    cout << \"beep\" << endl;\n    cout << \"beep\" << endl;\n}",
+    "keyChecks": ["void", "pulse()", "cout", "beep", "endl"],
+    "explanation": "void with no args; body has 3 print statements."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-07",
+    "levelLabel": "L8 -> declare before use",
+    "fullCode": "void greet() {\n  cout << \"hi\";\n}\nint main() {\n  greet();\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void greet() {",
+        "annotation": "Define greet ABOVE main so the compiler sees it first.",
+        "atomIds": ["H-07"]
+      },
+      {
+        "line": 5,
+        "code": "  greet();",
+        "annotation": "By line 5, compiler already knows greet exists -> OK.",
+        "atomIds": ["H-07", "H-03"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-07",
+    "levelLabel": "L8 -> prototype enables top-down order",
+    "fullCode": "int square(int n);\nint main() {\n  cout << square(5);\n  return 0;\n}\nint square(int n) {\n  return n * n;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int square(int n);",
+        "annotation": "Prototype: tells compiler the signature so main can call square.",
+        "atomIds": ["H-07", "H-08"]
+      },
+      {
+        "line": 3,
+        "code": "  cout << square(5);",
+        "annotation": "Compiler trusts the prototype — actual body comes later.",
+        "atomIds": ["H-07"]
+      },
+      {
+        "line": 6,
+        "code": "int square(int n) {",
+        "annotation": "Definition can now live below main.",
+        "atomIds": ["H-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-07",
+    "levelLabel": "L8 -> compiler reads top-down",
+    "fullCode": "int main() {\n  greet();   // ERROR: greet not yet known\n  return 0;\n}\nvoid greet() {\n  cout << \"hi\";\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  greet();",
+        "annotation": "At this point compiler hasn't seen greet — ERROR without prototype.",
+        "atomIds": ["H-07"]
+      },
+      {
+        "line": 5,
+        "code": "void greet() {",
+        "annotation": "Definition appears too late; compiler already failed.",
+        "atomIds": ["H-07"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-07",
+    "levelLabel": "L8 -> two valid layouts",
+    "fullCode": "// Layout A: function above main\nvoid hi() { cout << \"a\"; }\nint main() { hi(); return 0; }\n\n// Layout B: prototype above main\nvoid hi();\nint main() { hi(); return 0; }\nvoid hi() { cout << \"a\"; }",
+    "steps": [
+      {
+        "line": 2,
+        "code": "void hi() { cout << \"a\"; }",
+        "annotation": "Layout A: define before use.",
+        "atomIds": ["H-07"]
+      },
+      {
+        "line": 6,
+        "code": "void hi();",
+        "annotation": "Layout B: prototype above use, define below.",
+        "atomIds": ["H-07", "H-08"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "H-07",
+    "code": "void hi() {\n  cout << \"a\";\n}\nint main() {\n  hi();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["a"],
+    "inputMode": "final-only",
+    "teachMe": "Definition above main -> compiler sees hi before the call."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-07",
+    "code": "int square(int n);\nint main() {\n  cout << square(5);\n  return 0;\n}\nint square(int n) {\n  return n * n;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["25"],
+    "inputMode": "final-only",
+    "teachMe": "Prototype on line 1 lets main call square. Definition follows below."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-07",
+    "code": "void say();\nvoid say() {\n  cout << \"hi\";\n}\nint main() {\n  say();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["hi"],
+    "inputMode": "final-only",
+    "teachMe": "Prototype + definition both above main — both legal patterns."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-07",
+    "code": "int dbl(int n) {\n  return n * 2;\n}\nint main() {\n  cout << dbl(7);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["14"],
+    "inputMode": "final-only",
+    "teachMe": "Function defined first, then main calls it. Returns 14."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-07",
+    "code": "void a() { cout << \"A\"; }\nvoid b() { cout << \"B\"; a(); }\nint main() {\n  b();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["B", "A"],
+    "inputMode": "final-only",
+    "teachMe": "b uses a — must be defined first. main calls b. Output: B then A."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-07",
+    "code": "int half(int);\nint main() {\n  cout << half(10);\n  return 0;\n}\nint half(int n) {\n  return n / 2;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "Prototype with type-only param OK. half(10) returns 5."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-07",
+    "code": "int chain(int n);\nint chain(int n) {\n  return n + 1;\n}\nint main() {\n  cout << chain(chain(3));\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "Inner chain(3)=4. Outer chain(4)=5."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-07",
+    "code": "int main() {\n  greet();   // forward ref\n  return 0;\n}\n___ greet() {\n  cout << \"hi\";\n}",
+    "clozeSentence": "Without a prototype above main, the compiler errors. Type returnType: ___",
+    "answer": "void",
+    "explanation": "Without a prototype, you must define before use OR add a prototype."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-07",
+    "code": "int square(int n)___\nint main() {\n  cout << square(5);\n}\nint square(int n) { return n * n; }",
+    "clozeSentence": "A prototype ends with ___",
+    "answer": ";",
+    "explanation": "Prototype is a declaration, not a definition — ; not { }."
+  },
+  {
+    "type": "write",
+    "atomId": "H-07",
+    "level": 1,
+    "spec": "Write the prototype for an int-returning function named area that takes int width and int height.",
+    "expectedAnswer": "int area(int width, int height);",
+    "keyChecks": ["int", "area", "int width", "int height", ";"],
+    "explanation": "Prototype matches signature exactly, ends with ; (no body)."
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-08",
+    "levelLabel": "L8 -> prototype shape",
+    "fullCode": "int square(int);\nvoid greet(string);\ndouble half(double);",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int square(int);",
+        "annotation": "Prototype: returnType name(types); — types only, no names needed.",
+        "atomIds": ["H-08"]
+      },
+      {
+        "line": 2,
+        "code": "void greet(string);",
+        "annotation": "void return + 1 string param.",
+        "atomIds": ["H-08"]
+      },
+      {
+        "line": 3,
+        "code": "double half(double);",
+        "annotation": "Each type listed; ends with ; not { body }.",
+        "atomIds": ["H-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-08",
+    "levelLabel": "L8 -> prototype with names",
+    "fullCode": "int add(int a, int b);   // names allowed but optional\nint add(int, int);       // also valid",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int add(int a, int b);",
+        "annotation": "Prototype CAN include param names — improves readability.",
+        "atomIds": ["H-08"]
+      },
+      {
+        "line": 2,
+        "code": "int add(int, int);",
+        "annotation": "Names are optional in prototypes — only types matter.",
+        "atomIds": ["H-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-08",
+    "levelLabel": "L8 -> prototype + definition pair",
+    "fullCode": "int square(int);\n\nint main() {\n  cout << square(4);\n  return 0;\n}\n\nint square(int n) {\n  return n * n;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int square(int);",
+        "annotation": "Prototype declares signature without body.",
+        "atomIds": ["H-08"]
+      },
+      {
+        "line": 8,
+        "code": "int square(int n) {",
+        "annotation": "Definition has a body and matching signature.",
+        "atomIds": ["H-08"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-08",
+    "levelLabel": "L8 -> prototype no semicolon = body required",
+    "fullCode": "int square(int n);   // prototype (with ;)\nint square(int n) {  // definition (with body)\n  return n * n;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "int square(int n);",
+        "annotation": "; means it's a declaration only — the body is elsewhere.",
+        "atomIds": ["H-08"]
+      },
+      {
+        "line": 2,
+        "code": "int square(int n) {",
+        "annotation": "{ means it's a definition — body follows.",
+        "atomIds": ["H-08"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "H-08",
+    "code": "int sq(int);\nint main() {\n  cout << sq(4);\n  return 0;\n}\nint sq(int n) {\n  return n * n;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["16"],
+    "inputMode": "final-only",
+    "teachMe": "Prototype lets main call sq. Definition below provides body. 4*4=16."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-08",
+    "code": "void greet(string);\nint main() {\n  greet(\"Sam\");\n  return 0;\n}\nvoid greet(string n) {\n  cout << \"hi \" << n;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["hi ", "Sam"],
+    "inputMode": "final-only",
+    "teachMe": "Prototype with type-only param. Definition supplies the name."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-08",
+    "code": "int add(int, int);\nint main() {\n  cout << add(2, 3);\n  return 0;\n}\nint add(int a, int b) {\n  return a + b;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "Prototype lists types only; definition names them. Returns 5."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-08",
+    "code": "int triple(int n);\nint triple(int n) {\n  return n * 3;\n}\nint main() {\n  cout << triple(7);\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["21"],
+    "inputMode": "final-only",
+    "teachMe": "Prototype + definition both above main = legal. Returns 21."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-08",
+    "code": "double half(double);\nint main() {\n  cout << half(9.0);\n  return 0;\n}\ndouble half(double x) {\n  return x / 2.0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["4.5"],
+    "inputMode": "final-only",
+    "teachMe": "Prototype declares double half(double). 9.0/2.0 = 4.5."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-08",
+    "code": "void hi();\nvoid bye();\nint main() {\n  hi();\n  bye();\n  return 0;\n}\nvoid hi() { cout << \"hi \"; }\nvoid bye() { cout << \"bye\"; }",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["hi ", "bye"],
+    "inputMode": "final-only",
+    "teachMe": "Two prototypes group together. Definitions follow below main."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-08",
+    "code": "int sub(int a, int b);\nint main() {\n  cout << sub(10, 4);\n  return 0;\n}\nint sub(int a, int b) {\n  return a - b;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["6"],
+    "inputMode": "final-only",
+    "teachMe": "Prototype with names matches definition exactly. 10-4=6."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-08",
+    "code": "int square(int n)___",
+    "clozeSentence": "A prototype ends with ___ (not body)",
+    "answer": ";",
+    "explanation": "Prototype declaration ends with ; — no { } body."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-08",
+    "code": "void greet(___);  // type-only prototype",
+    "clozeSentence": "Prototype param can be type-only: ___",
+    "answer": "string",
+    "explanation": "Prototypes need types, names are optional."
+  },
+  {
+    "type": "write",
+    "atomId": "H-08",
+    "level": 1,
+    "spec": "Write a prototype for double avg(int total, int count). Type-only style is fine.",
+    "expectedAnswer": "double avg(int, int);",
+    "keyChecks": ["double", "avg", "int", ";"],
+    "explanation": "Prototype: returnType name(types); — body comes later."
+  },
+  {
+    "type": "write",
+    "atomId": "H-08",
+    "level": 1,
+    "spec": "Write a prototype for int find(string name).",
+    "expectedAnswer": "int find(string name);",
+    "keyChecks": ["int", "find", "string name", ";"],
+    "explanation": "Prototype with names is fine; ends with ; not body."
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "H-08",
+    "id": "CMEM-H08-01",
+    "section": "prototype canonical",
+    "question": "Write the canonical prototype for int square(int n).",
+    "code": "int square(int n);",
+    "keyChecks": ["int square", "int n", ";"]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-09",
+    "levelLabel": "L8 -> locals die at return",
+    "fullCode": "void f() {\n  int local = 5;\n  cout << local;\n  // local dies HERE when f returns\n}\nint main() {\n  f();\n  // local is gone\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int local = 5;",
+        "annotation": "Local box created when f starts.",
+        "atomIds": ["H-09"]
+      },
+      {
+        "line": 4,
+        "code": "  // local dies HERE when f returns",
+        "annotation": "Frame popped at return — local box destroyed.",
+        "atomIds": ["H-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-09",
+    "levelLabel": "L8 -> each call new locals",
+    "fullCode": "void f() {\n  int n = 0;\n  n++;\n  cout << n << \" \";\n}\nint main() {\n  f();\n  f();\n  f();\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int n = 0;",
+        "annotation": "Fresh n each call. Previous values are gone.",
+        "atomIds": ["H-09"]
+      },
+      {
+        "line": 4,
+        "code": "  cout << n << \" \";",
+        "annotation": "Always prints 1 — n doesn't persist between calls.",
+        "atomIds": ["H-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-09",
+    "levelLabel": "L8 -> param dies too",
+    "fullCode": "void f(int x) {\n  x = x + 100;\n  cout << x;\n  // x destroyed at return\n}\nint main() {\n  f(7);\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 1,
+        "code": "void f(int x) {",
+        "annotation": "x is a local box made from arg copy.",
+        "atomIds": ["H-09", "H-04"]
+      },
+      {
+        "line": 4,
+        "code": "  // x destroyed at return",
+        "annotation": "Param shares the function frame — gone at return.",
+        "atomIds": ["H-09"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-09",
+    "levelLabel": "L8 -> changes lost without &",
+    "fullCode": "void zero(int v) {\n  v = 0;\n  // v's value lost at return\n}\nint main() {\n  int score = 99;\n  zero(score);\n  cout << score;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  v = 0;",
+        "annotation": "v becomes 0 inside zero.",
+        "atomIds": ["H-09"]
+      },
+      {
+        "line": 8,
+        "code": "  cout << score;",
+        "annotation": "score is still 99 — local v's change was lost.",
+        "atomIds": ["H-09"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "H-09",
+    "code": "void f() {\n  int n = 5;\n  cout << n;\n}\nint main() {\n  f();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "Local n exists only inside f. Prints 5 then dies at return."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-09",
+    "code": "void f() {\n  int n = 0;\n  n++;\n  cout << n << \" \";\n}\nint main() {\n  f();\n  f();\n  f();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1 ", "1 ", "1 "],
+    "inputMode": "final-only",
+    "teachMe": "Each call gets fresh n=0. Prints 1 every time, never accumulates."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-09",
+    "code": "void f(int x) {\n  x = x + 100;\n  cout << x;\n}\nint main() {\n  int v = 7;\n  f(v);\n  cout << \" \" << v;\n  return 0;\n}",
+    "variables": ["v"],
+    "expectedSteps": [
+      { "line": 6, "variable": "v", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["107", " 7"],
+    "inputMode": "final-only",
+    "teachMe": "f's local x becomes 107. After return x dies. main's v stays 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-09",
+    "code": "int counter() {\n  int c = 0;\n  c++;\n  return c;\n}\nint main() {\n  cout << counter() << counter() << counter();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["111"],
+    "inputMode": "final-only",
+    "teachMe": "Each call resets c to 0. Always returns 1. Prints 111."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-09",
+    "code": "void zero(int v) {\n  v = 0;\n}\nint main() {\n  int score = 99;\n  zero(score);\n  cout << score;\n  return 0;\n}",
+    "variables": ["score"],
+    "expectedSteps": [
+      { "line": 5, "variable": "score", "value": "99" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["99"],
+    "inputMode": "final-only",
+    "teachMe": "v becomes 0 then dies. score never changed. Prints 99."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-09",
+    "code": "int helper() {\n  int local = 42;\n  return local;\n}\nint main() {\n  int v = helper();\n  cout << v;\n  return 0;\n}",
+    "variables": ["v"],
+    "expectedSteps": [
+      { "line": 6, "variable": "v", "value": "42" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["42"],
+    "inputMode": "final-only",
+    "teachMe": "local dies after return — but its VALUE 42 was already copied to v."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-09",
+    "code": "void scope_test() {\n  int t = 1;\n  {\n    int t = 99;\n    cout << t << \" \";\n  }\n  cout << t;\n}\nint main() {\n  scope_test();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["99 ", "1"],
+    "inputMode": "final-only",
+    "teachMe": "Inner block has its own t=99 then dies. Outer t=1 returns."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-09",
+    "code": "void f() {\n  int local = 5;\n}  // local destroyed at this ___",
+    "clozeSentence": "Closing ___ ends the function frame; locals die",
+    "answer": "}",
+    "explanation": "} closes the function body — frame popped, locals gone."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-09",
+    "code": "void f() {\n  int n = 0;\n}\n// caller cannot see ___",
+    "clozeSentence": "Function locals are inaccessible to caller — unseen ___",
+    "answer": "n",
+    "explanation": "Local n exists only inside f's frame; outside it's not visible."
+  },
+  {
+    "type": "write",
+    "atomId": "H-09",
+    "level": 2,
+    "spec": "Write a void function named bump that creates int counter = 0, increments it, and prints it. Show that locals don't persist by saying so in a comment.",
+    "expectedAnswer": "void bump() {\n    int counter = 0;\n    counter++;\n    cout << counter;\n    // counter dies on return; next call resets to 0\n}",
+    "keyChecks": ["void", "bump", "int counter = 0", "counter++", "cout"],
+    "explanation": "Locals reset every call — counter never accumulates."
+  },
+  {
+    "type": "procedural",
+    "atomId": "H-09",
+    "id": "PD-H09-01",
+    "section": "local variable lifetime",
+    "prompt": "Write a void function trial() that declares int x = 1, prints x, and returns. (Demonstrates a local that dies on return.)",
+    "expectedAnswer": "void trial() {\n    int x = 1;\n    cout << x;\n}",
+    "keyChecks": ["void", "trial", "int x = 1", "cout"],
+    "variants": [
+      {
+        "prompt": "void trial(): int x=1, cout x.",
+        "expectedAnswer": "void trial() {\n    int x = 1;\n    cout << x;\n}"
+      },
+      {
+        "prompt": "Function trial with local int x=1 that prints then returns.",
+        "expectedAnswer": "void trial() {\n    int x = 1;\n    cout << x;\n}"
+      }
+    ]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "H-09",
+    "id": "CMEM-H09-01",
+    "section": "local variable demo",
+    "question": "Write a void function f with a local int n = 5 that prints n.",
+    "code": "void f() {\n    int n = 5;\n    cout << n;\n}",
+    "keyChecks": ["void", "int n = 5", "cout"]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-10",
+    "levelLabel": "L8 -> caller cannot see locals",
+    "fullCode": "void f() {\n  int secret = 42;\n}\nint main() {\n  f();\n  // cout << secret;  // ERROR: undeclared\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int secret = 42;",
+        "annotation": "secret lives only in f's frame.",
+        "atomIds": ["H-10"]
+      },
+      {
+        "line": 6,
+        "code": "  // cout << secret;",
+        "annotation": "Outside f, name secret doesn't exist — compiler error.",
+        "atomIds": ["H-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-10",
+    "levelLabel": "L8 -> only return + & expose locals",
+    "fullCode": "int give() {\n  int v = 10;\n  return v;   // VALUE escapes\n}\nint main() {\n  int x = give();\n  cout << x;\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 3,
+        "code": "  return v;",
+        "annotation": "return copies v's VALUE out before v dies.",
+        "atomIds": ["H-10", "H-05"]
+      },
+      {
+        "line": 6,
+        "code": "  int x = give();",
+        "annotation": "main never saw v itself — only the value 10.",
+        "atomIds": ["H-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-10",
+    "levelLabel": "L8 -> private by default",
+    "fullCode": "void compute() {\n  int internal = 999;\n  // internal is private to compute\n}\nint main() {\n  compute();\n  // cannot read internal here\n  return 0;\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int internal = 999;",
+        "annotation": "internal is fully encapsulated.",
+        "atomIds": ["H-10"]
+      },
+      {
+        "line": 7,
+        "code": "  // cannot read internal here",
+        "annotation": "Function is a black box — outside cannot reach in.",
+        "atomIds": ["H-10"]
+      }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "H-10",
+    "levelLabel": "L8 -> two functions can't share locals",
+    "fullCode": "void a() {\n  int x = 1;\n}\nvoid b() {\n  // cout << x;  // ERROR: a's x not visible\n}",
+    "steps": [
+      {
+        "line": 2,
+        "code": "  int x = 1;",
+        "annotation": "x exists only inside a's frame.",
+        "atomIds": ["H-10"]
+      },
+      {
+        "line": 5,
+        "code": "  // cout << x;",
+        "annotation": "Different function frame — b cannot see a's x.",
+        "atomIds": ["H-10"]
+      }
+    ]
+  },
+  {
+    "type": "trace",
+    "atomId": "H-10",
+    "code": "int give() {\n  int v = 10;\n  return v;\n}\nint main() {\n  int x = give();\n  cout << x;\n  return 0;\n}",
+    "variables": ["x"],
+    "expectedSteps": [
+      { "line": 6, "variable": "x", "value": "10" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10"],
+    "inputMode": "final-only",
+    "teachMe": "v's value 10 escapes via return. main never named v."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-10",
+    "code": "void f() {\n  int hidden = 7;\n  cout << hidden;\n}\nint main() {\n  f();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["7"],
+    "inputMode": "final-only",
+    "teachMe": "f prints its own local. main never sees hidden."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-10",
+    "code": "int x = 100;\nvoid f() {\n  int x = 1;\n  cout << x << \" \";\n}\nint main() {\n  f();\n  cout << x;\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1 ", "100"],
+    "inputMode": "final-only",
+    "teachMe": "f's local x=1 shadows global. Global x=100 is what main prints."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-10",
+    "code": "void inner() {\n  int n = 5;\n  cout << n;\n}\nvoid outer() {\n  inner();\n  // cout << n;  // would not compile\n}\nint main() {\n  outer();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "inner's n is private. outer cannot read it. Only inner prints 5."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-10",
+    "code": "int report() {\n  int total = 50;\n  int extra = 7;\n  return total + extra;\n}\nint main() {\n  cout << report();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["57"],
+    "inputMode": "final-only",
+    "teachMe": "Locals total + extra invisible to main. Only the sum 57 escapes."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-10",
+    "code": "int show(int n) {\n  int local = n * 2;\n  return local;\n}\nint main() {\n  int r = show(6);\n  cout << r;\n  return 0;\n}",
+    "variables": ["r"],
+    "expectedSteps": [
+      { "line": 6, "variable": "r", "value": "12" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["12"],
+    "inputMode": "final-only",
+    "teachMe": "local computed and returned; main only sees the returned value 12."
+  },
+  {
+    "type": "trace",
+    "atomId": "H-10",
+    "code": "void a() {\n  int x = 1;\n  cout << x;\n}\nvoid b() {\n  int x = 99;\n  cout << \" \" << x;\n}\nint main() {\n  a();\n  b();\n  return 0;\n}",
+    "variables": [],
+    "expectedSteps": [],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1", " 99"],
+    "inputMode": "final-only",
+    "teachMe": "a and b each have their own x. Frames isolated. Outputs 1 and 99."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-10",
+    "code": "void f() {\n  int hidden = 5;\n}\nint main() {\n  // cannot read hidden ___ here",
+    "clozeSentence": "Cannot access hidden ___ from outside f",
+    "answer": "directly",
+    "explanation": "Locals are private — only return or & exposes them."
+  },
+  {
+    "type": "cloze",
+    "atomId": "H-10",
+    "code": "int give() {\n  int v = 10;\n  ___ v;\n}",
+    "clozeSentence": "Use ___ to send v's value out",
+    "answer": "return",
+    "explanation": "return is one way to expose a local's value to the caller."
+  },
+  {
+    "type": "write",
+    "atomId": "H-10",
+    "level": 2,
+    "spec": "Write a function int give_secret() that creates int code = 1234, then returns it. The local code dies but its value escapes via return.",
+    "expectedAnswer": "int give_secret() {\n    int code = 1234;\n    return code;\n}",
+    "keyChecks": ["int give_secret", "int code = 1234", "return", "code"],
+    "explanation": "Local code dies but return copies its value to caller."
+  },
+  {
+    "type": "procedural",
+    "atomId": "H-10",
+    "id": "PD-H10-01",
+    "section": "expose local via return",
+    "prompt": "Write a function int give() with a local int v = 10 that returns v.",
+    "expectedAnswer": "int give() {\n    int v = 10;\n    return v;\n}",
+    "keyChecks": ["int give", "int v = 10", "return", "v"],
+    "variants": [
+      {
+        "prompt": "int give() that has int v=10 and returns v.",
+        "expectedAnswer": "int give() {\n    int v = 10;\n    return v;\n}"
+      },
+      {
+        "prompt": "Write a function with a local v=10 and return it.",
+        "expectedAnswer": "int give() {\n    int v = 10;\n    return v;\n}"
+      }
+    ]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "H-10",
+    "id": "CMEM-H10-01",
+    "section": "scope demo",
+    "question": "Write a function int give() that returns a local int v = 10.",
+    "code": "int give() {\n    int v = 10;\n    return v;\n}",
+    "keyChecks": ["int give", "int v = 10", "return", "v"]
+  }
+]

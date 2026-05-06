@@ -1,0 +1,2010 @@
+[
+  {
+    "type": "walkthrough",
+    "atomId": "R-01",
+    "levelLabel": "L9 -> pass-by-value (bank balance)",
+    "fullCode": "void add_one(int balance) {\n  balance = balance + 1;\n}\nint main() {\n  int my_balance = 100;\n  add_one(my_balance);\n  cout << my_balance << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void add_one(int balance) {", "annotation": "Plain int parameter (no &). add_one will receive a COPY of whatever is passed in.", "atomIds": ["R-01"] },
+      { "line": 2, "code": "  balance = balance + 1;", "annotation": "This mutates the local copy only. The caller's variable is untouched.", "atomIds": ["R-01"] },
+      { "line": 5, "code": "  int my_balance = 100;", "annotation": "Caller's box my_balance holds 100.", "atomIds": ["R-01"] },
+      { "line": 6, "code": "  add_one(my_balance);", "annotation": "Pass-by-value: balance is created as a fresh box holding 100. add_one bumps balance to 101.", "atomIds": ["R-01"] },
+      { "line": 7, "code": "  cout << my_balance << endl;", "annotation": "Prints 100 (NOT 101). Caller untouched without &.", "atomIds": ["R-01"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-01",
+    "levelLabel": "L9 -> pass-by-value (savings counter)",
+    "fullCode": "void add_savings(int total) {\n  total = total + 50;\n}\nint main() {\n  int savings = 200;\n  add_savings(savings);\n  cout << savings << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void add_savings(int total) {", "annotation": "No & after int. total is its own private copy.", "atomIds": ["R-01"] },
+      { "line": 5, "code": "  int savings = 200;", "annotation": "Caller's savings = 200.", "atomIds": ["R-01"] },
+      { "line": 6, "code": "  add_savings(savings);", "annotation": "200 is COPIED into total. savings stays 200.", "atomIds": ["R-01"] },
+      { "line": 7, "code": "  cout << savings << endl;", "annotation": "Output: 200. The +50 happened only to total, which died at return.", "atomIds": ["R-01"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-01",
+    "levelLabel": "L9 -> default copy semantics",
+    "fullCode": "void try_change(int amount) {\n  amount = 0;\n}\nint main() {\n  int deposit = 75;\n  try_change(deposit);\n  cout << deposit << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void try_change(int amount) {", "annotation": "Default in C++: parameter is a copy. The function gets its own box named amount.", "atomIds": ["R-01"] },
+      { "line": 2, "code": "  amount = 0;", "annotation": "Zeroes the COPY. The caller's deposit is unaffected.", "atomIds": ["R-01"] },
+      { "line": 7, "code": "  cout << deposit << endl;", "annotation": "Prints 75. Default copy means caller is untouched without &.", "atomIds": ["R-01"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "R-01",
+    "code": "void add_one(int balance) {\n  balance = balance + 1;\n}\nint main() {\n  int my_balance = 100;\n  add_one(my_balance);\n  cout << my_balance << endl;\n  return 0;\n}",
+    "variables": ["my_balance", "balance"],
+    "expectedSteps": [
+      { "line": 5, "variable": "my_balance", "value": "100" },
+      { "line": 6, "variable": "balance", "value": "100" },
+      { "line": 2, "variable": "balance", "value": "101" },
+      { "line": 7, "variable": "my_balance", "value": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["100"],
+    "inputMode": "final-only",
+    "teachMe": "No & means add_one gets a copy in balance. Mutating balance leaves my_balance at 100."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-01",
+    "code": "void try_change(int amount) {\n  amount = 0;\n}\nint main() {\n  int deposit = 75;\n  try_change(deposit);\n  cout << deposit << endl;\n  return 0;\n}",
+    "variables": ["deposit", "amount"],
+    "expectedSteps": [
+      { "line": 5, "variable": "deposit", "value": "75" },
+      { "line": 6, "variable": "amount", "value": "75" },
+      { "line": 2, "variable": "amount", "value": "0" },
+      { "line": 7, "variable": "deposit", "value": "75" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["75"],
+    "inputMode": "final-only",
+    "teachMe": "amount is a separate box receiving 75. amount = 0 zeroes only amount. deposit stays 75."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-01",
+    "code": "void grow(int total) {\n  total = total * 2;\n}\nint main() {\n  int savings = 50;\n  grow(savings);\n  cout << savings << endl;\n  return 0;\n}",
+    "variables": ["savings", "total"],
+    "expectedSteps": [
+      { "line": 5, "variable": "savings", "value": "50" },
+      { "line": 6, "variable": "total", "value": "50" },
+      { "line": 2, "variable": "total", "value": "100" },
+      { "line": 7, "variable": "savings", "value": "50" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["50"],
+    "inputMode": "final-only",
+    "teachMe": "Default pass-by-value: total is a copy of 50. Doubling total to 100 leaves savings unchanged."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-01",
+    "code": "void zero_it(int x) {\n  x = 0;\n}\nint main() {\n  int balance = 999;\n  zero_it(balance);\n  cout << balance << endl;\n  return 0;\n}",
+    "variables": ["balance", "x"],
+    "expectedSteps": [
+      { "line": 5, "variable": "balance", "value": "999" },
+      { "line": 6, "variable": "x", "value": "999" },
+      { "line": 2, "variable": "x", "value": "0" },
+      { "line": 7, "variable": "balance", "value": "999" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["999"],
+    "inputMode": "final-only",
+    "teachMe": "Without &, x is a private copy. Zeroing x does nothing to balance."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-01",
+    "code": "void inc(int n) {\n  n = n + 10;\n}\nint main() {\n  int credit = 30;\n  inc(credit);\n  inc(credit);\n  cout << credit << endl;\n  return 0;\n}",
+    "variables": ["credit", "n"],
+    "expectedSteps": [
+      { "line": 5, "variable": "credit", "value": "30" },
+      { "line": 6, "variable": "n", "value": "30" },
+      { "line": 2, "variable": "n", "value": "40" },
+      { "line": 7, "variable": "n", "value": "30" },
+      { "line": 2, "variable": "n", "value": "40" },
+      { "line": 8, "variable": "credit", "value": "30" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["30"],
+    "inputMode": "final-only",
+    "teachMe": "Each call gets a fresh n=30 copy. Both copies become 40 inside, but credit never changes."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "R-01",
+    "code": "void add_one(int ___) {\n  balance = balance + 1;\n}\n// caller's box stays the same\nint main() {\n  int my_balance = 100;\n  add_one(my_balance);\n}",
+    "clozeSentence": "Fill in the parameter name so this function takes its int by value (no &)",
+    "answer": "balance",
+    "explanation": "Plain `int balance` is pass-by-value. No & means the function receives a copy, caller untouched."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-01",
+    "code": "void grow(int total) {\n  total = total * 2;\n}\nint main() {\n  int savings = 50;\n  grow(savings);\n  cout << savings;  // prints ___\n}",
+    "clozeSentence": "What number does cout print?",
+    "answer": "50",
+    "explanation": "No & on parameter total. grow doubles its private copy. savings stays 50."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-01",
+    "code": "void f(int x) {\n  x = 0;\n}\nint main() {\n  int n = 5;\n  f(n);\n  cout << n;  // prints ___\n}",
+    "clozeSentence": "What does cout print?",
+    "answer": "5",
+    "explanation": "Default copy semantics: x = 0 modifies only the copy. n in main is still 5."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-01",
+    "code": "// signature for pass-by-value of int credit:\nvoid inc(int credit) ___\n  credit = credit + 1;\n}",
+    "clozeSentence": "Fill in the missing brace that opens the function body",
+    "answer": "{",
+    "explanation": "void inc(int credit) { ... } is pass-by-value (no &) plus a function body."
+  },
+
+  {
+    "type": "write",
+    "atomId": "R-01",
+    "level": 1,
+    "spec": "Write a void function header named add_one that takes one int parameter named balance BY VALUE (no &)",
+    "expectedAnswer": "void add_one(int balance)",
+    "keyChecks": ["void", "add_one", "int", "balance"],
+    "forbidden": ["&"],
+    "explanation": "Plain int balance (no &) means pass-by-value. Function gets a copy."
+  },
+  {
+    "type": "write",
+    "atomId": "R-01",
+    "level": 1,
+    "spec": "Write a void function header named grow that takes one int parameter named total BY VALUE",
+    "expectedAnswer": "void grow(int total)",
+    "keyChecks": ["void", "grow", "int", "total"],
+    "forbidden": ["&"],
+    "explanation": "No & after int = pass-by-value. The function gets its own copy of the int."
+  },
+  {
+    "type": "write",
+    "atomId": "R-01",
+    "level": 2,
+    "spec": "Complete this function body so it tries to bump the parameter (the caller's number won't change)",
+    "template": "void try_change(int amount) {\n  // body here\n}",
+    "expectedAnswer": "void try_change(int amount) {\n  amount = amount + 1;\n}",
+    "keyChecks": ["void", "try_change", "int", "amount", "amount = amount + 1;"],
+    "forbidden": ["&"],
+    "explanation": "Mutating the local copy is legal but useless to the caller; pass-by-value loses the change."
+  },
+  {
+    "type": "write",
+    "atomId": "R-01",
+    "level": 3,
+    "spec": "Write a complete program: function add_one(int balance) increments its parameter by value, main() declares int my_balance = 100, calls add_one(my_balance), then prints my_balance. The output must be 100 (caller untouched).",
+    "expectedAnswer": "void add_one(int balance) {\n  balance = balance + 1;\n}\nint main() {\n  int my_balance = 100;\n  add_one(my_balance);\n  cout << my_balance << endl;\n  return 0;\n}",
+    "keyChecks": ["void add_one(int balance)", "balance = balance + 1;", "int my_balance = 100;", "add_one(my_balance);", "cout << my_balance"],
+    "forbidden": ["&"],
+    "explanation": "No & = pass-by-value. The function modifies its private copy only; my_balance prints 100."
+  },
+  {
+    "type": "write",
+    "atomId": "R-01",
+    "level": 3,
+    "spec": "Write a complete program where grow(int total) doubles total and main calls grow(savings) where savings = 50. Print savings. Should print 50.",
+    "expectedAnswer": "void grow(int total) {\n  total = total * 2;\n}\nint main() {\n  int savings = 50;\n  grow(savings);\n  cout << savings << endl;\n  return 0;\n}",
+    "keyChecks": ["void grow(int total)", "total = total * 2;", "int savings = 50;", "grow(savings);", "cout << savings"],
+    "forbidden": ["&"],
+    "explanation": "Pass-by-value: total is doubled in the copy only. savings stays 50."
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "R-01",
+    "id": "PD-R01-01",
+    "section": "Pass-by-value function header",
+    "prompt": "Write the function header for a void function 'add_one' taking an int parameter 'balance' BY VALUE (no &)",
+    "expectedAnswer": "void add_one(int balance)",
+    "keyChecks": ["void", "add_one", "int", "balance"],
+    "variants": [
+      { "prompt": "Write the void function header 'grow' taking int 'total' by value", "expectedAnswer": "void grow(int total)" },
+      { "prompt": "Write the void function header 'reset' taking int 'count' by value", "expectedAnswer": "void reset(int count)" }
+    ]
+  },
+
+  {
+    "type": "matrix",
+    "atomId": "R-01",
+    "id": "CM-R01-01",
+    "section": "Pass-by-value variations",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: bank balance by value", "code": "void add_one(int balance) {\n  balance = balance + 1;\n}" },
+      { "label": "Example B: savings doubler by value", "code": "void grow(int total) {\n  total = total * 2;\n}" }
+    ],
+    "prompt": "Now write a void function 'reset' that takes an int 'count' BY VALUE and sets count to 0.",
+    "expectedAnswer": "void reset(int count) {\n  count = 0;\n}",
+    "keyChecks": ["void reset(int count)", "count = 0;"]
+  },
+
+  {
+    "type": "code-memorize",
+    "atomId": "R-01",
+    "id": "CMEM-R01-01",
+    "section": "Pass-by-value canonical example",
+    "question": "Type the canonical pass-by-value example: add_one(int balance) bumps balance, main passes my_balance=100, output is 100",
+    "code": "void add_one(int balance) {\n  balance = balance + 1;\n}\nint main() {\n  int my_balance = 100;\n  add_one(my_balance);\n  cout << my_balance << endl;\n  return 0;\n}",
+    "keyChecks": ["void add_one(int balance)", "balance = balance + 1;", "int my_balance = 100;", "add_one(my_balance);", "cout << my_balance"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "R-02",
+    "levelLabel": "L9 -> mutation lost (game score swap)",
+    "fullCode": "void try_swap(int a, int b) {\n  int t = a;\n  a = b;\n  b = t;\n}\nint main() {\n  int p1 = 10;\n  int p2 = 30;\n  try_swap(p1, p2);\n  cout << p1 << \" \" << p2 << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void try_swap(int a, int b) {", "annotation": "Both parameters by value (no &). a and b are private copies of p1 and p2.", "atomIds": ["R-02"] },
+      { "line": 2, "code": "  int t = a;", "annotation": "Swap the local copies. This appears to work but only inside the frame.", "atomIds": ["R-02"] },
+      { "line": 9, "code": "  try_swap(p1, p2);", "annotation": "After this call, the LOCAL a and b are swapped. p1 and p2 are NOT touched.", "atomIds": ["R-02"] },
+      { "line": 10, "code": "  cout << p1 << \" \" << p2 << endl;", "annotation": "Prints '10 30' -- caller values preserved. The mutation died with the frame.", "atomIds": ["R-02"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-02",
+    "levelLabel": "L9 -> mutation vanishes at return",
+    "fullCode": "void take_lives(int lives) {\n  lives = 0;\n}\nint main() {\n  int player_lives = 3;\n  take_lives(player_lives);\n  cout << player_lives << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void take_lives(int lives) {", "annotation": "lives is by value. This is a doomed mutation function.", "atomIds": ["R-02"] },
+      { "line": 2, "code": "  lives = 0;", "annotation": "Zeroes the local copy. When the function returns, lives ceases to exist.", "atomIds": ["R-02"] },
+      { "line": 7, "code": "  cout << player_lives << endl;", "annotation": "Prints 3. The 0 was on the local copy; player_lives kept its value.", "atomIds": ["R-02"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-02",
+    "levelLabel": "L9 -> param mutation stays inside",
+    "fullCode": "void boost(int score) {\n  score = score + 100;\n  cout << \"inside: \" << score << endl;\n}\nint main() {\n  int my_score = 5;\n  boost(my_score);\n  cout << \"after: \" << my_score << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 2, "code": "  score = score + 100;", "annotation": "Mutates local copy. The +100 is real INSIDE the function.", "atomIds": ["R-02"] },
+      { "line": 3, "code": "  cout << \"inside: \" << score << endl;", "annotation": "Prints 'inside: 105' -- the local copy is 105.", "atomIds": ["R-02"] },
+      { "line": 8, "code": "  cout << \"after: \" << my_score << endl;", "annotation": "Prints 'after: 5'. The local mutation died on return; my_score kept value 5.", "atomIds": ["R-02"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "R-02",
+    "code": "void try_swap(int a, int b) {\n  int t = a;\n  a = b;\n  b = t;\n}\nint main() {\n  int p1 = 10;\n  int p2 = 30;\n  try_swap(p1, p2);\n  cout << p1 << \" \" << p2 << endl;\n  return 0;\n}",
+    "variables": ["p1", "p2", "a", "b"],
+    "expectedSteps": [
+      { "line": 7, "variable": "p1", "value": "10" },
+      { "line": 8, "variable": "p2", "value": "30" },
+      { "line": 9, "variable": "a", "value": "10" },
+      { "line": 9, "variable": "b", "value": "30" },
+      { "line": 4, "variable": "a", "value": "30" },
+      { "line": 4, "variable": "b", "value": "10" },
+      { "line": 10, "variable": "p1", "value": "10" },
+      { "line": 10, "variable": "p2", "value": "30" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10 30"],
+    "inputMode": "final-only",
+    "teachMe": "Classic broken swap: a and b are copies. Swapping copies leaves p1 and p2 untouched."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-02",
+    "code": "void take_lives(int lives) {\n  lives = 0;\n}\nint main() {\n  int player_lives = 3;\n  take_lives(player_lives);\n  cout << player_lives << endl;\n  return 0;\n}",
+    "variables": ["player_lives", "lives"],
+    "expectedSteps": [
+      { "line": 5, "variable": "player_lives", "value": "3" },
+      { "line": 6, "variable": "lives", "value": "3" },
+      { "line": 2, "variable": "lives", "value": "0" },
+      { "line": 7, "variable": "player_lives", "value": "3" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["3"],
+    "inputMode": "final-only",
+    "teachMe": "lives is a copy of player_lives. Zeroing the copy does nothing to player_lives."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-02",
+    "code": "void boost(int score) {\n  score = score + 100;\n}\nint main() {\n  int my_score = 5;\n  boost(my_score);\n  cout << my_score << endl;\n  return 0;\n}",
+    "variables": ["my_score", "score"],
+    "expectedSteps": [
+      { "line": 5, "variable": "my_score", "value": "5" },
+      { "line": 6, "variable": "score", "value": "5" },
+      { "line": 2, "variable": "score", "value": "105" },
+      { "line": 7, "variable": "my_score", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "boost adds 100 to its copy. my_score stays 5 because there's no &."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-02",
+    "code": "void f(int x) {\n  x = 99;\n}\nint main() {\n  int n = 5;\n  f(n);\n  cout << n << endl;\n  return 0;\n}",
+    "variables": ["n", "x"],
+    "expectedSteps": [
+      { "line": 5, "variable": "n", "value": "5" },
+      { "line": 6, "variable": "x", "value": "5" },
+      { "line": 2, "variable": "x", "value": "99" },
+      { "line": 7, "variable": "n", "value": "5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["5"],
+    "inputMode": "final-only",
+    "teachMe": "x is a copy. Setting x = 99 only changes the copy. n stays 5."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-02",
+    "code": "void clear(int v) {\n  v = -1;\n}\nint main() {\n  int level = 7;\n  clear(level);\n  level = level + 1;\n  cout << level << endl;\n  return 0;\n}",
+    "variables": ["level", "v"],
+    "expectedSteps": [
+      { "line": 5, "variable": "level", "value": "7" },
+      { "line": 6, "variable": "v", "value": "7" },
+      { "line": 2, "variable": "v", "value": "-1" },
+      { "line": 7, "variable": "level", "value": "8" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "clear(level) leaves level=7. Then level + 1 = 8 prints."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "R-02",
+    "code": "void try_swap(int a, int b) {\n  int t = a; a = b; b = t;\n}\nint main() {\n  int p1 = 10, p2 = 30;\n  try_swap(p1, p2);\n  cout << p1;  // prints ___\n}",
+    "clozeSentence": "What does cout print?",
+    "answer": "10",
+    "explanation": "Both parameters by value. The swap mutates copies; p1 stays 10."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-02",
+    "code": "void take_lives(int lives) {\n  lives = 0;\n}\nint main() {\n  int player_lives = 3;\n  take_lives(player_lives);\n  cout << player_lives;  // prints ___\n}",
+    "clozeSentence": "Output value:",
+    "answer": "3",
+    "explanation": "lives is a copy. Setting lives = 0 zeroes only the copy."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-02",
+    "code": "void boost(int score) {\n  score = ___ + 100;\n}\n// my_score=5, then boost(my_score) called\n// my_score still 5 after",
+    "clozeSentence": "Fill the variable name so the function adds 100 to its parameter (still won't affect caller)",
+    "answer": "score",
+    "explanation": "score = score + 100 mutates the copy. my_score (no &) is untouched."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-02",
+    "code": "void f(int x) {\n  x = 99;\n}\nint main() {\n  int n = 5;\n  f(n);\n  // n in main is still ___\n}",
+    "clozeSentence": "Final value of n:",
+    "answer": "5",
+    "explanation": "x is a copy of n. x=99 leaves n alone (no &)."
+  },
+
+  {
+    "type": "write",
+    "atomId": "R-02",
+    "level": 1,
+    "spec": "What value does this print? `void f(int x) { x = 99; } int main() { int n = 5; f(n); cout << n; }`",
+    "expectedAnswer": "5",
+    "keyChecks": ["5"],
+    "forbidden": ["&"],
+    "explanation": "x is a copy. Setting x = 99 doesn't touch n."
+  },
+  {
+    "type": "write",
+    "atomId": "R-02",
+    "level": 1,
+    "spec": "What value does this print? `void take_lives(int lives) { lives = 0; } int main() { int player_lives = 3; take_lives(player_lives); cout << player_lives; }`",
+    "expectedAnswer": "3",
+    "keyChecks": ["3"],
+    "forbidden": ["&"],
+    "explanation": "lives = 0 mutates the local copy only; player_lives stays 3."
+  },
+  {
+    "type": "write",
+    "atomId": "R-02",
+    "level": 2,
+    "spec": "Complete: write the call to try_swap so that even though swap mutates the locals, p1 and p2 remain unchanged outside",
+    "template": "void try_swap(int a, int b) {\n  int t = a; a = b; b = t;\n}\nint main() {\n  int p1 = 10, p2 = 30;\n  // call here:\n  ___\n  cout << p1 << \" \" << p2;\n}",
+    "expectedAnswer": "void try_swap(int a, int b) {\n  int t = a; a = b; b = t;\n}\nint main() {\n  int p1 = 10, p2 = 30;\n  try_swap(p1, p2);\n  cout << p1 << \" \" << p2;\n}",
+    "keyChecks": ["try_swap(p1, p2);"],
+    "forbidden": ["&"],
+    "explanation": "Plain call passes copies. Output is '10 30' because the swap dies inside try_swap."
+  },
+  {
+    "type": "write",
+    "atomId": "R-02",
+    "level": 3,
+    "spec": "Write a complete program where boost(int score) adds 100 to its parameter, main has int my_score = 5, calls boost(my_score), then prints my_score. Output must be 5.",
+    "expectedAnswer": "void boost(int score) {\n  score = score + 100;\n}\nint main() {\n  int my_score = 5;\n  boost(my_score);\n  cout << my_score << endl;\n  return 0;\n}",
+    "keyChecks": ["void boost(int score)", "score = score + 100;", "int my_score = 5;", "boost(my_score);", "cout << my_score"],
+    "forbidden": ["&"],
+    "explanation": "Pass-by-value: score is a copy, my_score stays 5."
+  },
+  {
+    "type": "write",
+    "atomId": "R-02",
+    "level": 3,
+    "spec": "Write a complete program where try_swap(int a, int b) attempts to swap them, main has int p1 = 10 and int p2 = 30, calls try_swap(p1, p2), then prints p1 and p2 separated by a space. Output must be '10 30'.",
+    "expectedAnswer": "void try_swap(int a, int b) {\n  int t = a;\n  a = b;\n  b = t;\n}\nint main() {\n  int p1 = 10;\n  int p2 = 30;\n  try_swap(p1, p2);\n  cout << p1 << \" \" << p2 << endl;\n  return 0;\n}",
+    "keyChecks": ["void try_swap(int a, int b)", "int t = a;", "a = b;", "b = t;", "try_swap(p1, p2);", "cout << p1"],
+    "forbidden": ["&"],
+    "explanation": "Both params by value. Swap acts on copies; p1=10 and p2=30 unchanged."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "R-03",
+    "levelLabel": "L9 -> & creates alias (sensor reading)",
+    "fullCode": "void populate(double &reading) {\n  reading = 22.5;\n}\nint main() {\n  double temp = 0.0;\n  populate(temp);\n  cout << temp << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void populate(double &reading) {", "annotation": "The & between double and reading turns reading into an ALIAS for whatever caller passes in.", "atomIds": ["R-03"] },
+      { "line": 2, "code": "  reading = 22.5;", "annotation": "Writing through the alias writes to the caller's box. ONE memory cell, two names.", "atomIds": ["R-03"] },
+      { "line": 6, "code": "  populate(temp);", "annotation": "reading is bound to temp. temp's box now has two labels: temp and reading.", "atomIds": ["R-03"] },
+      { "line": 7, "code": "  cout << temp << endl;", "annotation": "Prints 22.5. The mutation through reading was visible through temp.", "atomIds": ["R-03"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-03",
+    "levelLabel": "L9 -> alias = same memory cell",
+    "fullCode": "void set_to(int &n, int v) {\n  n = v;\n}\nint main() {\n  int humidity = 0;\n  set_to(humidity, 88);\n  cout << humidity << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void set_to(int &n, int v) {", "annotation": "First param is by reference (&). Second is by value. Mixed signatures are common.", "atomIds": ["R-03"] },
+      { "line": 2, "code": "  n = v;", "annotation": "n is the caller's box; assigning v to n writes 88 into humidity directly.", "atomIds": ["R-03"] },
+      { "line": 6, "code": "  set_to(humidity, 88);", "annotation": "Bind n to humidity, copy 88 into v. Inside: humidity becomes 88.", "atomIds": ["R-03"] },
+      { "line": 7, "code": "  cout << humidity << endl;", "annotation": "Prints 88. The reference parameter wrote into the caller's box.", "atomIds": ["R-03"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-03",
+    "levelLabel": "L9 -> reference shares one box",
+    "fullCode": "void zap(int &target) {\n  target = -1;\n}\nint main() {\n  int sensor = 42;\n  zap(sensor);\n  cout << sensor << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void zap(int &target) {", "annotation": "& after int makes target a reference parameter. No new box, just a new label.", "atomIds": ["R-03"] },
+      { "line": 6, "code": "  zap(sensor);", "annotation": "target is now another name for sensor. sensor's box has labels {sensor, target}.", "atomIds": ["R-03"] },
+      { "line": 2, "code": "  target = -1;", "annotation": "Writes -1 into the box -- visible from both labels.", "atomIds": ["R-03"] },
+      { "line": 7, "code": "  cout << sensor << endl;", "annotation": "Prints -1. After return, target label is gone but the box keeps -1.", "atomIds": ["R-03"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "R-03",
+    "code": "void populate(double &reading) {\n  reading = 22.5;\n}\nint main() {\n  double temp = 0.0;\n  populate(temp);\n  cout << temp << endl;\n  return 0;\n}",
+    "variables": ["temp", "reading"],
+    "expectedSteps": [
+      { "line": 5, "variable": "temp", "value": "0.0" },
+      { "line": 6, "variable": "reading", "value": "0.0" },
+      { "line": 2, "variable": "reading", "value": "22.5" },
+      { "line": 2, "variable": "temp", "value": "22.5" },
+      { "line": 7, "variable": "temp", "value": "22.5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["22.5"],
+    "inputMode": "final-only",
+    "teachMe": "& makes reading an alias for temp. Writing reading writes temp. Output: 22.5."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-03",
+    "code": "void zap(int &target) {\n  target = -1;\n}\nint main() {\n  int sensor = 42;\n  zap(sensor);\n  cout << sensor << endl;\n  return 0;\n}",
+    "variables": ["sensor", "target"],
+    "expectedSteps": [
+      { "line": 5, "variable": "sensor", "value": "42" },
+      { "line": 6, "variable": "target", "value": "42" },
+      { "line": 2, "variable": "target", "value": "-1" },
+      { "line": 2, "variable": "sensor", "value": "-1" },
+      { "line": 7, "variable": "sensor", "value": "-1" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["-1"],
+    "inputMode": "final-only",
+    "teachMe": "target is an alias. Writing target = -1 writes sensor's box. After return: sensor = -1."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-03",
+    "code": "void by_val(int x) {\n  x = 100;\n}\nvoid by_ref(int &x) {\n  x = 100;\n}\nint main() {\n  int a = 1;\n  int b = 2;\n  by_val(a);\n  by_ref(b);\n  cout << a << \" \" << b << endl;\n  return 0;\n}",
+    "variables": ["a", "b", "x"],
+    "expectedSteps": [
+      { "line": 8, "variable": "a", "value": "1" },
+      { "line": 9, "variable": "b", "value": "2" },
+      { "line": 10, "variable": "x", "value": "1" },
+      { "line": 2, "variable": "x", "value": "100" },
+      { "line": 11, "variable": "x", "value": "2" },
+      { "line": 5, "variable": "x", "value": "100" },
+      { "line": 5, "variable": "b", "value": "100" },
+      { "line": 12, "variable": "a", "value": "1" },
+      { "line": 12, "variable": "b", "value": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1 100"],
+    "inputMode": "final-only",
+    "teachMe": "by_val(a): x is a copy, a stays 1. by_ref(b): x is alias for b, b becomes 100. Output: '1 100'."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-03",
+    "code": "void set_to(int &n, int v) {\n  n = v;\n}\nint main() {\n  int humidity = 0;\n  set_to(humidity, 88);\n  cout << humidity << endl;\n  return 0;\n}",
+    "variables": ["humidity", "n", "v"],
+    "expectedSteps": [
+      { "line": 5, "variable": "humidity", "value": "0" },
+      { "line": 6, "variable": "n", "value": "0" },
+      { "line": 6, "variable": "v", "value": "88" },
+      { "line": 2, "variable": "n", "value": "88" },
+      { "line": 2, "variable": "humidity", "value": "88" },
+      { "line": 7, "variable": "humidity", "value": "88" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["88"],
+    "inputMode": "final-only",
+    "teachMe": "n is alias for humidity (& param). v is copy of 88 (value param). n = v writes humidity = 88."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-03",
+    "code": "void inc(int &n) {\n  n = n + 1;\n}\nint main() {\n  int counter = 5;\n  inc(counter);\n  inc(counter);\n  inc(counter);\n  cout << counter << endl;\n  return 0;\n}",
+    "variables": ["counter", "n"],
+    "expectedSteps": [
+      { "line": 5, "variable": "counter", "value": "5" },
+      { "line": 6, "variable": "n", "value": "5" },
+      { "line": 2, "variable": "n", "value": "6" },
+      { "line": 2, "variable": "counter", "value": "6" },
+      { "line": 7, "variable": "n", "value": "6" },
+      { "line": 2, "variable": "n", "value": "7" },
+      { "line": 2, "variable": "counter", "value": "7" },
+      { "line": 8, "variable": "n", "value": "7" },
+      { "line": 2, "variable": "n", "value": "8" },
+      { "line": 2, "variable": "counter", "value": "8" },
+      { "line": 9, "variable": "counter", "value": "8" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["8"],
+    "inputMode": "final-only",
+    "teachMe": "Each call: n is rebound to counter as alias. Three +1s mutate counter directly. 5 -> 6 -> 7 -> 8."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "R-03",
+    "code": "// signature for pass by reference of int sensor:\nvoid zap(int ___ target) {\n  target = -1;\n}",
+    "clozeSentence": "Fill in the symbol that makes target a reference (alias) parameter",
+    "answer": "&",
+    "explanation": "& between type and name makes the parameter a reference, sharing the caller's box."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-03",
+    "code": "void populate(double &reading) {\n  reading = 22.5;\n}\nint main() {\n  double temp = 0.0;\n  populate(temp);\n  cout << temp;  // prints ___\n}",
+    "clozeSentence": "What does cout print?",
+    "answer": "22.5",
+    "explanation": "& makes reading an alias for temp. Writing 22.5 to reading writes temp."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-03",
+    "code": "void inc(int &n) {\n  n = n + 1;\n}\nint main() {\n  int counter = 5;\n  inc(counter);\n  inc(counter);\n  cout << counter;  // prints ___\n}",
+    "clozeSentence": "Output value:",
+    "answer": "7",
+    "explanation": "Each inc adds 1 to counter directly via the alias n. 5 + 1 + 1 = 7."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-03",
+    "code": "void zap(int &target) {\n  target = -1;\n}\n// sensor's box has labels: sensor and ___ during the call",
+    "clozeSentence": "Name of the alias label that shares sensor's box during zap()",
+    "answer": "target",
+    "explanation": "target is the parameter name; & makes it an alias for sensor."
+  },
+
+  {
+    "type": "write",
+    "atomId": "R-03",
+    "level": 1,
+    "spec": "Write a void function header named zap that takes one int parameter named target BY REFERENCE",
+    "expectedAnswer": "void zap(int &target)",
+    "keyChecks": ["void", "zap", "int", "&", "target"],
+    "explanation": "& between int and target makes target an alias for the caller's variable."
+  },
+  {
+    "type": "write",
+    "atomId": "R-03",
+    "level": 1,
+    "spec": "Write a void function header named populate that takes one double parameter named reading BY REFERENCE",
+    "expectedAnswer": "void populate(double &reading)",
+    "keyChecks": ["void", "populate", "double", "&", "reading"],
+    "explanation": "double &reading makes reading an alias to a double in the caller."
+  },
+  {
+    "type": "write",
+    "atomId": "R-03",
+    "level": 2,
+    "spec": "Complete the function body so it sets reading to 22.5 (this writes the caller's variable through the alias)",
+    "template": "void populate(double &reading) {\n  // body here\n}",
+    "expectedAnswer": "void populate(double &reading) {\n  reading = 22.5;\n}",
+    "keyChecks": ["void", "populate", "double", "&", "reading", "reading = 22.5;"],
+    "explanation": "Assignment to a reference parameter writes the caller's box."
+  },
+  {
+    "type": "write",
+    "atomId": "R-03",
+    "level": 3,
+    "spec": "Write a complete program: zap(int &target) sets target = -1. main() declares int sensor = 42, calls zap(sensor), prints sensor. Output must be -1.",
+    "expectedAnswer": "void zap(int &target) {\n  target = -1;\n}\nint main() {\n  int sensor = 42;\n  zap(sensor);\n  cout << sensor << endl;\n  return 0;\n}",
+    "keyChecks": ["void zap(int &target)", "target = -1;", "int sensor = 42;", "zap(sensor);", "cout << sensor", "&"],
+    "explanation": "& makes target an alias for sensor. target = -1 writes sensor's box."
+  },
+  {
+    "type": "write",
+    "atomId": "R-03",
+    "level": 3,
+    "spec": "Write a complete program: populate(double &reading) sets reading to 22.5. main() declares double temp = 0.0, calls populate(temp), prints temp. Output: 22.5.",
+    "expectedAnswer": "void populate(double &reading) {\n  reading = 22.5;\n}\nint main() {\n  double temp = 0.0;\n  populate(temp);\n  cout << temp << endl;\n  return 0;\n}",
+    "keyChecks": ["void populate(double &reading)", "reading = 22.5;", "double temp = 0.0;", "populate(temp);", "cout << temp", "&"],
+    "explanation": "Reference parameter: reading aliases temp; writing reading writes temp."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "R-04",
+    "levelLabel": "L9 -> & sits between type and name",
+    "fullCode": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int counter = 5;\n  increment(counter);\n  cout << counter << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void increment(int &x) {", "annotation": "The signature shape: returnType funcName(type &paramName). The & lives between int and x.", "atomIds": ["R-04"] },
+      { "line": 2, "code": "  x = x + 1;", "annotation": "Inside the body, x is just a name. No special syntax needed for references.", "atomIds": ["R-04"] },
+      { "line": 6, "code": "  increment(counter);", "annotation": "At the call site, NO &. You just pass the variable name; the binding is automatic.", "atomIds": ["R-04"] },
+      { "line": 7, "code": "  cout << counter << endl;", "annotation": "Output: 6. counter was bound to x; x = x + 1 wrote counter's box.", "atomIds": ["R-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-04",
+    "levelLabel": "L9 -> & at declaration only, never at call",
+    "fullCode": "void update(int &value) {\n  value = 100;\n}\nint main() {\n  int score = 50;\n  update(score);\n  cout << score << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void update(int &value) {", "annotation": "& goes here -- in the parameter list of the declaration.", "atomIds": ["R-04"] },
+      { "line": 6, "code": "  update(score);", "annotation": "DO NOT write update(&score). C++ doesn't need an & at the call site.", "atomIds": ["R-04"] },
+      { "line": 7, "code": "  cout << score << endl;", "annotation": "Prints 100. Reference param did its job; score's box was rewritten.", "atomIds": ["R-04"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-04",
+    "levelLabel": "L9 -> & after type, name follows",
+    "fullCode": "void shift(double &y) {\n  y = y + 1.0;\n}\nint main() {\n  double position = 3.5;\n  shift(position);\n  cout << position << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void shift(double &y) {", "annotation": "Pattern: type, then &, then name. 'double &y' parses as 'reference-to-double called y'.", "atomIds": ["R-04"] },
+      { "line": 6, "code": "  shift(position);", "annotation": "Plain call with position. The compiler binds y to position automatically.", "atomIds": ["R-04"] },
+      { "line": 7, "code": "  cout << position << endl;", "annotation": "Output: 4.5. position was 3.5, plus 1.0 via the alias y.", "atomIds": ["R-04"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "R-04",
+    "code": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int counter = 5;\n  increment(counter);\n  cout << counter << endl;\n  return 0;\n}",
+    "variables": ["counter", "x"],
+    "expectedSteps": [
+      { "line": 5, "variable": "counter", "value": "5" },
+      { "line": 6, "variable": "x", "value": "5" },
+      { "line": 2, "variable": "x", "value": "6" },
+      { "line": 2, "variable": "counter", "value": "6" },
+      { "line": 7, "variable": "counter", "value": "6" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["6"],
+    "inputMode": "final-only",
+    "teachMe": "Signature 'int &x' means x is a reference. counter aliased -> increment writes counter to 6."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-04",
+    "code": "void update(int &value) {\n  value = 100;\n}\nint main() {\n  int score = 50;\n  update(score);\n  cout << score << endl;\n  return 0;\n}",
+    "variables": ["score", "value"],
+    "expectedSteps": [
+      { "line": 5, "variable": "score", "value": "50" },
+      { "line": 6, "variable": "value", "value": "50" },
+      { "line": 2, "variable": "value", "value": "100" },
+      { "line": 2, "variable": "score", "value": "100" },
+      { "line": 7, "variable": "score", "value": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["100"],
+    "inputMode": "final-only",
+    "teachMe": "value is bound to score via &. value = 100 writes 100 into score's box."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-04",
+    "code": "void shift(double &y) {\n  y = y + 1.0;\n}\nint main() {\n  double position = 3.5;\n  shift(position);\n  cout << position << endl;\n  return 0;\n}",
+    "variables": ["position", "y"],
+    "expectedSteps": [
+      { "line": 5, "variable": "position", "value": "3.5" },
+      { "line": 6, "variable": "y", "value": "3.5" },
+      { "line": 2, "variable": "y", "value": "4.5" },
+      { "line": 2, "variable": "position", "value": "4.5" },
+      { "line": 7, "variable": "position", "value": "4.5" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["4.5"],
+    "inputMode": "final-only",
+    "teachMe": "double &y means y is a reference-to-double. shift adds 1.0 to position via the alias."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-04",
+    "code": "void mod(int &a, int &b) {\n  a = a + b;\n  b = b * 2;\n}\nint main() {\n  int p = 10;\n  int q = 3;\n  mod(p, q);\n  cout << p << \" \" << q << endl;\n  return 0;\n}",
+    "variables": ["p", "q", "a", "b"],
+    "expectedSteps": [
+      { "line": 6, "variable": "p", "value": "10" },
+      { "line": 7, "variable": "q", "value": "3" },
+      { "line": 8, "variable": "a", "value": "10" },
+      { "line": 8, "variable": "b", "value": "3" },
+      { "line": 2, "variable": "a", "value": "13" },
+      { "line": 2, "variable": "p", "value": "13" },
+      { "line": 3, "variable": "b", "value": "6" },
+      { "line": 3, "variable": "q", "value": "6" },
+      { "line": 9, "variable": "p", "value": "13" },
+      { "line": 9, "variable": "q", "value": "6" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["13 6"],
+    "inputMode": "final-only",
+    "teachMe": "Two & params: a aliases p, b aliases q. a = a + b -> p = 13. b = b * 2 -> q = 6. Output: '13 6'."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-04",
+    "code": "void neg(int &n) {\n  n = -n;\n}\nint main() {\n  int x = 7;\n  neg(x);\n  cout << x << endl;\n  return 0;\n}",
+    "variables": ["x", "n"],
+    "expectedSteps": [
+      { "line": 5, "variable": "x", "value": "7" },
+      { "line": 6, "variable": "n", "value": "7" },
+      { "line": 2, "variable": "n", "value": "-7" },
+      { "line": 2, "variable": "x", "value": "-7" },
+      { "line": 7, "variable": "x", "value": "-7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["-7"],
+    "inputMode": "final-only",
+    "teachMe": "& makes n alias for x. n = -n writes -7 into x's box."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "R-04",
+    "code": "// signature pattern: type ___ name\nvoid increment(int ___ x) {\n  x = x + 1;\n}",
+    "clozeSentence": "Fill in the symbol that goes between type and name to make a reference parameter",
+    "answer": "&",
+    "explanation": "Pattern: 'type & name'. The & sits between int and x."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-04",
+    "code": "void update(int &value) {\n  value = 100;\n}\nint main() {\n  int score = 50;\n  ___;  // call (no & at call site!)\n  cout << score;\n}",
+    "clozeSentence": "Fill in the call (note: no & needed at call site)",
+    "answer": "update(score)",
+    "explanation": "Call with the variable name only. C++ does not need & at the call site."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-04",
+    "code": "// shift signature: pass-by-reference\nvoid shift(double &___) {\n  y = y + 1.0;\n}",
+    "clozeSentence": "Fill in the parameter name 'y'",
+    "answer": "y",
+    "explanation": "double &y -- type, then &, then the name."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-04",
+    "code": "void mod(int &a, int &b) {\n  a = a + b;\n  b = b * 2;\n}\n// Two parameters by ___",
+    "clozeSentence": "Fill: 'two parameters by ___' -- value or reference?",
+    "answer": "reference",
+    "explanation": "Both params have & between type and name -- both pass-by-reference."
+  },
+
+  {
+    "type": "write",
+    "atomId": "R-04",
+    "level": 1,
+    "spec": "Write the parameter list (just inside the parens) for a function taking one int by reference named x",
+    "expectedAnswer": "int &x",
+    "keyChecks": ["int", "&", "x"],
+    "explanation": "Pattern: type, &, name. 'int &x' is reference-to-int called x."
+  },
+  {
+    "type": "write",
+    "atomId": "R-04",
+    "level": 1,
+    "spec": "Write the full void function header: name 'increment', one int parameter by reference, parameter named x",
+    "expectedAnswer": "void increment(int &x)",
+    "keyChecks": ["void", "increment", "int", "&", "x"],
+    "explanation": "Standard SIT102 signature for a by-ref int incrementer."
+  },
+  {
+    "type": "write",
+    "atomId": "R-04",
+    "level": 2,
+    "spec": "Complete: write the function header for shift taking a double by reference named y, and the body that adds 1.0",
+    "template": "// header here\n  y = y + 1.0;\n}",
+    "expectedAnswer": "void shift(double &y) {\n  y = y + 1.0;\n}",
+    "keyChecks": ["void shift(double &y)", "y = y + 1.0;"],
+    "explanation": "double &y is the reference signature; the body uses y like a normal name."
+  },
+  {
+    "type": "write",
+    "atomId": "R-04",
+    "level": 3,
+    "spec": "Write a complete program: function update(int &value) sets value = 100. main() declares int score = 50, calls update(score), prints score. Output: 100.",
+    "expectedAnswer": "void update(int &value) {\n  value = 100;\n}\nint main() {\n  int score = 50;\n  update(score);\n  cout << score << endl;\n  return 0;\n}",
+    "keyChecks": ["void update(int &value)", "value = 100;", "int score = 50;", "update(score);", "cout << score", "&"],
+    "forbidden": ["update(&score)"],
+    "explanation": "& only in declaration, never at call. update(score) binds value to score."
+  },
+  {
+    "type": "write",
+    "atomId": "R-04",
+    "level": 3,
+    "spec": "Write a complete program: function neg(int &n) sets n = -n. main() declares int x = 7, calls neg(x), prints x. Output: -7.",
+    "expectedAnswer": "void neg(int &n) {\n  n = -n;\n}\nint main() {\n  int x = 7;\n  neg(x);\n  cout << x << endl;\n  return 0;\n}",
+    "keyChecks": ["void neg(int &n)", "n = -n;", "int x = 7;", "neg(x);", "cout << x", "&"],
+    "explanation": "Reference parameter signature. neg writes -7 into x via alias n."
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "R-04",
+    "id": "PD-R04-01",
+    "section": "Pass-by-reference function header",
+    "prompt": "Write the void function header for 'increment' taking int 'x' BY REFERENCE",
+    "expectedAnswer": "void increment(int &x)",
+    "keyChecks": ["void", "increment", "int", "&", "x"],
+    "variants": [
+      { "prompt": "Write the void function header for 'update' taking int 'value' by reference", "expectedAnswer": "void update(int &value)" },
+      { "prompt": "Write the void function header for 'shift' taking double 'y' by reference", "expectedAnswer": "void shift(double &y)" }
+    ]
+  },
+
+  {
+    "type": "matrix",
+    "atomId": "R-04",
+    "id": "CM-R04-01",
+    "section": "By-value vs by-reference signature contrast",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: by-value increment", "code": "void inc_copy(int x) {\n  x = x + 1;\n}" },
+      { "label": "Example B: by-reference increment", "code": "void inc_ref(int &x) {\n  x = x + 1;\n}" }
+    ],
+    "prompt": "Write a by-reference void function 'reset' that takes int 'count' and sets count = 0.",
+    "expectedAnswer": "void reset(int &count) {\n  count = 0;\n}",
+    "keyChecks": ["void reset(int &count)", "count = 0;"]
+  },
+
+  {
+    "type": "code-memorize",
+    "atomId": "R-04",
+    "id": "CMEM-R04-01",
+    "section": "Pass-by-reference signature shape",
+    "question": "Type the canonical pass-by-reference example: increment(int &x) bumps x, main passes counter=5, output is 6",
+    "code": "void increment(int &x) {\n  x = x + 1;\n}\nint main() {\n  int counter = 5;\n  increment(counter);\n  cout << counter << endl;\n  return 0;\n}",
+    "keyChecks": ["void increment(int &x)", "x = x + 1;", "int counter = 5;", "increment(counter);", "cout << counter"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "R-05",
+    "levelLabel": "L9 -> & param mutation persists (parse two ints)",
+    "fullCode": "void parse_two(int &a, int &b) {\n  a = 10;\n  b = 20;\n}\nint main() {\n  int x = 0;\n  int y = 0;\n  parse_two(x, y);\n  cout << x << \" \" << y << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void parse_two(int &a, int &b) {", "annotation": "Two reference parameters. Both will write back to the caller's boxes.", "atomIds": ["R-05"] },
+      { "line": 8, "code": "  parse_two(x, y);", "annotation": "a aliases x, b aliases y. Now writes through a and b are writes to x and y.", "atomIds": ["R-05"] },
+      { "line": 2, "code": "  a = 10;", "annotation": "Writes 10 into x's box (because a is alias for x).", "atomIds": ["R-05"] },
+      { "line": 3, "code": "  b = 20;", "annotation": "Writes 20 into y's box (because b is alias for y).", "atomIds": ["R-05"] },
+      { "line": 9, "code": "  cout << x << \" \" << y << endl;", "annotation": "Output: '10 20'. Both mutations persisted past return.", "atomIds": ["R-05"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-05",
+    "levelLabel": "L9 -> & writes survive return",
+    "fullCode": "void load(int &result) {\n  result = result * 2;\n  result = result + 5;\n}\nint main() {\n  int data = 4;\n  load(data);\n  cout << data << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void load(int &result) {", "annotation": "result is a reference, so all writes go to caller's box.", "atomIds": ["R-05"] },
+      { "line": 2, "code": "  result = result * 2;", "annotation": "data was 4. result = 4 * 2 = 8. data is now 8.", "atomIds": ["R-05"] },
+      { "line": 3, "code": "  result = result + 5;", "annotation": "result = 8 + 5 = 13. data is now 13.", "atomIds": ["R-05"] },
+      { "line": 8, "code": "  cout << data << endl;", "annotation": "Output: 13. Both mutations survived because of &.", "atomIds": ["R-05"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-05",
+    "levelLabel": "L9 -> caller sees & mutations",
+    "fullCode": "void real_swap(int &a, int &b) {\n  int t = a;\n  a = b;\n  b = t;\n}\nint main() {\n  int p1 = 7;\n  int p2 = 13;\n  real_swap(p1, p2);\n  cout << p1 << \" \" << p2 << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void real_swap(int &a, int &b) {", "annotation": "Both params are references. NOW the swap will work for real.", "atomIds": ["R-05"] },
+      { "line": 2, "code": "  int t = a;", "annotation": "Local int t holds the value of a (which is also p1). t = 7.", "atomIds": ["R-05"] },
+      { "line": 3, "code": "  a = b;", "annotation": "a is alias for p1. Writes b's value (13) into p1.", "atomIds": ["R-05"] },
+      { "line": 4, "code": "  b = t;", "annotation": "b is alias for p2. Writes t (7) into p2.", "atomIds": ["R-05"] },
+      { "line": 10, "code": "  cout << p1 << \" \" << p2 << endl;", "annotation": "Output: '13 7'. Real swap because of &.", "atomIds": ["R-05"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "R-05",
+    "code": "void parse_two(int &a, int &b) {\n  a = 10;\n  b = 20;\n}\nint main() {\n  int x = 0;\n  int y = 0;\n  parse_two(x, y);\n  cout << x << \" \" << y << endl;\n  return 0;\n}",
+    "variables": ["x", "y", "a", "b"],
+    "expectedSteps": [
+      { "line": 6, "variable": "x", "value": "0" },
+      { "line": 7, "variable": "y", "value": "0" },
+      { "line": 8, "variable": "a", "value": "0" },
+      { "line": 8, "variable": "b", "value": "0" },
+      { "line": 2, "variable": "a", "value": "10" },
+      { "line": 2, "variable": "x", "value": "10" },
+      { "line": 3, "variable": "b", "value": "20" },
+      { "line": 3, "variable": "y", "value": "20" },
+      { "line": 9, "variable": "x", "value": "10" },
+      { "line": 9, "variable": "y", "value": "20" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["10 20"],
+    "inputMode": "final-only",
+    "teachMe": "Two & params write back. a=10 -> x=10; b=20 -> y=20. Output '10 20'."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-05",
+    "code": "void load(int &result) {\n  result = result * 2;\n  result = result + 5;\n}\nint main() {\n  int data = 4;\n  load(data);\n  cout << data << endl;\n  return 0;\n}",
+    "variables": ["data", "result"],
+    "expectedSteps": [
+      { "line": 5, "variable": "data", "value": "4" },
+      { "line": 6, "variable": "result", "value": "4" },
+      { "line": 2, "variable": "result", "value": "8" },
+      { "line": 2, "variable": "data", "value": "8" },
+      { "line": 3, "variable": "result", "value": "13" },
+      { "line": 3, "variable": "data", "value": "13" },
+      { "line": 7, "variable": "data", "value": "13" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["13"],
+    "inputMode": "final-only",
+    "teachMe": "Two consecutive mutations through &result both persist. data: 4 -> 8 -> 13."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-05",
+    "code": "void real_swap(int &a, int &b) {\n  int t = a;\n  a = b;\n  b = t;\n}\nint main() {\n  int p1 = 7;\n  int p2 = 13;\n  real_swap(p1, p2);\n  cout << p1 << \" \" << p2 << endl;\n  return 0;\n}",
+    "variables": ["p1", "p2", "a", "b", "t"],
+    "expectedSteps": [
+      { "line": 7, "variable": "p1", "value": "7" },
+      { "line": 8, "variable": "p2", "value": "13" },
+      { "line": 9, "variable": "a", "value": "7" },
+      { "line": 9, "variable": "b", "value": "13" },
+      { "line": 2, "variable": "t", "value": "7" },
+      { "line": 3, "variable": "a", "value": "13" },
+      { "line": 3, "variable": "p1", "value": "13" },
+      { "line": 4, "variable": "b", "value": "7" },
+      { "line": 4, "variable": "p2", "value": "7" },
+      { "line": 10, "variable": "p1", "value": "13" },
+      { "line": 10, "variable": "p2", "value": "7" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["13 7"],
+    "inputMode": "final-only",
+    "teachMe": "& on both params makes the swap real: p1 and p2 actually swap to 13 and 7."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-05",
+    "code": "void double_it(int &val) {\n  val = val * 2;\n}\nint main() {\n  int n = 6;\n  double_it(n);\n  double_it(n);\n  cout << n << endl;\n  return 0;\n}",
+    "variables": ["n", "val"],
+    "expectedSteps": [
+      { "line": 5, "variable": "n", "value": "6" },
+      { "line": 6, "variable": "val", "value": "6" },
+      { "line": 2, "variable": "val", "value": "12" },
+      { "line": 2, "variable": "n", "value": "12" },
+      { "line": 7, "variable": "val", "value": "12" },
+      { "line": 2, "variable": "val", "value": "24" },
+      { "line": 2, "variable": "n", "value": "24" },
+      { "line": 8, "variable": "n", "value": "24" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["24"],
+    "inputMode": "final-only",
+    "teachMe": "Each call doubles n via &. 6 -> 12 -> 24. Output: 24."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-05",
+    "code": "void byval_set(int x) { x = 999; }\nvoid byref_set(int &x) { x = 999; }\nint main() {\n  int a = 1;\n  int b = 1;\n  byval_set(a);\n  byref_set(b);\n  cout << a << \" \" << b << endl;\n  return 0;\n}",
+    "variables": ["a", "b", "x"],
+    "expectedSteps": [
+      { "line": 4, "variable": "a", "value": "1" },
+      { "line": 5, "variable": "b", "value": "1" },
+      { "line": 6, "variable": "x", "value": "1" },
+      { "line": 1, "variable": "x", "value": "999" },
+      { "line": 7, "variable": "x", "value": "1" },
+      { "line": 2, "variable": "x", "value": "999" },
+      { "line": 2, "variable": "b", "value": "999" },
+      { "line": 8, "variable": "a", "value": "1" },
+      { "line": 8, "variable": "b", "value": "999" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1 999"],
+    "inputMode": "final-only",
+    "teachMe": "Side-by-side proof: byval_set leaves a=1; byref_set writes b=999. Output: '1 999'."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "R-05",
+    "code": "void load(int &result) {\n  result = result * 2;\n  result = result + 5;\n}\nint main() {\n  int data = 4;\n  load(data);\n  cout << data;  // prints ___\n}",
+    "clozeSentence": "Output value:",
+    "answer": "13",
+    "explanation": "& makes mutations persist. 4 * 2 = 8, then 8 + 5 = 13. data is 13 after load."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-05",
+    "code": "void real_swap(int &a, int &b) {\n  int t = a;\n  a = b;\n  b = t;\n}\nint main() {\n  int p1 = 7, p2 = 13;\n  real_swap(p1, p2);\n  cout << p1;  // prints ___\n}",
+    "clozeSentence": "Output value:",
+    "answer": "13",
+    "explanation": "real_swap with & actually swaps caller's variables. p1 becomes 13."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-05",
+    "code": "void double_it(int &val) {\n  val = val ___ 2;\n}\nint main() {\n  int n = 6;\n  double_it(n); double_it(n);\n  cout << n; // prints 24\n}",
+    "clozeSentence": "Operator that turns 6 into 12 in one call:",
+    "answer": "*",
+    "explanation": "val = val * 2 doubles n via the & alias. Two calls: 6 -> 12 -> 24."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-05",
+    "code": "// Function uses & so the change ___ in caller after return.\nvoid update(int &x) { x = 100; }",
+    "clozeSentence": "Fill: 'change ___ in caller' (verb)",
+    "answer": "persists",
+    "explanation": "& parameter mutations persist after the function returns; caller sees the new value."
+  },
+
+  {
+    "type": "write",
+    "atomId": "R-05",
+    "level": 1,
+    "spec": "What does this print? `void load(int &r) { r = 100; } int main() { int data = 5; load(data); cout << data; }`",
+    "expectedAnswer": "100",
+    "keyChecks": ["100"],
+    "explanation": "& on r means writing r writes data. Output: 100."
+  },
+  {
+    "type": "write",
+    "atomId": "R-05",
+    "level": 1,
+    "spec": "What does this print? `void f(int &x) { x = x * 3; } int main() { int n = 4; f(n); cout << n; }`",
+    "expectedAnswer": "12",
+    "keyChecks": ["12"],
+    "explanation": "x is alias for n. n = 4 * 3 = 12 after the call."
+  },
+  {
+    "type": "write",
+    "atomId": "R-05",
+    "level": 2,
+    "spec": "Complete the body so this writes 100 into the caller's variable through the reference",
+    "template": "void load(int &result) {\n  ___\n}\nint main() {\n  int data = 5;\n  load(data);\n  // data is now 100\n}",
+    "expectedAnswer": "void load(int &result) {\n  result = 100;\n}\nint main() {\n  int data = 5;\n  load(data);\n  // data is now 100\n}",
+    "keyChecks": ["void load(int &result)", "result = 100;"],
+    "explanation": "result aliases data. result = 100 makes data = 100."
+  },
+  {
+    "type": "write",
+    "atomId": "R-05",
+    "level": 3,
+    "spec": "Write a complete program: parse_two(int &a, int &b) sets a = 10 and b = 20. main() declares int x = 0 and int y = 0, calls parse_two(x, y), prints x then space then y. Output: '10 20'.",
+    "expectedAnswer": "void parse_two(int &a, int &b) {\n  a = 10;\n  b = 20;\n}\nint main() {\n  int x = 0;\n  int y = 0;\n  parse_two(x, y);\n  cout << x << \" \" << y << endl;\n  return 0;\n}",
+    "keyChecks": ["void parse_two(int &a, int &b)", "a = 10;", "b = 20;", "int x = 0;", "int y = 0;", "parse_two(x, y);", "cout << x", "&"],
+    "explanation": "Two & params: a writes x; b writes y. Output: '10 20'."
+  },
+  {
+    "type": "write",
+    "atomId": "R-05",
+    "level": 3,
+    "spec": "Write a complete program: real_swap(int &a, int &b) swaps a and b using a temp. main() declares int p1 = 7 and int p2 = 13, calls real_swap(p1, p2), prints p1 then space then p2. Output: '13 7'.",
+    "expectedAnswer": "void real_swap(int &a, int &b) {\n  int t = a;\n  a = b;\n  b = t;\n}\nint main() {\n  int p1 = 7;\n  int p2 = 13;\n  real_swap(p1, p2);\n  cout << p1 << \" \" << p2 << endl;\n  return 0;\n}",
+    "keyChecks": ["void real_swap(int &a, int &b)", "int t = a;", "a = b;", "b = t;", "real_swap(p1, p2);", "cout << p1", "&"],
+    "explanation": "& on both params makes the swap real: p1 and p2 truly exchange values."
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "R-05",
+    "id": "PD-R05-01",
+    "section": "By-reference write demonstrates persistence",
+    "prompt": "Write the body of `void load(int &result)` that sets result to 100 (caller's variable will become 100)",
+    "expectedAnswer": "void load(int &result) {\n  result = 100;\n}",
+    "keyChecks": ["void load(int &result)", "result = 100;"],
+    "variants": [
+      { "prompt": "Write `void zero(int &n)` body that sets n to 0", "expectedAnswer": "void zero(int &n) {\n  n = 0;\n}" },
+      { "prompt": "Write `void ten(int &x)` body that sets x to 10", "expectedAnswer": "void ten(int &x) {\n  x = 10;\n}" }
+    ]
+  },
+
+  {
+    "type": "matrix",
+    "atomId": "R-05",
+    "id": "CM-R05-01",
+    "section": "By-ref mutation pattern",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: by-ref doubler", "code": "void double_it(int &val) {\n  val = val * 2;\n}" },
+      { "label": "Example B: by-ref negate", "code": "void neg(int &n) {\n  n = -n;\n}" }
+    ],
+    "prompt": "Write `void halve(int &v)` that divides v by 2 (by reference).",
+    "expectedAnswer": "void halve(int &v) {\n  v = v / 2;\n}",
+    "keyChecks": ["void halve(int &v)", "v = v / 2;"]
+  },
+
+  {
+    "type": "code-memorize",
+    "atomId": "R-05",
+    "id": "CMEM-R05-01",
+    "section": "By-reference parse two ints",
+    "question": "Type the parse_two example: parse_two(int &a, int &b) sets a=10, b=20. main calls with x=0, y=0. Output: '10 20'.",
+    "code": "void parse_two(int &a, int &b) {\n  a = 10;\n  b = 20;\n}\nint main() {\n  int x = 0;\n  int y = 0;\n  parse_two(x, y);\n  cout << x << \" \" << y << endl;\n  return 0;\n}",
+    "keyChecks": ["void parse_two(int &a, int &b)", "a = 10;", "b = 20;", "parse_two(x, y);", "cout << x"]
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "R-06",
+    "levelLabel": "L9 -> & needs a real variable (counter increment)",
+    "fullCode": "void inc(int &x) {\n  x = x + 1;\n}\nint main() {\n  int counter = 0;\n  inc(counter);   // OK: counter is a real variable\n  // inc(7);      // ERROR: cannot bind reference to literal\n  cout << counter << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void inc(int &x) {", "annotation": "& parameter requires a real variable as the argument.", "atomIds": ["R-06"] },
+      { "line": 6, "code": "  inc(counter);   // OK: counter is a real variable", "annotation": "Legal: counter has an address; x can alias it.", "atomIds": ["R-06"] },
+      { "line": 7, "code": "  // inc(7);      // ERROR: cannot bind reference to literal", "annotation": "Illegal: 7 is a literal, no address. Compiler refuses.", "atomIds": ["R-06"] },
+      { "line": 8, "code": "  cout << counter << endl;", "annotation": "After inc(counter): counter = 1.", "atomIds": ["R-06"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-06",
+    "levelLabel": "L9 -> declare before passing",
+    "fullCode": "void store(int &slot) {\n  slot = 42;\n}\nint main() {\n  int n;          // declare a variable first\n  store(n);       // pass that variable by reference\n  cout << n << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 5, "code": "  int n;          // declare a variable first", "annotation": "MUST declare a real variable before calling a &-taking function.", "atomIds": ["R-06"] },
+      { "line": 6, "code": "  store(n);       // pass that variable by reference", "annotation": "n exists in memory; the reference can bind to it.", "atomIds": ["R-06"] },
+      { "line": 7, "code": "  cout << n << endl;", "annotation": "store wrote 42 into n's box. Output: 42.", "atomIds": ["R-06"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-06",
+    "levelLabel": "L9 -> no expressions to & param",
+    "fullCode": "void f(int &x) {\n  x = 99;\n}\nint main() {\n  int a = 1;\n  int b = 2;\n  f(a);          // OK\n  // f(a + b);   // ERROR: a+b is a temporary expression\n  cout << a << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 7, "code": "  f(a);          // OK", "annotation": "a is a real variable. Legal to bind reference to it.", "atomIds": ["R-06"] },
+      { "line": 8, "code": "  // f(a + b);   // ERROR: a+b is a temporary expression", "annotation": "a + b is a transient value (3). It has no fixed home. Reference cannot bind.", "atomIds": ["R-06"] },
+      { "line": 9, "code": "  cout << a << endl;", "annotation": "After f(a): a was overwritten to 99. Output: 99.", "atomIds": ["R-06"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "R-06",
+    "code": "void inc(int &x) {\n  x = x + 1;\n}\nint main() {\n  int counter = 0;\n  inc(counter);\n  cout << counter << endl;\n  return 0;\n}",
+    "variables": ["counter", "x"],
+    "expectedSteps": [
+      { "line": 5, "variable": "counter", "value": "0" },
+      { "line": 6, "variable": "x", "value": "0" },
+      { "line": 2, "variable": "x", "value": "1" },
+      { "line": 2, "variable": "counter", "value": "1" },
+      { "line": 7, "variable": "counter", "value": "1" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["1"],
+    "inputMode": "final-only",
+    "teachMe": "counter is a real variable, so x can bind to it. counter goes 0 -> 1."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-06",
+    "code": "void store(int &slot) {\n  slot = 42;\n}\nint main() {\n  int n = -1;\n  store(n);\n  cout << n << endl;\n  return 0;\n}",
+    "variables": ["n", "slot"],
+    "expectedSteps": [
+      { "line": 5, "variable": "n", "value": "-1" },
+      { "line": 6, "variable": "slot", "value": "-1" },
+      { "line": 2, "variable": "slot", "value": "42" },
+      { "line": 2, "variable": "n", "value": "42" },
+      { "line": 7, "variable": "n", "value": "42" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["42"],
+    "inputMode": "final-only",
+    "teachMe": "n is a real variable. slot binds to it; slot = 42 writes n's box."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-06",
+    "code": "void f(int &x) {\n  x = 99;\n}\nint main() {\n  int a = 1;\n  f(a);\n  cout << a << endl;\n  return 0;\n}",
+    "variables": ["a", "x"],
+    "expectedSteps": [
+      { "line": 5, "variable": "a", "value": "1" },
+      { "line": 6, "variable": "x", "value": "1" },
+      { "line": 2, "variable": "x", "value": "99" },
+      { "line": 2, "variable": "a", "value": "99" },
+      { "line": 7, "variable": "a", "value": "99" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["99"],
+    "inputMode": "final-only",
+    "teachMe": "a is a real variable; legal to pass to f(int &x). x = 99 -> a = 99."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-06",
+    "code": "void g(int &v) {\n  v = v * 10;\n}\nint main() {\n  int score = 4;\n  g(score);\n  g(score);\n  cout << score << endl;\n  return 0;\n}",
+    "variables": ["score", "v"],
+    "expectedSteps": [
+      { "line": 5, "variable": "score", "value": "4" },
+      { "line": 6, "variable": "v", "value": "4" },
+      { "line": 2, "variable": "v", "value": "40" },
+      { "line": 2, "variable": "score", "value": "40" },
+      { "line": 7, "variable": "v", "value": "40" },
+      { "line": 2, "variable": "v", "value": "400" },
+      { "line": 2, "variable": "score", "value": "400" },
+      { "line": 8, "variable": "score", "value": "400" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["400"],
+    "inputMode": "final-only",
+    "teachMe": "score is real; legal arg for &. Each call multiplies by 10. 4 -> 40 -> 400."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-06",
+    "code": "void zero_it(int &x) {\n  x = 0;\n}\nint main() {\n  int balance;\n  balance = 250;\n  zero_it(balance);\n  cout << balance << endl;\n  return 0;\n}",
+    "variables": ["balance", "x"],
+    "expectedSteps": [
+      { "line": 6, "variable": "balance", "value": "250" },
+      { "line": 7, "variable": "x", "value": "250" },
+      { "line": 2, "variable": "x", "value": "0" },
+      { "line": 2, "variable": "balance", "value": "0" },
+      { "line": 8, "variable": "balance", "value": "0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["0"],
+    "inputMode": "final-only",
+    "teachMe": "balance was declared before the call. Reference parameter binds; x = 0 zeroes balance."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "R-06",
+    "code": "void inc(int &x) { x = x + 1; }\n// Which call is LEGAL?\n// A) inc(7)\n// B) inc(counter)\nLegal: ___",
+    "clozeSentence": "Letter of the legal call:",
+    "answer": "B",
+    "explanation": "& needs a real variable. inc(7) is illegal because 7 has no address. inc(counter) works."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-06",
+    "code": "void store(int &slot) { slot = 42; }\nint main() {\n  ___;        // declare a variable here\n  store(n);\n  cout << n;\n}",
+    "clozeSentence": "Fill in the declaration so store(n) is legal",
+    "answer": "int n",
+    "explanation": "Reference parameter requires a real variable; declare one first."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-06",
+    "code": "void f(int &x) { x = 99; }\nint a = 1, b = 2;\n// f(a + b) is illegal because a+b is a ___\n// (no fixed memory home)",
+    "clozeSentence": "Word for a transient computed value with no permanent location",
+    "answer": "temporary",
+    "explanation": "a + b creates a temporary; references can't bind to temporaries."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-06",
+    "code": "void inc(int &x) { x = x + 1; }\nint main() {\n  int counter = 0;\n  ___(counter);    // call inc on counter\n  cout << counter; // prints 1\n}",
+    "clozeSentence": "Function name to call:",
+    "answer": "inc",
+    "explanation": "Pass counter (real variable) to inc by reference. Output: 1."
+  },
+
+  {
+    "type": "write",
+    "atomId": "R-06",
+    "level": 1,
+    "spec": "Given `void inc(int &x);` -- write a legal main() body line that declares an int counter and calls inc on it",
+    "expectedAnswer": "int counter = 0; inc(counter);",
+    "keyChecks": ["int counter", "inc(counter)"],
+    "explanation": "Declare a real variable first, then call inc with that variable name."
+  },
+  {
+    "type": "write",
+    "atomId": "R-06",
+    "level": 1,
+    "spec": "Given `void store(int &slot);` -- write a legal main body that declares int n and calls store on it (one line OK)",
+    "expectedAnswer": "int n = 0; store(n);",
+    "keyChecks": ["int n", "store(n)"],
+    "explanation": "n must exist as a real variable before the call."
+  },
+  {
+    "type": "write",
+    "atomId": "R-06",
+    "level": 2,
+    "spec": "Complete the main() body so that inc(counter) is legal and the program prints 1",
+    "template": "void inc(int &x) {\n  x = x + 1;\n}\nint main() {\n  ___\n  inc(counter);\n  cout << counter << endl;\n  return 0;\n}",
+    "expectedAnswer": "void inc(int &x) {\n  x = x + 1;\n}\nint main() {\n  int counter = 0;\n  inc(counter);\n  cout << counter << endl;\n  return 0;\n}",
+    "keyChecks": ["int counter = 0;", "inc(counter);"],
+    "explanation": "Reference parameter needs a real variable; declare counter first."
+  },
+  {
+    "type": "write",
+    "atomId": "R-06",
+    "level": 3,
+    "spec": "Write a complete program with inc(int &x) that adds 1 to x. main() must declare int counter = 0, call inc(counter), then print counter. Output: 1.",
+    "expectedAnswer": "void inc(int &x) {\n  x = x + 1;\n}\nint main() {\n  int counter = 0;\n  inc(counter);\n  cout << counter << endl;\n  return 0;\n}",
+    "keyChecks": ["void inc(int &x)", "x = x + 1;", "int counter = 0;", "inc(counter);", "cout << counter", "&"],
+    "explanation": "Real variable counter is bound to x. Output: 1."
+  },
+  {
+    "type": "write",
+    "atomId": "R-06",
+    "level": 3,
+    "spec": "Write a complete program with store(int &slot) that sets slot = 42. main() declares int n and calls store(n), then prints n. Output: 42.",
+    "expectedAnswer": "void store(int &slot) {\n  slot = 42;\n}\nint main() {\n  int n = 0;\n  store(n);\n  cout << n << endl;\n  return 0;\n}",
+    "keyChecks": ["void store(int &slot)", "slot = 42;", "int n", "store(n);", "cout << n", "&"],
+    "explanation": "n is a real variable -- legal target for &. store writes 42 into n."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "R-07",
+    "levelLabel": "L9 -> const & is read-only alias",
+    "fullCode": "struct user_data {\n  string username;\n};\nvoid print_user(const user_data &user) {\n  cout << user.username << endl;\n}\nint main() {\n  user_data u;\n  u.username = \"alice\";\n  print_user(u);\n  return 0;\n}",
+    "steps": [
+      { "line": 4, "code": "void print_user(const user_data &user) {", "annotation": "const before user_data: function may read but not write through user.", "atomIds": ["R-07"] },
+      { "line": 5, "code": "  cout << user.username << endl;", "annotation": "Reading is fine. user.username = \"x\" would be a compile error.", "atomIds": ["R-07"] },
+      { "line": 10, "code": "  print_user(u);", "annotation": "u is bound to user. The function sees alice's data without copying.", "atomIds": ["R-07"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-07",
+    "levelLabel": "L9 -> const & for read-only access",
+    "fullCode": "struct ticket {\n  int seat;\n  double price;\n};\nvoid show_ticket(const ticket &t) {\n  cout << t.seat << \" $\" << t.price << endl;\n}\nint main() {\n  ticket my_ticket;\n  my_ticket.seat = 12;\n  my_ticket.price = 49.95;\n  show_ticket(my_ticket);\n  return 0;\n}",
+    "steps": [
+      { "line": 5, "code": "void show_ticket(const ticket &t) {", "annotation": "const ticket &t: shares t with caller (no copy), but read-only.", "atomIds": ["R-07"] },
+      { "line": 6, "code": "  cout << t.seat << \" $\" << t.price << endl;", "annotation": "Reading fields is legal; assigning would be a compile error.", "atomIds": ["R-07"] },
+      { "line": 12, "code": "  show_ticket(my_ticket);", "annotation": "Pass struct by const &: caller's struct is safe and unchanged.", "atomIds": ["R-07"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-07",
+    "levelLabel": "L9 -> const blocks mutation",
+    "fullCode": "void print_value(const int &x) {\n  cout << x << endl;\n  // x = 100;  // ERROR: cannot modify const reference\n}\nint main() {\n  int score = 50;\n  print_value(score);\n  return 0;\n}",
+    "steps": [
+      { "line": 1, "code": "void print_value(const int &x) {", "annotation": "const int &x: x is a reference, but const blocks any write through it.", "atomIds": ["R-07"] },
+      { "line": 3, "code": "  // x = 100;  // ERROR: cannot modify const reference", "annotation": "Even though x aliases score, const stops you from writing.", "atomIds": ["R-07"] },
+      { "line": 7, "code": "  print_value(score);", "annotation": "Reads score's value (50). score is guaranteed safe from mutation.", "atomIds": ["R-07"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "R-07",
+    "code": "struct user_data { string username; };\nvoid print_user(const user_data &user) {\n  cout << user.username << endl;\n}\nint main() {\n  user_data u;\n  u.username = \"alice\";\n  print_user(u);\n  return 0;\n}",
+    "variables": ["u.username"],
+    "expectedSteps": [
+      { "line": 7, "variable": "u.username", "value": "\"alice\"" },
+      { "line": 8, "variable": "u.username", "value": "\"alice\"" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["alice"],
+    "inputMode": "final-only",
+    "teachMe": "const & is read-only alias. print_user reads u.username = 'alice'. u unchanged."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-07",
+    "code": "struct ticket { int seat; double price; };\nvoid show_ticket(const ticket &t) {\n  cout << t.seat << \" $\" << t.price << endl;\n}\nint main() {\n  ticket my_ticket;\n  my_ticket.seat = 12;\n  my_ticket.price = 49.95;\n  show_ticket(my_ticket);\n  return 0;\n}",
+    "variables": ["my_ticket.seat", "my_ticket.price"],
+    "expectedSteps": [
+      { "line": 7, "variable": "my_ticket.seat", "value": "12" },
+      { "line": 8, "variable": "my_ticket.price", "value": "49.95" },
+      { "line": 9, "variable": "my_ticket.seat", "value": "12" },
+      { "line": 9, "variable": "my_ticket.price", "value": "49.95" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["12 $49.95"],
+    "inputMode": "final-only",
+    "teachMe": "const ticket &t lets show_ticket read fields. my_ticket is safe from mutation."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-07",
+    "code": "void print_value(const int &x) {\n  cout << x << endl;\n}\nint main() {\n  int score = 50;\n  print_value(score);\n  return 0;\n}",
+    "variables": ["score", "x"],
+    "expectedSteps": [
+      { "line": 5, "variable": "score", "value": "50" },
+      { "line": 6, "variable": "x", "value": "50" },
+      { "line": 2, "variable": "score", "value": "50" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["50"],
+    "inputMode": "final-only",
+    "teachMe": "const int &x: x is a read-only alias. The function prints 50; score remains 50."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "R-07",
+    "code": "void print_user(___ user_data &user) {\n  cout << user.username << endl;\n}",
+    "clozeSentence": "Fill in the keyword that makes this a read-only reference parameter",
+    "answer": "const",
+    "explanation": "const before the type makes the reference read-only inside the function."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-07",
+    "code": "void show_ticket(const ticket &t) {\n  cout << t.seat;\n  // t.seat = 99;  // ___ : cannot write through const &\n}",
+    "clozeSentence": "Word that describes what the compiler reports for the commented line",
+    "answer": "ERROR",
+    "explanation": "Compiler ERROR: cannot mutate through a const reference."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-07",
+    "code": "// const & means: read-only ___ to caller's variable",
+    "clozeSentence": "Single word that names the relationship a reference creates",
+    "answer": "alias",
+    "explanation": "const & is a read-only alias to the caller's variable."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-07",
+    "code": "void print(const int &x) {\n  cout << ___;  // print x\n}",
+    "clozeSentence": "Variable to print:",
+    "answer": "x",
+    "explanation": "Read x via const & alias. Output is the value of caller's int."
+  },
+
+  {
+    "type": "write",
+    "atomId": "R-07",
+    "level": 1,
+    "spec": "Write a void function header for print_user that takes a user_data BY READ-ONLY REFERENCE, parameter named user",
+    "expectedAnswer": "void print_user(const user_data &user)",
+    "keyChecks": ["void", "print_user", "const", "user_data", "&", "user"],
+    "explanation": "const + & = read-only alias. Cannot mutate user inside the function."
+  },
+  {
+    "type": "write",
+    "atomId": "R-07",
+    "level": 1,
+    "spec": "Write a void function header for show_ticket taking a ticket BY READ-ONLY REFERENCE, parameter named t",
+    "expectedAnswer": "void show_ticket(const ticket &t)",
+    "keyChecks": ["void", "show_ticket", "const", "ticket", "&", "t"],
+    "explanation": "const ticket &t makes t a read-only alias to the caller's ticket."
+  },
+  {
+    "type": "write",
+    "atomId": "R-07",
+    "level": 2,
+    "spec": "Complete the body to print user.username (no mutation allowed)",
+    "template": "void print_user(const user_data &user) {\n  ___\n}",
+    "expectedAnswer": "void print_user(const user_data &user) {\n  cout << user.username << endl;\n}",
+    "keyChecks": ["void print_user(const user_data &user)", "cout << user.username", "const"],
+    "explanation": "const blocks writes; cout << user.username is read-only and legal."
+  },
+  {
+    "type": "write",
+    "atomId": "R-07",
+    "level": 3,
+    "spec": "Write a complete program: struct user_data with one field string username. print_user(const user_data &user) prints user.username. main() declares user_data u, sets u.username = \"alice\", calls print_user(u). Output: alice.",
+    "expectedAnswer": "struct user_data {\n  string username;\n};\nvoid print_user(const user_data &user) {\n  cout << user.username << endl;\n}\nint main() {\n  user_data u;\n  u.username = \"alice\";\n  print_user(u);\n  return 0;\n}",
+    "keyChecks": ["struct user_data", "string username;", "};", "void print_user(const user_data &user)", "cout << user.username", "u.username = \"alice\";", "print_user(u);", "const", "&"],
+    "explanation": "const & lets print_user read u without mutation. Output: alice."
+  },
+  {
+    "type": "write",
+    "atomId": "R-07",
+    "level": 3,
+    "spec": "Write a complete program: struct ticket with int seat and double price. show_ticket(const ticket &t) prints seat and price. main() sets seat=12, price=49.95, calls show_ticket. Use const &.",
+    "expectedAnswer": "struct ticket {\n  int seat;\n  double price;\n};\nvoid show_ticket(const ticket &t) {\n  cout << t.seat << \" $\" << t.price << endl;\n}\nint main() {\n  ticket my_ticket;\n  my_ticket.seat = 12;\n  my_ticket.price = 49.95;\n  show_ticket(my_ticket);\n  return 0;\n}",
+    "keyChecks": ["struct ticket", "int seat;", "double price;", "};", "void show_ticket(const ticket &t)", "cout << t.seat", "show_ticket(my_ticket);", "const", "&"],
+    "explanation": "const ticket &t passes the struct by read-only reference. Efficient and safe."
+  },
+
+  {
+    "type": "walkthrough",
+    "atomId": "R-08",
+    "levelLabel": "L9 -> two names label one box",
+    "fullCode": "void mark(int &x) {\n  x = 99;\n}\nint main() {\n  int n = 7;\n  mark(n);\n  cout << n << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 5, "code": "  int n = 7;", "annotation": "ONE box. ONE label: 'n'. Value 7.", "atomIds": ["R-08"] },
+      { "line": 6, "code": "  mark(n);", "annotation": "Now the SAME box has TWO labels: 'n' (caller's) and 'x' (function's). One memory cell, two names.", "atomIds": ["R-08"] },
+      { "line": 2, "code": "  x = 99;", "annotation": "Write through label x. The box value is now 99. Box still has both labels.", "atomIds": ["R-08"] },
+      { "line": 7, "code": "  cout << n << endl;", "annotation": "After return, label 'x' is gone (function frame ended). Box keeps value 99 with label 'n'. Output: 99.", "atomIds": ["R-08"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-08",
+    "levelLabel": "L9 -> alias = same memory cell",
+    "fullCode": "void grow(int &val) {\n  val = val * 2;\n}\nint main() {\n  int total = 25;\n  grow(total);\n  cout << total << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 5, "code": "  int total = 25;", "annotation": "Box: {labels: [total], value: 25}.", "atomIds": ["R-08"] },
+      { "line": 6, "code": "  grow(total);", "annotation": "Box: {labels: [total, val], value: 25}. Same box, two names.", "atomIds": ["R-08"] },
+      { "line": 2, "code": "  val = val * 2;", "annotation": "Read 25 via val, write 50 via val. Box: {labels: [total, val], value: 50}.", "atomIds": ["R-08"] },
+      { "line": 7, "code": "  cout << total << endl;", "annotation": "val label removed at frame exit. Box: {labels: [total], value: 50}. Output: 50.", "atomIds": ["R-08"] }
+    ]
+  },
+  {
+    "type": "walkthrough",
+    "atomId": "R-08",
+    "levelLabel": "L9 -> no extra box for reference",
+    "fullCode": "void log_and_set(int &m) {\n  cout << m << endl;\n  m = 0;\n}\nint main() {\n  int reading = 88;\n  log_and_set(reading);\n  cout << reading << endl;\n  return 0;\n}",
+    "steps": [
+      { "line": 6, "code": "  int reading = 88;", "annotation": "One box, label 'reading', value 88.", "atomIds": ["R-08"] },
+      { "line": 7, "code": "  log_and_set(reading);", "annotation": "m is BOUND to reading. NO new box. Same box now has labels 'reading' and 'm'.", "atomIds": ["R-08"] },
+      { "line": 2, "code": "  cout << m << endl;", "annotation": "Read box via label m: value 88. Print '88'.", "atomIds": ["R-08"] },
+      { "line": 3, "code": "  m = 0;", "annotation": "Write 0 via m. Box value now 0. Both labels still attached during the call.", "atomIds": ["R-08"] },
+      { "line": 8, "code": "  cout << reading << endl;", "annotation": "Read box via label reading: value 0. Print '0'.", "atomIds": ["R-08"] }
+    ]
+  },
+
+  {
+    "type": "trace",
+    "atomId": "R-08",
+    "code": "void mark(int &x) {\n  x = 99;\n}\nint main() {\n  int n = 7;\n  mark(n);\n  cout << n << endl;\n  return 0;\n}",
+    "variables": ["n", "x"],
+    "expectedSteps": [
+      { "line": 5, "variable": "n", "value": "7" },
+      { "line": 6, "variable": "x", "value": "7" },
+      { "line": 2, "variable": "x", "value": "99" },
+      { "line": 2, "variable": "n", "value": "99" },
+      { "line": 7, "variable": "n", "value": "99" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["99"],
+    "inputMode": "final-only",
+    "teachMe": "x and n are two names for one box. mark sets the box to 99 via x; n sees 99."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-08",
+    "code": "void grow(int &val) {\n  val = val * 2;\n}\nint main() {\n  int total = 25;\n  grow(total);\n  cout << total << endl;\n  return 0;\n}",
+    "variables": ["total", "val"],
+    "expectedSteps": [
+      { "line": 5, "variable": "total", "value": "25" },
+      { "line": 6, "variable": "val", "value": "25" },
+      { "line": 2, "variable": "val", "value": "50" },
+      { "line": 2, "variable": "total", "value": "50" },
+      { "line": 7, "variable": "total", "value": "50" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["50"],
+    "inputMode": "final-only",
+    "teachMe": "total and val label the same box. Doubling via val sees the box go 25 -> 50."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-08",
+    "code": "void log_and_set(int &m) {\n  cout << m << endl;\n  m = 0;\n}\nint main() {\n  int reading = 88;\n  log_and_set(reading);\n  cout << reading << endl;\n  return 0;\n}",
+    "variables": ["reading", "m"],
+    "expectedSteps": [
+      { "line": 6, "variable": "reading", "value": "88" },
+      { "line": 7, "variable": "m", "value": "88" },
+      { "line": 3, "variable": "m", "value": "0" },
+      { "line": 3, "variable": "reading", "value": "0" },
+      { "line": 8, "variable": "reading", "value": "0" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["88", "0"],
+    "inputMode": "final-only",
+    "teachMe": "m and reading point to one box. Print 88 via m, then write 0 via m. Final reading is 0."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-08",
+    "code": "void chain(int &p) {\n  p = p + 1;\n  p = p + 1;\n  p = p + 1;\n}\nint main() {\n  int level = 10;\n  chain(level);\n  cout << level << endl;\n  return 0;\n}",
+    "variables": ["level", "p"],
+    "expectedSteps": [
+      { "line": 7, "variable": "level", "value": "10" },
+      { "line": 8, "variable": "p", "value": "10" },
+      { "line": 2, "variable": "p", "value": "11" },
+      { "line": 2, "variable": "level", "value": "11" },
+      { "line": 3, "variable": "p", "value": "12" },
+      { "line": 3, "variable": "level", "value": "12" },
+      { "line": 4, "variable": "p", "value": "13" },
+      { "line": 4, "variable": "level", "value": "13" },
+      { "line": 9, "variable": "level", "value": "13" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["13"],
+    "inputMode": "final-only",
+    "teachMe": "Three writes through p hit the same box that level labels. 10 -> 11 -> 12 -> 13."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-08",
+    "code": "void f(int &x, int &y) {\n  x = 100;\n  y = x;\n}\nint main() {\n  int a = 1;\n  int b = 2;\n  f(a, b);\n  cout << a << \" \" << b << endl;\n  return 0;\n}",
+    "variables": ["a", "b", "x", "y"],
+    "expectedSteps": [
+      { "line": 6, "variable": "a", "value": "1" },
+      { "line": 7, "variable": "b", "value": "2" },
+      { "line": 8, "variable": "x", "value": "1" },
+      { "line": 8, "variable": "y", "value": "2" },
+      { "line": 2, "variable": "x", "value": "100" },
+      { "line": 2, "variable": "a", "value": "100" },
+      { "line": 3, "variable": "y", "value": "100" },
+      { "line": 3, "variable": "b", "value": "100" },
+      { "line": 9, "variable": "a", "value": "100" },
+      { "line": 9, "variable": "b", "value": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["100 100"],
+    "inputMode": "final-only",
+    "teachMe": "x labels a's box; y labels b's box. x = 100 -> a = 100. y = x reads x's box (100), writes b. Both 100."
+  },
+
+  {
+    "type": "cloze",
+    "atomId": "R-08",
+    "code": "// During mark(n), the box has labels: ___ and x\nvoid mark(int &x) { x = 99; }\nint main() {\n  int n = 7;\n  mark(n);\n}",
+    "clozeSentence": "Other label on the box during the call:",
+    "answer": "n",
+    "explanation": "When mark(n) is called, n's box has both labels: n (caller's) and x (param's)."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-08",
+    "code": "void f(int &x) { x = 99; }\nint main() {\n  int n = 7;\n  f(n);\n  cout << n;  // prints ___\n}",
+    "clozeSentence": "Output value:",
+    "answer": "99",
+    "explanation": "x and n label the same box. f sets the box to 99."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-08",
+    "code": "// reference creates ___ box(es) for the parameter (number)",
+    "clozeSentence": "How many EXTRA boxes does a reference parameter create?",
+    "answer": "0",
+    "explanation": "Zero extra boxes. The reference is just another label on the caller's existing box."
+  },
+  {
+    "type": "cloze",
+    "atomId": "R-08",
+    "code": "void grow(int &val) { val = val * 2; }\nint main() {\n  int total = 25;\n  grow(total);\n  cout << total;  // ___\n}",
+    "clozeSentence": "Number printed:",
+    "answer": "50",
+    "explanation": "val and total are the same box. Doubling via val: 25 -> 50."
+  },
+
+  {
+    "type": "write",
+    "atomId": "R-08",
+    "level": 1,
+    "spec": "Given `void f(int &x) { x = 99; } int n = 7; f(n);` -- after the call, what value does cout << n print?",
+    "expectedAnswer": "99",
+    "keyChecks": ["99"],
+    "explanation": "x and n are aliases (one box, two names). f sets the box to 99."
+  },
+  {
+    "type": "write",
+    "atomId": "R-08",
+    "level": 1,
+    "spec": "Given `void grow(int &val) { val = val * 2; } int total = 25; grow(total);` -- what value does cout << total print after the call?",
+    "expectedAnswer": "50",
+    "keyChecks": ["50"],
+    "explanation": "Reference: total and val same box. 25 * 2 = 50."
+  },
+  {
+    "type": "write",
+    "atomId": "R-08",
+    "level": 2,
+    "spec": "Complete the body so two names share one box: chain adds 1 three times to its parameter (caller sees 13 if input was 10)",
+    "template": "void chain(int &p) {\n  ___\n  ___\n  ___\n}\n// after chain(level) where level was 10, level is 13",
+    "expectedAnswer": "void chain(int &p) {\n  p = p + 1;\n  p = p + 1;\n  p = p + 1;\n}\n// after chain(level) where level was 10, level is 13",
+    "keyChecks": ["void chain(int &p)", "p = p + 1;"],
+    "explanation": "Three writes through p hit the same box level labels. 10 -> 11 -> 12 -> 13."
+  },
+  {
+    "type": "write",
+    "atomId": "R-08",
+    "level": 3,
+    "spec": "Write a complete program: mark(int &x) sets x = 99. main() declares int n = 7, calls mark(n), prints n. Output: 99. (One box, two names.)",
+    "expectedAnswer": "void mark(int &x) {\n  x = 99;\n}\nint main() {\n  int n = 7;\n  mark(n);\n  cout << n << endl;\n  return 0;\n}",
+    "keyChecks": ["void mark(int &x)", "x = 99;", "int n = 7;", "mark(n);", "cout << n", "&"],
+    "explanation": "x is an alias for n (one box, two labels). x = 99 writes n's box."
+  },
+  {
+    "type": "write",
+    "atomId": "R-08",
+    "level": 3,
+    "spec": "Write a complete program: log_and_set(int &m) prints m then sets m = 0. main() has int reading = 88, calls log_and_set, then prints reading. Output: '88' then '0' on separate lines.",
+    "expectedAnswer": "void log_and_set(int &m) {\n  cout << m << endl;\n  m = 0;\n}\nint main() {\n  int reading = 88;\n  log_and_set(reading);\n  cout << reading << endl;\n  return 0;\n}",
+    "keyChecks": ["void log_and_set(int &m)", "cout << m", "m = 0;", "int reading = 88;", "log_and_set(reading);", "cout << reading", "&"],
+    "explanation": "m and reading are the same box. Print 88 via m, write 0 via m, then print reading -> 0."
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "R-08",
+    "id": "PD-R08-01",
+    "section": "Reference = one box, two names",
+    "prompt": "Write the body of `void mark(int &x)` that sets x to 99 (caller's variable will become 99 because x is its alias)",
+    "expectedAnswer": "void mark(int &x) {\n  x = 99;\n}",
+    "keyChecks": ["void mark(int &x)", "x = 99;"],
+    "variants": [
+      { "prompt": "Write `void grow(int &val)` body that doubles val", "expectedAnswer": "void grow(int &val) {\n  val = val * 2;\n}" },
+      { "prompt": "Write `void zero(int &p)` body that sets p to 0", "expectedAnswer": "void zero(int &p) {\n  p = 0;\n}" }
+    ]
+  },
+
+  {
+    "type": "matrix",
+    "atomId": "R-08",
+    "id": "CM-R08-01",
+    "section": "One box two names progression",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: increment via alias", "code": "void inc(int &x) {\n  x = x + 1;\n}" },
+      { "label": "Example B: zero via alias", "code": "void zero(int &x) {\n  x = 0;\n}" }
+    ],
+    "prompt": "Write `void mark(int &x)` that sets x to 99 via the alias.",
+    "expectedAnswer": "void mark(int &x) {\n  x = 99;\n}",
+    "keyChecks": ["void mark(int &x)", "x = 99;"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "R-03",
+    "id": "CM-R03-01",
+    "section": "By-ref signature transfer",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: int by reference", "code": "void inc(int &n) {\n  n = n + 1;\n}" },
+      { "label": "Example B: double by reference", "code": "void shift(double &x) {\n  x = x + 1.0;\n}" }
+    ],
+    "prompt": "Write `void capitalize_set(string &s)` that sets s to \"DONE\" by reference.",
+    "expectedAnswer": "void capitalize_set(string &s) {\n  s = \"DONE\";\n}",
+    "keyChecks": ["void capitalize_set(string &s)", "s = \"DONE\";"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "R-02",
+    "id": "CM-R02-01",
+    "section": "Pass-by-value mutation lost",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: try to set int", "code": "void try_set(int x) {\n  x = 100;\n}" },
+      { "label": "Example B: try to clear int", "code": "void try_clear(int x) {\n  x = 0;\n}" }
+    ],
+    "prompt": "Write `void try_double(int x)` that doubles x but the caller is unchanged.",
+    "expectedAnswer": "void try_double(int x) {\n  x = x * 2;\n}",
+    "keyChecks": ["void try_double(int x)", "x = x * 2;"]
+  },
+
+  {
+    "type": "code-memorize",
+    "atomId": "R-02",
+    "id": "CMEM-R02-01",
+    "section": "Pass-by-value mutation vanishes",
+    "question": "Type the canonical example: try_swap doesn't actually swap because both params are by value",
+    "code": "void try_swap(int a, int b) {\n  int t = a;\n  a = b;\n  b = t;\n}\nint main() {\n  int p1 = 10;\n  int p2 = 30;\n  try_swap(p1, p2);\n  cout << p1 << \" \" << p2 << endl;\n  return 0;\n}",
+    "keyChecks": ["void try_swap(int a, int b)", "int t = a;", "a = b;", "b = t;", "try_swap(p1, p2);"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "R-03",
+    "id": "CMEM-R03-01",
+    "section": "Pass-by-reference canonical (sensor)",
+    "question": "Type the sensor example: populate(double &reading) sets reading = 22.5; main passes temp = 0.0",
+    "code": "void populate(double &reading) {\n  reading = 22.5;\n}\nint main() {\n  double temp = 0.0;\n  populate(temp);\n  cout << temp << endl;\n  return 0;\n}",
+    "keyChecks": ["void populate(double &reading)", "reading = 22.5;", "double temp = 0.0;", "populate(temp);"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "R-06",
+    "id": "CMEM-R06-01",
+    "section": "& must bind real variable",
+    "question": "Type the counter example: declare int counter = 0, then call inc(counter) by reference; output 1",
+    "code": "void inc(int &x) {\n  x = x + 1;\n}\nint main() {\n  int counter = 0;\n  inc(counter);\n  cout << counter << endl;\n  return 0;\n}",
+    "keyChecks": ["void inc(int &x)", "x = x + 1;", "int counter = 0;", "inc(counter);"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "R-07",
+    "id": "CMEM-R07-01",
+    "section": "const & read-only access",
+    "question": "Type the const-& example: print_user(const user_data &user) prints user.username",
+    "code": "struct user_data {\n  string username;\n};\nvoid print_user(const user_data &user) {\n  cout << user.username << endl;\n}\nint main() {\n  user_data u;\n  u.username = \"alice\";\n  print_user(u);\n  return 0;\n}",
+    "keyChecks": ["struct user_data", "string username;", "void print_user(const user_data &user)", "cout << user.username", "u.username = \"alice\";"]
+  },
+  {
+    "type": "trace",
+    "atomId": "R-04",
+    "code": "void scale(int &n, int factor) {\n  n = n * factor;\n}\nint main() {\n  int height = 5;\n  scale(height, 3);\n  cout << height << endl;\n  return 0;\n}",
+    "variables": ["height", "n", "factor"],
+    "expectedSteps": [
+      { "line": 5, "variable": "height", "value": "5" },
+      { "line": 6, "variable": "n", "value": "5" },
+      { "line": 6, "variable": "factor", "value": "3" },
+      { "line": 2, "variable": "n", "value": "15" },
+      { "line": 2, "variable": "height", "value": "15" },
+      { "line": 7, "variable": "height", "value": "15" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["15"],
+    "inputMode": "final-only",
+    "teachMe": "Mixed signature: n is reference (alias for height), factor is by value (copy of 3). n = 5*3 = 15."
+  },
+  {
+    "type": "trace",
+    "atomId": "R-08",
+    "code": "void swap_real(int &a, int &b) {\n  int t = a;\n  a = b;\n  b = t;\n}\nint main() {\n  int x = 100;\n  int y = 200;\n  swap_real(x, y);\n  cout << x << \" \" << y << endl;\n  return 0;\n}",
+    "variables": ["x", "y", "a", "b", "t"],
+    "expectedSteps": [
+      { "line": 7, "variable": "x", "value": "100" },
+      { "line": 8, "variable": "y", "value": "200" },
+      { "line": 9, "variable": "a", "value": "100" },
+      { "line": 9, "variable": "b", "value": "200" },
+      { "line": 2, "variable": "t", "value": "100" },
+      { "line": 3, "variable": "a", "value": "200" },
+      { "line": 3, "variable": "x", "value": "200" },
+      { "line": 4, "variable": "b", "value": "100" },
+      { "line": 4, "variable": "y", "value": "100" },
+      { "line": 10, "variable": "x", "value": "200" },
+      { "line": 10, "variable": "y", "value": "100" }
+    ],
+    "userInputs": [],
+    "inputLabels": [],
+    "terminalOutput": ["200 100"],
+    "inputMode": "final-only",
+    "teachMe": "a aliases x, b aliases y. Swap is real because of &. Output: '200 100'."
+  },
+
+  {
+    "type": "procedural",
+    "atomId": "R-03",
+    "id": "PD-R03-01",
+    "section": "By-reference body writes caller",
+    "prompt": "Write the body of `void populate(double &reading)` that sets reading to 22.5",
+    "expectedAnswer": "void populate(double &reading) {\n  reading = 22.5;\n}",
+    "keyChecks": ["void populate(double &reading)", "reading = 22.5;"],
+    "variants": [
+      { "prompt": "Write `void populate(double &reading)` body that sets reading to 17.0", "expectedAnswer": "void populate(double &reading) {\n  reading = 17.0;\n}" },
+      { "prompt": "Write `void populate(double &reading)` body that sets reading to 99.99", "expectedAnswer": "void populate(double &reading) {\n  reading = 99.99;\n}" }
+    ]
+  },
+  {
+    "type": "procedural",
+    "atomId": "R-07",
+    "id": "PD-R07-01",
+    "section": "Const-& read-only signature",
+    "prompt": "Write the void function header for show_ticket taking a ticket BY READ-ONLY REFERENCE, parameter named t",
+    "expectedAnswer": "void show_ticket(const ticket &t)",
+    "keyChecks": ["void", "show_ticket", "const", "ticket", "&", "t"],
+    "variants": [
+      { "prompt": "Write `void print_book(const book &b)` header (read-only by reference)", "expectedAnswer": "void print_book(const book &b)" },
+      { "prompt": "Write `void log_user(const user_data &u)` header (read-only by reference)", "expectedAnswer": "void log_user(const user_data &u)" }
+    ]
+  },
+
+  {
+    "type": "matrix",
+    "atomId": "R-06",
+    "id": "CM-R06-01",
+    "section": "& needs real variable",
+    "matrixType": "progression",
+    "examples": [
+      { "label": "Example A: declare and pass int", "code": "int main() {\n  int counter = 0;\n  inc(counter);\n}" },
+      { "label": "Example B: declare and pass int", "code": "int main() {\n  int n = 0;\n  store(n);\n}" }
+    ],
+    "prompt": "Write a main() that declares int score = 5 then calls boost(score) (assume `void boost(int &x);` exists). Include return 0;.",
+    "expectedAnswer": "int main() {\n  int score = 5;\n  boost(score);\n  return 0;\n}",
+    "keyChecks": ["int main()", "int score = 5;", "boost(score);", "return 0;"]
+  },
+  {
+    "type": "matrix",
+    "atomId": "R-04",
+    "id": "CM-R04-02",
+    "section": "Two & params signature",
+    "matrixType": "entity",
+    "examples": [
+      { "label": "Example A: one int by ref", "code": "void inc(int &x) {\n  x = x + 1;\n}" },
+      { "label": "Example B: two ints by ref", "code": "void parse_two(int &a, int &b) {\n  a = 10;\n  b = 20;\n}" }
+    ],
+    "prompt": "Write `void real_swap(int &a, int &b)` that swaps a and b using a temp.",
+    "expectedAnswer": "void real_swap(int &a, int &b) {\n  int t = a;\n  a = b;\n  b = t;\n}",
+    "keyChecks": ["void real_swap(int &a, int &b)", "int t = a;", "a = b;", "b = t;"]
+  },
+
+  {
+    "type": "code-memorize",
+    "atomId": "R-08",
+    "id": "CMEM-R08-01",
+    "section": "One box, two names",
+    "question": "Type the canonical mark example: void mark(int &x) sets x = 99; main has int n = 7, calls mark(n), outputs 99",
+    "code": "void mark(int &x) {\n  x = 99;\n}\nint main() {\n  int n = 7;\n  mark(n);\n  cout << n << endl;\n  return 0;\n}",
+    "keyChecks": ["void mark(int &x)", "x = 99;", "int n = 7;", "mark(n);", "cout << n"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "R-05",
+    "id": "CMEM-R05-02",
+    "section": "Real swap by reference",
+    "question": "Type the real swap: real_swap(int &a, int &b) actually swaps caller variables p1=7 and p2=13",
+    "code": "void real_swap(int &a, int &b) {\n  int t = a;\n  a = b;\n  b = t;\n}\nint main() {\n  int p1 = 7;\n  int p2 = 13;\n  real_swap(p1, p2);\n  cout << p1 << \" \" << p2 << endl;\n  return 0;\n}",
+    "keyChecks": ["void real_swap(int &a, int &b)", "int t = a;", "a = b;", "b = t;", "real_swap(p1, p2);"]
+  },
+  {
+    "type": "code-memorize",
+    "atomId": "R-04",
+    "id": "CMEM-R04-02",
+    "section": "By-ref signature shape (update)",
+    "question": "Type the update example: update(int &value) sets value = 100; main has int score = 50; output 100",
+    "code": "void update(int &value) {\n  value = 100;\n}\nint main() {\n  int score = 50;\n  update(score);\n  cout << score << endl;\n  return 0;\n}",
+    "keyChecks": ["void update(int &value)", "value = 100;", "int score = 50;", "update(score);", "cout << score"]
+  }
+]
