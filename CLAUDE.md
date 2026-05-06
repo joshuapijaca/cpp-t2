@@ -29,13 +29,14 @@
 | Test date | 2026-05-07 (verify before assuming) |
 | Architecture | Vite 5 + React 19 + TS 5 + Tailwind v4 |
 | State | Session-only (no localStorage, no backend) |
-| Grading | Offline char-match (no API) |
+| Grading | Offline char-match + normalizeLenient (operator-spacing tolerant) |
 | Runtime AI calls | **Zero** |
-| Card count (shipped) | 2,047 entries — demo 682 / memorize 910 / decompose 187 / write 182 / trace 52 / walkthrough 19 / mcq 15 |
+| Card count (shipped) | 1,775 entries — 10 card types (see below) |
+| Card types | memorize / mcq / trace / write / cloze / decompose / walkthrough / procedural / matrix / code-memorize |
 | Atoms | 187 across 18 levels (-1 to 17) |
-| Authoring | Outline-anchored AI scribe (build-time only) |
+| Authoring | Outline-anchored AI scribe (build-time only) + hand-authored code-centric cards |
 
-## Status (2026-05-05)
+## Status (2026-05-06)
 
 | Phase | State |
 |-------|-------|
@@ -48,8 +49,47 @@
 | SEE generation + interleave (M16) | ✅ 470 SEE cards generated + interleaved → 1,629 total |
 | Acceptance + final polish (M17) | ✅ all gates pass, dist/ clean |
 | SEE gap-fill (M18–M22) | ✅ Q-context + worked-example redistribution + read-predict expansion + decompose authoring + zero-snippet elimination → 2,047 total |
-| Production build | ✅ `npm run build` → 146 KB gzip JS (post-M22) |
-| Home picker + retry button + 3 SEE preview buttons | ✅ |
+| **Post-M22 overhaul (2026-05-06)** | ✅ L12-L17 code-centric rewrite → 1,775 cards. See below. |
+| Production build | ✅ `npm run build` → 195 KB gzip JS |
+| Home picker + retry button + M13/M14 preview buttons | ✅ |
+
+## Post-M22 Overhaul (2026-05-06)
+
+Major changes made in a single session, day before exam:
+
+### L12-L17 Code-Centric Rewrite
+- **225 word-memorize cards deleted** from L12-L17 (too abstract for code learning)
+- **474 code-centric cards added**: 225 micro-traces + 159 code-clozes + 172 micro-writes
+- Every concept now taught through actual code, not word facts
+
+### 3 New Card Types (interleaved in L13-L17)
+- **procedural** (23 cards): write code from prompt, 3-streak, variants
+- **matrix** (25 cards): RAVEN-style pattern transfer puzzles
+- **code-memorize** (30 cards): see code → hide → type verbatim, 1-streak
+
+### 82 Variation Walkthroughs
+- Hand-authored walkthrough card before EVERY trace and write card in L13-L17
+- Teaches procedure/strategy via a variation of the real question (Krashen i+1)
+
+### Interactive TraceCard Redesign
+- Old: passive, pre-filled variable history, student types final value
+- New: interactive memory boxes — student clicks [+] to add values, [x] to remove
+- Old values get strikethrough (like the APK the user liked)
+- Editable terminal textarea for cout output
+- Grading: last value per variable + terminal char-match
+- **Must pass to advance** — final-fail retries, no skipping
+
+### Grading Hardened
+- `normalizeLenient()` added: strips spaces around C++ operators
+- `cin >> x` and `cin>>x` both pass keyCheck matching (fixes 30+ write cards)
+- 43 card data fixes: wrong terminalOutput, wrong loop exit values, wrong line numbers, struct field mismatches, weak keyChecks
+
+### Card Type Ordering (within each atom in L13-L17)
+walkthrough → trace → cloze → write → procedural → matrix → code-memorize
+
+### Standalone Modules Dissolved
+- Procedural Drills, Code Matrices, Code Memorize were standalone sections
+- Merged into main L13-L17 deck, interleaved per atom, linear prerequisite order
 
 ## File Layout
 
