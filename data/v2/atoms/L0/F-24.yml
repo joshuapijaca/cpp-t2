@@ -1,0 +1,24 @@
+id: F-24
+name: "Sub-vocal predict-next-state drill"
+level: L0
+phase: A
+teaches: "Speak (or silently mouth) the next variable value BEFORE clicking step. Forces internal articulation, breaks the lazy-eyes glaze, and turns trace cards from passive watching into active prediction. Borrowed from Feynman's read-aloud method."
+prereqs: [F-03, F-23]
+usedByQs: [Q1, Q4]
+cardCountTarget: 30
+source:
+  - kind: v2
+    ref: "C++T2 spec §B.2 patch — sub-vocal predict-next-state (30-card augmentation)"
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/07-hand-execution"
+    quote: "Hand execution is the process of manually following the instructions in code as the computer does."
+commonMistakes:
+  - CM-skips-mental-state
+  - CM-arithmetic-error
+  - CM-uses-old-value-after-update
+notes:
+  cardMix: { trace: 30 }
+  rationale: |
+    Each card's stem MUST instruct the student to articulate the next
+    value out loud (or by silently mouthing) BEFORE pressing step. This
+    is the load-bearing pedagogical move of the patch.

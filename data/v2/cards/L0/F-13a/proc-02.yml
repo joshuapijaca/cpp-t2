@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-13a / ProceduralCard 02 (μWrite)
+# Atom: cout << operator direction (string literal)
+# =====================================================================
+id: "L0-F13a-proc-02"
+schemaVersion: "v2"
+atomId: "F-13a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a single line that prints a quoted text literal.
+
+section: "F-13a cout drills"
+
+prompt: |
+  Write the line that prints the literal text `Hello`. End with `;`.
+
+expectedAnswer: 'cout << "Hello";'
+
+keyChecks: ['cout << "Hello";']
+
+variants:
+  - prompt: |
+      Write the line that prints the literal text `desk_id: `. End
+      with `;`.
+    expectedAnswer: 'cout << "desk_id: ";'
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: prompt strings in read function"
+
+commonMistakeIds: []
+
+notes: |
+  String-literal cout. Variant uses a real prompt label.

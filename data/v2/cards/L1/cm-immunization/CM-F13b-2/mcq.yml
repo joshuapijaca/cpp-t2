@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-F13b-2
+id: "L1-cmimm-CM-F13b-2-mcq"
+schemaVersion: "v2"
+atomId: "F-13b"
+qTags: ["Q3", "Q4"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  How does C++ chain text and an int value into one cout statement?
+
+correct: '`cout << "x = " << x << endl;` — repeated stream insertion `<<`'
+
+distractors:
+  - '`cout << "x = " + x + endl;` — Java-style + concatenation'
+  - '`cout << "x = ", x, endl;` — Python-style commas'
+  - '`cout >> "x = " >> x >> endl;` — input direction'
+
+explanation: |
+  `<<` is the stream-insertion operator; chain it once per value. `+` would do pointer arithmetic, `,` is the comma operator (only the last side is printed), `>>` is for input.
+
+source:
+  kind: "pfg"
+  ref: "PFG part-1/1-sequence-and-data/2-trailside/11-1-terminal — common-mistake immunization (CM-F13b-2)"
+
+commonMistakeIds: ["CM-F13b-2"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

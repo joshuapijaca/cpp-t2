@@ -1,0 +1,41 @@
+# =====================================================================
+# L0 / F-10 / ClozeCard 01
+# Atom: Primitive types — int for counts
+# =====================================================================
+id: "L0-F10-cloze-01"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the type. Counts of things — number of desks, number of
+  students — use the SAME primitive type in SIT102.
+
+code: |
+  ___ num_to_read;
+  ___ desk_count = 0;
+  ___ i;
+
+clozeSentence: |
+  The type used to count whole things in SIT102 is `___`.
+
+answer: "int"
+
+explanation: |
+  `int` holds whole numbers (0, 1, 2, 3, ...). It is the right type
+  for counts, indices, sizes. Real test V2.0 declared
+  `int num_to_read;` exactly this way.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: int num_to_read on the read function signature"
+
+commonMistakeIds: ["CM-F10a"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Single-word recall.

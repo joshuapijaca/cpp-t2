@@ -1,0 +1,106 @@
+# =====================================================================
+# L1 / sum-negative / TraceCard 06
+# single-negative
+# =====================================================================
+id: "L1-A5-trace-06"
+schemaVersion: "v2"
+atomId: "A5"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "TraceCard"
+
+stem: "Hand-execute the sum-negative loop on stat_double { numbers = {0.0, -1.0, 0.0, -2.0, 0.0}, mystery = ? }. Track i and data.mystery in the panel; print final mystery. single-negative."
+
+code: |
+  const int SIZE = 5;
+  
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  
+  int main() {
+    stat_double data = { {0.0, -1.0, 0.0, -2.0, 0.0}, 0 };
+    data.mystery = 0.0;
+    for (int i = 0; i < SIZE; i = i + 1) {
+      if (data.numbers[i] < 0) {
+        data.mystery = data.mystery + data.numbers[i];
+      }
+    }
+    cout << data.mystery << endl;
+    return 0;
+  }
+
+variables: ["i", "data.mystery"]
+
+expectedTrace:
+  - line: 9
+    variable: "data.mystery"
+    value: "0"
+    output: null
+  - line: 10
+    variable: "data.mystery"
+    value: "0.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "1"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "-1.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "2"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "3"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "-3.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "4"
+    output: null
+  - line: 17
+    variable: ""
+    value: ""
+    output: "-3"
+
+terminalOutput: ["-3"]
+
+inputMode: "final-only"
+
+teachMe: |
+  After hand-execution:
+    data.mystery = 0
+    data.mystery = 0.0
+    i = 0
+    i = 1
+    data.mystery = -1.0
+    i = 2
+    i = 3
+    data.mystery = -3.0
+    i = 4
+    Print: -3
+  
+  Final terminal output: -3
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — sum-negative variant"
+
+commonMistakeIds: ["CM-A5-flip-condition", "CM-A5-result-positive"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Progression: single-negative. Trace card. Input mode: final-only."

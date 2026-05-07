@@ -1,0 +1,24 @@
+id: CM-missing-dot-field
+name: "Student writes `cin >> list[i]` (missing `.field`)"
+description: |
+  cin must read into a primitive, not a whole struct. Students drop
+  `.field`, leaving `cin >> list[i]` which won't compile (no `>>`
+  overload for the struct type).
+whyItHappens: |
+  Mirror of CM-missing-bracket-i. The three-part composite token is
+  asymmetric: dropping the rightmost piece is just as easy as dropping
+  the middle. Especially under speed-pressure.
+immunizationStrategy: |
+  1. SpotError: cin line missing `.field`; flag.
+  2. MCQ: "Why doesn't `cin >> list[i]` compile? (no `>>` for struct)"
+  3. Cloze: blank for `.field` after `list[i]`.
+  4. WriteCard with key-check on `.field`.
+  5. Decompose: identify the primitive target of the cin.
+  6. Pair-trace: with-field vs without-field; one fails to compile.
+examImpact: medium
+atomDependencies: [F-19, F-21, F-14a]
+qTracks: [Q3]
+relatedCMs: [CM-missing-bracket-i, CM-skipped-field]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §5.5 Q3 Common Errors — Missing `.field` MEDIUM"

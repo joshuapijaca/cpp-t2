@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-15 / ProceduralCard 06 (μWrite)
+# Atom: Prompt-then-read pair (multi-field block)
+# =====================================================================
+id: "L0-F15-proc-06"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the FOUR lines that read a desk's two fields.
+
+section: "F-15 prompt-pair drills (multi-field block)"
+
+prompt: |
+  Assume `desk_data desk;` is declared. Write the four lines (two
+  prompt-pairs) that read desk.desk_id and desk.price.
+
+expectedAnswer: |
+  cout << "desk_id: ";
+  cin >> desk.desk_id;
+  cout << "price: ";
+  cin >> desk.price;
+
+keyChecks: ['cout << "desk_id: ";', "cin >> desk.desk_id;", 'cout << "price: ";', "cin >> desk.price;"]
+
+variants:
+  - prompt: |
+      V2.0 variant: read stat_double's mystery and the first numbers
+      slot. Assume `stat_double data;` is declared.
+    expectedAnswer: |
+      cout << "mystery: ";
+      cin >> data.mystery;
+      cout << "numbers[0]: ";
+      cin >> data.numbers[0];
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: read_desks reads desk.desk_id and desk.price per iteration"
+
+commonMistakeIds: ["CM-F15a"]
+
+notes: |
+  Two-pair block. The repeating shape of every Q3 read function.

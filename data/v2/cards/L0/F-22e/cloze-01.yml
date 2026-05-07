@@ -1,0 +1,46 @@
+# =====================================================================
+# L0 / F-22e / ClozeCard 01 — size as separate parameter
+# =====================================================================
+id: "L0-F22e-cloze-01"
+schemaVersion: "v2"
+atomId: "F-22e"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing parameter so the function knows how many
+  elements `arr` has.
+
+code: |
+  void fill_zero(int arr[], int ___) {
+    for (int i = 0; i < ___; i++) {
+      arr[i] = 0;
+    }
+  }
+
+clozeSentence: "void fill_zero(int arr[], int ___)   // size param"
+
+answer: "size"
+
+explanation: |
+  C++ raw arrays do not carry their length. Inside `fill_zero`,
+  `arr` is just a reference to the caller's storage but the
+  function has no built-in way to know the count. The fix: pass
+  the size as a separate int parameter.
+
+  (Test 2 V2.0 sidesteps this by using a file-scope
+  `const int SIZE = 5;` that all functions can see directly.)
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
+
+commonMistakeIds: ["CM-F22e-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Drills the size-as-parameter idiom. Counters CM-F22e-2
+  (sizeof inside fn does not work).

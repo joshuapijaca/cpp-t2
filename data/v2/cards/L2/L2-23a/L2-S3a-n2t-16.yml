@@ -1,0 +1,20 @@
+
+id: "L2-S3a-n2t-16"
+schemaVersion: "v2"
+atomId: "L-23a"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "MCQCard"
+stem: "Q2 noun→type #16. A struct field needs a type. The English noun `rate` should be stored as which C++ primitive?"
+correct: "`double` — a rate (interest, exchange) is a decimal"
+distractors: ["`int` — integers cannot represent decimal or text content this noun implies.","`string` — a string is the wrong type for this scalar quantity.","`bool` — a true/false flag does not capture this noun."]
+explanation: "`rate` is best stored as `double` because a rate (interest, exchange) is a decimal"
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-wrong-type"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Noun→type drill, double bucket."

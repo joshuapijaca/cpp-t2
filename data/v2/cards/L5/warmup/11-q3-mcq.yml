@@ -1,0 +1,31 @@
+id: "L5-warmup-11-q3"
+schemaVersion: "v2"
+atomId: "M-04"
+qTags: ["Q3"]
+stage: 6
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  Q3 cin direction — D7 warmup quick-check. (Easy mode, confidence prime.)
+
+correct: "cin >> arr[i].field"
+
+distractors:
+  - "cin << arr[i].field"
+  - "arr[i].field >> cin"
+  - "arr[i].field << cin"
+
+explanation: |
+  cin reads INTO variables. The arrow points FROM cin TO the destination: `cin >> dest;`.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q3 — D7 warmup MCQ"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  D7 warmup #11: Q3 quick MCQ.

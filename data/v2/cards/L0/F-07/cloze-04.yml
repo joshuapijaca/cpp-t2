@@ -1,0 +1,57 @@
+# =====================================================================
+# L0 / F-07 / ClozeCard 04
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-cloze-04"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q2"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Find every missing terminator in this struct. Three field lines
+  need terminators, and one character is missing from the very end
+  (after the closing brace).
+
+code: |
+  struct Point {
+    int x_
+    int y_
+    int z_
+  }_
+
+clozeSentence: |
+  Each `_` stands for one missing character. List the four missing
+  characters as a single string (separated by spaces).
+
+answer: "; ; ; ;"
+
+explanation: |
+  All four missing characters are semicolons:
+  - After `int x` — `;` (every field is its own statement)
+  - After `int y` — `;`
+  - After `int z` — `;`
+  - After the closing brace — `;` (the struct definition itself
+    is a statement; the close + `;` form the canonical `};` ending)
+
+  Fully repaired:
+    struct Point {
+      int x;
+      int y;
+      int z;
+    };
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 3-structuring-data/2-trailside/03-01-struct.md"
+
+commonMistakeIds: ["CM-F07a", "CM-F07b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Cloze 4: composite. Every Q2 semicolon error in one card. The
+  visible code has 1 open brace and 1 close brace (balanced); the
+  missing characters are all semicolons (no brace mismatch).

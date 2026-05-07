@@ -1,0 +1,81 @@
+# =====================================================================
+# L0 / F-20 / WalkthroughCard 01
+# Atom: struct definition (multi-field)
+# Phase E: "Compound data + functions"
+# =====================================================================
+id: "L0-F20-walk-01"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  A struct bundles related fields under one name. Walk through this
+  exact Test 2 V2.0 shape — every token matters, especially the
+  trailing `;` after the closing `}`.
+
+levelLabel: "L0 Foundation · Phase E · F-20"
+
+fullCode: |
+  const int SIZE = 5;
+
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+steps:
+  - line: 1
+    code: 'const int SIZE = 5;'
+    annotation: |
+      Helper constant. Lets us use `SIZE` as the array size on the
+      next line. Read by the compiler before the struct is defined.
+    atomIds: ["F-11"]
+  - line: 3
+    code: 'struct stat_double {'
+    annotation: |
+      Read it left-to-right:
+        `struct`     — the C++ keyword (lowercase!)
+        ` `          — required space
+        `stat_double` — the name we are giving this struct
+        ` `          — space (not required, but conventional)
+        `{`          — opens the FIELD LIST
+      No semicolon yet — the `{` says "more lines coming."
+    atomIds: ["F-20"]
+  - line: 4
+    code: '  double numbers[SIZE];'
+    annotation: |
+      First field: an array of `SIZE` doubles called `numbers`. The
+      `;` ends THIS field, not the struct. Each field line ends with
+      a `;`.
+    atomIds: ["F-19", "F-20"]
+  - line: 5
+    code: '  double mystery;'
+    annotation: |
+      Second field: a single double called `mystery`. Ends with `;`.
+      Two fields total.
+    atomIds: ["F-20"]
+  - line: 6
+    code: '};'
+    annotation: |
+      The CRITICAL line. Closing brace `}` PLUS a semicolon `;`.
+      The `};` ends the struct definition. Forgetting the `;` is the
+      single highest-frequency Q2 error (CM-F20a). Triple-check it
+      in every struct you write.
+    atomIds: ["F-20"]
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `struct stat_double { double numbers[SIZE]; double mystery; };` shape"
+
+commonMistakeIds: ["CM-F20a", "CM-F20d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  First-touch walkthrough on the exact exam shape. Drives home the
+  three semicolons (one after each field, one after the closing
+  brace) — the closing-brace semicolon is THE single most common
+  Q2 marking error.

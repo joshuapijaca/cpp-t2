@@ -1,0 +1,35 @@
+id: "CM-missing-dot-field-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-missing-dot-field: Q3 missing dot for field. Fill the blank.
+
+code: |
+  // Canonical Q3 excerpt with blank:
+  // ____ >> arr[i].field;
+  ;
+
+clozeSentence: |
+  Complete the canonical line: cin >> arr[i].field;
+
+answer: "cin >> arr[i].field;"
+
+explanation: |
+  Canonical pattern: cin >> arr[i].field;
+  Mistake to avoid: Wrote `cin >> arr[i] field` (no dot).
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-missing-dot-field"
+
+commonMistakeIds: ["CM-missing-dot-field"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-missing-dot-field.

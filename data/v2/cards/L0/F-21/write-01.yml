@@ -1,0 +1,53 @@
+# =====================================================================
+# L0 / F-21 / FunctionWriteCard 01 — μ-write composite read
+# =====================================================================
+id: "L0-F21-write-01"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "FunctionWriteCard"
+
+stem: |
+  Write a single C++ statement that prints the i-th element of the
+  `numbers` array field of struct instance `data`, followed by a
+  newline.
+
+prompt: "cout the i-th slot of data.numbers followed by endl."
+
+signatureHint: "cout << ____ << endl;"
+
+canonicalAnswer: |
+  cout << data.numbers[i] << endl;
+
+keyChecks:
+  - "cout"
+  - "data.numbers[i]"
+  - "endl"
+  - ";"
+
+forbiddenTokens:
+  - "data[i].numbers"
+  - "data->numbers"
+  - "data::numbers"
+  - "*"
+
+explanation: |
+  Write the composite token in canonical order: `data.numbers[i]`.
+  Forbidden tokens block the inverse-order, arrow-operator, and
+  scope-resolution variants.
+
+passByRefRequired: false
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — Q1 print of data.numbers[i]"
+
+commonMistakeIds: ["CM-F21a", "CM-F21b", "CM-F21c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Smallest possible write of the composite token. All three F-21
+  CMs immunised at once.

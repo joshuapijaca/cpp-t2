@@ -1,0 +1,22 @@
+id: "L4-S3C-mcq-01"
+schemaVersion: "v2"
+atomId: "Q-04"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "MCQCard"
+stem: "Order: prompt and cin?"
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block C mcq"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+correct: "cout prompt FIRST, then cin reads."
+distractors: 
+  - "cin first, prompt second."
+  - "Either order works."
+  - "Both must be on the same line."
+explanation: "Prompt first so user knows what to type; then cin."

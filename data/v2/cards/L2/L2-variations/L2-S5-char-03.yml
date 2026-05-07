@@ -1,0 +1,29 @@
+
+id: "L2-S5-char-03"
+schemaVersion: "v2"
+atomId: "L-25"
+qTags: ["Q2"]
+stage: 5
+level: "L2"
+type: "StructWriteCard"
+stem: "Q2 char edge case #3. Single-character fields (grade, initial) use `char`, not `string`."
+prompt: "classification_data: id (int), name (string), classification (char single letter)."
+canonicalAnswer: |
+  struct classification_data
+  {
+      int id;
+      string name;
+      char classification;
+  };
+requiredFields: ["id","name","classification"]
+keyChecks: ["char ","};","struct classification_data"]
+forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
+explanation: "Single character → `char field;`. Multi-letter strings still use `string`."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.6 S5 VARIATIONS"
+commonMistakeIds: ["CM-Q2-char-edge"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "char edge case."

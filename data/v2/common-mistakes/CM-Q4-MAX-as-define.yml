@@ -1,0 +1,31 @@
+id: CM-Q4-MAX-as-define
+name: "Q4 MAX declared with #define instead of const int"
+description: |
+  Q4 main() needs a compile-time constant for the array bound: the
+  canonical form is `const int MAX = 700;` followed by `desk_data
+  desks[MAX];`. Students write `#define MAX 700` instead. While #define
+  technically works, it is off-scope for SIT102 (preprocessor macros not
+  taught), violates the Test 2 reference solution, and loses type
+  safety. Markers expect const int.
+whyItHappens: |
+  Two pathways: (a) students who self-studied C from older sources see
+  #define for constants and import the habit; (b) students confuse
+  `#include <iostream>` and `#define` because both start with `#` at
+  file scope. Pattern-matching: "preprocessor directive" gets confused
+  with "constant declaration". The PFG only ever uses `const int`, so
+  any `#define` is an outside-import.
+immunizationStrategy: |
+  1. SpotError: `#define MAX 700` at top of main — replace with const int.
+  2. MCQ: "Which is the SIT102 way to declare MAX = 700?" — 4 options.
+  3. Cloze: blank between `___ MAX = 700;` — answer `const int`.
+  4. Demo: side-by-side #define vs const int, mark const int as canonical.
+  5. Decompose: pick the rationale why #define is off-scope for Test 2.
+  6. Trace: walk through compilation with const int, show MAX is a typed
+     int symbol vs a textual macro substitution.
+examImpact: medium
+atomDependencies: [F-08, Q-02]
+qTracks: [Q4]
+relatedCMs: [CM-Q4-MAX-hardcode, CM-Q4-return-wrong-value]
+source:
+  kind: v2
+  ref: "C++T2 spec §6.3 Block A (const int MAX = 700;); SIT102 PFG part-1 constants"

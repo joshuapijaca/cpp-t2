@@ -1,0 +1,45 @@
+# =====================================================================
+# L3 / R-02e / FunctionWriteCard — 5-field body for houses
+# =====================================================================
+id: "L3-R02e-write-08"
+schemaVersion: "v2"
+atomId: "R-02e"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the BODY of the for-loop only (no signature, no for-header):
+  5 prompt-pair sequence for 'houses[i]' fields:
+  bedrooms, area_m2, price, extra4, extra5.
+prompt: "5-field prompt-pair sequence"
+canonicalAnswer: |
+  cout << "Bedrooms: ";
+  cin >> houses[i].bedrooms;
+  cout << "Area (m^2): ";
+  cin >> houses[i].area_m2;
+  cout << "Price: ";
+  cin >> houses[i].price;
+  cout << "Extra 4: ";
+  cin >> houses[i].extra4;
+  cout << "Extra 5: ";
+  cin >> houses[i].extra5;
+keyChecks:
+  - "cin >> houses[i].bedrooms;"
+  - "cin >> houses[i].area_m2;"
+  - "cin >> houses[i].price;"
+  - "cin >> houses[i].extra4;"
+  - "cin >> houses[i].extra5;"
+forbiddenTokens:
+  - "while"
+  - "endl"
+explanation: |
+  5 fields means 5 prompt-pairs in struct-declaration order.
+  Each pair is cout-prompt + cin-into-list[i].field.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-skipped-field","CM-Q3-reordered-field"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

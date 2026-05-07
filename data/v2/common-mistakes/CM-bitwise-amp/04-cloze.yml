@@ -1,0 +1,35 @@
+id: "CM-bitwise-amp-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-bitwise-amp: Q1 bitwise & vs logical &&. Fill the blank.
+
+code: |
+  // Canonical Q1 excerpt with blank:
+  // ____ (a > 0 && b > 0)
+  ;
+
+clozeSentence: |
+  Complete the canonical line: if (a > 0 && b > 0)
+
+answer: "if (a > 0 && b > 0)"
+
+explanation: |
+  Canonical pattern: if (a > 0 && b > 0)
+  Mistake to avoid: Used single & for logical AND.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-bitwise-amp"
+
+commonMistakeIds: ["CM-bitwise-amp"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-bitwise-amp.

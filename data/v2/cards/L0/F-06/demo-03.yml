@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-06 / DemoCard 03
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-demo-03"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch where `return 0;` MUST sit. Inside the braces, after every
+  other statement of the body, before the closing brace.
+
+whyOneLine: "return 0; is the last statement inside main's body — it sits before the closing brace, never after."
+
+demoCode: |
+  // CORRECT shape (return 0 sits inside the body, before the close):
+  int main() {
+    int x = 5;
+    cout << x << endl;
+    return 0;
+  }
+
+  // WRONG shape A: return 0 placed AFTER the closing brace.
+  //   The compiler complains: "return outside any function".
+  //   Pseudo-shape: HEADER, body lines, CLOSE-BRACE, then return 0.
+  //   That return is no longer inside main, so it is not legal.
+
+  // WRONG shape B: NO return 0 at all.
+  //   The function header promises to return an int (the word `int`
+  //   on the front of `int main`). Reaching the closing brace
+  //   without a return statement leaves that promise unfulfilled.
+
+highlightTokens:
+  - "return 0;"
+  - "before }"
+  - "outside, after }"
+  - "no return 0;"
+
+usedIn:
+  - "Q4 main program (every answer ends this way)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F06a", "CM-F06c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Position-of-return demo. Three states: correct, after-brace, missing.
+  Targets CM-F06a (forgets return) and CM-F06c (return outside brace).

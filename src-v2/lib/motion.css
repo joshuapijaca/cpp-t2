@@ -1,0 +1,45 @@
+/* cpp-t2 v2 — Motion */
+/* Tight, purposeful animation. Movement = state change, never decoration. */
+
+:root {
+  --dur-fast:   80ms;
+  --dur-base:  120ms;
+  --dur-slow:  150ms;
+  --ease-out:  cubic-bezier(0.2, 0.8, 0.2, 1);   /* ease-out, snappier than CSS default */
+}
+
+/* Default transition palette — only on properties that don't trigger layout. */
+.tr {
+  transition-property: opacity, transform, border-color, background-color;
+  transition-duration: var(--dur-base);
+  transition-timing-function: var(--ease-out);
+}
+.tr-fast { transition-duration: var(--dur-fast); }
+.tr-slow { transition-duration: var(--dur-slow); }
+
+/* Apply implicitly to common interactive surfaces */
+button, a, [role="button"], [role="tab"],
+[data-state], .interactive {
+  transition-property: opacity, transform, border-color, background-color;
+  transition-duration: var(--dur-base);
+  transition-timing-function: var(--ease-out);
+}
+
+/* Card-fade keyframe for page/card transitions (single named keyframe). */
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(2px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in {
+  animation: fade-in var(--dur-slow) var(--ease-out) both;
+}
+
+/* ---------- Reduced motion: instant ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

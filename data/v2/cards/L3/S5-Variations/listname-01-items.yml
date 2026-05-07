@@ -1,0 +1,42 @@
+# =====================================================================
+# L3 / R-04 / FunctionWriteCard — list-name 'items'
+# =====================================================================
+id: "L3-R04-listname-01"
+schemaVersion: "v2"
+atomId: "R-04"
+qTags: ["Q3"]
+stage: 5
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Variation: read_desks but the list parameter is named 'items'.
+prompt: "list-name variant"
+canonicalAnswer: |
+  void read_desks(desk_data &items[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Width: ";
+      cin >> items[i].width;
+      cout << "Height: ";
+      cin >> items[i].height;
+      cout << "Depth: ";
+      cin >> items[i].depth;
+    }
+  }
+keyChecks:
+  - "&items[]"
+  - "items[i].width"
+  - "items[i].height"
+  - "items[i].depth"
+forbiddenTokens:
+  - "while"
+explanation: |
+  Use the list name consistently in [i].field accesses.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

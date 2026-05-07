@@ -1,0 +1,102 @@
+# =====================================================================
+# L0 / F-18 / TraceCard 04 (Card D in spec — off-by-one trap)
+# Atom: i <= N vs i < N
+# =====================================================================
+id: "L0-F18-trace-04"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. Predict what is printed. Pay close attention to
+  the test in the loop header — does the body run when i = SIZE?
+  This is the off-by-one trap.
+
+code: |
+  int main() {
+    const int SIZE = 3;
+    int arr[SIZE] = {10, 20, 30};
+    for (int i = 0; i < SIZE; i++) {
+      cout << arr[i] << " ";
+    }
+    cout << endl;
+    return 0;
+  }
+
+variables: ["i"]
+
+expectedTrace:
+  - line: 4
+    variable: "i"
+    value: "0"
+    output: null
+    condition: "init"
+  - line: 5
+    variable: ""
+    value: ""
+    output: "10 "
+    condition: "iter 1: 0<3 true, print arr[0]=10"
+  - line: 4
+    variable: "i"
+    value: "1"
+    output: null
+    condition: "step"
+  - line: 5
+    variable: ""
+    value: ""
+    output: "10 20 "
+    condition: "iter 2: 1<3 true, print arr[1]=20"
+  - line: 4
+    variable: "i"
+    value: "2"
+    output: null
+    condition: "step"
+  - line: 5
+    variable: ""
+    value: ""
+    output: "10 20 30 "
+    condition: "iter 3: 2<3 true, print arr[2]=30"
+  - line: 4
+    variable: "i"
+    value: "3"
+    output: null
+    condition: "step"
+  - line: 4
+    variable: ""
+    value: ""
+    output: null
+    condition: "test: 3<3 false, EXIT (body NOT entered at i=3)"
+  - line: 7
+    variable: ""
+    value: ""
+    output: "10 20 30 "
+    condition: "newline"
+
+terminalOutput:
+  - "10 20 30 "
+
+inputMode: "final-only"
+
+teachMe: |
+  CORRECT (this card): `i < SIZE` runs the body for i = 0, 1, 2.
+  Three values, three iterations. Output: "10 20 30 ".
+
+  WRONG (off-by-one trap to avoid): `i <= SIZE` would run the body
+  for i = 0, 1, 2, 3 — and arr[3] is past the end of the array.
+  Result is undefined: garbage value, crash, or silent corruption.
+  ALWAYS use `i < SIZE`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/01-for-loop"
+
+commonMistakeIds: ["CM-F18a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Spec Card D — off-by-one trap. Shows the
+  RIGHT shape and explains the WRONG shape in teachMe.
+authoringStatus: "DRAFT"

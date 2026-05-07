@@ -1,0 +1,19 @@
+id: A3
+name: "Q1 Compose: sum-all algorithm"
+level: L1
+phase: S4
+teaches: "Trace a sum-all loop. Init mystery = 0.0; for i=0..SIZE-1, mystery = mystery + numbers[i]. Accumulator pattern, all elements added unconditionally."
+prereqs: [A1]
+usedByQs: [Q1]
+cardCountTarget: 12
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — accumulator pattern in stat_double"
+commonMistakes:
+  - CM-A3-init-not-zero
+  - CM-A3-skip-element
+notes:
+  cardMix: { trace: 8, mcq: 2, decompose: 2 }
+  stage: S4
+  exposureClass: medium
+  progression: "2 simple all-positive -> 2 mixed-sign -> 2 edge -> 2 adversarial -> 2 final-only predict -> 2 spot-error"

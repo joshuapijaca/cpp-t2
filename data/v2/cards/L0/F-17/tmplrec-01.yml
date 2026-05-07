@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-17 / TemplateRecallCard 05 (template-recall variant)
+# Atom: full if skeleton recall
+# =====================================================================
+id: "L0-F17-tmplrec-01"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Recall and write the canonical if-skeleton. No specific values —
+  just the empty shape with three holes (cond, body-line).
+
+prompt: |
+  Produce the empty if-statement skeleton with placeholders for
+  the condition and one body statement.
+
+template: |
+  if (___) {
+    ___;
+  }
+
+canonicalAnswer: |
+  if (cond) {
+    body;
+  }
+
+keyChecks:
+  - "if ("
+  - ")"
+  - "{"
+  - "}"
+
+forbiddenTokens:
+  - "while"
+  - "do"
+
+explanation: |
+  Memorise this exact shape. `if`, parens, condition, close paren,
+  open brace, body with semicolon, close brace. No semicolon
+  between the close paren and the open brace. No semicolon after
+  the close brace.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"
+
+commonMistakeIds: ["CM-F17b", "CM-F17c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Pure skeleton — recall test of the shape.
+authoringStatus: "DRAFT"

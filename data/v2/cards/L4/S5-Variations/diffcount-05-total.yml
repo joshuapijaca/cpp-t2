@@ -1,0 +1,50 @@
+id: "L4-S5-diffcount-05"
+schemaVersion: "v2"
+atomId: "Q-09"
+qTags: 
+  - "Q4"
+stage: 5
+level: "L4"
+type: "MainWriteCard"
+stem: "[count-name variation 5/10] Re-write V2.0 main using count name = total."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.5 S5 count-name variations"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Use total as the count variable name everywhere."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int total;
+  
+      cout << "How many desks? ";
+      cin >> total;
+  
+      read_desks(desks, total);
+  
+      for (int i = 0; i < total; i++)
+      {
+          cout << desks[i].room_id << ", ";
+          cout << desks[i].d_id << ", ";
+          cout << desks[i].number_of_screens << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "int total"
+  - "cin >> total"
+  - "read_desks(desks, total)"
+  - "i < total"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+expectedTerminal: 
+  - "How many desks?"
+explanation: "Count-var name is a slot. Pick anything sensible; consistency is what matters."

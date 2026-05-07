@@ -1,0 +1,66 @@
+# =====================================================================
+# L0 / F-06 / ProceduralCard (procedural-tagged) 02
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-proc-02"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Build a complete program that declares an int variable, prints it,
+  and exits. Use the canonical Q4 skeleton end-to-end.
+
+section: "L0 · F-06 · procedural — declare-print-return"
+
+prompt: |
+  Write a complete C++T2 program that declares an int `x` set to 42,
+  prints it (followed by a newline), and returns 0.
+
+expectedAnswer: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    int x = 42;
+    cout << x << endl;
+    return 0;
+  }
+
+keyChecks:
+  - "#include"
+  - "<iostream>"
+  - "using namespace std;"
+  - "int main()"
+  - "int x = 42;"
+  - "cout << x << endl;"
+  - "return 0;"
+
+forbiddenTokens:
+  - "void main"
+
+variants:
+  - prompt: "Same shape — declare int n = 9, print it, return 0."
+    expectedAnswer: |
+      #include <iostream>
+      using namespace std;
+      int main() {
+        int n = 9;
+        cout << n << endl;
+        return 0;
+      }
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-06 procedural — declare-print-return shape"
+
+commonMistakeIds: ["CM-F06a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Procedural drill 2: adds variable declaration to the body. Trains
+  the declare → use → return order and ensures `return 0;` is the
+  LAST statement, never moved up.

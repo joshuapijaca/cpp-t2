@@ -1,0 +1,35 @@
+id: "CM-misparse-brace-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-misparse-brace: Q1 misparsed brace-init. Fill the blank.
+
+code: |
+  // Canonical Q1 excerpt with blank:
+  // ____ d = {{1.0,2.0,3.0,4.0,5.0}, 0.0};
+  ;
+
+clozeSentence: |
+  Complete the canonical line: stat_double d = {{1.0,2.0,3.0,4.0,5.0}, 0.0};
+
+answer: "stat_double d = {{1.0,2.0,3.0,4.0,5.0}, 0.0};"
+
+explanation: |
+  Canonical pattern: stat_double d = {{1.0,2.0,3.0,4.0,5.0}, 0.0};
+  Mistake to avoid: Treated {{1,2,3,4,5}, 0} as a 6-element array.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-misparse-brace"
+
+commonMistakeIds: ["CM-misparse-brace"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-misparse-brace.

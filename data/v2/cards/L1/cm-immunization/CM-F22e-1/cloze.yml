@@ -1,0 +1,32 @@
+# Hand-authored CM immunization (ClozeCard) for CM-F22e-1
+id: "L1-cmimm-CM-F22e-1-cloze"
+schemaVersion: "v2"
+atomId: "F-22e"
+qTags: ["Q1", "Q3"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in the missing reference operator in the who_am_i parameter list."
+
+code: |
+  void who_am_i(stat_double ___ data) {
+      data.mystery = 0.0;
+  }
+
+clozeSentence: 'Fill in the pass-by-reference marker between type and parameter name.'
+
+answer: '&'
+
+explanation: |
+  `&` between the type and the parameter name marks pass-by-reference: data aliases the caller's variable. No `[]` because the struct (not a raw array) is being passed.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-22e dual-idiom — common-mistake immunization (CM-F22e-1)"
+
+commonMistakeIds: ["CM-F22e-1"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

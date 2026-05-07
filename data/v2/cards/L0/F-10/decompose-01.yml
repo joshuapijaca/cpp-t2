@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-10 / DecomposeCard 01
+# Atom: Primitive types — picking the right type for money
+# =====================================================================
+id: "L0-F10-decomp-01"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes the line below to store the price of a coffee.
+  Pick the option that best describes what the variable contains.
+
+code: |
+  int price = 4.99;
+  cout << price << endl;
+
+question: |
+  After this code runs, what does the terminal show?
+
+options:
+  - label: "A"
+    text: |
+      4.99 — `int` is just a hint; the box can hold any number.
+  - label: "B"
+    text: |
+      5.00 — `int` rounds the decimal value to the nearest whole.
+  - label: "C"
+    text: |
+      4 — `int` chops the decimal part. The .99 is lost. No rounding.
+  - label: "D"
+    text: |
+      The line fails to compile because 4.99 is not an int literal.
+
+correctLabel: "C"
+
+explanation: |
+  C is correct. `int price = 4.99;` compiles, but the conversion from
+  4.99 to int truncates toward zero. The box stores 4. The .99 is
+  silently lost.
+
+  A is wrong: int CAN ONLY hold whole numbers. The type is enforced.
+  B is wrong: int truncates, never rounds. 4.99 becomes 4, not 5.
+  D is wrong: the assignment compiles. C++ allows narrowing conversions
+  with a warning, not an error.
+
+  Lesson: never use int for money. Use double.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/06-type"
+
+commonMistakeIds: ["CM-F10a"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Forces commitment to truncation behaviour. Distractor B (rounding) is
+  the most common wrong answer.

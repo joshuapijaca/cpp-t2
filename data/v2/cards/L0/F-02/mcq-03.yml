@@ -1,0 +1,49 @@
+# =====================================================================
+# L0 / F-02 / MCQCard 03
+# Atom: Compiler turns source into program
+# =====================================================================
+id: "L0-F02-mcq-03"
+schemaVersion: "v2"
+atomId: "F-02"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  You compiled successfully with `g++ hello.cpp -o hello`. Now you edit
+  `hello.cpp` in VSCode, change the printed message from `hello` to
+  `goodbye`, and save the file. Without re-running the compiler, you
+  immediately type `./hello` in the terminal. What prints?
+
+correct: "hello — the executable was made from the OLD source; editing the source after compile does not change the existing executable."
+
+distractors:
+  - "goodbye — saving the source file automatically updates the executable."
+  - "Nothing — editing the source file invalidates the executable, so `./hello` errors."
+  - "An error message — `./hello` only works after every save, regardless of compile."
+
+explanation: |
+  The executable file `hello` is a snapshot of what the source looked
+  like AT COMPILE TIME. Editing the source after compilation does not
+  change the executable — they are two separate files on disk. Until
+  you re-run `g++`, running `./hello` runs the old, snapshot-of-the-old-
+  source machine code. So the program still prints `hello`.
+
+  This is the heart of "source ≠ running program." Beginners who skip
+  this fact are confused for weeks when their changes "don't take
+  effect" — the missing step is recompilation.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"
+
+commonMistakeIds: ["CM-confuses-source-with-program", "CM-compile-equals-run"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Highest-quality F-02 MCQ — directly trains the "source is a snapshot,
+  not a live link" intuition. Distractor 1 is the most common
+  misconception (auto-rebuild), distractors 2/3 cover the over-correct
+  reaction in the opposite direction.

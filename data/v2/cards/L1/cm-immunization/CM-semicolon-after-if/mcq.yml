@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-semicolon-after-if
+id: "L1-cmimm-CM-semicolon-after-if-mcq"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  What does `if (cond);` (with a stray semicolon) do?
+
+correct: 'Evaluates cond, runs an EMPTY body, then runs the next line unconditionally.'
+
+distractors:
+  - 'Compile error: extra semicolon.'
+  - 'Skips the next line if cond is true.'
+  - 'Runs the next line only if cond is true.'
+
+explanation: |
+  `if (cond);` is `if (cond) { /* nothing */ }`. The next line is no longer the body — it always runs.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-semicolon-after-if)"
+
+commonMistakeIds: ["CM-semicolon-after-if"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

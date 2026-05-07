@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-13a / MCQCard 01
+# Atom: cout << operator direction
+# =====================================================================
+id: "L0-F13a-mcq-01"
+schemaVersion: "v2"
+atomId: "F-13a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which line correctly prints the value of `int x = 7;` to the
+  terminal?
+
+correct: "cout << x;"
+
+distractors:
+  - "cout >> x;"
+  - "cin << x;"
+  - "x << cout;"
+
+explanation: |
+  cout uses `<<` and the stream name comes FIRST. The arrow points
+  toward cout, indicating the value is pushed in.
+  - `cout >> x` is wrong direction (>> is input).
+  - `cin << x` mixes the input stream with the output operator.
+  - `x << cout` is reversed; cout must come first.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F13a-1", "CM-F13a-2"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Tests the direction rule with three real wrong-shape mistakes.

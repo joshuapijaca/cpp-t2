@@ -1,0 +1,23 @@
+id: F-09
+name: "Identifier rules + naming"
+level: L0
+phase: C
+teaches: "snake_case names; can't start with digit; reserved keywords (struct, int, for, ...) are off-limits."
+prereqs: [F-07]
+usedByQs: [Q1, Q2, Q3, Q4]
+cardCountTarget: 12
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/2-communicating-syntax/2-trailside/04-identifier"
+    quote: "An identifier is the name you give to something in your code. It must start with a letter or underscore, can be followed by letters, digits or underscores."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/3-naming-convention"
+    quote: "Use snake_case for variables, functions and struct types in this book."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:27:54 — Saloni names 'mystery' and 'numbers' as the variables in the trace"
+commonMistakes:
+  - CM-F09a  # starts identifier with digit (1st_score)
+  - CM-F09b  # uses reserved word (int) as variable name
+  - CM-F09c  # mixes spaces or hyphens (full-name, full name)
+notes:
+  cardMix: { walkthrough: 1, demo: 2, decompose: 2, cloze: 2, μWrite: 2, mcq: 3 }

@@ -1,0 +1,25 @@
+id: CM-wrong-bound-SIZE
+name: "Student uses SIZE/MAX instead of number_to_read in read fn"
+description: |
+  In `void read_<entity>(<entity>_data &list[], int number_to_read)`, the
+  loop must bound by `number_to_read` (the actual count). Students bound
+  by `SIZE` or `MAX` (the array capacity), reading garbage or extra rows
+  beyond what the user said they have.
+whyItHappens: |
+  Q1's algorithms bound by SIZE (a const). Students copy that pattern into
+  Q3 without noticing the parameter `number_to_read` is the actual count.
+  The two roles (capacity vs count) are conceptually subtle.
+immunizationStrategy: |
+  1. SpotError: read fn looping `i < SIZE`; flag wrong bound.
+  2. MCQ: "Loop bound for read_X: `SIZE` or `number_to_read`?"
+  3. Cloze: blank for the loop bound in a read fn.
+  4. WriteCard with key-check accepting only the parameter name.
+  5. Decompose: distinguish capacity (MAX) vs count (number_to_read).
+  6. Pair-trace: SIZE-bound vs count-bound on a partially-filled array.
+examImpact: high
+atomDependencies: [F-18a, F-22b]
+qTracks: [Q3, Q4]
+relatedCMs: [CM-off-by-one-le, CM-pass-MAX-not-count]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §5.5 Q3 Common Errors — Wrong bound (`i < SIZE`/MAX) HIGH"

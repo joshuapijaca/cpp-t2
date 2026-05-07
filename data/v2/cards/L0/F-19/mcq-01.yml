@@ -1,0 +1,46 @@
+# =====================================================================
+# L0 / F-19 / MCQCard 01
+# Atom: Fixed-size array — does not carry size
+# =====================================================================
+id: "L0-F19-mcq-01"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  You have `int arr[5];`. Inside a function that receives `arr`, how
+  do you find out how many elements the array has?
+
+correct: "You cannot — C++ raw arrays do not carry their size. You must pass the size as a separate parameter (or use a `const int SIZE` symbol)."
+
+distractors:
+  - "Call `arr.length` — every array carries its own length."
+  - "Call `arr.size()` — the size method returns 5."
+  - "Use `sizeof(arr) / sizeof(arr[0])` — this works in any function."
+
+explanation: |
+  C++ raw arrays do not carry size with them. Inside a function the
+  array decays to a pointer-like reference and the size information
+  is lost. The standard fix is to pass SIZE as a separate parameter
+  or to define a `const int SIZE` global / file-scope constant
+  (Test 2 uses `const int SIZE = 5;` for exactly this reason).
+  - `arr.length` is JS / C# / Java syntax, not C++.
+  - `arr.size()` is std::vector / std::array, off-scope for Test 2.
+  - `sizeof(arr) / sizeof(arr[0])` works ONLY at the array's home
+    scope, NOT inside a function that receives the array.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
+
+commonMistakeIds: ["CM-F19c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  The "arrays carry size" misconception is import from JS/Python.
+  This MCQ neutralises it explicitly and points to the SIZE-symbol
+  workaround used by Test 2.

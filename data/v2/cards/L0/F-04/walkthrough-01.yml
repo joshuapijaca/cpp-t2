@@ -1,0 +1,88 @@
+# =====================================================================
+# L0 / F-04 / WalkthroughCard 01
+# Atom: #include <iostream>
+# Phase B: "Skeleton scaffolding"
+# =====================================================================
+id: "L0-F04-walk-01"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  In Phase A you saw `cout` in the example programs but never asked
+  where `cout` comes from. Answer: it lives in a *library* called
+  `iostream`. Before you can write `cout` (or `cin`), you have to bring
+  that library into your file with a single line at the very top:
+  `#include <iostream>`. Walk through this 6-line program one line at
+  a time. The first line is the line we are studying.
+
+levelLabel: "L0 Foundation · Phase B · F-04"
+
+fullCode: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << "hi" << endl;
+    return 0;
+  }
+
+steps:
+  - line: 1
+    code: '#include <iostream>'
+    annotation: |
+      Line 1 is the include directive. Read it left-to-right:
+        `#`        — tells the compiler "preprocessor command starts here"
+        `include`  — the command itself: bring another file into mine
+        ` `        — a single space (required between include and < )
+        `<iostream>` — the file to bring in (no .h, just iostream)
+      After the compiler processes this line, the names `cout`, `cin`,
+      and `endl` become known to the rest of your file.
+    atomIds: ["F-04"]
+  - line: 2
+    code: 'using namespace std;'
+    annotation: |
+      Sets up unqualified names (so we can write `cout` instead of
+      `std::cout`). Covered in the next atom (F-05). Mentioned here only
+      so the program compiles; the focus of THIS card is line 1.
+    atomIds: ["F-05"]
+  - line: 3
+    code: 'int main() {'
+    annotation: |
+      Program entry (F-06). Skipped for now.
+    atomIds: ["F-06", "F-08"]
+  - line: 4
+    code: '  cout << "hi" << endl;'
+    annotation: |
+      This line uses `cout` — and `cout` is ONLY available because of
+      line 1. Delete `#include <iostream>` and the compiler errors with
+      `'cout' was not declared in this scope`. Line 1 is the reason this
+      line works.
+    atomIds: ["F-04"]
+  - line: 5
+    code: '  return 0;'
+    annotation: |
+      Program-end (F-06). Skipped.
+    atomIds: ["F-06"]
+  - line: 6
+    code: '}'
+    annotation: |
+      Closing brace (F-08). Skipped.
+    atomIds: ["F-08"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 1 · 1-sequence-and-data/2-trailside/10-library.md (libraries are brought in with #include) + Part 2 · 1-starting-cpp/0-pano/3-code.md (iostream provides cin/cout)"
+
+commonMistakeIds: ["CM-F04a", "CM-F04b", "CM-F04c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  First-touch walkthrough for the include directive. The student has
+  already met `cout` in F-01/F-02/F-03 walkthroughs; here we close
+  the loop by naming the line that makes `cout` exist. Keeps the
+  focus tight on line 1; downstream lines are tagged with their own
+  atoms so the cross-reference is visible.

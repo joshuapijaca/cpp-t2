@@ -1,0 +1,42 @@
+# =====================================================================
+# L3 / Block A amp-array / Decompose 02 — spot wrong: missing []
+# =====================================================================
+id: "L3-AmpArr-decomp-02"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "DecomposeCard"
+
+stem: "The signature below is WRONG by V2.0 marking. Identify the exact bug."
+
+code: |
+  void read_desks(desk_data &desk_list, int number_to_read)
+
+question: "Pick the option that correctly identifies what is missing or wrong."
+
+options:
+  - label: "A"
+    text: "Missing [] after desk_list. The V2.0 form must be `desk_data &desk_list[]` so the parameter is the array (not a single struct)."
+  - label: "B"
+    text: "Missing & — & should be on the count parameter."
+  - label: "C"
+    text: "The first parameter is correct as a single desk_data."
+  - label: "D"
+    text: "Replace `int` with `size_t`."
+
+correctLabel: "A"
+
+explanation: |
+  `&desk_list` (no []) is a single-struct reference, not an array. V2.0 reads N items, so the param must be `&desk_list[]`.
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V Block A — common error patterns"
+
+commonMistakeIds: ["CM-Q3-missing-brackets-sig"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "Block A spot-error: no [] on array decay param."

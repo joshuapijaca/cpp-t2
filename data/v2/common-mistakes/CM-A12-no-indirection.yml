@@ -1,0 +1,26 @@
+id: CM-A12-no-indirection
+name: "Student forgets `numbers[mystery]` indirection on A12"
+description: |
+  A12 algorithm uses mystery as an INDEX into numbers (one extra
+  indirection). Students compute `mystery + numbers[i]` (direct read)
+  instead of `numbers[mystery]` (indirect). Final answer is the running
+  sum of numbers[mystery] across iterations, not numbers[i].
+whyItHappens: |
+  All other Q1 algorithms (A1-A11) use `numbers[i]` as the index. A12
+  alone breaks pattern: the index variable is mystery, not i. Students
+  pattern-match the wrong template.
+immunizationStrategy: |
+  1. Trace card with explicit `numbers[mystery]` reads; demand correct
+     indirection per iter.
+  2. SpotError: trace using `numbers[i]` instead of `numbers[mystery]`.
+  3. MCQ: "In `numbers[mystery]`, the index is...? (mystery, not i)"
+  4. Decompose: split `numbers[mystery]` into READ-mystery, USE-as-index.
+  5. Pair-trace: A4 (`numbers[i]`) vs A12 (`numbers[mystery]`).
+  6. Cloze: blank for the index expression.
+examImpact: medium
+atomDependencies: [F-19, F-21, A12]
+qTracks: [Q1]
+relatedCMs: [CM-confuse-i-with-numbers, CM-mutate-array]
+source:
+  kind: practice
+  ref: "Practice algorithm pool A12 (numbers[mystery] indirection)"

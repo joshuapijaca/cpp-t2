@@ -1,0 +1,50 @@
+
+id: "L2-S1-tour-15-worked"
+schemaVersion: "v2"
+atomId: "L-21"
+qTags: ["Q2"]
+stage: 1
+level: "L2"
+type: "WalkthroughCard"
+stem: "Q2 worked example — produce `vehicle_data` from the prompt: \"A vehicle stores its rego, the make, and the year of manufacture.\". Watch the 6-line shape build line by line."
+levelLabel: "L2 · Q2 Tour · vehicle_data"
+fullCode: |
+  struct vehicle_data
+  {
+      string rego;
+      string make;
+      int year;
+  };
+steps:
+  - line: 1
+    code: "struct vehicle_data"
+    annotation: "Keyword + snake_case name."
+    atomIds: ["F-20"]
+  - line: 2
+    code: "{"
+    annotation: "Open body."
+    atomIds: ["F-20"]
+  - line: 3
+    code: "    string rego;"
+    annotation: "rego mixes letters + digits → string."
+    atomIds: ["F-20"]
+  - line: 4
+    code: "    string make;"
+    annotation: "make is text → string."
+    atomIds: ["F-20"]
+  - line: 5
+    code: "    int year;"
+    annotation: "year is a counter (e.g. 2026) → int."
+    atomIds: ["F-20"]
+  - line: 6
+    code: "};"
+    annotation: "Close with `};`."
+    atomIds: ["F-20"]
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S1 TOUR"
+commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Worked walkthrough #15 for vehicle_data."

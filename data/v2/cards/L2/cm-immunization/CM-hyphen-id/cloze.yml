@@ -1,0 +1,30 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-hyphen-id
+id: "L2-cmimm-CM-hyphen-id-cloze"
+schemaVersion: "v2"
+atomId: "L-21"
+qTags: ["Q2"]
+stage: 4
+level: "L2"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-hyphen-id mistake."
+
+code: |
+  double max___value;   // legal struct field
+
+clozeSentence: 'Fill in the legal separator character (one char).'
+
+answer: '_'
+
+explanation: |
+  `max_value` uses underscore. `max-value` would be subtraction.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-hyphen-id)"
+
+commonMistakeIds: ["CM-hyphen-id"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

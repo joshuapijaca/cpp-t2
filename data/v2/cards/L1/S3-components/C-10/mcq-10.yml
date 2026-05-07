@@ -1,0 +1,24 @@
+id: L1-S3-C-10-mcq-09
+schemaVersion: v2
+atomId: C-10
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-10
+commonMistakeIds:
+  - CM-C10a
+stem: SIZE is 5. The for-header guard `i < SIZE` is being tested. If i = 4, what is the result?
+correct: true (so the loop body runs this iteration)
+distractors:
+  - false (so the loop exits)
+  - true but the loop exits anyway
+  - undefined — the comparison cannot be evaluated until i==SIZE
+explanation: 4 < 5 is true, so the body runs and the iteration continues.
+

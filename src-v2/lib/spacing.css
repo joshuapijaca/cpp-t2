@@ -1,0 +1,29 @@
+/* cpp-t2 v2 — Spacing scale */
+/* 4px grid. Eight stops. Don't introduce other values. */
+
+:root {
+  --sp-1:  4px;   /* hairline gap (icon to label)     */
+  --sp-2:  8px;   /* compact stacks                   */
+  --sp-3: 12px;   /* card internal gap                */
+  --sp-4: 16px;   /* default block padding            */
+  --sp-6: 24px;   /* section gap                      */
+  --sp-8: 32px;   /* page gutter                      */
+  --sp-12: 48px;  /* hero / above-fold breathing      */
+  --sp-16: 64px;  /* page-edge maximum                */
+}
+
+/* Convenience utility classes — Tailwind v4 also exposes p-[var(--sp-3)] etc. */
+.gap-1  { gap: var(--sp-1); }
+.gap-2  { gap: var(--sp-2); }
+.gap-3  { gap: var(--sp-3); }
+.gap-4  { gap: var(--sp-4); }
+.gap-6  { gap: var(--sp-6); }
+.gap-8  { gap: var(--sp-8); }
+.gap-12 { gap: var(--sp-12); }
+.gap-16 { gap: var(--sp-16); }
+
+.pad-2 { padding: var(--sp-2); }
+.pad-3 { padding: var(--sp-3); }
+.pad-4 { padding: var(--sp-4); }
+.pad-6 { padding: var(--sp-6); }
+.pad-8 { padding: var(--sp-8); }

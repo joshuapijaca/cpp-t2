@@ -1,0 +1,71 @@
+# =====================================================================
+# L0 / F-15 / WalkthroughCard 02
+# Atom: Prompt-then-read pair (full read function, V2.0 anchor)
+# =====================================================================
+id: "L0-F15-walk-02"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Walk through the full read_desks function the practice test asked
+  for. Notice: every field gets its own prompt-pair, in declaration
+  order.
+
+levelLabel: "L0 Foundation Phase C F-15"
+
+fullCode: |
+  void read_desks(desk_data desks[], int num_to_read) {
+    int i;
+    for (i = 0; i < num_to_read; i++) {
+      cout << "desk " << i << " desk_id: ";
+      cin >> desks[i].desk_id;
+
+      cout << "desk " << i << " price: ";
+      cin >> desks[i].price;
+    }
+  }
+
+steps:
+  - line: 4
+    code: 'cout << "desk " << i << " desk_id: ";'
+    annotation: |
+      First prompt of THIS iteration. Includes the loop index `i` so
+      the user knows which desk they are entering. Trailing space
+      before the cursor sits.
+    atomIds: ["F-15", "F-13b"]
+  - line: 5
+    code: 'cin >> desks[i].desk_id;'
+    annotation: |
+      Read the desk_id field of the i-th array element. The dot +
+      brackets work together: `desks[i]` picks the array slot, `.desk_id`
+      picks the field inside that struct.
+    atomIds: ["F-15", "F-14b"]
+  - line: 7
+    code: 'cout << "desk " << i << " price: ";'
+    annotation: |
+      Second prompt of this iteration. Same shape, different label
+      and field.
+    atomIds: ["F-15", "F-13b"]
+  - line: 8
+    code: 'cin >> desks[i].price;'
+    annotation: |
+      Read into the second field. The pattern repeats: prompt then
+      read, prompt then read.
+
+      KEY: every cin has a cout label IMMEDIATELY before it.
+    atomIds: ["F-15", "F-14b"]
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: read_desks function reads N desk_data structs"
+
+commonMistakeIds: ["CM-F15a", "CM-F15c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Full read function — the EXACT shape practice Q3 asks for.

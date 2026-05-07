@@ -1,0 +1,23 @@
+id: CM-scope-leak
+name: "Student references a variable outside its scope"
+description: |
+  A loop-local `int i` is in scope only inside the for-loop. Students
+  reference `i` after the loop closes (e.g. `cout << i;`), which is
+  out-of-scope. Same for any block-local declaration.
+whyItHappens: |
+  Scope is invisible — relies on understanding that braces define a
+  region. Students treat all variables as "global within the function."
+immunizationStrategy: |
+  1. SpotError: code printing `i` after for-loop ends; flag scope.
+  2. MCQ: "Is `int i` declared in `for (int i...)` available outside?"
+  3. Cloze: fix scope error by hoisting the declaration.
+  4. Decompose: classify variables by scope region.
+  5. Demo card: visualise scope blocks via shading.
+  6. WriteCard rejecting out-of-scope references.
+examImpact: low
+atomDependencies: [F-08, F-11, F-18a]
+qTracks: [Q1, Q3, Q4]
+relatedCMs: [CM-brace-mismatch]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-1 — variable scope"

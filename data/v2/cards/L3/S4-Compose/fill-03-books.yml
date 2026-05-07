@@ -1,0 +1,50 @@
+# =====================================================================
+# L3 / R-03 / TemplateRecallCard — fill-blank books
+# =====================================================================
+id: "L3-R03-fill-03"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "TemplateRecallCard"
+stem: |
+  Fill the 5 placeholders {{R}} {{A}} {{I}} {{B}} {{T}} in read_books.
+prompt: "5-blank fill-in"
+template: |
+  {{R}} read_books(book_data {{A}}books[], {{I}} number_to_read)
+  {
+    for (int i = 0; i < {{B}}; i++)
+    {
+      cout << "Pages: ";
+      cin >> {{T}};
+      cout << "Price: ";
+      cin >> books[i].price;
+      cout << "Rating: ";
+      cin >> books[i].rating;
+    }
+  }
+canonicalAnswer: |
+  void read_books(book_data &books[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Pages: ";
+      cin >> books[i].pages;
+      cout << "Price: ";
+      cin >> books[i].price;
+      cout << "Rating: ";
+      cin >> books[i].rating;
+    }
+  }
+keyChecks:
+  - "void read_books(book_data &books[], int number_to_read)"
+  - "books[i].pages"
+explanation: |
+  {{R}}=void, {{A}}=&, {{I}}=int, {{B}}=number_to_read, {{T}}=books[i].pages.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

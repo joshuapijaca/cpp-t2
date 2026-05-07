@@ -1,0 +1,64 @@
+# =====================================================================
+# L0 / F-11 / DecomposeCard 01
+# Atom: Variable declaration + initialisation
+# =====================================================================
+id: "L0-F11-decomp-01"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A trace begins with the line below. Pick the option that best
+  describes what is in box `i` immediately after this line runs.
+
+code: |
+  int i;
+
+question: |
+  After this single line, what does the variables panel show for `i`?
+
+options:
+  - label: "A"
+    text: |
+      `i` holds the value 0 — int variables default to zero on
+      declaration.
+  - label: "B"
+    text: |
+      `i` holds an undefined garbage value. Reading `i` before any
+      assignment gives an unpredictable result.
+  - label: "C"
+    text: |
+      `i` is empty / null until something is written.
+  - label: "D"
+    text: |
+      The line is a syntax error because no value was provided.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. C++ does NOT zero-initialise local int variables. The
+  box `i` is opened, but nothing is written. Whatever bits were sitting
+  at that memory location remain — that is the garbage value.
+
+  A is wrong: only globals/statics zero-initialise. Locals do not.
+  C is wrong: `null` is not a C++ concept for primitive ints; the box
+  always contains some bit pattern, just not a meaningful one.
+  D is wrong: a declaration without initialiser is legal syntax.
+
+  Practical lesson: ALWAYS initialise. Use `int i = 0;` to be safe.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F11b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Targets the #1 trace error: assuming uninitialised int = 0. In a
+  paper-trace exam this can cause an off-by-one if the student walks
+  through `for (i = 0; ...)` thinking `i` was already 0.

@@ -1,0 +1,60 @@
+id: "L4-S4-novel-19"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[novel 19/20] Write the COMPLETE main() for the task_data entity. Apply the canonical 7-piece skeleton with MAX=500, count=task_count, fn=read_tasks."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 novel entity transfer"
+commonMistakeIds: 
+  - "CM-Q4-missing-const"
+  - "CM-Q4-pass-MAX-not-count"
+  - "CM-Q4-amp-at-call"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Write a full main() for task_data. const MAX = 500; count_var = task_count; fn = read_tasks; fields = id, title, priority; prompt = \"How many tasks?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 500;
+      task_data tasks[MAX];
+      int task_count;
+  
+      cout << "How many tasks? ";
+      cin >> task_count;
+  
+      read_tasks(tasks, task_count);
+  
+      for (int i = 0; i < task_count; i++)
+      {
+          cout << tasks[i].id << ", ";
+          cout << tasks[i].title << ", ";
+          cout << tasks[i].priority << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 500"
+  - "task_data tasks[MAX]"
+  - "int task_count"
+  - "cin >> task_count"
+  - "read_tasks(tasks, task_count)"
+  - "i < task_count"
+  - "tasks[i].id"
+  - "tasks[i].title"
+  - "tasks[i].priority"
+  - "endl"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many tasks?"
+explanation: "Same skeleton as V2.0 — only entity name, MAX, count_var, fn, fields differ. Pattern transfer drill."

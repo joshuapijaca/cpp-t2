@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 05 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Two if-blocks at the same depth, sequentially
+# =====================================================================
+id: "L0-F25-mcq-05"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Two ifs at the same depth (depth 1). The HIGHLIGHTED `{` opens
+  the FIRST if. Which `}` matches it?
+
+  ```cpp
+  int main() {       // depth 0 open
+    if (a > 0) {     // <-- HIGHLIGHT (depth 1, first if)
+      int p = 1;
+    }                // <-- option A (depth 1)
+    if (b > 0) {     // depth 1 open (second if)
+      int q = 2;
+    }                // <-- option B (depth 1)
+    return 0;
+  }                  // <-- option C (depth 0)
+  ```
+
+correct: "A — the first `}` you reach after the highlighted `{`, on the line after `int p = 1;`."
+
+distractors:
+  - "B — the `}` after `int q = 2;`, because both ifs share one closing brace."
+  - "C — the final `}` of main, because that always matches every open brace inside it."
+  - "D — the `{` of the second if; openings pair with the next opening."
+
+explanation: |
+  A is correct. The first `}` at depth 1 matches the highlighted
+  `{`. The second if is a separate block.
+
+  B is wrong: each `{` needs its OWN `}`.
+  C is wrong: the final `}` belongs to main.
+  D is wrong: openings only pair with closings.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 5/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Two same-depth siblings. Each pair is independent.

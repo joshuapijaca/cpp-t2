@@ -1,0 +1,44 @@
+id: "CM-wrong-type-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-wrong-type: Q2 wrong field type.
+
+code: |
+  // Trap: Wrote `int price` for desk — should be double.
+  int price;
+  ;
+
+question: |
+  What goes wrong with the line above on Q2?
+
+options:
+  - label: "A"
+    text: "Wrote `int price` for desk — should be double."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Wrote `int price` for desk — should be double. The canonical pattern is: double price;
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-wrong-type"
+
+commonMistakeIds: ["CM-wrong-type"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-wrong-type.

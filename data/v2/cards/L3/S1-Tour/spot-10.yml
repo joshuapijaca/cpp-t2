@@ -1,0 +1,26 @@
+# =====================================================================
+# L3 / R-00 / MCQCard — spot the error
+# =====================================================================
+id: "L3-R00-spot-10"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 1
+level: "L3"
+type: "MCQCard"
+stem: |
+  Inside the read_desks loop, one line below is buggy. Pick the buggy form.
+correct: "cout << \"Width: \" << endl; cin >> desks[i].width;"
+distractors:
+  - "cout << \"Width: \"; cin >> desks[i].width;"
+  - "cout << \"Width: \" << endl; cin >> items[i].width;"
+  - "cout << \"Width: \" << endl; cin >> desks[i].height;"
+explanation: |
+  endl pushes prompt to next line — user input separated from prompt. Correct form: cout << "Width: "; cin >> desks[i].width;
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-spot"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

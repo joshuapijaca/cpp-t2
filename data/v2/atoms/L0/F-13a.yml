@@ -1,0 +1,23 @@
+id: F-13a
+name: "cout << operator direction"
+level: L0
+phase: C
+teaches: "`cout << x;` — the << pushes the value of x INTO cout. Direction matters; >> would be input."
+prereqs: [F-04, F-05]
+usedByQs: [Q3, Q4]
+cardCountTarget: 8
+parentAtom: F-13
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+    quote: "<< is the insertion operator: it sends a value into the output stream cout."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/5-terminal-functions"
+    quote: "Read 'cout << x' as: cout takes x."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:30:55 — Saloni: 'I will enter these values' (showing input flow direction)"
+commonMistakes:
+  - CM-F13a-1  # writes cout >> x (wrong direction, common Q3 error confusion)
+  - CM-F13a-2  # confuses cout with cin direction
+notes:
+  cardMix: { walkthrough: 1, demo: 1, decompose: 1, cloze: 2, μWrite: 2, mcq: 1 }

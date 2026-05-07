@@ -1,0 +1,40 @@
+id: "L1-S2-TB-08-cloze-fn-name"
+schemaVersion: "v2"
+atomId: "T-02"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Fill in the function name.
+
+prompt: |
+  What is the canonical function name on Q1?
+
+template: |
+  void ___(stat_double &data) {
+  }
+
+canonicalAnswer: |
+  void who_am_i(stat_double &data) {
+  }
+
+keyChecks:
+  - "who_am_i"
+
+forbiddenTokens: []
+
+explanation: |
+  `who_am_i` — lowercase snake_case. Same name on practice and V2.0.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — who_am_i"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-B cloze: function name.
+authoringStatus: "DRAFT"

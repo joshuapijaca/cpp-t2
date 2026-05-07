@@ -1,0 +1,27 @@
+id: CM-confuse-eq-pluseq
+name: "Student confuses `=` (assign) with `+=` (accumulate)"
+description: |
+  In sum-positive (`mystery = mystery + numbers[i]`), the line accumulates.
+  Students read it as plain assignment (`mystery = numbers[i]`), losing the
+  running sum and yielding only the last positive cell as the answer
+  instead of the total. Mirrors the V2.0 real exam question shape.
+whyItHappens: |
+  The right-hand-side reuse of `mystery` is what makes it accumulation.
+  Students mentally simplify `mystery = mystery + X` to `mystery = X`,
+  dropping the previous-mystery term. Especially when running tired or
+  fast under exam pressure.
+immunizationStrategy: |
+  1. Trace card with the literal pattern `m = m + n[i]`; student must
+     show the previous-m term in their work.
+  2. SpotError: buggy trace that dropped the prev-m term.
+  3. MCQ: "What does `x = x + 1` do? (assign x+1 back to x)"
+  4. Cloze: blank for the second occurrence of `mystery` on the RHS.
+  5. Pair-trace: same data, `m = X` vs `m = m + X`, diff highlighted.
+  6. Decompose: split `m = m + X` into READ-m, ADD-X, WRITE-m.
+examImpact: high
+atomDependencies: [F-12, A1, A4]
+qTracks: [Q1]
+relatedCMs: [CM-stale-mystery, CM-only-final-no-trail]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — sum-positive accumulator"

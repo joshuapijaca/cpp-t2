@@ -1,0 +1,73 @@
+# =====================================================================
+# L0 / F-17 / TraceCard 04
+# Atom: if updates a variable conditionally — TRUE branch
+# =====================================================================
+id: "L0-F17-trace-04"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. Same shape as trace-03 but the condition is now
+  TRUE. Track `max` carefully — old value gets replaced.
+
+code: |
+  int main() {
+    int x = 25;
+    int max = 10;
+    if (x > max) {
+      max = x;
+    }
+    cout << max << endl;
+    return 0;
+  }
+
+variables: ["x", "max"]
+
+expectedTrace:
+  - line: 2
+    variable: "x"
+    value: "25"
+    output: null
+  - line: 3
+    variable: "max"
+    value: "10"
+    output: null
+  - line: 4
+    variable: ""
+    value: ""
+    output: null
+    condition: "25 > 10 -> true, enter body"
+  - line: 5
+    variable: "max"
+    value: "25"
+    output: null
+  - line: 7
+    variable: ""
+    value: ""
+    output: "25"
+
+terminalOutput:
+  - "25"
+
+inputMode: "final-only"
+
+teachMe: |
+  Condition true: 25 > 10. Enter body. `max = x;` reads x=25, then
+  WRITES 25 into box `max`. The old value 10 is replaced. The
+  variables panel now has max=25 (10 has a strikethrough). Print
+  25.
+
+source:
+  kind: "v2"
+  ref: "Test2-SIT102-practice (1).docx — mystery = numbers[i] when greater"
+
+commonMistakeIds: ["CM-F17a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Companion to trace-03.
+authoringStatus: "DRAFT"

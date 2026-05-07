@@ -1,0 +1,72 @@
+# =====================================================================
+# L0 / F-09 / DecomposeCard 01
+# Atom: Identifier rules + naming
+# =====================================================================
+id: "L0-F09-decomp-01"
+schemaVersion: "v2"
+atomId: "F-09"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Below are four candidate variable names a student typed during a
+  Q4 main write. Pick the option that best describes which names
+  compile.
+
+code: |
+  int 2nd_score;
+  int second_score;
+  int second score;
+  int Second_Score;
+
+question: |
+  Which row is a LEGAL C++ identifier in SIT102 idiom?
+
+options:
+  - label: "A"
+    text: |
+      `2nd_score` — starts with the digit 2. Letters appear later, so
+      the compiler accepts it.
+  - label: "B"
+    text: |
+      `second_score` — starts with a letter, contains only letters and
+      one underscore. Legal identifier and snake_case.
+  - label: "C"
+    text: |
+      `second score` — two words separated by a space. The compiler
+      reads the space as the end of the first identifier.
+  - label: "D"
+    text: |
+      `Second_Score` — capital letters are forbidden inside C++
+      identifiers; only lowercase is accepted.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. `second_score` follows all three rules: starts with a
+  letter, contains only letters and underscore, and uses snake_case
+  per SIT102 style.
+
+  A is wrong: an identifier MUST start with a letter or underscore.
+  `2nd_score` starts with the digit 2, which the compiler rejects.
+
+  C is wrong: a space ends the identifier. The compiler sees `int second`
+  followed by `score;` which is a syntax error.
+
+  D is wrong: capital letters are LEGAL in C++ identifiers, but SIT102
+  requires snake_case. Plus the option misstates the rule.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/2-communicating-syntax/2-trailside/04-identifier"
+
+commonMistakeIds: ["CM-F09a", "CM-F09c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Distractor D is a soft trap: capitals are technically legal, but
+  SIT102 rejects them. Forces the student to think about both the
+  language rule AND the style rule.

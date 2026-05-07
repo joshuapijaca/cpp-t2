@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 13 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Struct definition with three fields
+# =====================================================================
+id: "L0-F25-mcq-13"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q2"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  A struct with three fields. The HIGHLIGHTED `{` opens the struct.
+  Which `}` matches?
+
+  ```cpp
+  struct Person {     // <-- HIGHLIGHT (depth 0, struct)
+    string name;
+    int age;
+    double height;
+  };                  // <-- option A (depth 0, struct close)
+  int main() {       // depth 0 open (main)
+    Person p;
+    return 0;
+  }                  // <-- option B (depth 0, main close)
+  ```
+
+correct: "A — the `};` line (the `}` portion is the struct's close)."
+
+distractors:
+  - "B — the final `}` of main, since structs and main share one closing brace."
+  - "C — the `;` characters at the end of each field line are the struct's closing braces."
+  - "D — there is no `}` matching the struct; a struct ends at the next blank line."
+
+explanation: |
+  A is correct. The struct opens at `{` and closes at the
+  matching `}` (which sits before the required `;`).
+
+  B is wrong: B closes main.
+  C is wrong: `;` is a statement terminator, not a brace.
+  D is wrong: A is visible. C++ does not use blank lines for scope.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 13/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Struct brace match — Q2-relevant.

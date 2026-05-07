@@ -1,0 +1,44 @@
+id: "CM-wrong-cin-direction-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q3 wrong cin direction. The code below has the bug labeled
+  by CM-wrong-cin-direction. Find the line and provide the fix.
+
+brokenCode: |
+  // Q3 broken excerpt:
+  cin << arr[i].field;
+  // (canonical was: cin >> arr[i].field;)
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  cin >> arr[i].field;
+  ;
+
+bugCategory: "CM-wrong-cin-direction"
+
+keyChecks:
+  - "cin >> arr[i].field;"
+
+explanation: |
+  Bug: Wrote `cin << arr[i].field` (output direction).
+  Fix: cin >> arr[i].field;
+  This common mistake costs marks on Q3 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-wrong-cin-direction"
+
+commonMistakeIds: ["CM-wrong-cin-direction"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-wrong-cin-direction.

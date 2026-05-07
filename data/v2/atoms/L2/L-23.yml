@@ -1,0 +1,17 @@
+id: L-23
+name: "Q2 S3 Components — noun→type, naming, ordering, spacing"
+level: L2
+teaches: "Atomic Q2 sub-skills: pick the right primitive type from the noun, write a snake_case field name, order multiple fields, format whitespace correctly."
+prereqs: [F-09, F-10, F-20, L-22]
+usedByQs: [Q2]
+cardCountTarget: 80
+splitInto: [L-23a, L-23b, L-23c]
+source:
+  - kind: practice
+    ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 noun→type (50) + naming (15) + ordering (10) + spacing (5)"
+commonMistakes:
+  - CM-Q2-wrong-type
+  - CM-Q2-camelcase
+  - CM-Q2-reserved
+notes:
+  cardMix: { noun-to-type: 50, naming: 15, ordering: 10, spacing: 5 }

@@ -1,0 +1,57 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 11 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Two siblings inside the same parent (two if-blocks in main)
+# =====================================================================
+id: "L0-F25-mcq-11"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Two if-blocks at depth 1, both inside main. The HIGHLIGHTED `{`
+  is the SECOND if. Which `}` matches?
+
+  ```cpp
+  int main() {       // depth 0 open
+    if (a > 0) {     // depth 1 open (first if)
+      int p = 1;
+    }                // option A (depth 1, first if close)
+    if (b > 0) {     // <-- HIGHLIGHT (depth 1, second if)
+      int q = 2;
+    }                // <-- option B (depth 1, second if close)
+    return 0;
+  }                  // <-- option C (depth 0)
+  ```
+
+correct: "B — the `}` after `int q = 2;` (depth-1, second if)."
+
+distractors:
+  - "A — the `}` after `int p = 1;`, which closes the first if and serves both."
+  - "C — the final `}` of main, since each if borrows main's brace."
+  - "D — none of the visible `}`; the second if has no closing brace."
+
+explanation: |
+  B is correct. The depth-1 rule does NOT mean "any depth-1 close
+  works" — it means the FIRST UNMATCHED depth-1 close after the
+  open. Option A is already paired with the first if, so the next
+  depth-1 close (option B) is the match.
+
+  A is wrong: A pairs with the first if's open.
+  C is wrong: C is at depth 0.
+  D is wrong: B is visible.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 11/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Refines the depth rule: nearest UNMATCHED close, not just same
+  depth.

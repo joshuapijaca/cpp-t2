@@ -1,0 +1,125 @@
+# =====================================================================
+# L1 / average / TraceCard 10
+# large floats
+# =====================================================================
+id: "L1-A10-trace-10"
+schemaVersion: "v2"
+atomId: "A10"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "TraceCard"
+
+stem: "Hand-execute the average loop on stat_double { numbers = {100.0, 200.0, 300.0, 400.0, 500.0}, mystery = ? }. Track i and data.mystery in the panel; print final mystery. large floats."
+
+code: |
+  const int SIZE = 5;
+  
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  
+  int main() {
+    stat_double data = { {100.0, 200.0, 300.0, 400.0, 500.0}, 0 };
+    data.mystery = 0.0;
+    for (int i = 0; i < SIZE; i = i + 1) {
+      data.mystery = data.mystery + data.numbers[i];
+    }
+    data.mystery = data.mystery / 5;
+    cout << data.mystery << endl;
+    return 0;
+  }
+
+variables: ["i", "data.mystery"]
+
+expectedTrace:
+  - line: 9
+    variable: "data.mystery"
+    value: "0"
+    output: null
+  - line: 10
+    variable: "data.mystery"
+    value: "0.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "0"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "100.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "1"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "300.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "2"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "600.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "3"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "1000.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "4"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "1500.0"
+    output: null
+  - line: 16
+    variable: "data.mystery"
+    value: "300.0"
+    output: null
+  - line: 17
+    variable: ""
+    value: ""
+    output: "300"
+
+terminalOutput: ["300"]
+
+inputMode: "final-only"
+
+teachMe: |
+  After hand-execution:
+    data.mystery = 0
+    data.mystery = 0.0
+    i = 0
+    data.mystery = 100.0
+    i = 1
+    data.mystery = 300.0
+    i = 2
+    data.mystery = 600.0
+    i = 3
+    data.mystery = 1000.0
+    i = 4
+    data.mystery = 1500.0
+    data.mystery = 300.0
+    Print: 300
+  
+  Final terminal output: 300
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — average variant"
+
+commonMistakeIds: ["CM-A10-divide-inside-loop", "CM-A10-forget-divide", "CM-A10-int-div-truncate"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Progression: large floats. Trace card. Input mode: final-only."

@@ -1,0 +1,58 @@
+/* cpp-t2 v2 — Focus rings + scrollbars */
+/* Keyboard-first app. Focus must be visible on every interactive element. */
+
+:root {
+  --ring-width: 2px;
+  --ring-offset: 2px;
+  --ring-color: var(--state-info);   /* #58a6ff — VSCode focus blue */
+}
+
+/* Default: never paint a ring on mouse click; only on keyboard tabbing.
+   :focus-visible covers programmatic and keyboard focus, never click. */
+*:focus { outline: none; }
+
+*:focus-visible,
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible,
+[tabindex]:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: var(--ring-width) solid var(--ring-color);
+  outline-offset: var(--ring-offset);
+  border-radius: 2px;
+}
+
+/* High-contrast focus for elements painted on accent (no offset = better contrast) */
+.focus-on-accent:focus-visible {
+  outline: var(--ring-width) solid var(--text-0);
+  outline-offset: 0;
+}
+
+/* ---------- Scrollbars ---------- */
+/* Firefox + modern browsers */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-2) var(--bg-2);
+}
+
+/* WebKit / Chromium / Edge */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-2);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-2);
+  border-radius: 5px;
+  border: 2px solid var(--bg-2);   /* inset look */
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-2);
+}
+::-webkit-scrollbar-corner {
+  background: var(--bg-2);
+}

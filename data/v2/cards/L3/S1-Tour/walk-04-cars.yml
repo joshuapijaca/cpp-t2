@@ -1,0 +1,41 @@
+# =====================================================================
+# L3 / R-00 / WalkthroughCard — worked read_cars
+# =====================================================================
+id: "L3-R00-walk-04"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 1
+level: "L3"
+type: "WalkthroughCard"
+stem: |
+  Worked example: read_cars. Confirm skeleton mapping.
+levelLabel: "L3 Q3 Tour — worked read_cars"
+fullCode: |
+  void read_cars(car_data &cars[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Engine litres: ";
+      cin >> cars[i].engine_l;
+      cout << "Doors: ";
+      cin >> cars[i].doors;
+      cout << "Mileage (km): ";
+      cin >> cars[i].mileage;
+    }
+  }
+steps:
+  - line: 1
+    code: "void read_cars(car_data &cars[], int number_to_read)"
+    annotation: "car_data &cars[], int number_to_read."
+    atomIds: ["F-22", "F-22a"]
+  - line: 6
+    code: "    cin >> cars[i].engine_l;"
+    annotation: "cin >> cars[i].engine_l — index then .field."
+    atomIds: ["F-21", "F-15"]
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

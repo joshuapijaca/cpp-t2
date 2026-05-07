@@ -1,0 +1,31 @@
+id: CM-Q4-arg-order-swap
+name: "Q4 read_X call: arguments swapped — `read_desks(desk_num, desks)`"
+description: |
+  Q4's read function signature is `void read_desks(desk_data desks[],
+  int number_to_read)` — array first, count second. Students invert
+  the order in main(): `read_desks(desk_num, desks);`. With strict
+  parameter typing this is a hard compile error (int vs array
+  mismatch); even when types coincidentally match, the function
+  semantics break. The canonical order is fixed and matches the
+  function's signature exactly.
+whyItHappens: |
+  English-reading order: students think "I want to read N desks" and
+  put the count first ("the noun the function operates on"). Or they
+  align with cin order: they just read desk_num so it's freshest in
+  memory and goes first. The signature's declared order doesn't sit
+  in working memory at the call site — students reconstruct it from
+  natural-language intent, which inverts it.
+immunizationStrategy: |
+  1. SpotError: `read_desks(desk_num, desks);` — swap to canonical.
+  2. MCQ: "Correct call order?" — 4 permutations.
+  3. Cloze: `read_desks(___, ___);` — fill canonical order.
+  4. Demo: show signature next to two call orders, mark the right one.
+  5. Decompose: 4 calls — pick the one matching the signature.
+  6. Walkthrough: signature → call site, parameter binding 1-to-1.
+examImpact: high
+atomDependencies: [Q-04, Q-05, F-15]
+qTracks: [Q4]
+relatedCMs: [CM-Q4-read-count-after-call, CM-fn-call-extra-amp, CM-Q4-MAX-as-define]
+source:
+  kind: v2
+  ref: "C++T2 spec §6.3 Block D (call site); SIT102 Test 2 V2.0 read_desks signature"

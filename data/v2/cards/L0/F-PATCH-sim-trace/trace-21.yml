@@ -1,0 +1,60 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 21 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: First terminal-output trace
+# =====================================================================
+id: "L0-F23-trace-21"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  This program prints. Step through, then enter (a) the final value
+  of `x` in the variables panel and (b) what appears in the terminal.
+
+code: |
+  int main() {
+    int x = 12;
+    cout << x << endl;
+    return 0;
+  }
+
+variables: ["x"]
+
+expectedTrace:
+  - line: 2
+    variable: "x"
+    value: "12"
+    output: null
+  - line: 3
+    variable: ""
+    value: ""
+    output: "12"
+
+terminalOutput: ["12"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Line 2: open box `x`, write 12.
+  Line 3: cout reads `x` (value 12), writes 12 then a newline to the
+  terminal.
+  Final panel: { x: 12 }. Terminal: 12
+
+  Note: the cout does NOT empty the box. After printing, `x` still
+  holds 12.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 21/30"
+
+commonMistakeIds: ["CM-prints-variable-name"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  First cout in the primer. Targets the misconception that printing
+  a variable empties it.

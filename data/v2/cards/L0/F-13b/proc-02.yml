@@ -1,0 +1,44 @@
+# =====================================================================
+# L0 / F-13b / ProceduralCard 02 (μWrite)
+# Atom: cout chained values + endl (multi-value)
+# =====================================================================
+id: "L0-F13b-proc-02"
+schemaVersion: "v2"
+atomId: "F-13b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a single cout that chains three values with separators.
+
+section: "F-13b chained-output drills"
+
+prompt: |
+  Assume `int a, b, c;` are declared. Print `a + b = c` style,
+  filling in the actual values, like: `1 + 2 = 3`. End with `;` and
+  a newline.
+
+expectedAnswer: 'cout << a << " + " << b << " = " << c << endl;'
+
+keyChecks: ["cout", "a", '" + "', "b", '" = "', "c", "endl", ";"]
+
+variants:
+  - prompt: |
+      Assume `int a, b;` are declared. Print like `a, b: 1, 2`. End
+      with `;` and a newline.
+    expectedAnswer: 'cout << "a, b: " << a << ", " << b << endl;'
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F13b-3"]
+
+notes: |
+  Multi-value chained-output drill.

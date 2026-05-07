@@ -1,0 +1,42 @@
+# =====================================================================
+# L3 / R-04 / FunctionWriteCard — mixed-type games
+# =====================================================================
+id: "L3-R04-mixed-02"
+schemaVersion: "v2"
+atomId: "R-04"
+qTags: ["Q3"]
+stage: 5
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Variation: games with mixed int + double fields.
+  int players, double duration, double price.
+prompt: "mixed-type variant"
+canonicalAnswer: |
+  void read_games(game_data &games[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Players: ";
+      cin >> games[i].players;
+      cout << "Duration (h): ";
+      cin >> games[i].duration;
+      cout << "Price: ";
+      cin >> games[i].price;
+    }
+  }
+keyChecks:
+  - "cin >> games[i].players;"
+  - "cin >> games[i].duration;"
+  - "cin >> games[i].price;"
+forbiddenTokens:
+  - "while"
+explanation: |
+  cin >> is overloaded for int and double. Same prompt-pair pattern works for both.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

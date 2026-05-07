@@ -1,0 +1,25 @@
+# =====================================================================
+# L3 / R-02b / MCQCard — loop mcq
+# =====================================================================
+id: "L3-R02b-mcq-07"
+schemaVersion: "v2"
+atomId: "R-02b"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "MCQCard"
+stem: |
+  Body brace placement?
+correct: "opens on next line after for-header"
+distractors:
+  - "same line as for"
+  - "no braces"
+  - "only with single statement"
+explanation: |
+  opens on next line after for-header
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

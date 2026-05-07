@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-F18a-2
+id: "L1-cmimm-CM-F18a-2-mcq"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  What is the canonical for-loop init slot in Test 2 C++?
+
+correct: '`int i = 0` — declare-and-init in the slot itself'
+
+distractors:
+  - '`i = 0` — assumes i was declared elsewhere'
+  - '`int i;` — declares but does not init'
+  - '`i := 0` — Pascal-style; not valid C++'
+
+explanation: |
+  `int i = 0` does both: declares a fresh int, initialised to 0, scoped to the loop. The other forms either leak scope or rely on a prior declaration.
+
+source:
+  kind: "pfg"
+  ref: "PFG part-1/3-control-flow/2-trailside/04-3-for-loop — common-mistake immunization (CM-F18a-2)"
+
+commonMistakeIds: ["CM-F18a-2"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

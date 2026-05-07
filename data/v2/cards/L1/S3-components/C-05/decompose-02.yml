@@ -1,0 +1,36 @@
+id: L1-S3-C-05-decomp-01
+schemaVersion: v2
+atomId: C-05
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: DecomposeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-05
+commonMistakeIds:
+  - CM-C05a
+stem: Pick the correct sketch for the scalar `double mystery`.
+code: |-
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  stat_double d;
+question: Which option draws mystery correctly?
+options:
+  - label: A
+    text: mystery[0] | mystery[1] | mystery[2]  — 3 cells.
+  - label: B
+    text: mystery   — 1 cell, no index.
+  - label: C
+    text: No cell — mystery is implicit and not drawn.
+  - label: D
+    text: 5 cells — one per array slot.
+correctLabel: B
+explanation: A scalar is one named cell. mystery has no [] anywhere — it is not an array.
+

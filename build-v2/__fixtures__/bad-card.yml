@@ -1,0 +1,33 @@
+# =====================================================================
+# build-v2/__fixtures__/bad-card.yml
+# Intentionally malformed card. Lint MUST flag every issue below.
+# Used by build-v2/__tests__/lint.spec.ts.
+# =====================================================================
+#
+# Expected lint findings (rule codes):
+#   - zod                   schemaVersion is "v1" (not "v2")
+#   - zod                   missing required field `qTags` (schema requires non-empty)
+#   - source-missing        no source object
+#   - auth-status           authoringStatus "WIP" not in {DRAFT,REVIEWED,APPROVED}
+#   - forbidden-token       canonicalAnswer uses `while` (off-scope)
+#   - forbidden-token       canonicalAnswer uses `printf` (off-scope)
+#   - canon-end             canonicalAnswer doesn't end with `}` or `;`
+#   - keycheck-orphan       keyCheck "endl" not present in canonical answer
+#   - word-memorize-suspect (warn) no code AND short stem
+#
+- id: bad-card-001
+  schemaVersion: v1
+  atomId: F-99
+  # qTags intentionally omitted — schema requires non-empty array
+  stage: 2
+  level: L1
+  type: FunctionWriteCard
+  stem: "short stem"
+  authoringStatus: WIP
+  prompt: "Write something using a loop"
+  canonicalAnswer: "int main(){ while(true) printf(\"x\") }"
+  keyChecks:
+    - "endl"
+  forbiddenTokens: []
+  explanation: "broken on purpose"
+  createdBy: SA-fixture

@@ -1,0 +1,72 @@
+# =====================================================================
+# L0 / F-05 / DecomposeCard 01
+# Atom: using namespace std;
+# =====================================================================
+id: "L0-F05-decomp-01"
+schemaVersion: "v2"
+atomId: "F-05"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student forgot the using directive but tries to call `cout`
+  unqualified. Read the program below. Pick the option that best
+  describes the compiler error and the minimal fix.
+
+code: |
+  #include <iostream>
+  int main() {
+    cout << 5 << endl;
+    return 0;
+  }
+
+question: |
+  What error does the compiler raise, and what is the minimal fix?
+
+options:
+  - label: "A"
+    text: |
+      "main returned non-zero". Fix by changing `return 0;` to `return 1;`.
+  - label: "B"
+    text: |
+      "cout was not declared in this scope". Add `using namespace std;`
+      after the include line, OR write `std::cout` and `std::endl`.
+  - label: "C"
+    text: |
+      "missing semicolon on line 4". Fix by removing the `return 0;`
+      line entirely.
+  - label: "D"
+    text: |
+      "iostream not found". Fix by renaming the file to `.c`.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. Without `using namespace std;`, the bare name `cout`
+  refers to nothing the compiler has heard of (it lives inside `std`),
+  so the compiler errors with "cout was not declared in this scope".
+  Two equivalent fixes: (1) add `using namespace std;` so the
+  unqualified name resolves; (2) qualify each call as `std::cout` and
+  `std::endl`.
+
+  A is wrong: `return 0;` is fine. The error is at compile-time, not
+  runtime.
+  C is wrong: there is no missing semicolon; line 3 is properly
+  terminated.
+  D is wrong: the include is fine; renaming to `.c` would break much
+  more than it fixes.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md (after using directive cout/cin become unqualified)"
+
+commonMistakeIds: ["CM-F05a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Diagnose-the-error decompose. Each distractor is a real beginner
+  mis-attribution (returning value, semicolon, file extension). Only
+  B addresses the actual cause: missing namespace lift.

@@ -1,0 +1,38 @@
+id: "L4-S3C-write-03"
+schemaVersion: "v2"
+atomId: "Q-04"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "FunctionWriteCard"
+stem: "Write the 3-line block: declare int book_count;, prompt with cout, read with cin >> book_count;."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block C count+prompt+cin"
+commonMistakeIds: 
+  - "CM-Q4-no-prompt"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Declare int book_count, prompt the user \"How many books?\", read with cin."
+signatureHint: |
+  int ___;
+  cout << "..."; cin >> ___;
+canonicalAnswer: |
+  int book_count;
+  cout << "How many books? ";
+  cin >> book_count;
+keyChecks: 
+  - "int"
+  - "book_count"
+  - "cout"
+  - "cin"
+  - ">>"
+  - ";"
+forbiddenTokens: 
+  - "getline"
+  - "while"
+  - "scanf"
+passByRefRequired: false
+explanation: "Decl int book_count → cout prompt → cin >> book_count. ALWAYS in this order."

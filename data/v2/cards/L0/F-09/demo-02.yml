@@ -1,0 +1,53 @@
+# =====================================================================
+# L0 / F-09 / DemoCard 02
+# Atom: Identifier rules + naming (illegal names)
+# =====================================================================
+id: "L0-F09-demo-02"
+schemaVersion: "v2"
+atomId: "F-09"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Now look at the names that the C++ compiler REFUSES to accept. Each
+  one looks reasonable in English, but breaks one of the three core
+  identifier rules.
+
+whyOneLine: "Identifiers cannot start with a digit, contain spaces or hyphens, or reuse C++ keywords."
+
+demoCode: |
+  // ALL OF THESE ARE COMPILE ERRORS.
+  int 1st_score = 0;     // starts with digit
+  int full name = 0;     // contains a space
+  int full-name = 0;     // contains a hyphen
+  int int = 0;           // reuses keyword `int`
+  int struct = 0;        // reuses keyword `struct`
+  int return = 0;        // reuses keyword `return`
+
+highlightTokens:
+  - "1st_score"
+  - "full name"
+  - "full-name"
+  - "int = 0"
+  - "struct = 0"
+  - "return = 0"
+
+usedIn:
+  - "Q2 struct write (every field name must be a legal identifier)"
+  - "Q3 read fn (parameter names must not collide with keywords)"
+  - "Q4 main (local variable names must follow rules)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/2-communicating-syntax/2-trailside/04-identifier"
+
+commonMistakeIds: ["CM-F09a", "CM-F09b", "CM-F09c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Negative-example demo. Showing what does NOT compile is as important
+  as showing what does. Each illegal line maps to one of the three
+  common mistakes. Keyword examples cover the most-confused cases.

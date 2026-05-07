@@ -1,0 +1,24 @@
+id: "L4-S6-end2end-chain-03"
+schemaVersion: "v2"
+atomId: "Q-10"
+qTags: 
+  - "Q4"
+stage: 6
+level: "L4"
+type: "TestDaySimCard"
+stem: "[end-to-end chain 3/5] 8 minutes to write Q2 + Q3 + Q4 for book_data. Simulates the back half of Test 2 (Q2 + Q3 + Q4 = ~8 min budget)."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.6 S6 end-to-end chain (8min)"
+commonMistakeIds: 
+  - "CM-Q4-time-pressure-skip-const"
+  - "CM-Q4-time-pressure-no-return"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+questionSet: 
+  - {questionNumber: "Q1", prompt: "Q1 hand-execute placeholder — see L1 for Q1 content.", canonicalAnswer: "// Q1 hand-execute (out-of-scope here; Q1 in L1)."}
+  - {questionNumber: "Q2", prompt: "Write the book_data struct (3 fields).", canonicalAnswer: "struct book_data\n{\n    string title;\n    string author;\n    int pages;\n};"}
+  - {questionNumber: "Q3", prompt: "Write the read_books function.", canonicalAnswer: "void read_books(book_data books[], int &count)\n{\n    cout << \"How many books? \";\n    cin >> count;\n    for (int i = 0; i < count; i++)\n    {\n        cin >> books[i].title;\n        cin >> books[i].author;\n        cin >> books[i].pages;\n    }\n}"}
+  - {questionNumber: "Q4", prompt: "Write the main() that calls read_books and prints all rows.", canonicalAnswer: "int main()\n{\n    const int MAX = 200;\n    book_data books[MAX];\n    int book_num;\n\n    cout << \"How many books? \";\n    cin >> book_num;\n\n    read_books(books, book_num);\n\n    for (int i = 0; i < book_num; i++)\n    {\n        cout << books[i].title << \", \";\n        cout << books[i].author << \", \";\n        cout << books[i].pages << endl;\n    }\n\n    return 0;\n}"}
+explanation: "Test-day chain simulator. Splitting Q2+Q3+Q4 over 8 min mirrors actual exam pacing minus Q1."

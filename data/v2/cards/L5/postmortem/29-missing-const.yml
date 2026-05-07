@@ -1,0 +1,83 @@
+id: "L5-postmortem-29-missing-const"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Q4 main — student declared `int MAX = 100;` (no `const`). C++ array sizes require a compile-time constant, so the next line `student_data students[MAX]` becomes a variable-length array (VLA), explicitly disallowed by the unit.
+
+failedAttempt: |
+  int main()
+  {
+      int MAX = 100;
+      student_data students[MAX];
+      int count = 0;
+
+      cout << "How many students? ";
+      cin >> count;
+
+      read_students(students, count);
+      print_students(students, count);
+
+      return 0;
+  }
+
+diagnosis: |
+  Without `const`, `MAX` is a regular runtime variable. Standard C++ requires array sizes to be compile-time constants — `student_data students[MAX]` becomes a Variable-Length Array (VLA), a GCC extension that's NOT portable C++ and explicitly disallowed by SIT102. Some compilers warn, others compile silently. The unit's rubric specifically scans for `const int MAX`; without `const`, marks for the constant-declaration line are lost AND the array decl is non-conforming.
+
+repairSteps:
+  - "int main()"
+  - "{"
+  - "    const int MAX = 100;        // <-- `const` REQUIRED for array-size context"
+  - "    student_data students[MAX];"
+  - "    int count = 0;"
+  - "    cout << \"How many students? \";"
+  - "    cin >> count;"
+  - "    read_students(students, count);"
+  - "    print_students(students, count);"
+  - "    return 0;"
+  - "}"
+
+preventionTip: |
+  Array-size context REQUIRES a compile-time constant. Use `const int MAX = N;` (or `constexpr int MAX = N;`). The `const` is non-negotiable when the variable will be used as an array dimension. Mantra: "const-int-MAX before the array."
+
+explanation: |
+  Lesson learned — `const` isn't a stylistic flourish; it changes semantics. Without it, `MAX` could (in principle) change at runtime, and standard C++ refuses to size an array with a non-constant. Even when a compiler accepts it via VLA extension, you've written non-portable code. The unit's rubric requires `const` because portable C++ requires it.
+
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 100;
+      student_data students[MAX];
+      int count = 0;
+
+      cout << "How many students? ";
+      cin >> count;
+
+      read_students(students, count);
+      print_students(students, count);
+
+      return 0;
+  }
+
+annotations:
+  - line: 3
+    severity: err
+    note: "Missing `const`. Should be `const int MAX = 100;`. Required for array-size context on line 4."
+  - line: 4
+    severity: warn
+    note: "Without `const` on line 3, this becomes a Variable-Length Array (non-portable, disallowed by unit)."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q4 const requirement"
+
+commonMistakeIds: ["CM-missing-const"]
+status: "NEW"
+createdBy: "SA-L5-Postmortem-Rewrite"
+authoringStatus: "DRAFT"
+notes: |
+  Postmortem #29 — Q4 / missing `const` on MAX.

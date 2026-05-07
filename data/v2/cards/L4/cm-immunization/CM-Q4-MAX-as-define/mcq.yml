@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-Q4-MAX-as-define
+id: "L4-cmimm-CM-Q4-MAX-as-define-mcq"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  In Q4, what is the SIT102-canonical way to declare MAX = 700 for use as an array bound?
+
+correct: '`const int MAX = 700;` inside main()'
+
+distractors:
+  - '`#define MAX 700` at file top (preprocessor macro)'
+  - '`int MAX = 700;` (no const)'
+  - '`MAX = 700;` (no type)'
+
+explanation: |
+  const int gives a typed, scoped, compile-time constant — what Test 2 expects. #define is a textual macro (off-scope for SIT102), `int MAX` allows accidental mutation, and `MAX = 700;` would not declare anything.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block A — common-mistake immunization (CM-Q4-MAX-as-define)"
+
+commonMistakeIds: ["CM-Q4-MAX-as-define"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

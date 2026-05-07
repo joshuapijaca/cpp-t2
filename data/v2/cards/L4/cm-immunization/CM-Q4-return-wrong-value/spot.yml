@@ -1,0 +1,53 @@
+# Hand-authored CM immunization (FaultInjectionCard) for CM-Q4-return-wrong-value
+id: "L4-cmimm-CM-Q4-return-wrong-value-spot"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  The last line of int main() returns no value. Find and fix the bug.
+
+brokenCode: |
+  int main() {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int desk_num;
+      cout << "How many desks? ";
+      cin >> desk_num;
+      read_desks(desks, desk_num);
+      return;
+  }
+
+bugLocations: [8]
+
+fixedCode: |
+  int main() {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int desk_num;
+      cout << "How many desks? ";
+      cin >> desk_num;
+      read_desks(desks, desk_num);
+      return 0;
+  }
+
+bugCategory: "return without value in int main()"
+
+keyChecks:
+  - "return 0;"
+
+explanation: |
+  int main() must return an int. `return;` is only legal in void functions. Use `return 0;` to signal success to the OS.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block F — common-mistake immunization (CM-Q4-return-wrong-value)"
+
+commonMistakeIds: ["CM-Q4-return-wrong-value"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

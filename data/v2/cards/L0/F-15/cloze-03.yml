@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-15 / ClozeCard 03
+# Atom: Prompt-then-read pair (trailing space)
+# =====================================================================
+id: "L0-F15-cloze-03"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the punctuation/space that should appear at the end of
+  the prompt label.
+
+code: |
+  cout << "desk_id___";
+  cin >> desk_id;
+
+clozeSentence: |
+  The last two characters inside the prompt quotes (before the
+  closing quote) should be a colon followed by a `___`.
+
+answer: " "
+
+explanation: |
+  After the colon, include a SPACE so the user's typed value does
+  not visually touch the colon. The full label is `"desk_id: "` —
+  ending colon, space, closing quote. SIT102 marker style requires
+  this trailing space.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+
+commonMistakeIds: ["CM-F15b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Targets the trailing-space rule.

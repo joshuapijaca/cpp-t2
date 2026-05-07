@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-22c / DemoCard 01 — call site has NO `&`
+# =====================================================================
+id: "L0-F22c-demo-01"
+schemaVersion: "v2"
+atomId: "F-22c"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: at the CALL SITE, you write the bare variable name. The
+  `&` only appears in the function signature, NEVER at the call.
+
+whyOneLine: "Call site is `f(arg)`, not `f(&arg)` — `&` is only in the signature."
+
+demoCode: |
+  // Signature has &:
+  void who_am_i(stat_double &data) { ... }
+
+  // Call sites — NO `&`:
+  int main() {
+    stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+    who_am_i(d);          // CORRECT — bare variable name
+    // who_am_i(&d);      // WRONG — & not allowed at call (CM-F22c-1)
+    // who_am_i(*d);      // WRONG — pointer deref (CM-F22c-2)
+  }
+
+  // The reference binding is AUTOMATIC: the compiler sees the
+  // `&` in the signature and binds the call-site variable to it.
+  // The caller does not "do" anything special.
+
+highlightTokens:
+  - "who_am_i(d)"
+  - "who_am_i(&d)"
+  - "who_am_i(*d)"
+  - "stat_double &data"
+  - "AUTOMATIC"
+
+usedIn:
+  - "Q1 trace (`who_am_i(d);` is the call line — no `&`)"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `who_am_i ( d );` at call site"
+
+commonMistakeIds: ["CM-F22c-1", "CM-F22c-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Pure shape exposure. The signature/call-site asymmetry is THE
+  most counter-intuitive piece of pass-by-reference for novices.
+  Direct demo with both correct and wrong forms side-by-side.

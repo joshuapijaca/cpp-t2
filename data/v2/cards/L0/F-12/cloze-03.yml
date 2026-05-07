@@ -1,0 +1,46 @@
+# =====================================================================
+# L0 / F-12 / ClozeCard 03
+# Atom: Assignment = (init zero)
+# =====================================================================
+id: "L0-F12-cloze-03"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the safe initial value for an accumulator that will SUM
+  values.
+
+code: |
+  data.mystery = ___;
+
+  for (i = 0; i < SIZE; i++) {
+    if (data.numbers[i] > 0) {
+      data.mystery = data.mystery + data.numbers[i];
+    }
+  }
+
+clozeSentence: |
+  Before the loop, the accumulator is initialised to `___` (decimal
+  literal).
+
+answer: "0.0"
+
+explanation: |
+  An additive accumulator starts at 0.0. Any other start value would
+  add a constant offset to the final answer. V2.0 used `0.0` exactly,
+  matching the double type.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: data.mystery = 0.0; (the accumulator init line)"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Reinforces that the accumulator init is part of the assignment atom.

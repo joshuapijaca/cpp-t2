@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-21 / TraceCard 01 — basic field write/read
+# =====================================================================
+id: "L0-F21-trace-01"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. Track each field of `p` separately. Fill in the
+  final state of p.x and p.y, and the terminal output.
+
+code: |
+  int main() {
+    point p;
+    p.x = 7;
+    p.y = 3;
+    cout << p.x << endl;
+    return 0;
+  }
+
+variables: ["p.x", "p.y"]
+
+expectedTrace:
+  - line: 3
+    variable: "p.x"
+    value: "7"
+    output: null
+  - line: 4
+    variable: "p.y"
+    value: "3"
+    output: null
+  - line: 5
+    variable: ""
+    value: ""
+    output: "7"
+
+terminalOutput: ["7"]
+
+inputMode: "final-only"
+
+teachMe: |
+  - Line 2: declare `point p;`. Both fields uninitialised.
+  - Line 3: `p.x = 7;` — write to the x field of p. p.y untouched.
+  - Line 4: `p.y = 3;` — write to the y field. Now p = {x: 7, y: 3}.
+  - Line 5: `cout << p.x;` — read p.x, prints 7.
+
+  Final: p.x = 7, p.y = 3. Terminal: 7.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-21 — basic field trace"
+
+commonMistakeIds: ["CM-F21a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Smallest dot-access trace. Field independence + targeted write.

@@ -1,0 +1,36 @@
+id: CM-F22e-1
+name: "Confuses raw-array-decay (T arr[]) with struct-by-reference (T &data)"
+description: |
+  F-22e covers the two pass-by-reference idioms: Idiom 1 — raw array
+  parameter `void f(int arr[], int size)` (decay, no & needed); Idiom 2
+  — struct passed by reference `void f(stat_double &data)` (& required).
+  Test 2 V2.0 uses ONLY Idiom 2. Students confuse them: they write
+  `void who_am_i(stat_double data[], int size)` (Idiom 1 syntax for a
+  struct), or `void fill(int &arr[], int size)` (Idiom 2 syntax for a
+  raw array). Both are wrong for the exam.
+whyItHappens: |
+  Tutorials teach Idiom 1 first (arrays decay automatically), so
+  students assume the same applies to structs. Then when they meet `&`
+  in lecture, they assume `&` is needed everywhere — including raw
+  arrays. The two idioms look superficially similar (no copy in either
+  case) but use different syntax. Pattern-matching from incomplete
+  exposure produces a hybrid that compiles for arrays but not structs.
+immunizationStrategy: |
+  1. Demo: side-by-side Idiom 1 (`int arr[]`) and Idiom 2 (`T &data`)
+     with annotations on syntax differences.
+  2. SpotError: a struct param written `stat_double data[]` — find the
+     missing `&` and remove the `[]`.
+  3. MCQ: "Test 2 wraps array in a struct. The param signature is:"
+     — 4 options including hybrid wrong forms.
+  4. Cloze: blank between `stat_double` and `data` in `void who_am_i
+     (stat_double ___ data)` — answer `&`.
+  5. Decompose: 4 signatures, pick the one matching Test 2 V2.0.
+  6. Walkthrough: dissect `void who_am_i(stat_double &data)` token by
+     token, no `[]` and yes `&`.
+examImpact: high
+atomDependencies: [F-22b, F-22e]
+qTracks: [Q1, Q3]
+relatedCMs: [CM-F22e-2, CM-F22e-3, CM-F22b-1, CM-fn-call-extra-amp]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 — Idiom 2 used; C++T2 spec §F-22e dual-idiom exposure"

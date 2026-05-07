@@ -1,0 +1,381 @@
+SIT102 Introduction to Programming  P1 Learning Plan
+
+Learning Plan
+
+This task helps connect you with the unit, its assessments, and the planning
+necessary to achieve your target grade outcomes.
+
+Show us that you can:
+
+    · Plan out how you will engage with the unit, with dates highlighted in the
+         learning plan timeline.
+
+    · Reflect on your current knowledge and your goals in the unit.
+
+Complete the following:
+
+    1. Download the template from the OnTrack resources - review the template
+         carefully and complete the responses.
+
+    2. Upload to OnTrack once ready. Login to OnTrack and mark the task as
+         Ready for Feedback. Upload the required files and reflect on what you
+         learned.
+
+    3. Engage with feedback received from your tutor.
+To get the task Complete, you need to engage with the feedback you receive. Your
+tutor will review your submission and may ask you to clarify aspects of the task or
+include aspects you have missed.
+Remember, a `Resubmit' status is not a bad thing; your tutor is just trying to help
+improve your understanding and your results. You have not lost any marks. Work
+with your tutor and your final portfolio will achieve a higher final score as a result.
+In this way, a `Resubmit' is a good thing!
+When you do resubmit, make sure to include a comment that describes how you
+have addressed the feedback you received. This needs to demonstrate how you
+have addressed all the aspects indicated by your tutor in their feedback on your
+learning.
+
+                                                                                                Page 1 of 14
+SIT102 Introduction to Programming  P1 Learning Plan
+
+Tip: Engage with your tutors!
+
+To succeed in this unit you must engage with your tutors. Interact with them
+during seminars and on the SIT102 Teams channel. Read and respond to feedback
+received on your OnTrack submissions.
+
+                                    Page 2 of 14
+SIT102 Introduction to Programming  P1 Learning Plan
+
+Task in Detail
+
+Programming is foundational to computer and data science, artificial intelligence,
+cyber security, and software engineering. Through this unit you will learn how
+computers work and how to get them to do anything you want. Your success here
+ensures that you will have the knowledge and skills to succeed throughout your
+future studies. This makes introductory programming the most important
+building block in any computing degree, and a valuable skill for any profession.
+
+In this unit you can determine which grade you are aiming to achieve, and we will
+work with you to help you achieve it.
+
+Focus and Unit Learning Goals
+
+To complete this unit, you need to demonstrate that you can do the following:
+
+    · ULO 1: Evaluate procedural program code for correct use of coding
+         conventions and use code tracing and debugging techniques to identify and
+         correct issues.
+
+    · ULO 2: Design, develop, and test procedural programs using specified
+         programming languages to achieve defined program goals, including
+         effective use of data types, programming statements, control flow
+         structures and modularisation techniques.
+
+    · ULO 3: Explain the principles of structured procedural programming, using
+         appropriate terminology and by relating these principles to programming
+         syntax and structures developed.
+
+    · ULO 4: Analyse, critique the quality, and reflect upon a portfolio of artefacts
+         to justify the achievements of specified objectives and goals with evidence.
+
+Through the unit you will create a portfolio of tasks that shows you have these
+capabilities and reflect on your achievement of these at the end of the unit.
+
+                                    Page 3 of 14
+SIT102 Introduction to Programming                                        P1 Learning Plan
+
+Meaning of grades
+
+Different grades require you to demonstrate different skills.
+
+Pass                     Credit                   Distinction             High Distinction
+
+Can work through         Can effectively utilise  Can work with little    Can work in a proactive,
+structured resources to  feedback to develop      direction, with the     self-directed manner,
+iteratively develop      their understanding      persistence and         and demonstrates a
+understanding. Has a     and pays attention to    adaptability needed to  degree of passion or
+foundational             detail to ensure         overcome challenges in  inventiveness in their
+understanding of         solutions work as        building larger         work. Has the capability
+programming.             expected. Has a good     solutions. Has the      to conceptualise, design
+                         understanding of         capability to design    and build elegant and
+                         programming, and how     and build programs      sophisticated programs.
+                         to program.              independently.
+
+When you complete all the tasks up to your target grade, you know that you have
+demonstrated the required skills and will receive the indicated grade at the end
+of the unit. You can change your target grade at any point.
+
+The meaning of each grade is described below. It relates to the type of tasks you
+will be working on at that grade level. It also indicates how you should approach
+the unit and manage your time if targeting that grade.
+
+                                                                          Page 4 of 14
+SIT102 Introduction to Programming  P1 Learning Plan
+
+Pass: Has a foundational understanding of
+programming
+
+Through the pass tasks you will develop an
+understanding of the basic programming tools
+and how to apply them to simple problems.
+
+If you aim for a pass, you will be demonstrating that you can apply these tools and
+concepts to create small programs but not that you are able to create more
+complex programs yourself or fully understand how programs work.
+
+If you choose to target a pass grade, you will have more time to spend on the pass
+tasks as you will not have to complete other tasks. However, achieving only a pass
+may make future computing units more challenging. Building a solid foundation
+here will be important for you.
+
+Make sure you let your tutor know why you have chosen to target this grade. If
+the reason is that you believe you will struggle with this unit, they will support
+your learning as best they can, and maybe, even change your target and achieve
+a credit or higher.
+
+                                    Page 5 of 14
+SIT102 Introduction to Programming  P1 Learning Plan
+
+Credit: Has a good understanding of programming, and how to program
+
+The credit tasks will ask you to think deeply about
+the concepts learned and how they relate to each
+other, so you really understand how things work.
+This will give you the opportunity to put into
+practice the concepts learned and ensure that you
+really know how they work together.
+
+If you aim for credit, you will be demonstrating that you understand how
+programs work, and that you can draw the necessary parts together to build
+programs with some guidance.
+
+If you choose to target a credit grade, you will have more time to spend on the
+pass and credit tasks as you will not have to complete higher-grade tasks. Make
+sure you let your tutor know why you have chosen to target this grade so they can
+provide you with the support you need.
+
+                                    Page 6 of 14
+SIT102 Introduction to Programming  P1 Learning Plan
+
+Distinction: Has the capability to create
+programs independently
+
+The distinction tasks will ask you to create
+larger programs and give you the freedom to
+determine what these programs do. You will
+scope, design, code, and test these programs, working independently to create
+programs to meet specified requirements.
+
+If you aim for a distinction, you will be demonstrating that you understand how
+programs work and can independently design and develop a program.
+
+If you choose to target a distinction grade, you will have less time to spend on the
+pass and credit tasks as you will need that learning to tackle the distinction tasks.
+Make sure you keep track of your time and plan ahead to ensure you can
+complete all the required tasks. Let your tutor know why you have chosen to
+target this grade so they can provide you with the support you need.
+
+                                    Page 7 of 14
+SIT102 Introduction to Programming  P1 Learning Plan
+
+High distinction: Has the capability to build
+elegant and sophisticated programs.
+
+The high distinction tasks will ask you to
+demonstrate high levels of programming
+competency in your custom program, and your
+ability to incorporate concepts and tools you have learnt independently. The
+instructions are open-ended so you have lots of freedom on what you can do.
+
+If you aim for a high distinction, you will be demonstrating that you understand
+what programming can do, can independently find resources to support
+programming efforts, and are growing in your capability to build large, elegant,
+and sophisticated software solutions.
+
+If you choose to target a high distinction grade, you will have less time to spend
+on the pass and credit tasks as you will need that learning to tackle the higher-
+grade tasks. Make sure to communicate with your tutor about your plans for the
+high-distinction task and discuss it with them.
+
+                                    Page 8 of 14
+SIT102 Introduction to Programming  P1 Learning Plan
+
+Feedback
+
+Feedback provides you guidance on how to improve. With OnTrack, you receive
+feedback from your tutor for each task submitted before its due date. Tutor
+feedback will include if there are things that you need to address or questions
+they have about your understanding. When you address the feedback, the task
+will be marked as Complete.
+
+Getting the tasks marked as Complete in OnTrack is your way of knowing you will
+get the grade you are aiming for. If all the tasks are Complete ­ you already know
+your grade before submitting your portfolio!
+
+You are encouraged to submit tasks early. This is important because you may
+need to take feedback in and resubmit.
+
+Showing that you can receive and respond to feedback will help improve your final
+grade, and this process will help you learn. Ensure you make the most of the
+feedback dialogue and don't be scared to ask questions!
+
+                                    Page 9 of 14
+SIT102 Introduction to Programming  P1 Learning Plan
+
+Learning with others
+
+Learning with others in this unit is not only promoted but expected. Learning with
+peers through asking for help, supporting others, or sharing your learning, has
+many benefits for all involved, such as social support and encouragement.
+
+However, you need to be careful to avoid collusion when working with others!
+
+What is collusion? Copying or letting someone copy your work ­ even if it is in
+small amounts. For that reason, when you help others or ask help from others,
+ensure the conversation focuses on explanations of how things work, how to do
+things, or how to think about addressing the task, rather than providing answers.
+
+What is plagiarism? You are free to use learning resources to assist your learning.
+This includes the Programmers.Guide, online resources, and even AI tools like
+ChatGPT. However, all submitted work must be entirely your own. You cannot
+copy or use any code directly ­ they are only to be used to help you understand
+topics, and not to complete work for you. Evidence of submitted code that has
+been copied from external sources is a very serious offence, and will result in
+penalties such as failing the task or even failing the entire unit. If ever in doubt,
+please speak with your tutors, and browse Deakin's AI-Use Guides.
+
+                                    Page 10 of 14
+SIT102 Introduction to Programming             P1 Learning Plan
+
+Timelines
+
+Tutors will regularly provide feedback and check tasks. We aim to provide you with
+feedback within five business/working days. Again, you only receive feedback if
+the task is submitted by its due date.
+
+If you are aiming for a higher grade, you need to work ahead of these times to fit in
+the subsequent tasks. The following table provides suggested submission dates.
+You can use this to help plan your time.
+
+Task                                   Suggested Week Due by Grade
+
+P1 Learning Plan                       Pass Credit Distinction HD
+P2 Building and Running
+P3 Sequence and Data                   1   1   1   1
+P4 Control Flow
+P5 Progress checkpoint                 1   1   1   1
+T1 Test 1 (run in week 5)
+P6 C / C++                             2   2   2   2
+P7 Structuring code
+P8 Structuring data                    4   4   3   3
+P9 Working with multiples
+D2 Custom Program Plan                 4   4   4   4
+T2 Test 2 (run in week 9, 10, and 11)
+                                       5   5   5   5
+         - hurdle to pass subject
+C1 Indirect Access                     5   5   4   4
+C2 Another Language - Python
+D3 Deep Dive Memory                    7   6   5   4
+C3 Classes and Objects
+D4 Custom Program Implementation       8   7   5   5
+D1 Active Collaborator
+H1 Something Awesome                   9   8   6   5
+P10 Learning Summary
+                                       -   -   6   6
+
+                                       9   9   9   9
+
+                                       -   9   8   7
+
+                                       -   10  9   8
+
+                                       -   -   9   8
+
+                                       -   11  10  9
+
+                                       -   -   11  10
+
+                                       -   -   11  11
+
+                                       -   -   -   11
+
+                                       11  11  11  11
+
+                                                  Page 11 of 14
+SIT102 Introduction to Programming  P1 Learning Plan
+
+Test 1 and Test 2
+
+There are two tests that you need to sit as part of your portfolio. Test 1 occurs in
+week 5, and Test 2 occurs between weeks 9 and 11. These are required learning
+activities in your timetable, so ensure you are allocated appropriately.
+
+Campus Students
+
+If you are enrolled on campus for your course, you will sit these tests at the
+indicated location in your timetable. The test will be conducted on paper (so bring
+along a pen/pencil). No other material will be permitted.
+
+Online Students
+
+You will sit an online version. Afterwards, Test 2 requires a short interview with a
+tutor in which you must demonstrate an adequate level of understanding for the
+task to be marked as complete. Details on this process will be communicated to
+all students.
+
+For online interviews, you need to ensure you have a working microphone and
+camera, and adequate network bandwidth for clear communication.
+
+Don't Stress
+
+Test 1 and 2 are only checking that you have a good understanding of the essential
+content. If you are progressing through the tasks, you should have no trouble
+completing them. You must pass Test 2 to pass the unit, but there are opportunities
+to re-sit if you really miss something important, or to fix the test when you get it
+close enough.
+
+We promise that there will not be trick questions, there will be plenty of time, and
+that the practice tests provided will be very close to the real test. Our goal is to
+validate that you have achieved the required understanding to pass.
+
+                                    Page 12 of 14
+SIT102 Introduction to Programming  P1 Learning Plan
+
+Furthermore, your tutors will do live demonstrations of practice questions during
+the seminars. Attendance to seminars is absolutely key, as students who attend
+seminars regularly often find Test 1 and Test 2 quite manageable.
+
+                                    Page 13 of 14
+SIT102 Introduction to Programming  P1 Learning Plan
+
+How to Succeed in SIT102:
+
+Attend seminars: The seminars provide a great environment to engage with the
+unit, clarify difficulties with your tutors and peers, and accelerate your progress.
+Students who attend seminars regularly find the OnTrack tasks easier to
+complete, stay up-to-date, and generally find the unit quite manageable.
+Students who miss seminars tend to take much longer to complete OnTrack tasks,
+find them more difficult to complete, and find themselves to be less
+knowledgeable about key topics. Each year ~25% of students fail the unit ­ the
+majority of these are students who never (or rarely) engaged with their tutors.
+
+Engage and be involved: successful students are those that ask their tutors
+questions, are active on the SIT102 Teams channel, and reach out for help when
+they need. You'll learn a lot from these interactions, so please make yourself
+known to your tutors and classmates.
+
+Stay up-to-date with your tasks: we have OnTrack tasks due each week, so it
+helps to complete tasks in a timely fashion so you don't have a large collection of
+tasks to complete all at once. During seminars can be a great time to complete
+your OnTrack tasks.
+
+Have fun! Programming can seem challenging at first, but it is important to know
+that you are not the only one who feels that way. The majority of SIT102 students
+are brand new to programming (and also new to University). Please know that we
+have lots of support available (seminars, SIT102 Teams channel, tutors, the Unit
+Chair) so if you are ever unsure, please don't be embarrassed to reach out for
+assistance. You may also consider joining some excellent Deakin Clubs to meet
+fellow students and find a welcoming community.
+
+                                    Page 14 of 14
+

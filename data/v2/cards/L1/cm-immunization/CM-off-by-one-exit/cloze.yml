@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-off-by-one-exit
+id: "L1-cmimm-CM-off-by-one-exit-cloze"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-off-by-one-exit mistake."
+
+code: |
+  // for (int i = 0; i < 5; i++) {...}
+  // final body iteration is at i = ___
+
+clozeSentence: 'Fill in the last value of i for which the body runs.'
+
+answer: '4'
+
+explanation: |
+  Body runs at i=0,1,2,3,4. At i=5 the loop exits.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-off-by-one-exit)"
+
+commonMistakeIds: ["CM-off-by-one-exit"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

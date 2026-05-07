@@ -1,0 +1,65 @@
+# =====================================================================
+# L0 / F-22a / ProceduralCard 01 — function shell drill
+# =====================================================================
+id: "L0-F22a-proc-01"
+schemaVersion: "v2"
+atomId: "F-22a"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Procedural drill — write a function header + empty body on
+  demand.
+
+section: "F-22a function shell drill"
+
+prompt: |
+  Write a function header for `print_hello` returning `void` with
+  no parameters, plus an empty body.
+
+expectedAnswer: |
+  void print_hello()
+  {
+  }
+
+keyChecks:
+  - "void print_hello()"
+  - "{"
+  - "}"
+
+variants:
+  - prompt: |
+      Write a function header for `add_one` returning `int` taking
+      one int parameter `n`, plus an empty body.
+    expectedAnswer: |
+      int add_one(int n)
+      {
+      }
+  - prompt: |
+      Write a function header for `report` returning `void` taking
+      one string parameter `msg`, plus an empty body.
+    expectedAnswer: |
+      void report(string msg)
+      {
+      }
+  - prompt: |
+      Write a function header for `sum` returning `double` taking
+      two double parameters `a` and `b`, plus an empty body.
+    expectedAnswer: |
+      double sum(double a, double b)
+      {
+      }
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/01-function-decl"
+
+commonMistakeIds: ["CM-F22a-1", "CM-F22a-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  3-streak procedural. Variants vary return type (void, int, void,
+  double) and arity (0, 1, 1, 2). Drills the shape stability.

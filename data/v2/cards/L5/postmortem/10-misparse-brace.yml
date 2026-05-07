@@ -1,0 +1,74 @@
+id: "L5-postmortem-10-misparse-brace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Q2 struct — student capitalized the struct identifier (`Student_data`) when the spec said `student_data`. Rubric expects exact lowercase match; the auto-grader marks every reference wrong. Read the diff.
+
+failedAttempt: |
+  struct Student_data
+  {
+      string name;
+      int age;
+      double gpa;
+  };
+
+  int main()
+  {
+      Student_data me;
+      return 0;
+  }
+
+diagnosis: |
+  C++ identifiers are case-sensitive: `Student_data` and `student_data` are completely different types. The unit's spec gives identifiers in `snake_case` (lowercase, words separated by underscores). The student used `PascalCase`. Compiles fine in isolation, but when the auto-grader expects `student_data`, every match fails. Rubric token: `^struct\s+student_data\b` — case-sensitive.
+
+repairSteps:
+  - "struct student_data    // <-- lowercase, matches spec"
+  - "{"
+  - "    string name;"
+  - "    int age;"
+  - "    double gpa;"
+  - "};"
+
+preventionTip: |
+  Copy the type name from the spec character-for-character. SIT102 uses `snake_case` for type names, never `PascalCase` or `camelCase`. If the spec says `computer_data`, write `computer_data` — never `Computer_data`, never `ComputerData`.
+
+explanation: |
+  Lesson learned — identifier matching is exact. Capitalization, underscores, and digits all matter. The compiler doesn't care about your style preferences; the auto-grader does. Always cross-check the type name against the spec before submitting. C++ tradition uses PascalCase for classes, but THIS unit uses snake_case — read the brief.
+
+canonicalAnswer: |
+  struct student_data
+  {
+      string name;
+      int age;
+      double gpa;
+  };
+
+  int main()
+  {
+      student_data me;
+      return 0;
+  }
+
+annotations:
+  - line: 1
+    severity: err
+    note: "`Student_data` (capital S) doesn't match spec `student_data`. Rubric is case-sensitive."
+  - line: 10
+    severity: err
+    note: "Same name used at the call site — both must match spec. Two grader strikes from one capitalization."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q2 identifier case-sensitivity"
+
+commonMistakeIds: ["CM-cap-struct-name"]
+status: "NEW"
+createdBy: "SA-L5-Postmortem-Rewrite"
+authoringStatus: "DRAFT"
+notes: |
+  Postmortem #10 — Q2 / capitalized struct identifier.

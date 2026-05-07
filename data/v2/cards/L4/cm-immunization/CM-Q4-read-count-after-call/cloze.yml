@@ -1,0 +1,35 @@
+# Hand-authored CM immunization (ClozeCard) for CM-Q4-read-count-after-call
+id: "L4-cmimm-CM-Q4-read-count-after-call-cloze"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: "Fill in the missing line between the cin and the loop."
+
+code: |
+  cout << "How many desks? ";
+  cin >> desk_num;
+  ___;
+  for (int i = 0; i < desk_num; i++) {
+      cout << desks[i].room_id << endl;
+  }
+
+clozeSentence: 'Fill in the read function call (array first, count second).'
+
+answer: 'read_desks(desks, desk_num)'
+
+explanation: |
+  The read function is called AFTER the count is known and BEFORE the loop iterates. Argument order: array first, count second — matches the function signature.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §6.4 Q4 main() ordering — common-mistake immunization (CM-Q4-read-count-after-call)"
+
+commonMistakeIds: ["CM-Q4-read-count-after-call"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

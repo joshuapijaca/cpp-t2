@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-misorder-loop-sem
+id: "L1-cmimm-CM-misorder-loop-sem-mcq"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  In `for (init; cond; post) { body; }`, what runs first on iteration 0?
+
+correct: 'init, then cond-check, then BODY, then post.'
+
+distractors:
+  - 'init, then post, then cond-check, then body.'
+  - 'init, then cond, then post, then body.'
+  - 'body, then cond, then post.'
+
+explanation: |
+  Init once, then loop: cond -> body -> post. Body runs BEFORE post each iteration.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-misorder-loop-sem)"
+
+commonMistakeIds: ["CM-misorder-loop-sem"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

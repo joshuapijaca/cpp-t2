@@ -1,0 +1,44 @@
+# =====================================================================
+# L0 / F-12 / ProceduralCard 03 (μWrite)
+# Atom: Assignment = (V2.0 accumulator)
+# =====================================================================
+id: "L0-F12-proc-03"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the V2.0 accumulator line that adds an array element into the
+  struct's mystery field.
+
+section: "F-12 assignment drills (V2.0 anchor)"
+
+prompt: |
+  Inside the loop body, write the line that adds `data.numbers[i]`
+  into `data.mystery`. End with `;`.
+
+expectedAnswer: "data.mystery = data.mystery + data.numbers[i];"
+
+keyChecks: ["data.mystery = data.mystery + data.numbers[i];"]
+
+variants:
+  - prompt: |
+      Practice test variant: add `desks[i].price` into `total_price`.
+      End with `;`.
+    expectedAnswer: "total_price = total_price + desks[i].price;"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: data.mystery = data.mystery + data.numbers[i];"
+
+commonMistakeIds: ["CM-F12b"]
+
+notes: |
+  Verbatim V2.0 line. Critical Q1 muscle memory.

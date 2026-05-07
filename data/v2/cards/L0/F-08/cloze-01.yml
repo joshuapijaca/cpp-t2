@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-08 / ClozeCard 01
+# Atom: Block delimiters: { and }
+# =====================================================================
+id: "L0-F08-cloze-01"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  In the line below, the placeholder OPEN_BRACE represents a single
+  C++ punctuation character. Type that character.
+
+code: |
+  // function-body skeleton with the opening character hidden:
+  //   int main() OPEN_BRACE
+  //     return 0;
+  //   CLOSE_BRACE
+  //
+  // Reference (with the actual characters):
+  int main() {
+    return 0;
+  }
+
+clozeSentence: |
+  The OPEN_BRACE placeholder stands for the single character ____
+
+answer: "{"
+
+explanation: |
+  The character is `{`. It opens the function body block. Every
+  `{` must have a matching `}` later — on the next visible line
+  CLOSE_BRACE represents that match.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"
+
+commonMistakeIds: ["CM-F08c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Cloze 1: the `{` character. The visible code includes a balanced
+  reference (1 open + 1 close); the hidden characters are
+  represented by the OPEN_BRACE / CLOSE_BRACE labels in the
+  commented description.

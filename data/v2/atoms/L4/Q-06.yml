@@ -1,0 +1,21 @@
+id: Q-06
+name: "L4 Q4 Block E: print loop with chained cout"
+level: L4
+teaches: "Block E — for loop bounded by count_var (NOT MAX), body uses chained `cout << arr[i].field1 << \", \" << arr[i].field2 << endl;`. Field count varies (3 in V2.0/practice; 2/4/5 in S5). endl required. Chained vs separate cout statements both acceptable; chained is the canonical."
+prereqs: [Q-05, F-18, F-13, F-21]
+usedByQs: [Q4]
+cardCountTarget: 30
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — for-loop print with chained cout, 3 fields per row"
+  - kind: v2
+    ref: "Test 2 V2.0 — same for-loop with desks[i].field, 3 fields"
+commonMistakes:
+  - CM-Q4-loop-uses-MAX
+  - CM-Q4-no-endl
+  - CM-Q4-loop-off-by-one
+  - CM-Q4-print-no-separator
+notes:
+  cardMix: { write: 10, cloze: 5, mcq: 5, faultInjection: 10 }
+  stage: S3
+  exposureClass: long

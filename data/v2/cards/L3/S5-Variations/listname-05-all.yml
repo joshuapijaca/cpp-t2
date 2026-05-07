@@ -1,0 +1,42 @@
+# =====================================================================
+# L3 / R-04 / FunctionWriteCard — list-name 'all'
+# =====================================================================
+id: "L3-R04-listname-05"
+schemaVersion: "v2"
+atomId: "R-04"
+qTags: ["Q3"]
+stage: 5
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Variation: read_phones but the list parameter is named 'all'.
+prompt: "list-name variant"
+canonicalAnswer: |
+  void read_phones(phone_data &all[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Storage (GB): ";
+      cin >> all[i].storage_gb;
+      cout << "Battery (mAh): ";
+      cin >> all[i].battery_mah;
+      cout << "Price: ";
+      cin >> all[i].price;
+    }
+  }
+keyChecks:
+  - "&all[]"
+  - "all[i].storage_gb"
+  - "all[i].battery_mah"
+  - "all[i].price"
+forbiddenTokens:
+  - "while"
+explanation: |
+  Use the list name consistently in [i].field accesses.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

@@ -1,0 +1,84 @@
+# =====================================================================
+# L0 / F-09 / WalkthroughCard 01
+# Atom: Identifier rules + naming
+# Phase C: Data + I/O
+# =====================================================================
+id: "L0-F09-walk-01"
+schemaVersion: "v2"
+atomId: "F-09"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Every variable, every function, every struct type needs a NAME. The
+  C++ compiler has firm rules about what counts as a legal name, and
+  SIT102 layers a style rule on top: snake_case for everything. Walk
+  through these six identifiers — each one shows a different rule.
+
+levelLabel: "L0 Foundation Phase C F-09"
+
+fullCode: |
+  int score = 0;
+  double total_price = 9.99;
+  string first_name = "ana";
+  int num_to_read;
+  struct stat_double { };
+  void who_am_i();
+
+steps:
+  - line: 1
+    code: 'int score = 0;'
+    annotation: |
+      `score` is a single lowercase word. It starts with a letter and
+      uses only letters. Legal. Idiomatic SIT102.
+    atomIds: ["F-09"]
+  - line: 2
+    code: 'double total_price = 9.99;'
+    annotation: |
+      `total_price` joins two words with an underscore. This is
+      snake_case. Spaces are NOT allowed (compile error); a hyphen
+      (`total-price`) is not allowed either.
+    atomIds: ["F-09"]
+  - line: 3
+    code: 'string first_name = "ana";'
+    annotation: |
+      `first_name` is another snake_case identifier. The compiler does
+      not care that the value is a string; the NAME rules are the same
+      for every type.
+    atomIds: ["F-09"]
+  - line: 4
+    code: 'int num_to_read;'
+    annotation: |
+      `num_to_read` strings three words with underscores. This is the
+      exact name pattern the practice test uses for the read-count
+      parameter. Memorise it.
+    atomIds: ["F-09"]
+  - line: 5
+    code: 'struct stat_double { };'
+    annotation: |
+      `stat_double` is a TYPE name, but the same rules apply. Letters
+      and underscores. The trailing `;` belongs to the struct, not the
+      identifier.
+    atomIds: ["F-09"]
+  - line: 6
+    code: 'void who_am_i();'
+    annotation: |
+      `who_am_i` is a FUNCTION name. Same rules: letters, digits and
+      underscores; must start with a letter or underscore. The real
+      test V2.0 used this exact function name.
+    atomIds: ["F-09"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/3-naming-convention"
+
+commonMistakeIds: ["CM-F09a", "CM-F09b", "CM-F09c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Anchors all four examples to identifiers the student WILL see on the
+  test (stat_double, who_am_i, num_to_read). No abstract academic
+  examples; every identifier is real.

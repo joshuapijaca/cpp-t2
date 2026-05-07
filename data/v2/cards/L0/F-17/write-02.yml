@@ -1,0 +1,52 @@
+# =====================================================================
+# L0 / F-17 / TemplateRecallCard 02 (μWrite)
+# Atom: if with assignment in body
+# =====================================================================
+id: "L0-F17-write-02"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Write an if-statement that updates `max` to the value of `x`
+  whenever `x` is greater than `max`. (The Q1 max-finding pattern.)
+
+prompt: |
+  Produce an if that overwrites max with x when x is bigger.
+
+template: |
+  if (___) {
+    ___ = ___;
+  }
+
+canonicalAnswer: |
+  if (x > max) {
+    max = x;
+  }
+
+keyChecks:
+  - "if (x > max)"
+  - "max = x;"
+
+forbiddenTokens:
+  - "while"
+  - "do"
+
+explanation: |
+  This is the canonical max-finding pattern: condition `x > max`,
+  body `max = x;`. The right-hand side `x` is read first, then
+  written into box `max`. Mirrors Q1 of Test 2.
+
+source:
+  kind: "v2"
+  ref: "Test2-SIT102-practice (1).docx — mystery update body"
+
+commonMistakeIds: ["CM-F17a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

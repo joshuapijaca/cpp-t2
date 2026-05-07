@@ -1,0 +1,40 @@
+# =====================================================================
+# L3 / R-04 / FunctionWriteCard — param name 'count'
+# =====================================================================
+id: "L3-R04-param-02"
+schemaVersion: "v2"
+atomId: "R-04"
+qTags: ["Q3"]
+stage: 5
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Variation: read_computers with count parameter renamed to 'count'.
+prompt: "param-name variant"
+canonicalAnswer: |
+  void read_computers(computer_data &computers[], int count)
+  {
+    for (int i = 0; i < count; i++)
+    {
+      cout << "CPU speed (GHz): ";
+      cin >> computers[i].cpu_speed;
+      cout << "RAM (GB): ";
+      cin >> computers[i].ram_gb;
+      cout << "Price ($): ";
+      cin >> computers[i].price;
+    }
+  }
+keyChecks:
+  - "int count"
+  - "for (int i = 0; i < count; i++)"
+forbiddenTokens:
+  - "while"
+explanation: |
+  Same skeleton; the count parameter name is just a label. Use it consistently in the for-loop bound.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

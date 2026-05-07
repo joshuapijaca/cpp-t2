@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-20 / StructWriteCard 04 — minimal one-field struct
+# =====================================================================
+id: "L0-F20-write-04"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "StructWriteCard"
+
+stem: |
+  Write the smallest possible struct: a struct named `box` with one
+  int field called `value`.
+
+prompt: "Define struct `box` with one field: int value."
+
+canonicalAnswer: |
+  struct box {
+    int value;
+  };
+
+requiredFields:
+  - "value"
+
+keyChecks:
+  - "struct box"
+  - "int value"
+  - "};"
+
+forbiddenTokens:
+  - "class"
+  - "Struct"
+
+explanation: |
+  Minimum-viable struct. Still has all the required tokens: keyword,
+  name, opening brace, one field with `;`, closing `};`. Even with
+  one field the closing `;` is mandatory.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Smallest possible variant. Confirms the `};` is independent of
+  field count.

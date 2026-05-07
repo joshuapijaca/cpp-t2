@@ -1,0 +1,74 @@
+# =====================================================================
+# L0 / F-22a / WalkthroughCard 01
+# Atom: Function definition syntax (return type + name + params + body)
+# =====================================================================
+id: "L0-F22a-walk-01"
+schemaVersion: "v2"
+atomId: "F-22a"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  A function definition has FOUR parts in fixed order: return type,
+  name, parameter list, body. Walk through this exact Test 2 V2.0
+  shape.
+
+levelLabel: "L0 Foundation · Phase E · F-22a"
+
+fullCode: |
+  void who_am_i(stat_double &data)
+  {
+    int i;
+    data.mystery = 0.0;
+    for (i = 0; i < SIZE; i++) {
+      if (data.numbers[i] > 0) {
+        data.mystery = data.mystery + data.numbers[i];
+      }
+    }
+  }
+
+steps:
+  - line: 1
+    code: 'void who_am_i(stat_double &data)'
+    annotation: |
+      The function HEADER. Read it left-to-right:
+        `void`             — return type (this function returns nothing)
+        ` `                — required space
+        `who_am_i`         — the function NAME
+        `(`                — opens the parameter list
+        `stat_double &data` — one parameter (covered in F-22b)
+        `)`                — closes the parameter list
+      Note: NO `;` after `)`. The header opens the function body.
+    atomIds: ["F-22a", "F-22b"]
+  - line: 2
+    code: '{'
+    annotation: |
+      Opens the function BODY. Lives on its own line in this style.
+    atomIds: ["F-22a", "F-08"]
+  - line: 3
+    code: '  int i;'
+    annotation: |
+      A local variable inside the body. Local variables are declared
+      INSIDE `{ }`, after the header.
+    atomIds: ["F-22a"]
+  - line: 9
+    code: '}'
+    annotation: |
+      Closes the function body. NOTHING after this `}` — no `;`,
+      no comma. The body itself is the END of the definition.
+    atomIds: ["F-22a", "F-08"]
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `void who_am_i ( stat_double &data )` function header"
+
+commonMistakeIds: ["CM-F22a-1", "CM-F22a-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  First-touch walkthrough on the exact exam header. Drives home
+  the four parts of a function definition and the absence of `;`
+  after the parameter list.

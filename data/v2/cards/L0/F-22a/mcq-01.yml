@@ -1,0 +1,41 @@
+# =====================================================================
+# L0 / F-22a / MCQCard 01 — semicolon after parameter list?
+# =====================================================================
+id: "L0-F22a-mcq-01"
+schemaVersion: "v2"
+atomId: "F-22a"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  In a function DEFINITION (with a body), what comes immediately
+  after the closing `)` of the parameter list?
+
+correct: "Nothing — directly the opening `{` of the body."
+
+distractors:
+  - "A semicolon `;` ending the header."
+  - "An arrow `->` and the return type."
+  - "The keyword `def` introducing the body."
+
+explanation: |
+  In a definition, the `)` is followed directly by the body's `{`
+  (perhaps after whitespace / newline). A `;` after `)` would
+  make this a function DECLARATION (without body) — different
+  shape, not used in Test 2.
+  `->` after parens is Rust / Kotlin / TypeScript syntax.
+  `def` is Python.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/01-function-decl"
+
+commonMistakeIds: ["CM-F22a-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Refutes the most common slip: writing `void f(...);` then trying
+  to write a body afterwards.

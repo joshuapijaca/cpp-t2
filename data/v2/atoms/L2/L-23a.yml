@@ -1,0 +1,14 @@
+id: L-23a
+name: "Q2 S3a Sub-atom — noun→type mapping"
+level: L2
+teaches: "Map English domain noun to canonical C++ primitive: id→int, price→double, name→string, paid→bool, grade→char. 50-card drill bucket."
+prereqs: [F-10, L-22]
+usedByQs: [Q2]
+cardCountTarget: 50
+source:
+  - kind: practice
+    ref: "docs/16_test2_specific_redesign_v2.md §4.4 S3 Noun→Type Map (50 cards)"
+commonMistakes:
+  - CM-Q2-wrong-type
+notes:
+  buckets: { int: 10, double: 10, string: 10, bool: 5, char: 5, mixed-review: 10 }

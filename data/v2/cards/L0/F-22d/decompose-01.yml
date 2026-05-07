@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-22d / DecomposeCard 01 — caller-side state after return
+# =====================================================================
+id: "L0-F22d-decomp-01"
+schemaVersion: "v2"
+atomId: "F-22d"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Read the program. Pick the option that correctly states the value
+  of `n` AFTER the call to `bump` returns.
+
+code: |
+  void bump(int &x) {
+    x = x + 10;
+  }
+
+  int main() {
+    int n = 3;
+    bump(n);
+    cout << n << endl;
+  }
+
+question: |
+  After `bump(n);` returns, what does `n` hold in main?
+
+options:
+  - label: "A"
+    text: "13 — bump received an alias for n; the +10 mutation persists in the caller."
+  - label: "B"
+    text: "3 — bump worked on a local copy; n is unchanged."
+  - label: "C"
+    text: "0 — n is reset to its declared default after the call."
+  - label: "D"
+    text: "Undefined — pass-by-reference is unsafe and the value cannot be predicted."
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. `&x` makes x an alias for the caller's n. Inside
+  bump, `x = x + 10` writes 13 into the SAME storage as n. After
+  return, n = 13.
+  B is the most common wrong intuition (CM-F22d-1: "function works
+  on a copy"). With `&` in the signature, NO copy is made.
+  C is nonsense — there is no default-reset on return.
+  D is also wrong — pass-by-reference is fully defined behaviour.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
+
+commonMistakeIds: ["CM-F22d-1", "CM-F22d-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Forces commitment to the post-return state. Distractor B
+  articulates the wrong mental model so the student must reject
+  it explicitly.

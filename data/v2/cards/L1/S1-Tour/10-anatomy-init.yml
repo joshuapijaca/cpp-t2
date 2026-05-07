@@ -1,0 +1,47 @@
+id: "L1-S1-tour-10-anatomy-init"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "DemoCard"
+
+stem: |
+  Anatomy 5/10: the pre-loop init. ONE line that sets `data.mystery`
+  before the loop runs. INIT varies by algorithm: 0.0 (sum), 1.0
+  (product), data.numbers[0] (max/min).
+
+whyOneLine: "Pre-loop init fires ONCE before the loop — skipping it is the #1 trace error in Q1."
+
+demoCode: |
+  void who_am_i(stat_double &data) {
+    data.mystery = INIT;     // <-- pre-loop init, fires ONCE
+    //              ^^^^
+    //              0.0    for sum-anything
+    //              1.0    for product
+    //  data.numbers[0]    for find-max / find-min
+    //              0      for count-anything
+    for (int i = 0; i < SIZE; i++) {
+      ...
+    }
+  }
+
+highlightTokens:
+  - "data.mystery = INIT"
+  - "ONCE"
+  - "0.0"
+  - "data.numbers[0]"
+
+usedIn:
+  - "Q1: every algorithm has a pre-loop init line"
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §0 — data.mystery = data.numbers[0]"
+
+commonMistakeIds: ["CM-Q1-skip-init"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Anatomy: pre-loop init shape + variants.
+authoringStatus: "DRAFT"

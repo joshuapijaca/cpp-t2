@@ -1,0 +1,23 @@
+id: Q-05
+name: "L4 Q4 Block D: function call syntax (GATING 95%)"
+level: L4
+teaches: "Block D — call site syntax. NO `&` at call site (& only at fn signature). Pass plural array name + count_var (NOT MAX). Order: array first, count second. This is the GATING block — must hit 95% familiarity before S4 unlocks. 30 high-quality drills cover the most common Q4 errors."
+prereqs: [Q-04, F-22]
+usedByQs: [Q4]
+cardCountTarget: 30
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — `read_computers(computers, computer_num);`"
+  - kind: v2
+    ref: "Test 2 V2.0 — `read_desks(desks, desk_num);`"
+commonMistakes:
+  - CM-Q4-amp-at-call
+  - CM-Q4-pass-MAX-not-count
+  - CM-Q4-arg-order-swap
+  - CM-Q4-fn-name-wrong
+notes:
+  cardMix: { write: 10, cloze: 5, mcq: 5, faultInjection: 10 }
+  stage: S3
+  exposureClass: long
+  gating: true
+  gatingThreshold: 95

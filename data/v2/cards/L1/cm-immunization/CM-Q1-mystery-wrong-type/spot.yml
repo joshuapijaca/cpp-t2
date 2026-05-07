@@ -1,0 +1,43 @@
+# Hand-authored CM immunization (FaultInjectionCard) for CM-Q1-mystery-wrong-type
+id: "L1-cmimm-CM-Q1-mystery-wrong-type-spot"
+schemaVersion: "v2"
+atomId: "T-01"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "FaultInjectionCard"
+
+stem: |
+  This stat_double struct uses the wrong type for mystery. Find and fix the field.
+
+brokenCode: |
+  struct stat_double {
+      double numbers[SIZE];
+      int mystery;
+  };
+
+bugLocations: [3]
+
+fixedCode: |
+  struct stat_double {
+      double numbers[SIZE];
+      double mystery;
+  };
+
+bugCategory: "wrong type — int instead of double for accumulator"
+
+keyChecks:
+  - "double mystery;"
+
+explanation: |
+  mystery accumulates sums/products of doubles — its type must match the array element type. int truncates fractional parts (1.5 + 2.7 = 4 instead of 4.2).
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-mystery-wrong-type)"
+
+commonMistakeIds: ["CM-Q1-mystery-wrong-type"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

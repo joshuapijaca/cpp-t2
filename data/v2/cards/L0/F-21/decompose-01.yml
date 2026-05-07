@@ -1,0 +1,57 @@
+# =====================================================================
+# L0 / F-21 / DecomposeCard 01 — composite token order
+# =====================================================================
+id: "L0-F21-decomp-01"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Test 2 hands you `data.numbers[i]`. Pick the option that names
+  what each piece is.
+
+code: |
+  data.numbers[i]
+
+question: |
+  How do you read this token left-to-right?
+
+options:
+  - label: "A"
+    text: "data is a struct instance, .numbers is a field that is an array, [i] indexes into that array. Read: 'the i-th element of the numbers array of data'."
+  - label: "B"
+    text: "data is an array, .numbers is a method call, [i] is the argument. Read: 'call data dot numbers with argument i'."
+  - label: "C"
+    text: "data[i].numbers means the same thing — order doesn't matter."
+  - label: "D"
+    text: "data is a function, .numbers[i] is its argument list."
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. The shape is `instance.field[index]`:
+    - `data`      = the struct instance
+    - `.numbers`  = the field name (the array)
+    - `[i]`       = the index INTO that array
+  B is wrong: methods aren't in scope; `.` is field-access only.
+  C is wrong: `data.numbers[i]` and `data[i].numbers` mean DIFFERENT
+     things (CM-F21a — composite token confusion). The first is
+     valid (data is a struct with an array field); the second
+     would require data to be an array of structs.
+  D is wrong: there are no parens, so this is not a function call.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `data.numbers[i]`"
+
+commonMistakeIds: ["CM-F21a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Highest-stakes decompose for F-21. Distractor C is the exact
+  composite-token confusion (CM-F21a) — explicitly named and
+  refuted in the explanation.

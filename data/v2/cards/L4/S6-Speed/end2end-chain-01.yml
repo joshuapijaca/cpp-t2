@@ -1,0 +1,24 @@
+id: "L4-S6-end2end-chain-01"
+schemaVersion: "v2"
+atomId: "Q-10"
+qTags: 
+  - "Q4"
+stage: 6
+level: "L4"
+type: "TestDaySimCard"
+stem: "[end-to-end chain 1/5] 8 minutes to write Q2 + Q3 + Q4 for desk_data. Simulates the back half of Test 2 (Q2 + Q3 + Q4 = ~8 min budget)."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.6 S6 end-to-end chain (8min)"
+commonMistakeIds: 
+  - "CM-Q4-time-pressure-skip-const"
+  - "CM-Q4-time-pressure-no-return"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+questionSet: 
+  - {questionNumber: "Q1", prompt: "Q1 hand-execute placeholder — see L1 for Q1 content.", canonicalAnswer: "// Q1 hand-execute (out-of-scope here; Q1 in L1)."}
+  - {questionNumber: "Q2", prompt: "Write the desk_data struct (3 fields).", canonicalAnswer: "struct desk_data\n{\n    int room_id;\n    int d_id;\n    int number_of_screens;\n};"}
+  - {questionNumber: "Q3", prompt: "Write the read_desks function.", canonicalAnswer: "void read_desks(desk_data desks[], int &count)\n{\n    cout << \"How many desks? \";\n    cin >> count;\n    for (int i = 0; i < count; i++)\n    {\n        cin >> desks[i].room_id;\n        cin >> desks[i].d_id;\n        cin >> desks[i].number_of_screens;\n    }\n}"}
+  - {questionNumber: "Q4", prompt: "Write the main() that calls read_desks and prints all rows.", canonicalAnswer: "int main()\n{\n    const int MAX = 700;\n    desk_data desks[MAX];\n    int desk_num;\n\n    cout << \"How many desks? \";\n    cin >> desk_num;\n\n    read_desks(desks, desk_num);\n\n    for (int i = 0; i < desk_num; i++)\n    {\n        cout << desks[i].room_id << \", \";\n        cout << desks[i].d_id << \", \";\n        cout << desks[i].number_of_screens << endl;\n    }\n\n    return 0;\n}"}
+explanation: "Test-day chain simulator. Splitting Q2+Q3+Q4 over 8 min mirrors actual exam pacing minus Q1."

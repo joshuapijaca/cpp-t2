@@ -1,0 +1,13 @@
+id: L-23c
+name: "Q2 S3c Sub-atom — spacing + whitespace formatting"
+level: L2
+teaches: "One field per line, 4-space indent inside braces, single space `type field`, no two fields on one line, proper closing-brace placement."
+prereqs: [F-08, L-22]
+usedByQs: [Q2]
+cardCountTarget: 5
+source:
+  - kind: practice
+    ref: "docs/16_test2_specific_redesign_v2.md §4.4 spacing block (5 cards)"
+commonMistakes:
+  - CM-Q2-twofields
+notes: {}

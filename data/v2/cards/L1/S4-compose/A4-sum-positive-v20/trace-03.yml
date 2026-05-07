@@ -1,0 +1,37 @@
+# =====================================================================
+# L1 / sum-positive V2.0 / MCQ-style "what's the final value"
+# REAL V2.0 EXAM STIMULUS — predict-final
+# =====================================================================
+id: "L1-A4v20-mcq-final"
+schemaVersion: "v2"
+atomId: "A4"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: "V2.0 EXACT STIMULUS: stat_double { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 }, then mystery reset to 0.0, sum-positive loop. What is the FINAL value of data.mystery printed?"
+
+correct: "7.4"
+
+distractors:
+  - "6.5"
+  - "2.0"
+  - "5.4"
+
+explanation: |
+  Init -0.9 is overwritten by reset to 0.0 on line 10. Then add only positives: 2.4 + 3.0 + 2.0 = 7.4.
+  Distractors trap:
+    6.5 = -0.9 + 2.4 + 3.0 + 2.0 (forgot the reset)
+    2.0 = last positive only (forgot accumulator)
+    5.4 = stopped at i=3 (forgot the last iteration)
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — EXACT stimulus, predict-final MCQ"
+
+commonMistakeIds: ["CM-A4-init-not-zero", "CM-A4-skip-condition"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "V2.0 exact stimulus MCQ predict-final. Distractors target common error trails."

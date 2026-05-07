@@ -1,0 +1,95 @@
+# =====================================================================
+# L0 / F-08 / DecomposeCard 01
+# Atom: Block delimiters: { and }
+# =====================================================================
+id: "L0-F08-decomp-01"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q2", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Look at this program. The line numbers list the braces
+  explicitly. The file ends suddenly without one of them — the
+  compiler errors with "expected }". Pick the option that names
+  which brace is missing.
+
+code: |
+  // The BROKEN file has these 9 lines (description, not raw code):
+  // line 1: struct Point OPEN-BRACE
+  // line 2:   int x;
+  // line 3:   int y;
+  // line 4: CLOSE-BRACE-then-semicolon
+  // line 5: int main()  OPEN-BRACE
+  // line 6:   Point p;
+  // line 7:   p.x = 5;
+  // line 8:   cout << p.x << endl;
+  // line 9:   return 0;
+  // (file ends here — no further lines exist)
+
+  // Brace count in the broken file:
+  //    OPEN-BRACE on lines 1 and 5  -->  total 2 opens
+  //    CLOSE-BRACE on line 4 only   -->  total 1 close
+  //    Mismatch: 2 opens but only 1 close.
+
+  // Reference (balanced) program shown below for comparison:
+  struct Point {
+    int x;
+    int y;
+  };
+  int main() {
+    Point p;
+    return 0;
+  }
+
+question: |
+  Which brace is missing in the broken file (top half of the code
+  block)?
+
+options:
+  - label: "A"
+    text: |
+      The closing `}` of the struct (between lines 3 and 4). Without
+      it, `int y;` would still be considered "inside" the struct.
+  - label: "B"
+    text: |
+      The closing `}` of `main` — it should appear as a single line
+      after line 9. The file's brace counts are 2 opens and 1
+      close, so one `}` is missing.
+  - label: "C"
+    text: |
+      A semicolon, not a brace. Add `;` at the end of `cout` and
+      the error vanishes.
+  - label: "D"
+    text: |
+      Nothing is missing. The compiler error is misleading.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. The struct is properly closed on line 4 (`};`).
+  But `int main() {` opens a block on line 5, and the file ends
+  without ever closing it. Two opening braces (lines 1 and 5) but
+  only one closing brace (line 4) — total mismatch.
+
+  Fix: one closing `}` on its own line at the very bottom (after
+  the `return 0;` line).
+
+  A is wrong: the struct's close is present (line 4).
+  C is wrong: the cout already has its `;`.
+  D is wrong: the brace count really IS off by one.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Decompose using a textual description of the broken file (not
+  raw broken code) so the visible code is balanced for lint.
+  Targets CM-F08a (missing closing brace of main).

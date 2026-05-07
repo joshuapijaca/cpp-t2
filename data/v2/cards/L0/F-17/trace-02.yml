@@ -1,0 +1,64 @@
+# =====================================================================
+# L0 / F-17 / TraceCard 02
+# Atom: if FALSE branch — body skipped
+# =====================================================================
+id: "L0-F17-trace-02"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. Same code shape as before; different value of n.
+  Predict what is printed.
+
+code: |
+  int main() {
+    int n = 3;
+    if (n > 5) {
+      cout << "big" << endl;
+    }
+    cout << "end" << endl;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "3"
+    output: null
+  - line: 3
+    variable: ""
+    value: ""
+    output: null
+    condition: "3 > 5 -> false, skip body"
+  - line: 6
+    variable: ""
+    value: ""
+    output: "end"
+
+terminalOutput:
+  - "end"
+
+inputMode: "final-only"
+
+teachMe: |
+  Condition `n > 5` reads n=3, asks 3>5, gets false. The body is
+  SKIPPED entirely — "big" never prints. Execution jumps past the
+  closing brace to line 6, which prints "end". Final output: just
+  "end".
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/02-branches"
+
+commonMistakeIds: ["CM-F17a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Companion to trace-01.
+authoringStatus: "DRAFT"

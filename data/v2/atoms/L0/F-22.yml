@@ -1,0 +1,33 @@
+id: F-22
+name: "Function def + params + pass-by-reference"
+level: L0
+phase: E
+teaches: "`void name(Type &p) { ... }` — the `&` makes p alias caller's variable; mutations persist after return."
+prereqs: [F-08, F-21]
+usedByQs: [Q1, Q3]
+cardCountTarget: 30
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/01-function-decl"
+    quote: "A function declaration has a return type, a name, a parameter list, and a body."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/04-parameter"
+    quote: "Parameters receive copies of the arguments by default. To allow the function to modify the caller's variable, use a reference parameter."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
+    quote: "On the first pass through this chapter, the main thing to start to explore using are reference parameters. These allow you to create parameters which are used to update the passed in values."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
+    quote: "Use it to allow changes to the parameter to affect the variable argument"
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:29:55 — Saloni: 'How are we passing it? So we're using the struct'"
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:30:15 — Saloni: 'so now we'll so your if you say it's that double D. So that's how I referred it'"
+commonMistakes:
+  - CM-F22a  # forgets & in signature (Q3 high-frequency)
+  - CM-F22b  # places & on argument at call site
+  - CM-F22c  # treats & as bitwise-AND
+  - CM-F22d  # confuses reference with pointer (uses *)
+splitInto: [F-22a, F-22b]
+notes:
+  cardMix: { walkthrough: 2, demo: 4, decompose: 4, trace: 4, cloze: 5, μWrite: 5, tmplRec: 2, mcq: 3, proc: 1 }

@@ -1,0 +1,43 @@
+# =====================================================================
+# L0 / F-22b / ClozeCard 01 — `&` in signature
+# =====================================================================
+id: "L0-F22b-cloze-01"
+schemaVersion: "v2"
+atomId: "F-22b"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing reference marker in the signature so the
+  function can mutate the caller's `stat_double` variable.
+
+code: |
+  void who_am_i(stat_double ___data)
+  {
+    data.mystery = 0.0;
+  }
+
+clozeSentence: "void who_am_i(stat_double ___data)   // pass-by-reference marker"
+
+answer: "&"
+
+explanation: |
+  The `&` between the type `stat_double` and the name `data` makes
+  `data` a REFERENCE (alias) to the caller's variable. Without the
+  `&`, the function would receive a COPY and the caller's variable
+  would not change after return. Forgetting `&` is the highest-
+  frequency Q3 error (CM-F22b-1).
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `stat_double &data` signature parameter"
+
+commonMistakeIds: ["CM-F22b-1"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  THE highest-stakes single-token cloze in F-22. Missing `&` here
+  is the most common Q3 marking loss.

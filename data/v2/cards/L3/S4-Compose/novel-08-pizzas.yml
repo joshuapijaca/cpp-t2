@@ -1,0 +1,48 @@
+# =====================================================================
+# L3 / R-03 / FunctionWriteCard — novel read_pizzas
+# =====================================================================
+id: "L3-R03-novel-08"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the FULL read_pizzas function. pizza_data has 3 fields:
+  double diameter_cm, int toppings, double price.
+prompt: "Compose: novel entity read_pizzas."
+signatureHint: "void read_pizzas(pizza_data &pizzas[], int number_to_read) { ... }"
+canonicalAnswer: |
+  void read_pizzas(pizza_data &pizzas[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Diameter (cm): ";
+      cin >> pizzas[i].diameter_cm;
+      cout << "Toppings: ";
+      cin >> pizzas[i].toppings;
+      cout << "Price: ";
+      cin >> pizzas[i].price;
+    }
+  }
+keyChecks:
+  - "void read_pizzas(pizza_data &pizzas[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> pizzas[i].diameter_cm;"
+  - "cin >> pizzas[i].toppings;"
+  - "cin >> pizzas[i].price;"
+forbiddenTokens:
+  - "function"
+  - "->"
+  - "while"
+explanation: |
+  Novel entity. Same skeleton; only entity + field surface rotates.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-off-by-one","CM-Q3-missing-amp","CM-Q3-missing-index","CM-Q3-missing-field"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

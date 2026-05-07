@@ -1,0 +1,24 @@
+id: CM-wrong-cin-direction
+name: "Student writes `cin <<` instead of `cin >>`"
+description: |
+  cin reads with `>>`. Students confuse with `cout`'s `<<` and write
+  `cin << list[i].field`, producing a compile error. Operator direction
+  mirrors data flow: `>>` pulls into the variable.
+whyItHappens: |
+  `cin` and `cout` look similar visually. Students associate `<<` with
+  output but the symbol is also visually like a leftward arrow that could
+  read "into" something. The `>>` form requires deliberate memorization.
+immunizationStrategy: |
+  1. SpotError: `cin << list[i].field`; flag direction bug.
+  2. MCQ: "Which is correct: `cin << x` or `cin >> x`?"
+  3. Cloze: blank for the operator (`>>`).
+  4. WriteCard with key-check on `>>`.
+  5. Demo card: cin >> data flows IN; cout << data flows OUT (arrows).
+  6. Pair-write: cin and cout side-by-side; arrow direction.
+examImpact: medium
+atomDependencies: [F-13a, F-14a]
+qTracks: [Q3, Q4]
+relatedCMs: [CM-missing-bracket-i, CM-missing-dot-field]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §5.5 Q3 Common Errors — Wrong operator (`cin <<`) MEDIUM"

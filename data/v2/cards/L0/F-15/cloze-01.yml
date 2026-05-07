@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-15 / ClozeCard 01
+# Atom: Prompt-then-read pair (the prompt cout)
+# =====================================================================
+id: "L0-F15-cloze-01"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing prompt line. The student must use the canonical
+  Q3 idiom.
+
+code: |
+  int desk_id;
+  ____________________
+  cin >> desk_id;
+
+clozeSentence: |
+  The single line that prints the label `desk_id: ` to the terminal
+  (no newline) is `___`.
+
+answer: 'cout << "desk_id: ";'
+
+explanation: |
+  Canonical prompt: `cout << "desk_id: ";`. Trailing space inside
+  quotes; no `endl`. The cursor stays on the same line so the user
+  types right after the colon.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+
+commonMistakeIds: ["CM-F15a", "CM-F15b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Recall of the prompt cout shape.

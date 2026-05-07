@@ -1,0 +1,75 @@
+# =====================================================================
+# L0 / F-07 / DecomposeCard 02
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-decomp-02"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes the program below. They have placed semicolons in
+  too many spots — including some lines that must NOT end with `;`.
+  Pick the option that lists the spurious semicolons.
+
+code: |
+  #include <iostream>;
+  using namespace std;
+  int main(); {
+    cout << "hi" << endl;
+    return 0;
+  };
+
+question: |
+  Which `;` should NOT be in this program?
+
+options:
+  - label: "A"
+    text: |
+      Three: (1) the `;` after `<iostream>` — preprocessor directives
+      take no `;`, (2) the `;` after `int main()` — that line opens a
+      block, the `{` ends it, no `;`, and (3) the trailing `;` after
+      the closing `}` of main — `main`'s body close takes no `;`.
+  - label: "B"
+    text: |
+      None — every `;` in the program is correct.
+  - label: "C"
+    text: |
+      Only the one after `<iostream>`. The other two are fine.
+  - label: "D"
+    text: |
+      Only the trailing `;` at the end of the file is wrong.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. THREE semicolons are spurious:
+  - `#include <iostream>;` — preprocessor directives end at the
+    newline, never with `;`.
+  - `int main(); {` — the `;` here turns the line into a forward
+    declaration, which then conflicts with the `{` opening a block.
+    The function header line takes no `;`.
+  - `};` at the very end — the closing brace of `main`'s body takes
+    no trailing `;`. (That `};` shape is reserved for STRUCT
+    definitions, not function bodies.)
+
+  B is wrong: three semicolons are out of place.
+  C and D undercount.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-0-cpp-syntax.md"
+
+commonMistakeIds: ["CM-F07c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Inverse of decomp-01. Targets the OPPOSITE error — adding `;`
+  where it does not belong. Critical for disentangling: every
+  statement ends with `;`, but block-openers, block-closers (for
+  functions and control structures), and preprocessor directives
+  do NOT.

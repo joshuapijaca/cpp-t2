@@ -1,0 +1,63 @@
+# =====================================================================
+# L0 / F-21 / DecomposeCard 02 — array-of-structs vs struct-with-array
+# =====================================================================
+id: "L0-F21-decomp-02"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Two students write different access tokens. Pick the option that
+  names which token belongs to which shape.
+
+code: |
+  // Shape 1: struct WITH an array field
+  struct stat_double {
+    double numbers[5];
+    double mystery;
+  };
+  stat_double data;
+
+  // Shape 2: array OF structs
+  struct point { int x; int y; };
+  point pts[5];
+
+question: |
+  Which token belongs to which shape?
+
+options:
+  - label: "A"
+    text: "data.numbers[i] — Shape 1.   pts[i].x — Shape 2.   (Both correct.)"
+  - label: "B"
+    text: "data[i].numbers — Shape 1.   pts.x[i] — Shape 2.   (Order swapped.)"
+  - label: "C"
+    text: "data.numbers[i] — Shape 1.   pts.x[i] — Shape 2.   (First right, second wrong.)"
+  - label: "D"
+    text: "data[i].numbers — Shape 1.   pts[i].x — Shape 2.   (First wrong, second right.)"
+
+correctLabel: "A"
+
+explanation: |
+  A is correct.
+  - Shape 1 has a struct (`data`) whose field `numbers` is an array.
+    To get one element: `data.numbers[i]` (dot first, then index).
+  - Shape 2 has an array (`pts`) whose elements are structs. To get
+    one struct's field: `pts[i].x` (index first, then dot).
+  The other options swap or break the order — both broken patterns
+  are real student errors (CM-F21a).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/3-0-struct-array"
+
+commonMistakeIds: ["CM-F21a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Disambiguates the two composite tokens. Q1 trace uses Shape 1
+  (struct.array[i]); future levels may use Shape 2 (array[i].field).
+  Both must be chunked correctly.

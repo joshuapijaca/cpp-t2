@@ -1,0 +1,70 @@
+# =====================================================================
+# L0 / F-17 / WalkthroughCard 01
+# Atom: if (cond) { ... } — body conditional on cond
+# =====================================================================
+id: "L0-F17-walk-01"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  An `if` statement is a GATE. The condition is evaluated. If the
+  condition is true, the body runs. If false, the body is skipped
+  entirely. Walk through TWO runs of the same code with different
+  inputs to see both outcomes.
+
+levelLabel: "L0 Foundation · Phase D · F-17"
+
+fullCode: |
+  int n = 7;
+  if (n > 5) {
+    cout << "big" << endl;
+  }
+  cout << "done" << endl;
+
+steps:
+  - line: 1
+    code: 'int n = 7;'
+    annotation: |
+      Box `n` opened with value 7.
+      VARIABLES: { n: 7 }
+    atomIds: ["F-17"]
+  - line: 2
+    code: 'if (n > 5) {'
+    annotation: |
+      The CONDITION is evaluated FIRST. Read n = 7. Ask 7 > 5?
+      TRUE. Because the condition is true, we ENTER the braces.
+    atomIds: ["F-17", "F-16"]
+  - line: 3
+    code: 'cout << "big" << endl;'
+    annotation: |
+      Inside the body. Print "big" to terminal.
+      TERMINAL: big
+    atomIds: ["F-17"]
+  - line: 4
+    code: '}'
+    annotation: |
+      Close the if body. Execution resumes at the line AFTER the
+      closing brace.
+    atomIds: ["F-17"]
+  - line: 5
+    code: 'cout << "done" << endl;'
+    annotation: |
+      Always runs — it is OUTSIDE the if body.
+      TERMINAL: big / done
+    atomIds: ["F-17"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"
+
+commonMistakeIds: ["CM-F17a", "CM-F17c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. First exposure: cond gates body. The "done"
+  line shows what is OUTSIDE the body and always runs.
+authoringStatus: "DRAFT"

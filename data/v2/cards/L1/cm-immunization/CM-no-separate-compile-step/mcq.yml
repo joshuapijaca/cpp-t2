@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-no-separate-compile-step
+id: "L1-cmimm-CM-no-separate-compile-step-mcq"
+schemaVersion: "v2"
+atomId: "F-02"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  What's the right pipeline to run a C++ program from `hello.cpp`?
+
+correct: 'edit hello.cpp -> compile with g++ -> run the resulting executable'
+
+distractors:
+  - 'edit hello.cpp -> run hello.cpp directly (no compile step)'
+  - 'edit hello.cpp -> upload to a server -> the server runs it'
+  - 'edit hello.cpp -> run g++ which is your program'
+
+explanation: |
+  C++ source is plain text. The compiler (g++) reads it and writes an executable. Only the executable can be run. Source ≠ program.
+
+source:
+  kind: "pfg"
+  ref: "PFG part-0/1-digital-realities/2-trailside/6-source-code — common-mistake immunization (CM-no-separate-compile-step)"
+
+commonMistakeIds: ["CM-no-separate-compile-step"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

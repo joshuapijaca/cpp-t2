@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-21 / DemoCard 02 — composite obj.field[i]
+# =====================================================================
+id: "L0-F21-demo-02"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: `data.numbers[i]` is the composite token Test 2 V2.0 uses
+  most. Read it left-to-right: instance, then dot, then field, then
+  bracket-index.
+
+whyOneLine: "`obj.field[i]` accesses index `i` of the array field — dot first, brackets last."
+
+demoCode: |
+  // canonical composite shape:
+  obj.field[i]
+
+  // ALWAYS read left-to-right:
+  //   obj      = the struct instance       (data)
+  //   .        = field-access operator     (.)
+  //   field    = the field name            (numbers)
+  //   [i]      = the index INTO the array  ([i])
+
+  // Test 2 V2.0:
+  data.numbers[0]      // first element
+  data.numbers[i]      // element at index i (loop body)
+  data.numbers[SIZE-1] // last element
+
+highlightTokens:
+  - "obj.field[i]"
+  - "data.numbers[0]"
+  - "data.numbers[i]"
+  - "obj"
+  - ".field"
+  - "[i]"
+
+usedIn:
+  - "Q1 trace (loop accumulates `data.mystery += data.numbers[i]`)"
+  - "Q3 read function (cin into `data.numbers[i]` slots)"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `data.numbers[i]`"
+
+commonMistakeIds: ["CM-F21a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Pure shape exposure on the composite token. Pre-loads the
+  left-to-right reading habit before decomposes test it.

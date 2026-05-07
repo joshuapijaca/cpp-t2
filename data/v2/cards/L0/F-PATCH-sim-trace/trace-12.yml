@@ -1,0 +1,49 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 12 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Subtraction of two literals
+# =====================================================================
+id: "L0-F23-trace-12"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. The RHS is computed first. Final value of `diff`?
+
+code: |
+  int main() {
+    int diff = 10 - 4;
+    return 0;
+  }
+
+variables: ["diff"]
+
+expectedTrace:
+  - line: 2
+    variable: "diff"
+    value: "6"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Compute 10 - 4 (= 6), then write 6 into box `diff`. Final panel:
+  { diff: 6 }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 12/30"
+
+commonMistakeIds: ["CM-arithmetic-error"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Same shape as card 11 with a different operator. Building the
+  RHS-first reflex.

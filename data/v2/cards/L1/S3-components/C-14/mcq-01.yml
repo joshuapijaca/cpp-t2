@@ -1,0 +1,29 @@
+id: L1-S3-C-14-mcq-00
+schemaVersion: v2
+atomId: C-14
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-14
+commonMistakeIds:
+  - CM-C14a
+  - CM-C14b
+stem: >-
+  Given `stat_double data = { {2.4, -3.7, -1.7, 3, 2}, -0.9 };` and i = 0, evaluate
+  `data.numbers[i]`. (Note: NOT the value of i.)
+correct: '2.4'
+distractors:
+  - '0'
+  - '-3.7'
+  - '-0.9'
+explanation: >-
+  data.numbers[i] dereferences index i of the array. With i=0, that is numbers[0] = 2.4. Mistake to
+  avoid: returning i (=0) instead of the cell value.
+

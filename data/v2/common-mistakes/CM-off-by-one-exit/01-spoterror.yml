@@ -1,0 +1,44 @@
+id: "CM-off-by-one-exit-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q1 off-by-one exit i==SIZE. The code below has the bug labeled
+  by CM-off-by-one-exit. Find the line and provide the fix.
+
+brokenCode: |
+  // Q1 broken excerpt:
+  cout << data.numbers[i]; // i is now SIZE
+  // (canonical was: // post-loop: do NOT use data.numbers[i])
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  // post-loop: do NOT use data.numbers[i]
+  ;
+
+bugCategory: "CM-off-by-one-exit"
+
+keyChecks:
+  - "// post-loop: do NOT use data."
+
+explanation: |
+  Bug: Indexed numbers[i] after loop exit (i == SIZE, out-of-bounds).
+  Fix: // post-loop: do NOT use data.numbers[i]
+  This common mistake costs marks on Q1 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-off-by-one-exit"
+
+commonMistakeIds: ["CM-off-by-one-exit"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-off-by-one-exit.

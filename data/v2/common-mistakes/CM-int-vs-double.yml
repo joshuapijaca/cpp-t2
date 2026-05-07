@@ -1,0 +1,25 @@
+id: CM-int-vs-double
+name: "Student treats double as int (loses fractional part)"
+description: |
+  Q1 traces use `double mystery` and `double numbers[]`. Students truncate
+  values to int (e.g. 3.2 -> 3, -1.5 -> -1) when computing sums or
+  comparisons, producing a numerically wrong answer despite correct
+  control flow.
+whyItHappens: |
+  Mental arithmetic is faster on integers. Under exam pressure, students
+  drop the .x decimals. Also, the variable name `mystery` doesn't carry
+  the type, and students forget to inspect the declared type.
+immunizationStrategy: |
+  1. Trace card with deliberately ugly decimals (3.2, 1.9, -1.5); preserve.
+  2. SpotError: trace with truncated values; spot the rounding.
+  3. MCQ: "If mystery is `double`, can it hold 3.2? (yes)"
+  4. Cloze: fill in fractional values; type each digit.
+  5. Pair-trace: int trace vs double trace on same data.
+  6. Type-check decompose: classify each operation by operand type.
+examImpact: medium
+atomDependencies: [F-10, A4]
+qTracks: [Q1]
+relatedCMs: [CM-confuse-=-+=]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 (2026-05-07) — stat_double struct, double mystery"

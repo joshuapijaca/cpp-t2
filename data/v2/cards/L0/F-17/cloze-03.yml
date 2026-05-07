@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-17 / ClozeCard 03
+# Atom: braces around body
+# =====================================================================
+id: "L0-F17-cloze-03"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing punctuation that delimits the if body.
+
+code: |
+  if (x > 0) ___
+    cout << "positive" << endl;
+  ___
+
+clozeSentence: |
+  if (x > 0) ___ ... ___
+
+answer: "{ }"
+
+explanation: |
+  Braces around the body are MANDATORY in this curriculum. Open
+  brace `{` after the closing paren of the condition; close brace
+  `}` after the last statement of the body.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec — curriculum convention: braces always required"
+
+commonMistakeIds: ["CM-F17c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

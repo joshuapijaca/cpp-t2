@@ -1,0 +1,22 @@
+id: "L4-S1-whathappens-03"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: 
+  - "Q4"
+stage: 1
+level: "L4"
+type: "MCQCard"
+stem: "Student writes `int MAX = 700;` (no const). Compiler reaction?"
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.2 S1 what-happens drills"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+correct: "Error: array bound is not a compile-time constant."
+distractors: 
+  - "Warning only — compiles and runs."
+  - "Same as const — compiles cleanly."
+  - "Linker error at fn call site."
+explanation: "C++ fixed-size array bound MUST be compile-time constant. A non-const int does not qualify, so MAX[arr] fails at compile time."

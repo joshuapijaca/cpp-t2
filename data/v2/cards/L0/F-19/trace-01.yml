@@ -1,0 +1,73 @@
+# =====================================================================
+# L0 / F-19 / TraceCard 01
+# Atom: Fixed-size array — read after write
+# =====================================================================
+id: "L0-F19-trace-01"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. Track each slot in `arr` separately. Fill in the final
+  state of arr[0]..arr[2] and the terminal output.
+
+code: |
+  int main() {
+    int arr[3];
+    arr[0] = 7;
+    arr[1] = 8;
+    arr[2] = 9;
+    cout << arr[1] << endl;
+    return 0;
+  }
+
+variables: ["arr[0]", "arr[1]", "arr[2]"]
+
+expectedTrace:
+  - line: 3
+    variable: "arr[0]"
+    value: "7"
+    output: null
+  - line: 4
+    variable: "arr[1]"
+    value: "8"
+    output: null
+  - line: 5
+    variable: "arr[2]"
+    value: "9"
+    output: null
+  - line: 6
+    variable: ""
+    value: ""
+    output: "8"
+
+terminalOutput: ["8"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Step-by-step:
+  - Line 2: int arr[3];      Panel: { arr[0]: ?, arr[1]: ?, arr[2]: ? }
+  - Line 3: arr[0] = 7;      Panel: { arr[0]: 7, arr[1]: ?, arr[2]: ? }
+  - Line 4: arr[1] = 8;      Panel: { arr[0]: 7, arr[1]: 8, arr[2]: ? }
+  - Line 5: arr[2] = 9;      Panel: { arr[0]: 7, arr[1]: 8, arr[2]: 9 }
+  - Line 6: cout << arr[1];  Print 8.    Terminal: 8
+
+  Trap: a common mistake is reading arr[1] as the FIRST slot. It is
+  the SECOND. Indices start at 0.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-19 trace primer — read-after-write each slot"
+
+commonMistakeIds: ["CM-F19b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Smallest possible array trace. Three slots, three writes, one read.
+  Drills slot independence (arr[0] vs arr[1] vs arr[2]) and the
+  zero-based read at line 6.

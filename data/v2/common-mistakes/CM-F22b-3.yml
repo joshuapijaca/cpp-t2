@@ -1,0 +1,35 @@
+id: CM-F22b-3
+name: "Pass-by-reference: thinks mutation requires explicit return / assignment in caller"
+description: |
+  After learning pass-by-reference (`void who_am_i(stat_double &data)`),
+  students still write `d = who_am_i(d);` in the caller, treating the
+  function as if it returned a new struct. Or they assume the mutation
+  is local and won't show up unless they "pull it out" via a return.
+  The whole point of `&` is that the caller's storage IS mutated —
+  no return needed, no reassignment needed. The function returns void.
+whyItHappens: |
+  Pass-by-value muscle memory: every prior function returned a value
+  the caller assigned. Students transfer this habit. The void return
+  type is unfamiliar — they want a value to "do something with".
+  Reinforced by tutorials that show pure functions (`int square(int
+  x) { return x*x; }`) before mutating ones, training a "function =
+  returns value" model. Reference parameters break this pattern but
+  the reflex remains.
+immunizationStrategy: |
+  1. SpotError: caller wrote `d = who_am_i(d);` — correct to bare call.
+  2. MCQ: "After `who_am_i(d);`, the caller's d.mystery is..." —
+     unchanged / changed / undefined / depends on return.
+  3. Cloze: in main(), the call to who_am_i is `___;` — answer
+     `who_am_i(d)` (no assignment, no return).
+  4. Demo: side-by-side pass-by-value (with assignment) vs pass-by-
+     reference (no assignment) — same effect.
+  5. Walkthrough: re-trace mutation showing caller storage updated
+     directly through alias.
+  6. Decompose: 4 caller-side calls — pick the correct void-return form.
+examImpact: high
+atomDependencies: [F-22a, F-22b]
+qTracks: [Q1, Q3]
+relatedCMs: [CM-F22b-1, CM-F22b-4, CM-Q1-wrong-return-type]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 — `void who_am_i(stat_double &data)` and bare call in main()"

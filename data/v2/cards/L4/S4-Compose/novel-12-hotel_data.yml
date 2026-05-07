@@ -1,0 +1,60 @@
+id: "L4-S4-novel-12"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[novel 12/20] Write the COMPLETE main() for the hotel_data entity. Apply the canonical 7-piece skeleton with MAX=150, count=hotel_num, fn=read_hotels."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 novel entity transfer"
+commonMistakeIds: 
+  - "CM-Q4-missing-const"
+  - "CM-Q4-pass-MAX-not-count"
+  - "CM-Q4-amp-at-call"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Write a full main() for hotel_data. const MAX = 150; count_var = hotel_num; fn = read_hotels; fields = name, rating, price; prompt = \"How many hotels?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 150;
+      hotel_data hotels[MAX];
+      int hotel_num;
+  
+      cout << "How many hotels? ";
+      cin >> hotel_num;
+  
+      read_hotels(hotels, hotel_num);
+  
+      for (int i = 0; i < hotel_num; i++)
+      {
+          cout << hotels[i].name << ", ";
+          cout << hotels[i].rating << ", ";
+          cout << hotels[i].price << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 150"
+  - "hotel_data hotels[MAX]"
+  - "int hotel_num"
+  - "cin >> hotel_num"
+  - "read_hotels(hotels, hotel_num)"
+  - "i < hotel_num"
+  - "hotels[i].name"
+  - "hotels[i].rating"
+  - "hotels[i].price"
+  - "endl"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many hotels?"
+explanation: "Same skeleton as V2.0 — only entity name, MAX, count_var, fn, fields differ. Pattern transfer drill."

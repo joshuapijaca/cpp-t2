@@ -1,0 +1,24 @@
+id: CM-calling-fn-before-def
+name: "Student calls a function defined later without forward decl"
+description: |
+  In a single-file C++ source, calling `read_X(...)` from main requires
+  `read_X` to be declared/defined ABOVE main, OR a forward declaration
+  at the top. Students write main first then read_X below it,
+  causing "not declared" errors.
+whyItHappens: |
+  Top-down logical thinking: write main first ("the entry") then helpers.
+  In C++ you must order definitions or forward-declare.
+immunizationStrategy: |
+  1. SpotError: main above read_X with no forward decl; flag.
+  2. MCQ: "Order: read_X first or main first? (read_X first OR fwd decl)"
+  3. Cloze: insert forward declaration.
+  4. WriteCard graded on correct ordering.
+  5. Decompose: identify whether each function call has a visible decl.
+  6. Demo card: with vs without forward decl; compile result.
+examImpact: low
+atomDependencies: [F-22a, F-06]
+qTracks: [Q4]
+relatedCMs: [CM-missing-return-0]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-3 — function declarations and definitions"

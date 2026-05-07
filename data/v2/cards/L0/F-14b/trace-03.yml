@@ -1,0 +1,61 @@
+# =====================================================================
+# L0 / F-14b / TraceCard 03
+# Atom: cin reads one whitespace-delimited token (string truncation)
+# =====================================================================
+id: "L0-F14b-trace-03"
+schemaVersion: "v2"
+atomId: "F-14b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. The user types `Ana Maria` then Enter. Type the
+  final value of `name` and the terminal output.
+
+code: |
+  int main() {
+    string name;
+    cin >> name;
+    cout << name << endl;
+    return 0;
+  }
+
+variables: ["name"]
+
+userInputs: ["Ana Maria"]
+inputLabels: ["name"]
+
+expectedTrace:
+  - line: 3
+    variable: "name"
+    value: "Ana"
+    output: null
+  - line: 4
+    variable: ""
+    value: ""
+    output: "Ana"
+
+terminalOutput: ["Ana"]
+
+inputMode: "per-step"
+
+teachMe: |
+  - Line 3: cin reads characters until first whitespace. The space
+    between `Ana` and `Maria` ends the read. name = "Ana". The text
+    "Maria" stays in the buffer (unread).
+  - Line 4: print name = Ana.
+
+  Final: name = "Ana". Terminal: Ana.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F14b-1"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Demonstrates string truncation in trace form.

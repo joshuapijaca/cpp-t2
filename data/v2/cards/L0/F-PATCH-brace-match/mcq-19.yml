@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 19 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Function-inside-main? No — function side-by-side with main
+# Highlight FIRST function's brace; multiple functions present
+# =====================================================================
+id: "L0-F25-mcq-19"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Three functions side by side. The HIGHLIGHTED `{` opens
+  `square`'s body. Which `}` matches?
+
+  ```cpp
+  int square(int x) {       // <-- HIGHLIGHT (depth 0, square)
+    return x * x;
+  }                         // <-- option A (depth 0, square close)
+  int cube(int x) {         // depth 0 open (cube)
+    return x * x * x;
+  }                         // <-- option B (depth 0, cube close)
+  int main() {              // depth 0 open (main)
+    return 0;
+  }                         // <-- option C (depth 0, main close)
+  ```
+
+correct: "A — the `}` immediately after `return x * x;` (the FIRST depth-0 close after the highlight)."
+
+distractors:
+  - "B — the `}` after `return x * x * x;` because both functions share their closing brace."
+  - "C — the final `}` of main, because all functions chain into main's brace."
+  - "D — none of the visible `}`; square's body needs another brace not shown."
+
+explanation: |
+  A is correct. square opens at the highlighted `{` and closes at
+  the very next depth-0 `}`. The other functions are independent.
+
+  B is wrong: B closes cube.
+  C is wrong: C closes main.
+  D is wrong: A is visible.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 19/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Three depth-0 functions. Tests "nearest unmatched same-depth
+  close" rule.

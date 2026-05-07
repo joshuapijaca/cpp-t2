@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-24 / TraceCard 06 — sub-vocal predict-next-state
+# =====================================================================
+id: "L0-F24-trace-06"
+schemaVersion: "v2"
+atomId: "F-24"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Predict-first. Articulate the next value of `name` aloud (or
+  silently mouth it) BEFORE pressing [step]. Then enter the value.
+
+code: |
+  int main() {
+    string name = "Lin";
+    return 0;
+  }
+
+variables: ["name"]
+
+expectedTrace:
+  - line: 2
+    variable: "name"
+    value: "Lin"
+    output: null
+
+terminalOutput: []
+
+inputMode: "per-step"
+
+q4StopCondition: "Speak the next value BEFORE pressing [step]."
+
+teachMe: |
+  PREDICTION: "name becomes Lin".
+  Verify: line 2 writes the string Lin into box `name`. The quotes
+  in source code are syntax, not data — the box holds Lin, not "Lin".
+  Final panel: { name: Lin }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sub-vocal predict card 6/30"
+
+commonMistakeIds: ["CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  String value with sub-vocal cue.

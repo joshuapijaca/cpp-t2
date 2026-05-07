@@ -1,0 +1,44 @@
+id: "CM-var-sized-array-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q4 variable-size array decl. The code below has the bug labeled
+  by CM-var-sized-array. Find the line and provide the fix.
+
+brokenCode: |
+  // Q4 broken excerpt:
+  entity arr[count];
+  // (canonical was: entity arr[MAX];)
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  entity arr[MAX];
+  ;
+
+bugCategory: "CM-var-sized-array"
+
+keyChecks:
+  - "entity arr[MAX];"
+
+explanation: |
+  Bug: Wrote `entity arr[count]` — non-portable VLA.
+  Fix: entity arr[MAX];
+  This common mistake costs marks on Q4 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-var-sized-array"
+
+commonMistakeIds: ["CM-var-sized-array"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-var-sized-array.

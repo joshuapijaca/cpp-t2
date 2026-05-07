@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-missing-dot-field
+id: "L3-cmimm-CM-missing-dot-field-mcq"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "MCQCard"
+
+stem: |
+  How do you access a field of a struct value (not a pointer)?
+
+correct: '`structVar.fieldName` — dot operator'
+
+distractors:
+  - '`structVar->fieldName` — arrow operator'
+  - '`structVar fieldName` — space-separated'
+  - '`structVar::fieldName` — scope'
+
+explanation: |
+  `.` for value, `->` for pointer, `::` for namespace/class scope.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-missing-dot-field)"
+
+commonMistakeIds: ["CM-missing-dot-field"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

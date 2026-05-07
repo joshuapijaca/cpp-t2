@@ -1,0 +1,20 @@
+id: A10
+name: "Q1 Compose: average algorithm (post-loop divide)"
+level: L1
+phase: S4
+teaches: "Trace average. Init mystery = 0.0; for i=0..SIZE-1, mystery = mystery + numbers[i]. AFTER the loop, mystery = mystery / SIZE. Two-phase pattern: accumulate then transform."
+prereqs: [A3]
+usedByQs: [Q1]
+cardCountTarget: 14
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — accumulate-then-divide pattern"
+commonMistakes:
+  - CM-A10-divide-inside-loop
+  - CM-A10-forget-divide
+  - CM-A10-int-div-truncate
+notes:
+  cardMix: { trace: 10, mcq: 2, decompose: 2 }
+  stage: S4
+  exposureClass: long
+  progression: "2 simple -> 2 mixed-sign -> 2 edge -> 2 adversarial -> 2 final-only -> 2 spot-error -> 2 forgot-divide"

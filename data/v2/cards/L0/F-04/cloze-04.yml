@@ -1,0 +1,47 @@
+# =====================================================================
+# L0 / F-04 / ClozeCard 04
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-cloze-04"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill the blanks. Two characters are missing — the first is the
+  preprocessor marker, the second wraps the header name on its right.
+
+code: |
+  __include _iostream__
+  using namespace std;
+  int main() {
+    cout << 0 << endl;
+    return 0;
+  }
+
+clozeSentence: |
+  __include _iostream__       (fill in: leading '#', and '<' '>' around iostream)
+
+answer: "# <iostream>"
+
+explanation: |
+  The blanks fill to give `#include <iostream>`. The `#` is the
+  preprocessor marker; `<` and `>` form the angle-bracket wrapper
+  around the header name. Together: hash, include, space, angle-open,
+  iostream, angle-close.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 1 · 1-sequence-and-data/2-trailside/10-library.md"
+
+commonMistakeIds: ["CM-F04b", "CM-F04c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Multi-blank cloze targeting the two punctuation classes that
+  beginners mishandle: the leading `#` and the angle-bracket wrap.
+  Reinforces both common mistakes in a single card.

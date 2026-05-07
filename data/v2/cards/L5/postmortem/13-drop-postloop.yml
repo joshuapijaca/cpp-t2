@@ -1,0 +1,59 @@
+id: "L5-postmortem-13-drop-postloop"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Q2 struct — student wrote `Struct` (capital S) instead of `struct`. C++ has no `Struct` keyword; the compiler reads it as an undeclared type name and the whole definition fails to parse.
+
+failedAttempt: |
+  Struct student_data
+  {
+      string name;
+      int age;
+      double gpa;
+  };
+
+diagnosis: |
+  C++ keywords are lowercase: `struct`, `class`, `int`, `double`, `string`. There is no `Struct` keyword. The compiler doesn't recognise `Struct` as a type-introducer — it tries to read `Struct student_data` as a variable declaration of type `Struct` (which doesn't exist), producing "unknown type name 'Struct'". Same family of error: `Class`, `Int`, `Double` — none exist.
+
+repairSteps:
+  - "struct student_data    // <-- lowercase 'struct' keyword"
+  - "{"
+  - "    string name;"
+  - "    int age;"
+  - "    double gpa;"
+  - "};"
+
+preventionTip: |
+  C++ keywords are ALWAYS lowercase. `struct`, `class`, `int`, `double`, `string`, `void`, `return`, `if`, `for`, `const`. Auto-complete will offer them in lowercase; trust it. Capitalize identifiers (sometimes) and never keywords.
+
+explanation: |
+  Lesson learned — case matters at two levels: keywords (always lowercase) and identifiers (per-spec). PascalCase / camelCase are stylistic for identifiers in some languages but in C++ keywords NEVER take any other casing. If you find yourself typing `Struct`, `Class`, or `Int`, your editor's auto-correct is fighting you — turn it off.
+
+canonicalAnswer: |
+  struct student_data
+  {
+      string name;
+      int age;
+      double gpa;
+  };
+
+annotations:
+  - line: 1
+    severity: err
+    note: "`Struct` is not a C++ keyword. Use lowercase `struct`."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q2 keyword case"
+
+commonMistakeIds: ["CM-cap-struct-keyword"]
+status: "NEW"
+createdBy: "SA-L5-Postmortem-Rewrite"
+authoringStatus: "DRAFT"
+notes: |
+  Postmortem #13 — Q2 / capitalized `Struct` keyword.

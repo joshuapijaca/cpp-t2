@@ -1,0 +1,72 @@
+# =====================================================================
+# L0 / F-21 / WalkthroughCard 01
+# Atom: Dot access obj.field
+# Phase E: "Compound data + functions"
+# =====================================================================
+id: "L0-F21-walk-01"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Once a struct instance exists, you read or write its fields with a
+  dot: `obj.field`. Walk through this 7-line program — every dot
+  access is highlighted.
+
+levelLabel: "L0 Foundation · Phase E · F-21"
+
+fullCode: |
+  struct point {
+    int x;
+    int y;
+  };
+
+  int main() {
+    point p;
+    p.x = 3;
+    p.y = 4;
+    cout << p.x << endl;
+    return 0;
+  }
+
+steps:
+  - line: 7
+    code: '  point p;'
+    annotation: |
+      `p` is a `point` instance. It has two fields, both currently
+      uninitialised.
+    atomIds: ["F-20"]
+  - line: 8
+    code: '  p.x = 3;'
+    annotation: |
+      `p.x` names the `x` field of `p`. The dot is the FIELD-ACCESS
+      operator. Read it as: "p dot x". Writing 3 there stores 3 in
+      that field; `p.y` is untouched.
+    atomIds: ["F-21"]
+  - line: 9
+    code: '  p.y = 4;'
+    annotation: |
+      Same shape, different field. Now p.x = 3 and p.y = 4.
+    atomIds: ["F-21"]
+  - line: 10
+    code: '  cout << p.x << endl;'
+    annotation: |
+      Reading: `p.x` returns the int currently in field x (= 3).
+      cout prints 3.
+    atomIds: ["F-21"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements"
+
+commonMistakeIds: ["CM-F21b", "CM-F21c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Smallest possible dot-access walkthrough. Two writes, one read.
+  Establishes "dot is the field operator" before introducing the
+  composite arr[i].field pattern.

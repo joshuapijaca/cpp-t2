@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-08 / DemoCard 02
+# Atom: Block delimiters: { and }
+# =====================================================================
+id: "L0-F08-demo-02"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q2", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the difference between two kinds of brackets. C++ uses three
+  pairs — round `()`, curly `{}`, and square `[]`. Each pair has its
+  own job. Curlies group statements (blocks).
+
+whyOneLine: "Curly braces { } group statements into blocks — they are NOT the same as parentheses ( ) or square brackets [ ]."
+
+demoCode: |
+  // ROUND parens () — function parameter lists, expression grouping:
+  int main() {
+    int x = (3 + 4) * 2;
+    return 0;
+  }
+
+  // CURLY braces { } — block delimiters (group statements):
+  struct Point {
+    int x;
+    int y;
+  };
+
+  // SQUARE brackets [ ] — array indexing (later levels):
+  // int arr[5]; arr[0] = 7;     <-- array example for context only
+
+  // Wrong substitutions beginners make:
+  //   - using ( ) where { } belongs:  int main() ( return 0; )   <-- WRONG
+  //   - using [ ] where { } belongs:  struct P [ int x; ]        <-- WRONG
+
+highlightTokens:
+  - "()"
+  - "{"
+  - "}"
+  - "[ ]"
+  - "WRONG"
+
+usedIn:
+  - "Q2 struct definition (always { }, never ( ) or [ ])"
+  - "Q4 main program (body always inside { })"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"
+
+commonMistakeIds: ["CM-F08c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Bracket-disambiguation demo. Targets CM-F08c (uses `(` `)` where
+  `{` `}` belongs). Each of the three bracket kinds has its own
+  exclusive role.

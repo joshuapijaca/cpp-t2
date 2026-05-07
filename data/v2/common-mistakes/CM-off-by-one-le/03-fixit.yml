@@ -1,0 +1,40 @@
+id: "CM-off-by-one-le-fixit"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Fix-it drill for CM-off-by-one-le. The code has the bug; produce the canonical fix.
+
+brokenCode: |
+  // Q3: Q3 off-by-one i <=
+  for (i = 0; i <= count; i++)
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  for (i = 0; i < count; i++)
+  ;
+
+bugCategory: "CM-off-by-one-le"
+
+keyChecks: []
+
+explanation: |
+  Replace the broken line with: for (i = 0; i < count; i++)
+  Diagnosis: Used `i <= count` — array overrun by 1.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-off-by-one-le"
+
+commonMistakeIds: ["CM-off-by-one-le"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 3/5 (fix-it) for CM-off-by-one-le.

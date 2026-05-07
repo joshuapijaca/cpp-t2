@@ -1,0 +1,176 @@
+{
+  "config": {
+    "configFile": "C:\\Users\\Josh\\Desktop\\advanced learning theory\\cpp-t2\\playwright.config.ts",
+    "rootDir": "C:/Users/Josh/Desktop/advanced learning theory/cpp-t2/build-v2",
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/Josh/Desktop/advanced learning theory/cpp-t2/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/Josh/Desktop/advanced learning theory/cpp-t2/build-v2",
+        "testIgnore": [],
+        "testMatch": [
+          "/runtime-stress\\.spec\\.ts$/"
+        ],
+        "timeout": 300000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "build-v2/QA_M20_RESULT.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.59.1",
+    "workers": 1,
+    "webServer": {
+      "command": "node build-v2/static-server.cjs",
+      "url": "http://127.0.0.1:5176/index.v2.html",
+      "reuseExistingServer": true,
+      "timeout": 30000
+    }
+  },
+  "suites": [
+    {
+      "title": "runtime-stress.spec.ts",
+      "file": "runtime-stress.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "QA-M20 runtime stress — 1000 random card mounts, 0 errors / 0 rejections",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 300000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6218,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "QA-M20: deck loaded, 2319 cards available\n"
+                    },
+                    {
+                      "text": "  100/1000 mounted · 97 unique cards · 0 errs · 686ms\n"
+                    },
+                    {
+                      "text": "  200/1000 mounted · 194 unique cards · 0 errs · 1164ms\n"
+                    },
+                    {
+                      "text": "  300/1000 mounted · 285 unique cards · 0 errs · 1630ms\n"
+                    },
+                    {
+                      "text": "  400/1000 mounted · 372 unique cards · 0 errs · 2110ms\n"
+                    },
+                    {
+                      "text": "  500/1000 mounted · 450 unique cards · 0 errs · 2576ms\n"
+                    },
+                    {
+                      "text": "  600/1000 mounted · 525 unique cards · 0 errs · 3075ms\n"
+                    },
+                    {
+                      "text": "  700/1000 mounted · 599 unique cards · 0 errs · 3541ms\n"
+                    },
+                    {
+                      "text": "  800/1000 mounted · 669 unique cards · 0 errs · 4102ms\n"
+                    },
+                    {
+                      "text": "  900/1000 mounted · 736 unique cards · 0 errs · 4597ms\n"
+                    },
+                    {
+                      "text": "\n"
+                    },
+                    {
+                      "text": "QA-M20 result:\n"
+                    },
+                    {
+                      "text": "  iterations:        1000\n"
+                    },
+                    {
+                      "text": "  unique cards:      798 / 2319\n"
+                    },
+                    {
+                      "text": "  page errors:       0\n"
+                    },
+                    {
+                      "text": "  console errors:    0\n"
+                    },
+                    {
+                      "text": "  rejections:        0\n"
+                    },
+                    {
+                      "text": "  elapsed:           5070ms (5.07ms / iter)\n"
+                    },
+                    {
+                      "text": "  PASS\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-05-07T08:49:23.663Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "22b75c8419952440fd84-dfd7307338bce55e0d5d",
+          "file": "runtime-stress.spec.ts",
+          "line": 55,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-05-07T08:49:22.693Z",
+    "duration": 7479.32,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

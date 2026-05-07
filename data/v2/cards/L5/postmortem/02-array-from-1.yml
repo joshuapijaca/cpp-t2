@@ -1,0 +1,60 @@
+id: "L5-postmortem-02-array-from-1"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Q1 trace — student wrote `for (i = 1; i < SIZE; i++)` and skipped element [0] entirely. Trace missed the first iteration. Read the failed attempt, study the canonical, walk the diff.
+
+failedAttempt: |
+  void who_am_i(test_data &data) {
+      data.mystery = 0.0;
+      for (int i = 1; i < SIZE; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+      }
+  }
+
+diagnosis: |
+  C++ arrays are zero-indexed: a 5-element array uses indices [0][1][2][3][4]. By starting `i = 1` the student skipped `data.numbers[0]` entirely. The trace lost its first iteration row, the running sum was short by `numbers[0]`, and the final mystery cell was wrong by exactly that amount.
+
+repairSteps:
+  - "for (int i = 0; i < SIZE; i++) {   // <-- start at 0, NOT 1"
+  - "    data.mystery = data.mystery + data.numbers[i];"
+  - "}"
+  - "// Iteration 0 must produce a row in the trace table."
+
+preventionTip: |
+  C++ arrays are zero-indexed. A SIZE-N array uses indices `0..N-1`. ALWAYS write `for (int i = 0; i < SIZE; i++)`. Mantra: "zero-to-less-than."
+
+explanation: |
+  Lesson learned — off-by-one at the loop START is invisible until the trace shows a missing row. The `i = 0` start is the canonical pattern for every array iteration in this unit. Pascal/Lua reflexes (1-indexed) cause this; train the C++ reflex.
+
+canonicalAnswer: |
+  void who_am_i(test_data &data) {
+      data.mystery = 0.0;
+      for (int i = 0; i < SIZE; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+      }
+  }
+
+annotations:
+  - line: 3
+    severity: err
+    note: "`i = 1` skips index 0. With SIZE=5 you trace iterations 1..4 instead of 0..4. The trace table is missing its first row."
+  - line: 4
+    severity: warn
+    note: "Body is correct, but adds 4 elements instead of 5. Final mystery is short by numbers[0]."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue Q1"
+
+commonMistakeIds: ["CM-array-from-1"]
+status: "NEW"
+createdBy: "SA-L5-Postmortem-Rewrite"
+authoringStatus: "DRAFT"
+notes: |
+  Postmortem #02 — Q1 / array indexed from 1. Real failed-attempt diff.

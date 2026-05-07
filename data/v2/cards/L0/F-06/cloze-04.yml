@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-06 / ClozeCard 04
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-cloze-04"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill THREE blanks: the return type, the function name, and the
+  final return statement. This rebuilds the whole skeleton from the
+  open-brace line and the close-brace line.
+
+code: |
+  #include <iostream>
+  using namespace std;
+  ___ ____() {
+    cout << 9 << endl;
+    ____
+  }
+
+clozeSentence: |
+  Fill the three blanks: return type, function name, last statement.
+
+answer: "int main return 0;"
+
+explanation: |
+  The three blanks fill to:
+  - Return type: `int`
+  - Function name: `main`
+  - Last statement: `return 0;`
+
+  Together they form the canonical skeleton:
+    int main() {
+      ...
+      return 0;
+    }
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F06a", "CM-F06b", "CM-F06d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Cloze 4: composite. All three high-frequency F-06 mistakes
+  drilled in a single card. Hardest cloze in the set; trains the
+  "build the skeleton from skeleton" reflex.

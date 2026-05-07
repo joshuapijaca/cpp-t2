@@ -1,0 +1,20 @@
+id: L-22
+name: "Q2 S2 Template — 6-line skeleton verbatim"
+level: L2
+teaches: "Type the 6-line struct skeleton from blank: `struct entity_data { type field; type field; type field; };`. Closing `};` is non-negotiable."
+prereqs: [F-09, F-10, F-20, L-21]
+usedByQs: [Q2]
+cardCountTarget: 30
+source:
+  - kind: practice
+    ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S2 TEMPLATE (30 cards)"
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+commonMistakes:
+  - CM-F20a  # missing ; after }
+  - CM-F20c  # capital Struct keyword
+  - CM-F20d  # missing ; on field line
+  - CM-Q2-reserved  # reserved word as field name
+  - CM-Q2-hyphen  # hyphen/space in identifier
+notes:
+  cardMix: { skeleton: 12, closing-semi: 6, struct-keyword: 4, ident-rules: 5, reserved-ban: 3 }

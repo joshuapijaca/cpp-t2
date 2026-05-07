@@ -1,0 +1,95 @@
+# =====================================================================
+# L0 / F-16 / WalkthroughCard 01
+# Atom: Comparison operators
+# Phase D: "Control flow"
+# =====================================================================
+id: "L0-F16-walk-01"
+schemaVersion: "v2"
+atomId: "F-16"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Six comparison operators produce a `bool` (true / false). They are
+  the "questions" you ask inside an `if` condition. Walk through each
+  comparison being evaluated. Notice how the LEFT and RIGHT values
+  are read first, then the operator decides true or false.
+
+levelLabel: "L0 Foundation · Phase D · F-16"
+
+fullCode: |
+  int a = 5;
+  int b = 3;
+
+  bool e1 = (a == b);   // 5 == 3 ?
+  bool e2 = (a != b);   // 5 != 3 ?
+  bool e3 = (a <  b);   // 5 <  3 ?
+  bool e4 = (a >  b);   // 5 >  3 ?
+  bool e5 = (a <= b);   // 5 <= 3 ?
+  bool e6 = (a >= b);   // 5 >= 3 ?
+
+steps:
+  - line: 1
+    code: 'int a = 5;'
+    annotation: |
+      Box `a` opened, value 5 stored.
+      VARIABLES: { a: 5 }
+    atomIds: ["F-16"]
+  - line: 2
+    code: 'int b = 3;'
+    annotation: |
+      Box `b` opened, value 3 stored.
+      VARIABLES: { a: 5, b: 3 }
+    atomIds: ["F-16"]
+  - line: 4
+    code: 'bool e1 = (a == b);'
+    annotation: |
+      Read `a` = 5. Read `b` = 3. Ask "is 5 EQUAL to 3?". No.
+      `e1` = false. `==` is the EQUALITY test, two equals signs.
+      A single `=` would ASSIGN, not compare.
+    atomIds: ["F-16"]
+  - line: 5
+    code: 'bool e2 = (a != b);'
+    annotation: |
+      Read `a` = 5. Read `b` = 3. Ask "is 5 NOT EQUAL to 3?". Yes.
+      `e2` = true. `!=` is the NOT-EQUAL test.
+    atomIds: ["F-16"]
+  - line: 6
+    code: 'bool e3 = (a < b);'
+    annotation: |
+      Read `a` = 5. Read `b` = 3. Ask "is 5 LESS THAN 3?". No.
+      `e3` = false. `<` points to the smaller side.
+    atomIds: ["F-16"]
+  - line: 7
+    code: 'bool e4 = (a > b);'
+    annotation: |
+      Read `a` = 5. Read `b` = 3. Ask "is 5 GREATER THAN 3?". Yes.
+      `e4` = true.
+    atomIds: ["F-16"]
+  - line: 8
+    code: 'bool e5 = (a <= b);'
+    annotation: |
+      Less-than-OR-equal. 5 <= 3? No. `e5` = false.
+      The `=` MUST come AFTER `<`, never before. `=<` is invalid C++.
+    atomIds: ["F-16"]
+  - line: 9
+    code: 'bool e6 = (a >= b);'
+    annotation: |
+      Greater-than-OR-equal. 5 >= 3? Yes. `e6` = true.
+      Order: `>=`, never `=>`.
+    atomIds: ["F-16"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-1-comparisons"
+
+commonMistakeIds: ["CM-F16a", "CM-F16b", "CM-F16c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. First exposure to comparison operators as
+  a complete family. Critical that student sees `==` (compare) vs
+  `=` (assign) side-by-side and that operator order is `<=` not `=<`.
+authoringStatus: "DRAFT"

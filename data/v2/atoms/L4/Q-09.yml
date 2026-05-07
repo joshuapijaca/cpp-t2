@@ -1,0 +1,18 @@
+id: Q-09
+name: "L4 Q4 Variations: transfer pattern across MAX/entity/fields"
+level: L4
+teaches: "Apply main() pattern to novel transfers: 10 different MAX values (50/100/200/500/700/1000), 10 different entities (book/employee/order/...), 10 with-print-fn variants (call print fn vs inline loop), 10 different count names, 10 with field counts 2/3/4/5, 5 dynamic count edge cases. Tests transfer breadth."
+prereqs: [Q-08]
+usedByQs: [Q4]
+cardCountTarget: 55
+source:
+  - kind: v2
+    ref: "C++T2 spec §6.4 S5 variations — MAX/entity/print mode breadth"
+commonMistakes:
+  - CM-Q4-MAX-hardcode
+  - CM-Q4-entity-naming-drift
+  - CM-Q4-field-count-fixed-3
+notes:
+  cardMix: { mainWrite: 35, entityMatrix: 10, algorithmMatrix: 10 }
+  stage: S5
+  exposureClass: long

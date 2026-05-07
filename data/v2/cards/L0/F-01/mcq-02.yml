@@ -1,0 +1,46 @@
+# =====================================================================
+# L0 / F-01 / MCQCard 02
+# Atom: Source code is plain text
+# =====================================================================
+id: "L0-F01-mcq-02"
+schemaVersion: "v2"
+atomId: "F-01"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  You typed a `.cpp` file in VSCode and clicked Save. The file now
+  exists on disk. You have NOT run any other program. What is true?
+
+correct: "The file sits on disk as a sequence of text characters; nothing is currently executing."
+
+distractors:
+  - "The program is now running silently in the background — that's what 'saving' a code file does."
+  - "The file is automatically translated into a running program at save-time."
+  - "The CPU is now reading and executing the .cpp file directly, line by line."
+
+explanation: |
+  Saving a source file is just writing characters to disk — exactly the
+  same mechanism as saving a `.txt` note or a Word document. No
+  execution happens. To turn the file into a running program, you must
+  invoke the compiler separately (the next atom, F-02). Until then,
+  the file is inert text.
+
+  Distractor 1 confuses save-with-run. Distractor 2 invents a
+  non-existent automatic translation. Distractor 3 is the classic
+  "CPU runs source code directly" misconception — it does not. CPUs run
+  machine code; the compiler bridges the gap.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"
+
+commonMistakeIds: ["CM-confuses-source-with-program", "CM-source-is-magic"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Reinforces the saved-text-only mental model and primes F-02 (the
+  separate compile step). Each distractor is a real beginner reflex.

@@ -1,0 +1,48 @@
+# =====================================================================
+# L3 / R-03 / FunctionWriteCard — novel read_drones
+# =====================================================================
+id: "L3-R03-novel-16"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the FULL read_drones function. drone_data has 3 fields:
+  double flight_min, int rotors, double price.
+prompt: "Compose: novel entity read_drones."
+signatureHint: "void read_drones(drone_data &drones[], int number_to_read) { ... }"
+canonicalAnswer: |
+  void read_drones(drone_data &drones[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Flight (min): ";
+      cin >> drones[i].flight_min;
+      cout << "Rotors: ";
+      cin >> drones[i].rotors;
+      cout << "Price: ";
+      cin >> drones[i].price;
+    }
+  }
+keyChecks:
+  - "void read_drones(drone_data &drones[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> drones[i].flight_min;"
+  - "cin >> drones[i].rotors;"
+  - "cin >> drones[i].price;"
+forbiddenTokens:
+  - "function"
+  - "->"
+  - "while"
+explanation: |
+  Novel entity. Same skeleton; only entity + field surface rotates.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-off-by-one","CM-Q3-missing-amp","CM-Q3-missing-index","CM-Q3-missing-field"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

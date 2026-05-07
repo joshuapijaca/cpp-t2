@@ -1,0 +1,49 @@
+# =====================================================================
+# L0 / F-05 / TemplateRecallCard 01
+# Atom: using namespace std;
+# =====================================================================
+id: "L0-F05-tmpl-01"
+schemaVersion: "v2"
+atomId: "F-05"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Fill the {{KW}} (keyword) and {{NS}} (namespace name) placeholders
+  to produce the SIT102 standard using-directive line.
+
+prompt: |
+  Reconstruct the using-namespace line from placeholders.
+
+template: |
+  {{KW}} namespace {{NS}};
+
+canonicalAnswer: "using namespace std;"
+
+keyChecks:
+  - "using"
+  - "namespace"
+  - "std"
+  - ";"
+
+forbiddenTokens:
+  - "STD"
+
+explanation: |
+  `{{KW}}` is the keyword `using`; `{{NS}}` is the namespace name `std`
+  (lowercase). Together: `using namespace std;`. The semicolon at the
+  end is part of the line — this is a regular C++ statement.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F05b", "CM-F05c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Stage-1 template-recall. Forbidden tokens lock out the `STD` typo.
+  Cold-recall stage handled by uwrite-01.

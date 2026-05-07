@@ -1,0 +1,45 @@
+# =====================================================================
+# L0 / F-03 / MCQCard 01
+# Atom: Hand-execution paradigm — RHS-first evaluation
+# =====================================================================
+id: "L0-F03-mcq-01"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  When you hand-execute the line `x = x + 1;`, what is the correct
+  order of operations the CPU performs?
+
+correct: "First read the CURRENT value of x, add 1 to that value, then write the result back into box x."
+
+distractors:
+  - "First write 1 into box x, then add the right-hand side, then store the sum."
+  - "First erase box x, then re-create the box, then put 1 inside it (the previous value is lost)."
+  - "Both sides are evaluated simultaneously, so the value of x can be ambiguous after this line."
+
+explanation: |
+  In C++, every assignment evaluates the right-hand side FIRST, then
+  stores the result into the left-hand side. So `x = x + 1;` reads
+  the current value of x, adds 1, and only then writes the sum back
+  into box x. The old value is replaced by the new one.
+
+  This rule is non-negotiable for trace correctness. If you forget
+  it, every line of the form `var = var <op> something;` will be
+  wrong, and that pattern shows up in nearly every Q1 program.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-03 — RHS-first evaluation; PFG Part 1 §1-sequence-and-data"
+
+commonMistakeIds: ["CM-evaluates-lhs-first", "CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Concept-anchor MCQ. After 4 trace cards the rule is procedural; this
+  card snaps it into a rule-shaped concept the student can recall by
+  name. Will be cited in many later L1 trace explanations.

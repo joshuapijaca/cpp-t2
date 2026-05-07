@@ -1,0 +1,43 @@
+# Hand-authored CM immunization (FaultInjectionCard) for CM-F12c
+id: "L1-cmimm-CM-F12c-spot"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 4
+level: "L1"
+type: "FaultInjectionCard"
+
+stem: |
+  This if-statement uses = (assignment) where == (comparison) was meant. Fix it.
+
+brokenCode: |
+  int x = 3;
+  if (x = 5) {
+      cout << "match" << endl;
+  }
+
+bugLocations: [2]
+
+fixedCode: |
+  int x = 3;
+  if (x == 5) {
+      cout << "match" << endl;
+  }
+
+bugCategory: "= (assignment) used in condition where == (comparison) was meant"
+
+keyChecks:
+  - "if (x == 5)"
+
+explanation: |
+  `=` ASSIGNS 5 to x and the if-condition then uses 5 (non-zero = true) — the body always runs and x is silently mutated. `==` is the comparison: only enters if x equals 5.
+
+source:
+  kind: "pfg"
+  ref: "PFG part-1/1-sequence-and-data/2-trailside/08-assignment-statement — common-mistake immunization (CM-F12c)"
+
+commonMistakeIds: ["CM-F12c"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

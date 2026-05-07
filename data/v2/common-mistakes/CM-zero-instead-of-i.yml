@@ -1,0 +1,24 @@
+id: CM-zero-instead-of-i
+name: "Student uses `[0]` instead of `[i]` in cin"
+description: |
+  Inside the loop, students hard-code `list[0].field` instead of
+  `list[i].field`. All N reads go into the same first cell, overwriting
+  each iter. Final array has only the last entity's data in cell 0.
+whyItHappens: |
+  When practicing single-element examples (just for cell 0), students
+  forget to swap `0` for `i` when integrating into a loop. Manual
+  template fill-in error.
+immunizationStrategy: |
+  1. SpotError: cin using `[0]` inside loop; flag.
+  2. MCQ: "Inside the loop, what index do we use? (i)"
+  3. Cloze: blank for the index variable.
+  4. WriteCard rejecting `[0]` and accepting `[i]`.
+  5. Decompose: distinguish single-element ops from loop ops.
+  6. Trace card: show all-zero overwrites collapsing to final entity.
+examImpact: medium
+atomDependencies: [F-19, F-21, F-18b]
+qTracks: [Q3]
+relatedCMs: [CM-missing-bracket-i]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §5.5 Q3 Common Errors — Used `[0]` instead of `[i]` MEDIUM"

@@ -1,0 +1,71 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 30 — brace-match drill (capstone)
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Capstone — full Q3-shape program, deep highlight
+# =====================================================================
+id: "L0-F25-mcq-30"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1", "Q2", "Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Capstone. A struct, a function with a for-loop, and main. The
+  HIGHLIGHTED `{` opens the FOR-loop body inside `printAll` at
+  depth 1. Which `}` matches?
+
+  ```cpp
+  struct Item {                         // depth 0 open (struct)
+    string name;
+    int qty;
+  };                                    // option A (depth 0, struct close)
+  void printAll(Item items[], int n) {  // depth 0 open (printAll)
+    for (int i = 0; i < n; i = i+1) {   // <-- HIGHLIGHT (depth 1, for)
+      cout << items[i].name;
+      cout << " ";
+      cout << items[i].qty << endl;
+    }                                   // <-- option B (depth 1, for close)
+    cout << "done" << endl;
+  }                                     // option C (depth 0, printAll close)
+  int main() {                          // depth 0 open (main)
+    Item arr[2];
+    printAll(arr, 2);
+    return 0;
+  }                                     // option D (depth 0, main close)
+  ```
+
+correct: "B — the `}` on the line after the third cout (depth 1, for-body close)."
+
+distractors:
+  - "A — the `};` line, since structs lend their closing brace to following functions."
+  - "C — the `}` after `cout << \"done\" << endl;`, since that is the next `}` after the for body."
+  - "D — the final `}` of main, because the for-loop runs across the whole program."
+
+explanation: |
+  B is correct. depth-1 matches depth-1, and option B is the only
+  depth-1 `}` after the highlight.
+
+  A is wrong: A is depth 0 (struct close).
+  C is wrong: C is depth 0 (printAll's close — see how the
+  `cout << "done"` line is OUTSIDE the for, at depth 1, so the
+  `}` after it is at depth 0).
+  D is wrong: D is depth 0 (main).
+
+  KEY MOVE for capstone: after option B closes the for, the
+  remaining `cout << "done"` runs ONCE, then printAll closes at
+  C. Trace the depth label of every `}` to find the right one.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 30/30 (capstone)"
+
+commonMistakeIds: ["CM-F08a", "CM-F08b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Capstone integrates struct + function + nested for + main into a
+  full Q3-shape program. Four `}` candidates, one correct, depth
+  reasoning required.

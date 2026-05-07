@@ -1,0 +1,16 @@
+id: L-25
+name: "Q2 S5 Variations — EntityMatrix + reverse + edge cases"
+level: L2
+teaches: "Generalize struct skill: EntityMatrix RAVEN-style transfer (10), reverse drill code→prompt (8), bool/char edge cases (4+3), array-field peek (3), 4-field mixed (2)."
+prereqs: [L-24]
+usedByQs: [Q2]
+cardCountTarget: 30
+source:
+  - kind: practice
+    ref: "docs/16_test2_specific_redesign_v2.md §4.5 + Q1 S5 variations pattern"
+commonMistakes:
+  - CM-Q2-wrong-type
+  - CM-Q2-bool-edge
+  - CM-Q2-char-edge
+notes:
+  buckets: { entity-matrix: 10, reverse: 8, bool-edge: 4, char-edge: 3, array-field: 3, four-field: 2 }

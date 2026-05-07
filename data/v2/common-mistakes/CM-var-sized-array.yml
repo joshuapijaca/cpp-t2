@@ -1,0 +1,25 @@
+id: CM-var-sized-array
+name: "Student declares variable-sized array `arr[count_var]`"
+description: |
+  Q4 main must declare `<entity>_data <plural>[MAX];` where MAX is a
+  const. Students declare `<entity>_data <plural>[count_var];` where
+  count_var is read at runtime. This is a VLA — non-standard C++, and
+  the unit forbids it. Some compilers reject; SIT102 marks wrong.
+whyItHappens: |
+  Students think "I'll size it to what the user asked for" rather than
+  "max capacity at compile time, then fill what's needed." Conflates
+  capacity with count.
+immunizationStrategy: |
+  1. SpotError: `<entity>_data list[count_var];`; flag VLA.
+  2. MCQ: "Which is correct: `arr[MAX]` or `arr[count_var]`?"
+  3. Cloze: blank for the array-size identifier.
+  4. WriteCard requiring `[MAX]` exactly.
+  5. Demo card: capacity vs count distinction (slots vs filled).
+  6. Decompose: identify which value belongs in `[]`.
+examImpact: high
+atomDependencies: [F-19, F-11]
+qTracks: [Q4]
+relatedCMs: [CM-missing-const, CM-pass-MAX-not-count]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §6.5 Q4 Common Errors — Variable-sized array HIGH"

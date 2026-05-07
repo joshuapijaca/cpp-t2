@@ -1,0 +1,33 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-missing-bracket-sig
+id: "L3-cmimm-CM-missing-bracket-sig-cloze"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-missing-bracket-sig mistake."
+
+code: |
+  void read_data___stat_double &data___
+  {
+    ...
+  }
+
+clozeSentence: 'Fill in the punctuation pair that wraps the parameter list (open / close).'
+
+answer: '('
+
+explanation: |
+  Open with `(` close with `)`. Both parens wrap the params.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-missing-bracket-sig)"
+
+commonMistakeIds: ["CM-missing-bracket-sig"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

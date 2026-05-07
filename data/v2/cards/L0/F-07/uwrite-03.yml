@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-07 / ProceduralCard 03 (μ-write)
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-uwrite-03"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  The 3-line program below is missing its semicolons on every line.
+  Add them. Type the entire repaired body.
+
+section: "L0 · F-07 · μ-write — repair multiple missing semicolons"
+
+prompt: |
+  Original (every body line missing its terminator):
+
+  int main() {
+    int x = 10
+    cout << x << endl
+    return 0
+  }
+
+  Add the missing semicolons. Type the entire repaired body
+  (from `int main() {` through `}`).
+
+expectedAnswer: |
+  int main() {
+    int x = 10;
+    cout << x << endl;
+    return 0;
+  }
+
+keyChecks:
+  - "int x = 10;"
+  - "cout << x << endl;"
+  - "return 0;"
+
+variants:
+  - prompt: "Same shape — fix all three missing semicolons in a main that prints 6."
+    expectedAnswer: |
+      int main() {
+        int y = 6;
+        cout << y << endl;
+        return 0;
+      }
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-0-cpp-syntax.md"
+
+commonMistakeIds: ["CM-F07b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 3: multi-statement repair. Trains the scan-every-line
+  reflex. Student must add three semicolons in one pass.

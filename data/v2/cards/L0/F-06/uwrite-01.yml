@@ -1,0 +1,58 @@
+# =====================================================================
+# L0 / F-06 / ProceduralCard 01 (μ-write)
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-uwrite-01"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the smallest legal main function from scratch: header,
+  return-zero body, closing brace. Three lines.
+
+section: "L0 · F-06 · μ-write — empty main skeleton"
+
+prompt: |
+  Type the smallest possible main function. Header line, the single
+  body statement that returns 0, closing brace.
+
+expectedAnswer: |
+  int main() {
+    return 0;
+  }
+
+keyChecks:
+  - "int main()"
+  - "return 0;"
+
+forbiddenTokens:
+  - "void main"
+
+variants:
+  - prompt: "From a blank line, type the smallest legal main function."
+    expectedAnswer: |
+      int main() {
+        return 0;
+      }
+  - prompt: "Write the empty main skeleton — int return type, lowercase name, return 0, matched braces."
+    expectedAnswer: |
+      int main() {
+        return 0;
+      }
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F06a", "CM-F06b", "CM-F06d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 1: empty main skeleton. The full 3-line shape is the
+  unit students reproduce on every Q4 answer (then fill in the
+  body). Canonical ends in `}` (lint canon-end satisfied).

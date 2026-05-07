@@ -1,0 +1,35 @@
+id: "CM-wrong-bound-SIZE-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-wrong-bound-SIZE: Q3 wrong bound SIZE. Fill the blank.
+
+code: |
+  // Canonical Q3 excerpt with blank:
+  // ____ (i = 0; i < count; i++)
+  ;
+
+clozeSentence: |
+  Complete the canonical line: for (i = 0; i < count; i++)
+
+answer: "for (i = 0; i < count; i++)"
+
+explanation: |
+  Canonical pattern: for (i = 0; i < count; i++)
+  Mistake to avoid: Used `i < SIZE` — read past the actual count.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-wrong-bound-SIZE"
+
+commonMistakeIds: ["CM-wrong-bound-SIZE"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-wrong-bound-SIZE.

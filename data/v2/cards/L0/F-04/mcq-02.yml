@@ -1,0 +1,47 @@
+# =====================================================================
+# L0 / F-04 / MCQCard 02
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-mcq-02"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which of the following is the SINGLE correct way to write the
+  iostream include directive in modern C++?
+
+correct: "#include <iostream>"
+
+distractors:
+  - "#include \"iostream.h\""
+  - "include <iostream>;"
+  - "#import <iostream>"
+
+explanation: |
+  Correct form: `#include` (with the `#`), one space, `<iostream>`
+  (in angle brackets, no `.h`), no trailing semicolon.
+
+  `"iostream.h"` mixes two errors: double quotes are for *project-local*
+  headers (not standard library), and the `.h` suffix is a legacy C
+  convention dropped from the C++ standard library.
+  `include <iostream>;` is missing the leading `#` and adds an illegal
+  semicolon.
+  `#import` is not a C++ keyword; some other languages (Objective-C,
+  Java) use `import`, but C++ uses `#include`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F04b", "CM-F04c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Form-MCQ. Each distractor encodes a specific real-world novice
+  typo. The four-way contrast forces the student to commit to the
+  exact punctuation that survives across every Q4 answer.

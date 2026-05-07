@@ -1,0 +1,47 @@
+id: "L4-S6-novel-timed-10"
+schemaVersion: "v2"
+atomId: "Q-10"
+qTags: 
+  - "Q4"
+stage: 6
+level: "L4"
+type: "SpeedDrillCard"
+stem: "[novel timed 10/10] 90s to write a full main() for document_data."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.6 S6 timed novel"
+commonMistakeIds: 
+  - "CM-Q4-time-pressure-wrong-arg"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "document_data: MAX=200, count=doc_num, fn=read_documents, fields=title, author, pages, prompt=\"How many documents?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 200;
+      document_data documents[MAX];
+      int doc_num;
+  
+      cout << "How many documents? ";
+      cin >> doc_num;
+  
+      read_documents(documents, doc_num);
+  
+      for (int i = 0; i < doc_num; i++)
+      {
+          cout << documents[i].title << ", ";
+          cout << documents[i].author << ", ";
+          cout << documents[i].pages << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 200"
+  - "document_data documents[MAX]"
+  - "int doc_num"
+  - "read_documents(documents, doc_num)"
+  - "i < doc_num"
+  - "return 0"
+explanation: "90s novel-entity transfer. Tests true fluency: not memorisation, transfer."

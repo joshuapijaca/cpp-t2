@@ -1,0 +1,63 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 25 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Update then print
+# =====================================================================
+id: "L0-F23-trace-25"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. The variable changes BEFORE it is printed, so the
+  terminal shows the NEW value, not the original. Enter the final
+  value and the terminal output.
+
+code: |
+  int main() {
+    int n = 5;
+    n = n + 10;
+    cout << n << endl;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "5"
+    output: null
+  - line: 3
+    variable: "n"
+    value: "15"
+    output: null
+  - line: 4
+    variable: ""
+    value: ""
+    output: "15"
+
+terminalOutput: ["15"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Walk it: 5 -> 5+10 = 15 -> cout reads 15 and prints. Final panel:
+  { n: 15 }. Terminal: 15.
+
+  The cout always reads the CURRENT value at the moment it runs, not
+  whatever the value was earlier.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 25/30"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Update-then-print pattern. Targets the "stale-value" trap.

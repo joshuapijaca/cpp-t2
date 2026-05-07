@@ -1,0 +1,23 @@
+id: F-14a
+name: "cin >> operator direction"
+level: L0
+phase: C
+teaches: "`cin >> x;` — the >> pulls the next input INTO x. Direction is opposite of cout."
+prereqs: [F-13a]
+usedByQs: [Q3, Q4]
+cardCountTarget: 10
+parentAtom: F-14
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+    quote: "Read 'cin >> x' as: cin gives x the next value the user types."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/5-terminal-functions"
+    quote: "cin >> writes into the variable; cout << reads from the variable."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:30:55 — Saloni demonstrates entering values for the trace inputs"
+commonMistakes:
+  - CM-F14a-1  # writes cin << x
+  - CM-F14a-2  # confuses cin/cout direction overall
+notes:
+  cardMix: { walkthrough: 1, demo: 2, decompose: 1, cloze: 2, μWrite: 2, mcq: 2 }

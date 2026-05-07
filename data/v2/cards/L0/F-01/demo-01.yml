@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-01 / DemoCard 01
+# Atom: Source code is plain text
+# =====================================================================
+id: "L0-F01-demo-01"
+schemaVersion: "v2"
+atomId: "F-01"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: this is what a `.cpp` file actually IS. It is text — exactly the
+  same kind of text you see in this very stem. Open it in Notepad and
+  you'd see the same characters. Nothing more.
+
+whyOneLine: "A .cpp file is editable plain text — humans write it, compilers read it."
+
+demoCode: |
+  // saved on disk as: hello.cpp
+  // file size on disk: 81 bytes
+  // file contents (every character literal):
+
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << "hello" << endl;
+    return 0;
+  }
+
+highlightTokens:
+  - "// saved on disk"
+  - "81 bytes"
+  - "every character literal"
+  - "#include"
+  - "int main"
+
+usedIn:
+  - "Q1 trace (you read source the same way the compiler does)"
+  - "Q2 struct write (you type characters; the compiler accepts your characters)"
+  - "Q3 input function (same — text in, program out)"
+  - "Q4 main program (text typed under exam pressure)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"
+
+commonMistakeIds: ["CM-source-is-magic"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Pure observation card. No interaction. The student needs to *see* the
+  file's text-ness before any later abstraction makes sense. Highlight
+  tokens drive eye-fixation on the byte-count + character-literal cues.

@@ -1,0 +1,31 @@
+# =====================================================================
+# L1 / sum-positive / MCQCard 01 — predict-final 1
+# =====================================================================
+id: "L1-A4-mcq-01"
+schemaVersion: "v2"
+atomId: "A4"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: "For sum-positive on numbers={-2.5, 3.5, -1.0, 2.0, -0.5}, what is the FINAL value of data.mystery printed?"
+
+correct: "5.5"
+
+distractors:
+  - "1.5"
+  - "-4.0"
+  - "0.0"
+
+explanation: "The sum-positive algorithm yields 5.5. Common errors land on the distractor values — see common-mistake catalogue."
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — sum-positive predict-final"
+
+commonMistakeIds: ["CM-A4-skip-condition", "CM-A4-include-zero", "CM-A4-flip-condition"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Predict-final MCQ: tests result without trace ceremony."

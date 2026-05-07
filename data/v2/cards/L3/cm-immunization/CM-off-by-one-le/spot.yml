@@ -1,0 +1,41 @@
+# Auto-emitted CM immunization (FaultInjectionCard) for CM-off-by-one-le
+id: "L3-cmimm-CM-off-by-one-le-spot"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FaultInjectionCard"
+
+stem: |
+  This Q3 read loop reads SIZE+1 values (one too many). Find and fix the bug.
+
+brokenCode: |
+  for (int i = 0; i <= SIZE; i++) {
+    cin >> data.numbers[i];
+  }
+
+bugLocations: [1]
+
+fixedCode: |
+  for (int i = 0; i < SIZE; i++) {
+    cin >> data.numbers[i];
+  }
+
+bugCategory: 'off-by-one — `<=` instead of `<`'
+
+keyChecks:
+  - 'i < SIZE'
+
+explanation: |
+  `i <= SIZE` runs once for i=SIZE, which writes outside the array. Use `<` so the last iteration is i=SIZE-1.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-off-by-one-le)"
+
+commonMistakeIds: ["CM-off-by-one-le"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

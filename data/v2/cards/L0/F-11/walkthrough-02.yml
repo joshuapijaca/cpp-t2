@@ -1,0 +1,61 @@
+# =====================================================================
+# L0 / F-11 / WalkthroughCard 02
+# Atom: Variable declaration + initialisation (in struct + main)
+# =====================================================================
+id: "L0-F11-walk-02"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Walk through the V2.0 test trace setup. See where each variable is
+  declared and how it gets its starting value.
+
+levelLabel: "L0 Foundation Phase C F-11"
+
+fullCode: |
+  void who_am_i(stat_double &data) {
+    int i;
+    data.mystery = 0.0;
+    for (i = 0; i < SIZE; i++) {
+      if (data.numbers[i] > 0) {
+        data.mystery = data.mystery + data.numbers[i];
+      }
+    }
+  }
+
+steps:
+  - line: 2
+    code: '  int i;'
+    annotation: |
+      Open a box `i`, type int. NO initial value yet — the for-loop on
+      line 4 will assign the first value.
+    atomIds: ["F-11"]
+  - line: 3
+    code: '  data.mystery = 0.0;'
+    annotation: |
+      `data.mystery` already exists (it is a field of the struct
+      passed in). This line ASSIGNS 0.0 — it is not a declaration, it
+      is an initialisation-by-assignment.
+    atomIds: ["F-11", "F-12"]
+  - line: 4
+    code: '  for (i = 0; i < SIZE; i++) {'
+    annotation: |
+      The for-header writes 0 into the existing box `i`. This is the
+      first time `i` gets a defined value. From here on `i` is safe to
+      read.
+    atomIds: ["F-11", "F-12"]
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: who_am_i function declarations"
+
+commonMistakeIds: ["CM-F11b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Anchors the declaration concept to the EXACT V2.0 trace code.

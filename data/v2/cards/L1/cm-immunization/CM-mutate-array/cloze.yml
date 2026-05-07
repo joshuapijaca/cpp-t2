@@ -1,0 +1,30 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-mutate-array
+id: "L1-cmimm-CM-mutate-array-cloze"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-mutate-array mistake."
+
+code: |
+  // algo: ___ = ___ + numbers[i]    // RHS reads numbers[i] only
+
+clozeSentence: 'Fill in the accumulator name (used twice — assigned on the left, read on the right).'
+
+answer: 'mystery'
+
+explanation: |
+  Both blanks are `mystery`. The array stays read-only.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-mutate-array)"
+
+commonMistakeIds: ["CM-mutate-array"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

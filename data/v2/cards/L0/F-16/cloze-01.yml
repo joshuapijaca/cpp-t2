@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-16 / ClozeCard 01
+# Atom: == fill-in
+# =====================================================================
+id: "L0-F16-cloze-01"
+schemaVersion: "v2"
+atomId: "F-16"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the blank with the operator that ASKS "are these two
+  values equal?".
+
+code: |
+  int x = 5;
+  int y = 5;
+  if (x ___ y) {
+    cout << "same" << endl;
+  }
+
+clozeSentence: |
+  if (x ___ y)
+
+answer: "=="
+
+explanation: |
+  `==` is the equality TEST. A single `=` would assign y to x.
+  Inside an if condition, you almost always want `==`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-1-comparisons"
+
+commonMistakeIds: ["CM-F16a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

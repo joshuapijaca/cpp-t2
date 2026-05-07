@@ -1,0 +1,79 @@
+id: "L1-S1-tour-05-v20-answer"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "WalkthroughCard"
+
+stem: |
+  Walk through the V2.0 Q1 (sum-positives). Final d.mystery = 3.9
+  because the only positive values are 2.4 + 1.0 + 0.5 = 3.9.
+  The -0.9 in the brace-init is OVERWRITTEN on the very first line.
+
+levelLabel: "L1 Q1 hand-execute · S1 Tour · V2.0 answer"
+
+fullCode: |
+  data.mystery = 0.0;
+  for (int i = 0; i < SIZE; i++) {
+    if (data.numbers[i] > 0) {
+      data.mystery = data.mystery + data.numbers[i];
+    }
+  }
+
+steps:
+  - line: 0
+    code: 'stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};'
+    annotation: |
+      numbers[0..4] = 2.4, -3.7, 1.0, -2.1, 0.5. mystery = -0.9.
+    atomIds: ["T-06"]
+  - line: 1
+    code: 'data.mystery = 0.0;'
+    annotation: |
+      Pre-loop init. mystery := 0.0 (overwrites -0.9).
+      mystery: ~-0.9~ 0.0
+    atomIds: ["T-03"]
+  - line: 2
+    code: 'i=0: 2.4 > 0 ? true. mystery := 0.0 + 2.4 = 2.4.'
+    annotation: |
+      Iter 0. Positive. Add to accumulator.
+      mystery: ~-0.9~ ~0.0~ 2.4
+    atomIds: ["T-05"]
+  - line: 3
+    code: 'i=1: -3.7 > 0 ? false. skip.'
+    annotation: |
+      Iter 1. Negative. Body skipped.
+    atomIds: ["T-05"]
+  - line: 4
+    code: 'i=2: 1.0 > 0 ? true. mystery := 2.4 + 1.0 = 3.4.'
+    annotation: |
+      Iter 2. Positive. Add.
+      mystery: ~-0.9~ ~0.0~ ~2.4~ 3.4
+    atomIds: ["T-05"]
+  - line: 5
+    code: 'i=3: -2.1 > 0 ? false. skip.'
+    annotation: |
+      Iter 3. Negative.
+    atomIds: ["T-05"]
+  - line: 6
+    code: 'i=4: 0.5 > 0 ? true. mystery := 3.4 + 0.5 = 3.9.'
+    annotation: |
+      Iter 4. Positive. Add.
+      mystery: ~-0.9~ ~0.0~ ~2.4~ ~3.4~ 3.9
+    atomIds: ["T-05"]
+  - line: 7
+    code: 'i=5: 5 < 5 ? false. exit. Final mystery = 3.9.'
+    annotation: |
+      Guard fails. Loop ends. Answer: 3.9.
+    atomIds: ["T-04"]
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — sum-positives canonical answer"
+
+commonMistakeIds: ["CM-Q1-skip-init", "CM-Q1-no-strikethrough"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  S1 Tour 05: full V2.0 narrated answer.
+authoringStatus: "DRAFT"

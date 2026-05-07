@@ -1,0 +1,54 @@
+# =====================================================================
+# L1 / S3-components / C-30 / DemoCard 01 — same memory through `&`
+# =====================================================================
+id: "L1-S3-C-30-demo-01"
+schemaVersion: "v2"
+atomId: "C-30"
+qTags: ["Q1"]
+stage: 3
+level: "L1"
+type: "DemoCard"
+
+stem: |
+  Watch how `stat_double &data` makes the function and the caller
+  share the same memory.
+
+whyOneLine: "`&` declares the parameter as an alias — the function and the caller name the same struct."
+
+demoCode: |
+  void who_am_i(stat_double &data) {
+    data.mystery = 0;          // mutates caller struct
+  }
+
+  int main() {
+    stat_double d;
+    d.mystery = 99;
+    who_am_i(d);                // d.mystery becomes 0
+    cout << d.mystery << endl;  // prints 0
+    return 0;
+  }
+
+  // Memory:
+  //   caller: d     -- same address
+  //   callee: data  -- (alias of d)
+
+highlightTokens:
+  - "stat_double &data"
+  - "data.mystery"
+  - "who_am_i(d)"
+  - "0"
+
+usedIn:
+  - "Q1 V2.0 — who_am_i mutates caller data through reference"
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-30"
+
+commonMistakeIds: ["CM-C30a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+notes: |
+  Demo form for QA-M10 exposure floor. Pure exposure of the
+  same-memory aliasing semantics.

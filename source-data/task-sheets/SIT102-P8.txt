@@ -1,0 +1,93 @@
+SIT102 Introduction to Programming  P8 Structuring Data
+
+Structuring Data
+
+The pace of the journey is picking up, as you are starting to build knowledge, skills,
+and attitudes that position you for success in computing. With the ability to
+organise code, the next leg of your journey sets you on a path to start organising
+your program's data. With these new tools you can start to build larger data
+entities that match the things you want to see within your digital reality.
+The next steps build on your current understanding of the primitive (base) data
+types (e.g. int, char, bool etc). These primitive types serve you well, however only
+focus on representing single values thus have their limitations. New concepts
+introduce the ability to create custom data types, allowing you to create more
+complex representations of objects by representing groups or sets of values
+instead.
+Key aspects include:
+
+    · The current primitive data types form the foundation for all other data
+         types - even custom data types.
+
+    · How enums (enumerators) and structs (structures) enable the representing
+         of multiple values as a single object.
+
+    · Modelling of your data will be a key process - learn how to use these
+         concepts to represent the entities (things) that your program is working
+         with.
+
+Show us that you can:
+
+    · Create structs to organise your data into meaningful entities in C++.
+    · Create enumerations to capture discrete values where appropriate.
+    · Use your custom types as local variables, parameters, and function return
+
+         types.
+                                                                                                  Page 1 of 3
+SIT102 Introduction to Programming  P8 Structuring Data
+
+· Focus on the programming concepts for managing data and how they help
+    you model and work with larger entities.
+
+· Do this task without using anything we haven't covered yet.
+· Capture your learning in the Learning Journey section. Include evidence
+
+    (screenshots) of your progress, and your thoughts on what you
+    accomplished, what challenges you faced, and what you found interesting.
+· Provide sincere reflections in the Reflection section. Don't just tell us what
+    you did, tell us what you learned. Reflections that are brief or shallow will
+    not be accepted.
+
+Complete the following:
+
+         1. Download and open the template from OnTrack.
+         2. Read through the Introduction section and Overview section from
+
+             Chapter 2: Structuring Data.
+         3. Complete the Guided Tour from Chapter 2: Structuring Data.
+         4. Complete one of the Test Your Knowledge activities.
+         5. You should have enough to submit now, but if you want to deepen your
+
+             understanding have a look at the concepts in the In Depth section.
+         6. Complete your submission ­ complete the summary and related
+
+             activities in the template.
+         7. Upload to OnTrack and engage with feedback to get this complete!
+
+Available Resources
+
+We have many resources to assist in your learning journey ­ if you are ever unsure
+then please reach out to us, we are always happy to help.
+
+    · The SIT102 Teams channel ­ an active learning resource with weekly
+         announcements from the Unit Chair, and regular discussions/assistance
+         from the SIT102 teaching team and students.
+
+                                                                                                  Page 2 of 3
+SIT102 Introduction to Programming  P8 Structuring Data
+
+    · Seminars ­ you can attend both on-campus and online sessions, and join
+         as many as you like each week. Your tutors will provide demonstrations and
+         assistance to help guide your learning.
+
+    · HelpHubs ­ there are sessions hosted nearly everyday, both on-campus
+         and online providing one-on-one assistance from a tutor. Please join as
+         many as you like.
+
+    · PASS sessions ­ running every week, these sessions are run like a study
+         group, hosted by a past SIT102 student.
+
+For more information about the above resources please speak to your tutor or
+visit the SIT102 Teams channel.
+
+                                    Page 3 of 3
+

@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-19 / ClozeCard 04
+# Atom: Fixed-size array — access via index variable
+# =====================================================================
+id: "L0-F19-cloze-04"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing variable to read element at index `i` of `arr`.
+
+code: |
+  int i = 2;
+  cout << arr[___] << endl;
+
+clozeSentence: "cout << arr[___] << endl;  // read element at index i"
+
+answer: "i"
+
+explanation: |
+  An array index can be a literal (`arr[2]`) or any int expression
+  including a variable (`arr[i]`). When `i = 2`, then `arr[i]` is the
+  same as `arr[2]`. This is the loop-driven access pattern used in
+  Q1 trace bodies and Q3 read functions.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
+
+commonMistakeIds: ["CM-F19b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Bridges literal-index access to loop-driven access. Q1 will write
+  this pattern inside `for (i = 0; i < SIZE; i++)`.

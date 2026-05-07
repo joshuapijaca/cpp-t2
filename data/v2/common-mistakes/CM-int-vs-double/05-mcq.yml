@@ -1,0 +1,32 @@
+id: "CM-int-vs-double-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-int-vs-double: Q1 int vs double mismatch. numbers[] is double; preserve precision, do not round.
+
+correct: "data.mystery = 3.7;"
+
+distractors:
+  - "data.mystery = 4;"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: data.mystery = 3.7;
+  Mistake: Rounded fractional doubles to ints in the trace.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-int-vs-double"
+
+commonMistakeIds: ["CM-int-vs-double"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-int-vs-double.

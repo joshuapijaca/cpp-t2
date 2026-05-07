@@ -1,0 +1,22 @@
+id: "L4-S3C-mcq-04"
+schemaVersion: "v2"
+atomId: "Q-04"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "MCQCard"
+stem: "After `cin >> desk_num;` — what should happen next?"
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block C mcq"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+correct: "Call read fn with (array, desk_num)."
+distractors: 
+  - "Print the array."
+  - "return 0."
+  - "Re-prompt for another count."
+explanation: "Now we know the real count → call read fn → fill array → print → return 0."

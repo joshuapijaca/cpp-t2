@@ -1,0 +1,44 @@
+id: "CM-missing-const-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q4 missing const keyword. The code below has the bug labeled
+  by CM-missing-const. Find the line and provide the fix.
+
+brokenCode: |
+  // Q4 broken excerpt:
+  int MAX = 100;
+  // (canonical was: const int MAX = 100;)
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  const int MAX = 100;
+  ;
+
+bugCategory: "CM-missing-const"
+
+keyChecks:
+  - "const int MAX = 100;"
+
+explanation: |
+  Bug: Wrote `int MAX = 100;` — lost rubric token `const`.
+  Fix: const int MAX = 100;
+  This common mistake costs marks on Q4 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-missing-const"
+
+commonMistakeIds: ["CM-missing-const"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-missing-const.

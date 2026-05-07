@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-20 / MCQCard 02 — keyword case
+# =====================================================================
+id: "L0-F20-mcq-02"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Test 2 hands you a prompt asking to define a `stat_double`
+  entity. Which keyword do you type FIRST on the definition line
+  in standard C++ (case matters — the compiler is case-sensitive)?
+
+correct: "struct (lowercase) — the only spelling the compiler recognises."
+
+distractors:
+  - "Struct (capital S) — Pascal-case is the convention for type definitions."
+  - "STRUCT (all caps) — keywords are upper-case in standard C++."
+  - "structure (full word) — the abbreviated `struct` is informal slang."
+
+explanation: |
+  C++ is case-sensitive. The keyword is exactly `struct`, lowercase.
+  `Struct`, `STRUCT`, and `structure` are not keywords — the
+  compiler treats them as undeclared identifiers.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  CM-F20c immunisation. Distractor 1 is the C# import; distractor 2
+  is the SQL/COBOL import; distractor 3 is the typo-as-fullword.

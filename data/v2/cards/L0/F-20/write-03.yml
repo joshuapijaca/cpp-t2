@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-20 / StructWriteCard 03 — two-field with int + array
+# =====================================================================
+id: "L0-F20-write-03"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "StructWriteCard"
+
+stem: |
+  Write a struct definition for a `course_data` entity with two
+  fields: an int array `grades` of size 4, and an int field
+  `student_id`.
+
+prompt: "Define struct `course_data` with int grades[4] and int student_id."
+
+canonicalAnswer: |
+  struct course_data {
+    int grades[4];
+    int student_id;
+  };
+
+requiredFields:
+  - "grades"
+  - "student_id"
+
+keyChecks:
+  - "struct course_data"
+  - "int grades[4]"
+  - "int student_id"
+  - "};"
+
+forbiddenTokens:
+  - "class"
+  - "Struct"
+  - "*"
+
+explanation: |
+  Reinforces array-as-field. Both fields are `int` but one is an
+  array (`grades[4]`) and one is a scalar (`student_id`). Both end
+  with `;`; the closing `};` is required.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20a", "CM-F20d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Mirror of the test shape (array + scalar) with different domain.
+  Drills the array-as-field pattern.

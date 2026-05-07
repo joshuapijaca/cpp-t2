@@ -1,0 +1,33 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-missing-return-0
+id: "L4-cmimm-CM-missing-return-0-cloze"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-missing-return-0 mistake."
+
+code: |
+  int main() {
+    cout << "Hi";
+    ___ 0;
+  }
+
+clozeSentence: 'Fill in the keyword that returns from main with success.'
+
+answer: 'return'
+
+explanation: |
+  `return 0;` is the canonical close of main.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-missing-return-0)"
+
+commonMistakeIds: ["CM-missing-return-0"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

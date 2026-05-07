@@ -1,0 +1,64 @@
+# =====================================================================
+# L0 / F-14b / DecomposeCard 02
+# Atom: cin reads one whitespace-delimited token (multi-cin one line)
+# =====================================================================
+id: "L0-F14b-decomp-02"
+schemaVersion: "v2"
+atomId: "F-14b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A user runs the program below and types `5 12 99` then Enter (three
+  numbers on one line). Pick the option that best describes the
+  variables panel.
+
+code: |
+  int a, b, c;
+  cin >> a;
+  cin >> b;
+  cin >> c;
+
+question: |
+  After all three cin lines run, what do the three boxes hold?
+
+options:
+  - label: "A"
+    text: |
+      a=5, b=12, c=99 — three cin lines read three tokens from the
+      single user line.
+  - label: "B"
+    text: |
+      a=5 12 99, b and c are empty — the first cin captures the whole
+      line.
+  - label: "C"
+    text: |
+      a=5, b and c are empty — the user must press Enter between
+      values.
+  - label: "D"
+    text: |
+      All three are 0 because cin cannot accept multi-value input.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. Each `cin >>` reads ONE token. The three tokens (5,
+  12, 99) are separated by whitespace, so three cins can pull them
+  in sequence from the same user line. Pressing Enter between values
+  is OPTIONAL — any whitespace works.
+
+  This is why num_to_read followed by N array reads works smoothly
+  even if the user types everything on one line.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F14b-3"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Reinforces that one user line can fill many cin reads.

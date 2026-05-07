@@ -1,0 +1,61 @@
+# =====================================================================
+# L0 / F-13b / DecomposeCard 02
+# Atom: cout chained values + endl (missing endl)
+# =====================================================================
+id: "L0-F13b-decomp-02"
+schemaVersion: "v2"
+atomId: "F-13b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes the two cout lines below. Pick the option that
+  best describes the terminal output.
+
+code: |
+  int a = 1, b = 2;
+  cout << "a = " << a;
+  cout << "b = " << b;
+
+question: |
+  What appears on the terminal?
+
+options:
+  - label: "A"
+    text: |
+      Two lines: "a = 1" then "b = 2".
+  - label: "B"
+    text: |
+      One line, no separator: "a = 1b = 2" — the lines run together
+      because no endl was written.
+  - label: "C"
+    text: |
+      Nothing appears; cout requires endl to flush.
+  - label: "D"
+    text: |
+      A compile error because the second cout is on a new line.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. Without `endl`, cout does not advance to the next
+  line. The two statements push their characters into cout
+  sequentially: `a = 1` then `b = 2`. The terminal shows them glued:
+  `a = 1b = 2`.
+
+  To fix: add `<< endl` to each line:
+  `cout << "a = " << a << endl;`
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/0-pano/5-terminal-functions"
+
+commonMistakeIds: ["CM-F13b-1"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Targets missing-endl behaviour. Important for visualising terminal
+  output during traces.

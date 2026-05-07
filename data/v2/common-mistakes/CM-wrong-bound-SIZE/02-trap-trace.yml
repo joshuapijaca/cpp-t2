@@ -1,0 +1,44 @@
+id: "CM-wrong-bound-SIZE-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-wrong-bound-SIZE: Q3 wrong bound SIZE.
+
+code: |
+  // Trap: Used `i < SIZE` — read past the actual count.
+  for (i = 0; i < SIZE; i++)
+  ;
+
+question: |
+  What goes wrong with the line above on Q3?
+
+options:
+  - label: "A"
+    text: "Used `i < SIZE` — read past the actual count."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Used `i < SIZE` — read past the actual count. The canonical pattern is: for (i = 0; i < count; i++)
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-wrong-bound-SIZE"
+
+commonMistakeIds: ["CM-wrong-bound-SIZE"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-wrong-bound-SIZE.

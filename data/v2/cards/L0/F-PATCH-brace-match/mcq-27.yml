@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 27 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Same code as 26, highlight the if (depth 3, deepest)
+# =====================================================================
+id: "L0-F25-mcq-27"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Same code as card 26. Now the HIGHLIGHTED `{` opens the if at
+  depth 3 (deepest level). Which `}` matches?
+
+  ```cpp
+  int main() {                          // depth 0 open
+    for (int i = 0; i < 3; i = i+1) {   // depth 1 open
+      for (int j = 0; j < 3; j = j+1) { // depth 2 open (inner for)
+        if (i == j) {                   // <-- HIGHLIGHT (depth 3, if)
+          cout << "*";
+        }                               // <-- option A (depth 3, if close)
+      }                                 // option B (depth 2, inner for close)
+    }                                   // option C (depth 1, outer for close)
+    return 0;
+  }                                     // depth 0 close
+  ```
+
+correct: "A — the `}` immediately after `cout << \"*\";` (depth 3, if's close)."
+
+distractors:
+  - "B — the `}` two lines below A, because the if and the inner for align."
+  - "C — the `}` three lines below A, since deeper blocks borrow outer braces."
+  - "D — the `==` operator inside `if (i == j)` is the matching closing brace."
+
+explanation: |
+  A is correct. The deepest nesting still pairs same-depth-with-
+  same-depth. The if opens at depth 3, the next depth-3 `}` is A.
+
+  B is wrong: B is depth 2.
+  C is wrong: C is depth 1.
+  D is wrong: `==` is a comparison operator, not a brace.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 27/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Mirror of card 26. Drills the depth rule at the deepest level.

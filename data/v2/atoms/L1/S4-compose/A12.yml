@@ -1,0 +1,24 @@
+id: A12
+name: "Q1 Compose: index-of-max algorithm (HARDEST: double indirection)"
+level: L1
+phase: S4
+teaches: "Trace index-of-max. mystery is an INT (index), NOT a double (value). Init mystery = 0; for i=1..SIZE-1, if numbers[i] > numbers[mystery] then mystery = i. Comparison reads numbers[mystery] indirectly — double indirection through index. HARDEST algorithm: most error-prone."
+prereqs: [A1]
+usedByQs: [Q1]
+cardCountTarget: 18
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — find-index-of-max variant"
+commonMistakes:
+  - CM-A12-store-value-not-index
+  - CM-A12-comparison-against-numbers-i
+  - CM-A12-init-with-numbers-zero
+  - CM-A12-store-i-plus-1
+  - CM-A12-int-vs-double-confusion
+notes:
+  cardMix: { trace: 12, mcq: 3, decompose: 3 }
+  stage: S4
+  exposureClass: long
+  progression: "2 simple -> 2 mixed-sign -> 2 ties -> 2 max-at-end -> 2 max-at-start -> 2 negatives -> 2 final-only -> 2 spot-error -> 2 type-trap"
+  difficulty: HARDEST
+  doubleIndirectionWarning: "numbers[i] > numbers[mystery] requires reading numbers[mystery] EVERY iteration — this is the trap"

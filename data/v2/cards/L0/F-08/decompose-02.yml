@@ -1,0 +1,76 @@
+# =====================================================================
+# L0 / F-08 / DecomposeCard 02
+# Atom: Block delimiters: { and }
+# =====================================================================
+id: "L0-F08-decomp-02"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q2"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes the struct below using parentheses instead of
+  curly braces. The compiler errors with multiple syntax messages.
+  Pick the option that names the bracket-shape error.
+
+code: |
+  // The student wrote (with WRONG bracket type):
+  //   struct Point ( int x; int y; );
+  // Reference (CORRECT) version with proper braces:
+  struct Point {
+    int x;
+    int y;
+  };
+
+question: |
+  What is wrong with the student's bracket choice?
+
+options:
+  - label: "A"
+    text: |
+      Curly braces `{` and `}` are required to enclose the struct's
+      field list. Round parens `( )` are for function parameter
+      lists and expression grouping; they are NOT a substitute for
+      block braces.
+  - label: "B"
+    text: |
+      Nothing is wrong — `( )` and `{ }` are interchangeable in C++.
+  - label: "C"
+    text: |
+      The fields are wrong; only one field per struct is allowed.
+  - label: "D"
+    text: |
+      Structs must be defined inside a function — never at file
+      scope.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. C++ uses different brackets for different purposes:
+  - `(` `)` (round) — function parameter lists, expression
+    grouping (e.g. `(3 + 4) * 2`).
+  - `{` `}` (curly) — block delimiters: struct field lists,
+    function bodies, control-statement bodies.
+  - `[` `]` (square) — array indexing.
+
+  A struct's field list MUST be inside curly braces. Using `(` `)`
+  breaks the syntax in several ways at once.
+
+  B is wrong: not interchangeable.
+  C is wrong: structs can have many fields.
+  D is wrong: structs are typically defined at file scope (above
+  main).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"
+
+commonMistakeIds: ["CM-F08c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Bracket-type decompose. Targets CM-F08c (uses `( )` where `{ }`
+  belongs). Reinforces the role-distinction set up in demo-02.

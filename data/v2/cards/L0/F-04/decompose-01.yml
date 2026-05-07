@@ -1,0 +1,74 @@
+# =====================================================================
+# L0 / F-04 / DecomposeCard 01
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-decomp-01"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes the program below and the compiler stops with the
+  error: `'cout' was not declared in this scope`. Read the program and
+  pick the option that explains the error.
+
+code: |
+  using namespace std;
+  int main() {
+    cout << "hello" << endl;
+    return 0;
+  }
+
+question: |
+  What is missing from this program, and why does that cause the error?
+
+options:
+  - label: "A"
+    text: |
+      The `int` keyword is misspelled. Rename to `Int main()` and the
+      error goes away.
+  - label: "B"
+    text: |
+      The first line `#include <iostream>` is missing. Without it the
+      compiler has never seen the name `cout`, so it cannot resolve the
+      use on line 3.
+  - label: "C"
+    text: |
+      The closing `}` is missing. Brace mismatches always show up as
+      "not declared" errors.
+  - label: "D"
+    text: |
+      The string `"hello"` should be in single quotes (`'hello'`); double
+      quotes are reserved for `cin`.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. `cout` is defined in the `<iostream>` library. To make
+  that name visible in your file, the very first line must be
+  `#include <iostream>`. Without it, the compiler reaches `cout` on
+  line 3 and has no record of any name `cout` — hence "not declared
+  in this scope."
+
+  A is wrong: `Int` (capital I) would produce a different error
+  ("Int does not name a type"), not "cout not declared".
+  C is wrong: missing-} produces a parse error, not "cout not declared".
+  D is wrong: `cout` works with double-quoted string literals; single
+  quotes are for single chars, not strings.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md + cf. Practice Test 2 Q4 (every Q4 answer needs the include preamble)"
+
+commonMistakeIds: ["CM-F04a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Diagnose-the-error decompose. Targets the most consequential
+  novice failure mode: forgetting #include and seeing the
+  "not declared" error without knowing what to do. The four options
+  are real beginner reflexes, not strawmen.

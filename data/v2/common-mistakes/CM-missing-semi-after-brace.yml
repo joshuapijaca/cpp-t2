@@ -1,0 +1,26 @@
+id: CM-missing-semi-after-brace
+name: "Student omits semicolon after struct's closing brace"
+description: |
+  After `struct foo { ... }` the closing brace MUST be followed by a
+  semicolon. Students treat structs like functions (which do not require
+  the trailing `;`) and omit it. Compiler error cascades into bizarre
+  parse failures elsewhere. Tagged HIGHEST frequency in v2 spec.
+whyItHappens: |
+  C++ inherits this from C: a struct definition is a declaration whose
+  declarators (after the close-brace) can include variables. The
+  semicolon terminates that declaration even when no variable is
+  declared. Students with Java/Python background never see this.
+immunizationStrategy: |
+  1. SpotError: struct missing `;`; identify the bug.
+  2. Cloze: blank for the `;` after `}`.
+  3. MCQ: "What follows `}` at the end of a struct? (`;`)"
+  4. WriteCard: write a struct from prompt; key-check on trailing `;`.
+  5. Decompose: list every required token of a struct definition.
+  6. SpeedDrill emphasising final `;` per V2.0 marking sheet.
+examImpact: high
+atomDependencies: [F-07, F-20]
+qTracks: [Q2]
+relatedCMs: [CM-missing-semi-field, CM-cap-struct-keyword]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 marking sheet — missing `;` after `};` flagged HIGHEST"

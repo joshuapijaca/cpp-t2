@@ -1,0 +1,47 @@
+id: "L0-F25-decomp-01"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill (DecomposeCard variant)"
+commonMistakeIds: ["CM-F08a", "CM-F08b"]
+stem: |
+  Use the depth labels to decide which closing brace pairs with the
+  marked opening brace.
+code: |
+  int main() {              // depth 0 open ←
+    for (int i = 0; i < 3; i++) {     // depth 1
+      if (i % 2 == 0) {               // depth 2
+        cout << i << endl;
+      }                                // depth 2 close
+    }                                  // depth 1 close
+    return 0;
+  }                                    // depth 0 close ←
+question: |
+  Which closing brace pairs with the depth-0 opening brace at the
+  end of `int main() {`?
+options:
+  - label: "A"
+    text: "The `}` at depth 2 (right after `cout << i << endl;`)."
+  - label: "B"
+    text: "The `}` at depth 1 (right after the for-body)."
+  - label: "C"
+    text: "The `}` at depth 0 (the very last line, after `return 0;`)."
+  - label: "D"
+    text: "There is no closing brace at depth 0; main is open-ended."
+correctLabel: "C"
+explanation: |
+  Same depth = same pair. The depth-0 opening brace is paired with
+  the depth-0 closing brace on the last line of main. The interior
+  braces (depth 1 for the for-body, depth 2 for the if-body) belong
+  to their own pairs.
+  Targets CM-F08a/CM-F08b (mismatching braces by line proximity
+  rather than by depth).
+notes: "Decompose form for QA-M10 type-diversity (atom F-25 was 30 MCQ)."

@@ -1,0 +1,45 @@
+# =====================================================================
+# L0 / F-01 / MCQCard 03
+# Atom: Source code is plain text
+# =====================================================================
+id: "L0-F01-mcq-03"
+schemaVersion: "v2"
+atomId: "F-01"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  A friend emails you a file called `q1_solution.cpp`. You have not
+  installed any C++ tools yet. Can you read what is inside the file?
+
+correct: "Yes — open it in any text editor and you will see the C++ source as readable text."
+
+distractors:
+  - "No — without a C++ compiler installed, the file is unreadable on your machine."
+  - "Only partially — without a compiler, only the comments are readable; the code itself is encrypted."
+  - "Only if you rename the extension to .txt first, otherwise the operating system blocks the file."
+
+explanation: |
+  A `.cpp` file is plain text. It can be opened and read in any text
+  editor on any operating system, with or without a C++ compiler
+  installed. The compiler is needed to *run* the program, not to *read*
+  the source.
+
+  Renaming the extension to `.txt` changes nothing about the file's
+  content — it just changes which app opens by default. The OS does not
+  block files based on extension.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"
+
+commonMistakeIds: ["CM-source-is-magic"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Final F-01 MCQ — closes the "source = text, fully portable" loop. By
+  the end of these 6 cards the student should feel that opening a .cpp
+  in Notepad is unsurprising.

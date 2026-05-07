@@ -1,0 +1,44 @@
+# =====================================================================
+# L1 / count-positive / DecomposeCard 02 — spot-error 2
+# =====================================================================
+id: "L1-A8-decomp-02"
+schemaVersion: "v2"
+atomId: "A8"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "DecomposeCard"
+
+stem: "The code below CLAIMS to compute count-positive on numbers={0.0, 0.0, 1.0, 0.0, 0.0}. There is a bug. Identify it."
+
+code: |
+  data.mystery = 0;
+  for (int i = 0; i < SIZE; i = i + 1) {
+    data.mystery = data.mystery + data.numbers[i];
+  }
+
+question: "Pick the option that correctly identifies the bug."
+
+options:
+  - label: "A"
+    text: "The bug: the loop body is missing the conditional that count-positive requires. The correct output should be 1."
+  - label: "B"
+    text: "The code is correct — it produces the right answer."
+  - label: "C"
+    text: "The bug is the loop bound `i < SIZE`; should be `i <= SIZE`."
+  - label: "D"
+    text: "The bug is in the cout statement; missing endl flush."
+
+correctLabel: "A"
+
+explanation: "Spot-error drill. the loop body is missing the conditional that count-positive requires. Targets CM-A8-add-value-not-one, CM-A8-flip-condition."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — count-positive spot-error"
+
+commonMistakeIds: ["CM-A8-add-value-not-one", "CM-A8-flip-condition"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Spot-error decompose card."

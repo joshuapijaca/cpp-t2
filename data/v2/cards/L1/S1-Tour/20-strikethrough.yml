@@ -1,0 +1,50 @@
+id: "L1-S1-tour-20-strikethrough"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "DemoCard"
+
+stem: |
+  The strikethrough notation. When mystery changes, write the new
+  value to the right of the old one and put a line through the old.
+  This preserves the history so the marker sees every step.
+
+whyOneLine: "Don't erase or overwrite — add the new value to the right, strike the old. The trail IS the work."
+
+demoCode: |
+  // mystery starts at -0.9, becomes 0.0, then 2.4, then 3.4, then 3.9
+
+  RIGHT (preserves history):
+    mystery: ~-0.9~ ~0.0~ ~2.4~ ~3.4~ 3.9
+
+  WRONG (erase + overwrite — looks clean but loses the work):
+    mystery: 3.9
+
+  Why we do it:
+    1. The marker needs to see HOW you got the answer.
+    2. If you make a mistake mid-trace, the trail shows where.
+    3. It is the convention taught in seminars and required for
+       full marks under hand-execution rubric.
+
+highlightTokens:
+  - "~-0.9~"
+  - "~0.0~"
+  - "~2.4~"
+  - "~3.4~"
+  - "3.9"
+
+usedIn:
+  - "Q1: every algorithm produces a trail of mystery values"
+
+source:
+  kind: "seminar"
+  ref: "SIT102 Seminar Mondays 6pm new (2) — Saloni: 'cross out, write the new value next to it'"
+
+commonMistakeIds: ["CM-Q1-no-strikethrough"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Strikethrough notation explained.
+authoringStatus: "DRAFT"

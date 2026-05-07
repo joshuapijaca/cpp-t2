@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 14 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: For-loop with two-statement body
+# =====================================================================
+id: "L0-F25-mcq-14"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  A for-loop with TWO statements in the body. The HIGHLIGHTED `{`
+  opens the for-body at depth 1. Which `}` matches?
+
+  ```cpp
+  int main() {                          // depth 0 open
+    int sum = 0;
+    for (int i = 0; i < 4; i = i+1) {   // <-- HIGHLIGHT (depth 1)
+      sum = sum + i;
+      cout << i << endl;
+    }                                   // <-- option A (depth 1)
+    cout << sum << endl;
+    return 0;
+  }                                     // <-- option B (depth 0)
+  ```
+
+correct: "A — the `}` on a line by itself between the for body and the final cout (depth-1 close)."
+
+distractors:
+  - "B — the final `}` of main, since the for-body wraps the rest of main."
+  - "C — the `;` after `i = i+1` is the closing brace of the header section."
+  - "D — there is no matching brace; a 2-statement body needs two closing braces."
+
+explanation: |
+  A is correct. depth-1 matches depth-1, and option A is the only
+  depth-1 close.
+
+  B is wrong: B is depth 0.
+  C is wrong: `;` is a separator.
+  D is wrong: ANY number of statements between `{` and `}` only
+  needs ONE matching `}`.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 14/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Multi-statement body. Common belief: "more lines = more braces"
+  is the trap distractor D targets.

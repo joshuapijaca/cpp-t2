@@ -1,0 +1,56 @@
+# =====================================================================
+# L5 / Mock M05 Q4 POSTMORTEM
+# Diff failed attempt vs canonical, surface repair steps.
+# =====================================================================
+id: "L5-mock-M05-q4-postmortem"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Postmortem for Mock M05 Q4 (main). Why did the failed
+  attempt below lose marks? What's the exact repair?
+
+failedAttempt: |
+  int main() {
+    computer_data arr[100];
+    int count;
+    cin >> count;
+    read_computers(arr, count);
+    print_computers(arr, count);
+    return 0;
+  }
+  // Bug: missing const int MAX = 100; uses raw 100 in array decl.
+
+diagnosis: |
+  `const int MAX = 100;` is required by the rubric. Hard-coding
+  `arr[100]` works but loses 4 marks under §7.4 of the rubric. The
+  const named-constant idiom is the Q4 "shape" the marker scans for.
+
+repairSteps:
+  - "Add `const int MAX = 100;` before the array declaration."
+  - "Change `arr[100]` to `arr[MAX]`."
+  - "Verify: rubric token-match for `const int MAX` passes."
+
+preventionTip: |
+  Every Q4 main begins `const int MAX = 100;` then `Entity arr[MAX];` — these two lines are non-negotiable rubric tokens.
+
+explanation: |
+  Postmortem cards diff your failed answer against the canonical
+  answer, label the bug, and surface exactly what to repair. Per
+  Mock retry policy §7.5: any 70-89 score injects 4 postmortem
+  cards (one per Q) before the next mock attempt unlocks.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 — Mock M05 retro"
+
+commonMistakeIds: ["CM-missing-const"]
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Mock M05 retro — Q4 repair drill.

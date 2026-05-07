@@ -1,0 +1,32 @@
+id: "CM-array-from-1-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-array-from-1: Q1 array indexed from 1. Write the canonical Q1 for-loop header.
+
+correct: "for (i = 0; i < SIZE; i++) {"
+
+distractors:
+  - "for (i = 1; i < SIZE; i++) {"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: for (i = 0; i < SIZE; i++) {
+  Mistake: for-loop starts at i = 1 — skips element 0.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-array-from-1"
+
+commonMistakeIds: ["CM-array-from-1"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-array-from-1.

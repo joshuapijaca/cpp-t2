@@ -1,0 +1,60 @@
+id: "L4-S4-novel-11"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[novel 11/20] Write the COMPLETE main() for the flight_data entity. Apply the canonical 7-piece skeleton with MAX=800, count=flight_count, fn=read_flights."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 novel entity transfer"
+commonMistakeIds: 
+  - "CM-Q4-missing-const"
+  - "CM-Q4-pass-MAX-not-count"
+  - "CM-Q4-amp-at-call"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Write a full main() for flight_data. const MAX = 800; count_var = flight_count; fn = read_flights; fields = number, origin, destination; prompt = \"How many flights?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 800;
+      flight_data flights[MAX];
+      int flight_count;
+  
+      cout << "How many flights? ";
+      cin >> flight_count;
+  
+      read_flights(flights, flight_count);
+  
+      for (int i = 0; i < flight_count; i++)
+      {
+          cout << flights[i].number << ", ";
+          cout << flights[i].origin << ", ";
+          cout << flights[i].destination << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 800"
+  - "flight_data flights[MAX]"
+  - "int flight_count"
+  - "cin >> flight_count"
+  - "read_flights(flights, flight_count)"
+  - "i < flight_count"
+  - "flights[i].number"
+  - "flights[i].origin"
+  - "flights[i].destination"
+  - "endl"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many flights?"
+explanation: "Same skeleton as V2.0 — only entity name, MAX, count_var, fn, fields differ. Pattern transfer drill."

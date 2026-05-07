@@ -1,0 +1,24 @@
+id: "L4-S6-end2end-chain-05"
+schemaVersion: "v2"
+atomId: "Q-10"
+qTags: 
+  - "Q4"
+stage: 6
+level: "L4"
+type: "TestDaySimCard"
+stem: "[end-to-end chain 5/5] 8 minutes to write Q2 + Q3 + Q4 for order_data. Simulates the back half of Test 2 (Q2 + Q3 + Q4 = ~8 min budget)."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.6 S6 end-to-end chain (8min)"
+commonMistakeIds: 
+  - "CM-Q4-time-pressure-skip-const"
+  - "CM-Q4-time-pressure-no-return"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+questionSet: 
+  - {questionNumber: "Q1", prompt: "Q1 hand-execute placeholder — see L1 for Q1 content.", canonicalAnswer: "// Q1 hand-execute (out-of-scope here; Q1 in L1)."}
+  - {questionNumber: "Q2", prompt: "Write the order_data struct (3 fields).", canonicalAnswer: "struct order_data\n{\n    int id;\n    string customer;\n    double total;\n};"}
+  - {questionNumber: "Q3", prompt: "Write the read_orders function.", canonicalAnswer: "void read_orders(order_data orders[], int &count)\n{\n    cout << \"How many orders? \";\n    cin >> count;\n    for (int i = 0; i < count; i++)\n    {\n        cin >> orders[i].id;\n        cin >> orders[i].customer;\n        cin >> orders[i].total;\n    }\n}"}
+  - {questionNumber: "Q4", prompt: "Write the main() that calls read_orders and prints all rows.", canonicalAnswer: "int main()\n{\n    const int MAX = 1000;\n    order_data orders[MAX];\n    int order_num;\n\n    cout << \"How many orders? \";\n    cin >> order_num;\n\n    read_orders(orders, order_num);\n\n    for (int i = 0; i < order_num; i++)\n    {\n        cout << orders[i].id << \", \";\n        cout << orders[i].customer << \", \";\n        cout << orders[i].total << endl;\n    }\n\n    return 0;\n}"}
+explanation: "Test-day chain simulator. Splitting Q2+Q3+Q4 over 8 min mirrors actual exam pacing minus Q1."

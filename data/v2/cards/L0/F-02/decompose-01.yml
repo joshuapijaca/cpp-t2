@@ -1,0 +1,75 @@
+# =====================================================================
+# L0 / F-02 / DecomposeCard 01
+# Atom: Compiler turns source into program
+# =====================================================================
+id: "L0-F02-decomp-01"
+schemaVersion: "v2"
+atomId: "F-02"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Read this terminal session. A student types one command and sees the
+  output below. Pick the option that best explains what happened.
+
+code: |
+  $ ls
+  hello.cpp
+
+  $ g++ hello.cpp -o hello
+
+  $ ls
+  hello       hello.cpp
+
+question: |
+  What did `g++ hello.cpp -o hello` do?
+
+options:
+  - label: "A"
+    text: |
+      It ran the program inside `hello.cpp` and printed nothing because
+      the program had no `cout` statement.
+  - label: "B"
+    text: |
+      It deleted `hello.cpp` and replaced it with a new file called
+      `hello`.
+  - label: "C"
+    text: |
+      It read `hello.cpp` as input, translated the text into machine
+      code, and wrote a new executable file called `hello`. Both files
+      now exist.
+  - label: "D"
+    text: |
+      It renamed `hello.cpp` to `hello`, removing the `.cpp` extension.
+
+correctLabel: "C"
+
+explanation: |
+  C is correct. `g++` is the compiler. It takes a source file as input
+  and writes a new executable file as output. The original source file
+  is left untouched. After compilation we have two files: the text
+  source (`hello.cpp`) and the binary executable (`hello`). The flag
+  `-o hello` simply names the output file.
+
+  A is wrong: the compiler does not RUN the program. It only produces
+  the executable; running happens later via `./hello`.
+  B is wrong: the source is never deleted by compilation.
+  D is wrong: rename is a different command (`mv`). Compile creates a
+  new file; it does not rename.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"
+
+commonMistakeIds: ["CM-confuses-source-with-program", "CM-compile-equals-run"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Distractor A surfaces the most common novice misconception:
+  "compile = run". Distractor B targets "compile destroys the source."
+  Distractor D targets the "compile = rename" reflex. All three are
+  realistic because the compile step is invisible — the student only
+  sees `ls` differ before/after.

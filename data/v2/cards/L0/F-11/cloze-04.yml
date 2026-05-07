@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-11 / ClozeCard 04
+# Atom: Variable declaration + initialisation (initial value)
+# =====================================================================
+id: "L0-F11-cloze-04"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the SAFE initial value. For an accumulator that will sum
+  doubles, this is the canonical starting value.
+
+code: |
+  double total = ___;
+
+  for (i = 0; i < 5; i++) {
+    total = total + numbers[i];
+  }
+
+clozeSentence: |
+  A double accumulator that will collect a SUM should be initialised
+  to `___`.
+
+answer: "0.0"
+
+explanation: |
+  Starting an accumulator at 0.0 is the canonical pattern. Each
+  addition `total = total + numbers[i]` builds on a known starting
+  point. Starting at any other value would offset every result by
+  that value.
+
+  Use 0.0 (not 0) so the type matches `double` exactly. The compiler
+  accepts 0 here, but 0.0 is the idiomatic style.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: data.mystery = 0.0; (the accumulator init line)"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Anchored to the V2.0 init line `data.mystery = 0.0;`.

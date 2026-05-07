@@ -1,0 +1,44 @@
+id: "CM-reserved-word-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-reserved-word: Q2 reserved word as field.
+
+code: |
+  // Trap: Used `int` or `return` as a field name.
+  int int;
+  ;
+
+question: |
+  What goes wrong with the line above on Q2?
+
+options:
+  - label: "A"
+    text: "Used `int` or `return` as a field name."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Used `int` or `return` as a field name. The canonical pattern is: int count;
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-reserved-word"
+
+commonMistakeIds: ["CM-reserved-word"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-reserved-word.

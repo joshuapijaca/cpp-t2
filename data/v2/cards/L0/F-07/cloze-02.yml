@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-07 / ClozeCard 02
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-cloze-02"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q2"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  The struct definition below is missing one character at the very
+  end, immediately AFTER the closing brace. Fill in that character.
+
+code: |
+  struct Point {
+    int x;
+    int y;
+  }_
+
+clozeSentence: |
+  After the closing brace of the struct, what single character must
+  be added to terminate the definition?
+
+answer: ";"
+
+explanation: |
+  The missing character is `;`. A struct definition is a *statement*
+  (it tells the compiler "here is a new type"), and like any C++
+  statement it must end with a semicolon. The full ending is
+  therefore `};` — close-brace, semicolon.
+
+  Forgetting this `;` (the `};` shape) is the highest-frequency
+  Q2 error per Saloni's seminar.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 3-structuring-data/2-trailside/03-01-struct.md"
+
+commonMistakeIds: ["CM-F07a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Cloze 2: trailing `;` after the struct close. The visible code
+  has balanced braces (1 open, 1 close); only the `;` is hidden.

@@ -1,0 +1,30 @@
+id: F-20
+name: "struct definition (multi-field)"
+level: L0
+phase: E
+teaches: "`struct Name { type field; type field; };` — trailing `;` after the closing brace is the #1 Q2 error."
+prereqs: [F-08, F-10]
+usedByQs: [Q1, Q2, Q3, Q4]
+cardCountTarget: 23
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+    quote: "A struct, short for structure, is a composite type whose value is made up of a number of fields."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+    quote: "Following this is a list of fields between braces (i.e. {...}). Each field is a variable within the struct."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/3-structuring-data/0-panorama/1-struct"
+    quote: "structs can be used to model data associated with the entities of your program."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:25:39 — Saloni: 'we have something called as struct ... when we want to declare a struct we need to have a box'"
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:26:14 — Saloni: 'inside this struct, what do we have? One is an array and one is a normal variable'"
+commonMistakes:
+  - CM-F20a  # forgets ; after closing }  (HIGHEST-frequency Q2 error per v2 spec §4.6)
+  - CM-F20b  # capitalises struct name: Computer_Data
+  - CM-F20c  # writes Struct (capital S) keyword
+  - CM-F20d  # forgets ; after each field line
+  - CM-F20e  # uses class instead of struct (forbidden token)
+notes:
+  cardMix: { walkthrough: 2, demo: 3, decompose: 3, cloze: 5, μWrite: 5, tmplRec: 2, mcq: 2, proc: 1 }

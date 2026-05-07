@@ -1,0 +1,32 @@
+id: "CM-stale-mystery-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-stale-mystery: Q1 stale mystery on final iter. Final answer is the LAST assignment to data.mystery.
+
+correct: "// final mystery = LAST written value"
+
+distractors:
+  - "// final mystery = value at i=4"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: // final mystery = LAST written value
+  Mistake: Reported mystery from iteration 4 even though i=5 ran and updated.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-stale-mystery"
+
+commonMistakeIds: ["CM-stale-mystery"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-stale-mystery.

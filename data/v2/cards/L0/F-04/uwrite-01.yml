@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-04 / ProceduralCard 01 (μ-write)
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-uwrite-01"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Write the very top of a C++ file from scratch. The first line must
+  bring in the iostream library; the second line must use the std
+  namespace. Type both lines exactly as they should appear in source.
+
+section: "L0 · F-04 · μ-write — preamble include line"
+
+prompt: |
+  Type the first two lines of a C++T2 answer file (the include
+  directive followed by the using-namespace line).
+
+expectedAnswer: |
+  #include <iostream>
+  using namespace std;
+
+keyChecks:
+  - "#include"
+  - "<iostream>"
+  - "using namespace std;"
+
+variants:
+  - prompt: "Write the include line that gives the file access to cout, then the using-namespace line."
+    expectedAnswer: |
+      #include <iostream>
+      using namespace std;
+  - prompt: "Reproduce the canonical 2-line preamble that every Q4 answer starts with."
+    expectedAnswer: |
+      #include <iostream>
+      using namespace std;
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md (canonical preamble)"
+
+commonMistakeIds: ["CM-F04a", "CM-F04b", "CM-F04c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 1: full preamble. The 2-line scaffold is the practical
+  unit students write together at the top of every Q4 answer. The
+  include line is the focus; the using line gives the canonical the
+  semicolon terminator the lint requires.

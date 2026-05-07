@@ -1,0 +1,49 @@
+id: "L4-S6-v20-timed-02"
+schemaVersion: "v2"
+atomId: "Q-10"
+qTags: 
+  - "Q4"
+stage: 6
+level: "L4"
+type: "SpeedDrillCard"
+stem: "[V2.0 timed 2/5] You have 90 seconds to write the full V2.0 main(). After 5s flash of the prompt, the timer starts."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.6 S6 timed V2.0"
+commonMistakeIds: 
+  - "CM-Q4-time-pressure-skip-const"
+  - "CM-Q4-time-pressure-no-return"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Write the V2.0 main(): const MAX=700, desk_data, desk_num, prompt+cin, read_desks call, print 3 fields, return 0."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int desk_num;
+  
+      cout << "How many desks? ";
+      cin >> desk_num;
+  
+      read_desks(desks, desk_num);
+  
+      for (int i = 0; i < desk_num; i++)
+      {
+          cout << desks[i].room_id << ", ";
+          cout << desks[i].d_id << ", ";
+          cout << desks[i].number_of_screens << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 700"
+  - "desk_data desks[MAX]"
+  - "cin >> desk_num"
+  - "read_desks(desks, desk_num)"
+  - "i < desk_num"
+  - "endl"
+  - "return 0"
+explanation: "90s is realistic exam pace. Build motor memory."

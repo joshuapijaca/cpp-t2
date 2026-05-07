@@ -1,0 +1,60 @@
+id: "L4-S4-novel-08"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[novel 8/20] Write the COMPLETE main() for the song_data entity. Apply the canonical 7-piece skeleton with MAX=1000, count=song_num, fn=read_songs."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 novel entity transfer"
+commonMistakeIds: 
+  - "CM-Q4-missing-const"
+  - "CM-Q4-pass-MAX-not-count"
+  - "CM-Q4-amp-at-call"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Write a full main() for song_data. const MAX = 1000; count_var = song_num; fn = read_songs; fields = title, artist, length; prompt = \"How many songs?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 1000;
+      song_data songs[MAX];
+      int song_num;
+  
+      cout << "How many songs? ";
+      cin >> song_num;
+  
+      read_songs(songs, song_num);
+  
+      for (int i = 0; i < song_num; i++)
+      {
+          cout << songs[i].title << ", ";
+          cout << songs[i].artist << ", ";
+          cout << songs[i].length << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 1000"
+  - "song_data songs[MAX]"
+  - "int song_num"
+  - "cin >> song_num"
+  - "read_songs(songs, song_num)"
+  - "i < song_num"
+  - "songs[i].title"
+  - "songs[i].artist"
+  - "songs[i].length"
+  - "endl"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many songs?"
+explanation: "Same skeleton as V2.0 — only entity name, MAX, count_var, fn, fields differ. Pattern transfer drill."

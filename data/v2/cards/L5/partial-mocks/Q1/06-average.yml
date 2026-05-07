@@ -1,0 +1,50 @@
+id: "L5-partial-Q1-06-average"
+schemaVersion: "v2"
+atomId: "M-02"
+qTags: ["Q1"]
+stage: 5
+level: "L5"
+type: "SpeedDrillCard"
+
+stem: |
+  Partial-mock Q1: average. 4-min cap. Hand-execute, report final
+  d.mystery + iteration trace.
+
+prompt: |
+  void who_am_i(stat_double &data) {
+    int i;
+    data.mystery = 0.0;
+    for (i = 0; i < SIZE; i++) {
+      if (true) {
+        data.mystery = data.mystery + data.numbers[i];
+      }
+    }
+    return;
+  }
+
+  stat_double d = {{3.0, 6.0, 9.0, 4.0, 8.0}, 0.0};
+  who_am_i(d);
+  // What is d.mystery?
+
+canonicalAnswer: |
+  d.mystery == 6.0;
+
+keyChecks:
+  - "6.0"
+
+
+explanation: |
+  Partial Q1 (average). Pre-loop init = 0.0. Loop visits 5
+  elements; condition `true`; action `data.mystery + data.numbers[i]`. Final
+  d.mystery == 6.0.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q1 — partial-mock variant"
+
+commonMistakeIds: ["CM-skip-pre-loop-init", "CM-array-from-1", "CM-body-when-false"]
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Partial Q1 #6: average.

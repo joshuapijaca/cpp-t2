@@ -1,0 +1,36 @@
+# =====================================================================
+# L3 / R-02d / DecomposeCard — compare prompt-pair
+# =====================================================================
+id: "L3-R02d-decompose-03"
+schemaVersion: "v2"
+atomId: "R-02d"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "DecomposeCard"
+stem: |
+  Compare two prompt-pair forms. Pick the option that names the difference.
+code: |
+  // A:
+  cout << "Width: "; cin >> desks[i].width;
+  // B:
+  cout << "Width: "; cin << desks[i].width;
+question: "Which option correctly describes the difference between A and B?"
+options:
+  - label: "A"
+    text: "B uses wrong cin operator."
+  - label: "B"
+    text: "B is bidirectional"
+  - label: "C"
+    text: "A and B are equivalent"
+  - label: "D"
+    text: "B writes to cin"
+correctLabel: "A"
+explanation: |
+  B uses wrong cin operator.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

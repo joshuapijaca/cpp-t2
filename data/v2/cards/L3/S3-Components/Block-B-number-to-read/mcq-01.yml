@@ -1,0 +1,32 @@
+# =====================================================================
+# L3 / Block B number_to_read / MCQ 01 — pick the V2.0 name
+# =====================================================================
+id: "L3-NumToRead-mcq-01"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "MCQCard"
+
+stem: "Which parameter name does the V2.0 test use for the count of items to read?"
+
+correct: "number_to_read"
+
+distractors:
+  - "n"
+  - "count"
+  - "size"
+
+explanation: |
+  The V2.0 marking rubric expects the literal name `number_to_read`. Abbreviations (`n`, `count`, `size`) are common everywhere else but NOT in V2.0 — and the marker matches text literally.
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V Block B — name MCQ"
+
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "Block B MCQ: which name is V2.0-correct."

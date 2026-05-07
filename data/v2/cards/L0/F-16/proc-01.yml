@@ -1,0 +1,74 @@
+# =====================================================================
+# L0 / F-16 / ProceduralCard 01
+# Atom: write all six comparisons against a known value
+# =====================================================================
+id: "L0-F16-proc-01"
+schemaVersion: "v2"
+atomId: "F-16"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+section: "Comparison operators"
+
+stem: |
+  Procedural drill. Given two ints `a` and `b`, write SIX boolean
+  variables — one per comparison operator — that store the result
+  of comparing a with b.
+
+prompt: |
+  Given `int a` and `int b` already declared, write six bool
+  variable declarations named `e1` through `e6` that store the
+  results of `a == b`, `a != b`, `a < b`, `a > b`, `a <= b`, `a >= b`
+  in that order.
+
+expectedAnswer: |
+  bool e1 = (a == b);
+  bool e2 = (a != b);
+  bool e3 = (a < b);
+  bool e4 = (a > b);
+  bool e5 = (a <= b);
+  bool e6 = (a >= b);
+
+keyChecks:
+  - "a == b"
+  - "a != b"
+  - "a < b"
+  - "a > b"
+  - "a <= b"
+  - "a >= b"
+
+variants:
+  - prompt: |
+      Same task with operands `x` and `y` instead of `a` and `b`.
+      Same six-operator order.
+    expectedAnswer: |
+      bool e1 = (x == y);
+      bool e2 = (x != y);
+      bool e3 = (x < y);
+      bool e4 = (x > y);
+      bool e5 = (x <= y);
+      bool e6 = (x >= y);
+  - prompt: |
+      Same task with operands `score` and `passMark`. Use the same
+      six-operator order.
+    expectedAnswer: |
+      bool e1 = (score == passMark);
+      bool e2 = (score != passMark);
+      bool e3 = (score < passMark);
+      bool e4 = (score > passMark);
+      bool e5 = (score <= passMark);
+      bool e6 = (score >= passMark);
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-1-comparisons"
+
+commonMistakeIds: ["CM-F16a", "CM-F16b", "CM-F16c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Procedural drill cementing all six
+  operators in muscle memory.
+authoringStatus: "DRAFT"

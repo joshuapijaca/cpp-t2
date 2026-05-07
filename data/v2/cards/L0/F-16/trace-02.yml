@@ -1,0 +1,80 @@
+# =====================================================================
+# L0 / F-16 / TraceCard 02
+# Atom: != and < direction
+# =====================================================================
+id: "L0-F16-trace-02"
+schemaVersion: "v2"
+atomId: "F-16"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. Watch the direction of `<`. The arrow points to the
+  SMALLER side; the comparison is true when the LEFT value is
+  smaller.
+
+code: |
+  int main() {
+    int p = 10;
+    int q = 10;
+    bool eq = (p == q);
+    bool ne = (p != q);
+    bool lt = (p < q);
+    bool gt = (q > p);
+    return 0;
+  }
+
+variables: ["p", "q", "eq", "ne", "lt", "gt"]
+
+expectedTrace:
+  - line: 2
+    variable: "p"
+    value: "10"
+    output: null
+  - line: 3
+    variable: "q"
+    value: "10"
+    output: null
+  - line: 4
+    variable: "eq"
+    value: "true"
+    output: null
+    condition: "10 == 10 -> true"
+  - line: 5
+    variable: "ne"
+    value: "false"
+    output: null
+    condition: "10 != 10 -> false"
+  - line: 6
+    variable: "lt"
+    value: "false"
+    output: null
+    condition: "10 < 10 -> false"
+  - line: 7
+    variable: "gt"
+    value: "false"
+    output: null
+    condition: "10 > 10 -> false"
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  When the two values are EQUAL: `==` true, `!=` false, `<` false,
+  `>` false, `<=` true, `>=` true. Strict `<` and `>` reject
+  equality; the `=`-suffixed forms accept it. Students often expect
+  `<` to be true when values are equal — it is not.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-1-comparisons"
+
+commonMistakeIds: ["CM-F16b"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Targets CM-F16b — strict-vs-equal confusion.
+authoringStatus: "DRAFT"

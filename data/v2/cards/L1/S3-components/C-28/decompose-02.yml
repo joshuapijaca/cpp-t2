@@ -1,0 +1,35 @@
+id: L1-S3-C-28-decomp-01
+schemaVersion: v2
+atomId: C-28
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: DecomposeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-28
+commonMistakeIds:
+  - CM-C28a
+stem: Pick the correct final-read after the loop exits.
+code: |-
+  // after loop exit, the mystery cell shows:
+  // ~~0.0~~ ~~2.4~~ ~~5.4~~ 7.4
+  // the program then runs:
+  cout << data.mystery << endl;
+question: What is printed?
+options:
+  - label: A
+    text: 7.4 (the live value)
+  - label: B
+    text: 0.0 (the original init)
+  - label: C
+    text: 15.2 (sum of all trail values)
+  - label: D
+    text: the average of the trail
+correctLabel: A
+explanation: Only the un-struck value is live. The loop exit does NOT reset mystery. cout reads the live value.
+

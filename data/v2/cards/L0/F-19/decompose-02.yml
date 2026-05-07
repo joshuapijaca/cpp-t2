@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-19 / DecomposeCard 02
+# Atom: Fixed-size array — declaration syntax shape
+# =====================================================================
+id: "L0-F19-decomp-02"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Pick the line that correctly declares an array of 4 ints named
+  `scores`.
+
+code: |
+  // your job: identify the correct declaration syntax
+
+question: |
+  Which of these declares a fixed-size array of 4 ints called scores?
+
+options:
+  - label: "A"
+    text: "int scores = [4];"
+  - label: "B"
+    text: "int scores[4];"
+  - label: "C"
+    text: "array<int, 4> scores;"
+  - label: "D"
+    text: "int[4] scores;"
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. The C++ fixed-size-array declaration is
+  `TYPE NAME[SIZE];`.
+  A is wrong: there is no `= [4]` syntax in C++.
+  C is wrong: `array<int, 4>` is the std::array template (Phase 5
+  off-scope; Test 2 uses raw arrays only).
+  D is wrong: the size brackets follow the NAME, not the type.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
+
+commonMistakeIds: ["CM-F19a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Forces commitment to the canonical shape. D is the most tempting
+  wrong option (other languages put the size with the type) — drilling
+  it out here saves Q4 marks.

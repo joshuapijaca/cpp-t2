@@ -1,0 +1,48 @@
+id: "L4-S1-walkthrough-prac"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: 
+  - "Q4"
+stage: 1
+level: "L4"
+type: "WalkthroughCard"
+stem: "Tour the practice main() — computer_data with MAX=100, find-max Q1 algorithm. Same 7-piece skeleton as V2.0 with different MAX/entity."
+source: 
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — computer_data main()"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+levelLabel: "L4 · Q4 Tour · practice computer main()"
+fullCode: |
+  int main()
+  {
+      const int MAX = 100;
+      computer_data computers[MAX];
+      int computer_num;
+  
+      cout << "How many computers? ";
+      cin >> computer_num;
+  
+      read_computers(computers, computer_num);
+  
+      for (int i = 0; i < computer_num; i++)
+      {
+          cout << computers[i].id << ", ";
+          cout << computers[i].description << ", ";
+          cout << computers[i].location << endl;
+      }
+  
+      return 0;
+  }
+steps: 
+  - {line: 1, code: "int main()", annotation: "Same shape as V2.0."}
+  - {line: 3, code: "const int MAX = 100;", annotation: "Smaller cap, same const requirement."}
+  - {line: 4, code: "computer_data computers[MAX];", annotation: "Array sized by MAX."}
+  - {line: 5, code: "int computer_num;", annotation: "Same role as desk_num."}
+  - {line: 8, code: "cin >> computer_num;", annotation: "Reads count."}
+  - {line: 10, code: "read_computers(computers, computer_num);", annotation: "Same call shape: array, count, no &."}
+  - {line: 12, code: "for (int i = 0; i < computer_num; i++)", annotation: "Loop bound by computer_num."}
+  - {line: 14, code: "cout << computers[i].id << \", \" << computers[i].description << \", \" << computers[i].location << endl;", annotation: "Three fields with comma separator + endl."}
+  - {line: 17, code: "return 0;", annotation: "Last statement."}

@@ -1,0 +1,49 @@
+# =====================================================================
+# L0 / F-10 / DemoCard 02
+# Atom: Primitive types — double box
+# =====================================================================
+id: "L0-F10-demo-02"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch what `double` does. The variable holds decimal numbers. SIT102
+  always uses `double` (not `float`) for fractional numbers.
+
+whyOneLine: "double = decimal numbers. SIT102 idiom; never use float."
+
+demoCode: |
+  double a = 9.99;       // box `a` holds 9.99
+  double b = 3.5;        // box `b` holds 3.5
+  double c = -1.7;       // box `c` holds -1.7
+  double d = 5;          // box `d` holds 5.0 — still legal, stored as decimal
+  cout << a << endl;     // prints: 9.99
+  cout << d << endl;     // prints: 5
+
+highlightTokens:
+  - "double"
+  - "9.99"
+  - "3.5"
+  - "-1.7"
+  - "5"
+
+usedIn:
+  - "Q1 trace (every desk_data.numbers entry is double)"
+  - "Q2 struct write (price/numbers fields are double)"
+  - "Q4 main reads doubles from cin into desk numbers"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: stat_double { double numbers[SIZE]; double mystery; };"
+
+commonMistakeIds: ["CM-F10d"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Anchors double to the test V2.0 stat_double struct. Shows that double
+  also accepts whole numbers (5 becomes 5.0).

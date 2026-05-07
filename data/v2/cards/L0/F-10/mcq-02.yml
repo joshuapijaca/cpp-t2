@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-10 / MCQCard 02
+# Atom: Primitive types — match value to type
+# =====================================================================
+id: "L0-F10-mcq-02"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which type best fits a variable that stores a customer's height in
+  centimetres (e.g. 175.5)?
+
+correct: "double — the value has a decimal part, so use the SIT102 decimal type."
+
+distractors:
+  - "int — heights are usually counted in whole centimetres."
+  - "string — every measurement should be stored as text for printing."
+  - "char — height fits in a single character."
+
+explanation: |
+  Heights, weights, distances, prices — anything with a fractional
+  part — should be `double`. Storing 175.5 in an int truncates to 175,
+  losing precision. Storing it in a string makes arithmetic
+  impossible.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/3-structuring-data/0-panorama/0-type"
+
+commonMistakeIds: ["CM-F10a"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Type-selection drill. Distractors are real misconceptions
+  (int-for-everything, string-for-display).

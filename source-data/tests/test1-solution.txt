@@ -1,0 +1,66 @@
+  SIT102 Test 1 (Practice) - 2026 T1
+
+   Student Name: S a l o n i M e h t a
+
+   Student ID: 4 3 4 3 2 5
+
+1. Write the terminal command to create a new dotnet project in the current directory.
+   dotnet new console
+
+2. Write a terminal command to compile a C++ source file named Virus.cpp to an executable
+    named virus using the SplashKit library.
+   clang++ Virus.cpp -o virus -l SplashKit
+    Read the following code, which contains a bug.
+    using static System . Console ;
+    using static System .Convert ;
+    int valueKeeper ;
+    int my Counter ;
+    int dummy Var ;
+    int i;
+    Write ( 11 Enter i niti al val ue: 11 );
+    val ue Kee pe r = T ol nt 32 ( Read Li ne () );
+    Write ( 11 Enter count value: 11 );
+    my C ou nter = Tolnt3 2 ( Read Line () );
+    i = 0;
+    do {
+        WriteLine ( valueKeeper ); II Print out valueK ee per
+        valueKeeper --;
+        i++;
+    } whi le ( val ueKeeper != my Counter );
+
+3. Hand execute this code with the following inputs:
+    Enter initial value: 10
+    Enter count value: 8
+
+Test Code: V1.O                                                                            Page 1 of 2
+SIT1O2  Test 1                                                     Term 1, 2O26
+
+4. Hand execute this code with the following inputs up to i == 4.
+
+    Enter initial value: 14
+    Enter count value: 16
+
+5. What is the bug in this program?
+    valueKeeper--;
+    This only works when the initial value is greater than the count value. The bug is that valueKeeper is always
+    decreased using valueKeeper--. If myCounter is greater than valueKeeper, the loop will never reach the target value, so the
+       loop runs forever.
+
+6. Write C# code which continuously prompts a user to input a number, terminating if the number
+   is divisible by 11. Recall that the remainder operator in C# is %, so an integer stored in num is
+   divisible by 11 if (num % 11) == 0.
+
+       using static SplashKitSDK.SplashKit;
+       using static System.Convert;
+       int num;
+       do
+       {
+
+          Write("Enter a number: ");
+          num = ToInt32(ReadLine());
+       }
+       while ((num % 11) != 0);
+       WriteLine("The number is divisible by 11. Program ended.");
+
+                                                                                                                                                 Page 2 of 2
+

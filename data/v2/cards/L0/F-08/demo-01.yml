@@ -1,0 +1,61 @@
+# =====================================================================
+# L0 / F-08 / DemoCard 01
+# Atom: Block delimiters: { and }
+# =====================================================================
+id: "L0-F08-demo-01"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q2", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch how `{` and `}` work as a matched pair. Every `{` must have
+  exactly one matching `}`. The two together form one block.
+
+whyOneLine: "Braces come in pairs — every { has one matching } that closes the same block."
+
+demoCode: |
+  // Two blocks in this program — the struct and main.
+  struct Point {
+    int x;
+    int y;
+  };
+
+  int main() {
+    Point p;
+    return 0;
+  }
+
+  // Match the braces visually:
+  //   line 1 OPEN matches line 4 CLOSE
+  //   line 6 OPEN matches line 9 CLOSE
+  //
+  // Total: 2 opens, 2 closes. Every C++ source file must have
+  // EQUAL numbers of OPEN and CLOSE braces. If you count and they
+  // differ, you have a bug.
+
+highlightTokens:
+  - "{"
+  - "}"
+  - "matches"
+  - "EQUAL numbers"
+
+usedIn:
+  - "Q2 struct definition (one brace pair around the field list)"
+  - "Q4 main program (one brace pair around the body)"
+  - "Q3 input/output function (one brace pair around the function body)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Pair-watching demo. Establishes the count-the-braces habit:
+  every `{` is offset by exactly one `}`, and the file's totals
+  must agree. Targets CM-F08a (missing closing brace).

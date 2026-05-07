@@ -1,0 +1,28 @@
+id: "L1-S3-C-07-mcq-01"
+schemaVersion: "v2"
+atomId: "C-07"
+qTags: ["Q1"]
+stage: 3
+level: "L1"
+type: "MCQCard"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-07"
+commonMistakeIds: ["CM-C07a"]
+stem: |
+  Before the for-loop, the code writes a starting value into the
+  scalar cell `data.mystery`. For a sum or count accumulator, what is
+  the standard initial value?
+correct: "0.0 — sums and counts must start at zero so additions inside the loop accumulate from a clean baseline."
+distractors:
+  - "data.numbers[0] — start with the first array element to bias the accumulator."
+  - "Whatever was already in mystery; declared structs are zero-initialised so it does not matter."
+  - "1.0 — accumulators always start at one to avoid an empty answer."
+explanation: |
+  For sum/count accumulators, mystery starts at 0.0. Targets CM-C07a
+  (forgets to init or initialises to a wrong starting value).
+  Find-max/find-min uses a different init (numbers[0]) — that is C-08.
+notes: "MCQ form for QA-M10 type-diversity."

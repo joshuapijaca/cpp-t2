@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-skip-iter-cond-false
+id: "L1-cmimm-CM-skip-iter-cond-false-mcq"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  During a Q1 trace, the if-condition on iteration i=2 is FALSE. What should you record?
+
+correct: 'Same iteration row, with mystery unchanged from i=1.'
+
+distractors:
+  - 'Skip the row — there''s no work to record.'
+  - 'Set mystery back to the pre-loop init.'
+  - 'Set mystery to numbers[i].'
+
+explanation: |
+  A false condition means the body is skipped, not the iteration. Mystery carries through unchanged. Recording the row stops you from losing the value.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-skip-iter-cond-false)"
+
+commonMistakeIds: ["CM-skip-iter-cond-false"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

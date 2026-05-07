@@ -1,0 +1,27 @@
+id: CM-array-from-1
+name: "Student starts array indexing at 1 instead of 0"
+description: |
+  When drawing the array boxes for `numbers[5]`, student labels them
+  numbers[1]..numbers[5] instead of numbers[0]..numbers[4]. Cascades into
+  off-by-one trace errors: wrong cells consulted, wrong final values, and
+  the implicit i-loop traversal goes out of sync.
+whyItHappens: |
+  Mathematical conditioning: humans count "1, 2, 3" not "0, 1, 2". Many
+  early languages (Lua, Fortran, MATLAB) use 1-based indexing. C++ is
+  0-based but the convention has to be drilled — it is not intuitive.
+  Especially treacherous on a paper trace where students invent their own
+  box labels.
+immunizationStrategy: |
+  1. SpotError card: trace with numbers[1]..numbers[5] highlighted as wrong.
+  2. MCQ: "What is the index of the FIRST element in numbers[5]?"
+  3. Cloze: fill in numbers[?] for "first cell" -> 0.
+  4. Trace card where the wrong-from-1 reading flips the answer.
+  5. Box-drawing card: student must label five boxes, graded on indices 0-4.
+  6. Cross-train: two arrays of size 5, both indexed 0..4, contrast card.
+examImpact: high
+atomDependencies: [F-19, F-03, A4]
+qTracks: [Q1]
+relatedCMs: [CM-off-by-one-exit, CM-confuse-i-with-numbers]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples — array indices begin at 0"

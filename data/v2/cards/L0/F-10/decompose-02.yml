@@ -1,0 +1,71 @@
+# =====================================================================
+# L0 / F-10 / DecomposeCard 02
+# Atom: Primitive types — string include
+# =====================================================================
+id: "L0-F10-decomp-02"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes the program below. The compiler refuses with the
+  message: `error: 'string' was not declared in this scope`. Pick the
+  best fix.
+
+code: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    string name = "ana";
+    cout << name << endl;
+    return 0;
+  }
+
+question: |
+  What is the minimum fix?
+
+options:
+  - label: "A"
+    text: |
+      Change `string` to `String` (capital S) — the type name is
+      case-sensitive and starts with a capital.
+  - label: "B"
+    text: |
+      Add `#include <string>` near the top so the `string` type is
+      brought into scope.
+  - label: "C"
+    text: |
+      Replace `"ana"` with `'ana'` — strings need single quotes.
+  - label: "D"
+    text: |
+      Drop `using namespace std;` — it shadows the string type.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. `string` lives in the standard library header
+  `<string>`. Without the include, the compiler does not know what the
+  word `string` means. Adding `#include <string>` declares the type.
+
+  A is wrong: in C++ the type is lowercase `string`. `String` (capital)
+  does not exist in std.
+  C is wrong: single quotes mark a single-character literal in C++,
+  not a string. Strings always use double quotes.
+  D is wrong: removing `using namespace std;` makes things WORSE — you
+  would then need to write `std::string` everywhere.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/3-structuring-data/0-panorama/0-type"
+
+commonMistakeIds: ["CM-F10b", "CM-F10c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Targets the #1 string novice error: forgetting the include. Multiple
+  distractors are well-known wrong rumours that live in beginners'
+  heads.

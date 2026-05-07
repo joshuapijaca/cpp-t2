@@ -1,0 +1,60 @@
+# =====================================================================
+# L0 / F-16 / DecomposeCard 02
+# Atom: <= and >= operator order
+# =====================================================================
+id: "L0-F16-decomp-02"
+schemaVersion: "v2"
+atomId: "F-16"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Below are four versions of the same intended check: "is i less
+  than or equal to 5?" Pick the correct C++ syntax.
+
+code: |
+  // Goal: branch when i is less than OR equal to 5.
+  int i = 4;
+  // ??? what goes here ???
+  if (CONDITION) {
+    cout << "small" << endl;
+  }
+
+question: |
+  Which CONDITION is valid C++ that means "i <= 5"?
+
+options:
+  - label: "A"
+    text: |
+      `i =< 5`  — the equals comes before the less-than sign.
+  - label: "B"
+    text: |
+      `i <= 5`  — the equals comes AFTER the less-than sign.
+  - label: "C"
+    text: |
+      `i < or = 5`  — words spelled out.
+  - label: "D"
+    text: |
+      `5 => i`  — flipped to put the constant on the left.
+
+correctLabel: "B"
+
+explanation: |
+  B is the only valid form. The C++ spelling is `<=` (less-than
+  immediately followed by equals). The mirror operator is `>=` (NOT
+  `=>`). A and D have the symbol order reversed and are syntax
+  errors. C is not C++ syntax at all.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-1-comparisons"
+
+commonMistakeIds: ["CM-F16c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Targets CM-F16c — the typo where students
+  write `=<` because they pronounce it "equal-or-less".
+authoringStatus: "DRAFT"

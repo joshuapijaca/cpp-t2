@@ -1,0 +1,32 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-wrong-bound-SIZE
+id: "L3-cmimm-CM-wrong-bound-SIZE-cloze"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-wrong-bound-SIZE mistake."
+
+code: |
+  for (int i = 0; i ___ SIZE; i++) {
+    cin >> data.numbers[i];
+  }
+
+clozeSentence: 'Fill in the comparison so the loop runs exactly SIZE times (0..SIZE-1).'
+
+answer: '<'
+
+explanation: |
+  `<` (strict) excludes SIZE itself; `<=` would walk one past the array.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-wrong-bound-SIZE)"
+
+commonMistakeIds: ["CM-wrong-bound-SIZE"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

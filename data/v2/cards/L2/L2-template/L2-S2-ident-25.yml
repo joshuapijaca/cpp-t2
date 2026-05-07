@@ -1,0 +1,36 @@
+
+id: "L2-S2-ident-25"
+schemaVersion: "v2"
+atomId: "L-22"
+qTags: ["Q2"]
+stage: 2
+level: "L2"
+type: "DecomposeCard"
+stem: "Q2 identifier rules drill #25. Which is the SIT102 snake_case form for \"price per night\"?"
+code: |
+  struct hotel_data
+  {
+      string name;
+      int stars;
+      double price_per_night;
+  };
+question: "Which is the SIT102 snake_case form for \"price per night\"?"
+options:
+  - label: "A"
+    text: "`pricePerNight`"
+  - label: "B"
+    text: "`price_per_night`"
+  - label: "C"
+    text: "`price-per-night`"
+  - label: "D"
+    text: "`PricePerNight`"
+correctLabel: "C"
+explanation: "Underscore separates words: `price_per_night`. Hyphens are illegal C++; camelCase is wrong style."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S2 TEMPLATE"
+commonMistakeIds: ["CM-Q2-camelcase","CM-Q2-hyphen"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Identifier-rules pick-the-correct."

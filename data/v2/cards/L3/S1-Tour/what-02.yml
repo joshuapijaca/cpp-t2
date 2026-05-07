@@ -1,0 +1,25 @@
+# =====================================================================
+# L3 / R-00 / MCQCard — what happens
+# =====================================================================
+id: "L3-R00-what-02"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 1
+level: "L3"
+type: "MCQCard"
+stem: |
+  If the caller passes 3 but the loop runs `i <= number_to_read`, how many times does the body run?
+correct: "4 times — one too many; reads desks[3] which is past the data."
+distractors:
+  - "Runs 3 times and is fine."
+  - "Runs 0 times — loop never enters."
+  - "Reads only the first byte of the struct."
+explanation: |
+  4 times — one too many; reads desks[3] which is past the data.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

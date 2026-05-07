@@ -1,0 +1,46 @@
+# =====================================================================
+# L0 / F-22e / ClozeCard 02 — file-scope SIZE constant
+# =====================================================================
+id: "L0-F22e-cloze-02"
+schemaVersion: "v2"
+atomId: "F-22e"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Test 2 V2.0 reaches array length inside a function via a
+  file-scope constant. Fill the missing keyword.
+
+code: |
+  ___ int SIZE = 5;
+
+  void zero_all(stat_double &data) {
+    for (int i = 0; i < SIZE; i++) {
+      data.numbers[i] = 0;
+    }
+  }
+
+clozeSentence: "___ int SIZE = 5;   // file-scope length constant"
+
+answer: "const"
+
+explanation: |
+  `const int SIZE = 5;` declared at file scope is visible to every
+  function in the file. The function does not need to receive the
+  size as a parameter because the constant is in scope.
+  Targets CM-F22e-2 (tries arr.length / sizeof inside fn — neither
+  works in C++).
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `const int SIZE = 5;` file-scope strategy"
+
+commonMistakeIds: ["CM-F22e-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+notes: |
+  Drills the file-scope const idiom that Test 2 uses. Cloze form
+  for exposure floor per QA-M10.

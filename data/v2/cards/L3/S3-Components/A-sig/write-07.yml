@@ -1,0 +1,39 @@
+# =====================================================================
+# L3 / R-02a / FunctionWriteCard — signature for dogs
+# =====================================================================
+id: "L3-R02a-write-07"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write ONLY the signature line (no body) for read_dogs that reads
+  3 dog_data items by reference.
+prompt: "Signature only for read_dogs."
+signatureHint: "void read_dogs(dog_data &dogs[], int number_to_read)"
+canonicalAnswer: |
+  void read_dogs(dog_data &dogs[], int number_to_read)
+  {
+  }
+keyChecks:
+  - "void"
+  - "read_dogs"
+  - "dog_data"
+  - "&dogs[]"
+  - "int number_to_read"
+forbiddenTokens:
+  - "function"
+  - "->"
+explanation: |
+  void = no return. dog_data &dogs[] = reference to array of struct.
+  int number_to_read = element count. Order: return-type, name, params.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-missing-amp","CM-Q3-missing-brackets-sig"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

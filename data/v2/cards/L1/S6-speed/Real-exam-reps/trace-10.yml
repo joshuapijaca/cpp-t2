@@ -1,0 +1,97 @@
+# =====================================================================
+# L1 / S6-Real-exam-reps / TraceCard 10
+# real V2.0 sum-positive rep
+# =====================================================================
+id: "L1-S6-realrep-10"
+schemaVersion: "v2"
+atomId: "A14"
+qTags: ["Q1"]
+stage: 6
+level: "L1"
+type: "TraceCard"
+
+stem: "REAL V2.0 EXAM REP. Trace sum-positive on stat_double with numbers = {4.4, 4.4, -4.4, -4.4, 4.4}. Target: 2 minutes. Use strikethrough on every reassignment."
+
+code: |
+  const int SIZE = 5;
+  
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  
+  int main() {
+    stat_double data = { {4.4, 4.4, -4.4, -4.4, 4.4}, 0 };
+    data.mystery = 0.0;
+    for (int i = 0; i < SIZE; i = i + 1) {
+      if (data.numbers[i] > 0) {
+        data.mystery = data.mystery + data.numbers[i];
+      }
+    }
+    cout << data.mystery << endl;
+    return 0;
+  }
+
+variables: ["i", "data.mystery"]
+
+expectedTrace:
+  - line: 9
+    variable: "data.mystery"
+    value: "0"
+    output: null
+  - line: 10
+    variable: "data.mystery"
+    value: "0.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "0"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "4.4"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "1"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "8.8"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "2"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "3"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "4"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "13.200000000000001"
+    output: null
+  - line: 17
+    variable: ""
+    value: ""
+    output: "13.200000000000001"
+
+terminalOutput: ["13.200000000000001"]
+
+inputMode: "final-only"
+
+teachMe: "Final mystery = 13.200000000000001. This is the EXACT shape from V2.0 — repeat until 2-min mark hit consistently."
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — sum-positive real exam shape"
+
+commonMistakeIds: ["CM-A4-skip-condition", "CM-A4-include-zero", "CM-S6-rush-skip-init"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Speed target: 2 minutes. Real V2.0 exam rep #10"

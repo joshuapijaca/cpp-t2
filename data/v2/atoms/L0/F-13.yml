@@ -1,0 +1,24 @@
+id: F-13
+name: "cout chained output"
+level: L0
+phase: C
+teaches: "`cout << a << b << endl;` writes to terminal left-to-right. endl ends the line."
+prereqs: [F-04, F-05, F-12]
+usedByQs: [Q3, Q4]
+cardCountTarget: 23
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+    quote: "Use cout from iostream to write text to the terminal. Chain values together with <<."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/5-terminal-functions"
+    quote: "endl prints a newline and flushes the output buffer."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:21:23 — Saloni: 'it has a lot of questions with what are the functions, how do you declare a struct'"
+commonMistakes:
+  - CM-F13a  # writes cout >> instead of cout <<
+  - CM-F13b  # forgets endl, output runs together
+  - CM-F13c  # uses comma between values: cout << a , b
+notes:
+  cardMix: { walkthrough: 2, demo: 3, decompose: 3, trace: 3, cloze: 4, μWrite: 4, tmplRec: 1, mcq: 2, proc: 1 }
+splitInto: [F-13a, F-13b]

@@ -1,0 +1,36 @@
+id: CM-confuses-panel-with-output
+name: "Q1: writes variables panel where exam asked for terminal output"
+description: |
+  Hand-execution produces TWO artifacts: (1) a variables panel like
+  `{ x: 5, y: 12, z: 17 }` (your scratch working) and (2) the terminal
+  output like `17` (what cout printed). The exam asks "What does the
+  program print?" — the only correct deliverable is the terminal
+  output. Students confuse the two and write the panel ("x=5, y=12,
+  z=17") where only "17" was wanted, losing marks for cluttered or
+  wrong answers despite having traced correctly.
+whyItHappens: |
+  Hand-execution focuses attention on the panel because that's where
+  most of the work happens — updating boxes, redrawing values. The
+  terminal feels secondary. Students therefore identify the panel as
+  "the answer" and ignore that the question literally said "print".
+  Reinforced when the panel feels like a more impressive demonstration
+  of working than a single terminal value.
+immunizationStrategy: |
+  1. Decompose: given a complete trace artifact, pick which part
+     answers "What does the program print?".
+  2. SpotError: a student answer that wrote the panel — fix to output.
+  3. MCQ: "exam asks 'What does it print?' — give: panel / output /
+     code / both".
+  4. Trace: card whose grading explicitly compares terminal output
+     ONLY (not panel state) so muscle memory builds correctly.
+  5. Demo: side-by-side card showing panel-as-scratch vs terminal-as-
+     deliverable on the same program.
+  6. Walkthrough: re-read exam wording verbatim, point to "print" verb,
+     map to terminal output.
+examImpact: medium
+atomDependencies: [F-03]
+qTracks: [Q1, Q4]
+relatedCMs: [CM-guesses-from-literals, CM-jumps-to-final-answer, CM-only-final-no-trail]
+source:
+  kind: v2
+  ref: "SIT102 past-paper Q1 phrasing 'What does the program print?'; C++T2 spec §F-03"

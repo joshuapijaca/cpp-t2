@@ -1,0 +1,22 @@
+id: M-02
+name: "Partial mocks — single-Q timed surgical strikes (4 min cap)"
+level: L5
+phase: B
+teaches: "Single-question 4-minute speed drills targeting Q1/Q2/Q3/Q4 individually. Builds within-Q time discipline."
+prereqs: [M-01]
+usedByQs: [Q1, Q2, Q3, Q4]
+cardCountTarget: 24
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — extracted per-Q variants"
+  - kind: v2
+    ref: "Test 2 V2.0 attempt 1 — Q-specific variants"
+commonMistakes:
+  - CM-skip-pre-loop-init
+  - CM-missing-semi-after-brace
+  - CM-off-by-one-le
+  - CM-missing-const
+notes:
+  cardMix: { speedDrill: 24 }
+  stage: S5
+  exposureClass: medium

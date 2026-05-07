@@ -1,0 +1,24 @@
+id: L1-S3-C-19-mcq-02
+schemaVersion: v2
+atomId: C-19
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-19
+commonMistakeIds:
+  - CM-C19a
+stem: 'For an int variant: numbers[2] = 14. Evaluate `numbers[2] % 2 == 0` (test for even).'
+correct: 'true'
+distractors:
+  - 'false'
+  - '7'
+  - undefined for negative
+explanation: 14 % 2 = 0, which IS 0. So the test is true.
+

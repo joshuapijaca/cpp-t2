@@ -1,0 +1,33 @@
+id: CM-F12c
+name: "Uses = (assignment) where == (comparison) is required in if-condition"
+description: |
+  In an if-statement, `=` is assignment and `==` is comparison.
+  `if (x = 5)` ASSIGNS 5 to x, then evaluates the assignment expression
+  (which is 5, non-zero, so true) — the body always runs and x is
+  silently mutated. The intended `if (x == 5)` only enters the body
+  when x equals 5. The compiler accepts both forms (single-equals
+  emits a warning, not an error), so the bug runs and produces wrong
+  Q1 traces.
+whyItHappens: |
+  Maths convention: in algebra, `x = 5` is read as "x equals 5" — a
+  statement of equality. Programming inverts this: `=` is "make it
+  so" (assignment), `==` is "is it so?" (comparison). The mismatch
+  between the maths reading and the programming meaning is the most
+  common source of `=` vs `==` bugs. Compounded by Python, where
+  conditions use `==` consistently but assignment is also `=` —
+  mistyping is easy under exam pressure.
+immunizationStrategy: |
+  1. SpotError: `if (x = 5) { ... }` — change to `==`.
+  2. Decompose: 4 explanations of `if (x = 5)` — pick "assigns then
+     uses non-zero as true".
+  3. MCQ: "Equality test in C++:" — = / == / === / .equals.
+  4. Cloze: `if (x ___ 5)` — answer `==`.
+  5. Trace: hand-execute a buggy `if (x = 5)` and watch x become 5.
+  6. Demo: side-by-side `=` vs `==`, show the silent assignment bug.
+examImpact: high
+atomDependencies: [F-12]
+qTracks: [Q1, Q4]
+relatedCMs: [CM-F12a, CM-F12b, CM-confuse-eq-pluseq]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/08-assignment-statement"

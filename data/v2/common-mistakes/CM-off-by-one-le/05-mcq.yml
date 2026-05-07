@@ -1,0 +1,32 @@
+id: "CM-off-by-one-le-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-off-by-one-le: Q3 off-by-one i <=. Always strict less-than: `i < count`.
+
+correct: "for (i = 0; i < count; i++)"
+
+distractors:
+  - "for (i = 0; i <= count; i++)"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: for (i = 0; i < count; i++)
+  Mistake: Used `i <= count` — array overrun by 1.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-off-by-one-le"
+
+commonMistakeIds: ["CM-off-by-one-le"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-off-by-one-le.

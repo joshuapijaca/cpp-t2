@@ -1,0 +1,54 @@
+# Hand-authored CM immunization (FaultInjectionCard) for CM-Q4-read-count-after-call
+id: "L4-cmimm-CM-Q4-read-count-after-call-spot"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  This main() calls read_desks BEFORE reading desk_num from cin. Find and fix the wrong order.
+
+brokenCode: |
+  int main() {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int desk_num;
+      read_desks(desks, desk_num);
+      cout << "How many desks? ";
+      cin >> desk_num;
+      return 0;
+  }
+
+bugLocations: [5]
+
+fixedCode: |
+  int main() {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int desk_num;
+      cout << "How many desks? ";
+      cin >> desk_num;
+      read_desks(desks, desk_num);
+      return 0;
+  }
+
+bugCategory: "wrong order: read_desks called before cin reads count"
+
+keyChecks:
+  - "cin >> desk_num"
+  - "read_desks(desks, desk_num)"
+
+explanation: |
+  desk_num is uninitialised when read_desks uses it as the loop bound — undefined behaviour. Always: cin reads the count FIRST, then call the read function with the now-known count.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §6.4 Q4 main() ordering — common-mistake immunization (CM-Q4-read-count-after-call)"
+
+commonMistakeIds: ["CM-Q4-read-count-after-call"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

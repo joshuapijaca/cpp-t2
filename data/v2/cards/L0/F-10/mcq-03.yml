@@ -1,0 +1,41 @@
+# =====================================================================
+# L0 / F-10 / MCQCard 03
+# Atom: Primitive types — string compile error
+# =====================================================================
+id: "L0-F10-mcq-03"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  A program contains `string label = "desk";` but the compiler
+  complains: `error: 'string' was not declared`. What is missing from
+  the file?
+
+correct: "An #include <string> directive at the top of the file."
+
+distractors:
+  - "An empty constructor: `string() label = \"desk\";`."
+  - "A namespace prefix: `cpp::string label = \"desk\";`."
+  - "A type-cast: `(string)\"desk\";`."
+
+explanation: |
+  The `string` type lives in the standard library header `<string>`.
+  Without `#include <string>` near the top of the file, the compiler
+  has no idea what `string` means. Adding the include declares the
+  type and resolves the error.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/3-structuring-data/0-panorama/0-type"
+
+commonMistakeIds: ["CM-F10b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Distinct from the decompose-02 angle on the same misconception.
+  Tests recall, not analysis.

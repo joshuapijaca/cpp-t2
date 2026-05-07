@@ -1,0 +1,25 @@
+id: CM-amp-at-call-site
+name: "Student adds `&` at the call site `read_X(&list, count)`"
+description: |
+  Pass-by-reference declares `&` in the SIGNATURE only. The CALL site
+  passes the array name directly: `read_X(list, count_var);`. Students
+  add `&` at the call (`read_X(&list, ...)`), confusing reference syntax
+  with C-style address-of.
+whyItHappens: |
+  Mixed mental models: address-of (`&x`) returns a pointer, while
+  reference parameters bind without explicit `&`. Students with C
+  background get this exactly backwards.
+immunizationStrategy: |
+  1. SpotError: call-site `read_X(&list, ...)`; flag erroneous `&`.
+  2. MCQ: "Where does `&` go: signature or call site? (signature only)"
+  3. Cloze: blank for the absence of `&` at the call.
+  4. WriteCard rejecting `&` at call site.
+  5. Demo card: signature has `&`, call site does not.
+  6. Decompose: contrast pass-by-ref (no `&` at call) vs address-of (always `&`).
+examImpact: high
+atomDependencies: [F-22b, F-22c]
+qTracks: [Q4]
+relatedCMs: [CM-bitwise-amp, CM-missing-amp-sig, CM-fn-call-extra-amp]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §6.5 Q4 Common Errors — Add `&` at call site HIGH"

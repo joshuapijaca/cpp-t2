@@ -1,0 +1,81 @@
+# =====================================================================
+# L0 / F-12 / TraceCard 04
+# Atom: Assignment = (struct-field accumulator, V2.0 anchor)
+# =====================================================================
+id: "L0-F12-trace-04"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute the V2.0 trace partial — the accumulator over the
+  positive-only doubles. Track `data.mystery`.
+
+code: |
+  int main() {
+    stat_double data = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+    data.mystery = 0.0;
+    if (data.numbers[0] > 0) {
+      data.mystery = data.mystery + data.numbers[0];
+    }
+    if (data.numbers[3] > 0) {
+      data.mystery = data.mystery + data.numbers[3];
+    }
+    if (data.numbers[4] > 0) {
+      data.mystery = data.mystery + data.numbers[4];
+    }
+    cout << data.mystery << endl;
+    return 0;
+  }
+
+variables: ["data.mystery"]
+
+expectedTrace:
+  - line: 3
+    variable: "data.mystery"
+    value: "0.0"
+    output: null
+  - line: 5
+    variable: "data.mystery"
+    value: "2.4"
+    output: null
+  - line: 8
+    variable: "data.mystery"
+    value: "5.4"
+    output: null
+  - line: 11
+    variable: "data.mystery"
+    value: "7.4"
+    output: null
+  - line: 13
+    variable: ""
+    value: ""
+    output: "7.4"
+
+terminalOutput: ["7.4"]
+
+inputMode: "final-only"
+
+teachMe: |
+  - Line 3: data.mystery = 0.0.
+  - Line 5: 0.0 + 2.4 = 2.4. data.mystery = 2.4.
+  - Line 8: 2.4 + 3.0 = 5.4. data.mystery = 5.4.
+  - Line 11: 5.4 + 2.0 = 7.4. data.mystery = 7.4.
+  - Line 13: print 7.4.
+
+  Final answer: 7.4 — the EXACT V2.0 expected answer.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: who_am_i over { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 } returns 7.4"
+
+commonMistakeIds: ["CM-F12b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  EXACT V2.0 final answer (7.4). Anchors the assignment trace to the
+  test result the student must produce on May 14.

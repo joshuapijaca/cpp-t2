@@ -1,0 +1,39 @@
+# =====================================================================
+# L1 / C-26 strikethrough V2.0 / Cloze 02 — type max-finder trail
+# =====================================================================
+id: "L1-C26v20-cloze-02"
+schemaVersion: "v2"
+atomId: "C-26"
+qTags: ["Q1"]
+stage: 3
+level: "L1"
+type: "ClozeCard"
+
+stem: "Type the V2.0-correct strikethrough trail for data.mystery for max-finder on numbers={3.2, 7.1, 5.0, 9.4, 2.8}."
+
+code: |
+  // find-max init
+  data.mystery = data.numbers[0];
+  for (int i = 1; i < 5; i = i + 1) {
+    if (data.numbers[i] > data.mystery) {
+      data.mystery = data.numbers[i];
+    }
+  }
+  // mystery cell trail across init + 4 iterations:
+
+clozeSentence: "Type the strikethrough trail (use ~~text~~ for strike) of data.mystery for the max-finder above: ____."
+
+answer: "~~3.2~~ ~~7.1~~ 9.4"
+
+explanation: |
+  Init 3.2; i=1 -> 7.1 (struck 3.2); i=2 skip; i=3 -> 9.4 (struck 7.1); i=4 skip. Two overwrites, final 9.4.
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-26 — max-finder trail"
+
+commonMistakeIds: ["CM-C26a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "Strikethrough cloze 2/2 (was procedural; cast as cloze for non-code answer)."

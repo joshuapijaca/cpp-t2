@@ -1,0 +1,28 @@
+id: L1-S3-C-29-mcq-00
+schemaVersion: v2
+atomId: C-29
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-29
+commonMistakeIds:
+  - CM-C29a
+stem: >-
+  The Q1 V2.0 sum-positive loop body is `data.mystery = data.mystery + data.numbers[i];`. During the
+  loop, do any numbers[i] cells change?
+correct: No. Only mystery (and any counter) is on the LHS of an assignment. numbers[i] is read-only here.
+distractors:
+  - Yes — every iteration overwrites numbers[i] with the running sum.
+  - Yes — but only on iters where the if-condition is true.
+  - Only on iter 4 (the last one), to mark the array as consumed.
+explanation: >-
+  numbers[i] only appears on the RHS — it is READ, not written. M06 is mutating an array cell by
+  mistake.
+

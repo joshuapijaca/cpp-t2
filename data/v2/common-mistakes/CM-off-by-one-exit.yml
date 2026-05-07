@@ -1,0 +1,25 @@
+id: CM-off-by-one-exit
+name: "Student runs body when i==SIZE (off-by-one exit)"
+description: |
+  The exit condition `i < SIZE` (where SIZE=5) means the body runs for
+  i=0..4 only. Students walk through with i=5 (running the body once more)
+  or treat `i <= SIZE` semantics. Causes a phantom 6th iteration that
+  reads numbers[5] (out of bounds) and corrupts mystery.
+whyItHappens: |
+  Off-by-one is the canonical CS bug. `<` vs `<=` is one keystroke away
+  in writing and one symbol away when reading. Inclusive vs exclusive
+  bounds is a long-standing confusion source.
+immunizationStrategy: |
+  1. Trap-trace: 5-element array, student tempted to write i=5 row.
+  2. SpotError: trace with phantom i=5 row drawn; mark it wrong.
+  3. MCQ: "When i==5 and SIZE==5, does cond pass? (no)"
+  4. Cloze: blank for the operator in `i ? SIZE` -> `<`.
+  5. Decompose: at i=5, evaluate `5 < 5`; at i=4, `4 < 5`. Two-step.
+  6. Boundary card: explicit "last iteration" walkthrough showing exit.
+examImpact: high
+atomDependencies: [F-18a, F-18b, A4]
+qTracks: [Q1, Q3]
+relatedCMs: [CM-body-when-false, CM-off-by-one-le]
+source:
+  kind: seminar
+  ref: "SIT102 Seminar Mondays 6pm new (2) — for-loop exit walkthrough"

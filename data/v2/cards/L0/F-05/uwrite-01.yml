@@ -1,0 +1,44 @@
+# =====================================================================
+# L0 / F-05 / ProceduralCard 01 (μ-write)
+# Atom: using namespace std;
+# =====================================================================
+id: "L0-F05-uwrite-01"
+schemaVersion: "v2"
+atomId: "F-05"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the using-namespace line that lifts the std prefix. One line,
+  exact form.
+
+section: "L0 · F-05 · μ-write — using directive line"
+
+prompt: |
+  Type the line that lets you write `cout` instead of `std::cout` in
+  the rest of the file.
+
+expectedAnswer: "using namespace std;"
+
+keyChecks:
+  - "using namespace std;"
+
+variants:
+  - prompt: "Write the line that drops the std:: prefix from cout, cin, and endl."
+    expectedAnswer: "using namespace std;"
+  - prompt: "Reproduce line 2 of the canonical SIT102 preamble."
+    expectedAnswer: "using namespace std;"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F05b", "CM-F05c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Single-line μ-write. The expected answer ends in `;` so the lint
+  canon-end check is satisfied without a second line.

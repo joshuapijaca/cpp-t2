@@ -1,0 +1,31 @@
+id: "L0-F23-mcq-01"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer panel-discipline drill"
+commonMistakeIds: ["CM-skips-mental-state"]
+stem: |
+  When you hand-execute a program by maintaining a variables panel,
+  what marks the boundary between "before line N runs" and "after
+  line N runs"?
+correct: "A new written value enters the box for the variable assigned on line N (or no change if line N has no assignment)."
+distractors:
+  - "Nothing — the panel is updated only at the end of the program."
+  - "The cursor jumps to the next line without touching the panel."
+  - "The previous line's value is erased even if line N does not assign anything."
+explanation: |
+  The panel is updated PER LINE: every assignment writes a new value
+  into the corresponding box; non-assignment lines leave the panel
+  unchanged. This per-line discipline is what stops the eyes from
+  skimming.
+  Targets CM-skips-mental-state (lazy-eye glaze where the panel is
+  not touched).
+notes: "MCQ form for QA-M10 type-diversity (atom F-23 was 30 TraceCard)."

@@ -1,0 +1,42 @@
+id: "L1-S1-tour-06-anatomy-struct"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "DemoCard"
+
+stem: |
+  Anatomy 1/10: the struct decl. Three required pieces: keyword
+  `struct`, name `stat_double`, and brace-body containing the
+  fields. Trailing `;` after the closing brace is mandatory.
+
+whyOneLine: "Forgetting the trailing `;` after `}` is the #1 Q1/Q2 compile error — the struct ends with `};`."
+
+demoCode: |
+  struct stat_double {       // <- keyword + name + open brace
+    double numbers[SIZE];    // <- array field (5 doubles)
+    double mystery;          // <- scalar field
+  };                         // <- close brace + REQUIRED `;`
+
+highlightTokens:
+  - "struct"
+  - "stat_double"
+  - "double numbers[SIZE]"
+  - "double mystery"
+  - "};"
+
+usedIn:
+  - "Q1: struct is the input shape"
+  - "Q2: write your own struct from scratch"
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §0 — struct stat_double"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Anatomy: struct decl shape.
+authoringStatus: "DRAFT"

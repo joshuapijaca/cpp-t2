@@ -1,0 +1,51 @@
+id: "L1-S1-tour-25-narrated-step5"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "WalkthroughCard"
+
+stem: |
+  Narrated trace 5/6: loop exit. After iter i=4 finishes, i++ makes
+  i=5. Guard 5 < 5 is FALSE. Loop exits without entering the body.
+  Function returns.
+
+levelLabel: "L1 Q1 hand-execute · S1 Tour · narrated trace step 5"
+
+fullCode: |
+  // After iter i=4 body finishes.
+  // post: i++ -> i = 5
+  // guard: 5 < 5 ? -> false
+  // exit loop, fall through to end of function
+
+steps:
+  - line: 1
+    code: 'i++ -> i = 5'
+    annotation: |
+      Post: i goes from 4 to 5.
+      VARIABLES: { i: 5 }
+    atomIds: ["T-04"]
+  - line: 2
+    code: '5 < 5 ? -> false. EXIT.'
+    annotation: |
+      Guard: 5 < 5 is false. The body does NOT run for i=5.
+      Loop exits.
+    atomIds: ["T-04"]
+  - line: 3
+    code: '(end of function — return implicit for void)'
+    annotation: |
+      Function ends. No return statement needed for void. Caller
+      sees the updated d.mystery in their own d (because of &).
+    atomIds: ["T-02"]
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — loop exit on i=5"
+
+commonMistakeIds: ["CM-Q1-off-by-one"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Narrated trace step 5: loop exit.
+authoringStatus: "DRAFT"

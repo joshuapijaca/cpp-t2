@@ -1,0 +1,19 @@
+id: A11
+name: "Q1 Compose: product algorithm (init=1.0)"
+level: L1
+phase: S4
+teaches: "Trace product. Init mystery = 1.0 (NOT 0.0); for i=0..SIZE-1, mystery = mystery * numbers[i]. Sentinel reset: 1.0 is identity for multiplication. 0.0 would zero everything."
+prereqs: [A3]
+usedByQs: [Q1]
+cardCountTarget: 12
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — multiplicative accumulator"
+commonMistakes:
+  - CM-A11-init-zero
+  - CM-A11-zero-element-zeroes-all
+notes:
+  cardMix: { trace: 8, mcq: 2, decompose: 2 }
+  stage: S4
+  exposureClass: medium
+  progression: "2 simple -> 2 mixed-sign -> 2 edge (zero present) -> 2 adversarial -> 2 final-only -> 2 spot-error"

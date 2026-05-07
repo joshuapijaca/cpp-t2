@@ -5,10 +5,15 @@
   "type": "module",
   "description": "C++T2 — SIT102 Test 2 from-zero learning app. M0-M11 milestone plan; see docs/13_milestones.md.",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build",
-    "preview": "vite preview",
+    "dev": "vite --port 5174",
+    "dev:v1": "vite --mode v1 --port 5173",
+    "build": "vite build",
+    "build:v1": "tsc --noEmit && vite build --mode v1",
+    "preview": "vite preview --outDir dist-v2 --port 5175",
+    "preview:v1": "vite preview --outDir dist --port 4173",
     "type-check": "tsc --noEmit",
+    "type-check:v2": "tsc --noEmit -p src-v2/",
+    "smoke:v2": "tsx build-v2/smoke-test.ts",
     "gen": "tsx build/generate-cards.ts",
     "lint:cards": "tsx build/lint-cards.ts",
     "lint:see": "tsx build/lint-see-outlines.ts",
@@ -23,7 +28,15 @@
     "gen:see": "npm run gen:see-demo && npm run gen:see-decompose && npm run gen:see-walkthroughs && npm run gen:see-worked && npm run gen:see-predict && npm run gen:see-q-context",
     "interleave": "tsx build/interleave-see-do.ts",
     "gen:all": "npm run gen:see && npm run interleave",
-    "lint:see-cards": "tsx build/lint-see-cards.ts"
+    "lint:see-cards": "tsx build/lint-see-cards.ts",
+    "lint:v2-cards": "tsx build-v2/lint-cards.ts",
+    "lint:v2-atoms": "tsx build-v2/lint-atoms.ts",
+    "lint:v2-deck": "tsx build-v2/lint-deck.ts",
+    "lint:v2": "npm run lint:v2-cards && npm run lint:v2-atoms && npm run lint:v2-deck",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "test:v2": "vitest run build-v2"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -31,16 +44,21 @@
   },
   "devDependencies": {
     "@anthropic-ai/sdk": "^0.92.0",
+    "@playwright/test": "^1.59.1",
     "@tailwindcss/vite": "^4.0.0",
     "@types/js-yaml": "^4.0.9",
+    "@types/node": "^25.6.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "@vitest/coverage-v8": "^2.1.0",
     "glob": "^13.0.6",
     "js-yaml": "^4.1.1",
     "tailwindcss": "^4.0.0",
     "tsx": "^4.21.0",
     "typescript": "~5.6.0",
-    "vite": "^6.0.0"
+    "vite": "^6.0.0",
+    "vitest": "^2.1.0",
+    "zod": "^3.25.76"
   }
 }

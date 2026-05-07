@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 16 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Same code, highlight the else's `{`
+# =====================================================================
+id: "L0-F25-mcq-16"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Same if-else. The HIGHLIGHTED brace this time is the `{` AFTER
+  `else`. Which `}` matches?
+
+  ```cpp
+  int main() {       // depth 0 open
+    if (x > 0) {     // depth 1 open (if branch)
+      cout << "+";
+    } else {         // <-- HIGHLIGHT (the `{` after else, depth 1)
+      cout << "-";
+    }                // <-- option A (depth 1, else close)
+    return 0;
+  }                  // <-- option B (depth 0)
+  ```
+
+correct: "A — the `}` on the line after `cout << \"-\";` (depth-1, else's close)."
+
+distractors:
+  - "B — the final `}` of main, since the else stretches to the bottom."
+  - "C — the `}` two lines up, because else and if share the same closing brace."
+  - "D — there is no matching brace; the else keyword does not need one."
+
+explanation: |
+  A is correct. The else-block opens at the highlighted `{` and
+  closes at the next `}` at the same depth.
+
+  B is wrong: B is depth 0.
+  C is wrong: that `}` already closed the if.
+  D is wrong: braces are still required.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 16/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Pair to card 15. The else-branch close is the next available
+  depth-1 `}`.

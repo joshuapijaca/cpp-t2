@@ -1,0 +1,40 @@
+id: L1-S3-C-08-trace-08
+schemaVersion: v2
+atomId: C-08
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: TraceCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-08
+commonMistakeIds:
+  - CM-C08a
+stem: Step the find-max/find-min pre-loop init. After line 3, what is data.mystery?
+code: |-
+  int main() {
+    stat_double data = { {-3, 6, -1, 8, -2}, 0 };
+    data.mystery = data.numbers[0];
+    cout << data.mystery << endl;
+    return 0;
+  }
+variables:
+  - data.mystery
+expectedTrace:
+  - line: 3
+    variable: data.mystery
+    value: '-3'
+    output: null
+  - line: 4
+    variable: ''
+    value: ''
+    output: '-3'
+terminalOutput:
+  - '-3'
+inputMode: final-only
+teachMe: Find-max/find-min seeds mystery with numbers[0] so the first compare has a valid baseline.
+

@@ -1,0 +1,44 @@
+id: "CM-body-when-false-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-body-when-false: Q1 body run when condition false.
+
+code: |
+  // Trap: Action runs unconditionally instead of inside the if-body.
+  data.mystery = data.mystery + data.numbers[i]; // outside the if
+  ;
+
+question: |
+  What goes wrong with the line above on Q1?
+
+options:
+  - label: "A"
+    text: "Action runs unconditionally instead of inside the if-body."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Action runs unconditionally instead of inside the if-body. The canonical pattern is: if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-body-when-false"
+
+commonMistakeIds: ["CM-body-when-false"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-body-when-false.

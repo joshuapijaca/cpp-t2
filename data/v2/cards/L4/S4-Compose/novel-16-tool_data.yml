@@ -1,0 +1,60 @@
+id: "L4-S4-novel-16"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[novel 16/20] Write the COMPLETE main() for the tool_data entity. Apply the canonical 7-piece skeleton with MAX=50, count=tool_count, fn=read_tools."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 novel entity transfer"
+commonMistakeIds: 
+  - "CM-Q4-missing-const"
+  - "CM-Q4-pass-MAX-not-count"
+  - "CM-Q4-amp-at-call"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Write a full main() for tool_data. const MAX = 50; count_var = tool_count; fn = read_tools; fields = name, type, weight; prompt = \"How many tools?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 50;
+      tool_data tools[MAX];
+      int tool_count;
+  
+      cout << "How many tools? ";
+      cin >> tool_count;
+  
+      read_tools(tools, tool_count);
+  
+      for (int i = 0; i < tool_count; i++)
+      {
+          cout << tools[i].name << ", ";
+          cout << tools[i].type << ", ";
+          cout << tools[i].weight << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 50"
+  - "tool_data tools[MAX]"
+  - "int tool_count"
+  - "cin >> tool_count"
+  - "read_tools(tools, tool_count)"
+  - "i < tool_count"
+  - "tools[i].name"
+  - "tools[i].type"
+  - "tools[i].weight"
+  - "endl"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many tools?"
+explanation: "Same skeleton as V2.0 — only entity name, MAX, count_var, fn, fields differ. Pattern transfer drill."

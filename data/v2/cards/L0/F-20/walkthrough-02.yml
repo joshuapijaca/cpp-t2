@@ -1,0 +1,65 @@
+# =====================================================================
+# L0 / F-20 / WalkthroughCard 02
+# Atom: struct definition — three-field shape
+# =====================================================================
+id: "L0-F20-walk-02"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  A struct can have any number of fields. Walk through this 3-field
+  variant. The shape is identical to F-20 walk-01 — only the field
+  list grows.
+
+levelLabel: "L0 Foundation · Phase E · F-20"
+
+fullCode: |
+  struct player_data {
+    string name;
+    int score;
+    double accuracy;
+  };
+
+steps:
+  - line: 1
+    code: 'struct player_data {'
+    annotation: |
+      `struct` keyword + name + `{`. Same shape as before.
+    atomIds: ["F-20"]
+  - line: 2
+    code: '  string name;'
+    annotation: |
+      Field 1: a string called `name`. `;` ends the field.
+    atomIds: ["F-20"]
+  - line: 3
+    code: '  int score;'
+    annotation: |
+      Field 2: an int called `score`. `;` ends the field.
+    atomIds: ["F-20"]
+  - line: 4
+    code: '  double accuracy;'
+    annotation: |
+      Field 3: a double called `accuracy`. `;` ends the field.
+    atomIds: ["F-20"]
+  - line: 5
+    code: '};'
+    annotation: |
+      `}` closes the struct, `;` ends the definition statement. The
+      `;` is mandatory regardless of how many fields.
+    atomIds: ["F-20"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20a", "CM-F20d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Generalises the shape: 3 fields rather than 2. Reinforces that the
+  number of fields does not change the closing `};`.

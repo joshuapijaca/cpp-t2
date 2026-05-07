@@ -1,0 +1,36 @@
+id: "L5-warmup-03-q3"
+schemaVersion: "v2"
+atomId: "M-04"
+qTags: ["Q3"]
+stage: 6
+level: "L5"
+type: "PreflightCheckCard"
+
+stem: |
+  Q3 preflight checklist — D7 morning warmup. Run through this checklist before
+  attempting Q3 on the test.
+
+scenario: |
+  Before writing the Q3 read function, run through this 5-step preflight.
+
+checklist:
+  - "Signature: `void read_X(EntityName arr[], int count)`."
+  - "For-loop: `for (i = 0; i < count; i++)`."
+  - "Per iteration: `cin >> arr[i].field` for each field."
+  - "No return statement (void)."
+  - "Verify cin direction `>>` (not `<<`)."
+
+explanation: |
+  Warmup preflight for Q3. The checklist captures the 4-6 highest-
+  leverage steps. If all are checked, the answer almost writes itself.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q3 — D7 warmup pack"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  D7 warmup #3: Q3.

@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-17 / ClozeCard 02
+# Atom: parens around condition
+# =====================================================================
+id: "L0-F17-cloze-02"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing punctuation that wraps the if condition.
+
+code: |
+  if ___x > 0___ {
+    cout << "positive" << endl;
+  }
+
+clozeSentence: |
+  if ___x > 0___
+
+answer: "( )"
+
+explanation: |
+  Parentheses are required around the if condition. Open paren
+  immediately after `if` (with optional space), close paren before
+  the `{`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

@@ -1,0 +1,29 @@
+
+id: "L2-S3-order-01"
+schemaVersion: "v2"
+atomId: "L-23b"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "StructWriteCard"
+stem: "Q2 multi-field ordering #1. Write a struct with fields appearing in the exact order given in the prompt. Field-order discipline supports later Q3 read-loop and Q4 print-loop sequencing."
+prompt: "Write `desk_data` with fields IN THIS ORDER: room_id, d_id, number_of_screens — all int."
+canonicalAnswer: |
+  struct desk_data
+  {
+      int room_id;
+      int d_id;
+      int number_of_screens;
+  };
+requiredFields: ["room_id","d_id","number_of_screens"]
+keyChecks: ["struct desk_data","};","int room_id;","int d_id;","int number_of_screens;"]
+forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
+explanation: "3 fields, listed top-to-bottom in the prompt order. Each field on its own line, each ending `;`, closing `};`."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-twofields"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Multi-field write — order matters."

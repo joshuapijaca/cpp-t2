@@ -1,0 +1,24 @@
+id: CM-2-fields-1-line
+name: "Student declares two fields on one line"
+description: |
+  Field declarations should be one per line: `int id;\n string name;`.
+  Students compress: `int id, name;` (creates 2 ints, not int+string) or
+  `int id; string name;` on a single visual line. Marking expects
+  one-per-line per the unit's style guide.
+whyItHappens: |
+  Saves vertical space. C-style `int a, b, c;` lets you declare multiple
+  same-type vars at once, which students misapply across types.
+immunizationStrategy: |
+  1. SpotError: `int id, name;` (treats name as int); flag.
+  2. MCQ: "How many fields does `int id, name;` declare? (2 ints)"
+  3. Cloze: split a one-line declaration into two lines.
+  4. WriteCard graded on field-per-line layout.
+  5. Decompose: list each declared variable + its type.
+  6. Demo card: side-by-side compact vs one-per-line; show difference.
+examImpact: medium
+atomDependencies: [F-10, F-20]
+qTracks: [Q2]
+relatedCMs: [CM-wrong-type]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §4.6 Q2 Common Errors — Two fields on one line MEDIUM"

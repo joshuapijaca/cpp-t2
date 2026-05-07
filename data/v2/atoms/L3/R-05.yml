@@ -1,0 +1,19 @@
+id: R-05
+name: "Q3 Speed: timed full-Q3 mocks"
+level: L3
+teaches: "Timed Q3 sims: 5 V2.0 timed read_desks, 5 practice timed read_computers, 5 novel timed, 5 mixed-mock under deadline pressure. Reinforces fluency at exam pace."
+prereqs: [R-03, R-04]
+usedByQs: [Q3]
+cardCountTarget: 20
+source:
+  - kind: v2
+    ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V — S6 SPEED 20 cards"
+commonMistakes:
+  - CM-Q3-off-by-one
+  - CM-Q3-missing-amp
+  - CM-Q3-missing-index
+  - CM-Q3-missing-field
+notes:
+  cardMix: { speeddrill: 20 }
+  stage: S6
+  exposureClass: long

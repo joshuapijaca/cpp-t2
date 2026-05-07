@@ -1,0 +1,36 @@
+
+id: "L2-S5-reverse-03"
+schemaVersion: "v2"
+atomId: "L-25"
+qTags: ["Q2"]
+stage: 5
+level: "L2"
+type: "DecomposeCard"
+stem: "Q2 reverse drill #3. Given the struct code, infer the most likely English entity description."
+code: |
+  struct desk_data
+  {
+      int room_id;
+      int d_id;
+      int number_of_screens;
+  };
+question: "Which English description best matches this struct?"
+options:
+  - label: "A"
+    text: "A book record (id, page count, year)."
+  - label: "B"
+    text: "A bench in a workshop (id, station id, tools count)."
+  - label: "C"
+    text: "A desk in a uni computer lab (room id, desk id, screen count)."
+  - label: "D"
+    text: "A car (id, year, doors)."
+correctLabel: "C"
+explanation: "The field name + type combination uniquely fingerprints the entity."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.6 S5 VARIATIONS"
+commonMistakeIds: ["CM-Q2-wrong-type"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Reverse-engineer the prompt from the code."

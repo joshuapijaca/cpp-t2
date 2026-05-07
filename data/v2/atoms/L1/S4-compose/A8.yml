@@ -1,0 +1,19 @@
+id: A8
+name: "Q1 Compose: count-positive algorithm"
+level: L1
+phase: S4
+teaches: "Trace count-positive. Init mystery = 0; for i=0..SIZE-1, if numbers[i] > 0 then mystery = mystery + 1. Counter pattern (int, increment by 1) not accumulator (sum of values)."
+prereqs: [A4]
+usedByQs: [Q1]
+cardCountTarget: 12
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — counter pattern variant"
+commonMistakes:
+  - CM-A8-add-value-not-one
+  - CM-A8-flip-condition
+notes:
+  cardMix: { trace: 8, mcq: 2, decompose: 2 }
+  stage: S4
+  exposureClass: medium
+  progression: "2 simple -> 2 mixed-sign -> 2 edge -> 2 adversarial -> 2 final-only -> 2 spot-error"

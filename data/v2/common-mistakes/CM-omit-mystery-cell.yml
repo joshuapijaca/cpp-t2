@@ -1,0 +1,24 @@
+id: CM-omit-mystery-cell
+name: "Student forgets to draw the mystery cell (only draws array)"
+description: |
+  The struct has TWO fields: `numbers[5]` and `mystery`. Students draw
+  five boxes for the array but forget to draw a sixth box for mystery,
+  losing the variable they're supposed to be tracking.
+whyItHappens: |
+  Visual saliency: 5 array cells dominate; the lone mystery is easy to
+  forget. Especially when copying down only what is "in the array" and
+  treating mystery as ephemeral or implicit.
+immunizationStrategy: |
+  1. SpotError: hand-execution sheet with no mystery box; spot the gap.
+  2. Cloze: fill in the box layout (5 numbers + 1 mystery).
+  3. MCQ: "How many boxes do you draw for stat_double? (6)"
+  4. Decompose: list every member of the struct -> map to a box.
+  5. Demo card: show the canonical box layout side-by-side with struct.
+  6. Trace card requires mystery box to be drawn before scoring.
+examImpact: medium
+atomDependencies: [F-19, F-20, F-21, A4]
+qTracks: [Q1]
+relatedCMs: [CM-skip-pre-loop-init, CM-no-strikethrough]
+source:
+  kind: practice
+  ref: "Test2-SIT102-practice-2026T1.txt — stat_double has numbers[5] AND mystery"

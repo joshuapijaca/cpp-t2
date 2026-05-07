@@ -1,0 +1,28 @@
+id: F-03
+name: "Hand-execution paradigm"
+level: L0
+phase: A
+teaches: "Simulate a program by hand: draw boxes for variables, step line by line, update state. THIS is Test 2 Q1."
+prereqs: [F-01, F-02]
+usedByQs: [Q1, Q4]
+cardCountTarget: 12
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/07-hand-execution"
+    quote: "Hand execution is the process of manually following the instructions in code as the computer does."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/07-hand-execution"
+    quote: "Capture the variables as boxes on your page, and use these to keep track of the values that change as the program runs."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/1-tour/02-array-hand-execution"
+    quote: "Trace each iteration; record final values."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:23:09 — Saloni: 'I will do the hand execution just right here so that you understand what we expect'"
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:35:15 — Saloni: 'we go inside this loop and we start slow'"
+commonMistakes:
+  - CM-F03a  # tries to mentally evaluate without writing
+  - CM-F03b  # skips strikethrough on overwritten values
+  - CM-F03c  # treats array index from 1
+notes:
+  cardMix: { walkthrough: 2, demo: 2, decompose: 2, trace: 4, mcq: 2 }

@@ -1,0 +1,36 @@
+
+id: "L2-S3b-name-01"
+schemaVersion: "v2"
+atomId: "L-23b"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "DecomposeCard"
+stem: "Q2 field-naming drill #1. snake_case only. Choose the legal field-name format."
+code: |
+  struct order_data
+  {
+      int order_id;
+      double total;
+      bool paid;
+  };
+question: "Q2 field-naming: pick the snake_case version of a money field."
+options:
+  - label: "A"
+    text: "`Total`"
+  - label: "B"
+    text: "`total`"
+  - label: "C"
+    text: "`TOTAL`"
+  - label: "D"
+    text: "`tot-al`"
+correctLabel: "B"
+explanation: "`total` is lowercase snake_case (single word, no separator needed)."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-camelcase","CM-Q2-hyphen","CM-Q2-reserved"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Field-naming legality check."

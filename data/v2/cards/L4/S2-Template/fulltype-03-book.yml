@@ -1,0 +1,67 @@
+id: "L4-S2-fulltype-03"
+schemaVersion: "v2"
+atomId: "Q-01"
+qTags: 
+  - "Q4"
+stage: 2
+level: "L4"
+type: "TemplateRecallCard"
+stem: "Type the COMPLETE main() for the book variant. MAX=200, entity=book_data."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.2 S2 FullType"
+commonMistakeIds: 
+  - "CM-Q4-skeleton-line-order"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Type the full main(). entity=book_data, plural=books, count=book_count, MAX=200, fn=read_books, fields=title/author/pages."
+template: |
+  int main()
+  {
+      const int MAX = ___;
+      ___ ___[MAX];
+      int ___;
+  
+      cout << "..."; cin >> ___;
+  
+      ___(___, ___);
+  
+      for (int i = 0; i < ___; i++)
+      { ... }
+  
+      return 0;
+  }
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 200;
+      book_data books[MAX];
+      int book_count;
+  
+      cout << "How many books? ";
+      cin >> book_count;
+  
+      read_books(books, book_count);
+  
+      for (int i = 0; i < book_count; i++)
+      {
+          cout << books[i].title << ", ";
+          cout << books[i].author << ", ";
+          cout << books[i].pages << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 200"
+  - "book_data books[MAX]"
+  - "int book_count"
+  - "read_books(books, book_count)"
+  - "i < book_count"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+explanation: "The skeleton is invariant — only entity/plural/count/MAX/fn/fields slot in. Compare your answer against the canonical for book."

@@ -1,0 +1,31 @@
+id: "L5-wildcard-17-q4"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 5
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  S5.5 wildcard: Pass MAX vs count.
+
+correct: "Pass `count` to read/print — the actual number to process."
+
+distractors:
+  - "Pass `MAX` — the array capacity."
+  - "Pass `MAX - count` — the remainder."
+  - "Pass nothing; functions infer count."
+
+explanation: |
+  count = how many elements the user wants to process. MAX = array capacity. Always pass count.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 wildcard"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #17: Q4 Pass MAX vs count.

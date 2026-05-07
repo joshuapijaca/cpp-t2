@@ -1,0 +1,47 @@
+id: "L1-S2-TE-18-fix-rogue-semi"
+schemaVersion: "v2"
+atomId: "T-05"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  This if has a stray semicolon after the close paren. Fix it.
+
+prompt: |
+  Provide the corrected lines.
+
+template: |
+  // BROKEN: stray ; after if-cond
+  if (data.numbers[i] > 0);
+  {
+    data.mystery = data.mystery + data.numbers[i];
+  }
+
+canonicalAnswer: |
+  if (data.numbers[i] > 0) {
+    data.mystery = data.mystery + data.numbers[i];
+  }
+
+keyChecks:
+  - "if (data.numbers[i] > 0) {"
+
+forbiddenTokens:
+  - "0);"
+
+explanation: |
+  Remove the `;` between `)` and `{`. The stray semicolon makes the
+  if-body an EMPTY statement; the brace block then runs unconditionally
+  every iteration. Silent bug — compiles fine, gives wrong answer.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — if header punctuation"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-E repair: stray ; after if.
+authoringStatus: "DRAFT"

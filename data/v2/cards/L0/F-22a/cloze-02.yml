@@ -1,0 +1,41 @@
+# =====================================================================
+# L0 / F-22a / ClozeCard 02 — body braces
+# =====================================================================
+id: "L0-F22a-cloze-02"
+schemaVersion: "v2"
+atomId: "F-22a"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the matching pair of braces around the function body.
+
+code: |
+  void who_am_i(stat_double &data)
+  ___
+    int i;
+    data.mystery = 0.0;
+  ___
+
+clozeSentence: "void who_am_i(...)\n___ ... ___"
+
+answer: "{ }"
+
+explanation: |
+  The body is wrapped in `{ }` directly after the header. NO `;`
+  between the `)` and the `{`. The `}` ends the function — nothing
+  comes after it (no `;`).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/01-function-decl"
+
+commonMistakeIds: ["CM-F22a-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Reinforces that the body is in BRACES, separate from the
+  parameter parens.

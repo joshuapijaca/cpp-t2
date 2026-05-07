@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-17 / TemplateRecallCard 04 (μWrite)
+# Atom: Q1 literal if shape
+# =====================================================================
+id: "L0-F17-write-04"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Write the literal Q1 if-statement: when `data.numbers[i]` is
+  strictly greater than `data.mystery`, set `data.mystery` to
+  `data.numbers[i]`.
+
+prompt: |
+  Produce the Q1 max-update if from Test 2 practice.
+
+template: |
+  if (___) {
+    ___ = ___;
+  }
+
+canonicalAnswer: |
+  if (data.numbers[i] > data.mystery) {
+    data.mystery = data.numbers[i];
+  }
+
+keyChecks:
+  - "if (data.numbers[i] > data.mystery)"
+  - "data.mystery = data.numbers[i];"
+
+forbiddenTokens:
+  - "while"
+  - "do"
+
+explanation: |
+  Letter-for-letter the Q1 body. `data.numbers[i]` is the i-th
+  array element of struct field `numbers`. `data.mystery` is the
+  running maximum. Strict `>` so only strictly larger values
+  overwrite.
+
+source:
+  kind: "v2"
+  ref: "Test2-SIT102-practice (1).docx — who_am_i procedure body"
+
+commonMistakeIds: ["CM-F17a", "CM-F17c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Critical Q1 muscle-memory build.
+authoringStatus: "DRAFT"

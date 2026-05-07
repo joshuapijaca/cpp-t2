@@ -1,0 +1,24 @@
+id: F-22c
+name: "Pass-by-reference call site (no &)"
+level: L0
+phase: E
+teaches: "At the call site `f(arg)` you write the bare variable name. NO `&` at the call site — the `&` lives only in the function signature."
+prereqs: [F-22b]
+usedByQs: [Q1, Q3]
+cardCountTarget: 6
+parentAtom: F-22
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
+    quote: "Use it to allow changes to the parameter to affect the variable argument"
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/4-indirect-access/1-tour/00-explore-references"
+    quote: "void update_player(player_data &player) { ... } modifies the caller's player_data."
+  - kind: practice
+    ref: "Test 2 V2.0 — call site `who_am_i ( d );` (no & on d)"
+commonMistakes:
+  - CM-F22c-1  # writes f(&data) at call site (mixing C-style address-of)
+  - CM-F22c-2  # writes f(*data) at call site (pointer dereference)
+  - CM-F22c-3  # treats the call site as needing a "matching" & for signature
+notes:
+  cardMix: { demo: 1, decompose: 1, cloze: 1, μWrite: 1, mcq: 1, faultInjection: 1 }

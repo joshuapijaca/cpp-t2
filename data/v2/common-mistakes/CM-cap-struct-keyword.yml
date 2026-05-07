@@ -1,0 +1,25 @@
+id: CM-cap-struct-keyword
+name: "Student capitalises the `struct` keyword as `Struct`"
+description: |
+  C++ keywords are case-sensitive: `struct` (lowercase) is the keyword,
+  `Struct` is just an identifier. Students with general OOP background
+  capitalise type keywords (Java has none of these but pattern-matches
+  identifiers to TitleCase).
+whyItHappens: |
+  Auto-correct in some editors. Pattern carry-over from English ("Struct"
+  reads as a Proper Noun for a type). Students don't internalise that
+  C++ keywords are distinct, lowercase, and untouchable.
+immunizationStrategy: |
+  1. SpotError: code with `Struct foo {...}`; mark keyword bug.
+  2. MCQ: "Which is the C++ keyword: `struct`, `Struct`, `STRUCT`?"
+  3. Cloze: blank for the keyword.
+  4. WriteCard with key-check on lowercase `struct`.
+  5. Demo card: list 5 C++ keywords (struct, class, int, double, void).
+  6. Decompose: classify a code line into keyword vs identifier vs punct.
+examImpact: medium
+atomDependencies: [F-09, F-20]
+qTracks: [Q2]
+relatedCMs: [CM-cap-struct-name, CM-reserved-word]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §4.6 Q2 Common Errors — `Struct` capital keyword MEDIUM"

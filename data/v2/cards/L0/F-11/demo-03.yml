@@ -1,0 +1,52 @@
+# =====================================================================
+# L0 / F-11 / DemoCard 03
+# Atom: Variable declaration + initialisation (struct field init)
+# =====================================================================
+id: "L0-F11-demo-03"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch how a struct gets its fields initialised. The brace list
+  `{ ... }` writes values into the fields in order, and is the
+  canonical Q1 trace setup.
+
+whyOneLine: "struct d = { ... }; declares d AND fills every field at once."
+
+demoCode: |
+  // Real test V2.0 trace setup line:
+  stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+
+  // After this line the boxes look like:
+  // d.numbers[0] = 2.4
+  // d.numbers[1] = -3.7
+  // d.numbers[2] = -1.7
+  // d.numbers[3] = 3.0
+  // d.numbers[4] = 2.0
+  // d.mystery   = -0.9
+
+highlightTokens:
+  - "stat_double d ="
+  - "{ {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 }"
+  - "d.numbers[0]"
+  - "d.mystery"
+
+usedIn:
+  - "Q1 trace (the struct setup line on every Q1 — exact format)"
+  - "Q4 main (an alternative way to fill the struct without cin)"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };"
+
+commonMistakeIds: ["CM-F11a"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  EXACT V2.0 trace setup line. Students see this on Q1 and need to
+  recognise it as one declaration-with-initialisation.

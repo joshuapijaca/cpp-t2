@@ -1,0 +1,47 @@
+id: "L1-S2-TA-04-cloze-keyword"
+schemaVersion: "v2"
+atomId: "T-01"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Fill in the missing keyword that introduces a struct definition.
+
+prompt: |
+  Provide the missing keyword on line 1.
+
+template: |
+  ___ stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+canonicalAnswer: |
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+keyChecks:
+  - "struct"
+
+forbiddenTokens:
+  - "class"
+  - "while"
+
+explanation: |
+  `struct` (lowercase) is the C++ keyword. `class` would compile but
+  is wrong style for SIT102.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — struct keyword"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-A line cloze: keyword.
+authoringStatus: "DRAFT"

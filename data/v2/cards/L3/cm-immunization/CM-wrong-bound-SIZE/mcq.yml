@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-wrong-bound-SIZE
+id: "L3-cmimm-CM-wrong-bound-SIZE-mcq"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "MCQCard"
+
+stem: |
+  For a `SIZE=5` array, what is the correct loop bound?
+
+correct: '`for (int i = 0; i < SIZE; i++)` — strictly less than'
+
+distractors:
+  - '`for (int i = 0; i <= SIZE; i++)` — inclusive of SIZE'
+  - '`for (int i = 1; i <= SIZE; i++)` — start at 1'
+  - '`for (int i = 0; i < SIZE - 1; i++)` — stop one early'
+
+explanation: |
+  Indices are 0..SIZE-1 (5 values). `<` (not `<=`) gives exactly SIZE iterations and never reaches the off-the-end index SIZE.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-wrong-bound-SIZE)"
+
+commonMistakeIds: ["CM-wrong-bound-SIZE"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

@@ -1,0 +1,44 @@
+id: "L5-warmup-05-q1"
+schemaVersion: "v2"
+atomId: "M-04"
+qTags: ["Q1"]
+stage: 6
+level: "L5"
+type: "DemoCard"
+
+stem: |
+  Q1 canonical sum-positive demo. D7 warmup demo — passive observation.
+
+whyOneLine: "See the canonical sum-positive pattern one more time before the test."
+
+demoCode: |
+  void who_am_i(stat_double &data) {
+    int i;
+    data.mystery = 0.0;
+    for (i = 0; i < SIZE; i++) {
+      if (data.numbers[i] > 0) {
+        data.mystery = data.mystery + data.numbers[i];
+      }
+    }
+    return;
+  }
+
+highlightTokens:
+  - "&data"
+  - "for ("
+  - "cin"
+  - "return 0;"
+
+usedIn:
+  - "Every Test 2 Q1 attempt"
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q1 — D7 warmup demo"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  D7 warmup #5: canonical Q1 demo.

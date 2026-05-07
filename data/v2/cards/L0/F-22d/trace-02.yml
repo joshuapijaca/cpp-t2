@@ -1,0 +1,76 @@
+# =====================================================================
+# L0 / F-22d / TraceCard 02 — caller does NOT see mutation (no &)
+# =====================================================================
+id: "L0-F22d-trace-02"
+schemaVersion: "v2"
+atomId: "F-22d"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Same code as F-22d trace-01, BUT the parameter is now passed by
+  value (no `&`). Hand-execute. What does `n` hold after the call?
+
+code: |
+  void bump(int x) {
+    x = x + 1;
+  }
+
+  int main() {
+    int n = 5;
+    bump(n);
+    cout << n << endl;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 6
+    variable: "n"
+    value: "5"
+    output: null
+  - line: 7
+    variable: "n"
+    value: "5"
+    output: null
+  - line: 8
+    variable: ""
+    value: ""
+    output: "5"
+
+terminalOutput: ["5"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Step-by-step:
+  - Line 6: int n = 5;
+    Panel: { n: 5 }
+  - Line 7: bump(n);
+    NO `&` in the signature. The function gets a COPY of n. Inside
+    bump, `x` is a local int = 5. The line `x = x + 1` makes the
+    LOCAL copy 6. The CALLER's `n` is untouched.
+    Panel: { n: 5 } (unchanged)
+  - Line 8: cout << n;
+    Prints 5.
+
+  Final: n = 5. Terminal: 5.
+
+  Compare: F-22d trace-01 (with &) printed 6. The single character
+  `&` made the difference. This is the silent Q3 bug.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-22d — pass-by-value contrast"
+
+commonMistakeIds: ["CM-F22b-1", "CM-F22d-1"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Side-by-side contrast with F-22d trace-01. Felt difference: same
+  function body, different signature, different result. Drives
+  home what `&` does.

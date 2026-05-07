@@ -1,0 +1,35 @@
+
+id: "L2-S1-tour-05-spot"
+schemaVersion: "v2"
+atomId: "L-21"
+qTags: ["Q2"]
+stage: 1
+level: "L2"
+type: "FaultInjectionCard"
+stem: "Q2 Tour spot-error #5. The struct below has a single bug: missing ; after closing }. Identify what's wrong and write the fixed version."
+brokenCode: |
+  struct desk_data
+  {
+      int room_id;
+      int d_id;
+      int number_of_screens;
+  }
+bugLocations: [6]
+fixedCode: |
+  struct desk_data
+  {
+      int room_id;
+      int d_id;
+      int number_of_screens;
+  };
+bugCategory: "missing ; after closing }"
+keyChecks: ["struct","};"]
+explanation: "The closing brace of a struct definition must be followed by a semicolon. This is the highest-frequency Q2 error on the SIT102 test."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S1 TOUR"
+commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Spot-error tour card. Drills the missing ; after closing } immunization."

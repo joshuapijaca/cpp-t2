@@ -1,0 +1,47 @@
+id: "L4-S1-demo-variant-01"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: 
+  - "Q4"
+stage: 1
+level: "L4"
+type: "DemoCard"
+stem: "Variant tour: book_data entity. Same skeleton, different name/MAX. Notice MAX=200, count=book_count, fn=read_books."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.2 S1 entity-swap variants"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+whyOneLine: "The Q4 main() skeleton is invariant — only entity, MAX, count_var name, and fn name change."
+demoCode: |
+  int main()
+  {
+      const int MAX = 200;
+      book_data books[MAX];
+      int book_count;
+  
+      cout << "How many books? ";
+      cin >> book_count;
+  
+      read_books(books, book_count);
+  
+      for (int i = 0; i < book_count; i++)
+      {
+          cout << books[i].title << ", ";
+          cout << books[i].author << ", ";
+          cout << books[i].pages << endl;
+      }
+  
+      return 0;
+  }
+highlightTokens: 
+  - "const int MAX"
+  - "book_data books[MAX]"
+  - "int book_count"
+  - "read_books(books, book_count)"
+  - "return 0;"
+usedIn: 
+  - "Q4 entity transfer (any noun → main works)"
+  - "Q4 cold-start (entity-name-only)"

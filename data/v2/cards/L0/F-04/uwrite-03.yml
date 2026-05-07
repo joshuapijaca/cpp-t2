@@ -1,0 +1,49 @@
+# =====================================================================
+# L0 / F-04 / ProceduralCard 03 (μ-write)
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-uwrite-03"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  No skeleton, no hint, no scaffolding. From a blank line, type the
+  full canonical preamble that every C++T2 Q4 answer begins with.
+
+section: "L0 · F-04 · μ-write — blank-page preamble"
+
+prompt: |
+  Starting from an empty file, type the first two lines of any C++T2
+  Q4 answer.
+
+expectedAnswer: |
+  #include <iostream>
+  using namespace std;
+
+keyChecks:
+  - "#include"
+  - "<iostream>"
+  - "using namespace std;"
+
+variants:
+  - prompt: "From a blank screen, type the two-line preamble. No prompts, no template."
+    expectedAnswer: |
+      #include <iostream>
+      using namespace std;
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md (preamble lockdown)"
+
+commonMistakeIds: ["CM-F04a", "CM-F04b", "CM-F04c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 3: cold-recall. Maximum-difficulty drill. No code on screen
+  to copy — the student types the canonical preamble from memory.
+  This is the actual demand on Test 2 day.

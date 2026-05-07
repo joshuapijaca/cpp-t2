@@ -1,0 +1,33 @@
+id: CM-Q1-mystery-wrong-type
+name: "Q1 stat_double.mystery declared int / float instead of double"
+description: |
+  Test 2 V2.0 Q1 uses a struct `stat_double { double numbers[SIZE];
+  double mystery; }`. The mystery accumulator must be `double` because
+  it stores running sums/products of doubles. Students write `int
+  mystery;` (default fallback type) or `float mystery;` (looks similar).
+  Wrong type silently truncates fractional parts (int) or loses
+  precision (float), then the trace gives wrong final values that pass
+  no key-checks.
+whyItHappens: |
+  `int` is the default type students reach for ("just give me a
+  number"). They don't notice that the array is `double[]` so the
+  accumulator must match. Float looks similar to double and is
+  imported from Java/C# habits where float is the common floating
+  type. Students who haven't internalised "type of numbers determines
+  type of mystery" see mystery as just "any number variable".
+immunizationStrategy: |
+  1. SpotError: struct with `int mystery;` next to `double numbers[SIZE]`.
+  2. MCQ: "Type of mystery in stat_double?" — int / float / double / void.
+  3. Cloze: `___ mystery;` — answer is `double`.
+  4. Decompose: walk through why type must match (sum of doubles is
+     double; truncation loses fractional part).
+  5. Demo: trace with int mystery, watch 1.5 + 2.7 = 4 instead of 4.2.
+  6. Walkthrough: link mystery type to numbers[] type via the pattern
+     "accumulator matches element type".
+examImpact: medium
+atomDependencies: [T-01, F-09]
+qTracks: [Q1]
+relatedCMs: [CM-int-vs-double, CM-Q1-array-no-size, CM-Q1-wrong-return-type]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 attempt 1 — struct stat_double { double numbers[SIZE]; double mystery; }"

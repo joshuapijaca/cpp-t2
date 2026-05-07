@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-08 / ClozeCard 02
+# Atom: Block delimiters: { and }
+# =====================================================================
+id: "L0-F08-cloze-02"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  The line below uses the placeholder CLOSE_BRACE for a single
+  punctuation character. Type that character.
+
+code: |
+  // function-body skeleton with the closing character hidden:
+  //   int main() OPEN_BRACE
+  //     return 0;
+  //   CLOSE_BRACE
+  //
+  // Reference (with the actual characters):
+  int main() {
+    return 0;
+  }
+
+clozeSentence: |
+  The CLOSE_BRACE placeholder stands for the single character ____
+
+answer: "}"
+
+explanation: |
+  The character is `}`. It closes the function body block. Every
+  `}` must have a matching `{` earlier — on the function-header
+  line.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Cloze 2: the `}` character. Targets CM-F08a (forgets closing
+  brace). The visible code includes the balanced reference.

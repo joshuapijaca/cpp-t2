@@ -1,0 +1,40 @@
+# =====================================================================
+# L3 / R-04 / FunctionWriteCard — param name 'arg'
+# =====================================================================
+id: "L3-R04-param-08"
+schemaVersion: "v2"
+atomId: "R-04"
+qTags: ["Q3"]
+stage: 5
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Variation: read_houses with count parameter renamed to 'arg'.
+prompt: "param-name variant"
+canonicalAnswer: |
+  void read_houses(house_data &houses[], int arg)
+  {
+    for (int i = 0; i < arg; i++)
+    {
+      cout << "Bedrooms: ";
+      cin >> houses[i].bedrooms;
+      cout << "Area (m^2): ";
+      cin >> houses[i].area_m2;
+      cout << "Price: ";
+      cin >> houses[i].price;
+    }
+  }
+keyChecks:
+  - "int arg"
+  - "for (int i = 0; i < arg; i++)"
+forbiddenTokens:
+  - "while"
+explanation: |
+  Same skeleton; the count parameter name is just a label. Use it consistently in the for-loop bound.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

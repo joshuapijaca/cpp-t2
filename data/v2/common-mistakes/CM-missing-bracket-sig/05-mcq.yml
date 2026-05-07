@@ -1,0 +1,32 @@
+id: "CM-missing-bracket-sig-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-missing-bracket-sig: Q3 missing [] in signature. Add `[]` to indicate array parameter.
+
+correct: "void read_X(entity arr[], int count)"
+
+distractors:
+  - "void read_X(entity arr, int count)"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: void read_X(entity arr[], int count)
+  Mistake: Signature wrote `entity arr` — accepts a single struct, not an array.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-missing-bracket-sig"
+
+commonMistakeIds: ["CM-missing-bracket-sig"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-missing-bracket-sig.

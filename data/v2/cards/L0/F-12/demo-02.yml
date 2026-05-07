@@ -1,0 +1,61 @@
+# =====================================================================
+# L0 / F-12 / DemoCard 02
+# Atom: Assignment = (V2.0 anchor)
+# =====================================================================
+id: "L0-F12-demo-02"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the V2.0 trace accumulator update. Every iteration uses the
+  RHS-first rule. Read the CURRENT mystery, add the new number, write
+  back.
+
+whyOneLine: "data.mystery = data.mystery + data.numbers[i]; reads current, then writes."
+
+demoCode: |
+  // V2.0 trace: stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+  // After data.mystery = 0.0; the field is 0.0.
+
+  // i=0: data.numbers[0] = 2.4 (positive)
+  data.mystery = data.mystery + data.numbers[0];
+  // RHS: 0.0 + 2.4 = 2.4. Write 2.4.   mystery: 2.4
+
+  // i=1: data.numbers[1] = -3.7 (negative, skipped by `if`)
+
+  // i=2: data.numbers[2] = -1.7 (negative, skipped)
+
+  // i=3: data.numbers[3] = 3.0 (positive)
+  data.mystery = data.mystery + data.numbers[3];
+  // RHS: 2.4 + 3.0 = 5.4. Write 5.4.   mystery: 5.4
+
+  // i=4: data.numbers[4] = 2.0 (positive)
+  data.mystery = data.mystery + data.numbers[4];
+  // RHS: 5.4 + 2.0 = 7.4. Write 7.4.   mystery: 7.4
+
+highlightTokens:
+  - "data.mystery = data.mystery"
+  - "RHS"
+  - "0.0 + 2.4"
+  - "2.4 + 3.0"
+  - "5.4 + 2.0"
+
+usedIn:
+  - "Q1 trace EVERY iteration uses this exact assignment"
+  - "Q4 main (any sum-positives accumulator is the same pattern)"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: data.mystery = data.mystery + data.numbers[i];"
+
+commonMistakeIds: ["CM-F12b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  EXACT V2.0 accumulator pattern. The student must trace this on Q1.
+  Final answer for V2.0 is mystery = 7.4.

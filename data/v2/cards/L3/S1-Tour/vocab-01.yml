@@ -1,0 +1,25 @@
+# =====================================================================
+# L3 / R-00 / MCQCard — vocab
+# =====================================================================
+id: "L3-R00-vocab-01"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 1
+level: "L3"
+type: "MCQCard"
+stem: |
+  In the signature, what does `&` mean?
+correct: "pass by reference (caller sees changes)"
+distractors:
+  - "address-of operator"
+  - "pointer dereference"
+  - "bitwise AND"
+explanation: |
+  Term in context: pass by reference (caller sees changes).
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/1-tour/02-01-read-fns"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

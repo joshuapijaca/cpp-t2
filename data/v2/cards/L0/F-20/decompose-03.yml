@@ -1,0 +1,60 @@
+# =====================================================================
+# L0 / F-20 / DecomposeCard 03
+# Atom: struct definition — `class` is wrong here
+# =====================================================================
+id: "L0-F20-decomp-03"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Test 2 expects the keyword `struct`. This code uses something else.
+  Pick the option that names the issue and gives the Test-2-correct
+  fix.
+
+code: |
+  class stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+question: |
+  Why is this not Test-2-correct, and what should it be?
+
+options:
+  - label: "A"
+    text: "It is correct — `class` and `struct` are interchangeable in Test 2 scope."
+  - label: "B"
+    text: "Replace `class` with `struct`. Test 2 explicitly requires the `struct` keyword and uses default-public access."
+  - label: "C"
+    text: "Add `public:` after the `{`. With that one line the `class` form is acceptable."
+  - label: "D"
+    text: "Replace the struct entirely with a typedef union — Test 2 does not support structs."
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. Although C++ allows `class` for similar definitions,
+  Test 2 is in the SIT102 dialect and explicitly expects `struct`
+  for entities. `struct` defaults to public access for fields, so
+  the trace and read-function code can directly read `data.field`.
+  A is wrong: `class` defaults to PRIVATE; the trace would be unable
+  to read the fields the same way.
+  C is wrong: even with `public:`, the rubric will mark it down for
+  using the wrong keyword in this dialect.
+  D is wrong: typedef union is not a substitute for struct.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Targets CM-F20e (uses `class` instead of `struct`). C# and Java
+  background students gravitate toward `class` — neutralised here.

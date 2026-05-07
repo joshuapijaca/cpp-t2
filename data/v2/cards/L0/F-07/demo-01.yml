@@ -1,0 +1,53 @@
+# =====================================================================
+# L0 / F-07 / DemoCard 01
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-demo-01"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch where the semicolon GOES and where it does NOT go. The rule:
+  one `;` at the end of every complete instruction.
+
+whyOneLine: "Every C++ statement ends with a semicolon — never inside the statement, never on header lines, always at the end."
+
+demoCode: |
+  // Where ; GOES (statements ending with ;):
+  int x = 5;             // declaration
+  cout << x << endl;     // output statement
+  return 0;              // return statement
+
+  // Where ; does NOT GO (preprocessor and block-header lines):
+  // #include <iostream>      <-- preprocessor directive — NO ; (newline ends it)
+  // int main() {             <-- function header opening a block — NO ; (the { ends it)
+  // }                        <-- block closer — NO ; (the } ends it)
+
+highlightTokens:
+  - "int x = 5;"
+  - "cout << x << endl;"
+  - "return 0;"
+  - "NO ;"
+
+usedIn:
+  - "Q1 trace cards (every line you read terminates with ;)"
+  - "Q2 struct definition (every field ends with ; — and the struct itself ends with };)"
+  - "Q3 input/output function (every cin/cout statement ends with ;)"
+  - "Q4 main program (every body statement ends with ;)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-0-cpp-syntax.md (missing semicolons are the most frequent compiler error for beginners)"
+
+commonMistakeIds: ["CM-F07a", "CM-F07b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Goes / Does-not-go demo. Critical to disentangle: every statement
+  needs `;` BUT preprocessor directives, block-headers, and
+  block-closers do NOT. The novice instinct is to add `;` everywhere.

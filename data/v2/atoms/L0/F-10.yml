@@ -1,0 +1,24 @@
+id: F-10
+name: "Primitive types: int, double, string"
+level: L0
+phase: C
+teaches: "int = whole number; double = decimal; string = text (needs <string>). Type semantics + which to pick."
+prereqs: [F-09]
+usedByQs: [Q1, Q2, Q3, Q4]
+cardCountTarget: 20
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/06-type"
+    quote: "A type defines the kind of values a variable can hold and the operations possible on those values."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/3-structuring-data/0-panorama/0-type"
+    quote: "Standard primitive types include int, double, char, bool. Strings come from <string>."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:30:15 — Saloni: 'double D. So that's how I referred it' (typing fields)"
+commonMistakes:
+  - CM-F10a  # uses int for currency/decimal numbers
+  - CM-F10b  # uses string without #include <string>
+  - CM-F10c  # writes Int / Double / String capitalised
+  - CM-F10d  # uses float instead of double for SIT102 idiom
+notes:
+  cardMix: { walkthrough: 2, demo: 3, decompose: 3, cloze: 4, μWrite: 3, tmplRec: 1, mcq: 3, proc: 1 }

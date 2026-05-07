@@ -1,0 +1,71 @@
+# =====================================================================
+# L0 / F-06 / DecomposeCard 03
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-decomp-03"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  The program below has the WRONG header for the entry function.
+  Pick the option that names the error precisely.
+
+code: |
+  #include <iostream>
+  using namespace std;
+  void Main() {
+    cout << "hi" << endl;
+  }
+
+question: |
+  What is wrong with the entry function header on line 3?
+
+options:
+  - label: "A"
+    text: |
+      Two errors: (1) the return type is `void` instead of `int`,
+      (2) the function name is `Main` (capital M) instead of `main`.
+      The OS looks for lowercase `main` and main must return int.
+  - label: "B"
+    text: |
+      Nothing is wrong. `void Main()` is interchangeable with
+      `int main()` in C++.
+  - label: "C"
+    text: |
+      Only the parentheses are wrong; they should hold the word
+      `main` like `(main)`.
+  - label: "D"
+    text: |
+      Only the closing brace is wrong; it should be a square bracket.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct: both the return type AND the name are wrong.
+  - Return type: must be `int`, not `void`. The C++ standard requires
+    main to return int (so the OS gets an exit code).
+  - Name: must be `main`, all lowercase. C++ identifiers are
+    case-sensitive; `Main` is a different (and undefined) name.
+
+  B is wrong: not interchangeable. The standard mandates
+  `int main()`.
+  C is wrong: parentheses hold parameters, not the function name.
+  D is wrong: braces are correct; square brackets aren't a brace
+  alternative.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F06b", "CM-F06d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Error-spot decompose. Tests recognition of two simultaneous
+  header errors (void + capital M). Forces the student to name
+  both — beginner-frequent.

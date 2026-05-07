@@ -1,0 +1,58 @@
+# =====================================================================
+# L0 / F-22d / DemoCard 01 — alias mental model
+# =====================================================================
+id: "L0-F22d-demo-01"
+schemaVersion: "v2"
+atomId: "F-22d"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: a reference parameter is an ALIAS — a second name for the
+  caller's variable. There is one storage, two names; mutations
+  through either name are visible through both.
+
+whyOneLine: "A `&` parameter is a second NAME for one storage — mutations are visible to all names."
+
+demoCode: |
+  // Caller side:
+  int n = 5;            // STORAGE: 5,  NAMES: { n }
+
+  // Inside `void bump(int &x) { x = x + 1; }`:
+  //                     STORAGE: 5,  NAMES: { n, x }
+  //                     after `x = x + 1`:
+  //                     STORAGE: 6,  NAMES: { n, x }
+
+  // After return (x goes out of scope):
+  //                     STORAGE: 6,  NAMES: { n }
+
+  // The caller now sees n = 6.
+
+  // KEY MENTAL MODEL: one box, two labels. Modify through either
+  // label and the box (storage) updates. The labels never have
+  // their own boxes.
+
+highlightTokens:
+  - "STORAGE"
+  - "NAMES"
+  - "alias"
+  - "one box, two labels"
+  - "x = x + 1"
+
+usedIn:
+  - "Q1 trace (function mutates caller's struct via reference)"
+  - "Q3 read function (cin writes go through reference into caller)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/0-pointers-and-references"
+
+commonMistakeIds: ["CM-F22d-1"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Builds the "one storage, two names" mental model. After this,
+  the trace card behaviours are mechanical consequences.

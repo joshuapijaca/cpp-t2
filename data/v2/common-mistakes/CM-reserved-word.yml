@@ -1,0 +1,25 @@
+id: CM-reserved-word
+name: "Student uses a reserved word as a field name"
+description: |
+  C++ reserved words (`int`, `class`, `new`, `for`, `while`, `return`,
+  `void`, etc.) cannot be field names. Students attempt fields like
+  `int new;` or `int class;`, producing immediate compile errors.
+whyItHappens: |
+  In English, words like "class" and "new" are natural field names for
+  certain entities (`class_id`, `new_count`). Students forget the
+  reserved-word ban or assume it doesn't apply inside structs.
+immunizationStrategy: |
+  1. SpotError: struct with `int class;` field; flag reserved word.
+  2. MCQ: "Is `class` a legal field name? (no, reserved)"
+  3. Cloze: replace reserved-word fields with safe alternatives.
+  4. ReservedWordList demo card: 30+ keywords memorise.
+  5. WriteCard prompt with English nouns including "class"; student
+     transforms to safe identifier (e.g. `class_id`, `room_class`).
+  6. Decompose: classify identifiers as legal vs reserved.
+examImpact: low
+atomDependencies: [F-09, F-20]
+qTracks: [Q2]
+relatedCMs: [CM-cap-struct-keyword, CM-hyphen-id]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §4.6 Q2 Common Errors — Reserved word as field name LOW"

@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-hyphen-id
+id: "L2-cmimm-CM-hyphen-id-mcq"
+schemaVersion: "v2"
+atomId: "L-21"
+qTags: ["Q2"]
+stage: 4
+level: "L2"
+type: "MCQCard"
+
+stem: |
+  Which character separator is legal inside a C++ identifier?
+
+correct: '`_` — underscore'
+
+distractors:
+  - '`-` — hyphen'
+  - '`.` — period'
+  - '` ` — space'
+
+explanation: |
+  Identifiers: letters, digits, underscore. `-`, `.`, space are not allowed.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-hyphen-id)"
+
+commonMistakeIds: ["CM-hyphen-id"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

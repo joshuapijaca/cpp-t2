@@ -1,0 +1,60 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 10 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Three writes to the same box
+# =====================================================================
+id: "L0-F23-trace-10"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  One box, three writes. Step through the program. Final value of
+  `k`?
+
+code: |
+  int main() {
+    int k = 10;
+    k = 20;
+    k = 30;
+    return 0;
+  }
+
+variables: ["k"]
+
+expectedTrace:
+  - line: 2
+    variable: "k"
+    value: "10"
+    output: null
+  - line: 3
+    variable: "k"
+    value: "20"
+    output: null
+  - line: 4
+    variable: "k"
+    value: "30"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Each line replaces the previous value. The box only ever has one
+  value at a time. After line 4, the box `k` holds 30; the values 10
+  and 20 are gone.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 10/30"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Three overwrites in a row. Reinforces the "no history" idea.

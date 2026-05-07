@@ -1,0 +1,53 @@
+# =====================================================================
+# L0 / F-19 / FunctionWriteCard 03 — μ-write index access
+# Atom: Fixed-size array — read by index
+# =====================================================================
+id: "L0-F19-write-03"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "FunctionWriteCard"
+
+stem: |
+  Write a single C++ statement that prints the value at index 0 of
+  array `arr` followed by a newline.
+
+prompt: "cout the value of arr[0] followed by endl."
+
+signatureHint: "cout << ____ << endl;"
+
+canonicalAnswer: |
+  cout << arr[0] << endl;
+
+keyChecks:
+  - "cout"
+  - "<<"
+  - "arr[0]"
+  - "endl"
+  - ";"
+
+forbiddenTokens:
+  - "printf"
+  - "puts"
+  - "*"
+
+explanation: |
+  `arr[0]` reads the first slot. The cout chain prints that value
+  then a newline. This is the smallest read pattern — combine with a
+  loop in Q1/Q3 to print every slot.
+
+passByRefRequired: false
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
+
+commonMistakeIds: ["CM-F19b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Builds the cout-of-array-element muscle. Used inside Q1 trace
+  loops and Q4 result printing.

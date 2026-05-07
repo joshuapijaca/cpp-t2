@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-17 / WalkthroughCard 02
+# Atom: if condition FALSE — body skipped
+# =====================================================================
+id: "L0-F17-walk-02"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Same shape as the previous walkthrough, but the condition is now
+  FALSE. Watch the body get SKIPPED entirely. This is the half
+  students forget — when the test fails, the cout inside never
+  prints.
+
+levelLabel: "L0 Foundation · Phase D · F-17"
+
+fullCode: |
+  int n = 2;
+  if (n > 5) {
+    cout << "big" << endl;
+  }
+  cout << "done" << endl;
+
+steps:
+  - line: 1
+    code: 'int n = 2;'
+    annotation: |
+      Box `n` opened with value 2.
+      VARIABLES: { n: 2 }
+    atomIds: ["F-17"]
+  - line: 2
+    code: 'if (n > 5) {'
+    annotation: |
+      Evaluate condition. Read n = 2. Ask 2 > 5? FALSE.
+      Because the condition is false, JUMP over the braces. Lines
+      3 and 4 do NOT run.
+    atomIds: ["F-17", "F-16"]
+  - line: 5
+    code: 'cout << "done" << endl;'
+    annotation: |
+      Execution resumes here. Print "done".
+      TERMINAL: done
+    atomIds: ["F-17"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/02-branches"
+
+commonMistakeIds: ["CM-F17a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Mirror of walk-01 with FALSE branch shown.
+  Final terminal is just "done" — no "big".
+authoringStatus: "DRAFT"

@@ -1,0 +1,47 @@
+# Hand-authored CM immunization (FaultInjectionCard) for CM-Q1-wrong-return-type
+id: "L1-cmimm-CM-Q1-wrong-return-type-spot"
+schemaVersion: "v2"
+atomId: "T-02"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "FaultInjectionCard"
+
+stem: |
+  This who_am_i function declares a non-void return type but mutates via reference. Fix the signature.
+
+brokenCode: |
+  double who_am_i(stat_double &data) {
+      data.mystery = 0.0;
+      for (int i = 0; i < SIZE; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+      }
+  }
+
+bugLocations: [1]
+
+fixedCode: |
+  void who_am_i(stat_double &data) {
+      data.mystery = 0.0;
+      for (int i = 0; i < SIZE; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+      }
+  }
+
+bugCategory: "non-void return type but no return statement"
+
+keyChecks:
+  - "void who_am_i"
+
+explanation: |
+  who_am_i mutates the caller's struct via the reference parameter and returns nothing. The return type must be `void`. Declaring `double` requires a return statement, which doesn't fit the mutate-via-reference pattern.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-wrong-return-type)"
+
+commonMistakeIds: ["CM-Q1-wrong-return-type"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

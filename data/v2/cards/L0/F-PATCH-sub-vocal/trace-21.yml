@@ -1,0 +1,61 @@
+# =====================================================================
+# L0 / F-24 / TraceCard 21 — sub-vocal predict-next-state
+# =====================================================================
+id: "L0-F24-trace-21"
+schemaVersion: "v2"
+atomId: "F-24"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Predict-first. With cout this time. Before line 3, also predict
+  what the terminal will receive — say the value out loud (or mouth
+  it) BEFORE pressing [step].
+
+code: |
+  int main() {
+    int v = 9;
+    cout << v << endl;
+    return 0;
+  }
+
+variables: ["v"]
+
+expectedTrace:
+  - line: 2
+    variable: "v"
+    value: "9"
+    output: null
+  - line: 3
+    variable: ""
+    value: ""
+    output: "9"
+
+terminalOutput: ["9"]
+
+inputMode: "per-step"
+
+q4StopCondition: "Articulate the value cout will print BEFORE pressing [step]."
+
+teachMe: |
+  PREDICTIONS:
+  - line 2: "v becomes nine"
+  - line 3: "terminal receives nine"
+  Final panel: { v: 9 }. Terminal: 9.
+
+  Predicting the printed value is what stops the "prints variable
+  name" mistake.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sub-vocal predict card 21/30"
+
+commonMistakeIds: ["CM-prints-variable-name"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  First cout with sub-vocal cue. Two predictions per card now —
+  variable AND terminal.

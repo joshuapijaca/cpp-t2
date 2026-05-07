@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-Q4-return-wrong-value
+id: "L4-cmimm-CM-Q4-return-wrong-value-mcq"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Q4 main is declared `int main()`. What MUST appear on the last line?
+
+correct: '`return 0;` — int main() requires returning an int (0 = success)'
+
+distractors:
+  - '`return;` — works for void functions, but main returns int'
+  - '`return main;` — function name as value; type mismatch'
+  - 'nothing — implicit return is fine in C++'
+
+explanation: |
+  `int main()` is a contract: the function returns an int. `return 0;` is the canonical success value to the OS. `return;` (no value) is a hard compile error in non-void functions.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block F — common-mistake immunization (CM-Q4-return-wrong-value)"
+
+commonMistakeIds: ["CM-Q4-return-wrong-value"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-07 / ProceduralCard 02 (μ-write)
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-uwrite-02"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q2"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Repair drill. The struct below is missing the terminator after
+  its closing brace. Repair every line — type the fully repaired
+  struct from `struct` to the canonical ending.
+
+section: "L0 · F-07 · μ-write — repair missing struct terminator"
+
+prompt: |
+  Original (broken — missing terminator after the struct close):
+
+  struct Point {
+    int x;
+    int y;
+  }
+
+  Add the missing character at the end. Type the entire repaired
+  struct definition (header line through the canonical close).
+
+expectedAnswer: |
+  struct Point {
+    int x;
+    int y;
+  };
+
+keyChecks:
+  - "struct Point {"
+  - "int x;"
+  - "int y;"
+  - "};"
+
+variants:
+  - prompt: "Repair the missing terminator on a struct Cell with int row, int col."
+    expectedAnswer: |
+      struct Cell {
+        int row;
+        int col;
+      };
+
+source:
+  kind: "seminar"
+  ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:25:39 — struct line-end punctuation"
+
+commonMistakeIds: ["CM-F07a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 2: targeted Q2 repair. The full struct is the unit of
+  reproduction — the focus is the canonical `};` ending (highest-
+  frequency Q2 error per Saloni's seminar).

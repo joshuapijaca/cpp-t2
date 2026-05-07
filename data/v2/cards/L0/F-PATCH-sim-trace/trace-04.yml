@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 04 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Single int with a negative literal
+# =====================================================================
+id: "L0-F23-trace-04"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through, then enter the value of `delta` into the variables
+  panel.
+
+code: |
+  int main() {
+    int delta = -3;
+    return 0;
+  }
+
+variables: ["delta"]
+
+expectedTrace:
+  - line: 2
+    variable: "delta"
+    value: "-3"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Negative literals work the same way. Box `delta` holds -3 after
+  line 2.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 4/30"
+
+commonMistakeIds: ["CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Negative literal so the student practices typing the minus sign
+  in the panel.

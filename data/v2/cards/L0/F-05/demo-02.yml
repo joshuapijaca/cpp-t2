@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-05 / DemoCard 02
+# Atom: using namespace std;
+# =====================================================================
+id: "L0-F05-demo-02"
+schemaVersion: "v2"
+atomId: "F-05"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Anatomy of the line. Watch the keywords, the namespace name, and
+  the terminator. Each token has a fixed role.
+
+whyOneLine: "using namespace std; is one statement: keyword 'using' + keyword 'namespace' + name 'std' + semicolon."
+
+demoCode: |
+  //  using   namespace   std   ;
+  //   |        |          |    |
+  //   |        |          |    +-- statement terminator (required)
+  //   |        |          +------- the namespace name (lowercase)
+  //   |        +------------------ keyword: namespace
+  //   +--------------------------- keyword: using
+
+  using namespace std;
+
+  //  Correct order matters: `using` first, `namespace` second, name
+  //  third, semicolon last. Reordering any of those (e.g. writing
+  //  just `namespace std;` without `using`) is invalid.
+
+highlightTokens:
+  - "using"
+  - "namespace"
+  - "std"
+  - ";"
+  - "Correct order"
+
+usedIn:
+  - "Q4 main program (mandatory line 2 of every answer)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F05b", "CM-F05c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Token-anatomy demo. Names every word and locks the order. Targets
+  the high-frequency mistakes of dropping `using` and capitalising
+  STD.

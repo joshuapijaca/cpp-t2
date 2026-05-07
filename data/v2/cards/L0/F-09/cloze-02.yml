@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-09 / ClozeCard 02
+# Atom: Identifier rules + naming (legal name fragment)
+# =====================================================================
+id: "L0-F09-cloze-02"
+schemaVersion: "v2"
+atomId: "F-09"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  A snake_case identifier joins multiple words. Fill in the punctuation
+  used between words.
+
+code: |
+  int first___name;
+  string user___id;
+  double total___price;
+
+clozeSentence: |
+  Words inside a snake_case identifier are joined by a single ___
+  character. Spaces are not legal; hyphens are not legal.
+
+answer: "_"
+
+explanation: |
+  The underscore character `_` joins words in snake_case. The legal
+  versions are `first_name`, `user_id`, `total_price`. The compiler
+  reads `_` as part of the identifier, just like a letter.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/3-naming-convention"
+
+commonMistakeIds: ["CM-F09c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Reinforces the underscore-as-glue idea. Pairs with cloze-01.

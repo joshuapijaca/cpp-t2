@@ -1,0 +1,83 @@
+id: "L5-postmortem-27-missing-bracket-i"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Q4 main — student added an extra `&` at the call site (`read_students(&students, count)`). Compile error: the function expects `student_data[]` not `student_data*`. Read the diff.
+
+failedAttempt: |
+  int main()
+  {
+      const int MAX = 100;
+      student_data students[MAX];
+      int count = 0;
+
+      cout << "How many students? ";
+      cin >> count;
+
+      read_students(&students, count);
+      print_students(&students, count);
+
+      return 0;
+  }
+
+diagnosis: |
+  In C++, you put `&` on the parameter SIGNATURE (function definition), NOT at the call site. `&students` at the call site evaluates to "address of `students`" (a pointer-to-array, type `student_data(*)[MAX]`), which doesn't match the function's `student_data students[]` parameter (which expects an array, decaying to `student_data*`). Type mismatch = compile error. The `&` belongs in the read function's signature when modifying scalar struct params, not at the call.
+
+repairSteps:
+  - "int main()"
+  - "{"
+  - "    const int MAX = 100;"
+  - "    student_data students[MAX];"
+  - "    int count = 0;"
+  - "    cout << \"How many students? \";"
+  - "    cin >> count;"
+  - "    read_students(students, count);    // <-- no `&` at call site"
+  - "    print_students(students, count);"
+  - "    return 0;"
+  - "}"
+
+preventionTip: |
+  `&` for pass-by-reference goes on the PARAMETER (function signature), never on the ARGUMENT (call site). At the call site, just write the variable name. Mantra: "`&` on the side that DECLARES, not the side that CALLS."
+
+explanation: |
+  Lesson learned — `&` has two meanings in C++: in declarations it means "reference to" (pass-by-reference); in expressions it means "address-of" (pointer creation). At the call site, `&students` makes a pointer, not a reference. Don't confuse the two contexts. The function's signature already has `[]` (array decay handles the by-reference effect for arrays); the call passes the bare variable name.
+
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 100;
+      student_data students[MAX];
+      int count = 0;
+
+      cout << "How many students? ";
+      cin >> count;
+
+      read_students(students, count);
+      print_students(students, count);
+
+      return 0;
+  }
+
+annotations:
+  - line: 10
+    severity: err
+    note: "`&students` at call site creates a pointer-to-array. Function expects `student_data[]`. Type mismatch. Just write `students`."
+  - line: 11
+    severity: err
+    note: "Same extra `&`. The `&` belongs in the FUNCTION SIGNATURE, not the call."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q4 call-site `&` mistake"
+
+commonMistakeIds: ["CM-Q4-amp-at-call"]
+status: "NEW"
+createdBy: "SA-L5-Postmortem-Rewrite"
+authoringStatus: "DRAFT"
+notes: |
+  Postmortem #27 — Q4 / extra `&` at call site.

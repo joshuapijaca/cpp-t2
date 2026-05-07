@@ -1,0 +1,31 @@
+id: "L5-wildcard-13-q3"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 5
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  S5.5 wildcard: Prompt outside loop.
+
+correct: "Prompts go INSIDE the loop, before each cin."
+
+distractors:
+  - "Prompts go BEFORE the loop, once."
+  - "Prompts are not required for cin."
+  - "Prompts go AFTER the loop."
+
+explanation: |
+  If you print prompts ("Enter title: "), they go inside the loop (once per element). Outside = only one prompt for many reads.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 wildcard"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #13: Q3 Prompt outside loop.

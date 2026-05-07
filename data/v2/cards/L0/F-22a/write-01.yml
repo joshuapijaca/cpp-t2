@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-22a / FunctionWriteCard 01 — empty function shell
+# =====================================================================
+id: "L0-F22a-write-01"
+schemaVersion: "v2"
+atomId: "F-22a"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "FunctionWriteCard"
+
+stem: |
+  Write an empty function shell named `greet` that returns `void`
+  and takes no parameters. Body should be empty `{ }`.
+
+prompt: "Empty void function `greet()` with no parameters."
+
+signatureHint: "void greet() { }"
+
+canonicalAnswer: |
+  void greet()
+  {
+  }
+
+keyChecks:
+  - "void"
+  - "greet"
+  - "()"
+  - "{"
+  - "}"
+
+forbiddenTokens:
+  - "function"
+  - "->"
+  - "Func"
+  - ";"
+
+explanation: |
+  Smallest possible function definition. Four parts:
+  return type (`void`), name (`greet`), parameter list (`()` —
+  empty), body (`{ }` — empty). No `;` anywhere in the header.
+
+passByRefRequired: false
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/01-function-decl"
+
+commonMistakeIds: ["CM-F22a-1", "CM-F22a-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Smallest possible write of the function shape. Forbidden tokens
+  block JS/TS `function` keyword and Rust-style `->` return arrow.

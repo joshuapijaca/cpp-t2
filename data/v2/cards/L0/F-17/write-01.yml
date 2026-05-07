@@ -1,0 +1,53 @@
+# =====================================================================
+# L0 / F-17 / TemplateRecallCard 01 (μWrite)
+# Atom: write a basic if
+# =====================================================================
+id: "L0-F17-write-01"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Write a complete if-statement that prints "positive" when `x` is
+  greater than zero. Use full braces.
+
+prompt: |
+  Produce an if-statement that prints "positive" when x > 0.
+
+template: |
+  if (___) {
+    cout << ___ << endl;
+  }
+
+canonicalAnswer: |
+  if (x > 0) {
+    cout << "positive" << endl;
+  }
+
+keyChecks:
+  - "if (x > 0)"
+  - "cout"
+  - "positive"
+
+forbiddenTokens:
+  - "while"
+  - "do"
+
+explanation: |
+  Standard if-shape. Note the braces — required even though the
+  body has just one cout. Note the parens around `x > 0`. Note the
+  semicolon at the end of the cout (not after the closing brace).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"
+
+commonMistakeIds: ["CM-F17b", "CM-F17c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

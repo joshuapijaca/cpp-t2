@@ -1,0 +1,31 @@
+id: "L1-S2-TCOMBO-mcq-01"
+schemaVersion: "v2"
+atomId: "T-08"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "MCQCard"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — full Q1 program shape"
+commonMistakeIds: ["CM-Q1-struct-no-trailing-semi", "CM-Q1-missing-amp", "CM-Q1-skip-init"]
+stem: |
+  Reading top-to-bottom, which order matches the canonical Q1
+  mini-program (struct + function + main)?
+correct: "struct decl -> function definition -> main { brace-init -> call -> print }"
+distractors:
+  - "main { brace-init -> call -> print } -> function definition -> struct decl"
+  - "function definition -> struct decl -> main { brace-init -> call -> print }"
+  - "struct decl -> main { brace-init -> call -> print } -> function definition"
+explanation: |
+  C++ requires types to be declared before use, and free functions
+  to be declared (or fully defined) before they are called. The Q1
+  layout is: struct first, function next (so it sees the struct),
+  then main (which uses both).
+  Distractor 1 places main first — but main calls who_am_i and uses
+  stat_double, which need to be visible already. Distractors 2 and 3
+  break the same dependency.
+notes: "MCQ form for QA-M10 type-diversity."

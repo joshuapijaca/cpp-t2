@@ -1,0 +1,47 @@
+# =====================================================================
+# L3 / Block A amp-array / FunctionWrite 01 — desk_data
+# =====================================================================
+id: "L3-AmpArr-write-01"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+
+stem: "Write ONLY the signature line for read_desks. The & must sit on the array decay parameter, written `&desk_list[]` exactly."
+
+prompt: "Write the signature only (no body) for read_desks that reads desk_data items by reference."
+
+signatureHint: "void read_desks(desk_data &desk_list[], int number_to_read)"
+
+canonicalAnswer: |
+  void read_desks(desk_data &desk_list[], int number_to_read)
+  {
+  }
+
+keyChecks:
+  - "void"
+  - "read_desks"
+  - "desk_data"
+  - "&desk_list[]"
+  - "int number_to_read"
+
+forbiddenTokens:
+  - "*"
+  - "function"
+
+explanation: |
+  V2.0 places `&` directly before the parameter name on the array-decay form: `desk_data &desk_list[]`. The `&` and `[]` go together. Missing either is the most common Q3 fail.
+
+passByRefRequired: true
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V Block A — &list[] placement"
+
+commonMistakeIds: ["CM-Q3-missing-amp", "CM-Q3-missing-brackets-sig"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "Block A entity 1 (desk). &list[] placement drill."

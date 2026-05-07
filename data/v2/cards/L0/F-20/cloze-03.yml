@@ -1,0 +1,41 @@
+# =====================================================================
+# L0 / F-20 / ClozeCard 03
+# Atom: struct field semicolon
+# =====================================================================
+id: "L0-F20-cloze-03"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing token at the end of each field line.
+
+code: |
+  struct stat_double {
+    double numbers[SIZE]___
+    double mystery___
+  };
+
+clozeSentence: "double numbers[SIZE]___  +  double mystery___ // both"
+
+answer: ";"
+
+explanation: |
+  Each field is its own declaration statement and ends with `;`.
+  Two fields -> two field-end semicolons (plus the third one after
+  the closing `}`).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Per-field semicolon drill. Even when students remember the
+  closing `;`, dropping a field-end `;` is a frequent slip.

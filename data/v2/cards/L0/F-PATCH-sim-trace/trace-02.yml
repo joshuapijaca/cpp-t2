@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 02 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Single int with a different literal value
+# =====================================================================
+id: "L0-F23-trace-02"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Open the variables panel. Step through the program. After the last
+  line runs, what value sits inside box `count`?
+
+code: |
+  int main() {
+    int count = 7;
+    return 0;
+  }
+
+variables: ["count"]
+
+expectedTrace:
+  - line: 2
+    variable: "count"
+    value: "7"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Identical shape to card 1 but with a different identifier and
+  literal. The point: the panel works the same regardless of the
+  name or the number. Final panel: { count: 7 }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 2/30"
+
+commonMistakeIds: ["CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Reps the 1-box pattern with a new name. Building a habit, not
+  teaching new content.

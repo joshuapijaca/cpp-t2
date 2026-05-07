@@ -1,0 +1,23 @@
+id: C-06
+name: Fill cells from brace-init
+level: L1
+teaches: Copy each brace-init value into its index/cell in order.
+prereqs:
+  - F-19
+  - F-20
+usedByQs:
+  - Q1
+cardCountTarget: 18
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-06
+    quote: 'C-06: 18 cards. Fill cells from brace-init.'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C06a
+  - CM-C06b
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

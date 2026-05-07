@@ -1,0 +1,23 @@
+id: CM-wrong-namespace
+name: "Student omits `using namespace std;` (or qualifies wrong)"
+description: |
+  Without `using namespace std;`, students must write `std::cin`,
+  `std::cout`, `std::endl`. Students drop both the using-decl AND the
+  std:: qualifications, producing "cin not declared in this scope" errors.
+whyItHappens: |
+  Like missing-include, the namespace boilerplate feels invisible. Some
+  hand-execution problems pre-include both lines.
+immunizationStrategy: |
+  1. SpotError: file with `cout` but no `using namespace std`; flag.
+  2. MCQ: "How do you bring std into scope? (`using namespace std;`)"
+  3. Cloze: fill in `using namespace std;` line.
+  4. WriteCard requiring the namespace decl.
+  5. Demo card: with-using vs std::-prefix vs neither.
+  6. Decompose: identify symbols in std namespace.
+examImpact: medium
+atomDependencies: [F-05]
+qTracks: [Q4]
+relatedCMs: [CM-missing-include]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-1 — using namespace std"

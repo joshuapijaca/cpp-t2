@@ -1,0 +1,44 @@
+id: "CM-confuse-eq-pluseq-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-confuse-eq-pluseq: Q1 = vs += confusion.
+
+code: |
+  // Trap: sum-positive used = instead of += (or vice versa for find-max).
+  data.mystery = data.numbers[i]; // sum (wrong)
+  ;
+
+question: |
+  What goes wrong with the line above on Q1?
+
+options:
+  - label: "A"
+    text: "sum-positive used = instead of += (or vice versa for find-max)."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  sum-positive used = instead of += (or vice versa for find-max). The canonical pattern is: data.mystery = data.mystery + data.numbers[i]; // sum
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-confuse-eq-pluseq"
+
+commonMistakeIds: ["CM-confuse-eq-pluseq"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-confuse-eq-pluseq.

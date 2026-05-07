@@ -1,0 +1,44 @@
+id: L1-S3-C-25-trace-02
+schemaVersion: v2
+atomId: C-25
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: TraceCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-25
+commonMistakeIds:
+  - CM-C25a
+stem: Apply `count = count + 1;` with count starting at 2. What is count after?
+code: |-
+  int main() {
+    int count = 2;
+    count = count + 1;
+    cout << count << endl;
+    return 0;
+  }
+variables:
+  - count
+expectedTrace:
+  - line: 2
+    variable: count
+    value: '2'
+    output: null
+  - line: 3
+    variable: count
+    value: '3'
+    output: null
+  - line: 4
+    variable: ''
+    value: ''
+    output: '3'
+terminalOutput:
+  - '3'
+inputMode: final-only
+teachMe: 'Counting accumulator: read OLD count, add 1, write NEW count. Old value gets struck through.'
+

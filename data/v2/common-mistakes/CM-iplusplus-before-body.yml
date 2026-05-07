@@ -1,0 +1,26 @@
+id: CM-iplusplus-before-body
+name: "Student increments i BEFORE running the body"
+description: |
+  In `for (int i = 0; i < SIZE; i++)`, the body uses i then i++ runs
+  AFTER the body completes. Students increment i first, so iteration 1 sees
+  i=1 instead of i=0, skipping the first array element entirely.
+whyItHappens: |
+  C++ for-loop syntax is unintuitive: the post-statement `i++` is written
+  in the header but only fires after each body. Students reading top-down
+  see `i++` as "happens early" because it is part of the parenthesised
+  setup. Mental model conflates init and post.
+immunizationStrategy: |
+  1. Trace card where wrong order skips numbers[0] entirely.
+  2. Decompose card: 4 phases of for-loop (init, cond, body, post) — order
+     them.
+  3. SpotError card: trace where i started at 1 because of premature ++.
+  4. MCQ: "After body completes for i==2, what runs next?"
+  5. Cloze: blank for the slot of i++ in execution order.
+  6. Pair-trace: i=0..4 vs i=1..5, show divergence on first cell.
+examImpact: high
+atomDependencies: [F-18a, F-18b, A4]
+qTracks: [Q1]
+relatedCMs: [CM-misorder-loop-sem, CM-array-from-1]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow — for-loop iteration order"

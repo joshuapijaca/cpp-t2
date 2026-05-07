@@ -1,0 +1,115 @@
+# =====================================================================
+# L5 / Full Mock M01 — canonical, find-max, computer_data
+# 4 questions, 15-min cap. SpeedDrillCard.
+# =====================================================================
+id: "L5-mock-M01-speeddrill"
+schemaVersion: "v2"
+atomId: "M-01"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 6
+level: "L5"
+type: "SpeedDrillCard"
+
+stem: |
+  Mock M01 (canonical). Full 4-Q paper. 15 min hard cap.
+  First mock day — keep calm under timer.
+
+prompt: |
+  === Q1 (25 marks) HAND EXECUTE ===
+  const int SIZE = 5;
+  
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  
+  void who_am_i(stat_double &data) {
+    int i;
+    data.mystery = data.numbers[0];
+    for (i = 0; i < SIZE; i++) {
+      if (data.numbers[i] > data.mystery) {
+        data.mystery = data.numbers[i];
+      }
+    }
+    return;
+  }
+  
+  stat_double d = {{12.5, -3.0, 8.7, -1.2, 15.4}, 0.0};
+  who_am_i(d);
+  // Report d.mystery + iteration trace.
+  
+  === Q2 (25 marks) DEFINE STRUCT ===
+  Define a struct computer_data with the following fields (in order):
+  string brand; int year; double price;
+  
+  === Q3 (25 marks) READ FUNCTION ===
+  Write read_computers(computer_data arr[], int count) that reads
+  three fields per element from cin into the array.
+  Use a for-loop. Pass arr by reference (decay-array form).
+  
+  === Q4 (25 marks) MAIN ===
+  Write int main() that:
+    1. Declares const int MAX = 100;
+    2. Declares computer_data arr[MAX];
+    3. Reads count from cin (count <= MAX).
+    4. Calls read_computers(arr, count) to populate.
+    5. Calls print_computers(arr, count) to display.
+    6. Returns 0.
+
+canonicalAnswer: |
+  // Q1 final value: d.mystery == 15.4
+  
+  // Q2: struct
+  struct computer_data {
+    string brand;
+    int year;
+    double price;
+  };
+  
+  // Q3: read function
+  void read_computers(computer_data arr[], int count) {
+    int i;
+    for (i = 0; i < count; i++) {
+      cin >> arr[i].brand;
+      cin >> arr[i].year;
+      cin >> arr[i].price;
+    }
+  }
+  
+  // Q4: main
+  int main() {
+    const int MAX = 100;
+    computer_data arr[MAX];
+    int count;
+    cin >> count;
+    read_computers(arr, count);
+    print_computers(arr, count);
+    return 0;
+  }
+
+keyChecks:
+  - "stat_double &data"
+  - "for (i = 0; i < SIZE; i++)"
+  - "struct computer_data"
+  - "cin >> arr[i]"
+  - "const int MAX"
+  - "return 0;"
+
+
+explanation: |
+  Full mock = compressed exam paper. Q1 = find-max on computer_data; final
+  d.mystery should be 15.4. Q2 defines the computer_data struct
+  with fields: string brand, int year, double price. Q3 read_computers loops
+  i=0..count-1, cin into each field. Q4 main wires count -> read ->
+  print -> return 0. Variant: canonical.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 attempt 1 — Mock M01"
+
+commonMistakeIds: ["CM-skip-pre-loop-init", "CM-missing-amp-sig", "CM-missing-const", "CM-cap-struct-name"]
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Mock day: D4. Variant: canonical. Q1: find-max. Entity: computer_data.

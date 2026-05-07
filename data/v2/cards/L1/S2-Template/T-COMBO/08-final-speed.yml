@@ -1,0 +1,69 @@
+id: "L1-S2-TC0-08-final-speed"
+schemaVersion: "v2"
+atomId: "T-08"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Final speed rep: type the entire V2.0 Q1 program from a fully
+  blank prompt under 90 seconds. This is the S2 exit gate.
+
+prompt: |
+  Type the full canonical V2.0 Q1 program.
+
+template: |
+  // (totally blank — under 90 sec)
+
+canonicalAnswer: |
+  const int SIZE = 5;
+
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+  void who_am_i(stat_double &data) {
+    data.mystery = 0.0;
+    for (int i = 0; i < SIZE; i++) {
+      if (data.numbers[i] > 0) {
+        data.mystery = data.mystery + data.numbers[i];
+      }
+    }
+  }
+
+  stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};
+  who_am_i(d);
+
+keyChecks:
+  - "const int SIZE = 5"
+  - "struct stat_double"
+  - "double numbers[SIZE]"
+  - "double mystery"
+  - "void who_am_i(stat_double &data)"
+  - "data.mystery = 0.0"
+  - "for (int i = 0; i < SIZE; i++)"
+  - "data.numbers[i] > 0"
+  - "data.mystery = data.mystery + data.numbers[i]"
+  - "stat_double d ="
+  - "who_am_i(d);"
+
+forbiddenTokens:
+  - "while"
+
+explanation: |
+  S2 exit gate. By now this should flow without stopping. If you can
+  produce this from blank, S2 is mastered and you can move to S3
+  components.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — full program"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-COMBO S2 exit gate.
+authoringStatus: "DRAFT"

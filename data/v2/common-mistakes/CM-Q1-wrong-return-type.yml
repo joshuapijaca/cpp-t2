@@ -1,0 +1,34 @@
+id: CM-Q1-wrong-return-type
+name: "Q1 who_am_i declared with non-void return type (double / int)"
+description: |
+  Test 2 V2.0 Q1's who_am_i mutates the struct via reference and
+  returns nothing. The canonical signature is `void who_am_i(stat_double
+  &data)`. Students write `double who_am_i(...)`, `int who_am_i(...)`,
+  or `stat_double who_am_i(...)` because they believe a function MUST
+  return something. With a non-void return type but no return
+  statement (or a value-less `return;`), the compiler errors and the
+  signature doesn't match the marker's expected canonical form.
+whyItHappens: |
+  Three converging causes: (a) every prior function students wrote
+  returned a value, training the reflex; (b) `void` is a less
+  familiar keyword than int/double — students avoid it under stress;
+  (c) confusion between what the function DOES (computes mystery) and
+  what it RETURNS (nothing — mystery is stored via the reference).
+  Pattern-matching on "function computes a number" pushes them to
+  `double` even when the right answer is `void`.
+immunizationStrategy: |
+  1. SpotError: `double who_am_i(stat_double &data) { ... }` — fix to
+     `void`.
+  2. MCQ: "who_am_i return type?" — int / double / void / stat_double.
+  3. Cloze: `___ who_am_i(stat_double &data) {` — answer `void`.
+  4. Demo: side-by-side return-via-value vs mutate-via-reference.
+  5. Decompose: 4 signatures — pick the one matching Test 2 V2.0.
+  6. Walkthrough: explain why mystery doesn't need a return — the
+     reference IS the channel back to the caller.
+examImpact: high
+atomDependencies: [T-02, F-22b, F-15]
+qTracks: [Q1]
+relatedCMs: [CM-Q1-mystery-wrong-type, CM-F22b-3, CM-Q4-return-wrong-value]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 attempt 1 — `void who_am_i(stat_double &data)`"

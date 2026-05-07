@@ -1,0 +1,46 @@
+# =====================================================================
+# L0 / F-06 / ClozeCard 03
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-cloze-03"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill the blank with the final statement that returns success to
+  the OS.
+
+code: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << 1 << endl;
+    ____
+  }
+
+clozeSentence: |
+  ____    (the last statement before the closing brace)
+
+answer: "return 0;"
+
+explanation: |
+  The final statement is `return 0;`. It returns the integer 0 to
+  the OS, signalling success. The semicolon at the end is required
+  (F-07). This statement sits BEFORE the closing brace `}`, never
+  after.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"
+
+commonMistakeIds: ["CM-F06a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Cloze 3: return statement. The single most-forgotten line on
+  Q4 per Saloni's seminar. High-frequency drill target.

@@ -1,0 +1,39 @@
+# =====================================================================
+# L1 / S3-components / C-28 / ClozeCard 01 — final-mystery rule
+# =====================================================================
+id: "L1-S3-C-28-cloze-01"
+schemaVersion: "v2"
+atomId: "C-28"
+qTags: ["Q1"]
+stage: 3
+level: "L1"
+type: "ClozeCard"
+
+stem: |
+  Fill the rule that finishes the trace's final-mystery question.
+
+code: |
+  // mystery cell history at end of loop:
+  // ~~0.0~~ ~~2.4~~ ~~5.4~~ 9.1
+  // The exam asks for the value of data.mystery.
+  // Answer rule: read the ___ value (the un-struck one).
+
+clozeSentence: "Answer rule: read the ___ value (the un-struck one)."
+
+answer: "live"
+
+explanation: |
+  The strikethrough convention says: every overwritten value is
+  struck through; the live value is the only unstruck cell. After
+  the loop exits, the live value IS the field's current value.
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-28"
+
+commonMistakeIds: ["CM-C28a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+notes: |
+  Cloze form to drill the live-value rule. Diversity for QA-M10.

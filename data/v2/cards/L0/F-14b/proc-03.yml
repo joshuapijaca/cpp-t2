@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-14b / ProceduralCard 03 (μWrite)
+# Atom: cin reads one whitespace-delimited token (struct field)
+# =====================================================================
+id: "L0-F14b-proc-03"
+schemaVersion: "v2"
+atomId: "F-14b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the line that reads into an array element.
+
+section: "F-14b cin drills (array element)"
+
+prompt: |
+  Assume `data.numbers[i]` is a valid double slot. Write the cin
+  line that reads ONE token into `data.numbers[i]`. End with `;`.
+
+expectedAnswer: "cin >> data.numbers[i];"
+
+keyChecks: ["cin >> data.numbers[i];"]
+
+variants:
+  - prompt: |
+      Practice variant: read into `desks[i].price`. End with `;`.
+    expectedAnswer: "cin >> desks[i].price;"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: read array elements one per cin in a loop"
+
+commonMistakeIds: []
+
+notes: |
+  Q3/Q4 read-into-array idiom.

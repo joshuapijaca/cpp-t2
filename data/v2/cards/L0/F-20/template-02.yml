@@ -1,0 +1,60 @@
+# =====================================================================
+# L0 / F-20 / TemplateRecallCard 02 — generalised template
+# =====================================================================
+id: "L0-F20-tmpl-02"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  From cold, produce a generalised struct template with N fields.
+  Include at least three fields of three different types (int,
+  double, string).
+
+prompt: "Recall a struct template with three fields of mixed types."
+
+template: |
+  struct <NAME> {
+    <type1> <field1>;
+    <type2> <field2>;
+    <type3> <field3>;
+  };
+
+canonicalAnswer: |
+  struct user {
+    int id;
+    double score;
+    string name;
+  };
+
+keyChecks:
+  - "struct"
+  - "{"
+  - "int"
+  - "double"
+  - "string"
+  - "};"
+
+forbiddenTokens:
+  - "class"
+  - "Struct"
+
+explanation: |
+  Same shape as F-20 tmpl-01 with three field types. Drives home
+  that fields can mix types — the only constraint is each field
+  ends with `;` and the whole struct ends with `};`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20a", "CM-F20d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Generalisation drill. Mixed types reinforce that "struct shape"
+  is independent of field types.

@@ -1,0 +1,24 @@
+id: CM-fn-call-extra-amp
+name: "Student adds `&` before scalar argument at fn call"
+description: |
+  In `read_X(list, count_var)`, only `list` is passed by reference and
+  `count_var` is by value. Students add `&` before count_var (`&count_var`)
+  thinking it makes the by-value clearer or matching the array's `&`.
+  This passes the address-of count_var, which mismatches the int parameter.
+whyItHappens: |
+  Bleed-through from CM-amp-at-call-site. Students see `&` in the
+  signature for the array param and assume all args need `&` at the call.
+immunizationStrategy: |
+  1. SpotError: `read_X(list, &count_var);`; flag wrong `&`.
+  2. MCQ: "Should we put `&` before `count_var` at the call? (no)"
+  3. Cloze: blank for the absence of `&`.
+  4. WriteCard rejecting `&` before scalar arg.
+  5. Decompose: pair each call arg with its parameter type; check `&`.
+  6. Demo card: signature `int n` -> arg `count_var` (no `&`).
+examImpact: medium
+atomDependencies: [F-22a, F-22b]
+qTracks: [Q4]
+relatedCMs: [CM-amp-at-call-site, CM-bitwise-amp]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §6.5 Q4 Common Errors — `&` at call site (extended to scalar args)"

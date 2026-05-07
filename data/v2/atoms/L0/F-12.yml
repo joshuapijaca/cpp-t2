@@ -1,0 +1,23 @@
+id: F-12
+name: "Assignment ="
+level: L0
+phase: C
+teaches: "Single = writes RHS into LHS box. Evaluation order: RHS first, then store. Distinct from == comparison."
+prereqs: [F-11]
+usedByQs: [Q1, Q4]
+cardCountTarget: 19
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/08-assignment-statement"
+    quote: "An assignment statement evaluates the expression on the right-hand side, then stores the result in the variable on the left."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/0-panorama/4-assignment"
+    quote: "x = x + 1 is read as: take the current value of x, add 1, store the result back in x."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:35:23 — Saloni: 'data dot mystery is equal to data dot numbers zero'"
+commonMistakes:
+  - CM-F12a  # writes == in place of =
+  - CM-F12b  # tries to assign to RHS-first (x + 1 = x)
+  - CM-F12c  # confuses x = y with x == y in if condition
+notes:
+  cardMix: { walkthrough: 1, demo: 2, decompose: 2, trace: 4, cloze: 3, μWrite: 3, mcq: 3, proc: 1 }

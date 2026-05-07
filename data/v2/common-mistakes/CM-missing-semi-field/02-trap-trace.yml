@@ -1,0 +1,44 @@
+id: "CM-missing-semi-field-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-missing-semi-field: Q2 missing ; on a field.
+
+code: |
+  // Trap: A field line ends with newline only.
+  string brand
+  ;
+
+question: |
+  What goes wrong with the line above on Q2?
+
+options:
+  - label: "A"
+    text: "A field line ends with newline only."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  A field line ends with newline only. The canonical pattern is: string brand;
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-missing-semi-field"
+
+commonMistakeIds: ["CM-missing-semi-field"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-missing-semi-field.

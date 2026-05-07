@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-misorder-loop-sem
+id: "L1-cmimm-CM-misorder-loop-sem-cloze"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-misorder-loop-sem mistake."
+
+code: |
+  // for (int i=0; i<3; i++) { body; }
+  // at i=0 the body uses numbers[___]
+
+clozeSentence: 'Fill in the index used by the body during iteration 0.'
+
+answer: '0'
+
+explanation: |
+  Body runs at i=0 first; post-stmt happens after.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-misorder-loop-sem)"
+
+commonMistakeIds: ["CM-misorder-loop-sem"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

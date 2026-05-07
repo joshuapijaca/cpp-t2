@@ -1,0 +1,32 @@
+id: "CM-drop-postloop-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-drop-postloop: Q1 dropped post-loop output. Continue tracing past the for-loop end.
+
+correct: "// trace continues past for-loop close"
+
+distractors:
+  - "// trace stops at for-loop }"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: // trace continues past for-loop close
+  Mistake: Stopped trace at loop exit, missed the cout after.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-drop-postloop"
+
+commonMistakeIds: ["CM-drop-postloop"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-drop-postloop.

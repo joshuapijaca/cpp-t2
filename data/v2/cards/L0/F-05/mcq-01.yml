@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-05 / MCQCard 01
+# Atom: using namespace std;
+# =====================================================================
+id: "L0-F05-mcq-01"
+schemaVersion: "v2"
+atomId: "F-05"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  What is the EFFECT of writing `using namespace std;` near the top
+  of a C++ file?
+
+correct: "It lets you write standard-library names like cout, cin, and endl without the std:: prefix for the rest of the file."
+
+distractors:
+  - "It runs an initialisation function called std() at program-start."
+  - "It locks the file so other students cannot copy the source code."
+  - "It tells the compiler which version of C++ to use, similar to a language pragma."
+
+explanation: |
+  `using namespace std;` is a *using-directive*. It tells the compiler
+  that, for the rest of this file, names from the `std` namespace can
+  be referenced without the `std::` prefix. With it, `cout` works;
+  without it, you must write `std::cout`.
+
+  Distractor 1 invents a non-existent function. Namespaces don't
+  initialise — they're a naming mechanism.
+  Distractor 2 fictionalises a security feature. The directive has no
+  effect on file readability.
+  Distractor 3 confuses the directive with `-std=c++17` flags or
+  pragmas. Those configure the compiler, not the namespace.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F05a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Concept-MCQ on what the directive does. Each distractor encodes a
+  superstition novices carry from other tooling (init functions,
+  copy-protection, language version pragmas).

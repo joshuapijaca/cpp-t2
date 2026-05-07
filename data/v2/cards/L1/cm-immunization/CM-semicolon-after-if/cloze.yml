@@ -1,0 +1,32 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-semicolon-after-if
+id: "L1-cmimm-CM-semicolon-after-if-cloze"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-semicolon-after-if mistake."
+
+code: |
+  // CORRECT: no `;` after `if (...)`; the body line is the conditional body
+  if (numbers[i] > 0)
+    mystery ___ mystery + numbers[i];
+
+clozeSentence: 'Fill in the assignment operator (one character) so the body accumulates into mystery.'
+
+answer: '='
+
+explanation: |
+  No semicolon after `if (...)`. The body is the next statement; assign with `=`. A stray `;` after the if would silently disable the conditional.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-semicolon-after-if)"
+
+commonMistakeIds: ["CM-semicolon-after-if"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

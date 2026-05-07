@@ -1,0 +1,38 @@
+# =====================================================================
+# L0 / F-11 / MCQCard 01
+# Atom: Variable declaration + initialisation
+# =====================================================================
+id: "L0-F11-mcq-01"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  After `int x;` runs (and nothing else), what is in box `x`?
+
+correct: "An undefined garbage value — local ints are not zero-initialised."
+
+distractors:
+  - "0 — C++ guarantees every int starts at zero."
+  - "An empty value, similar to null."
+  - "Nothing — the box is not created until a value is assigned."
+
+explanation: |
+  Local int variables are NOT zero-initialised in C++. The box exists
+  immediately after `int x;`, but the value inside is whatever bits
+  were already at that memory location. Reading `x` before assignment
+  is undefined behaviour. Always initialise on declaration to be safe.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F11b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Tests recall on the garbage-value rule.

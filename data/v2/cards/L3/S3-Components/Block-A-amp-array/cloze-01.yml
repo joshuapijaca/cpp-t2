@@ -1,0 +1,37 @@
+# =====================================================================
+# L3 / Block A amp-array / Cloze 01 — fill the &
+# =====================================================================
+id: "L3-AmpArr-cloze-01"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "ClozeCard"
+
+stem: "Fill in the symbol that makes the array parameter pass-by-reference."
+
+code: |
+  void read_desks(desk_data ___desk_list[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i = i + 1) {
+      cin >> desk_list[i].name;
+    }
+  }
+
+clozeSentence: "The single character that goes immediately before `desk_list[]` to pass the array by reference is ____."
+
+answer: "&"
+
+explanation: |
+  & creates the reference. Without it, writes in `cin >> desk_list[i].name` are lost when the function returns.
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V Block A — & cloze"
+
+commonMistakeIds: ["CM-Q3-missing-amp"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "Block A cloze: just the & symbol."

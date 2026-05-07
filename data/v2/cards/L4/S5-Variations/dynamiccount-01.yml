@@ -1,0 +1,22 @@
+id: "L4-S5-dynamiccount-01"
+schemaVersion: "v2"
+atomId: "Q-09"
+qTags: 
+  - "Q4"
+stage: 5
+level: "L4"
+type: "MCQCard"
+stem: "User enters 0 — what should main print?"
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.5 S5 dynamic count edge cases"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+correct: "Nothing in the print loop; main exits with return 0."
+distractors: 
+  - "MAX rows of garbage."
+  - "Compile error."
+  - "Infinite loop."
+explanation: "Edge-case behaviour — knowing these prevents surprise bugs in mock exams."

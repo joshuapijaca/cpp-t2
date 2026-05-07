@@ -1,0 +1,48 @@
+# =====================================================================
+# L3 / Block B number_to_read / FunctionWrite 01
+# =====================================================================
+id: "L3-NumToRead-write-01"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+
+stem: "Write the read_desks signature using the EXACT parameter name `number_to_read` (no abbreviation, no `n`, no `count`, no `size`)."
+
+prompt: "Write the signature only (no body) for read_desks. The count parameter MUST be named exactly `number_to_read`."
+
+signatureHint: "void read_desks(desk_data &desk_list[], int number_to_read)"
+
+canonicalAnswer: |
+  void read_desks(desk_data &desk_list[], int number_to_read)
+  {
+  }
+
+keyChecks:
+  - "void"
+  - "read_desks"
+  - "desk_data"
+  - "&desk_list[]"
+  - "int number_to_read"
+
+forbiddenTokens:
+  - "int n"
+  - "int count"
+  - "int size"
+
+explanation: |
+  V2.0 uses the verbose name `number_to_read`. The marking rubric matches the literal name. Abbreviations like `n` will be flagged.
+
+passByRefRequired: true
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V Block B — number_to_read"
+
+commonMistakeIds: ["CM-Q3-missing-amp"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "Block B drill: literal `number_to_read` parameter name on desk entity."

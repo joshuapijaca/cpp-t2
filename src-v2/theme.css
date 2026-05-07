@@ -1,0 +1,84 @@
+/* cpp-t2 v2 — Theme tokens (dark only, VSCode Dark+ + Dracula accents) */
+/* Usage: import this once from main.tsx. Tailwind v4 picks tokens via @theme. */
+
+@import "tailwindcss";
+
+:root {
+  /* ---------- Surfaces ---------- */
+  --bg-0: #0d1117;        /* page bg                        */
+  --bg-1: #161b22;        /* panel                          */
+  --bg-2: #1f2937;        /* elevated (cards, modals, terminal) */
+  --bg-3: #2d333b;        /* active row / hover-pressed     */
+
+  --border-1: #30363d;    /* default dividers               */
+  --border-2: #484f58;    /* emphasis / focus rim           */
+
+  /* ---------- Text ---------- */
+  --text-0: #e6edf3;      /* primary                        */
+  --text-1: #8b949e;      /* secondary                      */
+  --text-2: #6e7681;      /* tertiary / metadata            */
+
+  /* ---------- Accents (Dracula-flavored) ---------- */
+  --accent-cyan: #79c0ff; /* identifiers, links             */
+  --accent-pink: #ff7b72; /* keywords, deletions            */
+  --accent-grn:  #7ee787; /* strings, success markers       */
+  --accent-yel:  #d2a8ff; /* highlight (purple-warm)        */
+  --accent-org:  #ffa657; /* numbers, attention             */
+
+  /* ---------- States ---------- */
+  --state-ok:   #3fb950;
+  --state-err:  #f85149;
+  --state-warn: #d29922;
+  --state-info: #58a6ff;
+
+  /* ---------- Brace-pair rainbow (VSCode bracket colorization) ---------- */
+  --brace-d0: #ffd700;    /* depth 0 — gold                 */
+  --brace-d1: #da70d6;    /* depth 1 — orchid               */
+  --brace-d2: #87cefa;    /* depth 2 — sky                  */
+
+  color-scheme: dark;
+}
+
+/* Tailwind v4 token registration. Names map 1-to-1 to CSS vars above so
+   `bg-bg-1`, `text-text-0`, `border-border-1`, `text-accent-cyan`, etc. work. */
+@theme {
+  --color-bg-0: var(--bg-0);
+  --color-bg-1: var(--bg-1);
+  --color-bg-2: var(--bg-2);
+  --color-bg-3: var(--bg-3);
+
+  --color-border-1: var(--border-1);
+  --color-border-2: var(--border-2);
+
+  --color-text-0: var(--text-0);
+  --color-text-1: var(--text-1);
+  --color-text-2: var(--text-2);
+
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-pink: var(--accent-pink);
+  --color-accent-grn:  var(--accent-grn);
+  --color-accent-yel:  var(--accent-yel);
+  --color-accent-org:  var(--accent-org);
+
+  --color-state-ok:   var(--state-ok);
+  --color-state-err:  var(--state-err);
+  --color-state-warn: var(--state-warn);
+  --color-state-info: var(--state-info);
+
+  --color-brace-d0: var(--brace-d0);
+  --color-brace-d1: var(--brace-d1);
+  --color-brace-d2: var(--brace-d2);
+}
+
+/* Baseline page paint */
+html, body, #root {
+  background: var(--bg-0);
+  color: var(--text-0);
+  min-height: 100%;
+}
+
+/* Selection — pick high-contrast slate, not accent (accents reserved for syntax) */
+::selection {
+  background: var(--bg-3);
+  color: var(--text-0);
+}

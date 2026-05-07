@@ -1,0 +1,42 @@
+id: "L5-warmup-07-q3"
+schemaVersion: "v2"
+atomId: "M-04"
+qTags: ["Q3"]
+stage: 6
+level: "L5"
+type: "DemoCard"
+
+stem: |
+  Q3 canonical read-function demo. D7 warmup demo — passive observation.
+
+whyOneLine: "See the canonical Q3 read function one more time before the test."
+
+demoCode: |
+  void read_desks(desk_data arr[], int count) {
+    int i;
+    for (i = 0; i < count; i++) {
+      cin >> arr[i].material;
+      cin >> arr[i].drawers;
+      cin >> arr[i].height;
+    }
+  }
+
+highlightTokens:
+  - "&data"
+  - "for ("
+  - "cin"
+  - "return 0;"
+
+usedIn:
+  - "Every Test 2 Q3 attempt"
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q3 — D7 warmup demo"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  D7 warmup #7: canonical Q3 demo.

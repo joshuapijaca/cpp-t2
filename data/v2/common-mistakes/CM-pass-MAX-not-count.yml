@@ -1,0 +1,25 @@
+id: CM-pass-MAX-not-count
+name: "Student passes MAX (capacity) instead of count_var to read fn"
+description: |
+  Call site: `read_<entity>(<plural>, <count_var>);`. Students pass MAX
+  (the capacity, e.g. 100), causing the read function's loop to read 100
+  entries when the user asked for, say, 3. User has to enter 100 inputs
+  or program crashes/hangs.
+whyItHappens: |
+  Both MAX and count_var are "the size" in some sense. Students
+  conflate. Reinforcing CM-wrong-bound-SIZE: capacity vs count is the
+  recurring conceptual gap across Q3+Q4.
+immunizationStrategy: |
+  1. SpotError: call-site `read_X(list, MAX);`; flag wrong arg.
+  2. MCQ: "Pass MAX or count_var to the read fn? (count_var)"
+  3. Cloze: blank for the second arg of the call.
+  4. WriteCard with key-check on count_var.
+  5. Demo card: trace I/O when MAX=100 and count=3 each way.
+  6. Decompose: distinguish capacity vs count at the call site.
+examImpact: high
+atomDependencies: [F-22a, F-22b, F-22c]
+qTracks: [Q4]
+relatedCMs: [CM-wrong-bound-SIZE, CM-var-sized-array]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §6.5 Q4 Common Errors — Pass MAX to read fn instead of count HIGH"

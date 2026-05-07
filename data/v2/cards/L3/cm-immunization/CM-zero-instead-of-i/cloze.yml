@@ -1,0 +1,35 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-zero-instead-of-i
+id: "L3-cmimm-CM-zero-instead-of-i-cloze"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-zero-instead-of-i mistake."
+
+code: |
+  void read_data(stat_double &data)
+  {
+    for (int i = 0; i < SIZE; i++) {
+      cin >> data.numbers[___];
+    }
+  }
+
+clozeSentence: 'Fill in the index expression so that the loop reads N values into cells 0..SIZE-1.'
+
+answer: 'i'
+
+explanation: |
+  The loop variable `i` is the only valid index here — it advances each iteration and distributes inputs across the array.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-zero-instead-of-i)"
+
+commonMistakeIds: ["CM-zero-instead-of-i"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

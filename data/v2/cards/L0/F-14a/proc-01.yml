@@ -1,0 +1,43 @@
+# =====================================================================
+# L0 / F-14a / ProceduralCard 01 (μWrite)
+# Atom: cin >> operator direction
+# =====================================================================
+id: "L0-F14a-proc-01"
+schemaVersion: "v2"
+atomId: "F-14a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a single line that reads a value into a variable.
+
+section: "F-14a cin drills"
+
+prompt: |
+  Assume `int x;` is declared. Write the line that reads a value
+  from the user into x. End with `;`.
+
+expectedAnswer: "cin >> x;"
+
+keyChecks: ["cin >> x;"]
+
+variants:
+  - prompt: |
+      Assume `double price;` is declared. Write the line that reads a
+      decimal value from the user into price. End with `;`.
+    expectedAnswer: "cin >> price;"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F14a-1"]
+
+notes: |
+  Smallest cin drill.

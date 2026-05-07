@@ -1,0 +1,24 @@
+id: F-22e
+name: "Array decay: T arr[] in parameter list"
+level: L0
+phase: E
+teaches: "When an array is passed to a function as `T arr[]`, it decays — the function sees the SAME storage, no copy is made. Mutations are visible. Size is not carried; pass it as a separate parameter."
+prereqs: [F-22b, F-19]
+usedByQs: [Q1, Q3]
+cardCountTarget: 4
+parentAtom: F-22
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
+    quote: "An array passed to a function is not copied; the function works on the original storage."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
+    quote: "C++ arrays don't carry size; pass the size to the function explicitly."
+  - kind: practice
+    ref: "Test 2 V2.0 — `data.numbers[SIZE]` inside struct, struct passed by reference"
+commonMistakes:
+  - CM-F22e-1  # confuses `T &arr[]` (Deakin form on struct field) with `T arr[]` (decay)
+  - CM-F22e-2  # tries arr.length / sizeof to get size inside fn (no — pass size separately)
+  - CM-F22e-3  # thinks an array param makes a local copy
+notes:
+  cardMix: { demo: 1, cloze: 1, decompose: 1, mcq: 1 }

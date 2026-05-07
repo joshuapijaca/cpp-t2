@@ -1,0 +1,39 @@
+# =====================================================================
+# L3 / R-01 / SpeedDrillCard — timed type read_computers
+# =====================================================================
+id: "L3-R01-timed-02"
+schemaVersion: "v2"
+atomId: "R-01"
+qTags: ["Q3"]
+stage: 2
+level: "L3"
+type: "SpeedDrillCard"
+stem: |
+  Timed: type the full read_computers function in 90 seconds.
+prompt: "Type the full read_computers function."
+canonicalAnswer: |
+  void read_computers(computer_data &computers[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "CPU speed (GHz): ";
+      cin >> computers[i].cpu_speed;
+      cout << "RAM (GB): ";
+      cin >> computers[i].ram_gb;
+      cout << "Price ($): ";
+      cin >> computers[i].price;
+    }
+  }
+keyChecks:
+  - "void read_computers"
+  - "&computers[]"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> computers[i].cpu_speed;"
+explanation: |
+  Speed drill: skeleton is fixed; muscle-memory the 12 lines.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

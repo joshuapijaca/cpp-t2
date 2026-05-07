@@ -1,0 +1,61 @@
+# =====================================================================
+# L0 / F-22c / DecomposeCard 01 — `&` placement
+# =====================================================================
+id: "L0-F22c-decomp-01"
+schemaVersion: "v2"
+atomId: "F-22c"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  The function signature is `void who_am_i(stat_double &data);`.
+  Pick the line that correctly CALLS this function on a local
+  `stat_double d`.
+
+code: |
+  void who_am_i(stat_double &data);
+
+  int main() {
+    stat_double d;
+    // call who_am_i on d:
+  }
+
+question: |
+  Which call line is correct?
+
+options:
+  - label: "A"
+    text: "who_am_i(d);"
+  - label: "B"
+    text: "who_am_i(&d);"
+  - label: "C"
+    text: "who_am_i(*d);"
+  - label: "D"
+    text: "&who_am_i(d);"
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. The `&` lives in the signature, not the call. The
+  caller writes the bare variable name; the compiler automatically
+  binds it as a reference because the signature requires one.
+  B (CM-F22c-1) takes the address-of `d`, which is a `stat_double*`
+  pointer — the wrong type for the parameter (compile error or,
+  in some dialects, mismatched type).
+  C uses pointer dereference (CM-F22c-2) — same wrong type.
+  D is nonsense — `&` cannot prefix a function call.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `who_am_i ( d );`"
+
+commonMistakeIds: ["CM-F22c-1", "CM-F22c-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  The exact most common test mistake: students who learned `&` =
+  "address-of" think they need to "match" the signature with `&`
+  at the call site. They do not.

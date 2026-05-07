@@ -1,0 +1,31 @@
+id: "L5-warmup-12-q4"
+schemaVersion: "v2"
+atomId: "M-04"
+qTags: ["Q4"]
+stage: 6
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  Q4 main return — D7 warmup quick-check. (Easy mode, confidence prime.)
+
+correct: "return 0;"
+
+distractors:
+  - "return;"
+  - "return 1;"
+  - "(no return statement)"
+
+explanation: |
+  `int main()` must return 0 to indicate success. Always `return 0;` as the last line.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q4 — D7 warmup MCQ"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  D7 warmup #12: Q4 quick MCQ.

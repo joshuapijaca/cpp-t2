@@ -1,0 +1,28 @@
+id: L1-S3-C-20-mcq-03
+schemaVersion: v2
+atomId: C-20
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-20
+commonMistakeIds:
+  - CM-C20a
+stem: >-
+  In `if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }`, the condition
+  evaluates to TRUE. What happens?
+correct: 'The body runs: data.mystery = data.mystery + data.numbers[i] is executed.'
+distractors:
+  - The body is skipped because there is no else clause.
+  - The condition is re-evaluated until it returns false.
+  - The whole if-statement is replaced by 0 (early-exit).
+explanation: >-
+  If the condition is true, the body runs ONCE. There is no else, so falling through after the
+  closing brace is normal.
+

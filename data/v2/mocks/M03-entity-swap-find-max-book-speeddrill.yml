@@ -1,0 +1,115 @@
+# =====================================================================
+# L5 / Full Mock M03 — entity-swap, find-max, book_data
+# 4 questions, 15-min cap. SpeedDrillCard.
+# =====================================================================
+id: "L5-mock-M03-speeddrill"
+schemaVersion: "v2"
+atomId: "M-01"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 6
+level: "L5"
+type: "SpeedDrillCard"
+
+stem: |
+  Mock M03 (entity-swap). Full 4-Q paper. 15 min hard cap.
+  Build mock-shape stamina.
+
+prompt: |
+  === Q1 (25 marks) HAND EXECUTE ===
+  const int SIZE = 5;
+  
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  
+  void who_am_i(stat_double &data) {
+    int i;
+    data.mystery = data.numbers[0];
+    for (i = 0; i < SIZE; i++) {
+      if (data.numbers[i] > data.mystery) {
+        data.mystery = data.numbers[i];
+      }
+    }
+    return;
+  }
+  
+  stat_double d = {{4.5, 9.0, 2.1, 7.7, 6.0}, 0.0};
+  who_am_i(d);
+  // Report d.mystery + iteration trace.
+  
+  === Q2 (25 marks) DEFINE STRUCT ===
+  Define a struct book_data with the following fields (in order):
+  string title; int pages; double price;
+  
+  === Q3 (25 marks) READ FUNCTION ===
+  Write read_books(book_data arr[], int count) that reads
+  three fields per element from cin into the array.
+  Use a for-loop. Pass arr by reference (decay-array form).
+  
+  === Q4 (25 marks) MAIN ===
+  Write int main() that:
+    1. Declares const int MAX = 100;
+    2. Declares book_data arr[MAX];
+    3. Reads count from cin (count <= MAX).
+    4. Calls read_books(arr, count) to populate.
+    5. Calls print_books(arr, count) to display.
+    6. Returns 0.
+
+canonicalAnswer: |
+  // Q1 final value: d.mystery == 9.0
+  
+  // Q2: struct
+  struct book_data {
+    string title;
+    int pages;
+    double price;
+  };
+  
+  // Q3: read function
+  void read_books(book_data arr[], int count) {
+    int i;
+    for (i = 0; i < count; i++) {
+      cin >> arr[i].title;
+      cin >> arr[i].pages;
+      cin >> arr[i].price;
+    }
+  }
+  
+  // Q4: main
+  int main() {
+    const int MAX = 100;
+    book_data arr[MAX];
+    int count;
+    cin >> count;
+    read_books(arr, count);
+    print_books(arr, count);
+    return 0;
+  }
+
+keyChecks:
+  - "stat_double &data"
+  - "for (i = 0; i < SIZE; i++)"
+  - "struct book_data"
+  - "cin >> arr[i]"
+  - "const int MAX"
+  - "return 0;"
+
+
+explanation: |
+  Full mock = compressed exam paper. Q1 = find-max on book_data; final
+  d.mystery should be 9.0. Q2 defines the book_data struct
+  with fields: string title, int pages, double price. Q3 read_books loops
+  i=0..count-1, cin into each field. Q4 main wires count -> read ->
+  print -> return 0. Variant: entity-swap.
+
+source:
+  kind: "v2"
+  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 attempt 1 — Mock M03"
+
+commonMistakeIds: ["CM-skip-pre-loop-init", "CM-missing-amp-sig", "CM-missing-const", "CM-cap-struct-name"]
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Mock day: D5. Variant: entity-swap. Q1: find-max. Entity: book_data.

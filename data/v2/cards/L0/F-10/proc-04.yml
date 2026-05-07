@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-10 / ProceduralCard 04 (μWrite)
+# Atom: Primitive types — V2.0 stat_double field types
+# =====================================================================
+id: "L0-F10-proc-04"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Real test V2.0 used the struct below. Type the two field declaration
+  lines exactly as the test prints them.
+
+section: "F-10 type-write drills (V2.0 anchor)"
+
+prompt: |
+  Inside `struct stat_double { ... };`, type the two field lines:
+  - `numbers` is an array of SIZE doubles
+  - `mystery` is a single double
+
+expectedAnswer: |
+  double numbers[SIZE];
+  double mystery;
+
+keyChecks: ["double numbers[SIZE];", "double mystery;"]
+
+variants:
+  - prompt: |
+      Practice test wants struct desk_data fields: `desk_id` (int) and
+      `price` (double). Type the two field lines.
+    expectedAnswer: |
+      int desk_id;
+      double price;
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: struct stat_double { double numbers[SIZE]; double mystery; };"
+
+commonMistakeIds: ["CM-F10d"]
+
+notes: |
+  Anchored to the EXACT stat_double struct from the V2.0 test.
+  Variant covers the practice test format. Builds Q2 muscle memory.

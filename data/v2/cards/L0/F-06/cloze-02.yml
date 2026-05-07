@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-06 / ClozeCard 02
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-cloze-02"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill the blank with the function name. Match the case the OS
+  expects exactly.
+
+code: |
+  #include <iostream>
+  using namespace std;
+  int ____() {
+    return 0;
+  }
+
+clozeSentence: |
+  int ____() {
+
+answer: "main"
+
+explanation: |
+  The function name is `main` — all lowercase. C++ identifiers are
+  case-sensitive; `Main` is a different (and undefined) identifier.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F06d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Cloze 2: function name. Targets CM-F06d (capitalises Main).

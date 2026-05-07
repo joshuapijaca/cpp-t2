@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-22a / DemoCard 01 — function definition shape
+# =====================================================================
+id: "L0-F22a-demo-01"
+schemaVersion: "v2"
+atomId: "F-22a"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: a function definition is `<return_type> <name>(<params>) { <body> }`.
+  Four parts, fixed order, NO semicolon after the parameter list.
+
+whyOneLine: "Function = `return_type name(params) { body }` — fixed shape, no `;` after `)`."
+
+demoCode: |
+  // canonical function definition shape:
+  return_type name(params)
+  {
+    body;
+  }
+
+  // void example (procedure):
+  void greet(string s)
+  {
+    cout << s << endl;
+  }
+
+  // Test 2 V2.0 read-procedure shape:
+  void who_am_i(stat_double &data)
+  {
+    // body
+  }
+
+highlightTokens:
+  - "return_type"
+  - "name"
+  - "(params)"
+  - "{ body }"
+  - "void greet"
+  - "void who_am_i"
+
+usedIn:
+  - "Q3 read function definition (write a `void read_xxx(...)`)"
+  - "Q1 trace (you read a function definition before tracing)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/01-function-decl"
+
+commonMistakeIds: ["CM-F22a-1", "CM-F22a-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Pure shape exposure. The four-token chunk is the unit a student
+  needs to chunk-recognise / produce on Q3.

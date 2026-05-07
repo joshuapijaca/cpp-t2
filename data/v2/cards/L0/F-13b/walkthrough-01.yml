@@ -1,0 +1,57 @@
+# =====================================================================
+# L0 / F-13b / WalkthroughCard 01
+# Atom: cout chained values + endl
+# =====================================================================
+id: "L0-F13b-walk-01"
+schemaVersion: "v2"
+atomId: "F-13b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  A single cout statement can chain MANY values. Each `<<` adds the
+  next piece to the output stream, left to right. End with `endl`
+  to finish the line.
+
+levelLabel: "L0 Foundation Phase C F-13b"
+
+fullCode: |
+  int a = 5;
+  int b = 10;
+  cout << a << ", " << b << endl;
+
+steps:
+  - line: 1
+    code: 'int a = 5;'
+    annotation: |
+      Box `a` holds 5.
+    atomIds: ["F-11"]
+  - line: 2
+    code: 'int b = 10;'
+    annotation: |
+      Box `b` holds 10.
+    atomIds: ["F-11"]
+  - line: 3
+    code: 'cout << a << ", " << b << endl;'
+    annotation: |
+      Read left to right:
+      - `cout << a` — push value of a (5). Terminal: 5
+      - `<< ", "` — push the literal text ", ". Terminal: 5,
+      - `<< b` — push value of b (10). Terminal: 5, 10
+      - `<< endl` — push a newline AND flush. Terminal: 5, 10\n
+
+      The whole chain is one statement, ending with one semicolon.
+    atomIds: ["F-13b"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F13b-1", "CM-F13b-3"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Establishes the chained-output pattern with three values and endl.

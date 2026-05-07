@@ -1,0 +1,42 @@
+# Auto-emitted CM immunization (FaultInjectionCard) for CM-missing-return-0
+id: "L4-cmimm-CM-missing-return-0-spot"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  This Q4 main function compiles but the rubric docks marks. What's missing?
+
+brokenCode: |
+  int main() {
+    cout << "Hi";
+  }
+
+bugLocations: [3]
+
+fixedCode: |
+  int main() {
+    cout << "Hi";
+    return 0;
+  }
+
+bugCategory: 'missing `return 0;` in main'
+
+keyChecks:
+  - 'return 0;'
+
+explanation: |
+  C++ allows omitting return in main, but the SIT102 rubric requires `return 0;` explicitly. Always include it.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-missing-return-0)"
+
+commonMistakeIds: ["CM-missing-return-0"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

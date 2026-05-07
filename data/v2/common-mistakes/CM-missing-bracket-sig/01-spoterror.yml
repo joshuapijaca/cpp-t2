@@ -1,0 +1,44 @@
+id: "CM-missing-bracket-sig-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q3 missing [] in signature. The code below has the bug labeled
+  by CM-missing-bracket-sig. Find the line and provide the fix.
+
+brokenCode: |
+  // Q3 broken excerpt:
+  void read_X(entity arr, int count)
+  // (canonical was: void read_X(entity arr[], int count))
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  void read_X(entity arr[], int count)
+  ;
+
+bugCategory: "CM-missing-bracket-sig"
+
+keyChecks:
+  - "void read_X(entity arr[], int "
+
+explanation: |
+  Bug: Signature wrote `entity arr` — accepts a single struct, not an array.
+  Fix: void read_X(entity arr[], int count)
+  This common mistake costs marks on Q3 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-missing-bracket-sig"
+
+commonMistakeIds: ["CM-missing-bracket-sig"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-missing-bracket-sig.

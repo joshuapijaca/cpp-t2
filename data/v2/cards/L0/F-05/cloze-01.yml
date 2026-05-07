@@ -1,0 +1,45 @@
+# =====================================================================
+# L0 / F-05 / ClozeCard 01
+# Atom: using namespace std;
+# =====================================================================
+id: "L0-F05-cloze-01"
+schemaVersion: "v2"
+atomId: "F-05"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill the blank. The answer is the keyword that begins the
+  using-namespace line.
+
+code: |
+  #include <iostream>
+  ____ namespace std;
+  int main() {
+    cout << 1 << endl;
+    return 0;
+  }
+
+clozeSentence: |
+  ____ namespace std;
+
+answer: "using"
+
+explanation: |
+  The line begins with the keyword `using`. Without `using`, just
+  writing `namespace std;` is not a valid C++ statement — `namespace`
+  alone is for *defining* a namespace, not opening one for unqualified
+  access.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F05b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Cloze 1: leading keyword. Targets CM-F05b (drops `using`).

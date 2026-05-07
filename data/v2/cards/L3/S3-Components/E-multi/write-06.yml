@@ -1,0 +1,39 @@
+# =====================================================================
+# L3 / R-02e / FunctionWriteCard — 3-field body for plants
+# =====================================================================
+id: "L3-R02e-write-06"
+schemaVersion: "v2"
+atomId: "R-02e"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the BODY of the for-loop only (no signature, no for-header):
+  3 prompt-pair sequence for 'plants[i]' fields:
+  height_cm, leaves, water_ml.
+prompt: "3-field prompt-pair sequence"
+canonicalAnswer: |
+  cout << "Height (cm): ";
+  cin >> plants[i].height_cm;
+  cout << "Leaves: ";
+  cin >> plants[i].leaves;
+  cout << "Water (ml): ";
+  cin >> plants[i].water_ml;
+keyChecks:
+  - "cin >> plants[i].height_cm;"
+  - "cin >> plants[i].leaves;"
+  - "cin >> plants[i].water_ml;"
+forbiddenTokens:
+  - "while"
+  - "endl"
+explanation: |
+  3 fields means 3 prompt-pairs in struct-declaration order.
+  Each pair is cout-prompt + cin-into-list[i].field.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-skipped-field","CM-Q3-reordered-field"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

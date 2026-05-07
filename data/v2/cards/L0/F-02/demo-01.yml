@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-02 / DemoCard 01
+# Atom: Compiler turns source into program
+# =====================================================================
+id: "L0-F02-demo-01"
+schemaVersion: "v2"
+atomId: "F-02"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the compiler do its single job: text in, executable out. The
+  source file (text) and the program (machine code) are TWO separate
+  files on disk after compilation.
+
+whyOneLine: "g++ reads source text and writes a new executable file — source and program are two distinct files."
+
+demoCode: |
+  // BEFORE COMPILE
+  // ===================
+  // hello.cpp     <-- plain text, 81 bytes, human-readable
+
+  // RUN COMPILER
+  // ===================
+  //   g++ hello.cpp -o hello
+
+  // AFTER COMPILE
+  // ===================
+  // hello.cpp     <-- still plain text, unchanged
+  // hello         <-- NEW file, ~16 KB, machine code, NOT human-readable
+
+  // RUN PROGRAM
+  // ===================
+  //   ./hello
+  //   hello
+
+highlightTokens:
+  - "g++ hello.cpp -o hello"
+  - "NEW file"
+  - "machine code"
+  - "NOT human-readable"
+  - "./hello"
+
+usedIn:
+  - "Q1 trace (you mentally simulate the compiled program, not the text)"
+  - "Q4 main program (your code is meaningless until compiled — the test marker pictures it running)"
+  - "Mental model for any code-execution question (Q1-Q4)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"
+
+commonMistakeIds: ["CM-confuses-source-with-program"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Visual emphasis: BEFORE / RUN / AFTER labels make the discrete-step
+  nature of compilation salient. The size difference (81 bytes vs 16 KB)
+  is a tangible cue that something genuinely transformed.

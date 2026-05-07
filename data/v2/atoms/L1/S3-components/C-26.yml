@@ -1,0 +1,22 @@
+id: C-26
+name: Strikethrough notation
+level: L1
+teaches: Cross out the old value when overwriting; trail = breadcrumb.
+prereqs:
+  - F-12
+usedByQs:
+  - Q1
+cardCountTarget: 8
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-26
+    quote: 'C-26: 8 cards. Strikethrough notation.'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C26a
+  - CM-C26b
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

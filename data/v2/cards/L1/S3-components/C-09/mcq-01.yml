@@ -1,0 +1,28 @@
+id: "L1-S3-C-09-mcq-01"
+schemaVersion: "v2"
+atomId: "C-09"
+qTags: ["Q1"]
+stage: 3
+level: "L1"
+type: "MCQCard"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-09"
+commonMistakeIds: ["CM-C09a"]
+stem: |
+  In the header `for (int i = 0; i < SIZE; i++) { ... }`, when does
+  the `int i = 0;` clause run, and what is the value of i immediately
+  after it runs?
+correct: "It runs ONCE before the first guard test; i is 0."
+distractors:
+  - "It runs at the start of every iteration; i is reset to 0 each time."
+  - "It runs after each iteration's body; i is 0 after the first body."
+  - "It runs after the guard test fails; i is 0 when the loop exits."
+explanation: |
+  The init clause runs exactly once, before the guard is first
+  tested. After it runs, i holds 0. Targets CM-C09a (init runs every
+  iteration trap). The guard is evaluated next.
+notes: "MCQ form for QA-M10 type-diversity."

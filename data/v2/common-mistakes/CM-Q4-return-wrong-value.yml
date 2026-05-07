@@ -1,0 +1,31 @@
+id: CM-Q4-return-wrong-value
+name: "Q4 main() returns no value (or wrong type) at end"
+description: |
+  Q4 wires the full program in `int main()`. The function is declared
+  `int main()` so it MUST end with `return 0;` (an int). Students write
+  `return;` (no value), `return main;`, omit return entirely, or write
+  `return "0";` (string). The compiler accepts `return;` only for void
+  functions; with int main(), it is a hard error or undefined behavior.
+whyItHappens: |
+  Three converging confusions: (a) students see `return 0;` as boilerplate
+  and forget the value; (b) they confuse main() with a void utility fn
+  they have written elsewhere in the program; (c) they think the
+  semicolon alone "ends the function" without realising main's contract.
+  Reinforced by IDE templates that pre-fill `return 0;` so students
+  never type it themselves and never internalise the requirement.
+immunizationStrategy: |
+  1. SpotError: broken `return;` at end of int main() — find missing 0.
+  2. MCQ: "int main() requires return ___;" with options 0 / nothing / "0" / main.
+  3. Cloze: blank for the return value at end of main().
+  4. Demo card: pair `void read_X(...)` (return;) vs `int main()` (return 0;)
+     side-by-side, highlight the type contract.
+  5. Trace: int main with missing return — explain undefined exit code.
+  6. Decompose: which of 4 main()s end correctly? Eliminate `return;`,
+     `return "0";`, no return, then leave `return 0;`.
+examImpact: medium
+atomDependencies: [F-06, Q-07]
+qTracks: [Q4]
+relatedCMs: [CM-missing-return-0, CM-Q4-MAX-as-define]
+source:
+  kind: v2
+  ref: "C++T2 spec §6.3 Block F (return statement); SIT102 PFG part-1 functions"

@@ -1,0 +1,77 @@
+id: "L1-S1-tour-03-practice-answer"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "WalkthroughCard"
+
+stem: |
+  Walk through the practice Q1 (find-max). See every iteration. Final
+  d.mystery = 3.2 because 3.2 is the largest value in the array.
+
+levelLabel: "L1 Q1 hand-execute · S1 Tour · practice answer"
+
+fullCode: |
+  data.mystery = data.numbers[0];           // line A
+  for (i = 0; i < SIZE; i++) {              // line B
+    if (data.numbers[i] > data.mystery) {   // line C
+      data.mystery = data.numbers[i];       // line D
+    }
+  }
+
+steps:
+  - line: 0
+    code: 'stat_double d = {{-20.0, 3.2, 1.9, -1.5, 1.3}, 0.0};'
+    annotation: |
+      Initial layout. numbers[0..4] = -20.0, 3.2, 1.9, -1.5, 1.3.
+      mystery = 0.0. The 0.0 init will be overwritten on line A.
+    atomIds: ["T-00", "T-06"]
+  - line: 1
+    code: 'data.mystery = data.numbers[0];'
+    annotation: |
+      Pre-loop init: mystery := -20.0 (numbers[0]). Strikethrough the 0.0.
+      mystery: ~0.0~ -20.0
+    atomIds: ["T-03"]
+  - line: 2
+    code: 'i=0: -20.0 > -20.0 ? false. skip.'
+    annotation: |
+      Iter 0. Cond false (not strictly greater). Body skipped.
+    atomIds: ["T-04", "T-05"]
+  - line: 3
+    code: 'i=1: 3.2 > -20.0 ? true. mystery := 3.2.'
+    annotation: |
+      Iter 1. Cond true. mystery := 3.2.
+      mystery: ~0.0~ ~-20.0~ 3.2
+    atomIds: ["T-05"]
+  - line: 4
+    code: 'i=2: 1.9 > 3.2 ? false. skip.'
+    annotation: |
+      Iter 2. Cond false. Body skipped.
+    atomIds: ["T-05"]
+  - line: 5
+    code: 'i=3: -1.5 > 3.2 ? false. skip.'
+    annotation: |
+      Iter 3. Cond false.
+    atomIds: ["T-05"]
+  - line: 6
+    code: 'i=4: 1.3 > 3.2 ? false. skip.'
+    annotation: |
+      Iter 4. Cond false.
+    atomIds: ["T-05"]
+  - line: 7
+    code: 'i=5: 5 < 5 ? false. exit loop.'
+    annotation: |
+      Guard fails. Loop ends. Final mystery = 3.2.
+    atomIds: ["T-04"]
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §0 — find-max walkthrough"
+
+commonMistakeIds: ["CM-Q1-skip-init", "CM-Q1-no-strikethrough"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  S1 Tour 03: full narrated answer for the practice Q1.
+authoringStatus: "DRAFT"

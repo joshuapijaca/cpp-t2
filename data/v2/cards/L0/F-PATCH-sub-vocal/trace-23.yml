@@ -1,0 +1,60 @@
+# =====================================================================
+# L0 / F-24 / TraceCard 23 — sub-vocal predict-next-state
+# =====================================================================
+id: "L0-F24-trace-23"
+schemaVersion: "v2"
+atomId: "F-24"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Predict-first. cout chain: literal then variable. Speak the entire
+  printed line out loud (or mouth it) BEFORE pressing [step].
+
+code: |
+  int main() {
+    int age = 19;
+    cout << "age: " << age << endl;
+    return 0;
+  }
+
+variables: ["age"]
+
+expectedTrace:
+  - line: 2
+    variable: "age"
+    value: "19"
+    output: null
+  - line: 3
+    variable: ""
+    value: ""
+    output: "age: 19"
+
+terminalOutput: ["age: 19"]
+
+inputMode: "per-step"
+
+q4StopCondition: "Speak the entire printed line BEFORE pressing [step]."
+
+teachMe: |
+  PREDICTIONS:
+  - line 2: "age becomes nineteen"
+  - line 3: "terminal receives age colon space nineteen"
+  Final panel: { age: 19 }. Terminal: age: 19.
+
+  When you sub-vocalise the WHOLE printed line, you stop yourself
+  from forgetting the space inside "age: ".
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sub-vocal predict card 23/30"
+
+commonMistakeIds: ["CM-prints-variable-name"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Chained-cout sub-vocal cue. Spaces in literals are easy to miss
+  silently — articulating defeats it.

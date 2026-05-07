@@ -1,0 +1,63 @@
+id: "L1-S1-tour-27-spot-error-skip-init"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error 1/5. A student traced the V2.0 sum-positives
+  question and produced this answer. Where did they go wrong?
+
+brokenCode: |
+  // student trace: skipped the pre-loop init line
+  // brace-init: stat_double d = {{2.4,-3.7,1.0,-2.1,0.5}, -0.9};
+  //
+  // mystery: -0.9                                 (initial)
+  // i=0  -> -0.9 + 2.4 = 1.5    mystery = 1.5
+  // i=1  -> skip                mystery = 1.5
+  // i=2  -> 1.5 + 1.0 = 2.5     mystery = 2.5
+  // i=3  -> skip                mystery = 2.5
+  // i=4  -> 2.5 + 0.5 = 3.0     mystery = 3.0
+  //
+  // student answer: 3.0
+  ;
+
+bugLocations: [3]
+
+fixedCode: |
+  // CORRECT trace: pre-loop init `data.mystery = 0.0;` runs FIRST
+  // and overwrites -0.9.
+  //
+  // mystery: ~-0.9~ 0.0
+  // i=0  -> 0.0 + 2.4 = 2.4
+  // i=2  -> 2.4 + 1.0 = 3.4
+  // i=4  -> 3.4 + 0.5 = 3.9
+  //
+  // correct answer: 3.9
+  ;
+
+bugCategory: "skipped pre-loop init"
+
+keyChecks:
+  - "data.mystery = 0.0"
+  - "0.0"
+
+explanation: |
+  M01: skipped the pre-loop init. The function's first line is
+  `data.mystery = 0.0;` and it runs ONCE before the loop, overwriting
+  the brace-init value of -0.9. The student kept the brace-init value
+  going, which biased every subsequent iteration by -0.9.
+  Correct answer = 3.9, not 3.0.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — common-mistake catalog M01"
+
+commonMistakeIds: ["CM-Q1-skip-init"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Spot-error 1/5: skip pre-loop init.
+authoringStatus: "DRAFT"

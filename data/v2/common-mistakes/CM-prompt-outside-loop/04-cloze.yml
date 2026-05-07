@@ -1,0 +1,35 @@
+id: "CM-prompt-outside-loop-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-prompt-outside-loop: Q3 prompt outside loop. Fill the blank.
+
+code: |
+  // Canonical Q3 excerpt with blank:
+  // // ____ loop: cout << "Enter title: "; cin >> arr[i].title;
+  ;
+
+clozeSentence: |
+  Complete the canonical line: // inside loop: cout << "Enter title: "; cin >> arr[i].title;
+
+answer: "// inside loop: cout << \"Enter title: \"; cin >> arr[i].title;"
+
+explanation: |
+  Canonical pattern: // inside loop: cout << "Enter title: "; cin >> arr[i].title;
+  Mistake to avoid: Prompt printed once, before loop — should be per iteration.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-prompt-outside-loop"
+
+commonMistakeIds: ["CM-prompt-outside-loop"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-prompt-outside-loop.

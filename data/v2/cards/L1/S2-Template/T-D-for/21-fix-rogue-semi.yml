@@ -1,0 +1,49 @@
+id: "L1-S2-TD-21-fix-rogue-semi"
+schemaVersion: "v2"
+atomId: "T-04"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  This for-loop has a stray semicolon after the closing paren.
+  Provide the corrected first 2 lines.
+
+prompt: |
+  Remove the bug.
+
+template: |
+  // BROKEN: stray ; after the for-header's )
+  for (int i = 0; i < SIZE; i++);
+  {
+    // body never runs as the body of the for
+  }
+
+canonicalAnswer: |
+  for (int i = 0; i < SIZE; i++) {
+    // body
+  }
+
+keyChecks:
+  - "for (int i = 0"
+  - "i++) {"
+
+forbiddenTokens:
+  - "i++);"
+
+explanation: |
+  Remove the `;` between `)` and `{`. The stray semicolon makes the
+  for-loop body an EMPTY statement, and the brace block becomes a
+  separate (unconditional) compound statement. Subtle silent bug.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — for header punctuation"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-D repair: stray ; after for-header.
+authoringStatus: "DRAFT"

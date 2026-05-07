@@ -1,0 +1,27 @@
+id: F-22a
+name: "Function definition syntax"
+level: L0
+phase: E
+teaches: "`return_type name(param_list) { body }` — return type, name, parens (params), braces (body). Order is fixed."
+prereqs: [F-08, F-09, F-10]
+usedByQs: [Q1, Q3]
+cardCountTarget: 14
+parentAtom: F-22
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/01-function-decl"
+    quote: "A function declaration has a return type, a name, a parameter list, and a body."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/00-procedures"
+    quote: "A procedure is a function that returns void; it performs an action without producing a value."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/2-organising-code/1-tour/02-01-read-fns"
+    quote: "void read_X(...) is the standard signature for an interactive read procedure."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:21:30 — Saloni: 'how do we declare a struct, how do you do the hand execution' (functions context)"
+commonMistakes:
+  - CM-F22a-1  # uses function (the keyword) instead of return type
+  - CM-F22a-2  # places body before parameter list
+  - CM-F22a-3  # forgets return type for non-void function
+notes:
+  cardMix: { walkthrough: 1, demo: 2, decompose: 2, cloze: 3, μWrite: 2, tmplRec: 1, mcq: 2, proc: 1 }

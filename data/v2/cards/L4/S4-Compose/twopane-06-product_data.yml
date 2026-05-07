@@ -1,0 +1,68 @@
+id: "L4-S4-twopane-06"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[two-pane 6/10] Q2 (struct) and Q3 (read fn signature) are GIVEN below. Your job: write Q4 main() that uses them."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 two-pane Q2+Q3+Q4 integration"
+commonMistakeIds: 
+  - "CM-Q4-amp-at-call"
+  - "CM-Q4-pass-MAX-not-count"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: |
+  LEFT PANE (given):
+  struct product_data
+  {
+      int id;
+      string name;
+      double price;
+  };
+  
+  void read_products(product_data &products[], int &count);
+  
+  RIGHT PANE (write): the full main() that calls read_products and prints all 3 fields per row. MAX = 500; count = p_num; prompt = "How many products?".
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 500;
+      product_data products[MAX];
+      int p_num;
+  
+      cout << "How many products? ";
+      cin >> p_num;
+  
+      read_products(products, p_num);
+  
+      for (int i = 0; i < p_num; i++)
+      {
+          cout << products[i].id << ", ";
+          cout << products[i].name << ", ";
+          cout << products[i].price << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 500"
+  - "product_data products[MAX]"
+  - "int p_num"
+  - "read_products(products, p_num)"
+  - "i < p_num"
+  - "products[i].id"
+  - "products[i].name"
+  - "products[i].price"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many products?"
+explanation: "Two-pane integration: main() consumes Q2 struct and Q3 read fn. Practise calling the SAME signature shown on the left (no & at call site)."

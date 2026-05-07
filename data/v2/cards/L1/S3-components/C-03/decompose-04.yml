@@ -1,0 +1,39 @@
+id: L1-S3-C-03-decomp-03
+schemaVersion: v2
+atomId: C-03
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: DecomposeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-03
+commonMistakeIds:
+  - CM-C03a
+  - CM-C03b
+stem: Match brace-init values to array indices.
+code: |-
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  stat_double d = { {-1, -2, -3, -4, -5}, 0 };
+question: Which option pairs values to indices correctly?
+options:
+  - label: A
+    text: numbers[1] = -1, numbers[2] = -2, numbers[3] = -3, numbers[4] = -4, numbers[5] = -5
+  - label: B
+    text: numbers[0] = -1, numbers[1] = -2, numbers[2] = -3, numbers[3] = -4, numbers[4] = -5
+  - label: C
+    text: numbers[0] = -5, numbers[1] = -4, numbers[2] = -3, numbers[3] = -2, numbers[4] = -1
+  - label: D
+    text: numbers[0] = 0, numbers[1] = -1, numbers[2] = -2, numbers[3] = -3, numbers[4] = -4
+correctLabel: B
+explanation: >-
+  C++ arrays are 0-indexed and brace-init fills left-to-right: 1st value → index 0, 5th value →
+  index 4.
+

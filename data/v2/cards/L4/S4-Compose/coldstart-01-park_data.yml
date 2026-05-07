@@ -1,0 +1,84 @@
+id: "L4-S4-coldstart-01"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[cold-start 1/15] Entity: park_data. From ENTITY NAME ONLY, write all three: Q2 struct, Q3 read fn, Q4 main(). Fields chosen at your discretion (suggested: name, area, visitors)."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 cold-start Q2+Q3+Q4 chain"
+commonMistakeIds: 
+  - "CM-Q4-amp-at-call"
+  - "CM-Q4-pass-MAX-not-count"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: |
+  Entity name: park_data. Write all 3 questions:
+  Q2 — struct definition with fields
+  Q3 — read fn signature + body that fills the array
+  Q4 — main() that calls the read fn and prints all rows.
+  
+  Suggested fields: name, area, visitors with types string, double, int. MAX = 100. count_var = park_num. fn = read_parks. prompt = "How many parks?".
+canonicalAnswer: |
+  // Q2: struct
+  struct park_data
+  {
+      string name;
+      double area;
+      int visitors;
+  };
+  
+  // Q3: read fn
+  void read_parks(park_data parks[], int &count)
+  {
+      cout << "How many parks? ";
+      cin >> count;
+      for (int i = 0; i < count; i++)
+      {
+          cin >> parks[i].name;
+          cin >> parks[i].area;
+          cin >> parks[i].visitors;
+      }
+  }
+  
+  // Q4: main
+  int main()
+  {
+      const int MAX = 100;
+      park_data parks[MAX];
+      int park_num;
+  
+      cout << "How many parks? ";
+      cin >> park_num;
+  
+      read_parks(parks, park_num);
+  
+      for (int i = 0; i < park_num; i++)
+      {
+          cout << parks[i].name << ", ";
+          cout << parks[i].area << ", ";
+          cout << parks[i].visitors << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "struct park_data"
+  - "name"
+  - "area"
+  - "visitors"
+  - "read_parks"
+  - "park_data parks[MAX]"
+  - "i < park_num"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many parks?"
+explanation: "End-to-end transfer: from entity name → 3-question integrated answer. Tests whether the student internalised the full Q2/Q3/Q4 pipeline."

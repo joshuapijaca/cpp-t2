@@ -1,0 +1,72 @@
+# =====================================================================
+# L0 / F-07 / DecomposeCard 01
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-decomp-01"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q2", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes the struct below for Q2. The marker takes 1 mark
+  off for "missing semicolon". Pick the option that names the
+  missing semicolon's exact location.
+
+code: |
+  struct Point {
+    int x
+    int y;
+  }
+
+question: |
+  Where does this code need an additional semicolon?
+
+options:
+  - label: "A"
+    text: |
+      Two places: at the end of `int x` (every field ends with ;), and
+      after the closing `}` (every struct definition ends with `};`).
+  - label: "B"
+    text: |
+      One place — the very last line, after the closing `}` only. The
+      missing `;` after `int x` is fine because the next line will
+      "terminate it".
+  - label: "C"
+    text: |
+      Nowhere — this code is already correct.
+  - label: "D"
+    text: |
+      One place — at the end of the FIRST line, `struct Point {`,
+      because every line in C++ ends with `;`.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. Two semicolons are missing.
+  - After `int x` — every field declaration is its own statement
+    and must end with `;`.
+  - After the closing `}` of the struct — a struct definition is a
+    statement, so the closing brace + `;` (`};`) is required.
+
+  B is wrong: C++ does not "carry forward" missing semicolons.
+  Each statement must end with its own `;`.
+  C is wrong: there ARE missing semicolons.
+  D is wrong: `struct Point {` is a block-opening line, NOT a
+  statement; it must NOT end with `;`. (And `int y;` already has a
+  semicolon.)
+
+source:
+  kind: "seminar"
+  ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:25:39 — struct + line-end punctuation"
+
+commonMistakeIds: ["CM-F07a", "CM-F07b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Diagnose-the-error decompose. Captures the two highest-frequency
+  Q2 semicolon errors at once: missing `;` after a field (CM-F07b),
+  and missing `;` after the struct's closing brace (CM-F07a).

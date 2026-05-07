@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 26 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Triple-nested for-for-if
+# =====================================================================
+id: "L0-F25-mcq-26"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Four levels deep: main > outer for > inner for > if. The
+  HIGHLIGHTED `{` opens the INNER FOR at depth 2. Which `}`
+  matches?
+
+  ```cpp
+  int main() {                          // depth 0 open
+    for (int i = 0; i < 3; i = i+1) {   // depth 1 open
+      for (int j = 0; j < 3; j = j+1) { // <-- HIGHLIGHT (depth 2, inner for)
+        if (i == j) {                   // depth 3 open (if)
+          cout << "*";
+        }                               // option A (depth 3, if close)
+      }                                 // <-- option B (depth 2, inner for close)
+    }                                   // option C (depth 1, outer for close)
+    return 0;
+  }                                     // depth 0 close
+  ```
+
+correct: "B — the `}` two lines below option A (depth 2, inner for's close)."
+
+distractors:
+  - "A — the `}` after the cout, because that is the first `}` after the highlight."
+  - "C — the `}` two lines below option B, because for-loops nest by sharing closing braces."
+  - "D — none; the inner for borrows the outer for's brace."
+
+explanation: |
+  B is correct. depth-2 matches depth-2.
+
+  A is wrong: A is depth 3 (if-close).
+  C is wrong: C is depth 1 (outer for's close).
+  D is wrong: every `{` has its own `}`.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 26/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Four-deep nesting. Common Q1 shape (nested loops).

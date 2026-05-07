@@ -1,0 +1,84 @@
+id: "L4-S4-coldstart-07"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[cold-start 7/15] Entity: beach_data. From ENTITY NAME ONLY, write all three: Q2 struct, Q3 read fn, Q4 main(). Fields chosen at your discretion (suggested: name, length, rating)."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 cold-start Q2+Q3+Q4 chain"
+commonMistakeIds: 
+  - "CM-Q4-amp-at-call"
+  - "CM-Q4-pass-MAX-not-count"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: |
+  Entity name: beach_data. Write all 3 questions:
+  Q2 — struct definition with fields
+  Q3 — read fn signature + body that fills the array
+  Q4 — main() that calls the read fn and prints all rows.
+  
+  Suggested fields: name, length, rating with types string, double, double. MAX = 80. count_var = beach_num. fn = read_beaches. prompt = "How many beaches?".
+canonicalAnswer: |
+  // Q2: struct
+  struct beach_data
+  {
+      string name;
+      double length;
+      double rating;
+  };
+  
+  // Q3: read fn
+  void read_beaches(beach_data beaches[], int &count)
+  {
+      cout << "How many beaches? ";
+      cin >> count;
+      for (int i = 0; i < count; i++)
+      {
+          cin >> beaches[i].name;
+          cin >> beaches[i].length;
+          cin >> beaches[i].rating;
+      }
+  }
+  
+  // Q4: main
+  int main()
+  {
+      const int MAX = 80;
+      beach_data beaches[MAX];
+      int beach_num;
+  
+      cout << "How many beaches? ";
+      cin >> beach_num;
+  
+      read_beaches(beaches, beach_num);
+  
+      for (int i = 0; i < beach_num; i++)
+      {
+          cout << beaches[i].name << ", ";
+          cout << beaches[i].length << ", ";
+          cout << beaches[i].rating << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "struct beach_data"
+  - "name"
+  - "length"
+  - "rating"
+  - "read_beaches"
+  - "beach_data beaches[MAX]"
+  - "i < beach_num"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many beaches?"
+explanation: "End-to-end transfer: from entity name → 3-question integrated answer. Tests whether the student internalised the full Q2/Q3/Q4 pipeline."

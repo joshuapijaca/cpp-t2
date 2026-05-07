@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-05 / ProceduralCard 02 (μ-write)
+# Atom: using namespace std;
+# =====================================================================
+id: "L0-F05-uwrite-02"
+schemaVersion: "v2"
+atomId: "F-05"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Repair drill. The program below has the include line but is missing
+  the using-namespace directive. Add it. Type the two-line preamble
+  (include line plus using line).
+
+section: "L0 · F-05 · μ-write — repair missing using directive"
+
+prompt: |
+  Original (broken):
+
+  #include <iostream>
+  int main() {
+    cout << 7 << endl;
+    return 0;
+  }
+
+  Add the missing line that makes the bare `cout` legal. Show the
+  repaired top-of-file (lines 1 and 2).
+
+expectedAnswer: |
+  #include <iostream>
+  using namespace std;
+
+keyChecks:
+  - "using namespace std;"
+  - "#include"
+
+variants:
+  - prompt: "Add the namespace line so cout no longer triggers 'not declared'. Show lines 1-2."
+    expectedAnswer: |
+      #include <iostream>
+      using namespace std;
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F05a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 2: repair drill. Mirrors F-04 uwrite-02 but for the
+  using directive instead of the include directive.

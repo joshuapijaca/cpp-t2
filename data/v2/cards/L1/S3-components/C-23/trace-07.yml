@@ -1,0 +1,46 @@
+id: L1-S3-C-23-trace-06
+schemaVersion: v2
+atomId: C-23
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: TraceCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-23
+commonMistakeIds:
+  - CM-C23a
+  - CM-C23b
+stem: Apply `data.mystery = data.mystery + data.numbers[i];` with i=1. What is data.mystery after?
+code: |-
+  int main() {
+    stat_double data = { {10, 0, -5, 2.5, -7.5}, 1 };
+    int i = 1;
+    data.mystery = data.mystery + data.numbers[i];
+    cout << data.mystery << endl;
+    return 0;
+  }
+variables:
+  - data.mystery
+expectedTrace:
+  - line: 3
+    variable: i
+    value: '1'
+    output: null
+  - line: 4
+    variable: data.mystery
+    value: '1'
+    output: null
+  - line: 5
+    variable: ''
+    value: ''
+    output: '1'
+terminalOutput:
+  - '1'
+inputMode: final-only
+teachMe: 'Sum-accumulator: read OLD mystery, add cell, write NEW mystery. The old value is struck through.'
+

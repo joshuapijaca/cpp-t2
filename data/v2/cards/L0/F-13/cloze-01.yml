@@ -1,0 +1,38 @@
+# =====================================================================
+# L0 / F-13 / ClozeCard 01 — endl flush separator
+# =====================================================================
+id: "L0-F13-cloze-01"
+schemaVersion: "v2"
+atomId: "F-13"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill the missing token so the chain prints `count` and ends the line.
+
+code: |
+  int count = 7;
+  cout << "count = " << count << ___;
+
+clozeSentence: "cout << \"count = \" << count << ___;   // end the line"
+
+answer: "endl"
+
+explanation: |
+  `endl` writes a newline character AND flushes the output buffer.
+  Without `endl`, the next `cout` runs onto the same terminal line.
+  Targets CM-F13b (forgets endl, output runs together).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/5-terminal-functions"
+
+commonMistakeIds: ["CM-F13b-1"]
+status: "NEW"
+createdBy: "atom-coverage-fix"
+authoringStatus: "DRAFT"
+notes: |
+  Cloze form for atom type-diversity per QA-M10. Drills the
+  end-of-line responsibility of `endl`.

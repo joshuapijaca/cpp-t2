@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-missing-return-0
+id: "L4-cmimm-CM-missing-return-0-mcq"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  What statement should the last line of `int main()` be?
+
+correct: '`return 0;` — signals success'
+
+distractors:
+  - '`exit;` — terminates the program'
+  - '`break;` — exits the loop'
+  - '`stop 0;` — not valid C++'
+
+explanation: |
+  `return 0;` returns control to the OS with success status. Always include it in Q4.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-missing-return-0)"
+
+commonMistakeIds: ["CM-missing-return-0"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

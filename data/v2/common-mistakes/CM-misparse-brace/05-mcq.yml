@@ -1,0 +1,32 @@
+id: "CM-misparse-brace-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-misparse-brace: Q1 misparsed brace-init. Parse: outer {{}, x} = struct; inner {{}} = array; tail = mystery.
+
+correct: "stat_double d = {{1.0,2.0,3.0,4.0,5.0}, 0.0};"
+
+distractors:
+  - "// d.numbers = {1,2,3,4,5,0}"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: stat_double d = {{1.0,2.0,3.0,4.0,5.0}, 0.0};
+  Mistake: Treated {{1,2,3,4,5}, 0} as a 6-element array.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-misparse-brace"
+
+commonMistakeIds: ["CM-misparse-brace"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-misparse-brace.

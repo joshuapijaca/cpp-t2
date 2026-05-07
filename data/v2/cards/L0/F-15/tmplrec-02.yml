@@ -1,0 +1,52 @@
+# =====================================================================
+# L0 / F-15 / TemplateRecallCard 02
+# Atom: Prompt-then-read pair (struct field with index)
+# =====================================================================
+id: "L0-F15-tmplrec-02"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Recall the array-element prompt-pair template (the loop body
+  shape).
+
+prompt: |
+  Type the two-line prompt-pair for reading `desks[i].desk_id` with
+  the index `i` in the prompt label.
+
+template: |
+  cout << "____ " << ____ << " ____: ";
+  cin >> ____[____].____;
+
+canonicalAnswer: |
+  cout << "desk " << i << " desk_id: ";
+  cin >> desks[i].desk_id;
+
+keyChecks: ["cout", "i", "desk_id", "cin", "desks[i].desk_id"]
+
+forbiddenTokens: []
+
+explanation: |
+  The array-element prompt-pair has the index `i` interpolated into
+  the label so the user knows WHICH desk they are entering. The
+  read uses `desks[i].desk_id` to write into the i-th struct's
+  desk_id field.
+
+  Pattern:
+  - cout chains: "label " << i << " sub-label: "
+  - cin: array name [i] . field
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: read_desks loop body shape"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Loop body template. Practice Q3 expects this exact shape.

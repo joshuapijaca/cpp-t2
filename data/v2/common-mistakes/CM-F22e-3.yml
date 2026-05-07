@@ -1,0 +1,38 @@
+id: CM-F22e-3
+name: "Thinks raw array parameter `int arr[]` makes a local copy"
+description: |
+  When an array is passed to a function via `void f(int arr[], int
+  size)`, the array DECAYS to a pointer-like alias — the function
+  shares the caller's storage, NOT a copy. Mutations through `arr[i]`
+  ARE visible to the caller after return. Students believe the
+  function gets a private copy (because that's how scalars and structs
+  work), so they expect mutations to be local. They write code that
+  relies on a "private copy" and are surprised when the caller's array
+  changes.
+whyItHappens: |
+  Pass-by-value is the default mental model: every parameter is a
+  fresh copy. Arrays break this rule (C-inherited decay), but the
+  rule-break is invisible at the call site — `f(my_array, 5);` looks
+  identical to `f(my_int, 5);`. Students who don't know about decay
+  generalise from scalars to arrays. Compounded by the fact that
+  `&` exists for structs (Test 2 V2.0 uses it explicitly), so students
+  conclude `&` is required for any non-copy semantics — and assume
+  `int arr[]` (no `&`) means a copy.
+immunizationStrategy: |
+  1. Decompose: `void zero_first(int arr[]...)` — what does caller
+     see? Pick A (mutation visible) over B (local copy).
+  2. MCQ: "Array param without `&`: copy or alias?" — alias / copy /
+     UB / compile error.
+  3. Demo: side-by-side scalar (copy) vs array (alias) call.
+  4. SpotError: code that assumes local-copy semantics — explain why
+     mutations leak.
+  5. Trace: walk through array-param call, watch caller's slot change.
+  6. Walkthrough: explicit "decay rule" — array → pointer at param
+     boundary, no copy made.
+examImpact: medium
+atomDependencies: [F-22e, F-19]
+qTracks: [Q1, Q3]
+relatedCMs: [CM-F22e-1, CM-F22e-2, CM-F22b-3, CM-mutate-array]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"

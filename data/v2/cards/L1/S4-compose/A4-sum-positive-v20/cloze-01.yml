@@ -1,0 +1,39 @@
+# =====================================================================
+# L1 / sum-positive V2.0 / Cloze 01 — predict iter-3 mystery
+# =====================================================================
+id: "L1-A4v20-cloze-01"
+schemaVersion: "v2"
+atomId: "A4"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "V2.0 stimulus mid-trace: predict data.mystery after the iteration where i = 3."
+
+code: |
+  // V2.0 EXACT
+  stat_double data = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+  data.mystery = 0.0;
+  for (int i = 0; i < 5; i = i + 1) {
+    if (data.numbers[i] > 0) {
+      data.mystery = data.mystery + data.numbers[i];
+    }
+  }
+
+clozeSentence: "After the iteration where i = 3, data.mystery = ____."
+
+answer: "5.4"
+
+explanation: |
+  reset 0.0; i=0 add 2.4 -> 2.4; i=1 skip; i=2 skip; i=3 add 3.0 -> 5.4. Stop here.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — EXACT stimulus, mid-loop cloze"
+
+commonMistakeIds: ["CM-A4-skip-condition", "CM-A4-init-not-zero"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "V2.0 exact stimulus mid-loop predict cloze."

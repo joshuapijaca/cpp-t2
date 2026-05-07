@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-18 / TemplateRecallCard 02 (μWrite)
+# Atom: write for-loop iterating array
+# =====================================================================
+id: "L0-F18-write-02"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Write a complete for-loop that prints every element of array
+  `arr` (size SIZE) on its own line. Use the canonical
+  `i = 0; i < SIZE; i++` shape.
+
+prompt: |
+  Iterate `arr[SIZE]` and print each element with cout.
+
+template: |
+  for (___) {
+    cout << ___ << endl;
+  }
+
+canonicalAnswer: |
+  for (int i = 0; i < SIZE; i++) {
+    cout << arr[i] << endl;
+  }
+
+keyChecks:
+  - "for (int i = 0; i < SIZE; i++)"
+  - "arr[i]"
+  - "cout"
+
+forbiddenTokens:
+  - "while"
+  - "do"
+
+explanation: |
+  The canonical array iteration. `arr[i]` reads the i-th element.
+  `i < SIZE` ensures we never index past the end (arr[SIZE] would
+  be out of bounds).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/01-for-loop"
+
+commonMistakeIds: ["CM-F18a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

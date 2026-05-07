@@ -1,0 +1,23 @@
+id: C-11
+name: Evaluate i<SIZE false → exit
+level: L1
+teaches: When i==5, `i<SIZE` is false; body skipped, loop exits.
+prereqs:
+  - F-16
+  - F-18
+usedByQs:
+  - Q1
+cardCountTarget: 8
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-11
+    quote: 'C-11: 8 cards. Evaluate i<SIZE false → exit.'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C11a
+  - CM-C11b
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

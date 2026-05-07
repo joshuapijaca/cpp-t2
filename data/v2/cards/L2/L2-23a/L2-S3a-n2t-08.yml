@@ -1,0 +1,20 @@
+
+id: "L2-S3a-n2t-08"
+schemaVersion: "v2"
+atomId: "L-23a"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "MCQCard"
+stem: "Q2 noun→type #8. A struct field needs a type. The English noun `desk_id` should be stored as which C++ primitive?"
+correct: "`int` — a desk id, like room_id, is a whole-number identifier"
+distractors: ["`double` — a floating-point number is overkill for this noun.","`string` — a string is the wrong type for this scalar quantity.","`bool` — a true/false flag does not capture this noun."]
+explanation: "`desk_id` is best stored as `int` because a desk id, like room_id, is a whole-number identifier"
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-wrong-type"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Noun→type drill, int bucket."

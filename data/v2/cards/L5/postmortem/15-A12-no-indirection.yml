@@ -1,0 +1,61 @@
+id: "L5-postmortem-15-A12-no-indirection"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Q2 struct — student crammed two fields onto one line: `int age, year;`. Each field needs its own declaration line in this unit's rubric. Read the diff.
+
+failedAttempt: |
+  struct student_data
+  {
+      string name;
+      int age, year;
+      double gpa;
+  };
+
+diagnosis: |
+  C++ allows comma-separated declarations of the same type — `int age, year;` IS legal C++ and creates two int fields. But this unit's rubric expects ONE field per declaration line for clarity (`int age;` then `int year;`). The auto-grader regex matches lines like `^\s*<type>\s+<name>;$` — comma-separated forms break the count. Field count check fails: 3 declared lines vs spec's 4 fields.
+
+repairSteps:
+  - "struct student_data"
+  - "{"
+  - "    string name;"
+  - "    int age;       // <-- one field per line"
+  - "    int year;"
+  - "    double gpa;"
+  - "};"
+
+preventionTip: |
+  One field per line. Even though `int a, b, c;` is legal C++, this unit's rubric counts declaration lines. Always: `<type> <name>;` then newline. No commas in struct field declarations.
+
+explanation: |
+  Lesson learned — what's legal in the language isn't always what the rubric wants. The unit's marking script counts field declarations by line. Comma-separated forms confuse auto-grading and obscure the field count for human reviewers. Get into the habit of one-per-line; it's also more readable.
+
+canonicalAnswer: |
+  struct student_data
+  {
+      string name;
+      int age;
+      int year;
+      double gpa;
+  };
+
+annotations:
+  - line: 4
+    severity: err
+    note: "`int age, year;` declares both fields on one line. Rubric wants `int age;` then `int year;` on separate lines."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q2 declaration style"
+
+commonMistakeIds: ["CM-2-fields-1-line"]
+status: "NEW"
+createdBy: "SA-L5-Postmortem-Rewrite"
+authoringStatus: "DRAFT"
+notes: |
+  Postmortem #15 — Q2 / two fields one line.

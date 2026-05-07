@@ -1,0 +1,39 @@
+# =====================================================================
+# L3 / R-02e / FunctionWriteCard — 3-field body for pizzas
+# =====================================================================
+id: "L3-R02e-write-10"
+schemaVersion: "v2"
+atomId: "R-02e"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the BODY of the for-loop only (no signature, no for-header):
+  3 prompt-pair sequence for 'pizzas[i]' fields:
+  diameter_cm, toppings, price.
+prompt: "3-field prompt-pair sequence"
+canonicalAnswer: |
+  cout << "Diameter (cm): ";
+  cin >> pizzas[i].diameter_cm;
+  cout << "Toppings: ";
+  cin >> pizzas[i].toppings;
+  cout << "Price: ";
+  cin >> pizzas[i].price;
+keyChecks:
+  - "cin >> pizzas[i].diameter_cm;"
+  - "cin >> pizzas[i].toppings;"
+  - "cin >> pizzas[i].price;"
+forbiddenTokens:
+  - "while"
+  - "endl"
+explanation: |
+  3 fields means 3 prompt-pairs in struct-declaration order.
+  Each pair is cout-prompt + cin-into-list[i].field.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-skipped-field","CM-Q3-reordered-field"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

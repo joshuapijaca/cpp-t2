@@ -1,0 +1,65 @@
+id: "L1-S2-TC0-02-full-practice"
+schemaVersion: "v2"
+atomId: "T-08"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Type the FULL practice-test mini-program (find-max).
+
+prompt: |
+  Reproduce the entire practice-test Q1 program.
+
+template: |
+  // (type the full practice program)
+
+canonicalAnswer: |
+  const int SIZE = 5;
+
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+  void who_am_i(stat_double &data) {
+    data.mystery = data.numbers[0];
+    for (int i = 0; i < SIZE; i++) {
+      if (data.numbers[i] > data.mystery) {
+        data.mystery = data.numbers[i];
+      }
+    }
+  }
+
+  stat_double d = {{-20.0, 3.2, 1.9, -1.5, 1.3}, 0.0};
+  who_am_i(d);
+
+keyChecks:
+  - "const int SIZE = 5"
+  - "struct stat_double"
+  - "void who_am_i(stat_double &data)"
+  - "data.mystery = data.numbers[0]"
+  - "for (int i = 0; i < SIZE; i++)"
+  - "data.numbers[i] > data.mystery"
+  - "data.mystery = data.numbers[i]"
+  - "{-20.0, 3.2, 1.9, -1.5, 1.3}"
+  - "who_am_i(d);"
+
+forbiddenTokens:
+  - "while"
+
+explanation: |
+  Practice variant: find-max. Same skeleton, different INIT, COND,
+  ACTION.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — full Q1 program"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-COMBO practice full.
+authoringStatus: "DRAFT"

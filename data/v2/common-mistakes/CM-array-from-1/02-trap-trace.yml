@@ -1,0 +1,44 @@
+id: "CM-array-from-1-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-array-from-1: Q1 array indexed from 1.
+
+code: |
+  // Trap: for-loop starts at i = 1 — skips element 0.
+  for (i = 1; i < SIZE; i++) {
+  ;
+
+question: |
+  What goes wrong with the line above on Q1?
+
+options:
+  - label: "A"
+    text: "for-loop starts at i = 1 — skips element 0."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  for-loop starts at i = 1 — skips element 0. The canonical pattern is: for (i = 0; i < SIZE; i++) {
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-array-from-1"
+
+commonMistakeIds: ["CM-array-from-1"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-array-from-1.

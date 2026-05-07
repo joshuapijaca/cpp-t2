@@ -1,0 +1,92 @@
+SIT102 Introduction to Programming  P9 Working with Multiples
+
+Working with Multiples
+
+So far, our programs have been working with single values. This task will teach
+how to handle and manipulate collections of values by storing them in arrays. Such
+collections will greatly expand the amount of data you can work with, and the
+complexity of your programs. Mastering working with multiples will bring together
+your understanding of control flow, with new data structures that make working
+with lots of data a breeze. Make sure not to take any shortcuts, as this is another
+challenging but important set of skills and knowledge to attain.
+
+Key aspects include:
+
+    · Working with collections of values of any data type - whether primitive data
+         types (e.g. int, char, bool, etc) or your custom data types using structs.
+
+    · Combine collections with other learned programming concepts such as For
+         Loops to create advanced algorithms to utilise and manipulate many data
+         at once.
+
+Show us that you can:
+
+    · Declare and use arrays in variables, functions, and parameters in C++.
+    · Iterate over the elements (values) in an array to interact with each as an
+
+         individual value.
+    · Use hand execution to illustrate how code works with an array, with the
+
+         proper formatting as demonstrated in the Field Guide.
+    · Focus on persistence as a professional characteristic ­ helping you work
+
+         through things when they don't work as expected at the start.
+    · Do this task without using anything we haven't covered yet.
+    · Capture your learning in the Learning Journey section. Include evidence
+
+         (screenshots) of your progress, and your thoughts on what you
+         accomplished, what challenges you faced, and what you found interesting.
+
+                                                                                                  Page 1 of 3
+SIT102 Introduction to Programming  P9 Working with Multiples
+
+· Provide sincere reflections in the Reflection section. Don't just tell us what
+    you did, tell us what you learned. Reflections that are brief or shallow will
+    not be accepted.
+
+Complete the following:
+
+1. Download and open the template from OnTrack.
+2. Read through the Introduction section and Overview section from Chapter 4:
+
+    Indirect Access to understand how references work. Note: completion of the
+    Guided Tour from Chapter 4: Indirect Access is optional.
+3. Read through the Overview section from Chapter 5: Working with Multiples.
+4. Complete the Guided Tour from Chapter 5: Working with Multiples.
+5. Complete one of the Test Your Knowledge activities.
+6. You should have enough to submit now, but if you want to deepen your
+    understanding have a look at the concepts in the In Depth section. For higher
+    grade tasks you need to be able to combine the use of arrays and structs, and
+    link these with your functions.
+7. Complete your submission ­ complete the summary and related activities in
+    the template.
+8. Upload to OnTrack and engage with feedback to get this complete!
+
+Available Resources
+
+We have many resources to assist in your learning journey ­ if you are ever unsure
+then please reach out to us, we are always happy to help.
+
+    · The SIT102 Teams channel ­ an active learning resource with weekly
+         announcements from the Unit Chair, and regular discussions/assistance
+         from the SIT102 teaching team and students.
+
+                                    Page 2 of 3
+SIT102 Introduction to Programming  P9 Working with Multiples
+
+    · Seminars ­ you can attend both on-campus and online sessions, and join
+         as many as you like each week. Your tutors will provide demonstrations and
+         assistance to help guide your learning.
+
+    · HelpHubs ­ there are sessions hosted nearly everyday, both on-campus
+         and online providing one-on-one assistance from a tutor. Please join as
+         many as you like.
+
+    · PASS sessions ­ running every week, these sessions are run like a study
+         group, hosted by a past SIT102 student.
+
+For more information about the above resources please speak to your tutor or
+visit the SIT102 Teams channel.
+
+                                    Page 3 of 3
+

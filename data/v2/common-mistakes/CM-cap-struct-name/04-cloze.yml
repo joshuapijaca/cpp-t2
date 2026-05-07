@@ -1,0 +1,35 @@
+id: "CM-cap-struct-name-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-cap-struct-name: Q2 capitalized struct name. Fill the blank.
+
+code: |
+  // Canonical Q2 excerpt with blank:
+  // ____ computer_data {
+  ;
+
+clozeSentence: |
+  Complete the canonical line: struct computer_data {
+
+answer: "struct computer_data {"
+
+explanation: |
+  Canonical pattern: struct computer_data {
+  Mistake to avoid: Wrote `struct Computer_data` (capital C) — spec wants lowercase.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-cap-struct-name"
+
+commonMistakeIds: ["CM-cap-struct-name"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-cap-struct-name.

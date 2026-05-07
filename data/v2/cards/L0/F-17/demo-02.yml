@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-17 / DemoCard 02
+# Atom: if (cond); — silent empty-body bug
+# =====================================================================
+id: "L0-F17-demo-02"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the second silent if-bug: a stray semicolon after the close
+  paren. The compiler accepts it, but the body becomes a one-line
+  EMPTY statement and your real "body" runs unconditionally.
+
+whyOneLine: "A semicolon after `if (cond)` ends the if at the empty statement; the braces below run every time."
+
+demoCode: |
+  ┌─ WRONG ──────────────────────────────────────────┐
+  │   int n = 2;                                     │
+  │   if (n > 5);    // <-- stray ; ends the if!     │
+  │   {                                              │
+  │       cout << "big" << endl;  // ALWAYS prints   │
+  │   }                                              │
+  │   // Output: big   (even though n=2, not >5)     │
+  └──────────────────────────────────────────────────┘
+
+  ┌─ RIGHT ──────────────────────────────────────────┐
+  │   int n = 2;                                     │
+  │   if (n > 5) {                                   │
+  │       cout << "big" << endl;                     │
+  │   }                                              │
+  │   // Output: (nothing — n is not > 5)            │
+  └──────────────────────────────────────────────────┘
+
+highlightTokens:
+  - "if (n > 5);"
+  - "if (n > 5) {"
+  - "stray ;"
+  - "ALWAYS prints"
+
+usedIn:
+  - "Q1 if condition (the most common silent if bug)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"
+
+commonMistakeIds: ["CM-F17b"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Targets CM-F17b directly.
+authoringStatus: "DRAFT"

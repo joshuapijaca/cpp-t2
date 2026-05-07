@@ -1,0 +1,66 @@
+# =====================================================================
+# L0 / F-17 / DecomposeCard 02
+# Atom: stray semicolon after if
+# =====================================================================
+id: "L0-F17-decomp-02"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student wrote the code below and reports that the program
+  prints "yes" even when n is 1. Diagnose the bug.
+
+code: |
+  int n = 1;
+  if (n == 99);
+  {
+    cout << "yes" << endl;
+  }
+
+question: |
+  What is wrong?
+
+options:
+  - label: "A"
+    text: |
+      The `==` operator should be `=` for comparison.
+  - label: "B"
+    text: |
+      The semicolon after `if (n == 99)` ends the if at an empty
+      statement. The braces below are now an unconditional block
+      that always runs. Remove the semicolon.
+  - label: "C"
+    text: |
+      The braces are missing — every if needs `if (cond) { }` on
+      one line.
+  - label: "D"
+    text: |
+      `n == 99` always evaluates to true in C++ because of integer
+      promotion.
+
+correctLabel: "B"
+
+explanation: |
+  B is the diagnosis. `if (cond);` is parsed as: the if has an
+  EMPTY body (the `;`). The `{ ... }` that follows is then a normal
+  block that runs every time. Removing the stray `;` fixes it.
+
+  A — `==` is correct for comparison; `=` would be the bug.
+  C — braces are PRESENT in the code; they're just no longer
+  attached to the if.
+  D — comparison operators do not auto-promote in this way.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"
+
+commonMistakeIds: ["CM-F17b"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Targets CM-F17b.
+authoringStatus: "DRAFT"

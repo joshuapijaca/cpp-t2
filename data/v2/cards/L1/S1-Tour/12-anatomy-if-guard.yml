@@ -1,0 +1,44 @@
+id: "L1-S1-tour-12-anatomy-if-guard"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "DemoCard"
+
+stem: |
+  Anatomy 7/10: the if-guard. `if (cond) { ... }`. The body runs
+  ONLY when cond is true. Q1 cond patterns: `data.numbers[i] > 0`
+  (V2.0), `data.numbers[i] > data.mystery` (find-max).
+
+whyOneLine: "`if (cond)` is a GATE — false means skip the body for THIS iteration only, not exit the loop."
+
+demoCode: |
+  if ( data.numbers[i] > 0 ) {
+       ^^^^^^^^^^^^^^^^^^^^
+       |
+       CONDITION (a bool expression evaluated each iter)
+    data.mystery = data.mystery + data.numbers[i];   // <- body
+  }   // false -> body SKIPPED, but loop continues to i++
+
+  // common misread: students think a false cond exits the loop.
+  // It does NOT — only the BODY of the if is skipped for that iter.
+
+highlightTokens:
+  - "if"
+  - "data.numbers[i] > 0"
+  - "SKIPPED"
+
+usedIn:
+  - "Q1: cond gates the accumulator update"
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — `if (data.numbers[i] > 0)`"
+
+commonMistakeIds: ["CM-Q1-run-when-false"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Anatomy: if-guard semantics.
+authoringStatus: "DRAFT"

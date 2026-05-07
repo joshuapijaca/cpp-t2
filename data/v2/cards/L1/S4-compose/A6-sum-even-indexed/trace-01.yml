@@ -1,0 +1,111 @@
+# =====================================================================
+# L1 / sum-even-indexed / TraceCard 01
+# index-trap
+# =====================================================================
+id: "L1-A6-trace-01"
+schemaVersion: "v2"
+atomId: "A6"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "TraceCard"
+
+stem: "Hand-execute the sum-even-indexed loop on stat_double { numbers = {1.0, 9.0, 2.0, 9.0, 3.0}, mystery = ? }. Track i and data.mystery in the panel; print final mystery. index-trap."
+
+code: |
+  const int SIZE = 5;
+  
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  
+  int main() {
+    stat_double data = { {1.0, 9.0, 2.0, 9.0, 3.0}, 0 };
+    data.mystery = 0.0;
+    for (int i = 0; i < SIZE; i = i + 1) {
+      if (i % 2 == 0) {
+        data.mystery = data.mystery + data.numbers[i];
+      }
+    }
+    cout << data.mystery << endl;
+    return 0;
+  }
+
+variables: ["i", "data.mystery"]
+
+expectedTrace:
+  - line: 9
+    variable: "data.mystery"
+    value: "0"
+    output: null
+  - line: 10
+    variable: "data.mystery"
+    value: "0.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "0"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "1.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "1"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "2"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "3.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "3"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "4"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "6.0"
+    output: null
+  - line: 17
+    variable: ""
+    value: ""
+    output: "6"
+
+terminalOutput: ["6"]
+
+inputMode: "final-only"
+
+teachMe: |
+  After hand-execution:
+    data.mystery = 0
+    data.mystery = 0.0
+    i = 0
+    data.mystery = 1.0
+    i = 1
+    i = 2
+    data.mystery = 3.0
+    i = 3
+    i = 4
+    data.mystery = 6.0
+    Print: 6
+  
+  Final terminal output: 6
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — sum-even-indexed variant"
+
+commonMistakeIds: ["CM-A6-mod-on-value", "CM-A6-flip-parity"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Progression: index-trap. Trace card. Input mode: final-only."

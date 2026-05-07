@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-22c / FunctionWriteCard 01 — write the call statement
+# =====================================================================
+id: "L0-F22c-write-01"
+schemaVersion: "v2"
+atomId: "F-22c"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "FunctionWriteCard"
+
+stem: |
+  Write the C++ statement that calls `who_am_i` on local variable
+  `d`. The function signature uses pass-by-reference.
+
+prompt: "Call who_am_i on d. Pass-by-reference signature; bare variable at call site."
+
+signatureHint: "who_am_i(____);"
+
+canonicalAnswer: |
+  who_am_i(d);
+
+keyChecks:
+  - "who_am_i(d)"
+  - ";"
+
+forbiddenTokens:
+  - "&"
+  - "*"
+  - "->"
+
+explanation: |
+  Bare variable name at the call site. The `&` in the signature
+  does the work of making the parameter a reference; the caller
+  passes the variable as itself. Forbidden tokens block the
+  three common wrong forms (`&d`, `*d`, `->`).
+
+passByRefRequired: false
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `who_am_i ( d );`"
+
+commonMistakeIds: ["CM-F22c-1", "CM-F22c-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Forbidden token `&` is HARSH but correct: at the call site of a
+  pass-by-reference function, no `&` should appear. Lint will
+  catch any drift.

@@ -1,0 +1,38 @@
+id: "L4-S3C-write-08"
+schemaVersion: "v2"
+atomId: "Q-04"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "FunctionWriteCard"
+stem: "Write the 3-line block: declare int student_num;, prompt with cout, read with cin >> student_num;."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block C count+prompt+cin"
+commonMistakeIds: 
+  - "CM-Q4-no-prompt"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Declare int student_num, prompt the user \"How many students?\", read with cin."
+signatureHint: |
+  int ___;
+  cout << "..."; cin >> ___;
+canonicalAnswer: |
+  int student_num;
+  cout << "How many students? ";
+  cin >> student_num;
+keyChecks: 
+  - "int"
+  - "student_num"
+  - "cout"
+  - "cin"
+  - ">>"
+  - ";"
+forbiddenTokens: 
+  - "getline"
+  - "while"
+  - "scanf"
+passByRefRequired: false
+explanation: "Decl int student_num → cout prompt → cin >> student_num. ALWAYS in this order."

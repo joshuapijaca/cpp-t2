@@ -1,0 +1,37 @@
+id: "L5-warmup-04-q4"
+schemaVersion: "v2"
+atomId: "M-04"
+qTags: ["Q4"]
+stage: 6
+level: "L5"
+type: "PreflightCheckCard"
+
+stem: |
+  Q4 preflight checklist — D7 morning warmup. Run through this checklist before
+  attempting Q4 on the test.
+
+scenario: |
+  Before writing the Q4 main, run through this 6-step preflight.
+
+checklist:
+  - "Line 1: `const int MAX = 100;`."
+  - "Line 2: `EntityName arr[MAX];`."
+  - "Line 3: `int count;`."
+  - "Read count, then call read, then call print."
+  - "Last line: `return 0;`."
+  - "Pass `count` (not MAX) to read/print."
+
+explanation: |
+  Warmup preflight for Q4. The checklist captures the 4-6 highest-
+  leverage steps. If all are checked, the answer almost writes itself.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q4 — D7 warmup pack"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  D7 warmup #4: Q4.

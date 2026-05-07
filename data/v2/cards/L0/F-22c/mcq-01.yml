@@ -1,0 +1,43 @@
+# =====================================================================
+# L0 / F-22c / MCQCard 01 — does the call site mirror the signature?
+# =====================================================================
+id: "L0-F22c-mcq-01"
+schemaVersion: "v2"
+atomId: "F-22c"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  A function is declared `void f(int &x);`. To call it correctly
+  on a local int `n`, what should the call line be?
+
+correct: "f(n);   // bare variable name, no & at the call site"
+
+distractors:
+  - "f(&n);   // & must mirror the signature so types match"
+  - "f(*n);   // dereference n to get the int value"
+  - "&f(n);   // mark the call as a reference call"
+
+explanation: |
+  `f(n);` is correct. The `&` in `void f(int &x)` is a SIGNATURE
+  marker that tells the compiler to set up a reference binding.
+  The caller writes the bare variable; the compiler does the
+  binding automatically.
+  `f(&n)` would pass `&n` (an int pointer), which is the wrong
+  type. `*n` is pointer dereference (n isn't a pointer). `&f(n)`
+  is nonsense.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
+
+commonMistakeIds: ["CM-F22c-1", "CM-F22c-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  The "match the &" intuition is the single most-common F-22c
+  error. Distractor 1 articulates it explicitly so the student
+  must reject it.

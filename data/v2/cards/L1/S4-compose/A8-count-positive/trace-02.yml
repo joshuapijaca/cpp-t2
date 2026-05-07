@@ -1,0 +1,96 @@
+# =====================================================================
+# L1 / count-positive / TraceCard 02
+# all-negative
+# =====================================================================
+id: "L1-A8-trace-02"
+schemaVersion: "v2"
+atomId: "A8"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "TraceCard"
+
+stem: "Hand-execute the count-positive loop on stat_double { numbers = {-1.0, -2.0, -3.0, -4.0, -5.0}, mystery = ? }. Track i and data.mystery in the panel; print final mystery. all-negative."
+
+code: |
+  const int SIZE = 5;
+  
+  struct stat_double {
+    double numbers[SIZE];
+    int mystery;
+  };
+  
+  int main() {
+    stat_double data = { {-1.0, -2.0, -3.0, -4.0, -5.0}, 0 };
+    data.mystery = 0;
+    for (int i = 0; i < SIZE; i = i + 1) {
+      if (data.numbers[i] > 0) {
+        data.mystery = data.mystery + 1;
+      }
+    }
+    cout << data.mystery << endl;
+    return 0;
+  }
+
+variables: ["i", "data.mystery"]
+
+expectedTrace:
+  - line: 9
+    variable: "data.mystery"
+    value: "0"
+    output: null
+  - line: 10
+    variable: "data.mystery"
+    value: "0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "1"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "2"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "3"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "4"
+    output: null
+  - line: 17
+    variable: ""
+    value: ""
+    output: "0"
+
+terminalOutput: ["0"]
+
+inputMode: "final-only"
+
+teachMe: |
+  After hand-execution:
+    data.mystery = 0
+    data.mystery = 0
+    i = 0
+    i = 1
+    i = 2
+    i = 3
+    i = 4
+    Print: 0
+  
+  Final terminal output: 0
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — count-positive variant"
+
+commonMistakeIds: ["CM-A8-add-value-not-one", "CM-A8-flip-condition"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Progression: all-negative. Trace card. Input mode: final-only."

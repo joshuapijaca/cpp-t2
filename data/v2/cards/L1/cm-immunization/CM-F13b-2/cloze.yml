@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (ClozeCard) for CM-F13b-2
+id: "L1-cmimm-CM-F13b-2-cloze"
+schemaVersion: "v2"
+atomId: "F-13b"
+qTags: ["Q3", "Q4"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in the chaining operator between the text and the variable."
+
+code: |
+  int x = 5;
+  cout << "x = " ___ x << endl;
+
+clozeSentence: 'Fill in the C++ stream-insertion operator (NOT + or comma).'
+
+answer: '<<'
+
+explanation: |
+  `<<` is the C++ way to chain values into cout. Each value gets its own `<<`. No `+`, no commas — they belong to other languages.
+
+source:
+  kind: "pfg"
+  ref: "PFG part-1/1-sequence-and-data/2-trailside/11-1-terminal — common-mistake immunization (CM-F13b-2)"
+
+commonMistakeIds: ["CM-F13b-2"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

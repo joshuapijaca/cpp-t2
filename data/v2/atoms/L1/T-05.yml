@@ -1,0 +1,20 @@
+id: T-05
+name: "T-E skeleton: if-action body `if (cond) { data.mystery = ...; }`"
+level: L1
+phase: S2
+teaches: "Verbatim recall of the if-guard and accumulator-mutation body. Three lines: `if (cond) {`, action stmt, `}`. Cond/action vary by algorithm — sum-positive uses `if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }`."
+prereqs: [F-17, T-04]
+usedByQs: [Q1]
+cardCountTarget: 24
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — `if (data.numbers[i] > data.mystery) { data.mystery = data.numbers[i]; }`"
+  - kind: v2
+    ref: "Test 2 V2.0 attempt 1 — `if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }`"
+commonMistakes:
+  - CM-Q1-eq-vs-pluseq
+  - CM-Q1-run-when-false
+notes:
+  cardMix: { templateRecall: 24 }
+  stage: S2
+  exposureClass: medium

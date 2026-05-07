@@ -1,0 +1,35 @@
+id: "CM-pass-MAX-not-count-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-pass-MAX-not-count: Q4 pass MAX vs count. Fill the blank.
+
+code: |
+  // Canonical Q4 excerpt with blank:
+  // ____(arr, count);
+  ;
+
+clozeSentence: |
+  Complete the canonical line: read_X(arr, count);
+
+answer: "read_X(arr, count);"
+
+explanation: |
+  Canonical pattern: read_X(arr, count);
+  Mistake to avoid: Called `read_X(arr, MAX)` instead of `read_X(arr, count)`.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-pass-MAX-not-count"
+
+commonMistakeIds: ["CM-pass-MAX-not-count"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-pass-MAX-not-count.

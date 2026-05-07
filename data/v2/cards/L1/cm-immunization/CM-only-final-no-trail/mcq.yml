@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-only-final-no-trail
+id: "L1-cmimm-CM-only-final-no-trail-mcq"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  In a Q1 trace, what must you record on the page?
+
+correct: 'A row per iteration with the arithmetic and the new mystery.'
+
+distractors:
+  - 'Just the final mystery value — that''s what is asked.'
+  - 'Only the iterations where the condition is true.'
+  - 'A diagram with arrows from numbers to mystery.'
+
+explanation: |
+  Working = marks. The marker can't award full credit for an answer with no shown steps; one rounding error then spirals invisibly.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-only-final-no-trail)"
+
+commonMistakeIds: ["CM-only-final-no-trail"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

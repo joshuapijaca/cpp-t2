@@ -1,0 +1,22 @@
+id: C-17
+name: Evaluate numbers[i] > 0
+level: L1
+teaches: Test if the cell value is positive (the V2.0 sum-positive guard).
+prereqs:
+  - F-16
+  - F-19
+usedByQs:
+  - Q1
+cardCountTarget: 12
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-17
+    quote: 'C-17: 12 cards. Evaluate numbers[i] > 0.'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C17a
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

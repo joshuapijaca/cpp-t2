@@ -1,0 +1,43 @@
+# =====================================================================
+# L0 / F-19 / MCQCard 02
+# Atom: Fixed-size array — size must be compile-time const
+# =====================================================================
+id: "L0-F19-mcq-02"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which of the following is a valid fixed-size array declaration in
+  the SIT102 dialect (Test 2 scope, no dynamic allocation)?
+
+correct: "int arr[5];"
+
+distractors:
+  - "int n = 5; int arr[n];   // size from a runtime variable"
+  - "int arr[];               // empty brackets, size will be inferred later"
+  - "int arr[3.5];            // non-integer size literal"
+
+explanation: |
+  The size in `[...]` must be a non-negative integer compile-time
+  constant — an int literal (`5`) or a `const int` symbol. A plain
+  `int n` is NOT a compile-time constant (even though VLAs work in
+  some compiler extensions, they are off-scope). Empty brackets are
+  only valid for parameter lists (decay), not local declarations.
+  A non-integer literal like 3.5 is a type error.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
+
+commonMistakeIds: ["CM-F19a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Test 2 dialect specifically requires literal-or-`const int`. The
+  VLA distractor is intentionally tempting (some students saw it on
+  random websites) — neutralised here.

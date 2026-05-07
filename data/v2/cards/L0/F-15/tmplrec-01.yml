@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-15 / TemplateRecallCard 01
+# Atom: Prompt-then-read pair  (THE template)
+# =====================================================================
+id: "L0-F15-tmplrec-01"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Recall the canonical prompt-pair template. Fill in the four parts
+  exactly.
+
+prompt: |
+  Type the two-line prompt-pair shape, using `desk_id` as the field.
+
+template: |
+  ____ << "____: ";
+  ____ >> ____;
+
+canonicalAnswer: |
+  cout << "desk_id: ";
+  cin >> desk_id;
+
+keyChecks: ["cout", '"desk_id: "', "cin", "desk_id", ";"]
+
+forbiddenTokens: []
+
+explanation: |
+  The prompt-pair template:
+  ```
+  cout << "LABEL: ";
+  cin >> VARIABLE;
+  ```
+  Three parts to remember:
+  1. cout FIRST (prompt before read)
+  2. Trailing space inside quotes (`"label: "`)
+  3. No `endl` on the prompt — cursor stays on the line
+
+  This shape repeats for EVERY field of EVERY struct. Learn it once,
+  use it dozens of times.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+
+commonMistakeIds: ["CM-F15a", "CM-F15b", "CM-F15c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  THE most-used template in Q3 and Q4. Critical exam preparation.

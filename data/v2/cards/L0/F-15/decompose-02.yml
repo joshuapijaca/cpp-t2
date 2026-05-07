@@ -1,0 +1,71 @@
+# =====================================================================
+# L0 / F-15 / DecomposeCard 02
+# Atom: Prompt-then-read pair (missing prompt entirely)
+# =====================================================================
+id: "L0-F15-decomp-02"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes the read function below. The user runs the
+  program and sees a blank screen. Pick the option that best
+  describes the bug.
+
+code: |
+  void read_desks(desk_data desks[], int num_to_read) {
+    int i;
+    for (i = 0; i < num_to_read; i++) {
+      cin >> desks[i].desk_id;
+      cin >> desks[i].price;
+    }
+  }
+
+question: |
+  Why does the user see a blank screen?
+
+options:
+  - label: "A"
+    text: |
+      No `cout` prompts. cin alone prints nothing — it just waits
+      silently for input. The user has no idea what to type.
+  - label: "B"
+    text: |
+      The for-loop is infinite because i is never updated.
+  - label: "C"
+    text: |
+      `desks[i]` is not valid C++ syntax.
+  - label: "D"
+    text: |
+      The function returns nothing, so the screen cannot show
+      output.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. EVERY cin needs a paired cout BEFORE it. Without the
+  prompt, the program looks frozen because cin waits silently. Add:
+  ```
+  cout << "desk " << i << " desk_id: ";
+  cin >> desks[i].desk_id;
+  cout << "desk " << i << " price: ";
+  cin >> desks[i].price;
+  ```
+
+  B is wrong: the for-loop is fine.
+  C is wrong: `desks[i]` is correct array element access.
+  D is wrong: cout works inside void functions.
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: read_desks function requires prompt-pair pattern"
+
+commonMistakeIds: ["CM-F15a"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Targets the missing-prompt mistake.

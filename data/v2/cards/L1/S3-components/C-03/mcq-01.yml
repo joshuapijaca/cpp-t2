@@ -1,0 +1,25 @@
+id: L1-S3-C-03-mcq-00
+schemaVersion: v2
+atomId: C-03
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-03
+commonMistakeIds:
+  - CM-C03a
+  - CM-C03b
+stem: Given `stat_double d = { {2.4, -3.7, -1.7, 3, 2}, -0.9 };` — what is the value of `d.numbers[0]`?
+correct: '2.4'
+distractors:
+  - '-3.7'
+  - '2'
+  - '-0.9'
+explanation: 'Index 0 maps to the 1st inner value: 2.4.'
+

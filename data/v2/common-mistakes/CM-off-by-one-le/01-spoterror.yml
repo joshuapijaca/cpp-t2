@@ -1,0 +1,44 @@
+id: "CM-off-by-one-le-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q3 off-by-one i <=. The code below has the bug labeled
+  by CM-off-by-one-le. Find the line and provide the fix.
+
+brokenCode: |
+  // Q3 broken excerpt:
+  for (i = 0; i <= count; i++)
+  // (canonical was: for (i = 0; i < count; i++))
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  for (i = 0; i < count; i++)
+  ;
+
+bugCategory: "CM-off-by-one-le"
+
+keyChecks:
+  - "for (i = 0; i < count; i++)"
+
+explanation: |
+  Bug: Used `i <= count` — array overrun by 1.
+  Fix: for (i = 0; i < count; i++)
+  This common mistake costs marks on Q3 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-off-by-one-le"
+
+commonMistakeIds: ["CM-off-by-one-le"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-off-by-one-le.

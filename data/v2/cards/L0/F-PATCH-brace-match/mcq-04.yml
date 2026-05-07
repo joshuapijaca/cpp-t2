@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 04 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Same shape as 03 but highlight the OUTER brace
+# =====================================================================
+id: "L0-F25-mcq-04"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Same code as the previous card, but the HIGHLIGHTED brace is the
+  OUTER one (main's open). Which `}` is its match?
+
+  ```cpp
+  int main() {     // <-- HIGHLIGHT (depth 0 open)
+    if (1 < 2) {   // depth 1 open
+      int n = 0;
+    }              // option A (depth 1 close)
+    return 0;
+  }                // <-- option B (depth 0 close)
+  ```
+
+correct: "B — the final `}` on its own line (depth-0 close)."
+
+distractors:
+  - "A — the `}` at the end of the if-block, because it is the first `}` after the highlighted `{`."
+  - "C — there is no matching brace; main's body is unbounded."
+  - "D — option A and option B together; main needs two closing braces."
+
+explanation: |
+  B is correct. The highlighted `{` opens main at depth 0. The
+  first `}` you encounter (option A) is at depth 1 — it closes the
+  if, NOT main. The match is the next `}` AFTER A, at depth 0.
+
+  A is wrong: depth-1 close pairs with the depth-1 open (the if),
+  not main.
+  C is wrong: B is visible.
+  D is wrong: each `{` needs exactly one matching `}`.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 4/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Mirror of card 03. Same code, opposite highlight. Forces
+  attention to depth.

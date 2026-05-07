@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-14a / DemoCard 01
+# Atom: cin >> operator direction
+# =====================================================================
+id: "L0-F14a-demo-01"
+schemaVersion: "v2"
+atomId: "F-14a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the direction. The arrows point RIGHT, away from cin and
+  toward the variable. The value flows from cin INTO the variable.
+
+whyOneLine: "cin >> x;  the >> points toward x. Value flows FROM cin INTO x."
+
+demoCode: |
+  // user types: 7 (then Enter)
+  int n;
+  cin >> n;
+  // box n now holds 7
+
+  // user types: 9.99 (then Enter)
+  double price;
+  cin >> price;
+  // box price now holds 9.99
+
+  // user types: ana (then Enter)
+  string name;
+  cin >> name;
+  // box name now holds the text ana
+
+highlightTokens:
+  - "cin >>"
+  - "FROM cin"
+  - ">>"
+
+usedIn:
+  - "Q3 read fn (read each field of the struct)"
+  - "Q4 main (read num_to_read, then read array elements)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/0-pano/5-terminal-functions"
+
+commonMistakeIds: ["CM-F14a-1"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Pairs with F-13a demo-01 to make the cout/cin direction symmetry
+  visible.

@@ -1,0 +1,24 @@
+id: CM-skip-iter-cond-false
+name: "Student skips iter rows where the inner if-cond is false"
+description: |
+  In sum-positive, when `numbers[i] > 0` is false, mystery is unchanged.
+  Students omit that row from the trace entirely, because "nothing
+  happened." Tutor expects every iter to have a row showing cond
+  evaluation and unchanged state, even on skip.
+whyItHappens: |
+  Students conflate "no mutation" with "no entry." Marking convention
+  treats every iter as a documentable step regardless of outcome.
+immunizationStrategy: |
+  1. SpotError: trace omitting iter 2 where cond was false; mark as missing.
+  2. Cloze: fill in iter rows for an array with 3 false-cond and 2 true.
+  3. MCQ: "When inner cond is false, do we still write a row? (yes)"
+  4. Trace card with mostly-false-cond data; demand all rows present.
+  5. Decompose: per-iter row template (i / cond / mutation? / new state).
+  6. Marking-rubric demo card showing rows-present requirement.
+examImpact: medium
+atomDependencies: [F-17, F-18b, A4]
+qTracks: [Q1]
+relatedCMs: [CM-only-final-no-trail, CM-omit-mystery-cell]
+source:
+  kind: seminar
+  ref: "SIT102 Seminar Mondays 6pm new (2) — cond-false iter still graded"

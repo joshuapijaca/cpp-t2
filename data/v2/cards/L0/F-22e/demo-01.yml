@@ -1,0 +1,57 @@
+# =====================================================================
+# L0 / F-22e / DemoCard 01 — array decay vs Deakin reference form
+# =====================================================================
+id: "L0-F22e-demo-01"
+schemaVersion: "v2"
+atomId: "F-22e"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: when you pass an array to a function, two shapes look
+  similar but mean different things. Test 2 V2.0 wraps the array
+  inside a struct, then passes the STRUCT by reference — that
+  hides this gotcha.
+
+whyOneLine: "Test 2 wraps arrays in structs and passes the struct by reference; raw `T arr[]` decay is a separate idiom."
+
+demoCode: |
+  // Idiom 1: raw array as parameter — DECAY (no copy made):
+  void fill(int arr[], int size) {
+    for (int i = 0; i < size; i++) arr[i] = 0;
+  }
+  // arr is a *pointer-like alias* to the caller's storage.
+  // Mutations to arr[i] ARE visible to the caller.
+  // Size is NOT carried; pass it as a separate parameter.
+
+  // Idiom 2: struct-with-array, struct passed by reference — TEST 2 V2.0
+  void who_am_i(stat_double &data) {
+    data.numbers[0] = 0;     // mutation visible to caller
+  }
+  // The whole struct (including its array field) is bound by reference.
+  // SIZE is reachable via the file-scope `const int SIZE = 5;`.
+
+highlightTokens:
+  - "void fill(int arr[], int size)"
+  - "void who_am_i(stat_double &data)"
+  - "decay"
+  - "int size"
+  - "&data"
+
+usedIn:
+  - "Q3 read function (Test 2 uses Idiom 2 — struct &data)"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — Idiom 2 used; Idiom 1 reference for clarity"
+
+commonMistakeIds: ["CM-F22e-1", "CM-F22e-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Pure exposure of the two idioms. Test 2 only uses Idiom 2, but
+  students see Idiom 1 in tutorials and confuse the two — this
+  card pre-empts that confusion.

@@ -1,0 +1,68 @@
+id: "L4-S4-twopane-04"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[two-pane 4/10] Q2 (struct) and Q3 (read fn signature) are GIVEN below. Your job: write Q4 main() that uses them."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 two-pane Q2+Q3+Q4 integration"
+commonMistakeIds: 
+  - "CM-Q4-amp-at-call"
+  - "CM-Q4-pass-MAX-not-count"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: |
+  LEFT PANE (given):
+  struct employee_data
+  {
+      int id;
+      string name;
+      double salary;
+  };
+  
+  void read_employees(employee_data employees[], int &count);
+  
+  RIGHT PANE (write): the full main() that calls read_employees and prints all 3 fields per row. MAX = 500; count = emp_num; prompt = "How many employees?".
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 500;
+      employee_data employees[MAX];
+      int emp_num;
+  
+      cout << "How many employees? ";
+      cin >> emp_num;
+  
+      read_employees(employees, emp_num);
+  
+      for (int i = 0; i < emp_num; i++)
+      {
+          cout << employees[i].id << ", ";
+          cout << employees[i].name << ", ";
+          cout << employees[i].salary << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 500"
+  - "employee_data employees[MAX]"
+  - "int emp_num"
+  - "read_employees(employees, emp_num)"
+  - "i < emp_num"
+  - "employees[i].id"
+  - "employees[i].name"
+  - "employees[i].salary"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many employees?"
+explanation: "Two-pane integration: main() consumes Q2 struct and Q3 read fn. Practise calling the SAME signature shown on the left (no & at call site)."

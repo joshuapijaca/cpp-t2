@@ -1,0 +1,23 @@
+id: C-14
+name: Evaluate data.numbers[i]
+level: L1
+teaches: '`data.numbers[i]` = look up the i-th cell, NOT the value of i.'
+prereqs:
+  - F-19
+  - F-21
+usedByQs:
+  - Q1
+cardCountTarget: 14
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-14
+    quote: 'C-14: 14 cards. Evaluate data.numbers[i].'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C14a
+  - CM-C14b
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

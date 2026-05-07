@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-20 / MCQCard 01 — closing semicolon
+# =====================================================================
+id: "L0-F20-mcq-01"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  You have just typed a struct definition with `struct stat_double {
+  double numbers[SIZE]; double mystery;`. What single token do you
+  type IMMEDIATELY after the closing `}` to make the struct
+  definition compile?
+
+correct: "With `};` — a closing brace immediately followed by a semicolon."
+
+distractors:
+  - "With `}` only — the closing brace ends the definition."
+  - "With `end;` — explicit end keyword as in Pascal."
+  - "With `}.` — closing brace followed by a dot."
+
+explanation: |
+  A struct definition ends with `};`. The `}` closes the field list
+  but does not terminate the C++ declaration statement; the `;`
+  does. Forgetting it is the highest-frequency Q2 marking error.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — closing `};`"
+
+commonMistakeIds: ["CM-F20a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Direct MCQ test on CM-F20a. Distractors include language imports
+  (Pascal `end;`) and impossible variants.

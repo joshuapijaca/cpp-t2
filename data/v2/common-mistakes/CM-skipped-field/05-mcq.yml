@@ -1,0 +1,32 @@
+id: "CM-skipped-field-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-skipped-field: Q3 skipped field in read. Read every field per iteration in spec order.
+
+correct: "cin >> arr[i].brand; cin >> arr[i].year; cin >> arr[i].price;"
+
+distractors:
+  - "cin >> arr[i].brand; cin >> arr[i].price; // year skipped"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: cin >> arr[i].brand; cin >> arr[i].year; cin >> arr[i].price;
+  Mistake: Read 2 of 3 fields per iteration — misalignment.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-skipped-field"
+
+commonMistakeIds: ["CM-skipped-field"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-skipped-field.

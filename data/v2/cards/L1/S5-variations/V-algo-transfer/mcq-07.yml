@@ -1,0 +1,31 @@
+# =====================================================================
+# L1 / V-algo-transfer / MCQCard 07 — transfer sum-all -> product
+# =====================================================================
+id: "L1-V-algoxfer-07"
+schemaVersion: "v2"
+atomId: "A13"
+qTags: ["Q1"]
+stage: 5
+level: "L1"
+type: "MCQCard"
+
+stem: "Variant transfer: change `sum-all` to `product`. Identify the single line that must change."
+
+correct: "Change the comparison/condition inside the loop body so it implements product instead of sum-all."
+
+distractors:
+  - "Change the array initialiser only."
+  - "Change the SIZE constant only."
+  - "Change the cout line only."
+
+explanation: "sum-all and product differ ONLY in the loop body's condition/operator. Init line and bounds are the same shape."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — sum-all -> product transfer"
+
+commonMistakeIds: ["CM-S5-algo-confusion"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Algorithm-transfer MCQ. Tests recognition of which line varies."

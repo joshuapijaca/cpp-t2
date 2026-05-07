@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-08 / ClozeCard 03
+# Atom: Block delimiters: { and }
+# =====================================================================
+id: "L0-F08-cloze-03"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q2", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill the blank with the closing line of `main`. The line is
+  exactly one character.
+
+code: |
+  // The function's last line has been hidden as ____ below.
+  // Reference (balanced) version of the same function:
+  int main() {
+    int z = 9;
+    cout << z << endl;
+    return 0;
+  }
+  // In the hidden-version, the ____ replaces the single character
+  // on the last line.
+
+clozeSentence: |
+  ____    (the final line of main, after return 0;)
+
+answer: "}"
+
+explanation: |
+  The final line of main is `}` — the closing brace alone. For
+  function bodies, the close is just `}`, NOT `};`. (The `};`
+  shape is for struct definitions only.)
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Cloze 3: the function close. Distinguishes from the struct
+  close `};`. Targets CM-F08a.
+
+  Brace count in visible code: 1 open (`int main() {`), 0 close
+  (the `}` is the answer). That's unbalanced. Need to fix.

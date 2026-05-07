@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-20 / DemoCard 01
+# Atom: struct definition — canonical shape
+# =====================================================================
+id: "L0-F20-demo-01"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: the canonical struct shape. Five tokens you must always
+  produce: `struct`, name, `{`, fields, `};`.
+
+whyOneLine: "A struct has the form `struct Name { fields; };` — the closing `};` is mandatory."
+
+demoCode: |
+  // canonical struct definition shape:
+  struct Name {
+    type field_one;
+    type field_two;
+  };
+
+  // Test 2 V2.0 instance:
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+highlightTokens:
+  - "struct"
+  - "Name"
+  - "{"
+  - "type field_one;"
+  - "};"
+  - "stat_double"
+
+usedIn:
+  - "Q2 entity write (the prompt asks for a struct)"
+  - "Q1 trace (the question hands you a struct definition + instance)"
+  - "Q3 read function (the function takes a struct &param)"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `struct stat_double { ... };`"
+
+commonMistakeIds: ["CM-F20a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Pure shape exposure. The `};` token at the end is highlighted to
+  pre-load attention on the #1 Q2 error site.

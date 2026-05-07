@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-19 / ProceduralCard 01
+# Atom: Fixed-size array — declare + initialise from prompt
+# =====================================================================
+id: "L0-F19-proc-01"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Procedural drill — write the declaration on demand. You will be
+  given a SIZE and a comma-separated list of values; produce the
+  one-line C++ declaration that creates and initialises the array.
+
+section: "F-19 declaration drill"
+
+prompt: |
+  Declare an int array `nums` of size 4, initialised with 5, 6, 7, 8.
+
+expectedAnswer: |
+  int nums[4] = {5, 6, 7, 8};
+
+keyChecks:
+  - "int nums[4]"
+  - "{5, 6, 7, 8}"
+  - ";"
+
+variants:
+  - prompt: "Declare a double array `temps` of size 3, initialised with 1.5, 2.5, 3.5."
+    expectedAnswer: "double temps[3] = {1.5, 2.5, 3.5};"
+  - prompt: "Declare a char array `code` of size 5, initialised with 'a', 'b', 'c', 'd', 'e'."
+    expectedAnswer: "char code[5] = {'a', 'b', 'c', 'd', 'e'};"
+  - prompt: "Declare an int array `scores` of size 6, initialised with 0, 0, 0, 0, 0, 0."
+    expectedAnswer: "int scores[6] = {0, 0, 0, 0, 0, 0};"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
+
+commonMistakeIds: ["CM-F19a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  3-streak procedural. Three variants vary type and size to drill
+  the shape rather than the literal text. Final-form muscle for the
+  declaration template.

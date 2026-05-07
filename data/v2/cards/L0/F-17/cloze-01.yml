@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-17 / ClozeCard 01
+# Atom: if keyword
+# =====================================================================
+id: "L0-F17-cloze-01"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the blank with the keyword that introduces a conditional
+  block in C++.
+
+code: |
+  ___ (x > 0) {
+    cout << "positive" << endl;
+  }
+
+clozeSentence: |
+  ___ (x > 0)
+
+answer: "if"
+
+explanation: |
+  `if` is the keyword. Lowercase, two letters. The condition goes
+  in parens immediately after.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

@@ -1,0 +1,72 @@
+# =====================================================================
+# L0 / F-12 / TraceCard 02
+# Atom: Assignment = (multiple updates)
+# =====================================================================
+id: "L0-F12-trace-02"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. The variable is updated four times. Track its history.
+
+code: |
+  int main() {
+    int total = 0;
+    total = total + 2;
+    total = total + 3;
+    total = total + 5;
+    cout << total << endl;
+    return 0;
+  }
+
+variables: ["total"]
+
+expectedTrace:
+  - line: 2
+    variable: "total"
+    value: "0"
+    output: null
+  - line: 3
+    variable: "total"
+    value: "2"
+    output: null
+  - line: 4
+    variable: "total"
+    value: "5"
+    output: null
+  - line: 5
+    variable: "total"
+    value: "10"
+    output: null
+  - line: 6
+    variable: ""
+    value: ""
+    output: "10"
+
+terminalOutput: ["10"]
+
+inputMode: "final-only"
+
+teachMe: |
+  - Line 2: total = 0.
+  - Line 3: 0 + 2 = 2. total = 2.
+  - Line 4: 2 + 3 = 5. total = 5.
+  - Line 5: 5 + 5 = 10. total = 10.
+  - Line 6: print 10.
+
+  Final: total = 10. Terminal: 10.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec F-12 accumulator pattern primer"
+
+commonMistakeIds: ["CM-F12b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Builds up the accumulator pattern that V2.0 Q1 uses.

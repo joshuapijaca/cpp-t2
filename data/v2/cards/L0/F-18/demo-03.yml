@@ -1,0 +1,64 @@
+# =====================================================================
+# L0 / F-18 / DemoCard 03
+# Atom: i < SIZE vs i <= SIZE off-by-one
+# =====================================================================
+id: "L0-F18-demo-03"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the off-by-one trap. `i < SIZE` is correct; `i <= SIZE`
+  walks PAST the end of the array. With SIZE=3 and arr[3] indexed
+  from 0..2, accessing arr[3] is undefined.
+
+whyOneLine: "For arrays, `i < SIZE` runs SIZE iterations (0..SIZE-1) — the safe canonical form."
+
+demoCode: |
+  ┌─ RIGHT (i < SIZE) ──────────────────────────────┐
+  │   const int SIZE = 3;                           │
+  │   int arr[SIZE] = {1, 2, 3};                    │
+  │   for (int i = 0; i < SIZE; i++) {              │
+  │       cout << arr[i] << endl;                   │
+  │   }                                             │
+  │                                                 │
+  │   i = 0  arr[0]=1   print 1                     │
+  │   i = 1  arr[1]=2   print 2                     │
+  │   i = 2  arr[2]=3   print 3                     │
+  │   i = 3  3 < 3 false  EXIT                      │
+  │                                                 │
+  │   3 iterations. Output: 1, 2, 3.                │
+  └─────────────────────────────────────────────────┘
+
+  ┌─ WRONG (i <= SIZE)  -- off-by-one bug ──────────┐
+  │   for (int i = 0; i <= SIZE; i++) {  // BUG     │
+  │       cout << arr[i] << endl;                   │
+  │   }                                             │
+  │                                                 │
+  │   i = 0..2  prints 1, 2, 3 as before            │
+  │   i = 3     arr[3]  <-- past end of array!      │
+  │             undefined behaviour, crash, garbage │
+  └─────────────────────────────────────────────────┘
+
+highlightTokens:
+  - "i < SIZE"
+  - "i <= SIZE"
+  - "off-by-one"
+  - "undefined"
+
+usedIn:
+  - "every Q1, Q3, Q4 array loop"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/01-for-loop"
+
+commonMistakeIds: ["CM-F18a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Targets CM-F18a (off-by-one) head-on.
+authoringStatus: "DRAFT"

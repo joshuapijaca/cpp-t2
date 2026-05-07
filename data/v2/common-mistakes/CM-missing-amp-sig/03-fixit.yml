@@ -1,0 +1,40 @@
+id: "CM-missing-amp-sig-fixit"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Fix-it drill for CM-missing-amp-sig. The code has the bug; produce the canonical fix.
+
+brokenCode: |
+  // Q3: Q3 missing & in signature
+  void read_X(entity arr, int count)
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  void read_X(entity arr[], int count)
+  ;
+
+bugCategory: "CM-missing-amp-sig"
+
+keyChecks: []
+
+explanation: |
+  Replace the broken line with: void read_X(entity arr[], int count)
+  Diagnosis: Signature uses pass-by-value — mutations lost.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-missing-amp-sig"
+
+commonMistakeIds: ["CM-missing-amp-sig"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 3/5 (fix-it) for CM-missing-amp-sig.

@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-11 / TemplateRecallCard 01
+# Atom: Variable declaration + initialisation
+# =====================================================================
+id: "L0-F11-tmplrec-01"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Recall the canonical declare-and-initialise template. Fill the four
+  parts.
+
+prompt: |
+  Type the four-part shape of a SIT102 declare-and-init line.
+
+template: |
+  TYPE NAME = VALUE;
+
+canonicalAnswer: |
+  int score = 0;
+
+keyChecks: ["int", "score", "=", "0", ";"]
+
+forbiddenTokens: []
+
+explanation: |
+  Every C++ declare-and-init line has four parts:
+  - TYPE: int / double / string
+  - NAME: a snake_case identifier
+  - `=`: the assignment operator
+  - VALUE: a literal or expression
+  Followed by a semicolon `;`. The example `int score = 0;` is the
+  canonical shape.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F11a", "CM-F11b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Template recall reinforces the four-part shape.

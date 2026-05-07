@@ -1,0 +1,92 @@
+SIT102 Introduction to Programming  P3 Sequence and Data
+
+Sequence and Data
+
+Start to see programs as instructions that get the computer to achieve your goals.
+Your programs will include sequences of instructions that perform actions and
+work with data.
+Key aspects include:
+
+    · Learn to build programs that involve sequence and data - including method
+         calls, variables, and assignment statements.
+
+Show us that you can:
+
+    · Create small programs with:
+             o A sequence of instructions that achieve something
+             o Variables
+             o Assignment statements
+             o Method calls, with a range of arguments
+
+    · Correctly use programming terminology to explain your code.
+    · Do this task without using any concepts we haven't covered yet.
+    · Capture your learning in the Learning Journey section. Include evidence
+
+         (screenshots) of your progress, and your thoughts on what you
+         accomplished, what challenges you faced, and what you found interesting.
+    · Provide sincere reflections in the Reflection section. Don't just tell us what
+         you did, tell us what you learned. Reflections that are brief or shallow will
+         not be accepted.
+
+Complete the following:
+
+         1. Download and open the template from OnTrack.
+         2. Read Chapter 0: Introducing Instructions.
+         3. From the Sequence and Data chapter review the Overview section,
+
+             then progress through the Guided Tour.
+
+                                                                                                  Page 1 of 3
+SIT102 Introduction to Programming  P3 Sequence and Data
+Read actively!
+
+Actively read these chapters. Build and run the sample programs, change it to test
+your understanding. Write in your Learning Journey and take screenshots to
+capture your understanding as it develops.
+
+         4. When ready, complete one of the Test Your Knowledge activities from
+             the Activities section.
+
+         5. You should have enough to submit now, but if you want to deepen your
+             understanding have a look at the concepts in the In Depth section.
+
+         6. Complete your submission ­ complete the summary and related
+             activities in the template.
+
+         7. Upload to OnTrack and engage with feedback to get this complete!
+Tip: Initiate feedback
+
+When you submit your work, you can add a comment to your tutor. It is a great
+idea to use this to ask for specific feedback on your work. This can help make sure
+you receive the most effective feedback to support your learning.
+
+Available Resources
+
+We have many resources to assist in your learning journey ­ if you are ever unsure
+then please reach out to us, we are always happy to help.
+
+    · The SIT102 Teams channel ­ an active learning resource with weekly
+         announcements from the Unit Chair, and regular discussions/assistance
+         from the SIT102 teaching team and students.
+
+    · Seminars ­ you can attend both on-campus and online sessions, and join
+         as many as you like each week. Your tutors will provide demonstrations and
+         assistance to help guide your learning.
+
+    · HelpHubs ­ there are sessions hosted nearly everyday, both on-campus
+         and online providing one-on-one assistance from a tutor. Please join as
+         many as you like.
+
+                                    Page 2 of 3
+SIT102 Introduction to Programming       P3 Sequence and Data
+
+· PASS sessions ­ running every week, these sessions are run like a study
+
+group, hosted by a past SIT102 student.
+
+For more information about the above resources please speak to your tutor or
+
+visit the SIT102 Teams channel.
+
+                                         Page 3 of 3
+

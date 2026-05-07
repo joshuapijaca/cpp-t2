@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-21 / DemoCard 01 — dot operator basics
+# =====================================================================
+id: "L0-F21-demo-01"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: the dot is the FIELD-ACCESS operator. `obj.field` reads or
+  writes a single field of a struct instance.
+
+whyOneLine: "`obj.field` reads or writes one field — instance on left, field name on right."
+
+demoCode: |
+  // canonical dot-access shape:
+  obj.field
+
+  // examples:
+  d.mystery        // read field `mystery` of struct instance `d`
+  p.x              // read field `x` of struct instance `p`
+  player.score    // read field `score` of struct instance `player`
+
+  // assignment uses the same shape on the LHS:
+  d.mystery = -0.9;
+  p.x = 5;
+  player.score = 100;
+
+highlightTokens:
+  - "obj.field"
+  - "d.mystery"
+  - "p.x"
+  - "= -0.9"
+  - "= 5"
+
+usedIn:
+  - "Q1 trace (`data.mystery = data.mystery + data.numbers[i]`)"
+  - "Q3 read function (`cin >> data.field` to populate)"
+  - "Q4 main program (init or read fields)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements"
+
+commonMistakeIds: ["CM-F21b", "CM-F21c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Pure shape exposure. The instance-dot-field chunk is the unit the
+  student must chunk-recognise before composite tokens make sense.

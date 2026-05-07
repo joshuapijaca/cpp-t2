@@ -1,0 +1,22 @@
+id: C-07
+name: Pre-loop init mystery=0.0
+level: L1
+teaches: Before the loop, write 0.0 in the mystery cell (sum/count init).
+prereqs:
+  - F-10
+  - F-12
+usedByQs:
+  - Q1
+cardCountTarget: 8
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-07
+    quote: 'C-07: 8 cards. Pre-loop init mystery=0.0.'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C07a
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

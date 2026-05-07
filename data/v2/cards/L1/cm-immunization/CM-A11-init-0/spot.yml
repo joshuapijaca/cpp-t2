@@ -1,0 +1,45 @@
+# Auto-emitted CM immunization (FaultInjectionCard) for CM-A11-init-0
+id: "L1-cmimm-CM-A11-init-0-spot"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "FaultInjectionCard"
+
+stem: |
+  This Q1 product algorithm trace seeded mystery to 0.0 and got 0.0 forever. Find the line that's wrong.
+
+brokenCode: |
+  // algo (A11): mystery = mystery * numbers[i]    // running PRODUCT
+  // numbers = {2.0, 3.0, 4.0}
+  //
+  // pre-loop init: mystery = 0.0    // BUG: 0 annihilates products
+  // i=0: 0.0 * 2.0 = 0.0   mystery = 0.0
+  // i=1: 0.0 * 3.0 = 0.0   mystery = 0.0
+
+bugLocations: [4]
+
+fixedCode: |
+  // CORRECT seed for product: 1.0 (multiplicative identity)
+  // pre-loop init: mystery = 1.0
+  // i=0: 1.0 * 2.0 = 2.0   mystery = 2.0
+  // i=1: 2.0 * 3.0 = 6.0   mystery = 6.0
+
+bugCategory: 'wrong identity element — 0.0 for product'
+
+keyChecks:
+  - 'mystery = 1.0'
+
+explanation: |
+  0 is the additive identity (correct for sum). 1 is the multiplicative identity (correct for product). 0 * anything = 0, so a 0-seeded product flat-lines.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-A11-init-0)"
+
+commonMistakeIds: ["CM-A11-init-0"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

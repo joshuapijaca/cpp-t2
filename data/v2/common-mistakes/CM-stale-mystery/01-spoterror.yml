@@ -1,0 +1,44 @@
+id: "CM-stale-mystery-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q1 stale mystery on final iter. The code below has the bug labeled
+  by CM-stale-mystery. Find the line and provide the fix.
+
+brokenCode: |
+  // Q1 broken excerpt:
+  // final mystery = value at i=4
+  // (canonical was: // final mystery = LAST written value)
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  // final mystery = LAST written value
+  ;
+
+bugCategory: "CM-stale-mystery"
+
+keyChecks:
+  - "// final mystery = LAST writte"
+
+explanation: |
+  Bug: Reported mystery from iteration 4 even though i=5 ran and updated.
+  Fix: // final mystery = LAST written value
+  This common mistake costs marks on Q1 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-stale-mystery"
+
+commonMistakeIds: ["CM-stale-mystery"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-stale-mystery.

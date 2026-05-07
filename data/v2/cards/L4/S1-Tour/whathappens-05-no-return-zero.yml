@@ -1,0 +1,22 @@
+id: "L4-S1-whathappens-05"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: 
+  - "Q4"
+stage: 1
+level: "L4"
+type: "MCQCard"
+stem: "main lacks `return 0;`. What does the OS observe as the exit code?"
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.2 S1 what-happens drills"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+correct: "0 — modern compilers implicitly return 0 from main, but the test grader will still deduct points for missing the line."
+distractors: 
+  - "1 — failure exit code."
+  - "Random integer."
+  - "The program will not link."
+explanation: "C++ standard implicitly returns 0 from main if no return; statement appears. But the SIT102 rubric assesses the line literally — write `return 0;`."

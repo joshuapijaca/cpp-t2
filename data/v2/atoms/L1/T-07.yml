@@ -1,0 +1,19 @@
+id: T-07
+name: "T-G skeleton: function call `who_am_i(d);`"
+level: L1
+phase: S2
+teaches: "Verbatim recall of the call site. NO `&` here — `&` only on the parameter declaration, not at the call. Just `who_am_i(d);` (or whatever the variable name is)."
+prereqs: [F-22a, T-06]
+usedByQs: [Q1]
+cardCountTarget: 8
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — `who_am_i ( d );`"
+  - kind: v2
+    ref: "Test 2 V2.0 attempt 1 — same `who_am_i(d);` form"
+commonMistakes:
+  - CM-Q1-amp-at-call
+notes:
+  cardMix: { templateRecall: 8 }
+  stage: S2
+  exposureClass: short

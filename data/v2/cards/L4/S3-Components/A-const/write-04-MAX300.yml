@@ -1,0 +1,31 @@
+id: "L4-S3A-write-04"
+schemaVersion: "v2"
+atomId: "Q-02"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "FunctionWriteCard"
+stem: "Write ONE LINE: declare a const int named MAX with value 300. This will be used as the array bound below."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block A const decl"
+commonMistakeIds: 
+  - "CM-Q4-missing-const"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Declare `const int MAX = 300;`"
+signatureHint: "const ___ ___ = ___;"
+canonicalAnswer: "const int MAX = 300;"
+keyChecks: 
+  - "const"
+  - "int"
+  - "MAX"
+  - "300"
+  - ";"
+forbiddenTokens: 
+  - "#define"
+  - "while"
+passByRefRequired: false
+explanation: "Canonical: `const int MAX = 300;` — const required so MAX is a compile-time constant suitable for array bound."

@@ -1,0 +1,44 @@
+id: "CM-no-strikethrough-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-no-strikethrough: Q1 no strikethrough on supersedes.
+
+code: |
+  // Trap: Memory column lists 4 mystery values without indicating which is current.
+  // 3.0, 5.7, 7.4 (which is the answer?)
+  ;
+
+question: |
+  What goes wrong with the line above on Q1?
+
+options:
+  - label: "A"
+    text: "Memory column lists 4 mystery values without indicating which is current."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Memory column lists 4 mystery values without indicating which is current. The canonical pattern is: // strikethrough: ~~3.0~~ ~~5.7~~ 7.4 (final)
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-no-strikethrough"
+
+commonMistakeIds: ["CM-no-strikethrough"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-no-strikethrough.

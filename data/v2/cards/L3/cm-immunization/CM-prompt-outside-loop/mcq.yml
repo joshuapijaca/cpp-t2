@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-prompt-outside-loop
+id: "L3-cmimm-CM-prompt-outside-loop-mcq"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "MCQCard"
+
+stem: |
+  You need to prompt the user before each of N reads. Where does the cout prompt go?
+
+correct: 'Inside the loop body, BEFORE the cin.'
+
+distractors:
+  - 'Outside the loop, before it (only printed once).'
+  - 'After the loop ends.'
+  - 'Doesn''t matter — cin auto-prompts.'
+
+explanation: |
+  The pair (cout-prompt, cin-read) repeats every iteration. Lifting cout out makes the user guess when to type the next value.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-prompt-outside-loop)"
+
+commonMistakeIds: ["CM-prompt-outside-loop"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

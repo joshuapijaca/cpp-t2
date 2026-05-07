@@ -1,0 +1,22 @@
+id: R-02c
+name: "Q3 Components Block C: cin into struct array element [GATING 95%]"
+level: L3
+teaches: "cin >> list[i].field — composite token. Index [i] in the right place, .field after the index, operator pointing INTO list. Defends missing-[i], missing-.field, used-[0]-instead-of-[i], cin-leftshift."
+prereqs: [F-21, F-15]
+usedByQs: [Q3]
+cardCountTarget: 35
+parentAtom: R-02
+source:
+  - kind: v2
+    ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#5.3 Block C — cin into struct array element"
+    quote: "Block C is gating — must hit 95% before S4 unlocks."
+commonMistakes:
+  - CM-Q3-missing-index
+  - CM-Q3-missing-field
+  - CM-Q3-zero-instead-of-i
+  - CM-Q3-cin-leftshift
+notes:
+  cardMix: { mcq: 18, write: 14, proc: 3 }
+  stage: S3
+  exposureClass: long
+  gating: "Must hit 95% accuracy before S4 unlocks."

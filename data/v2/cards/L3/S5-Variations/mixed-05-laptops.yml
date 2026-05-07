@@ -1,0 +1,42 @@
+# =====================================================================
+# L3 / R-04 / FunctionWriteCard — mixed-type laptops
+# =====================================================================
+id: "L3-R04-mixed-05"
+schemaVersion: "v2"
+atomId: "R-04"
+qTags: ["Q3"]
+stage: 5
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Variation: laptops with mixed int + double fields.
+  double cpu_speed, int ram_gb, double price.
+prompt: "mixed-type variant"
+canonicalAnswer: |
+  void read_laptops(laptop_data &laptops[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "CPU speed (GHz): ";
+      cin >> laptops[i].cpu_speed;
+      cout << "RAM (GB): ";
+      cin >> laptops[i].ram_gb;
+      cout << "Price: ";
+      cin >> laptops[i].price;
+    }
+  }
+keyChecks:
+  - "cin >> laptops[i].cpu_speed;"
+  - "cin >> laptops[i].ram_gb;"
+  - "cin >> laptops[i].price;"
+forbiddenTokens:
+  - "while"
+explanation: |
+  cin >> is overloaded for int and double. Same prompt-pair pattern works for both.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

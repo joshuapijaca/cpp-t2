@@ -1,0 +1,40 @@
+id: "L1-S2-TE-16-cloze-action-product"
+schemaVersion: "v2"
+atomId: "T-05"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Fill in the product action operator.
+
+prompt: |
+  What operator goes between mystery and the cell?
+
+template: |
+  data.mystery = data.mystery ___ data.numbers[i];
+
+canonicalAnswer: |
+  data.mystery = data.mystery * data.numbers[i];
+
+keyChecks:
+  - "*"
+  - "data.mystery * data.numbers[i]"
+
+forbiddenTokens: []
+
+explanation: |
+  `*` — multiplication. Product = repeated multiplication. Combined
+  with `mystery = 1.0` init.
+
+source:
+  kind: "v2"
+  ref: "docs/16_test2_specific_redesign_v2.md §3.5 — product *"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-E cloze: product operator.
+authoringStatus: "DRAFT"

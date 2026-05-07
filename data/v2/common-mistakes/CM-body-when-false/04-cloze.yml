@@ -1,0 +1,35 @@
+id: "CM-body-when-false-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-body-when-false: Q1 body run when condition false. Fill the blank.
+
+code: |
+  // Canonical Q1 excerpt with blank:
+  // ____ (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }
+  ;
+
+clozeSentence: |
+  Complete the canonical line: if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }
+
+answer: "if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }"
+
+explanation: |
+  Canonical pattern: if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }
+  Mistake to avoid: Action runs unconditionally instead of inside the if-body.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-body-when-false"
+
+commonMistakeIds: ["CM-body-when-false"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-body-when-false.

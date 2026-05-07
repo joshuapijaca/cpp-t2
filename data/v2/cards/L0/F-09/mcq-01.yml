@@ -1,0 +1,43 @@
+# =====================================================================
+# L0 / F-09 / MCQCard 01
+# Atom: Identifier rules + naming (start-with-digit)
+# =====================================================================
+id: "L0-F09-mcq-01"
+schemaVersion: "v2"
+atomId: "F-09"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which of these is a LEGAL C++ identifier?
+
+correct: "_count2"
+
+distractors:
+  - "2_count"
+  - "count 2"
+  - "count-2"
+
+explanation: |
+  `_count2` starts with an underscore, which is a legal first character.
+  Digits, letters and more underscores can follow. The other three
+  break a rule:
+  - `2_count` starts with a digit (illegal).
+  - `count 2` contains a space (the compiler reads the space as the
+    end of the identifier).
+  - `count-2` contains a hyphen (the compiler reads it as subtraction:
+    `count` minus `2`).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/2-communicating-syntax/2-trailside/04-identifier"
+
+commonMistakeIds: ["CM-F09a", "CM-F09c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Underscore-leading identifiers are legal but unusual; this card
+  surfaces the rule explicitly.

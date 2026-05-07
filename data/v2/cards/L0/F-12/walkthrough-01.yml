@@ -1,0 +1,73 @@
+# =====================================================================
+# L0 / F-12 / WalkthroughCard 01
+# Atom: Assignment =
+# =====================================================================
+id: "L0-F12-walk-01"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  The single equals sign `=` is ASSIGNMENT. It is NOT a comparison.
+  It writes the right-hand side into the left-hand box. Walk through
+  the four key cases.
+
+levelLabel: "L0 Foundation Phase C F-12"
+
+fullCode: |
+  int x = 5;
+  int y;
+  y = x;
+  y = y + 1;
+  y = 7;
+
+steps:
+  - line: 1
+    code: 'int x = 5;'
+    annotation: |
+      Declare-and-init form. The `=` writes 5 into the new box `x`.
+      Box `x` now holds 5.
+    atomIds: ["F-11", "F-12"]
+  - line: 2
+    code: 'int y;'
+    annotation: |
+      Declare without init. Box `y` opens; value is garbage.
+    atomIds: ["F-11"]
+  - line: 3
+    code: 'y = x;'
+    annotation: |
+      ASSIGN. Step 1: evaluate the RHS — look up the value in box `x`,
+      get 5. Step 2: write 5 into box `y`. Box `y` now holds 5.
+      Box `x` is unchanged.
+    atomIds: ["F-12"]
+  - line: 4
+    code: 'y = y + 1;'
+    annotation: |
+      The most-confusing pattern. Step 1: evaluate the RHS first.
+      Read the CURRENT value of `y` (which is 5), add 1, get 6.
+      Step 2: write 6 into box `y`. Box `y` now holds 6.
+
+      The OLD value of `y` is read BEFORE the new value is written.
+    atomIds: ["F-12"]
+  - line: 5
+    code: 'y = 7;'
+    annotation: |
+      Plain assignment with a literal. The RHS `7` is just 7. Write
+      7 into box `y`. Box `y` now holds 7. The old 6 is overwritten.
+    atomIds: ["F-12"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/08-assignment-statement"
+
+commonMistakeIds: ["CM-F12a", "CM-F12b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Establishes the RHS-then-LHS evaluation rule. Critical for
+  hand-execution — students often get y = y + 1 wrong by reading the
+  new y on the LHS.

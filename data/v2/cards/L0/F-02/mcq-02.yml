@@ -1,0 +1,46 @@
+# =====================================================================
+# L0 / F-02 / MCQCard 02
+# Atom: Compiler turns source into program
+# =====================================================================
+id: "L0-F02-mcq-02"
+schemaVersion: "v2"
+atomId: "F-02"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  After running `g++ hello.cpp -o hello` successfully, how many files
+  exist in that folder that are directly related to the program?
+
+correct: "Two — the original source `hello.cpp` (text) and the new executable `hello` (machine code)."
+
+distractors:
+  - "One — the compile step replaced the source file with the executable."
+  - "Three — `hello.cpp`, an intermediate `.obj` file, and the executable `hello`."
+  - "None — the compile output is held in memory and is lost as soon as the terminal closes."
+
+explanation: |
+  After a successful compile, the source file is unchanged AND a new
+  executable file is created. Two files coexist on disk. The compiler
+  may use temporary intermediate files internally, but they are
+  cleaned up automatically — the user-visible result is exactly two
+  files: the input source and the output executable.
+
+  Distractor 1 ("one — replaced") is the destructive-compile
+  misconception. Distractor 2 ("three") confuses C++ with split
+  toolchains where `.o` files are kept. Distractor 3 ("none — in
+  memory") is the "compile = run" misconception.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"
+
+commonMistakeIds: ["CM-confuses-source-with-program", "CM-compile-equals-run"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Forces a count answer (2) — easy to grade, hard to fluke. Each
+  distractor is a textbook beginner misconception.

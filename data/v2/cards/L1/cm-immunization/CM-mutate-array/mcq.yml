@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-mutate-array
+id: "L1-cmimm-CM-mutate-array-mcq"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  In `mystery = mystery + numbers[i]`, which variable changes each iteration?
+
+correct: '`mystery` — the running accumulator'
+
+distractors:
+  - '`numbers[i]` — gets overwritten with the partial sum'
+  - '`i` — gets the latest sum'
+  - 'None — both are inputs'
+
+explanation: |
+  Only `mystery` is updated. `numbers` is read-only input.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-mutate-array)"
+
+commonMistakeIds: ["CM-mutate-array"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

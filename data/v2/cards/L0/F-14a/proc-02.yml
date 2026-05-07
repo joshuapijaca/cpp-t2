@@ -1,0 +1,43 @@
+# =====================================================================
+# L0 / F-14a / ProceduralCard 02 (μWrite)
+# Atom: cin >> operator direction (struct field)
+# =====================================================================
+id: "L0-F14a-proc-02"
+schemaVersion: "v2"
+atomId: "F-14a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a single line that reads into a struct field.
+
+section: "F-14a cin drills (struct field)"
+
+prompt: |
+  Assume `desk_data desk;` is declared. Write the line that reads
+  a value from the user into `desk.desk_id`. End with `;`.
+
+expectedAnswer: "cin >> desk.desk_id;"
+
+keyChecks: ["cin >> desk.desk_id;"]
+
+variants:
+  - prompt: |
+      Assume `desk_data desk;` is declared. Write the line that reads
+      into `desk.price`. End with `;`.
+    expectedAnswer: "cin >> desk.price;"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: cin >> desk.desk_id; pattern"
+
+commonMistakeIds: []
+
+notes: |
+  cin into struct field — Q3 read function pattern.

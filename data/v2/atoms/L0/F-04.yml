@@ -1,0 +1,23 @@
+id: F-04
+name: "#include <iostream>"
+level: L0
+phase: B
+teaches: "Brings cout and cin into the file. Goes above main()."
+prereqs: [F-01, F-02]
+usedByQs: [Q3, Q4]
+cardCountTarget: 16
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/10-library"
+    quote: "A library is a collection of code that you bring into your file with #include."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/3-code"
+    quote: "iostream provides cin and cout for terminal I/O."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:20:30 — Saloni reviews program preamble before walking the practice test"
+commonMistakes:
+  - CM-F04a  # forgets #include, hits "cout undeclared"
+  - CM-F04b  # writes "include" without #
+  - CM-F04c  # uses quotes "iostream" instead of <iostream>
+notes:
+  cardMix: { walkthrough: 1, demo: 2, decompose: 2, cloze: 4, μWrite: 3, tmplRec: 2, mcq: 2 }

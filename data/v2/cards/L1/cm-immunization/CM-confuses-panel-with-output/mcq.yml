@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-confuses-panel-with-output
+id: "L1-cmimm-CM-confuses-panel-with-output-mcq"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  The exam asks "What does the program print?" After hand-execution your panel is `{x:5, y:12, z:17}`. What do you write?
+
+correct: 'Only the terminal output (e.g. `17`) — the panel is scratch'
+
+distractors:
+  - 'The full panel: x=5, y=12, z=17'
+  - 'Both panel and output, separated'
+  - 'The source code, copied out neatly'
+
+explanation: |
+  "Print" means terminal output. The panel is your scratchpad to ARRIVE at the output. Only the cout result goes on the answer line.
+
+source:
+  kind: "v2"
+  ref: "SIT102 past-paper Q1 phrasing — common-mistake immunization (CM-confuses-panel-with-output)"
+
+commonMistakeIds: ["CM-confuses-panel-with-output"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

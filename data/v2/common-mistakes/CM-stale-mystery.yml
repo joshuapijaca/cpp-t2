@@ -1,0 +1,27 @@
+id: CM-stale-mystery
+name: "Student uses stale `mystery` after mutation in same iteration"
+description: |
+  In `if (numbers[i] > mystery) mystery = numbers[i]`, after the assignment
+  fires the value of mystery has changed. If a later expression in the same
+  iter reads mystery, it must read the new value. Students keep using the
+  pre-assignment value, causing a one-step lag.
+whyItHappens: |
+  In hand-execution students compute the if-cond first, then the
+  assignment, but mentally hold both phases simultaneously. They forget
+  to update their working "mystery" between the cond evaluation and
+  any subsequent reference within the same iter.
+immunizationStrategy: |
+  1. Trace card with two expressions referring to mystery in same iter;
+     show diff between stale and fresh reads.
+  2. SpotError: buggy trace using stale mystery in iter 3.
+  3. MCQ: "After `m = X` runs, what does the next read of m return? (X)"
+  4. Cloze: fill in the post-assignment value of mystery.
+  5. Pair-trace: identical except one uses stale m, one fresh.
+  6. Decompose: order operations within iter (read, cond, write, next read).
+examImpact: medium
+atomDependencies: [F-12, F-21, A2, A4]
+qTracks: [Q1]
+relatedCMs: [CM-confuse-=-+=, CM-skip-pre-loop-init]
+source:
+  kind: practice
+  ref: "Test2-SIT102-practice-2026T1.txt — who_am_i mutates mystery mid-loop"

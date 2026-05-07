@@ -1,0 +1,36 @@
+# =====================================================================
+# L3 / R-02b / ProceduralCard — 3-streak loop variants
+# =====================================================================
+id: "L3-R02b-proc-02"
+schemaVersion: "v2"
+atomId: "R-02b"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "ProceduralCard"
+section: "for-loop with parameter as bound"
+stem: |
+  3-streak: write three for-loop headers, each using a different count parameter.
+prompt: |
+  Write three for-loop headers using counters total, passed, arg as bounds. Include empty body braces.
+expectedAnswer: |
+  for (int i = 0; i < total; i++) { }
+  for (int i = 0; i < passed; i++) { }
+  for (int i = 0; i < arg; i++) { }
+keyChecks:
+  - "for (int i = 0; i < total; i++)"
+  - "for (int i = 0; i < passed; i++)"
+  - "for (int i = 0; i < arg; i++)"
+variants:
+  - prompt: |
+      Same three headers but bound is doubled, e.g. < 2*n.
+    expectedAnswer: |
+      for (int i = 0; i < 2*total; i++) { }
+      for (int i = 0; i < 2*passed; i++) { }
+      for (int i = 0; i < 2*arg; i++) { }
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

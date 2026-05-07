@@ -1,0 +1,94 @@
+# =====================================================================
+# L0 / F-02 / WalkthroughCard 01
+# Atom: Compiler turns source into program
+# Phase A: "What code IS"
+# =====================================================================
+id: "L0-F02-walk-01"
+schemaVersion: "v2"
+atomId: "F-02"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  In F-01 you saw that `hello.cpp` is plain text. So how does a CPU
+  ever run it? Answer: a separate program — the **compiler** — reads
+  the text and produces a new file (the **executable**). Walk through
+  this terminal session step-by-step. Each step is one command and its
+  visible result.
+
+levelLabel: "L0 Foundation · Phase A · F-02"
+
+fullCode: |
+  $ ls
+  hello.cpp
+
+  $ cat hello.cpp
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << "hello" << endl;
+    return 0;
+  }
+
+  $ g++ hello.cpp -o hello
+
+  $ ls
+  hello       hello.cpp
+
+  $ ./hello
+  hello
+
+steps:
+  - line: 1
+    code: '$ ls'
+    annotation: |
+      Before compiling, only the source file exists. `ls` lists the
+      current directory and shows ONE file: `hello.cpp`.
+    atomIds: ["F-02"]
+  - line: 4
+    code: '$ cat hello.cpp'
+    annotation: |
+      `cat` prints the file contents to the terminal. Confirms what
+      F-01 told us: it is just text. The same text we typed in VSCode.
+    atomIds: ["F-01", "F-02"]
+  - line: 12
+    code: '$ g++ hello.cpp -o hello'
+    annotation: |
+      The KEY moment. `g++` is the compiler — itself a separate program
+      installed on the machine. It reads `hello.cpp` (the input), and
+      writes a NEW file called `hello` (the output, named by `-o hello`).
+      The compiler does NOT run our program. It just translates the text
+      into machine code and saves the result.
+    atomIds: ["F-02"]
+  - line: 14
+    code: '$ ls'
+    annotation: |
+      Now there are TWO files. The original text file `hello.cpp` is
+      untouched (still text). A new file `hello` exists alongside it.
+      That new file IS the executable program.
+    atomIds: ["F-02"]
+  - line: 17
+    code: '$ ./hello'
+    annotation: |
+      `./hello` runs the executable. The CPU now reads `hello`
+      (machine code, not text) and executes it. The program prints
+      `hello` and exits. Source ≠ program. The text file did not run —
+      the compiled output did.
+    atomIds: ["F-02"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md (Source Code and the Compiler — compile + execute pipeline)"
+
+commonMistakeIds: ["CM-confuses-source-with-program", "CM-no-separate-compile-step"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  This walkthrough makes the source-vs-program distinction concrete.
+  Two files visible side-by-side after compile is the load-bearing
+  visual. Q1 trace cards later assume the student understands that the
+  compiler exists as a separate step and the program runs from its
+  output, not the source.

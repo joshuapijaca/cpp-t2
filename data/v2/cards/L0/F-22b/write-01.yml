@@ -1,0 +1,68 @@
+# =====================================================================
+# L0 / F-22b / FunctionWriteCard 01 — pass-by-ref signature drill
+# (LOAD-BEARING for Q3 — embedded in agent report)
+# =====================================================================
+id: "L0-F22b-write-01"
+schemaVersion: "v2"
+atomId: "F-22b"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "FunctionWriteCard"
+
+stem: |
+  Write the EXACT Test 2 V2.0 function header: a procedure named
+  `who_am_i` that takes one parameter `data` of type `stat_double`,
+  passed BY REFERENCE so the function can mutate it. Empty body.
+
+prompt: "Write the Test 2 V2.0 `who_am_i` header (pass-by-reference)."
+
+signatureHint: "void <name>(<Type> &<param>)"
+
+canonicalAnswer: |
+  void who_am_i(stat_double &data)
+  {
+  }
+
+keyChecks:
+  - "void who_am_i"
+  - "stat_double &data"
+  - "&data"
+  - "{"
+  - "}"
+
+forbiddenTokens:
+  - "*"
+  - "function"
+  - "->"
+  - "stat_double data)"
+  - "stat_double *data"
+
+explanation: |
+  Canonical Q3 signature shape. Five elements:
+    1. return type `void`
+    2. function name `who_am_i`
+    3. opening paren `(`
+    4. parameter `stat_double &data` — type, then `&`, then name
+    5. closing paren `)`
+  The `&` is the load-bearing token. Forbidden tokens block:
+    * `stat_double data)` — pass-by-value (silently passes Q3
+      compile but loses ALL marks because mutations are lost)
+    * `stat_double *data`  — pointer syntax (off-scope)
+    * `function` keyword (TS/JS), `->` return arrow (Rust)
+
+passByRefRequired: true
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `void who_am_i ( stat_double &data )` signature"
+
+commonMistakeIds: ["CM-F22b-1", "CM-F22b-4"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  THE highest-stakes write card in F-22 (load-bearing for Q3).
+  passByRefRequired flag makes the linter enforce the `&` token.
+  Forbidden token `stat_double data)` blocks the silent
+  pass-by-value mistake.

@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-19 / ClozeCard 03
+# Atom: Fixed-size array — initialiser-list literal
+# =====================================================================
+id: "L0-F19-cloze-03"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing punctuation to initialise an array of 4 ints
+  with the values 1, 2, 3, 4.
+
+code: |
+  int arr[4] = ___1, 2, 3, 4___;
+
+clozeSentence: "int arr[4] = ___1, 2, 3, 4___;  // brace-list initialiser"
+
+answer: "{ }"
+
+explanation: |
+  The initialiser is a brace-enclosed list: `{1, 2, 3, 4}`. The braces
+  separate this from a function call (which uses parens) or a comma
+  expression. The trailing `;` ends the declaration statement.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `{2.4, -3.7, -1.7, 3.0, 2.0}` initialiser shape"
+
+commonMistakeIds: ["CM-F19a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  The braces token is the load-bearing visual cue for "this is array
+  initialisation, not a call." Drilled in isolation here.

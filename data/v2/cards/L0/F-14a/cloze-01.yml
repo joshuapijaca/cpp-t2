@@ -1,0 +1,41 @@
+# =====================================================================
+# L0 / F-14a / ClozeCard 01
+# Atom: cin >> operator direction
+# =====================================================================
+id: "L0-F14a-cloze-01"
+schemaVersion: "v2"
+atomId: "F-14a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the operator that pulls a value FROM cin INTO a variable.
+
+code: |
+  cin ___ x;
+  cin ___ price;
+  cin ___ name;
+
+clozeSentence: |
+  The two-character operator that pulls values from cin into a
+  variable is `___`.
+
+answer: ">>"
+
+explanation: |
+  `>>` is the extraction operator. It points TOWARD the variable,
+  indicating the value flows from cin into the box. Pair: `cout <<`
+  for output.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F14a-1"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Two-character recall. Pair to F-13a cloze-01.

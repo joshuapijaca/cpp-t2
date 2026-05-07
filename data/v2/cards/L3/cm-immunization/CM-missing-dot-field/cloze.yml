@@ -1,0 +1,30 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-missing-dot-field
+id: "L3-cmimm-CM-missing-dot-field-cloze"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-missing-dot-field mistake."
+
+code: |
+  cin >> data___numbers[i];
+
+clozeSentence: 'Fill in the operator that connects struct value `data` to field `numbers`.'
+
+answer: '.'
+
+explanation: |
+  The dot operator accesses fields of struct values.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-missing-dot-field)"
+
+commonMistakeIds: ["CM-missing-dot-field"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

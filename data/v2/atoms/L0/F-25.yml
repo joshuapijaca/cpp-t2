@@ -1,0 +1,25 @@
+id: F-25
+name: "Brace-match drill (depth-coloured nested blocks)"
+level: L0
+phase: B
+teaches: "Visually match a highlighted opening `{` to its corresponding `}` in nested code. Builds the brace-pairing reflex needed to read for-inside-if-inside-main without losing the thread. Code is shown with depth-coloured indentation so the student associates depth with colour, not with line counting."
+prereqs: [F-03, F-08]
+usedByQs: [Q1, Q2, Q3, Q4]
+cardCountTarget: 30
+source:
+  - kind: v2
+    ref: "C++T2 spec §B.2 patch — brace-match drill (30-card augmentation)"
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-compound"
+    quote: "A compound statement is enclosed in braces and groups multiple statements into one block."
+commonMistakes:
+  - CM-F08a
+  - CM-F08b
+  - CM-F08c
+notes:
+  cardMix: { mcq: 30 }
+  rationale: |
+    Each card is a 4-option MCQ: highlighted `{` plus 4 candidate `}`s.
+    Code includes depth markers in comments (`// depth 0`, `// depth 1`,
+    `// depth 2`) since YAML cannot carry colour; the runtime renderer
+    converts those to the colour cue.

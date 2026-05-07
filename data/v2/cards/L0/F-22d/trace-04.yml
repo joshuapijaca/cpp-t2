@@ -1,0 +1,104 @@
+# =====================================================================
+# L0 / F-22d / TraceCard 04 — multiple field mutations propagate
+# =====================================================================
+id: "L0-F22d-trace-04"
+schemaVersion: "v2"
+atomId: "F-22d"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  The function `flip` mutates BOTH the array and the scalar field
+  of a `stat_double` via reference. After the call, what do
+  d.numbers[0] and d.mystery hold in main?
+
+code: |
+  void flip(stat_double &data) {
+    data.numbers[0] = 99.0;
+    data.mystery = 7.7;
+  }
+
+  int main() {
+    stat_double d = { {1.0, 2.0, 3.0, 4.0, 5.0}, 0.0 };
+    flip(d);
+    cout << d.numbers[0] << endl;
+    cout << d.mystery << endl;
+    return 0;
+  }
+
+variables: ["d.numbers[0]", "d.numbers[1]", "d.numbers[2]", "d.numbers[3]", "d.numbers[4]", "d.mystery"]
+
+expectedTrace:
+  - line: 6
+    variable: "d.numbers[0]"
+    value: "1"
+    output: null
+  - line: 6
+    variable: "d.numbers[1]"
+    value: "2"
+    output: null
+  - line: 6
+    variable: "d.numbers[2]"
+    value: "3"
+    output: null
+  - line: 6
+    variable: "d.numbers[3]"
+    value: "4"
+    output: null
+  - line: 6
+    variable: "d.numbers[4]"
+    value: "5"
+    output: null
+  - line: 6
+    variable: "d.mystery"
+    value: "0"
+    output: null
+  - line: 7
+    variable: "d.numbers[0]"
+    value: "99"
+    output: null
+  - line: 7
+    variable: "d.mystery"
+    value: "7.7"
+    output: null
+  - line: 8
+    variable: ""
+    value: ""
+    output: "99"
+  - line: 9
+    variable: ""
+    value: ""
+    output: "7.7"
+
+terminalOutput: ["99", "7.7"]
+
+inputMode: "final-only"
+
+teachMe: |
+  - Line 6: init {1,2,3,4,5}, mystery 0.
+  - Line 7: flip(d);
+    Inside flip, `data` is an alias for `d`. Body:
+      data.numbers[0] = 99.0  →  d.numbers[0] = 99
+      data.mystery   = 7.7    →  d.mystery   = 7.7
+    Other slots (numbers[1..4]) untouched.
+  - Lines 8-9: read the new values, print 99 then 7.7.
+
+  Final: d.numbers = {99, 2, 3, 4, 5}, d.mystery = 7.7.
+
+  Lesson: a single function call can mutate multiple fields of the
+  caller's struct via reference. Each mutation is visible.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-22d — multi-field mutation"
+
+commonMistakeIds: ["CM-F22d-1", "CM-F22d-3"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Generalises the mutation-visibility pattern over multiple
+  fields. Closer to the real Q1 trace which mutates `data.mystery`
+  inside a loop.

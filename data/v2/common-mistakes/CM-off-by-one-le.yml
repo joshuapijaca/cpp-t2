@@ -1,0 +1,25 @@
+id: CM-off-by-one-le
+name: "Student writes `i <= number_to_read` (off-by-one in read fn)"
+description: |
+  In Q3 read function, the loop bound MUST be `i < number_to_read`.
+  Students write `i <= number_to_read`, causing one extra iteration that
+  reads into list[number_to_read] (out of bounds, undefined behavior at
+  runtime, marked wrong on paper).
+whyItHappens: |
+  Inclusive-vs-exclusive bounds confusion. English "up to N" suggests
+  inclusive. Students translate naturally into `<=`. The C++ idiom is
+  exclusive `<` for 0-based arrays.
+immunizationStrategy: |
+  1. SpotError: read fn with `i <= number_to_read`; flag the bound.
+  2. MCQ: "Which is correct: `i < N` or `i <= N` for an N-element loop?"
+  3. Cloze: blank for the operator in the loop header.
+  4. WriteCard requiring `<` exactly.
+  5. Decompose: enumerate iter values for `i < 5` vs `i <= 5`.
+  6. Demo card: show out-of-bounds access on `i <= N`.
+examImpact: high
+atomDependencies: [F-18a, F-22b]
+qTracks: [Q3]
+relatedCMs: [CM-off-by-one-exit, CM-wrong-bound-SIZE]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §5.5 Q3 Common Errors — Off-by-one (`i <= number_to_read`) HIGH"

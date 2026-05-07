@@ -1,0 +1,47 @@
+id: "L5-wildcard-12-q3"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 5
+level: "L5"
+type: "FunctionWriteCard"
+
+stem: |
+  S5.5 wildcard: 4-field read. Write the function.
+
+prompt: |
+  Write read_games(game_data arr[], int count) reading title, genre, year, rating.
+
+canonicalAnswer: |
+  void read_games(game_data arr[], int count) {
+    int i;
+    for (i = 0; i < count; i++) {
+      cin >> arr[i].title;
+      cin >> arr[i].genre;
+      cin >> arr[i].year;
+      cin >> arr[i].rating;
+    }
+  }
+
+keyChecks:
+  - "for (i = 0; i < count; i++)"
+  - "cin >>"
+
+forbiddenTokens: []
+
+passByRefRequired: false
+
+explanation: |
+  Wildcard read function: array passed by decay-form (`arr[]`).
+  Loop bound is the runtime count; cin reads each field per element.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 dynamic-count read"
+
+commonMistakeIds: ["CM-missing-amp-sig", "CM-skipped-field"]
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #12: Q3 4-field read.

@@ -1,0 +1,68 @@
+# =====================================================================
+# L0 / F-04 / DecomposeCard 02
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-decomp-02"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Look at the four candidate first lines below. Only one is the
+  correct way to bring the iostream library into a C++ file. Pick it.
+
+code: |
+  // (the line will go here, before everything else in the file)
+  using namespace std;
+  int main() {
+    cout << "x" << endl;
+    return 0;
+  }
+
+question: |
+  Which of these is the correct first line?
+
+options:
+  - label: "A"
+    text: |
+      `include <iostream>;`
+  - label: "B"
+    text: |
+      `#include "iostream.h"`
+  - label: "C"
+    text: |
+      `#include <iostream>`
+  - label: "D"
+    text: |
+      `import iostream;`
+
+correctLabel: "C"
+
+explanation: |
+  C is the only correct form: hash, the keyword `include`, a space,
+  and the header name `iostream` (no `.h`) inside angle brackets.
+  No trailing semicolon.
+
+  A is missing the leading `#` and adds a wrong semicolon.
+  B uses double quotes (those are for *your own* header files in the
+  same project, not standard-library headers) and adds the legacy
+  `.h` suffix that C++ standard headers do not use.
+  D is `import` syntax — that is not part of pre-C++20 standard usage
+  and is not how SIT102 teaches the preamble; we use `#include`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 1 · 1-sequence-and-data/2-trailside/10-library.md (#include syntax)"
+
+commonMistakeIds: ["CM-F04b", "CM-F04c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Form-recognition decompose. Each distractor encodes a specific
+  novice typo. By forcing a single correct shape the student commits
+  to the muscle memory before any μ-write card asks them to
+  reproduce it.

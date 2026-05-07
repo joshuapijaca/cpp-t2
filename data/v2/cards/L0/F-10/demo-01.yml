@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-10 / DemoCard 01
+# Atom: Primitive types — int box
+# =====================================================================
+id: "L0-F10-demo-01"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch what `int` does. The variable is a small box that ONLY holds
+  whole numbers. If you try to put a decimal in, the decimal part is
+  silently dropped.
+
+whyOneLine: "int = whole numbers only. Decimals are truncated, not rounded."
+
+demoCode: |
+  int a = 5;        // box `a` holds 5
+  int b = -7;       // box `b` holds -7
+  int c = 9.99;     // box `c` holds 9 — the .99 is dropped
+  int d = 3.5;      // box `d` holds 3 — NOT 4. No rounding.
+  cout << c << endl;  // prints: 9
+  cout << d << endl;  // prints: 3
+
+highlightTokens:
+  - "int"
+  - "9.99"
+  - "9"
+  - "3.5"
+  - "3"
+
+usedIn:
+  - "Q1 trace (every counter and index in the trace is int)"
+  - "Q3 read-fn parameter num_to_read is int"
+  - "Q4 main: SIZE constant + i loop counter are ints"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/06-type"
+
+commonMistakeIds: ["CM-F10a"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Demonstrates the silent truncation behaviour. Critical pre-warning
+  for anyone tempted to use int for money or measurements.

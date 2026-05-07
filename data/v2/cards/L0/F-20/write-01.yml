@@ -1,0 +1,61 @@
+# =====================================================================
+# L0 / F-20 / StructWriteCard 01 — full Test 2 V2.0 shape
+# =====================================================================
+id: "L0-F20-write-01"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "StructWriteCard"
+
+stem: |
+  Write the exact struct definition used in Test 2 V2.0. The struct
+  is named `stat_double` and has two fields: an array of `SIZE`
+  doubles called `numbers`, and a single double called `mystery`.
+
+prompt: "Define the Test 2 V2.0 stat_double struct with fields numbers[SIZE] and mystery."
+
+canonicalAnswer: |
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+requiredFields:
+  - "numbers"
+  - "mystery"
+
+keyChecks:
+  - "struct stat_double"
+  - "double numbers[SIZE]"
+  - "double mystery"
+  - "};"
+
+forbiddenTokens:
+  - "class"
+  - "Struct"
+  - "STRUCT"
+  - "*"
+  - "->"
+
+explanation: |
+  Canonical Test 2 V2.0 entity. Five elements to type:
+    1. `struct` keyword (lowercase)
+    2. name `stat_double`
+    3. `{` opening
+    4. two field lines, each ending in `;`
+    5. `};` closing
+  Forbidden tokens block the most common wrong-keyword variants.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `struct stat_double { double numbers[SIZE]; double mystery; };`"
+
+commonMistakeIds: ["CM-F20a", "CM-F20b", "CM-F20c", "CM-F20d", "CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Highest-stakes Q2 write card. All five F-20 common mistakes in
+  scope — must immunise against every one.

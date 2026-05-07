@@ -1,0 +1,41 @@
+# =====================================================================
+# L0 / F-18 / ClozeCard 03
+# Atom: test slot — i < SIZE
+# =====================================================================
+id: "L0-F18-cloze-03"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the TEST slot. The loop should iterate as long as i has
+  not yet reached SIZE.
+
+code: |
+  for (int i = 0; ___; i++) {
+    cout << i << endl;
+  }
+
+clozeSentence: |
+  for (int i = 0; ___; i++)
+
+answer: "i < SIZE"
+
+explanation: |
+  `i < SIZE` is the canonical test for an array of length SIZE.
+  Body runs for i = 0, 1, ..., SIZE-1 — exactly SIZE iterations.
+  Using `i <= SIZE` would walk past the array end.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/01-for-loop"
+
+commonMistakeIds: ["CM-F18a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

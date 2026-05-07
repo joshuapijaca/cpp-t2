@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-17 / MCQCard 02
+# Atom: stray-semicolon recognition
+# =====================================================================
+id: "L0-F17-mcq-02"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  One of the four lines below is the classic silent if-bug — the
+  body runs unconditionally even though the if appears to gate it.
+  Which line contains the bug?
+
+correct: "if (n > 0); — the semicolon ENDS the if at an empty body."
+
+distractors:
+  - "if (n > 0) { — the open brace must be on the next line."
+  - "if (n > 0) — missing semicolon at end of line."
+  - "if (n > 0) { /* body */ } — needs an else clause."
+
+explanation: |
+  `if (cond);` parses as: if with empty body. Any block following
+  it runs unconditionally. This is the most common silent if bug.
+  No semicolon belongs between the close paren and the open brace.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"
+
+commonMistakeIds: ["CM-F17b"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

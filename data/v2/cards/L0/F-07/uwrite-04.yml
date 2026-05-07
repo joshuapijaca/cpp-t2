@@ -1,0 +1,58 @@
+# =====================================================================
+# L0 / F-07 / ProceduralCard 04 (μ-write)
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-uwrite-04"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q2"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Cold-recall struct definition. From the prompt, type a complete
+  struct with three int fields. Every field needs `;`, and the
+  whole struct ends with `};`.
+
+section: "L0 · F-07 · μ-write — full struct from prompt"
+
+prompt: |
+  Type a complete C++ struct definition named `Point` with three
+  int fields named `x`, `y`, and `z`. Every line must terminate
+  correctly.
+
+expectedAnswer: |
+  struct Point {
+    int x;
+    int y;
+    int z;
+  };
+
+keyChecks:
+  - "struct Point {"
+  - "int x;"
+  - "int y;"
+  - "int z;"
+  - "};"
+
+variants:
+  - prompt: "Define struct Cell with two int fields: row and col."
+    expectedAnswer: |
+      struct Cell {
+        int row;
+        int col;
+      };
+
+source:
+  kind: "seminar"
+  ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:25:50 — Saloni: 'For the struct, what we need is a box.'"
+
+commonMistakeIds: ["CM-F07a", "CM-F07b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 4: full struct definition from cold-recall. Every field
+  semicolon and the closing `};` must be present. This is the
+  exact shape of the answer for Q2 worked examples.

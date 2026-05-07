@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-15 / ProceduralCard 03 (μWrite)
+# Atom: Prompt-then-read pair (array element)
+# =====================================================================
+id: "L0-F15-proc-03"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a prompt-pair that reads into an array element field, with
+  loop index in the prompt.
+
+section: "F-15 prompt-pair drills (array element)"
+
+prompt: |
+  Assume `desk_data desks[MAX]; int i;` are in scope. Write the two
+  lines that prompt with `desk i desk_id: ` (with i interpolated)
+  and read into `desks[i].desk_id`.
+
+expectedAnswer: |
+  cout << "desk " << i << " desk_id: ";
+  cin >> desks[i].desk_id;
+
+keyChecks: ['cout << "desk " << i << " desk_id: ";', "cin >> desks[i].desk_id;"]
+
+variants:
+  - prompt: |
+      Same context. Write the prompt-pair for `desks[i].price`.
+    expectedAnswer: |
+      cout << "desk " << i << " price: ";
+      cin >> desks[i].price;
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: read_desks loop body uses array-element prompt-pair"
+
+commonMistakeIds: ["CM-F15a"]
+
+notes: |
+  Array-element prompt-pair with index in label.

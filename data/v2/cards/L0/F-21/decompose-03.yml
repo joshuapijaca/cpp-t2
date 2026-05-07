@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-21 / DecomposeCard 03 — operator choice
+# =====================================================================
+id: "L0-F21-decomp-03"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  You have a struct instance `data` with a field `mystery`. Pick the
+  correct operator to access the field.
+
+code: |
+  struct stat_double {
+    double mystery;
+  };
+  stat_double data;
+
+  // Access the `mystery` field of `data`:
+
+question: |
+  Which token reads the field `mystery` of `data`?
+
+options:
+  - label: "A"
+    text: "data.mystery"
+  - label: "B"
+    text: "data->mystery"
+  - label: "C"
+    text: "data::mystery"
+  - label: "D"
+    text: "data[mystery]"
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. The dot `.` is the field-access operator for struct
+  instances.
+  B uses `->`, the arrow operator. That is for POINTERS to structs,
+  off-scope for Test 2 (CM-F21b).
+  C uses `::`, the scope-resolution operator. That is for namespaces
+  and class statics, off-scope (CM-F21c).
+  D uses `[]`, the index operator. That is for arrays, not field
+  access.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements"
+
+commonMistakeIds: ["CM-F21b", "CM-F21c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Direct refutation of `->` and `::`. Both are real misconceptions
+  imported from C tutorials (->) and C#/Java (::).

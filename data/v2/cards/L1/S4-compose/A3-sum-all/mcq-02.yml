@@ -1,0 +1,31 @@
+# =====================================================================
+# L1 / sum-all / MCQCard 02 — predict-final 2
+# =====================================================================
+id: "L1-A3-mcq-02"
+schemaVersion: "v2"
+atomId: "A3"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: "For sum-all on numbers={100.0, 200.0, 300.0, 400.0, 500.0}, what is the FINAL value of data.mystery printed?"
+
+correct: "1500"
+
+distractors:
+  - "1400.0"
+  - "1600.0"
+  - "1500.0"
+
+explanation: "The sum-all algorithm yields 1500. Common errors land on the distractor values — see common-mistake catalogue."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — sum-all predict-final"
+
+commonMistakeIds: ["CM-A3-init-not-zero", "CM-A3-skip-element"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Predict-final MCQ: tests result without trace ceremony."

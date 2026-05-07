@@ -1,0 +1,31 @@
+id: "L5-wildcard-15-q3"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 5
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  S5.5 wildcard: Zero-instead-of-i index.
+
+correct: "cin >> arr[i].field — the index must be `i`, not `0`."
+
+distractors:
+  - "cin >> arr[0].field is fine in a loop."
+  - "Index can be omitted."
+  - "Index must be `count - 1`."
+
+explanation: |
+  Inside the loop, `i` is the current iteration. `arr[0]` only ever writes to element 0 — overwrites previous values.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 wildcard"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #15: Q3 Zero-instead-of-i index.

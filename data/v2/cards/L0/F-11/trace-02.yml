@@ -1,0 +1,72 @@
+# =====================================================================
+# L0 / F-11 / TraceCard 02
+# Atom: Variable declaration + initialisation
+# Purpose: Trace declare-without-init then assign
+# =====================================================================
+id: "L0-F11-trace-02"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. The variable `x` is declared with NO initial value,
+  then assigned later. Track its history in the panel.
+
+code: |
+  int main() {
+    int x;
+    x = 7;
+    x = 3;
+    cout << x << endl;
+    return 0;
+  }
+
+variables: ["x"]
+
+expectedTrace:
+  - line: 2
+    variable: "x"
+    value: "?"
+    output: null
+  - line: 3
+    variable: "x"
+    value: "7"
+    output: null
+  - line: 4
+    variable: "x"
+    value: "3"
+    output: null
+  - line: 5
+    variable: ""
+    value: ""
+    output: "3"
+
+terminalOutput: ["3"]
+
+inputMode: "final-only"
+
+teachMe: |
+  - Line 2: `int x;` — open box `x`. Value is GARBAGE. Panel shows `?`.
+  - Line 3: `x = 7;` — write 7. Panel: { x: 7 }. Old `?` is replaced.
+  - Line 4: `x = 3;` — write 3. Panel: { x: 3 }. Old 7 is overwritten.
+  - Line 5: `cout << x;` — print value 3.
+
+  Final: x = 3. Terminal: 3.
+
+  Note: the `?` (garbage) only matters for one line; the assignments
+  immediately overwrite it.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec F-11 trace — declare without initialiser"
+
+commonMistakeIds: ["CM-F11b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Demonstrates the garbage-then-overwrite pattern. The variables panel
+  history shows: `?` -> 7 -> 3.

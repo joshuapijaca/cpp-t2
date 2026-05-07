@@ -1,0 +1,74 @@
+# =====================================================================
+# L0 / F-12 / TraceCard 03
+# Atom: Assignment = (overwrite)
+# =====================================================================
+id: "L0-F12-trace-03"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. The variable is overwritten three times with new
+  values. Type the FINAL value.
+
+code: |
+  int main() {
+    int n = 1;
+    n = 5;
+    n = 8;
+    n = 2;
+    cout << n << endl;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "1"
+    output: null
+  - line: 3
+    variable: "n"
+    value: "5"
+    output: null
+  - line: 4
+    variable: "n"
+    value: "8"
+    output: null
+  - line: 5
+    variable: "n"
+    value: "2"
+    output: null
+  - line: 6
+    variable: ""
+    value: ""
+    output: "2"
+
+terminalOutput: ["2"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Each `n = X;` writes a NEW value, overwriting the OLD value.
+  - n: 1 -> 5 -> 8 -> 2.
+  - Final: n = 2.
+  - Print: 2.
+
+  In the variables panel, the older values are crossed out (history)
+  but only the most recent (2) is the "live" value.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec F-12 overwrite primer"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Pure overwrite, no arithmetic. Reinforces the strikethrough/history
+  visualisation.

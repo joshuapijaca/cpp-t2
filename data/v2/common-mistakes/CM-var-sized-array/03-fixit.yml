@@ -1,0 +1,40 @@
+id: "CM-var-sized-array-fixit"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Fix-it drill for CM-var-sized-array. The code has the bug; produce the canonical fix.
+
+brokenCode: |
+  // Q4: Q4 variable-size array decl
+  entity arr[count];
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  entity arr[MAX];
+  ;
+
+bugCategory: "CM-var-sized-array"
+
+keyChecks: []
+
+explanation: |
+  Replace the broken line with: entity arr[MAX];
+  Diagnosis: Wrote `entity arr[count]` — non-portable VLA.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-var-sized-array"
+
+commonMistakeIds: ["CM-var-sized-array"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 3/5 (fix-it) for CM-var-sized-array.

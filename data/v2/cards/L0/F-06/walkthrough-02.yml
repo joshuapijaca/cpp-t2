@@ -1,0 +1,85 @@
+# =====================================================================
+# L0 / F-06 / WalkthroughCard 02
+# Atom: int main() and return 0;
+# Phase B: "Skeleton scaffolding"
+# =====================================================================
+id: "L0-F06-walk-02"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Now a real Q4-style answer. The body of `main` does some work
+  (declares two variables, prints the sum), then returns 0. Walk
+  through to see how the body fits between `{` and the `return 0;`
+  + closing brace.
+
+levelLabel: "L0 Foundation · Phase B · F-06"
+
+fullCode: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    int a = 4;
+    int b = 6;
+    cout << a + b << endl;
+    return 0;
+  }
+
+steps:
+  - line: 3
+    code: 'int main() {'
+    annotation: |
+      Function header + opening brace. Everything from here to the
+      matching `}` is the body of main. The OS will start executing
+      the first statement after `{`.
+    atomIds: ["F-06", "F-08"]
+  - line: 4
+    code: '  int a = 4;'
+    annotation: |
+      First statement of the body. The two-space indent is convention,
+      not required by the compiler — it makes the body visually
+      distinct from the header/closer.
+    atomIds: ["F-07"]
+  - line: 5
+    code: '  int b = 6;'
+    annotation: |
+      Second statement of the body.
+    atomIds: ["F-07"]
+  - line: 6
+    code: '  cout << a + b << endl;'
+    annotation: |
+      Third statement. Prints `10`. This statement uses `cout` (from
+      F-04 + F-05) and ends with `;` (F-07).
+    atomIds: ["F-07"]
+  - line: 7
+    code: '  return 0;'
+    annotation: |
+      Final statement. ALWAYS the last statement inside main on a
+      Test 2 answer. Returns the integer `0` to the OS. Forgetting
+      this line is the highest-frequency Q4 error per Saloni's
+      seminar walk-through — every Q4 answer must end this way.
+    atomIds: ["F-06", "F-07"]
+  - line: 8
+    code: '}'
+    annotation: |
+      Closing brace. Matches the `{` on line 3. After this the program
+      is over. `return 0;` MUST sit BEFORE this brace, never after.
+    atomIds: ["F-08"]
+
+source:
+  kind: "seminar"
+  ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:21:14 — Saloni: 'we have only four questions ... how do you do the hand execution'"
+
+commonMistakeIds: ["CM-F06a", "CM-F06c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Real Q4-style content (declare + arithmetic + print + return). The
+  walkthrough emphasises the position of `return 0;` (last statement
+  INSIDE the braces, before `}`) — addresses CM-F06c (return 0
+  outside the closing brace), the most common shape error.

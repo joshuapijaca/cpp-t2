@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-14a / MCQCard 01
+# Atom: cin >> operator direction
+# =====================================================================
+id: "L0-F14a-mcq-01"
+schemaVersion: "v2"
+atomId: "F-14a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which line correctly reads an int from the user into the variable
+  `x`, given `int x;`?
+
+correct: "cin >> x;"
+
+distractors:
+  - "cin << x;"
+  - "cout >> x;"
+  - "x >> cin;"
+
+explanation: |
+  cin uses `>>`, with cin on the LEFT and the variable on the RIGHT.
+  The arrow points toward the variable.
+  - `cin << x` is wrong direction (<< is output).
+  - `cout >> x` mixes the output stream with input direction.
+  - `x >> cin` is reversed; cin must come first.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F14a-1", "CM-F14a-2"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Pair to F-13a mcq-01.

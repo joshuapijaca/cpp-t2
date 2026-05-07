@@ -1,0 +1,57 @@
+# =====================================================================
+# L0 / F-13a / WalkthroughCard 01
+# Atom: cout << operator direction
+# =====================================================================
+id: "L0-F13a-walk-01"
+schemaVersion: "v2"
+atomId: "F-13a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  `cout` is the OUTPUT stream. The `<<` operator pushes a value INTO
+  cout. The arrow direction matters: << means "into cout". Walk
+  through three single-output statements.
+
+levelLabel: "L0 Foundation Phase C F-13a"
+
+fullCode: |
+  cout << "hello";
+  cout << 5;
+  cout << x;
+
+steps:
+  - line: 1
+    code: 'cout << "hello";'
+    annotation: |
+      `cout << "hello"` reads as "send the text hello INTO cout". The
+      << points TOWARD cout (left). cout writes the characters to
+      the terminal: hello.
+    atomIds: ["F-13a"]
+  - line: 2
+    code: 'cout << 5;'
+    annotation: |
+      Same direction. Send the integer 5 INTO cout. Terminal now
+      shows: hello5 (no newline yet).
+    atomIds: ["F-13a"]
+  - line: 3
+    code: 'cout << x;'
+    annotation: |
+      Send the VALUE inside box `x` INTO cout. cout looks up the
+      value and prints it. The variable NAME does not appear — only
+      the value.
+    atomIds: ["F-13a"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F13a-1"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Establishes the direction rule: << points TOWARD cout (the left
+  operand). Critical to avoid Q3 confusion with cin >>.

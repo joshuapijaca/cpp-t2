@@ -1,0 +1,23 @@
+id: C-08
+name: Pre-loop init mystery=numbers[0]
+level: L1
+teaches: Before the loop, copy numbers[0] into mystery (find-max/min init).
+prereqs:
+  - F-10
+  - F-12
+  - F-14a
+usedByQs:
+  - Q1
+cardCountTarget: 10
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-08
+    quote: 'C-08: 10 cards. Pre-loop init mystery=numbers[0].'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C08a
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

@@ -1,0 +1,36 @@
+id: L1-S3-C-04-decomp-01
+schemaVersion: v2
+atomId: C-04
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: DecomposeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-04
+commonMistakeIds:
+  - CM-C04a
+stem: Pick the correctly-drawn memory layout for `numbers[SIZE]` (SIZE=5).
+code: |-
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  stat_double d;  // SIZE = 5
+question: Which layout is correct?
+options:
+  - label: A
+    text: numbers[0]|numbers[1]|numbers[2]|numbers[3]|numbers[4]  — 5 cells, 0-indexed.
+  - label: B
+    text: numbers[1]|numbers[2]|numbers[3]|numbers[4]|numbers[5]  — 5 cells, 1-indexed.
+  - label: C
+    text: numbers[0]|numbers[1]|numbers[2]|numbers[3]|numbers[4]|numbers[5]  — 6 cells.
+  - label: D
+    text: numbers       — single cell holding all 5 values.
+correctLabel: A
+explanation: 5 cells, indexed 0..4. Drawing 6 cells (B/C) is the off-by-one trap.
+

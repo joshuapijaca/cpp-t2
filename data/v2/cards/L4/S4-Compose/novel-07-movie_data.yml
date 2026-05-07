@@ -1,0 +1,60 @@
+id: "L4-S4-novel-07"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[novel 7/20] Write the COMPLETE main() for the movie_data entity. Apply the canonical 7-piece skeleton with MAX=250, count=movie_count, fn=read_movies."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 novel entity transfer"
+commonMistakeIds: 
+  - "CM-Q4-missing-const"
+  - "CM-Q4-pass-MAX-not-count"
+  - "CM-Q4-amp-at-call"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Write a full main() for movie_data. const MAX = 250; count_var = movie_count; fn = read_movies; fields = title, director, duration; prompt = \"How many movies?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 250;
+      movie_data movies[MAX];
+      int movie_count;
+  
+      cout << "How many movies? ";
+      cin >> movie_count;
+  
+      read_movies(movies, movie_count);
+  
+      for (int i = 0; i < movie_count; i++)
+      {
+          cout << movies[i].title << ", ";
+          cout << movies[i].director << ", ";
+          cout << movies[i].duration << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 250"
+  - "movie_data movies[MAX]"
+  - "int movie_count"
+  - "cin >> movie_count"
+  - "read_movies(movies, movie_count)"
+  - "i < movie_count"
+  - "movies[i].title"
+  - "movies[i].director"
+  - "movies[i].duration"
+  - "endl"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many movies?"
+explanation: "Same skeleton as V2.0 — only entity name, MAX, count_var, fn, fields differ. Pattern transfer drill."

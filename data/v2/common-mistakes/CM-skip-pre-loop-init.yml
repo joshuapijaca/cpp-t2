@@ -1,0 +1,30 @@
+id: CM-skip-pre-loop-init
+name: "Student skips the pre-loop init line"
+description: |
+  The line `data.mystery = data.numbers[0];` (or `data.mystery = 0.0;`) appears
+  BEFORE the for-loop. Students often jump straight into the loop and skip
+  this line, causing the trace to begin with mystery in its initial brace-init
+  value (often 0.0) instead of the seeded value, producing a wrong final state.
+  Real V2.0 exam used this exact pattern: the pre-loop init seeded mystery from
+  numbers[0] (-20.0). Skipping it leaves mystery = 0.0 and silently breaks the
+  whole trace.
+whyItHappens: |
+  Pattern: students see "for-loop" and mentally skip everything before it.
+  Especially common when the init line is short and visually buried among
+  whitespace. Cognitive shortcut — brain tags "for-loop = the work" and
+  ignores the setup. Practice test had this line; real V2.0 used a stronger
+  variant (mystery = numbers[0]) that students missed.
+immunizationStrategy: |
+  1. SpotError card showing buggy trace that skipped the line; student finds it.
+  2. Trap-trace card where final answer differs by exactly the init value.
+  3. Fix-it card where student must add missing init line to a partial trace.
+  4. Cloze card with init line blank; student types the missing assignment.
+  5. MCQ asking "Which line runs FIRST inside who_am_i?"
+  6. Side-by-side trace pair: with-init vs without-init, student sees divergence.
+examImpact: high
+atomDependencies: [F-03, F-22d, A4]
+qTracks: [Q1]
+relatedCMs: [CM-misorder-loop-sem, CM-stale-mystery]
+source:
+  kind: seminar
+  ref: "SIT102 Seminar Mondays 6pm new (2) @ 21:14 — Saloni explicitly warns: 'don't skip the line before the loop'"

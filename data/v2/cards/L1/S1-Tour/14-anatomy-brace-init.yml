@@ -1,0 +1,48 @@
+id: "L1-S1-tour-14-anatomy-brace-init"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "DemoCard"
+
+stem: |
+  Anatomy 9/10: the brace-init at the call site. Outer brace = the
+  struct. Inner brace = the array. Trailing scalar = the mystery
+  init. Three layers, all in one expression.
+
+whyOneLine: "Outer braces wrap the WHOLE struct; inner braces wrap ONLY the array — losing this nesting parses the values into the wrong fields."
+
+demoCode: |
+  stat_double d = { {2.4, -3.7, 1.0, -2.1, 0.5} , -0.9 };
+                  ^ ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^   ^^^^  ^
+                  | |                                |     |
+                  | INNER brace: 5 array values      |     |
+                  |  (numbers[0..4] in order)        |     |
+                  OUTER brace open                   |     OUTER brace close
+                                                     mystery init value
+
+  // After this line:
+  //   d.numbers[0..4] = 2.4, -3.7, 1.0, -2.1, 0.5
+  //   d.mystery       = -0.9       (will be overwritten on first line of fn)
+
+highlightTokens:
+  - "{ {"
+  - "{2.4, -3.7, 1.0, -2.1, 0.5}"
+  - "-0.9"
+  - "OUTER"
+  - "INNER"
+
+usedIn:
+  - "Q1: every hand-execute body starts with this brace-init"
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — stat_double d = {{2.4,-3.7,1.0,-2.1,0.5}, -0.9};"
+
+commonMistakeIds: ["CM-Q1-misparse-outer-vs-inner"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Anatomy: brace-init outer-vs-inner.
+authoringStatus: "DRAFT"

@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-15 / ProceduralCard 04 (μWrite)
+# Atom: Prompt-then-read pair (read-count)
+# =====================================================================
+id: "L0-F15-proc-04"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the prompt-pair that reads the count of items the user wants
+  to enter.
+
+section: "F-15 prompt-pair drills (read-count)"
+
+prompt: |
+  Assume `int num_to_read;` is declared. Write the two lines that
+  prompt the user with `num_to_read: ` and read into num_to_read.
+
+expectedAnswer: |
+  cout << "num_to_read: ";
+  cin >> num_to_read;
+
+keyChecks: ['cout << "num_to_read: ";', "cin >> num_to_read;"]
+
+variants:
+  - prompt: |
+      Variant: prompt with `How many desks: ` and read into
+      num_to_read.
+    expectedAnswer: |
+      cout << "How many desks: ";
+      cin >> num_to_read;
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: Q4 main reads num_to_read first"
+
+commonMistakeIds: []
+
+notes: |
+  Q4 main first-read pattern.

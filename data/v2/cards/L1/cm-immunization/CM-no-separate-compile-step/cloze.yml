@@ -1,0 +1,37 @@
+# Hand-authored CM immunization (ClozeCard) for CM-no-separate-compile-step
+id: "L1-cmimm-CM-no-separate-compile-step-cloze"
+schemaVersion: "v2"
+atomId: "F-02"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in the missing terminal command (between editing source and running)."
+
+code: |
+  // Terminal session:
+  //   $ ls
+  //   hello.cpp
+  //   $ ___
+  //   $ ls
+  //   hello       hello.cpp
+  //   $ ./hello
+  //   hello
+
+clozeSentence: 'Fill in the compile command (g++ + source + -o + output name).'
+
+answer: 'g++ hello.cpp -o hello'
+
+explanation: |
+  g++ reads hello.cpp and writes a new file named hello (the executable). Without this step, hello.cpp is just text and cannot be run.
+
+source:
+  kind: "pfg"
+  ref: "PFG part-0/1-digital-realities/2-trailside/6-source-code — common-mistake immunization (CM-no-separate-compile-step)"
+
+commonMistakeIds: ["CM-no-separate-compile-step"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

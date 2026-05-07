@@ -1,0 +1,49 @@
+# =====================================================================
+# L0 / F-11 / DemoCard 01
+# Atom: Variable declaration + initialisation (declare-only)
+# =====================================================================
+id: "L0-F11-demo-01"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch how `int x;` works. The line OPENS a memory box but writes
+  nothing. The box contains whatever leftover bits were already there
+  — a garbage value.
+
+whyOneLine: "int x; opens a box; the value inside is undefined garbage."
+
+demoCode: |
+  int x;
+  cout << x << endl;   // prints UNPREDICTABLE garbage
+                       // could be 0, could be 32766, could be -47812983
+
+  int y;
+  y = 5;
+  cout << y << endl;   // prints 5 — safe AFTER assignment
+
+highlightTokens:
+  - "int x;"
+  - "garbage"
+  - "y = 5;"
+  - "5"
+
+usedIn:
+  - "Q1 trace (any int i; without initial value is garbage until the for-loop)"
+  - "Q3 read fn (declare local int num_to_read; then assign via cin)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F11b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Hammers the garbage-value behaviour. Critical for Q1: students
+  often assume uninitialised int is 0.

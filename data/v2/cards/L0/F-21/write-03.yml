@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-21 / FunctionWriteCard 03 — μ-write accumulator step
+# =====================================================================
+id: "L0-F21-write-03"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "FunctionWriteCard"
+
+stem: |
+  Write a single C++ statement that adds the i-th element of
+  `data.numbers` to `data.mystery`. The result must be stored back
+  in `data.mystery`.
+
+prompt: "Add data.numbers[i] to data.mystery (in-place accumulator step)."
+
+signatureHint: "____ = ____ + ____;"
+
+canonicalAnswer: |
+  data.mystery = data.mystery + data.numbers[i];
+
+keyChecks:
+  - "data.mystery"
+  - "="
+  - "data.mystery + data.numbers[i]"
+  - ";"
+
+forbiddenTokens:
+  - "data->mystery"
+  - "data::mystery"
+  - "data[i].numbers"
+  - "*"
+
+explanation: |
+  This is the EXACT body line of the Test 2 Q1 accumulator. RHS
+  reads the current `data.mystery` plus the i-th array slot; LHS
+  writes the sum back into the scalar field. Identical token on
+  both sides — familiar from F-21 cloze-04.
+
+passByRefRequired: false
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — Q1 accumulator body line"
+
+commonMistakeIds: ["CM-F21a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Highest-stakes F-21 write. Mirror of the Q1 accumulator body
+  almost verbatim.

@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-03 / MCQCard 02
+# Atom: Hand-execution paradigm — what hand-execution actually IS
+# =====================================================================
+id: "L0-F03-mcq-02"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  SIT102 Test 2 Question 1 asks you to "hand-execute" a short C++
+  program and produce its variables panel and terminal output. In one
+  sentence, what does it actually MEAN to hand-execute a C++ program
+  for that question — what are you doing step-by-step in your head?
+
+correct: "You play the role of the CPU: read the source line by line, maintain a mental variables panel and terminal, and update both as each line runs."
+
+distractors:
+  - "You read the program quickly to estimate what it would print, without tracking individual variables."
+  - "You compile the program in your head to machine code, then run that machine code mentally."
+  - "You translate every line of C++ into English prose, then summarise the prose to predict the output."
+
+explanation: |
+  Hand-execution is a faithful step-by-step simulation. You walk down
+  the source one line at a time, keeping track of two pieces of state:
+  the variables panel (every box and its current value) and the
+  terminal panel (everything printed so far). Each line either
+  modifies a variable or appends to the terminal — your job is to
+  update the right panel with the right new value.
+
+  You do NOT skim, you do NOT compile to machine code mentally, and
+  you do NOT paraphrase. You simulate.
+
+  This is exactly the skill SIT102 Test 2 Question 1 measures.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-03; SIT102 Test 2 Q1 description"
+
+commonMistakeIds: ["CM-jumps-to-final-answer", "CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Closing F-03 card. Reinforces the operational definition the student
+  must internalise. Distractors A/B/C target three real shortcuts
+  beginners attempt: skim, mental-compile, and paraphrase — none of
+  which work for non-trivial traces.

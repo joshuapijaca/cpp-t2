@@ -1,0 +1,89 @@
+SIT102 Introduction to Programming  P6 C / C++
+
+C / C++
+
+The first part of our journey is now behind us, with you having developed a strong
+understanding of control flow and how to use it to create programs. Before you
+can start our next journey proper, you need to retool and switch programming
+languages to explore organising our code and data. This sounds challenging, but
+compared to what you have achieved you may be surprised to find how easy it
+can be to switch languages.
+
+See how what you have learnt so far applies in C/C++, and learn to get started with
+it by rebuilding some of the programs you have created so far.
+
+Key aspects include:
+
+    · Seeing that most things are the same - and realising the concepts are more
+         important than the syntax.
+
+    · Picking up the new tool chain needed to build and run these programs.
+
+Show us that you can:
+
+    · Compile and run C/C++ programs, including linking with external libraries.
+    · Code programs using C/C++ that include:
+
+             o Variable declarations, assignment statements, and method calls.
+             o Boolean expressions that use comparisons and logical operators.
+             o Branches using if and switch case.
+             o Repetition using while, do while, and for loops.
+    · Focus on how programming concepts are similar across languages.
+    · Develop adaptability - you will use many tools in a computing career.
+    · Do this task without using anything we haven't covered yet.
+
+                                    Page 1 of 3
+SIT102 Introduction to Programming  P6 C / C++
+
+· Capture your learning in the Learning Journey section. Include evidence
+    (screenshots) of your progress, and your thoughts on what you
+    accomplished, what challenges you faced, and what you found interesting.
+
+· Provide sincere reflections in the Reflection section. Don't just tell us what
+    you did, tell us what you learned. Reflections that are brief or shallow will
+    not be accepted.
+
+Complete the following:
+
+         1. Download and open the template from OnTrack.
+         2. Read the Introducing Code Organisation section from Part 2: Organised
+
+             Code.
+         3. Read through the Overview section from Chapter 1: Starting C/C++
+         4. Complete the Guided Tour section from Chapter 1: Starting C/C++.
+         5. Ensure you have familiarised yourself with the C++ build and run
+
+             process. Convert one of your previously completed C# Test Your
+             Knowledge activities (from a previously completed task) into C++ code.
+         6. Complete your submission ­ complete the summary and related
+             activities in the template.
+         7. Upload to OnTrack and engage with feedback to get this complete!
+
+Available Resources
+
+We have many resources to assist in your learning journey ­ if you are ever unsure
+then please reach out to us, we are always happy to help.
+
+    · The SIT102 Teams channel ­ an active learning resource with weekly
+         announcements from the Unit Chair, and regular discussions/assistance
+         from the SIT102 teaching team and students.
+
+                                    Page 2 of 3
+SIT102 Introduction to Programming  P6 C / C++
+
+    · Seminars ­ you can attend both on-campus and online sessions, and join
+         as many as you like each week. Your tutors will provide demonstrations and
+         assistance to help guide your learning.
+
+    · HelpHubs ­ there are sessions hosted nearly everyday, both on-campus
+         and online providing one-on-one assistance from a tutor. Please join as
+         many as you like.
+
+    · PASS sessions ­ running every week, these sessions are run like a study
+         group, hosted by a past SIT102 student.
+
+For more information about the above resources please speak to your tutor or
+visit the SIT102 Teams channel.
+
+                                    Page 3 of 3
+

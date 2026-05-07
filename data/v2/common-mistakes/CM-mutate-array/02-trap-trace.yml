@@ -1,0 +1,44 @@
+id: "CM-mutate-array-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-mutate-array: Q1 mutating numbers[] not mystery.
+
+code: |
+  // Trap: Wrote data.numbers[i] = data.mystery — wrong direction.
+  data.numbers[i] = data.mystery;
+  ;
+
+question: |
+  What goes wrong with the line above on Q1?
+
+options:
+  - label: "A"
+    text: "Wrote data.numbers[i] = data.mystery — wrong direction."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Wrote data.numbers[i] = data.mystery — wrong direction. The canonical pattern is: data.mystery = data.numbers[i];
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-mutate-array"
+
+commonMistakeIds: ["CM-mutate-array"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-mutate-array.

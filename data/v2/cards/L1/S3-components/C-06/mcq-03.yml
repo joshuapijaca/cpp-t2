@@ -1,0 +1,25 @@
+id: L1-S3-C-06-mcq-02
+schemaVersion: v2
+atomId: C-06
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-06
+commonMistakeIds:
+  - CM-C06a
+  - CM-C06b
+stem: After `stat_double d = { {5, 4, 3, 2, 1}, 0 };` runs, what are the cell values?
+correct: 'numbers: [5, 4, 3, 2, 1], mystery: 0'
+distractors:
+  - 'numbers: [1, 2, 3, 4, 5], mystery: 0'
+  - 'numbers: [5, 4, 3, 2, 1], mystery: 5'
+  - 'numbers: [0, 5, 4, 3, 2], mystery: 1'
+explanation: Inner brace fills numbers[0..4] left-to-right; the trailing scalar fills mystery.
+

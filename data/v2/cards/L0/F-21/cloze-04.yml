@@ -1,0 +1,38 @@
+# =====================================================================
+# L0 / F-21 / ClozeCard 04 — array decay vs struct.array
+# =====================================================================
+id: "L0-F21-cloze-04"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the composite token: increment the i-th slot of the
+  `numbers` array field of `data` by 1.
+
+code: |
+  ___ = ___ + 1;
+
+clozeSentence: "___ = ___ + 1;  // both blanks: same composite token"
+
+answer: "data.numbers[i]"
+
+explanation: |
+  Both blanks are the same composite token: `data.numbers[i]`. The
+  RHS reads the current value of slot i; the LHS writes (current +
+  1) back into slot i. Identical token, both sides.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/05-assignment-statement-with-fields-and-elements"
+
+commonMistakeIds: ["CM-F21a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Read-then-write reinforcement. Helps internalise that the
+  composite token is a NORMAL lvalue — same shape on both sides.

@@ -1,0 +1,84 @@
+# =====================================================================
+# L0 / F-17 / ProceduralCard 01
+# Atom: write three ifs
+# =====================================================================
+id: "L0-F17-proc-01"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+section: "if (cond) { ... }"
+
+stem: |
+  Procedural drill. Write three if-statements that each print a
+  message when their condition holds.
+
+prompt: |
+  Given `int x` already declared, write three separate if-statements:
+  (1) print "neg" when x < 0,
+  (2) print "zero" when x == 0,
+  (3) print "pos" when x > 0.
+  Use full braces on every body. Do not nest.
+
+expectedAnswer: |
+  if (x < 0) {
+    cout << "neg" << endl;
+  }
+  if (x == 0) {
+    cout << "zero" << endl;
+  }
+  if (x > 0) {
+    cout << "pos" << endl;
+  }
+
+keyChecks:
+  - "if (x < 0)"
+  - "if (x == 0)"
+  - "if (x > 0)"
+  - "neg"
+  - "zero"
+  - "pos"
+
+variants:
+  - prompt: |
+      Same task with variable name `n` instead of `x`. Same three
+      conditions, same three messages.
+    expectedAnswer: |
+      if (n < 0) {
+        cout << "neg" << endl;
+      }
+      if (n == 0) {
+        cout << "zero" << endl;
+      }
+      if (n > 0) {
+        cout << "pos" << endl;
+      }
+  - prompt: |
+      Three ifs against `score`: print "fail" when score < 50,
+      print "pass" when score >= 50, print "perfect" when
+      score == 100.
+    expectedAnswer: |
+      if (score < 50) {
+        cout << "fail" << endl;
+      }
+      if (score >= 50) {
+        cout << "pass" << endl;
+      }
+      if (score == 100) {
+        cout << "perfect" << endl;
+      }
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"
+
+commonMistakeIds: ["CM-F17b", "CM-F17c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Builds muscle memory for three ifs
+  in a row — exactly the skill Q1 needs.
+authoringStatus: "DRAFT"

@@ -1,0 +1,24 @@
+id: CM-cap-struct-name
+name: "Student capitalises the struct name"
+description: |
+  Convention in this unit (and SIT102 marking) is snake_case for struct
+  names: `computer_data`, not `ComputerData` or `Computer_Data`. Students
+  carry over CamelCase from Java/C# habits or general OOP background and
+  lose marks even though the code compiles.
+whyItHappens: |
+  Industry C++ uses CamelCase for class types. SIT102 enforces snake_case
+  per the unit's style guide. Students bring outside conventions.
+immunizationStrategy: |
+  1. SpotError: struct named `ComputerData`; mark capitalisation as wrong.
+  2. MCQ: "Which is correct: `ComputerData`, `computer_data`, `computerData`?"
+  3. Cloze: fill in the struct name from a prompt -> snake_case.
+  4. WriteCard with EntityMatrix grading on snake_case identifier.
+  5. Demo card: show 35 entity names from the pool, all snake_case.
+  6. Decompose: parse the rule (lowercase + underscore separators).
+examImpact: medium
+atomDependencies: [F-09, F-20]
+qTracks: [Q2]
+relatedCMs: [CM-cap-struct-keyword, CM-hyphen-id]
+source:
+  kind: practice
+  ref: "Test2-SIT102-practice-2026T1.txt — `computer_data` snake_case convention"

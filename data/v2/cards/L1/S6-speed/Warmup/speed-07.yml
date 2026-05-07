@@ -1,0 +1,31 @@
+# =====================================================================
+# L1 / S6-Warmup / SpeedDrillCard 07 — flash product
+# =====================================================================
+id: "L1-S6-warmup-07"
+schemaVersion: "v2"
+atomId: "A14"
+qTags: ["Q1"]
+stage: 6
+level: "L1"
+type: "SpeedDrillCard"
+
+stem: "Speed-drill warmup: product. Read array, compute final mystery, type answer."
+
+prompt: "product on numbers={1.0, 2.0, 3.0, 4.0, 5.0}. Final data.mystery = ?"
+
+canonicalAnswer: "data.mystery = 120;"
+
+keyChecks: ["120"]
+
+
+explanation: "product gives 120. Practice recognising the shape under flash conditions."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — product flash variant"
+
+commonMistakeIds: ["CM-S6-rush-skip-init"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Flash-then-answer warmup; 30s view, 60s answer."

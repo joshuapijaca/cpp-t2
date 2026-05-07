@@ -1,0 +1,22 @@
+id: "L4-S3A-mcq-02"
+schemaVersion: "v2"
+atomId: "Q-02"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "MCQCard"
+stem: "`#define MAX 700` vs `const int MAX = 700;` — which is preferred in SIT102?"
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block A mcq"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+correct: "`const int MAX = 700;` — type-safe, scoped, debuggable."
+distractors: 
+  - "#define — faster."
+  - "They are identical."
+  - "Neither — use `static int MAX = 700;`."
+explanation: "#define is a textual macro (no type, no scope). const int is a real C++ object and is the SIT102 idiom."

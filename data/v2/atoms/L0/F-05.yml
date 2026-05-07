@@ -1,0 +1,23 @@
+id: F-05
+name: "using namespace std"
+level: L0
+phase: B
+teaches: "Removes std:: prefix. Idiomatic SIT102 style."
+prereqs: [F-04]
+usedByQs: [Q3, Q4]
+cardCountTarget: 12
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/3-code"
+    quote: "Adding 'using namespace std;' lets you write cout instead of std::cout."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/2-main-function"
+    quote: "After including iostream and the using directive, cout/cin become unqualified."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:21:30 — Saloni outlines the boilerplate every Q4 main needs"
+commonMistakes:
+  - CM-F05a  # forgets using namespace std and types cout (not std::cout)
+  - CM-F05b  # writes "namespace std;" without "using"
+  - CM-F05c  # capitalises std as STD
+notes:
+  cardMix: { walkthrough: 1, demo: 2, decompose: 1, cloze: 3, μWrite: 2, tmplRec: 1, mcq: 2 }

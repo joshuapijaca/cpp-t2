@@ -1,0 +1,18 @@
+id: R-02b
+name: "Q3 Components Block B: for-loop with parameter as bound"
+level: L3
+teaches: "for (int i = 0; i < n; i++) — uses the count parameter (n / number_to_read / count) as the bound, NOT SIZE/MAX. Half-open bound `<` not `<=`. Defends off-by-one and wrong-bound."
+prereqs: [F-18, F-22]
+usedByQs: [Q3]
+cardCountTarget: 30
+parentAtom: R-02
+source:
+  - kind: v2
+    ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#5.3 Block B — For-loop with parameter as bound"
+commonMistakes:
+  - CM-Q3-off-by-one
+  - CM-Q3-wrong-bound-SIZE
+notes:
+  cardMix: { write: 18, mcq: 8, proc: 4 }
+  stage: S3
+  exposureClass: medium

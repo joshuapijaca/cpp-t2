@@ -1,0 +1,16 @@
+id: L-23b
+name: "Q2 S3b Sub-atom — identifier rules + naming"
+level: L2
+teaches: "snake_case fields. Reserved words banned (struct/class/int/etc.). Hyphens/spaces banned. First-char letter or underscore. 15 naming + 10 ordering."
+prereqs: [F-09, L-22]
+usedByQs: [Q2]
+cardCountTarget: 25
+source:
+  - kind: practice
+    ref: "docs/16_test2_specific_redesign_v2.md §4.6 + naming/ordering blocks"
+commonMistakes:
+  - CM-Q2-reserved
+  - CM-Q2-camelcase
+  - CM-Q2-hyphen
+notes:
+  buckets: { naming: 15, ordering: 10 }

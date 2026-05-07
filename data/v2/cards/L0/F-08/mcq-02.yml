@@ -1,0 +1,47 @@
+# =====================================================================
+# L0 / F-08 / MCQCard 02
+# Atom: Block delimiters: { and }
+# =====================================================================
+id: "L0-F08-mcq-02"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q2", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which kind of bracket should enclose the field list of a C++
+  struct definition?
+
+correct: "Curly braces { } — the struct's fields go between { and }, like `struct Point { int x; int y; };`"
+
+distractors:
+  - "Round parentheses ( ) — the struct's fields go between ( and ), like `struct Point ( int x; int y; );`"
+  - "Square brackets [ ] — the struct's fields go between [ and ], like `struct Point [ int x; int y; ];`"
+  - "No brackets — the struct's fields are listed on the same line separated by commas, like `struct Point int x, int y;`"
+
+explanation: |
+  Curly braces `{` `}` are block delimiters in C++. They enclose
+  the struct's field list. The full canonical shape is
+  `struct Point { int x; int y; };` — and notice the trailing
+  `};` (close-brace + semicolon) that ends the struct definition
+  as a statement.
+
+  Round parens `( )` are for function parameters and expression
+  grouping, NOT block delimiters.
+  Square brackets `[ ]` are for array indexing.
+  Bracketless comma-separated fields aren't valid C++ syntax for
+  struct declarations.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 3-structuring-data/2-trailside/03-01-struct.md"
+
+commonMistakeIds: ["CM-F08c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Bracket-type MCQ for structs. Reinforces curly braces as the
+  exclusive choice for the field list. Targets CM-F08c.

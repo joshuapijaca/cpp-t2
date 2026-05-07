@@ -1,0 +1,75 @@
+# =====================================================================
+# L0 / F-08 / ProceduralCard 03 (μ-write)
+# Atom: Block delimiters: { and }
+# =====================================================================
+id: "L0-F08-uwrite-03"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q2", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Build a full struct + main pair. Both blocks must have matched
+  braces. The struct ends `};`; main ends with just `}`.
+
+section: "L0 · F-08 · μ-write — struct + main paired blocks"
+
+prompt: |
+  Type a complete file containing a struct `Point` (two int fields
+  `x` and `y`) and a main that declares a Point, sets one field,
+  prints it, and returns 0.
+
+expectedAnswer: |
+  #include <iostream>
+  using namespace std;
+  struct Point {
+    int x;
+    int y;
+  };
+  int main() {
+    Point p;
+    p.x = 1;
+    cout << p.x << endl;
+    return 0;
+  }
+
+keyChecks:
+  - "struct Point {"
+  - "int x;"
+  - "int y;"
+  - "};"
+  - "int main()"
+  - "Point p;"
+  - "return 0;"
+
+variants:
+  - prompt: "Same shape — struct Cell { int row; int col; }; with a main that sets c.row to 8 and prints it."
+    expectedAnswer: |
+      #include <iostream>
+      using namespace std;
+      struct Cell {
+        int row;
+        int col;
+      };
+      int main() {
+        Cell c;
+        c.row = 8;
+        cout << c.row << endl;
+        return 0;
+      }
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-08 — struct + main paired blocks"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 3: paired blocks. The student must produce TWO
+  brace-pairs in one file. Trains the count-to-2 habit and
+  reinforces the struct-vs-function close difference (`};` vs
+  `}`).

@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-03 / DemoCard 02
+# Atom: Hand-execution — strikethrough convention for changed values
+# =====================================================================
+id: "L0-F03-demo-02"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: when a variable's value CHANGES during execution, write the
+  new value next to the old one (or strike out the old one). This is
+  how you keep a clean record of every state the program passed
+  through — exactly what an exam grader expects to see.
+
+whyOneLine: "Each reassignment crosses out the old value and writes the new — the trail is part of the answer."
+
+demoCode: |
+  Source:                Trace (after each line):
+  ─────────              ──────────────────────────
+  int x = 1;             x: 1
+  x = x + 5;             x: ~~1~~  6
+  x = x * 2;             x: ~~1~~  ~~6~~  12
+  x = x - 3;             x: ~~1~~  ~~6~~  ~~12~~  9
+  cout << x;             TERMINAL: 9
+
+  Final variable state:  x = 9
+  Final terminal output: 9
+
+highlightTokens:
+  - "~~1~~"
+  - "~~6~~"
+  - "~~12~~"
+  - "TERMINAL: 9"
+  - "Final"
+
+usedIn:
+  - "Q1 trace (Test 2 Q1 typically asks for the FINAL value of each variable + the terminal output — both are read off this trail)"
+
+source:
+  kind: "v2"
+  ref: "C++T2 post-M22 TraceCard UI — strikethrough convention; CLAUDE.md §Post-M22"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Trains the visual habit BEFORE any difficulty appears. By the time
+  the student sees a 5-variable Q1 trace they will already strike out
+  old values automatically — eliminating the #1 trace error
+  (mistakenly reusing an old value in a later expression).

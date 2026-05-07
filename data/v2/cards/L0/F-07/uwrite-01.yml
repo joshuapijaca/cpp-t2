@@ -1,0 +1,47 @@
+# =====================================================================
+# L0 / F-07 / ProceduralCard 01 (μ-write)
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-uwrite-01"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Repair drill. The line below is missing its terminator. Type the
+  full repaired line.
+
+section: "L0 · F-07 · μ-write — repair single-line missing semicolon"
+
+prompt: |
+  Original (broken):
+
+  int x = 5
+
+  Add the missing terminator. Type the repaired line.
+
+expectedAnswer: "int x = 5;"
+
+keyChecks:
+  - "int x = 5;"
+
+variants:
+  - prompt: "Repair: cout << 7 << endl"
+    expectedAnswer: "cout << 7 << endl;"
+  - prompt: "Repair: return 0"
+    expectedAnswer: "return 0;"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 1 · 2-communicating-syntax/2-trailside/02-statement.md"
+
+commonMistakeIds: ["CM-F07b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 1: single-line semicolon repair. Three variants reinforce
+  the rule across declaration, output, and return statements.

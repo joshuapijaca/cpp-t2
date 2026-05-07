@@ -1,0 +1,40 @@
+id: "CM-only-final-no-trail-fixit"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Fix-it drill for CM-only-final-no-trail. The code has the bug; produce the canonical fix.
+
+brokenCode: |
+  // Q1: Q1 reported only final no trail
+  // answer = 7.4
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  // i=0 cond->T mystery=2.4; i=1 cond->F mystery=2.4; ...
+  ;
+
+bugCategory: "CM-only-final-no-trail"
+
+keyChecks: []
+
+explanation: |
+  Replace the broken line with: // i=0 cond->T mystery=2.4; i=1 cond->F mystery=2.4; ...
+  Diagnosis: Wrote "answer = 7.4" with no iteration trace.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-only-final-no-trail"
+
+commonMistakeIds: ["CM-only-final-no-trail"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 3/5 (fix-it) for CM-only-final-no-trail.

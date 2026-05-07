@@ -1,0 +1,25 @@
+id: F-21
+name: "Dot access obj.field"
+level: L0
+phase: E
+teaches: "`obj.field` reads or writes a struct field. Combines with array index: `arr[i].field`."
+prereqs: [F-20, F-19]
+usedByQs: [Q1, Q3, Q4]
+cardCountTarget: 24
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements"
+    quote: "Use the dot operator to access a field of a struct: variable_name.field_name"
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/3-0-struct-array"
+    quote: "When iterating an array of structs, use arr[i].field to read each entity's field."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:35:23 — Saloni: 'data dot mystery is equal to data dot numbers zero. When I say zero, it means the index zero'"
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:37:06 — Saloni: 'we cheque if data dot numbers I'"
+commonMistakes:
+  - CM-F21a  # writes arr.field[i] (wrong — should be arr[i].field)
+  - CM-F21b  # uses -> instead of . (pointer syntax, off-scope)
+  - CM-F21c  # uses :: instead of . (namespace syntax)
+notes:
+  cardMix: { walkthrough: 2, demo: 3, decompose: 3, trace: 4, cloze: 4, μWrite: 4, tmplRec: 1, mcq: 2, proc: 1 }

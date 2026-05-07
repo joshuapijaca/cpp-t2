@@ -1,0 +1,40 @@
+id: "CM-body-when-false-fixit"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Fix-it drill for CM-body-when-false. The code has the bug; produce the canonical fix.
+
+brokenCode: |
+  // Q1: Q1 body run when condition false
+  data.mystery = data.mystery + data.numbers[i]; // outside the if
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }
+  ;
+
+bugCategory: "CM-body-when-false"
+
+keyChecks: []
+
+explanation: |
+  Replace the broken line with: if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }
+  Diagnosis: Action runs unconditionally instead of inside the if-body.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-body-when-false"
+
+commonMistakeIds: ["CM-body-when-false"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 3/5 (fix-it) for CM-body-when-false.

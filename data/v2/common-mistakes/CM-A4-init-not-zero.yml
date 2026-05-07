@@ -1,0 +1,23 @@
+id: CM-A4-init-not-zero
+name: "CM-A4-init-not-zero (auto-stub — pre-existing card reference)"
+description: |
+  Stub registry entry created to satisfy a pre-existing card reference
+  in L1/S4-compose/A4-sum-positive-v20/proc-01.yml. The mistake: A4
+  (sum-positive) algorithm seeds the running sum to a non-zero value,
+  causing the accumulator to drift. See CM-A11-init-0 for the
+  multiplicative analog and CM-A3-init-not-zero for the A3 parallel.
+whyItHappens: |
+  Sum-template requires seed 0.0 (additive identity). Students confuse
+  it with the product-template seed (1.0) or some "natural" value
+  (numbers[0]).
+immunizationStrategy: |
+  TBD — pre-existing card already provides 1+ immunization (proc-01 in
+  A4-sum-positive-v20). Hand-author further per CM-A11-init-0 exemplar
+  if needed.
+examImpact: medium
+atomDependencies: [A4]
+qTracks: [Q1]
+relatedCMs: [CM-A3-init-not-zero, CM-A11-init-0]
+source:
+  kind: v2
+  ref: "Pre-existing card reference in L1/S4-compose/A4-sum-positive-v20/proc-01.yml; SIT102 Test 2 V2.0 sum-positive algorithm"

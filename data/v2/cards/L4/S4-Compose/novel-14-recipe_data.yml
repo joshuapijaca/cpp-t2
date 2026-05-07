@@ -1,0 +1,60 @@
+id: "L4-S4-novel-14"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[novel 14/20] Write the COMPLETE main() for the recipe_data entity. Apply the canonical 7-piece skeleton with MAX=200, count=recipe_count, fn=read_recipes."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 novel entity transfer"
+commonMistakeIds: 
+  - "CM-Q4-missing-const"
+  - "CM-Q4-pass-MAX-not-count"
+  - "CM-Q4-amp-at-call"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Write a full main() for recipe_data. const MAX = 200; count_var = recipe_count; fn = read_recipes; fields = name, cuisine, time; prompt = \"How many recipes?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 200;
+      recipe_data recipes[MAX];
+      int recipe_count;
+  
+      cout << "How many recipes? ";
+      cin >> recipe_count;
+  
+      read_recipes(recipes, recipe_count);
+  
+      for (int i = 0; i < recipe_count; i++)
+      {
+          cout << recipes[i].name << ", ";
+          cout << recipes[i].cuisine << ", ";
+          cout << recipes[i].time << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 200"
+  - "recipe_data recipes[MAX]"
+  - "int recipe_count"
+  - "cin >> recipe_count"
+  - "read_recipes(recipes, recipe_count)"
+  - "i < recipe_count"
+  - "recipes[i].name"
+  - "recipes[i].cuisine"
+  - "recipes[i].time"
+  - "endl"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many recipes?"
+explanation: "Same skeleton as V2.0 — only entity name, MAX, count_var, fn, fields differ. Pattern transfer drill."

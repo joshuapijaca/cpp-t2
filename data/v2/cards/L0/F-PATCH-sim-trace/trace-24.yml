@@ -1,0 +1,70 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 24 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Two cout statements (two terminal lines)
+# =====================================================================
+id: "L0-F23-trace-24"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. Two cout lines mean two lines in the terminal. Enter
+  the variables panel and the terminal output.
+
+code: |
+  int main() {
+    int a = 11;
+    int b = 22;
+    cout << a << endl;
+    cout << b << endl;
+    return 0;
+  }
+
+variables: ["a", "b"]
+
+expectedTrace:
+  - line: 2
+    variable: "a"
+    value: "11"
+    output: null
+  - line: 3
+    variable: "b"
+    value: "22"
+    output: null
+  - line: 4
+    variable: ""
+    value: ""
+    output: "11"
+  - line: 5
+    variable: ""
+    value: ""
+    output: "22"
+
+terminalOutput: ["11", "22"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Each `cout << ... << endl;` produces ONE line in the terminal.
+  After the program ends, the terminal contains:
+
+      11
+      22
+
+  on two separate lines. Final panel: { a: 11, b: 22 }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 24/30"
+
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Two terminal lines so students practice the "list of lines" model
+  the runtime uses.

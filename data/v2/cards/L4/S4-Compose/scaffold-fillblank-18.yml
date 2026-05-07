@@ -1,0 +1,45 @@
+id: "L4-S4-scaffold-fillblank-18"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "ClozeCard"
+stem: "[scaffold 18/20] Fill in the blank for the whole prompt+cin block of the canonical main(). Type the line(s) exactly."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 fill-blank scaffold"
+commonMistakeIds: 
+  - "CM-Q4-missing-const"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+code: |
+  int main()
+  {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int desk_num;
+  
+      cout << "How many desks? ";
+      cin >> desk_num;
+  
+      read_desks(desks, desk_num);
+  
+      for (int i = 0; i < desk_num; i++)
+      {
+          cout << desks[i].room_id << ", ";
+          cout << desks[i].d_id << ", ";
+          cout << desks[i].number_of_screens << endl;
+      }
+  
+      return 0;
+  }
+clozeSentence: "Fill in the blank for the whole prompt+cin block of the canonical main(). Type the line(s) exactly."
+answer: |
+  cout << "How many desks? ";
+  cin >> desk_num;
+explanation: |
+  Canonical answer: `cout << "How many desks? ";
+  cin >> desk_num;`. This is the exact line(s) for the whole prompt+cin block.

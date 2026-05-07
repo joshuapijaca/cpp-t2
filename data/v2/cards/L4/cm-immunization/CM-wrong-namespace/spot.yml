@@ -1,0 +1,48 @@
+# Auto-emitted CM immunization (FaultInjectionCard) for CM-wrong-namespace
+id: "L4-cmimm-CM-wrong-namespace-spot"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  This Q4 program will not compile because of one missing line at the top. Find and fix the bug.
+
+brokenCode: |
+  #include <iostream>
+  
+  int main() {
+    cout << "Hello";
+    return 0;
+  }
+
+bugLocations: [2]
+
+fixedCode: |
+  #include <iostream>
+  using namespace std;
+  
+  int main() {
+    cout << "Hello";
+    return 0;
+  }
+
+bugCategory: 'missing `using namespace std;`'
+
+keyChecks:
+  - 'using namespace std'
+
+explanation: |
+  Without `using namespace std;` you must write `std::cout`. Either use the namespace once at file scope, or prefix every cin/cout/endl with `std::`.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-wrong-namespace)"
+
+commonMistakeIds: ["CM-wrong-namespace"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

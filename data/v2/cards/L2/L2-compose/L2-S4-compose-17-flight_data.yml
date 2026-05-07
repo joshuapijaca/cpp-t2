@@ -1,0 +1,29 @@
+
+id: "L2-S4-compose-17-flight_data"
+schemaVersion: "v2"
+atomId: "L-24"
+qTags: ["Q2"]
+stage: 4
+level: "L2"
+type: "StructWriteCard"
+stem: "Q2 Compose #17. From the English description, write the full struct: name, opening brace, fields one per line, closing `};`."
+prompt: "A flight has a flight number, an origin airport, and a destination airport."
+canonicalAnswer: |
+  struct flight_data
+  {
+      string flight_no;
+      string origin;
+      string destination;
+  };
+requiredFields: ["flight_no","origin","destination"]
+keyChecks: ["struct flight_data","};","string flight_no;","string origin;","string destination;"]
+forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
+explanation: "flight_data captures 3 attributes (flight_no, origin, destination). Type-by-noun: flight_no→string, origin→string, destination→string."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.5 S4 COMPOSE"
+commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "S4 full-compose card."

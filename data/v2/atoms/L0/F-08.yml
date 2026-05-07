@@ -1,0 +1,23 @@
+id: F-08
+name: "Block delimiters: { and }"
+level: L0
+phase: B
+teaches: "Braces group statements into blocks. Match opening { with closing }."
+prereqs: [F-07]
+usedByQs: [Q1, Q2, Q3, Q4]
+cardCountTarget: 14
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-compound"
+    quote: "A compound statement is enclosed in braces and groups multiple statements into one block."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+    quote: "Following this is a list of fields between braces (i.e. {...})."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:25:50 — Saloni: 'For the struct, what we need is a box.'"
+commonMistakes:
+  - CM-F08a  # missing closing brace
+  - CM-F08b  # mismatched braces (extra )
+  - CM-F08c  # uses ( ) where { } needed
+notes:
+  cardMix: { walkthrough: 1, demo: 2, decompose: 2, cloze: 3, μWrite: 3, mcq: 2, proc: 1 }

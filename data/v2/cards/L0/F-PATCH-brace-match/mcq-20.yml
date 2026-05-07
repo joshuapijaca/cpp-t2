@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 20 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: For-loop with nested if-else inside
+# =====================================================================
+id: "L0-F25-mcq-20"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  for-loop containing an if-else at depth 2. The HIGHLIGHTED `{`
+  opens the if branch. Which `}` matches?
+
+  ```cpp
+  int main() {                          // depth 0 open
+    for (int i = 0; i < 4; i = i+1) {   // depth 1 open
+      if (i > 0) {                      // <-- HIGHLIGHT (depth 2)
+        cout << i;
+      } else {                          // <-- option A (depth 2 close + open)
+        cout << 0;
+      }                                 // <-- option B (depth 2, else close)
+    }                                   // option C (depth 1, for close)
+    return 0;
+  }                                     // depth 0 close
+  ```
+
+correct: "A — the `} else {` line, where the `}` portion is the if-branch close (depth 2)."
+
+distractors:
+  - "B — the `}` after `cout << 0;`, because if and else share one closing brace."
+  - "C — the `}` two lines below B, because the for-loop wraps everything inside."
+  - "D — there is no matching brace; the keyword `else` ends the if."
+
+explanation: |
+  A is correct. The if-branch closes right before `else`. The `}`
+  on the `} else {` line is the if's match.
+
+  B is wrong: B closes the else, not the if.
+  C is wrong: C closes the for, not the if.
+  D is wrong: braces are required.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 20/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Three-deep nesting with if-else.

@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-15 / DemoCard 03
+# Atom: Prompt-then-read pair (trailing-space rule)
+# =====================================================================
+id: "L0-F15-demo-03"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the trailing space inside the prompt. With the space, the
+  user types comfortably. Without the space, the typed value touches
+  the colon.
+
+whyOneLine: 'Always end the prompt label with a TRAILING SPACE inside the quotes.'
+
+demoCode: |
+  // GOOD (with trailing space):
+  cout << "desk_id: ";
+  cin >> desk_id;
+  // Terminal looks like:
+  // desk_id: 5
+
+  // BAD (no trailing space):
+  cout << "desk_id:";
+  cin >> desk_id;
+  // Terminal looks like:
+  // desk_id:5     <-- ugly, value touches colon
+
+  // BAD (newline before read):
+  cout << "desk_id" << endl;
+  cin >> desk_id;
+  // Terminal:
+  // desk_id
+  // 5            <-- prompt and value on different lines
+
+highlightTokens:
+  - '"desk_id: "'
+  - "trailing space"
+  - '"desk_id:"'
+  - "endl"
+
+usedIn:
+  - "Q3 read fn polish"
+  - "Q4 main polish"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+
+commonMistakeIds: ["CM-F15b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Targets the trailing-space style rule. Markers expect this.

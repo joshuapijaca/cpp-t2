@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-04 / TemplateRecallCard 01
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-tmpl-01"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Reproduce the canonical Q4 preamble template. The shape is fixed:
+  one include directive, one using-namespace line. Fill in the
+  template with the exact tokens.
+
+prompt: |
+  Fill the {{H}} (header name) and {{N}} (namespace name) placeholders
+  to produce the SIT102 standard preamble.
+
+template: |
+  #include <{{H}}>
+  using namespace {{N}};
+
+canonicalAnswer: |
+  #include <iostream>
+  using namespace std;
+
+keyChecks:
+  - "#include"
+  - "<iostream>"
+  - "using namespace std;"
+
+forbiddenTokens:
+  - "iostream.h"
+  - "STD"
+
+explanation: |
+  `{{H}}` is the header name `iostream` (in angle brackets, no `.h`),
+  and `{{N}}` is the namespace `std` (lowercase). Together they form
+  the canonical 2-line preamble for every C++T2 Q4 answer.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F04c", "CM-F05c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Stage 1 of 3 in template-recall progression: with placeholders.
+  Forbidden tokens lock out the legacy `iostream.h` form and the
+  uppercase `STD` typo.

@@ -1,0 +1,69 @@
+# =====================================================================
+# L0 / F-06 / DecomposeCard 01
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-decomp-01"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Pick the option that explains why `int main()` (not `void main()`)
+  is the canonical C++ entry point.
+
+code: |
+  int main() {
+    return 0;
+  }
+
+question: |
+  Why does main return int rather than void?
+
+options:
+  - label: "A"
+    text: |
+      For style only — `void main()` works equally well; SIT102 picks
+      `int main()` arbitrarily.
+  - label: "B"
+    text: |
+      `int main()` is the form required by the C++ standard. The
+      function returns an exit code (0 = success) that the operating
+      system can read after the program ends. `void main()` is not
+      portable standard C++.
+  - label: "C"
+    text: |
+      `int` makes the program faster because integers are cheaper than
+      void pointers.
+  - label: "D"
+    text: |
+      `int main()` is required only for programs that print numbers;
+      programs that print strings can use `void main()`.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. The C++ standard mandates that `main` return `int`.
+  When the program terminates, the OS reads that integer as the exit
+  status — 0 means success, non-zero means failure. Tests, scripts,
+  and CI tools rely on this convention.
+
+  A is wrong: `void main()` is non-standard. Some old compilers
+  tolerate it; Test 2 marking does not.
+  C is wrong: there is no performance argument; the difference is
+  language conformance.
+  D is wrong: the choice is unrelated to what `cout` prints.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F06b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Concept decompose: why int, not void. Distractors target the
+  three real beginner rationalisations (style, performance, content).

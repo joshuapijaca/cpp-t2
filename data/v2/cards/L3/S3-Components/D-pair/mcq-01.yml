@@ -1,0 +1,25 @@
+# =====================================================================
+# L3 / R-02d / MCQCard — prompt-pair mcq
+# =====================================================================
+id: "L3-R02d-mcq-01"
+schemaVersion: "v2"
+atomId: "R-02d"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "MCQCard"
+stem: |
+  Where should the prompt go?
+correct: "right before the cin in the same iteration"
+distractors:
+  - "after the cin"
+  - "outside the loop"
+  - "only once"
+explanation: |
+  right before the cin in the same iteration
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

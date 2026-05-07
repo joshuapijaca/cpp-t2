@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 06 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Single string declaration
+# =====================================================================
+id: "L0-F23-trace-06"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Trace through. Final value of `name` in the variables panel? Type
+  the string content (no quotes around it).
+
+code: |
+  int main() {
+    string name = "Sam";
+    return 0;
+  }
+
+variables: ["name"]
+
+expectedTrace:
+  - line: 2
+    variable: "name"
+    value: "Sam"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Box `name` holds the string Sam. The double-quotes in source code
+  are syntax for the literal — they are NOT stored inside the box.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 6/30"
+
+commonMistakeIds: ["CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Introduces `string`. Important: drives home that the quotes are
+  syntax, not data.

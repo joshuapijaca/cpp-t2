@@ -1,0 +1,34 @@
+# Hand-authored CM immunization (ClozeCard) for CM-F19c
+id: "L1-cmimm-CM-F19c-cloze"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in the loop bound for iterating over an int array of compile-time size SIZE."
+
+code: |
+  const int SIZE = 5;
+  int arr[SIZE] = {1,2,3,4,5};
+  for (int i = 0; i < ___; i++) {
+      cout << arr[i] << endl;
+  }
+
+clozeSentence: 'Fill in the file-scope size constant.'
+
+answer: 'SIZE'
+
+explanation: |
+  Use SIZE — the const int file-scope symbol — as the loop bound. C++ raw arrays do not have `.length` or `.size()`.
+
+source:
+  kind: "pfg"
+  ref: "PFG part-2/5-working-with-multiples — common-mistake immunization (CM-F19c)"
+
+commonMistakeIds: ["CM-F19c"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

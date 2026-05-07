@@ -1,0 +1,97 @@
+# =====================================================================
+# L1 / V-type-bool / TraceCard 04
+# type-bool count-true variant
+# =====================================================================
+id: "L1-V-typebool-04"
+schemaVersion: "v2"
+atomId: "A13"
+qTags: ["Q1"]
+stage: 5
+level: "L1"
+type: "TraceCard"
+
+stem: "Trace count-true on stat_bool { flags = {true, false, true, true, false} }. Counter increments where flags[i] == true."
+
+code: |
+  const int SIZE = 5;
+  
+  struct stat_bool {
+    bool flags[SIZE];
+    int mystery;
+  };
+  
+  int main() {
+    stat_bool data = { {true, false, true, true, false}, 0 };
+    data.mystery = 0;
+    for (int i = 0; i < SIZE; i = i + 1) {
+      if (data.flags[i] == true) {
+        data.mystery = data.mystery + 1;
+      }
+    }
+    cout << data.mystery << endl;
+    return 0;
+  }
+
+variables: ["i", "data.mystery"]
+
+expectedTrace:
+  - line: 9
+    variable: "data.mystery"
+    value: "0"
+    output: null
+  - line: 10
+    variable: "data.mystery"
+    value: "0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "0"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "1"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "1"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "2"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "2"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "3"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "3"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "4"
+    output: null
+  - line: 16
+    variable: ""
+    value: ""
+    output: "3"
+
+terminalOutput: ["3"]
+
+inputMode: "final-only"
+
+teachMe: "Count of true: 3."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — bool variant transfer"
+
+commonMistakeIds: ["CM-S5-type-confusion"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Type-bool transfer trace."

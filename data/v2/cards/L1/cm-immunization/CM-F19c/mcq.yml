@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-F19c
+id: "L1-cmimm-CM-F19c-mcq"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  Inside a function that received `int arr[]`, how do you find out how many elements it has?
+
+correct: 'You cannot — pass size as a separate parameter (or use a `const int SIZE` symbol)'
+
+distractors:
+  - '`arr.length` — every array carries its length'
+  - '`arr.size()` — the size method returns the count'
+  - '`sizeof(arr) / sizeof(arr[0])` — works in any function'
+
+explanation: |
+  C++ raw arrays do not carry size. Inside a function the array decayed to a pointer-like alias — size is permanently lost. The standard fix: pass size separately, or use a file-scope SIZE constant.
+
+source:
+  kind: "pfg"
+  ref: "PFG part-2/5-working-with-multiples — common-mistake immunization (CM-F19c)"
+
+commonMistakeIds: ["CM-F19c"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

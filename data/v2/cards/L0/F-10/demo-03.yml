@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-10 / DemoCard 03
+# Atom: Primitive types — string box
+# =====================================================================
+id: "L0-F10-demo-03"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch what `string` does. The variable holds text — any sequence of
+  characters. Strings need an extra include line at the top of the
+  file.
+
+whyOneLine: "string = text. Requires #include <string>."
+
+demoCode: |
+  #include <iostream>
+  #include <string>            // REQUIRED for string
+  using namespace std;
+  int main() {
+    string a = "ana";          // box `a` holds the text ana
+    string b = "Hello world";  // legal — spaces are allowed inside ""
+    string c = "";             // box `c` holds the empty string
+    cout << a << endl;          // prints: ana
+    cout << b << endl;          // prints: Hello world
+    return 0;
+  }
+
+highlightTokens:
+  - "#include <string>"
+  - "string"
+  - '"ana"'
+  - '"Hello world"'
+  - '""'
+
+usedIn:
+  - "Q3 read-fn (string fields read with cin >> read one word)"
+  - "Q4 main (any text label or name is string)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/3-structuring-data/0-panorama/0-type"
+
+commonMistakeIds: ["CM-F10b", "CM-F10c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Hammers the include rule. Also previews the cin-truncation issue
+  taught in F-14b (cin >> string stops at whitespace).

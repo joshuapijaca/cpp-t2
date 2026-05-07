@@ -1,0 +1,28 @@
+id: CM-no-strikethrough
+name: "Student forgets to strike through overwritten values"
+description: |
+  Hand-execution paradigm requires that when a variable is reassigned, the
+  old value is struck through and the new value is written next to or below
+  it. Students simply erase, overwrite, or write a single final value with
+  no trail. Markers loses the audit trail and tutors cannot verify which
+  iteration produced which state. Auto-fail per Saloni's marking rubric.
+whyItHappens: |
+  Eraser instinct from school. Students think "the box should hold one
+  number at a time" rather than "the box accumulates a history with
+  strikes." They have not been taught that the strikethrough trail IS the
+  answer, not just bookkeeping.
+immunizationStrategy: |
+  1. SpotError card: trace with values overwritten cleanly; mark "missing
+     strikes" as the bug.
+  2. Cloze card: student fills in the strike-through history for one var.
+  3. Demo card showing tutor-marking rubric explicitly rewarding strikes.
+  4. Decompose card: which side of the strike is the OLD value?
+  5. Trace card where final answer is correct but no strikes -> graded fail.
+  6. MCQ: "What does strike-through represent in hand-execution?"
+examImpact: high
+atomDependencies: [F-03, F-22d]
+qTracks: [Q1]
+relatedCMs: [CM-only-final-no-trail]
+source:
+  kind: seminar
+  ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:35:15 — Saloni: 'we go inside this loop and we start slow' — strikethrough demonstrated"

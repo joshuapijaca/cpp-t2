@@ -1,0 +1,19 @@
+id: R-02a
+name: "Q3 Components Block A: function signature anatomy"
+level: L3
+teaches: "void read_X(X_data &list[], int n) — return type, name, ampersand-list-brackets, count parameter. Defends missing &, missing [], wrong return type, swapped order."
+prereqs: [F-22a, F-22]
+usedByQs: [Q3]
+cardCountTarget: 35
+parentAtom: R-02
+source:
+  - kind: v2
+    ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#5.3 Block A — Function signature anatomy"
+commonMistakes:
+  - CM-Q3-missing-amp
+  - CM-Q3-missing-brackets-sig
+  - CM-Q3-wrong-return-type
+notes:
+  cardMix: { write: 20, mcq: 10, decompose: 5 }
+  stage: S3
+  exposureClass: medium

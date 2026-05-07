@@ -1,0 +1,45 @@
+# =====================================================================
+# L0 / F-05 / ClozeCard 03
+# Atom: using namespace std;
+# =====================================================================
+id: "L0-F05-cloze-03"
+schemaVersion: "v2"
+atomId: "F-05"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill the blank with the entire using-namespace line, including the
+  terminating semicolon.
+
+code: |
+  #include <iostream>
+  ____
+  int main() {
+    cout << 3 << endl;
+    return 0;
+  }
+
+clozeSentence: |
+  ____    (the entire line 2)
+
+answer: "using namespace std;"
+
+explanation: |
+  The full line is `using namespace std;`. Four tokens (`using`,
+  `namespace`, `std`, `;`) in that exact order. The semicolon at the
+  end is required — this is a regular C++ statement.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F05a", "CM-F05b", "CM-F05c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Cloze 3: full line. The compound recall before any μ-write asks
+  for it from memory.

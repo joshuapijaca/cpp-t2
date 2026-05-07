@@ -1,0 +1,69 @@
+# =====================================================================
+# L0 / F-24 / TraceCard 27 — sub-vocal predict-next-state
+# =====================================================================
+id: "L0-F24-trace-27"
+schemaVersion: "v2"
+atomId: "F-24"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Predict-first. Two updates then a print. Speak the next value out
+  loud (or mouth it) BEFORE pressing [step] at every line.
+
+code: |
+  int main() {
+    int n = 2;
+    n = n * 5;
+    n = n - 4;
+    cout << n << endl;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "2"
+    output: null
+  - line: 3
+    variable: "n"
+    value: "10"
+    output: null
+  - line: 4
+    variable: "n"
+    value: "6"
+    output: null
+  - line: 5
+    variable: ""
+    value: ""
+    output: "6"
+
+terminalOutput: ["6"]
+
+inputMode: "per-step"
+
+q4StopCondition: "Speak the next value or printed value BEFORE pressing [step]."
+
+teachMe: |
+  PREDICTIONS:
+  - line 2: "n becomes two"
+  - line 3: "n becomes ten"   (2 * 5)
+  - line 4: "n becomes six"   (10 - 4, NOT 2 - 4)
+  - line 5: "terminal receives six"
+  Final panel: { n: 6 }. Terminal: 6.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sub-vocal predict card 27/30"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Compound updates with print. Sub-vocal articulation at each step
+  is what blocks the stale-value trap.

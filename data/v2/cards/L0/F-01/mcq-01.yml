@@ -1,0 +1,44 @@
+# =====================================================================
+# L0 / F-01 / MCQCard 01
+# Atom: Source code is plain text
+# =====================================================================
+id: "L0-F01-mcq-01"
+schemaVersion: "v2"
+atomId: "F-01"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  You have a file called `hello.cpp` saved on disk. Which tool can
+  correctly open and display the human-readable contents of this `.cpp`
+  source file so that you can read and edit the C++ code inside it?
+
+correct: "Any text editor — VSCode, Notepad, TextEdit, vim — because a .cpp file is plain text."
+
+distractors:
+  - "Only the C++ compiler (g++) — .cpp files are encrypted machine code that other programs cannot read."
+  - "Only Microsoft Visual Studio, since C++ files use a proprietary Microsoft format."
+  - "Only a hex editor, because .cpp files are stored as raw binary, not as human-readable characters."
+
+explanation: |
+  A `.cpp` file is plain text — the same character format as a `.txt`
+  file, just with a different extension. Any text editor can open it.
+  The extension `.cpp` is just a hint to humans and tools that the text
+  inside *should* be valid C++ source code. No encryption, no binary,
+  no proprietary format — just characters on disk.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"
+
+commonMistakeIds: ["CM-source-is-magic"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Distractor A targets the "code is encrypted" misconception, distractor
+  B targets the IDE-monoculture misconception, distractor C targets the
+  binary-vs-text confusion. All three are real mental models students
+  carry from prior consumer-software exposure.

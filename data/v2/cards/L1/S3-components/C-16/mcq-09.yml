@@ -1,0 +1,24 @@
+id: L1-S3-C-16-mcq-08
+schemaVersion: v2
+atomId: C-16
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-16
+commonMistakeIds:
+  - CM-C16a
+stem: data.numbers[3] = 8, data.mystery = 0. Evaluate `data.numbers[3] > data.mystery`.
+correct: 'true'
+distractors:
+  - 'false'
+  - undefined (cannot compare doubles)
+  - depends on i
+explanation: 8 > 0 is true. This is the find-max guard pattern.
+

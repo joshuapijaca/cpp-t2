@@ -1,0 +1,45 @@
+# =====================================================================
+# L0 / F-13a / DemoCard 01
+# Atom: cout << operator direction
+# =====================================================================
+id: "L0-F13a-demo-01"
+schemaVersion: "v2"
+atomId: "F-13a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the direction. The arrows point LEFT, toward cout. The value
+  flows from the right (a literal or variable) INTO cout on the left.
+
+whyOneLine: "cout << x;  the << points toward cout. Value flows INTO cout."
+
+demoCode: |
+  cout << 7;            // 7 INTO cout. Terminal: 7
+  cout << "hi";         // "hi" INTO cout. Terminal: 7hi
+  cout << 3.14;         // 3.14 INTO cout. Terminal: 7hi3.14
+  // Direction: VALUE -->  COUT
+  // Operator: <<  (points left, toward cout)
+
+highlightTokens:
+  - "cout <<"
+  - "INTO cout"
+  - "<<"
+
+usedIn:
+  - "Q3 read fn (every prompt is cout << ...)"
+  - "Q4 main (every print uses cout <<)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/0-pano/5-terminal-functions"
+
+commonMistakeIds: ["CM-F13a-1"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Reinforces the directional metaphor. Highlight tokens force visual
+  attention on the arrow.

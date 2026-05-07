@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-09 / DemoCard 01
+# Atom: Identifier rules + naming (snake_case observation)
+# =====================================================================
+id: "L0-F09-demo-01"
+schemaVersion: "v2"
+atomId: "F-09"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch how every name in real SIT102 code looks. Every variable, every
+  field, every function — same shape: lowercase letters joined by
+  underscores. No camelCase, no PascalCase for variables. Just
+  snake_case.
+
+whyOneLine: "SIT102 naming convention is snake_case for variables, functions and struct types."
+
+demoCode: |
+  struct stat_double {
+    double numbers[5];
+    double mystery;
+  };
+
+  void who_am_i(stat_double &data) {
+    int i;
+    data.mystery = 0.0;
+  }
+
+  int read_num_to_read() {
+    int num_to_read;
+    return num_to_read;
+  }
+
+highlightTokens:
+  - "stat_double"
+  - "numbers"
+  - "mystery"
+  - "who_am_i"
+  - "data"
+  - "num_to_read"
+  - "read_num_to_read"
+
+usedIn:
+  - "Q1 trace (every variable name follows this rule)"
+  - "Q2 struct write (struct + field names use snake_case)"
+  - "Q3 read-function name + parameter name"
+  - "Q4 main writes uses these field/variable names directly"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1 + practice test 2026 T1: stat_double, who_am_i, num_to_read"
+
+commonMistakeIds: ["CM-F09c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Pure observation. Highlight tokens force eye-fixation on the
+  underscore convention. Names lifted directly from the real V2.0 test.

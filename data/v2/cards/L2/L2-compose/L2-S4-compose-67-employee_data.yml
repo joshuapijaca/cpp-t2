@@ -1,0 +1,29 @@
+
+id: "L2-S4-compose-67-employee_data"
+schemaVersion: "v2"
+atomId: "L-24"
+qTags: ["Q2"]
+stage: 4
+level: "L2"
+type: "StructWriteCard"
+stem: "Q2 Compose #67. From the English description, write the full struct: name, opening brace, fields one per line, closing `};`."
+prompt: "COLD START fluency: employee_data — id, name, salary."
+canonicalAnswer: |
+  struct employee_data
+  {
+      int id;
+      string name;
+      double salary;
+  };
+requiredFields: ["id","name","salary"]
+keyChecks: ["struct employee_data","};","int id;","string name;","double salary;"]
+forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
+explanation: "employee_data captures 3 attributes (id, name, salary). Type-by-noun: id→int, name→string, salary→double."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.5 S4 COMPOSE"
+commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "S4 full-compose card."

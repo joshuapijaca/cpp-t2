@@ -1,0 +1,43 @@
+# Auto-emitted CM immunization (FaultInjectionCard) for CM-reserved-word
+id: "L2-cmimm-CM-reserved-word-spot"
+schemaVersion: "v2"
+atomId: "L-21"
+qTags: ["Q2"]
+stage: 4
+level: "L2"
+type: "FaultInjectionCard"
+
+stem: |
+  This Q2 struct field name will not compile. What's wrong?
+
+brokenCode: |
+  struct point {
+    double class;
+    double y;
+  };
+
+bugLocations: [1]
+
+fixedCode: |
+  struct point {
+    double category;
+    double y;
+  };
+
+bugCategory: 'reserved word used as identifier'
+
+keyChecks:
+  - 'category'
+
+explanation: |
+  `class` is a C++ keyword and can't be a field name. Pick a non-reserved name (e.g. `category`, `kind`).
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-reserved-word)"
+
+commonMistakeIds: ["CM-reserved-word"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

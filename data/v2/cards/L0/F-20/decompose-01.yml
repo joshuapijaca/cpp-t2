@@ -1,0 +1,63 @@
+# =====================================================================
+# L0 / F-20 / DecomposeCard 01
+# Atom: struct definition — the missing `;` after `}`
+# =====================================================================
+id: "L0-F20-decomp-01"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  This struct will FAIL to compile. Pick the option that names the
+  bug and the fix.
+
+code: |
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  }
+
+  int main() {
+    return 0;
+  }
+
+question: |
+  What is wrong with this code, and how do you fix it?
+
+options:
+  - label: "A"
+    text: "Nothing is wrong — the struct is correctly defined."
+  - label: "B"
+    text: "The closing `}` is missing a `;`. Change `}` to `};` to fix."
+  - label: "C"
+    text: "The fields need explicit access specifiers (public/private)."
+  - label: "D"
+    text: "C++ does not allow arrays inside structs — replace `numbers[SIZE]` with a single double."
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. A struct definition is a STATEMENT, and like all
+  C++ statements it must end with a `;`. The `}` alone closes the
+  field list but does not terminate the definition. Forgetting the
+  `;` is the highest-frequency Q2 error (CM-F20a).
+  A: missing `;` is a compile error.
+  C: structs do NOT need access specifiers in this dialect; default
+     is public.
+  D: arrays inside structs are completely valid (the Test 2 V2.0
+     shape itself uses `double numbers[SIZE];`).
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — closing `};` mandatory"
+
+commonMistakeIds: ["CM-F20a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Single most important decompose card on F-20. Targets the highest-
+  frequency Q2 error head-on, with explicit fix.

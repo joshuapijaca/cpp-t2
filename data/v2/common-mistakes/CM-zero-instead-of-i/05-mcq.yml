@@ -1,0 +1,32 @@
+id: "CM-zero-instead-of-i-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-zero-instead-of-i: Q3 zero instead of i index. Index by `i`, not `0`, inside the loop.
+
+correct: "cin >> arr[i].field;"
+
+distractors:
+  - "cin >> arr[0].field;"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: cin >> arr[i].field;
+  Mistake: Wrote `arr[0]` inside loop — overwrites element 0 every iter.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-zero-instead-of-i"
+
+commonMistakeIds: ["CM-zero-instead-of-i"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-zero-instead-of-i.

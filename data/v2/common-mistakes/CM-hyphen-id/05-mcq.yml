@@ -1,0 +1,32 @@
+id: "CM-hyphen-id-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-hyphen-id: Q2 hyphen in identifier. Use underscore (_) not hyphen (-) in identifiers.
+
+correct: "struct computer_data {"
+
+distractors:
+  - "struct computer-data {"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: struct computer_data {
+  Mistake: Wrote `computer-data` (hyphen) — interpreted as subtraction.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-hyphen-id"
+
+commonMistakeIds: ["CM-hyphen-id"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-hyphen-id.

@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-19 / DecomposeCard 03
+# Atom: Fixed-size array — out-of-bounds detection
+# =====================================================================
+id: "L0-F19-decomp-03"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Read the code. Pick the option that names every out-of-bounds
+  access.
+
+code: |
+  int data[3];
+  data[0] = 1;
+  data[1] = 2;
+  data[2] = 3;
+  data[3] = 4;
+  data[-1] = 99;
+
+question: |
+  Which lines access an index outside the valid range 0..2?
+
+options:
+  - label: "A"
+    text: "Only `data[3] = 4;` — the others are valid."
+  - label: "B"
+    text: "Only `data[-1] = 99;` — negative indices are out of bounds."
+  - label: "C"
+    text: "Both `data[3] = 4;` AND `data[-1] = 99;` — valid range is 0, 1, 2."
+  - label: "D"
+    text: "None — C++ extends the array automatically as needed."
+
+correctLabel: "C"
+
+explanation: |
+  C is correct. `int data[3];` allocates indices 0, 1, 2.
+  - `data[3]` is past the last valid index (CM-F19b).
+  - `data[-1]` is before the first valid index.
+  Both are out of bounds. C++ does NOT bounds-check at runtime — the
+  program may appear to work, but it is corrupting memory.
+  D is wrong: C++ does not auto-grow arrays. (`std::vector` does, but
+  Test 2 uses raw arrays.)
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
+
+commonMistakeIds: ["CM-F19b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Both directions of out-of-bounds (above and below) drilled in one
+  card. D's auto-grow distractor neutralises the JS/Python intuition.

@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-11 / ProceduralCard 01 (μWrite)
+# Atom: Variable declaration + initialisation
+# =====================================================================
+id: "L0-F11-proc-01"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a single declaration line that opens the box AND writes a
+  starting value.
+
+section: "F-11 declare-and-init drills"
+
+prompt: |
+  Declare an int `i` initialised to 0. End with a semicolon.
+
+expectedAnswer: "int i = 0;"
+
+keyChecks: ["int i = 0;"]
+
+variants:
+  - prompt: |
+      Declare an int `count` initialised to 1. End with a semicolon.
+    expectedAnswer: "int count = 1;"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F11b"]
+
+notes: |
+  Smallest possible declare-and-init drill.

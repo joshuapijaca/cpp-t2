@@ -1,0 +1,37 @@
+id: CM-guesses-from-literals
+name: "Student guesses Q1 trace output from numeric literals in code"
+description: |
+  In Q1 ("What does this program print?") students faced with hand
+  execution see literals like `int a = 4; int b = a * 3;` and guess
+  the output is "4" or "3" or "12" based on which number "feels right"
+  rather than mentally executing the code. They don't maintain a
+  variables panel; they pattern-match on numbers. The moment the code
+  involves any arithmetic (which is always), guessing fails — but
+  students still try because hand-execution feels slow.
+whyItHappens: |
+  Hand-execution is cognitively expensive. Students naturally skip it
+  and use System-1 pattern matching instead: "the biggest number,
+  the last number, the first number". Reinforced by school maths
+  questions that often have the answer visible in the question. Also
+  reinforced by AI-completion tools that guess outputs, training a
+  habit of skimming for "the answer" rather than executing.
+immunizationStrategy: |
+  1. SpotError: trace card showing wrong-guess output, find the actual
+     output by hand-execution.
+  2. MCQ: "Best way to find Q1 output?" — guess / hand-execute /
+     compile / ask AI.
+  3. Decompose: trace 4 arithmetic lines — pick the option that
+     describes hand-execution (variable panel + line-by-line).
+  4. Demo: side-by-side guess-by-literal vs hand-execute, show
+     guess-fails on `int b = a * 3;`.
+  5. Walkthrough: explicit "be the CPU" walkthrough emphasising the
+     panel-update discipline.
+  6. Trace: cards where biggest literal isn't the answer, forcing
+     panel discipline.
+examImpact: high
+atomDependencies: [F-03, F-12]
+qTracks: [Q1, Q4]
+relatedCMs: [CM-jumps-to-final-answer, CM-confuses-panel-with-output]
+source:
+  kind: v2
+  ref: "C++T2 spec §F-03 hand-execution paradigm; SIT102 Test 2 Q1 format (paper-based, no compiler)"

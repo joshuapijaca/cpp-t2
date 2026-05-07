@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 14 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Integer division
+# =====================================================================
+id: "L0-F23-trace-14"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. Both operands are `int`, so `/` is integer division
+  (any remainder is dropped). Final value of `q`?
+
+code: |
+  int main() {
+    int q = 9 / 2;
+    return 0;
+  }
+
+variables: ["q"]
+
+expectedTrace:
+  - line: 2
+    variable: "q"
+    value: "4"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Integer division: 9 / 2 = 4 (the .5 is dropped, NOT rounded).
+  Final panel: { q: 4 }. This rule shows up everywhere — always
+  remember the type of the operands.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 14/30"
+
+commonMistakeIds: ["CM-arithmetic-error"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Introduces integer-division truncation. Common test trap.

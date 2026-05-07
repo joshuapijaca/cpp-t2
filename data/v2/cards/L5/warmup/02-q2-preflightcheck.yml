@@ -1,0 +1,35 @@
+id: "L5-warmup-02-q2"
+schemaVersion: "v2"
+atomId: "M-04"
+qTags: ["Q2"]
+stage: 6
+level: "L5"
+type: "PreflightCheckCard"
+
+stem: |
+  Q2 preflight checklist — D7 morning warmup. Run through this checklist before
+  attempting Q2 on the test.
+
+scenario: |
+  Before writing the Q2 struct, run through this 4-step preflight.
+
+checklist:
+  - "Read the entity name carefully (lowercase)."
+  - "List the fields in order with types."
+  - "Write `struct NAME {` then fields then `};`."
+  - "Verify the closing `};` (semi after brace)."
+
+explanation: |
+  Warmup preflight for Q2. The checklist captures the 4-6 highest-
+  leverage steps. If all are checked, the answer almost writes itself.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q2 — D7 warmup pack"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  D7 warmup #2: Q2.

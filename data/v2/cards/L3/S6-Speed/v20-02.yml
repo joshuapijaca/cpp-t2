@@ -1,0 +1,42 @@
+# =====================================================================
+# L3 / R-05 / SpeedDrillCard — V2.0 timed read_desks
+# =====================================================================
+id: "L3-R05-v20-02"
+schemaVersion: "v2"
+atomId: "R-05"
+qTags: ["Q3"]
+stage: 6
+level: "L3"
+type: "SpeedDrillCard"
+stem: |
+  TIMED (V2.0): write the full read_desks function in 60 seconds.
+prompt: "V2.0 timed: read_desks (3 fields)."
+canonicalAnswer: |
+  void read_desks(desk_data &desks[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Width: ";
+      cin >> desks[i].width;
+      cout << "Height: ";
+      cin >> desks[i].height;
+      cout << "Depth: ";
+      cin >> desks[i].depth;
+    }
+  }
+keyChecks:
+  - "void read_desks(desk_data &desks[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> desks[i].width;"
+  - "cin >> desks[i].height;"
+  - "cin >> desks[i].depth;"
+forbiddenTokens:
+  - "while"
+explanation: |
+  V2.0 exam shape; muscle-memory the 12 lines.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

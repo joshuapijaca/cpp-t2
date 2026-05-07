@@ -1,0 +1,36 @@
+
+id: "L2-S5-reverse-05"
+schemaVersion: "v2"
+atomId: "L-25"
+qTags: ["Q2"]
+stage: 5
+level: "L2"
+type: "DecomposeCard"
+stem: "Q2 reverse drill #5. Given the struct code, infer the most likely English entity description."
+code: |
+  struct computer_data
+  {
+      int id;
+      string description;
+      string location;
+  };
+question: "Which English description best matches this struct?"
+options:
+  - label: "A"
+    text: "A book record (id, description, author)."
+  - label: "B"
+    text: "A computer in a uni lab (id, description, location)."
+  - label: "C"
+    text: "A library record (id, title, shelf)."
+  - label: "D"
+    text: "A car (id, model, garage)."
+correctLabel: "B"
+explanation: "The field name + type combination uniquely fingerprints the entity."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.6 S5 VARIATIONS"
+commonMistakeIds: ["CM-Q2-wrong-type"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Reverse-engineer the prompt from the code."

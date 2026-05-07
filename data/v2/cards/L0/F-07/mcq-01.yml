@@ -1,0 +1,52 @@
+# =====================================================================
+# L0 / F-07 / MCQCard 01
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-mcq-01"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which of the following lines REQUIRES a trailing semicolon in C++?
+  Pick the option that names the right rule.
+
+correct: "Every complete statement (declaration, assignment, expression, return, struct definition, etc.) ends with a semicolon — but preprocessor directives, function-body opening lines, and function-body closing braces do not."
+
+distractors:
+  - "Every line in a C++ source file ends with a semicolon — including #include and the lines that hold a single { or }."
+  - "Only declaration lines end with a semicolon. Output statements like cout do not."
+  - "Semicolons are optional in C++; they are stylistic and the compiler will silently insert them as needed."
+
+explanation: |
+  The rule: every *statement* takes a `;`. Statements include
+  declarations, assignments, expression statements, output
+  statements, return statements, struct definitions (the `};`
+  shape).
+
+  But the following are NOT statements and take NO `;`:
+  - `#include <iostream>` — preprocessor directive (newline ends it)
+  - `int main() {` — function-body opener (the `{` ends it)
+  - `}` — closing brace of a function body
+
+  Distractor 1 over-applies the rule.
+  Distractor 2 invents a fictional rule. Output statements
+  (`cout << ...;`) are statements; they need `;`.
+  Distractor 3 is false. Missing `;` is a hard compile error.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 1 · 2-communicating-syntax/2-trailside/02-statement.md"
+
+commonMistakeIds: ["CM-F07b", "CM-F07c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Concept-MCQ on the where-does-`;`-go rule. Distractor 1 catches
+  the over-applier (always adds `;`); Distractor 2 catches the
+  under-applier (only declarations); Distractor 3 catches the
+  fantasy "compiler-fixes-it" mental model.

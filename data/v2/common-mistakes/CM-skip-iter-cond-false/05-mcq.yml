@@ -1,0 +1,32 @@
+id: "CM-skip-iter-cond-false-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-skip-iter-cond-false: Q1 skipped iter when cond false. Include every iteration row, even cond-false ones.
+
+correct: "// i=2 cond -> false, mystery unchanged"
+
+distractors:
+  - "// (no row for i=2)"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: // i=2 cond -> false, mystery unchanged
+  Mistake: Omitted rows where if-cond was false — graders need to see them.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-skip-iter-cond-false"
+
+commonMistakeIds: ["CM-skip-iter-cond-false"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-skip-iter-cond-false.

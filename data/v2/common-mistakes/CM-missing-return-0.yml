@@ -1,0 +1,24 @@
+id: CM-missing-return-0
+name: "Student omits `return 0;` at end of main"
+description: |
+  Q4 main must end with `return 0;` per the unit's marking convention.
+  Students drop it (technically C++ allows main without explicit return).
+  Marked HIGH frequency in the v2 spec.
+whyItHappens: |
+  Conventional convenience: `int main()` falls back to `return 0;`
+  implicitly per ISO C++. But the unit requires the explicit line for
+  marking. Students with online learning context skip it.
+immunizationStrategy: |
+  1. SpotError: main without `return 0;`; flag.
+  2. MCQ: "How does the marking rubric expect main to end? (return 0;)"
+  3. Cloze: blank for the final line of main.
+  4. WriteCard with key-check on `return 0;`.
+  5. Decompose: identify the final statement of main.
+  6. Demo card: the canonical 18-line main with return on its own line.
+examImpact: high
+atomDependencies: [F-06]
+qTracks: [Q4]
+relatedCMs: [CM-calling-fn-before-def]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §6.5 Q4 Common Errors — Missing `return 0;` HIGH"

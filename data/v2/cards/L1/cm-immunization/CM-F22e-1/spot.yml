@@ -1,0 +1,41 @@
+# Hand-authored CM immunization (FaultInjectionCard) for CM-F22e-1
+id: "L1-cmimm-CM-F22e-1-spot"
+schemaVersion: "v2"
+atomId: "F-22e"
+qTags: ["Q1", "Q3"]
+stage: 4
+level: "L1"
+type: "FaultInjectionCard"
+
+stem: |
+  The signature mixes Idiom 1 (raw array decay) and Idiom 2 (struct-by-reference) — wrong for Test 2 V2.0. Fix it to the canonical struct-by-reference form.
+
+brokenCode: |
+  void who_am_i(stat_double data[], int size) {
+      data[0].mystery = 0.0;
+  }
+
+bugLocations: [1]
+
+fixedCode: |
+  void who_am_i(stat_double &data) {
+      data.mystery = 0.0;
+  }
+
+bugCategory: "Idiom-1 array syntax used for a struct param (Test 2 V2.0 expects Idiom 2)"
+
+keyChecks:
+  - "stat_double &data"
+
+explanation: |
+  Test 2 V2.0 wraps the array INSIDE a struct, then passes the struct by reference. Use `stat_double &data` (no [], no size). The array is reached via `data.numbers[i]`.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-22e dual-idiom — common-mistake immunization (CM-F22e-1)"
+
+commonMistakeIds: ["CM-F22e-1"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

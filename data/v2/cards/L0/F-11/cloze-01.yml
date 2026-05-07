@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-11 / ClozeCard 01
+# Atom: Variable declaration + initialisation (the = sign)
+# =====================================================================
+id: "L0-F11-cloze-01"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing piece. The line below declares an int AND
+  initialises it to 0.
+
+code: |
+  int score ___ 0;
+
+clozeSentence: |
+  The single character that joins a declaration to its initial value
+  is `___`.
+
+answer: "="
+
+explanation: |
+  The single equals sign `=` is the assignment operator. In a
+  declaration `int score = 0;`, `=` writes 0 into the new box.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F12a"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Pre-warns the F-12 = vs == confusion.

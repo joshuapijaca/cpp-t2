@@ -1,0 +1,22 @@
+id: "L4-S3C-mcq-02"
+schemaVersion: "v2"
+atomId: "Q-04"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "MCQCard"
+stem: "Why declare int desk_num separately from cin?"
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block C mcq"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+correct: "cin >> desk_num requires desk_num to already exist as an int."
+distractors: 
+  - "It does not — cin can declare on the fly."
+  - "Cosmetic only."
+  - "Prevents compiler warnings."
+explanation: "cin >> X writes into X. X must be a declared variable of compatible type."

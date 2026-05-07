@@ -1,0 +1,46 @@
+id: "L5-wildcard-07-q2"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 5
+level: "L5"
+type: "StructWriteCard"
+
+stem: |
+  S5.5 wildcard: 5-field struct define. Write the struct.
+
+prompt: |
+  Define a struct movie_data with: string title; string director; int year; double rating; int duration_minutes;
+
+canonicalAnswer: |
+  struct movie_data {
+    string title;
+    string director;
+    int year;
+    double rating;
+    int duration_minutes;
+  };
+
+keyChecks:
+  - "struct"
+  - "};"
+
+forbiddenTokens:
+  - "class"
+
+requiredFields: ["title","director","year","rating","duration_minutes"]
+
+explanation: |
+  Wildcard struct: 5 fields. Each field its own line,
+  semicolon terminator. Closing brace requires the trailing semicolon.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 5-field"
+
+commonMistakeIds: ["CM-missing-semi-after-brace", "CM-2-fields-1-line"]
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #7: Q2 5-field struct define.

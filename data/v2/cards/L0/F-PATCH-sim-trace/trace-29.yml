@@ -1,0 +1,63 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 29 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Print a literal then an updated variable
+# =====================================================================
+id: "L0-F23-trace-29"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. Two updates then a labelled print. Enter the final
+  value and the terminal output exactly as it appears.
+
+code: |
+  int main() {
+    int x = 10;
+    x = x + 5;
+    cout << "x = " << x << endl;
+    return 0;
+  }
+
+variables: ["x"]
+
+expectedTrace:
+  - line: 2
+    variable: "x"
+    value: "10"
+    output: null
+  - line: 3
+    variable: "x"
+    value: "15"
+    output: null
+  - line: 4
+    variable: ""
+    value: ""
+    output: "x = 15"
+
+terminalOutput: ["x = 15"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Walk it: x = 10 -> x = 10+5 = 15 -> cout writes "x = " then 15.
+  Terminal: x = 15. Final panel: { x: 15 }.
+
+  The literal "x = " has a SPACE on each side of the equals — that
+  space appears in the terminal exactly as written.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 29/30"
+
+commonMistakeIds: ["CM-uses-old-value-after-update", "CM-prints-variable-name"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Labelled print with surrounding text — a Q3-shaped pattern. Forces
+  attention to spaces inside string literals.

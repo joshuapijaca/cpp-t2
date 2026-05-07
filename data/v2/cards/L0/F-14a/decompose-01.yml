@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-14a / DecomposeCard 01
+# Atom: cin >> operator direction
+# =====================================================================
+id: "L0-F14a-decomp-01"
+schemaVersion: "v2"
+atomId: "F-14a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes `cin << x;` intending to read x. Pick the option
+  that best describes what is wrong.
+
+code: |
+  int x;
+  cin << x;
+
+question: |
+  What is wrong with `cin << x;`?
+
+options:
+  - label: "A"
+    text: |
+      The arrow direction is wrong. `<<` is for OUTPUT (cout << x).
+      To read input, the arrow must point toward the variable:
+      `cin >> x;`.
+  - label: "B"
+    text: |
+      The variable `x` must be quoted to read input: `cin << "x";`.
+  - label: "C"
+    text: |
+      `cin` is misspelled; it should be `cinread`.
+  - label: "D"
+    text: |
+      `cin` requires a previous `cout` line; the line is missing
+      context.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. cin uses `>>` (points TOWARD the variable, into it).
+  cout uses `<<` (points TOWARD cout, into it). Mixing them is the
+  most common Q3 syntax error.
+
+  The fix: `cin >> x;`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F14a-1", "CM-F14a-2"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Pair to F-13a decompose-01.

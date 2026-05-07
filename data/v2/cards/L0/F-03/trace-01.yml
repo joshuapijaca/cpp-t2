@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-03 / TraceCard 01
+# Atom: Hand-execution paradigm
+# Purpose: Predict the variables-panel state after `int x = 5;`
+# =====================================================================
+id: "L0-F03-trace-01"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  This is your first trace card. Three lines, one variable. After the
+  CPU runs every line in order, what does the variables panel contain?
+  Type the value of `x` into the variables panel.
+
+code: |
+  int main() {
+    int x = 5;
+    return 0;
+  }
+
+variables: ["x"]
+
+expectedTrace:
+  - line: 2
+    variable: "x"
+    value: "5"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  After `int x = 5;` runs, the variables panel has exactly one box
+  named `x` containing the value `5`. The `return 0;` line ends the
+  program but does not change `x`. There is no `cout` so the terminal
+  is empty.
+
+  This is the simplest possible trace. Expected answer: x = 5.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-03 trace primer — minimum-viable hand-execution exposure"
+
+commonMistakeIds: ["CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Smallest possible trace. The point is interaction-with-the-panel,
+  not difficulty. Student types `5` in the variables panel and
+  succeeds. This is the on-ramp.

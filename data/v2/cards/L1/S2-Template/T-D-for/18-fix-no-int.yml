@@ -1,0 +1,44 @@
+id: "L1-S2-TD-18-fix-no-int"
+schemaVersion: "v2"
+atomId: "T-04"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  This for-header omits the type declaration on the loop variable.
+  Provide the correct version.
+
+prompt: |
+  Add the missing type keyword.
+
+template: |
+  // BROKEN: i is not declared
+  for (i = 0; i < SIZE; i++) {
+  }
+
+canonicalAnswer: |
+  for (int i = 0; i < SIZE; i++) {
+  }
+
+keyChecks:
+  - "int i = 0"
+
+forbiddenTokens: []
+
+explanation: |
+  `int i = 0` — declare the loop variable inside the header. The
+  practice test does declare `int i;` separately above the loop, but
+  the canonical SIT102 / V2.0 form puts `int` inside the for header.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — int i declared in header"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-D repair: missing int declaration.
+authoringStatus: "DRAFT"

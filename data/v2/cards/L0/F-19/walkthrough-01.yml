@@ -1,0 +1,80 @@
+# =====================================================================
+# L0 / F-19 / WalkthroughCard 01
+# Atom: Fixed-size array T arr[N]
+# Phase E: "Compound data + functions"
+# =====================================================================
+id: "L0-F19-walk-01"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  An array packs N variables of the same type into one named storage,
+  with one index per slot. Walk through this 7-line program. The first
+  three lines build the array; the remaining lines read from it.
+
+levelLabel: "L0 Foundation · Phase E · F-19"
+
+fullCode: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    int arr[5];
+    arr[0] = 10;
+    arr[4] = 50;
+    cout << arr[0] << endl;
+    return 0;
+  }
+
+steps:
+  - line: 4
+    code: 'int arr[5];'
+    annotation: |
+      The declaration. Read it left-to-right:
+        `int`   — every slot holds an int
+        `arr`   — the name of the whole storage
+        `[5]`   — the size: FIVE slots
+        `;`     — statement end
+      Memory now has 5 int slots indexed 0, 1, 2, 3, 4. The values
+      are uninitialised; do not read them yet.
+    atomIds: ["F-19"]
+  - line: 5
+    code: 'arr[0] = 10;'
+    annotation: |
+      `arr[0]` names the FIRST slot (index 0, not 1). Writing 10 there
+      stores 10 in slot 0. The other 4 slots are still uninitialised.
+    atomIds: ["F-19"]
+  - line: 6
+    code: 'arr[4] = 50;'
+    annotation: |
+      `arr[4]` is the LAST slot. The valid index range is 0 through
+      N-1 = 4. Writing `arr[5]` would be out of bounds — that slot
+      does not exist.
+    atomIds: ["F-19"]
+  - line: 7
+    code: '  cout << arr[0] << endl;'
+    annotation: |
+      Read slot 0. It holds 10. Terminal prints `10`.
+    atomIds: ["F-19", "F-12"]
+  - line: 8
+    code: '  return 0;'
+    annotation: |
+      Program ends. Memory is released by the OS.
+    atomIds: ["F-06"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
+
+commonMistakeIds: ["CM-F19a", "CM-F19b", "CM-F19c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  First-touch walkthrough. Drives home: (1) declaration syntax
+  `int arr[5];`, (2) zero-based indexing 0..N-1, (3) accessing
+  arr[N] is out of bounds. These three are the load-bearing facts
+  the rest of the F-19 deck drills.

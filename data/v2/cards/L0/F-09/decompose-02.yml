@@ -1,0 +1,69 @@
+# =====================================================================
+# L0 / F-09 / DecomposeCard 02
+# Atom: Identifier rules + naming (keyword collision)
+# =====================================================================
+id: "L0-F09-decomp-02"
+schemaVersion: "v2"
+atomId: "F-09"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student is naming a counter inside a for loop. Pick the option that
+  best explains why the line below fails to compile.
+
+code: |
+  for (int int = 0; int < 5; int++) {
+    cout << int << endl;
+  }
+
+question: |
+  Why is this not a valid C++ for loop?
+
+options:
+  - label: "A"
+    text: |
+      The keyword `int` is the type and cannot also be used as the
+      variable name. C++ reserves keywords; you cannot reuse them as
+      identifiers.
+  - label: "B"
+    text: |
+      The for-header has three semicolon-separated clauses, but it
+      should have only two.
+  - label: "C"
+    text: |
+      The body uses `cout` but no `<iostream>` include is shown in this
+      snippet, so the program is invalid.
+  - label: "D"
+    text: |
+      `int++` is not a real operator in C++; only `++int` works.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. `int` is a reserved keyword. You cannot declare a
+  variable whose NAME is `int`. The compiler stops at the first `int`
+  in `int int = 0;`. Pick a different name (e.g. `i`).
+
+  B is wrong: a for-header always has three clauses separated by
+  semicolons (init; test; step).
+
+  C is wrong: include directives are out of scope for this snippet
+  test. The atom under test is identifier rules.
+
+  D is wrong: both `int++` and `++int` are real operators in C++.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/2-communicating-syntax/2-trailside/04-identifier"
+
+commonMistakeIds: ["CM-F09b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Targets the keyword-collision misconception specifically. Distractors
+  B/C/D are believable wrong answers that test whether the student is
+  actually reading the line for the keyword problem.

@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-07 / DemoCard 02
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-demo-02"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q2"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Special case worth memorising. A struct definition needs a
+  semicolon AFTER the closing brace of the struct. This is the
+  highest-frequency Q2 error. Watch.
+
+whyOneLine: "A struct definition ends with }; — the closing brace AND a trailing semicolon together."
+
+demoCode: |
+  // CORRECT: closing brace then a semicolon for the struct.
+  struct Point {
+    int x;
+    int y;
+  };           // <-- the ; is REQUIRED here
+
+  // WRONG (described, not raw): the same struct without the
+  // trailing semicolon — header line, two field lines, then a
+  // close brace alone (no semicolon after it). The compiler
+  // errors at the line that follows.
+
+  // Inside the struct body, EACH field also ends with semicolon.
+  // The close of the struct also takes ONE trailing semicolon.
+
+highlightTokens:
+  - "struct Point {"
+  - "int x;"
+  - "int y;"
+  - "};"
+  - "REQUIRED"
+
+usedIn:
+  - "Q2 struct definition (every Q2 answer ends with };)"
+
+source:
+  kind: "seminar"
+  ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:25:39 — Saloni walking the struct, emphasising line-end punctuation when she draws boxes"
+
+commonMistakeIds: ["CM-F07a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Targets CM-F07a — the highest-frequency Q2 error per Saloni's
+  seminar. The `};` shape is unintuitive (a closing brace AND a
+  semicolon, together) and must be drilled separately.

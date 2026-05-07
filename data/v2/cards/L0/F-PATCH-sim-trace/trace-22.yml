@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 22 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Print a string literal
+# =====================================================================
+id: "L0-F23-trace-22"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  This program prints a string literal — no variables involved.
+  What appears in the terminal?
+
+code: |
+  int main() {
+    cout << "Hi" << endl;
+    return 0;
+  }
+
+variables: []
+
+expectedTrace:
+  - line: 2
+    variable: ""
+    value: ""
+    output: "Hi"
+
+terminalOutput: ["Hi"]
+
+inputMode: "final-only"
+
+teachMe: |
+  No variables; nothing to enter in the panel. The cout writes the
+  literal Hi to the terminal followed by a newline.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 22/30"
+
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Variables panel stays empty so the student practices the
+  "no-action-needed" case for the panel.

@@ -1,0 +1,47 @@
+# =====================================================================
+# L0 / F-05 / MCQCard 02
+# Atom: using namespace std;
+# =====================================================================
+id: "L0-F05-mcq-02"
+schemaVersion: "v2"
+atomId: "F-05"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which of these is the correct, idiomatic SIT102 form of the
+  using-namespace line?
+
+correct: "using namespace std;"
+
+distractors:
+  - "namespace std;"
+  - "using namespace STD;"
+  - "use namespace std;"
+
+explanation: |
+  Correct: `using namespace std;` — keyword `using`, keyword
+  `namespace`, the lowercase name `std`, then a semicolon.
+
+  `namespace std;` drops the `using` keyword, which makes the line
+  invalid (and `namespace` alone has different syntax for *defining*
+  a namespace).
+  `using namespace STD;` capitalises the namespace; identifiers in
+  C++ are case-sensitive, so `STD` ≠ `std`.
+  `use namespace std;` invents a keyword `use` that does not exist
+  in C++.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F05b", "CM-F05c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Form-MCQ. Each distractor is a real beginner typo. Forces
+  commitment to the exact 4-token shape that survives across every
+  Q4 answer.

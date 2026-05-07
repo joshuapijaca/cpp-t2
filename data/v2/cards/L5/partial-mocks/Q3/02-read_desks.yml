@@ -1,0 +1,48 @@
+id: "L5-partial-Q3-02-read_desks"
+schemaVersion: "v2"
+atomId: "M-02"
+qTags: ["Q3"]
+stage: 5
+level: "L5"
+type: "SpeedDrillCard"
+
+stem: |
+  Partial-mock Q3: write read_desks. 4-min cap. Loop reads 3
+  field(s) per element from cin into arr[].
+
+prompt: |
+  Write the function read_desks(desk_data arr[], int count). It loops i
+  from 0 to count-1 and reads each field of arr[i] from cin in order:
+  material, drawers, height.
+
+canonicalAnswer: |
+  void read_desks(desk_data arr[], int count) {
+    int i;
+    for (i = 0; i < count; i++) {
+    cin >> arr[i].material;
+    cin >> arr[i].drawers;
+    cin >> arr[i].height;
+    }
+  }
+
+keyChecks:
+  - "void read_desks(desk_data arr[], int count)"
+  - "for (i = 0; i < count; i++)"
+  - "cin >> arr[i].material"
+
+
+explanation: |
+  Q3 partial: signature `void read_desks(desk_data arr[], int count)`.
+  The `arr[]` decay-form passes by pointer; mutations persist. Loop
+  i=0..count-1; per iteration, read each field with `cin >> arr[i].field`.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q3 — partial read-fn variant"
+
+commonMistakeIds: ["CM-missing-amp-sig", "CM-missing-bracket-i", "CM-wrong-cin-direction", "CM-skipped-field"]
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Partial Q3 #2: read_desks.

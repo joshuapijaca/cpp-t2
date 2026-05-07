@@ -1,0 +1,35 @@
+# =====================================================================
+# L1 / C-26 strikethrough V2.0 / Cloze 01 — type the V2.0 trail
+# =====================================================================
+id: "L1-C26v20-cloze-01"
+schemaVersion: "v2"
+atomId: "C-26"
+qTags: ["Q1"]
+stage: 3
+level: "L1"
+type: "ClozeCard"
+
+stem: "Type the V2.0-correct strikethrough trail for data.mystery on the V2.0 stimulus."
+
+code: |
+  // V2.0 EXACT
+  stat_double data = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+  data.mystery = 0.0;
+  // ... after sum-positive completes, the data.mystery cell trail is:
+
+clozeSentence: "Type the strikethrough trail (use ~~text~~ for strike) of data.mystery from init through final live value: ____."
+
+answer: "~~-0.9~~ ~~0.0~~ ~~2.4~~ ~~5.4~~ 7.4"
+
+explanation: |
+  Five entries — every overwrite (4) is struck; only the live final 7.4 is unstruck.
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-26 — type the trail"
+
+commonMistakeIds: ["CM-C26a", "CM-C26b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "Strikethrough cloze 1/2 (was procedural; cast as cloze for non-code answer)."

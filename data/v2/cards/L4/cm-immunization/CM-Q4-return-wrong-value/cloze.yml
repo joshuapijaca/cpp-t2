@@ -1,0 +1,33 @@
+# Hand-authored CM immunization (ClozeCard) for CM-Q4-return-wrong-value
+id: "L4-cmimm-CM-Q4-return-wrong-value-cloze"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: "Fill in the missing return value at the end of int main()."
+
+code: |
+  int main() {
+      cout << "Hi";
+      return ___;
+  }
+
+clozeSentence: 'Fill in the canonical success value for int main().'
+
+answer: '0'
+
+explanation: |
+  `return 0;` returns the integer 0 to the OS, signalling successful program completion. Always end int main() with this.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block F — common-mistake immunization (CM-Q4-return-wrong-value)"
+
+commonMistakeIds: ["CM-Q4-return-wrong-value"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

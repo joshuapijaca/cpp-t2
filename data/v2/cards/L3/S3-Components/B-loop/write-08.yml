@@ -1,0 +1,34 @@
+# =====================================================================
+# L3 / R-02b / FunctionWriteCard — for-loop with given bound
+# =====================================================================
+id: "L3-R02b-write-08"
+schemaVersion: "v2"
+atomId: "R-02b"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write ONLY the for-loop header (no body) using given as the count parameter.
+prompt: "for-loop header with given bound"
+signatureHint: "for (int i = 0; i < given; i++)"
+canonicalAnswer: |
+  for (int i = 0; i < given; i++)
+  {
+  }
+keyChecks:
+  - "for (int i = 0; i < given; i++)"
+forbiddenTokens:
+  - "while"
+  - "<="
+  - "SIZE"
+explanation: |
+  Use the count parameter (given) as the bound. Half-open <, NOT <=.
+  Counter is int i; starts at 0; post-increment.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-off-by-one","CM-Q3-wrong-bound-SIZE"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

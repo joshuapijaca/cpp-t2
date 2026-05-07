@@ -1,0 +1,119 @@
+# =====================================================================
+# L1 / V-size-7 / TraceCard 04
+# size-7 variant
+# =====================================================================
+id: "L1-V-size7-04"
+schemaVersion: "v2"
+atomId: "A13"
+qTags: ["Q1"]
+stage: 5
+level: "L1"
+type: "TraceCard"
+
+stem: "Trace sum-all with SIZE = 7, numbers = {2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0}. Loop runs 7 iterations."
+
+code: |
+  const int SIZE = 7;
+  
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  
+  int main() {
+    stat_double data = { {2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0}, 0 };
+    data.mystery = 0.0;
+    for (int i = 0; i < SIZE; i = i + 1) {
+      data.mystery = data.mystery + data.numbers[i];
+    }
+    cout << data.mystery << endl;
+    return 0;
+  }
+
+variables: ["i", "data.mystery"]
+
+expectedTrace:
+  - line: 9
+    variable: "data.mystery"
+    value: "0"
+    output: null
+  - line: 10
+    variable: "data.mystery"
+    value: "0.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "0"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: "2.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "1"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: "6.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "2"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: "12.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "3"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: "20.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "4"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: "30.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "5"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: "42.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "6"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: "56.0"
+    output: null
+  - line: 14
+    variable: ""
+    value: ""
+    output: "56.0"
+
+terminalOutput: ["56.0"]
+
+inputMode: "final-only"
+
+teachMe: "Loop 7 iterations. Sum = 56.0."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — SIZE=7 variant"
+
+commonMistakeIds: ["CM-S5-size-hard-coded"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Size-7 variant trace."

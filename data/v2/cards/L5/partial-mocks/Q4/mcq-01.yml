@@ -1,0 +1,33 @@
+id: "L5-partial-Q4-mcq-01"
+schemaVersion: "v2"
+atomId: "M-02"
+qTags: ["Q4"]
+stage: 5
+level: "L5"
+type: "MCQCard"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q4 — partial main rubric"
+commonMistakeIds: ["CM-missing-const", "CM-pass-MAX-not-count"]
+stem: |
+  In a partial Q4 mock you must wire `main` for the computers
+  scenario. Which line declares the array correctly per Test 2
+  conventions?
+correct: "computer_data arr[MAX];"
+distractors:
+  - "computer_data arr[100];"
+  - "computer_data arr[count];"
+  - "computer_data* arr = new computer_data[count];"
+explanation: |
+  Test 2 sizes the array with the file-scope const `MAX`, not with a
+  literal or with the runtime `count`. Distractor 2 is a variable-
+  sized array (forbidden in standard C++). Distractor 3 uses dynamic
+  allocation, which is out of scope for the test. Distractor 1
+  hard-codes 100 instead of using the named constant — a common
+  rubric loss.
+  Targets CM-missing-const and CM-pass-MAX-not-count (calling
+  read/print with MAX rather than count).
+notes: "MCQ form for QA-M10 type-diversity (M-02 was SpeedDrillCard only)."

@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-18 / TemplateRecallCard 04 (μWrite)
+# Atom: write for-loop for Q3/Q4 read pattern
+# =====================================================================
+id: "L0-F18-write-04"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Write a for-loop that iterates from 0 up to (but not including)
+  `number_to_read`. (This is the shape used in Q3 and Q4 to read
+  N records in a row.)
+
+prompt: |
+  Loop `i` from 0 to number_to_read - 1, calling some body each
+  iteration.
+
+template: |
+  for (___) {
+    // body runs once per record
+  }
+
+canonicalAnswer: |
+  for (int i = 0; i < number_to_read; i++) {
+    // body runs once per record
+  }
+
+keyChecks:
+  - "for (int i = 0; i < number_to_read; i++)"
+
+forbiddenTokens:
+  - "while"
+  - "do"
+
+explanation: |
+  Same canonical for-shape but the upper bound is a runtime value
+  (`number_to_read`) rather than a constant. This is exactly what
+  Q3 (`read_computers`) and Q4 (`main`) need: read user input N
+  times.
+
+source:
+  kind: "v2"
+  ref: "Test2-SIT102-practice (1).docx — Q3 read_computers signature"
+
+commonMistakeIds: ["CM-F18a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Mirrors Q3/Q4 read-N pattern.
+authoringStatus: "DRAFT"

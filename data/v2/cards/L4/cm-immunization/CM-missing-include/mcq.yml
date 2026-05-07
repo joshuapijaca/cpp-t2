@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-missing-include
+id: "L4-cmimm-CM-missing-include-mcq"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Which header gives you `cin`, `cout`, and `endl`?
+
+correct: '`<iostream>`'
+
+distractors:
+  - '`<stdio.h>`'
+  - '`<string>`'
+  - '`<cstdlib>`'
+
+explanation: |
+  <iostream> declares cin/cout/endl. <string> is for `string`. <stdio.h> is C I/O.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-missing-include)"
+
+commonMistakeIds: ["CM-missing-include"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

@@ -1,0 +1,22 @@
+id: "L4-S3E-mcq-01"
+schemaVersion: "v2"
+atomId: "Q-06"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "MCQCard"
+stem: "Why is the loop bound desk_num and NOT MAX?"
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block E mcq"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+correct: "Iterating MAX times prints garbage rows beyond what the user actually entered."
+distractors: 
+  - "MAX is faster."
+  - "MAX is more thorough."
+  - "desk_num is unsafe."
+explanation: "desks[desk_num..MAX-1] are uninitialised. Printing them = garbage values."

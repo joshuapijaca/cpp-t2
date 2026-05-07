@@ -1,0 +1,35 @@
+
+id: "L2-S3b-name-10"
+schemaVersion: "v2"
+atomId: "L-23b"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "DecomposeCard"
+stem: "Q2 field-naming drill #10. snake_case only. Choose the legal field-name format."
+code: |
+  struct student_data
+  {
+      int student_id;
+      double gpa;
+  };
+question: "Pick the SIT102 form for \"GPA\" (a 3-letter acronym)."
+options:
+  - label: "A"
+    text: "`GPA`"
+  - label: "B"
+    text: "`gpa`"
+  - label: "C"
+    text: "`Gpa`"
+  - label: "D"
+    text: "`g.p.a`"
+correctLabel: "B"
+explanation: "SIT102 fields are lowercase snake_case even for acronyms: `gpa`."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-camelcase","CM-Q2-hyphen","CM-Q2-reserved"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Field-naming legality check."

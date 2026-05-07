@@ -1,0 +1,23 @@
+id: "L4-S3C-cloze-02"
+schemaVersion: "v2"
+atomId: "Q-04"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "ClozeCard"
+stem: "`int ___;` — fill the count name (V2.0 convention)."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block C cloze"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+code: |
+  int desk_num;
+  cout << "How many desks? ";
+  cin >> desk_num;
+clozeSentence: "`int ___;` — fill the count name (V2.0 convention)."
+answer: "desk_num"
+explanation: "Answer: `desk_num`."

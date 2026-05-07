@@ -1,0 +1,25 @@
+id: CM-missing-bracket-i
+name: "Student writes `cin >> list.field` (missing `[i]`)"
+description: |
+  Inside a Q3 read loop, each cin must target `list[i].field`. Students
+  drop `[i]`, so every iter overwrites field on the same conceptual
+  list (or fails to compile). All inputs collapse onto one struct.
+whyItHappens: |
+  The composite token `list[i].field` has three parts. Under writing
+  pressure students collapse to `list.field` (forgetting array element)
+  or `list[i]` (forgetting field). Pattern-matching to non-array struct
+  access from earlier units.
+immunizationStrategy: |
+  1. SpotError: cin line missing `[i]`; flag.
+  2. MCQ: "Which is correct: `cin >> list.f`, `cin >> list[i].f`, `cin >> list[i]`?"
+  3. Cloze: blank for `[i]` between `list` and `.field`.
+  4. WriteCard with key-check on the composite token.
+  5. Decompose: split `list[i].field` into list, [i], .field.
+  6. Demo card: show all 3-token composite reads side-by-side.
+examImpact: high
+atomDependencies: [F-19, F-21, F-14a]
+qTracks: [Q3]
+relatedCMs: [CM-missing-dot-field, CM-zero-instead-of-i]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §5.5 Q3 Common Errors — Missing `[i]` HIGH"

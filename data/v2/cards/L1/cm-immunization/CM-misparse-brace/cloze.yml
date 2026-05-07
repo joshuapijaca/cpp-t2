@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-misparse-brace
+id: "L1-cmimm-CM-misparse-brace-cloze"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-misparse-brace mistake."
+
+code: |
+  stat_double d = {{2.4,3.7,1.0,2.1,0.5}, -0.9};
+  // d.numbers has ___ elements
+
+clozeSentence: 'Fill in the count of elements in `d.numbers`.'
+
+answer: '5'
+
+explanation: |
+  Inner braces hold the 5 array elements; the scalar after is mystery.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-misparse-brace)"
+
+commonMistakeIds: ["CM-misparse-brace"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

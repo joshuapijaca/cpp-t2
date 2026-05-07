@@ -1,0 +1,27 @@
+
+id: "L2-S1-tour-02"
+schemaVersion: "v2"
+atomId: "L-21"
+qTags: ["Q2"]
+stage: 1
+level: "L2"
+type: "DemoCard"
+stem: "Q2 Tour 2 — see the canonical answer for computer_data. This is the practice-test entity used in the SIT102 seminar walkthrough. Read the structure top-to-bottom: keyword, name, brace, fields, closing `};`."
+whyOneLine: "Q2 always produces this 6-line shape — keyword + snake_case name + brace + 1-line-per-field + closing };."
+demoCode: |
+  struct computer_data
+  {
+      int id;
+      string description;
+      string location;
+  };
+highlightTokens: ["struct","computer_data","};"]
+usedIn: ["Q2"]
+source:
+  kind: "practice"
+  ref: "Practice test — computer_data { int id; string description; string location; }"
+commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "S1 show-answer #2. Pure recognition — no input."

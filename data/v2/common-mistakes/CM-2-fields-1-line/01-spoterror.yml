@@ -1,0 +1,48 @@
+id: "CM-2-fields-1-line-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q2 two fields on one line. The code below has the bug labeled
+  by CM-2-fields-1-line. Find the line and provide the fix.
+
+brokenCode: |
+  // Q2 broken excerpt:
+  int a; int b;
+  // (canonical was: int a;
+int b;)
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  int a;
+int b;
+  ;
+
+bugCategory: "CM-2-fields-1-line"
+
+keyChecks:
+  - "int a;
+int b;"
+
+explanation: |
+  Bug: Wrote `int a; int b;` on one line — bad style for Test 2.
+  Fix: int a;
+int b;
+  This common mistake costs marks on Q2 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-2-fields-1-line"
+
+commonMistakeIds: ["CM-2-fields-1-line"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-2-fields-1-line.

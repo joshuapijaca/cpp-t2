@@ -1,0 +1,23 @@
+id: F-15
+name: "Prompt-then-read pair"
+level: L0
+phase: C
+teaches: "`cout << \"X: \"; cin >> x;` — the canonical interactive pattern. Prompt label, then read. Used in EVERY Q3 read function and Q4 main."
+prereqs: [F-13b, F-14b]
+usedByQs: [Q3, Q4]
+cardCountTarget: 23
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/2-organising-code/1-tour/02-01-read-fns"
+    quote: "A read function follows the pattern: print a prompt with cout, read a value with cin, repeat for each field."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/5-terminal-functions"
+    quote: "Always prompt the user before reading so they know what to type."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:21:23 — Saloni: 'how do you declare a struct, how do you do the hand execution' — outlining Q3/Q4 patterns"
+commonMistakes:
+  - CM-F15a  # forgets cout prompt; user has no idea what to type
+  - CM-F15b  # prompts without trailing space ("Name:" — student types touching the colon)
+  - CM-F15c  # places cin BEFORE cout
+notes:
+  cardMix: { walkthrough: 2, demo: 3, decompose: 2, trace: 2, cloze: 4, μWrite: 5, tmplRec: 2, mcq: 1, proc: 2 }

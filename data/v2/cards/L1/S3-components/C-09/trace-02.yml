@@ -1,0 +1,39 @@
+id: L1-S3-C-09-trace-01
+schemaVersion: v2
+atomId: C-09
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: TraceCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-09
+commonMistakeIds:
+  - CM-C09a
+stem: The for-header init clause runs once. After `int i = 0;`, what is i?
+code: |-
+  int main() {
+    int i = 0;
+    cout << i << endl;
+    return 0;
+  }
+variables:
+  - i
+expectedTrace:
+  - line: 2
+    variable: i
+    value: '0'
+    output: null
+  - line: 3
+    variable: ''
+    value: ''
+    output: '0'
+terminalOutput:
+  - '0'
+inputMode: final-only
+teachMe: For-header init runs ONCE before the loop body, not on every iteration.
+

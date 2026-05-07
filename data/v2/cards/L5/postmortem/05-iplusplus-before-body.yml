@@ -1,0 +1,76 @@
+id: "L5-postmortem-05-iplusplus-before-body"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Q1 trace — student incremented `i` BEFORE running the body. Sequence went `i = 0 -> i = 1 -> body[1]` instead of `i = 0 -> body[0] -> i = 1`. Off by one row in the trace.
+
+failedAttempt: |
+  // Student trace order (WRONG):
+  //   1. init: i = 0
+  //   2. step: i++  -> i = 1
+  //   3. check: i < SIZE  (true)
+  //   4. body uses numbers[1]   <-- numbers[0] never seen
+  //   5. step: i++  -> i = 2
+  //   ...
+  void who_am_i(test_data &data) {
+      data.mystery = 0.0;
+      for (int i = 0; i < SIZE; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+      }
+  }
+
+diagnosis: |
+  C++ for-loop semantics: `init -> check -> body -> step -> check -> body -> step ...`. The `i++` step runs AFTER the body, not before. The student's mental order ran the increment between init and body, so iteration 0 was skipped and the body executed with `i = 1, 2, 3, 4` instead of `0, 1, 2, 3, 4`. The trace is off by one row from the start.
+
+repairSteps:
+  - "// Correct for-loop trace order:"
+  - "//   1. init: i = 0"
+  - "//   2. check: i < SIZE  (true)"
+  - "//   3. BODY: use numbers[i]   <-- run body BEFORE incrementing"
+  - "//   4. step: i++  -> i = 1"
+  - "//   5. check: i < SIZE  (true)"
+  - "//   6. BODY: ..."
+
+preventionTip: |
+  In `for (init; check; step) body`, the order each iteration is: check, then body, then step. The first iteration uses the INIT value of i — body[0] runs before any i++. Mantra: "check, body, step."
+
+explanation: |
+  Lesson learned — for-loop semantics are hard-wired: init runs once; then check-body-step repeats. The step (i++) is the LAST thing in each iteration, not the second. Students often think of `i++` as "advance to the next iteration" and put it before the body in their head. Practice the canonical sequence until it's reflex.
+
+canonicalAnswer: |
+  // Correct trace order:
+  //   i = 0  -> body uses numbers[0]
+  //   i = 1  -> body uses numbers[1]
+  //   ...
+  //   i = SIZE-1 -> body uses numbers[SIZE-1]
+  //   i = SIZE   -> check fails, loop exits
+  void who_am_i(test_data &data) {
+      data.mystery = 0.0;
+      for (int i = 0; i < SIZE; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+      }
+  }
+
+annotations:
+  - line: 3
+    severity: err
+    note: "Student inserted `i++` between init and body. The first body run used numbers[1] instead of numbers[0]."
+  - line: 4
+    severity: err
+    note: "By the time body ran, i was already 1. First element of numbers was never accumulated."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — for-loop semantics order"
+
+commonMistakeIds: ["CM-iplusplus-before-body"]
+status: "NEW"
+createdBy: "SA-L5-Postmortem-Rewrite"
+authoringStatus: "DRAFT"
+notes: |
+  Postmortem #05 — Q1 / i++ before body.

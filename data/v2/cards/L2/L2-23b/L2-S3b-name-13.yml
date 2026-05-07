@@ -1,0 +1,35 @@
+
+id: "L2-S3b-name-13"
+schemaVersion: "v2"
+atomId: "L-23b"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "DecomposeCard"
+stem: "Q2 field-naming drill #13. snake_case only. Choose the legal field-name format."
+code: |
+  struct product_data
+  {
+      string sku;
+      double usd_price;
+  };
+question: "Pick the SIT102-style form for \"USD price\"."
+options:
+  - label: "A"
+    text: "`USDPrice`"
+  - label: "B"
+    text: "`usdPrice`"
+  - label: "C"
+    text: "`usd_price`"
+  - label: "D"
+    text: "`USD-price`"
+correctLabel: "C"
+explanation: "Lowercase snake_case = `usd_price`."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-camelcase","CM-Q2-hyphen","CM-Q2-reserved"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Field-naming legality check."

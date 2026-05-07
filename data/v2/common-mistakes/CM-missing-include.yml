@@ -1,0 +1,23 @@
+id: CM-missing-include
+name: "Student omits `#include <iostream>` (or `<string>`)"
+description: |
+  Code using `cin`, `cout`, `endl`, `string` requires the appropriate
+  `#include` at top of file. Students skip it because their teaching
+  scaffolds had it pre-printed. Compiler errors: "cin not declared."
+whyItHappens: |
+  In Q4 the test prints a partial scaffold — students assume it's
+  pre-included. Hand-execution focus deprioritises file-level setup.
+immunizationStrategy: |
+  1. SpotError: source missing `#include <iostream>`; flag.
+  2. MCQ: "What header gives us cin/cout/endl? (`<iostream>`)"
+  3. Cloze: fill in `#include <iostream>` line.
+  4. WriteCard with key-check at the file head.
+  5. Demo card: program with vs without; without doesn't compile.
+  6. Decompose: list the headers needed for given symbols.
+examImpact: medium
+atomDependencies: [F-04]
+qTracks: [Q4]
+relatedCMs: [CM-wrong-namespace]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-1 — #include preprocessor directive"

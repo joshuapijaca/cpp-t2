@@ -1,0 +1,88 @@
+# =====================================================================
+# L0 / F-03 / TraceCard 04
+# Atom: Hand-execution paradigm
+# Purpose: Reassignment — variable changes value, must use NEW value
+# =====================================================================
+id: "L0-F03-trace-04"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  This program REASSIGNS `n` twice. Each reassignment overwrites the
+  previous value. Hand-execute carefully — the final value of `n` is
+  NOT the first value you wrote in the box. Fill in the FINAL value
+  of `n` and the terminal output.
+
+code: |
+  int main() {
+    int n = 2;
+    n = n + 3;
+    n = n * 4;
+    cout << n << endl;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "2"
+    output: null
+  - line: 3
+    variable: "n"
+    value: "5"
+    output: null
+  - line: 4
+    variable: "n"
+    value: "20"
+    output: null
+  - line: 5
+    variable: ""
+    value: ""
+    output: "20"
+
+terminalOutput: ["20"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Step-by-step (watch the strikethrough):
+  - Line 2: int n = 2;        Panel: { n: 2 }
+  - Line 3: n = n + 3;        RHS first: read n=2, +3 = 5. Write 5 into
+                              box n. Cross out 2.
+                              Panel: { n: ~~2~~ 5 }
+  - Line 4: n = n * 4;        RHS first: read n=5 (the CURRENT value,
+                              not the old 2), *4 = 20. Write 20.
+                              Cross out 5.
+                              Panel: { n: ~~2~~ ~~5~~ 20 }
+  - Line 5: cout << n;        Print 20.
+                              Terminal: 20
+
+  Final answer:
+    n = 20
+    output: 20
+
+  Trap: a common mistake is computing n*4 with the OLD value (2*4=8).
+  After reassignment, only the latest value matters. The strikethrough
+  habit prevents this — the old value is visibly crossed out, so your
+  eye never picks it up again.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-03 trace primer — reassignment + RHS-first evaluation"
+
+commonMistakeIds: ["CM-uses-old-value-after-update", "CM-evaluates-lhs-first", "CM-arithmetic-error"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Final F-03 trace card. Drills the two highest-cost trace errors:
+  (1) using the old value after a reassignment, (2) evaluating LHS
+  before RHS. Both are explicitly called out in `teachMe`. By the end
+  of the 4 trace cards the student has felt the full hand-execution
+  loop on a 5-line program — exactly the floor-level Q1 simulation.

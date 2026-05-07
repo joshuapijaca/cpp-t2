@@ -1,0 +1,44 @@
+id: "CM-missing-bracket-sig-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-missing-bracket-sig: Q3 missing [] in signature.
+
+code: |
+  // Trap: Signature wrote `entity arr` — accepts a single struct, not an array.
+  void read_X(entity arr, int count)
+  ;
+
+question: |
+  What goes wrong with the line above on Q3?
+
+options:
+  - label: "A"
+    text: "Signature wrote `entity arr` — accepts a single struct, not an array."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Signature wrote `entity arr` — accepts a single struct, not an array. The canonical pattern is: void read_X(entity arr[], int count)
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-missing-bracket-sig"
+
+commonMistakeIds: ["CM-missing-bracket-sig"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-missing-bracket-sig.

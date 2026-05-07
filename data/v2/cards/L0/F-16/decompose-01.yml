@@ -1,0 +1,64 @@
+# =====================================================================
+# L0 / F-16 / DecomposeCard 01
+# Atom: == vs = inside a condition
+# =====================================================================
+id: "L0-F16-decomp-01"
+schemaVersion: "v2"
+atomId: "F-16"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes the code below and asks why it always prints
+  "match". Pick the option that correctly diagnoses the bug.
+
+code: |
+  int n = 7;
+  if (n = 0) {
+    cout << "match" << endl;
+  }
+
+question: |
+  Why does this always behave incorrectly?
+
+options:
+  - label: "A"
+    text: |
+      `n` was never initialised, so the if has undefined behaviour.
+  - label: "B"
+    text: |
+      `n = 0` ASSIGNS 0 to n, then the if tests `0` (false). The body
+      never runs. The author wanted `n == 0` (compare). A single `=`
+      is assignment; a double `==` is the equality test.
+  - label: "C"
+    text: |
+      C++ allows comparison only on `==`, so `n = 0` is a syntax
+      error and the program fails to compile.
+  - label: "D"
+    text: |
+      The if body always runs because integers are always truthy in
+      C++, regardless of the condition.
+
+correctLabel: "B"
+
+explanation: |
+  B is the diagnosis. Inside an if condition `=` is still assignment:
+  it stores 0 into n and then the if tests the value 0, which is
+  false, so the body does NOT run.
+  A — `n` IS initialised (line 1).
+  C — `n = 0` compiles fine; that is what makes this bug silent.
+  D — wrong. 0 is false, non-zero is true.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-0-boolean-data"
+
+commonMistakeIds: ["CM-F16a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Reinforces == vs = at the conceptual
+  diagnosis layer rather than the look-and-recall layer.
+authoringStatus: "DRAFT"

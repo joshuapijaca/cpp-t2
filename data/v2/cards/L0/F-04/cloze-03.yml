@@ -1,0 +1,46 @@
+# =====================================================================
+# L0 / F-04 / ClozeCard 03
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-cloze-03"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill the blank with the entire first line of this program. Match the
+  exact preamble C++T2 uses on every Q4 answer.
+
+code: |
+  ____
+  using namespace std;
+  int main() {
+    cout << "ok" << endl;
+    return 0;
+  }
+
+clozeSentence: |
+  ____    (the first line of the file)
+
+answer: "#include <iostream>"
+
+explanation: |
+  The full first line is `#include <iostream>`. Hash, the keyword
+  `include`, a single space, then `<iostream>` in angle brackets. No
+  trailing semicolon — preprocessor directives end at the newline.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F04a", "CM-F04b", "CM-F04c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Whole-line cloze. Combines the previous two clozes into one
+  mass-production drill of the full directive. Forms the muscle memory
+  for the very first line of every Q4 answer.

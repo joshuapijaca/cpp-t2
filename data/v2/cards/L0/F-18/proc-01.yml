@@ -1,0 +1,79 @@
+# =====================================================================
+# L0 / F-18 / ProceduralCard 01
+# Atom: produce three different counted loops
+# =====================================================================
+id: "L0-F18-proc-01"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+section: "for (int i = 0; i < N; i++) counting loop"
+
+stem: |
+  Procedural drill. Three counted-loop bodies, each printing a
+  different message. Show muscle memory of the canonical shape.
+
+prompt: |
+  Write three independent for-loops:
+  (1) print 0..2 inclusive,
+  (2) print "tick" 4 times,
+  (3) iterate arr[SIZE] and print each element.
+  Use `int i = 0; i < N; i++` form for every header.
+
+expectedAnswer: |
+  for (int i = 0; i < 3; i++) {
+    cout << i << endl;
+  }
+  for (int i = 0; i < 4; i++) {
+    cout << "tick" << endl;
+  }
+  for (int i = 0; i < SIZE; i++) {
+    cout << arr[i] << endl;
+  }
+
+keyChecks:
+  - "for (int i = 0; i < 3; i++)"
+  - "for (int i = 0; i < 4; i++)"
+  - "for (int i = 0; i < SIZE; i++)"
+  - "arr[i]"
+
+variants:
+  - prompt: |
+      Same three loops with different bounds: 0..4, 0..6, 0..SIZE-1.
+    expectedAnswer: |
+      for (int i = 0; i < 5; i++) {
+        cout << i << endl;
+      }
+      for (int i = 0; i < 7; i++) {
+        cout << "tick" << endl;
+      }
+      for (int i = 0; i < SIZE; i++) {
+        cout << arr[i] << endl;
+      }
+  - prompt: |
+      Three loops printing the loop index multiplied by 2 (i.e.
+      the even numbers 0, 2, 4...): bounds 3, 5, SIZE.
+    expectedAnswer: |
+      for (int i = 0; i < 3; i++) {
+        cout << i * 2 << endl;
+      }
+      for (int i = 0; i < 5; i++) {
+        cout << i * 2 << endl;
+      }
+      for (int i = 0; i < SIZE; i++) {
+        cout << i * 2 << endl;
+      }
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/04-3-for-loop"
+
+commonMistakeIds: ["CM-F18a", "CM-F18b", "CM-F18c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Final muscle-memory drill.
+authoringStatus: "DRAFT"

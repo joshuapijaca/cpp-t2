@@ -1,0 +1,85 @@
+# =====================================================================
+# L0 / F-01 / WalkthroughCard 01
+# Atom: Source code is plain text
+# Phase A: "What code IS"
+# =====================================================================
+id: "L0-F01-walk-01"
+schemaVersion: "v2"
+atomId: "F-01"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  A `.cpp` file is just plain text. We open it in an editor (VSCode), and we
+  see characters we typed. The compiler reads those exact characters later.
+  Walk through this `hello.cpp` file one line at a time. The annotations
+  tell you what each line of *text* is (not what it does — that comes
+  later, in F-02 and F-03).
+
+levelLabel: "L0 Foundation · Phase A · F-01"
+
+fullCode: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << "hello" << endl;
+    return 0;
+  }
+
+steps:
+  - line: 1
+    code: '#include <iostream>'
+    annotation: |
+      Line 1 is a sequence of 19 plain-text characters: `#`, `i`, `n`, `c`,
+      `l`, `u`, `d`, `e`, space, `<`, `i`, `o`, `s`, `t`, `r`, `e`, `a`,
+      `m`, `>`. Nothing magical. You typed these on a keyboard.
+    atomIds: ["F-01"]
+  - line: 2
+    code: 'using namespace std;'
+    annotation: |
+      Line 2 is more plain text. Notice the semicolon at the end — it is
+      one keystroke (`;`), saved as one character in the file.
+    atomIds: ["F-01"]
+  - line: 3
+    code: 'int main() {'
+    annotation: |
+      Line 3 is text too. The curly brace `{` is not a function call or a
+      hidden command — it is one character, byte 0x7B in the file on disk.
+    atomIds: ["F-01"]
+  - line: 4
+    code: '  cout << "hello" << endl;'
+    annotation: |
+      The two leading spaces are real characters in the file. Whitespace
+      counts as text. The double-quotes `"` are the same kind of character
+      a typewriter would print.
+    atomIds: ["F-01"]
+  - line: 5
+    code: '  return 0;'
+    annotation: |
+      `return 0;` is 11 visible characters plus 2 leading spaces. Still
+      just plain text.
+    atomIds: ["F-01"]
+  - line: 6
+    code: '}'
+    annotation: |
+      One final character — the closing brace. The file is now ~80 bytes
+      of pure text. This is *source code*. A human (you) wrote it. A
+      compiler (next atom: F-02) will read it.
+    atomIds: ["F-01"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md (Source Code and the Compiler)"
+
+commonMistakeIds: ["CM-source-is-magic", "CM-confuses-source-with-program"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  First card a 0-prior-knowledge student sees. Goal: dissolve the
+  superstition that code is "special." It is text. Period. Demystifying
+  this single fact unblocks every later atom — the compiler (F-02) and
+  hand-execution (F-03) only make sense once "source = text" is a felt,
+  obvious truth.

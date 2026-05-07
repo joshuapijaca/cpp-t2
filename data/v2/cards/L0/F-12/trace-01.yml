@@ -1,0 +1,61 @@
+# =====================================================================
+# L0 / F-12 / TraceCard 01
+# Atom: Assignment = (single read-modify-write)
+# =====================================================================
+id: "L0-F12-trace-01"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. Track every value of `x`. Type the final value.
+
+code: |
+  int main() {
+    int x = 4;
+    x = x + 1;
+    cout << x << endl;
+    return 0;
+  }
+
+variables: ["x"]
+
+expectedTrace:
+  - line: 2
+    variable: "x"
+    value: "4"
+    output: null
+  - line: 3
+    variable: "x"
+    value: "5"
+    output: null
+  - line: 4
+    variable: ""
+    value: ""
+    output: "5"
+
+terminalOutput: ["5"]
+
+inputMode: "final-only"
+
+teachMe: |
+  - Line 2: `x = 4` — box `x` holds 4.
+  - Line 3: `x = x + 1` — RHS first: read x (4), add 1 = 5. Write 5
+    into x. Box `x` now holds 5.
+  - Line 4: print x = 5.
+
+  Final: x = 5. Terminal: 5.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec F-12 trace primer"
+
+commonMistakeIds: ["CM-F12b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Smallest read-modify-write trace.

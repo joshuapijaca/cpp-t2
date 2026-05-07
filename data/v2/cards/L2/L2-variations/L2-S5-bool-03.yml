@@ -1,0 +1,29 @@
+
+id: "L2-S5-bool-03"
+schemaVersion: "v2"
+atomId: "L-25"
+qTags: ["Q2"]
+stage: 5
+level: "L2"
+type: "StructWriteCard"
+stem: "Q2 bool edge case #3. Boolean fields use `bool`, not `int`, and idiomatically prefix with `is_` or `has_`."
+prompt: "subscription_data: subscriber_id (int), monthly_fee (double), is_active flag."
+canonicalAnswer: |
+  struct subscription_data
+  {
+      int subscriber_id;
+      double monthly_fee;
+      bool is_active;
+  };
+requiredFields: ["subscriber_id","monthly_fee","is_active"]
+keyChecks: ["bool ","};","struct subscription_data"]
+forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
+explanation: "Boolean fields drill: `bool is_active;` is the canonical form. `int 0/1` is wrong on Q2."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.6 S5 VARIATIONS"
+commonMistakeIds: ["CM-Q2-bool-edge"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "bool edge case."

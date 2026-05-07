@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-12 / ClozeCard 02
+# Atom: Assignment = (V2.0 accumulator)
+# =====================================================================
+id: "L0-F12-cloze-02"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing right-hand expression. This is the EXACT V2.0
+  accumulator pattern.
+
+code: |
+  data.mystery = ___ + data.numbers[i];
+
+clozeSentence: |
+  To accumulate the array element into the running total, the RHS
+  starts with `___`, then adds the new element.
+
+answer: "data.mystery"
+
+explanation: |
+  The accumulator pattern reads the CURRENT value (`data.mystery`),
+  adds the new element, then writes back. The RHS first reads
+  data.mystery, then evaluates the addition. Without the
+  `data.mystery` on the RHS, the previous total is overwritten and
+  lost.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: data.mystery = data.mystery + data.numbers[i];"
+
+commonMistakeIds: ["CM-F12b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Anchored to the EXACT V2.0 accumulator line.

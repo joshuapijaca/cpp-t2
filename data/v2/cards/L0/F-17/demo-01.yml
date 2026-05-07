@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-17 / DemoCard 01
+# Atom: if anatomy
+# =====================================================================
+id: "L0-F17-demo-01"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the anatomy of an `if` statement. Three required pieces:
+  the keyword `if`, parentheses around a condition, and braces
+  around a body. Memorise the shape.
+
+whyOneLine: "Every if has the same skeleton — `if`, parens-with-cond, braces-with-body — and missing any piece breaks it."
+
+demoCode: |
+  ┌─ if STATEMENT ANATOMY ───────────────────────────┐
+  │                                                  │
+  │      if  (  cond  )  {  body  }                  │
+  │      ^^   ^^^^^^^^   ^^^^^^^^^^                  │
+  │      |    |          |                           │
+  │      |    |          BODY runs only if cond true │
+  │      |    CONDITION (a bool expression)          │
+  │      KEYWORD                                     │
+  │                                                  │
+  │   Concrete:                                      │
+  │      if (x > 0) {                                │
+  │          cout << "positive" << endl;             │
+  │      }                                           │
+  │                                                  │
+  │   NO ; right after the )  --  `if (...);` is a   │
+  │   silent bug (empty body).                       │
+  └──────────────────────────────────────────────────┘
+
+highlightTokens:
+  - "if"
+  - "(  cond  )"
+  - "{  body  }"
+  - "KEYWORD"
+  - "CONDITION"
+  - "BODY"
+
+usedIn:
+  - "Q1 algorithm gate (every Q1 program contains an if)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"
+
+commonMistakeIds: ["CM-F17b", "CM-F17c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

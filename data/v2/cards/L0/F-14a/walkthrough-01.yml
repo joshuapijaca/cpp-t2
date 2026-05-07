@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-14a / WalkthroughCard 01
+# Atom: cin >> operator direction
+# =====================================================================
+id: "L0-F14a-walk-01"
+schemaVersion: "v2"
+atomId: "F-14a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  `cin` is the INPUT stream. The `>>` operator pulls a value FROM cin
+  INTO a variable. The arrow points TOWARD the variable on the right.
+  Walk through three single-input statements.
+
+levelLabel: "L0 Foundation Phase C F-14a"
+
+fullCode: |
+  int x;
+  cin >> x;
+
+  double price;
+  cin >> price;
+
+  string name;
+  cin >> name;
+
+steps:
+  - line: 2
+    code: 'cin >> x;'
+    annotation: |
+      `cin >> x` reads as "pull a value FROM cin INTO x". The `>>`
+      points TOWARD x (right). The user types a number and presses
+      Enter; cin parses one token and writes it into box x.
+    atomIds: ["F-14a"]
+  - line: 5
+    code: 'cin >> price;'
+    annotation: |
+      Same direction: pull FROM cin INTO price. cin sees a token like
+      `9.99` and converts it to a double automatically. The conversion
+      happens because `price` is declared as double.
+    atomIds: ["F-14a"]
+  - line: 8
+    code: 'cin >> name;'
+    annotation: |
+      Pull FROM cin INTO name. The user types text and presses Enter;
+      cin reads characters into name UP TO the first whitespace.
+      Multi-word strings need a different read function (out of scope).
+    atomIds: ["F-14a"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F14a-1"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Establishes the cin >> direction rule. Pairs with F-13a cout <<.

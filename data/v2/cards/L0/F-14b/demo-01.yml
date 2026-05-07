@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-14b / DemoCard 01
+# Atom: cin reads one whitespace-delimited token (string truncation)
+# =====================================================================
+id: "L0-F14b-demo-01"
+schemaVersion: "v2"
+atomId: "F-14b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch what happens when a multi-word value is typed. cin >> on a
+  string stops at the first space.
+
+whyOneLine: "cin >> name reads ONE word. Multi-word names are truncated."
+
+demoCode: |
+  string first;
+  string last;
+  // user types: John Smith<Enter>
+  cin >> first;     // first = "John" (stops at space)
+  cin >> last;      // last  = "Smith" (reads next token)
+
+  // If only ONE cin was written and user types `John Smith`,
+  // only `John` would be stored — `Smith` stays in the input
+  // buffer for the next cin.
+
+highlightTokens:
+  - "cin >> first"
+  - "cin >> last"
+  - '"John"'
+  - '"Smith"'
+  - "stops at space"
+
+usedIn:
+  - "Q3 read fn (string fields read with cin >> stop at whitespace)"
+  - "Q4 main (single-word names from user input)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F14b-1"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  String truncation rule. Critical for Q3 read functions.

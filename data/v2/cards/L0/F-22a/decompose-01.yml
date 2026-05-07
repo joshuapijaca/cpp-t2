@@ -1,0 +1,52 @@
+# =====================================================================
+# L0 / F-22a / DecomposeCard 01 — function definition order
+# =====================================================================
+id: "L0-F22a-decomp-01"
+schemaVersion: "v2"
+atomId: "F-22a"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Pick the line that defines a function `who_am_i` that returns
+  `void` and takes one parameter `stat_double &data`.
+
+code: |
+  // Choose the correctly-ordered header.
+
+question: |
+  Which is the correct header line?
+
+options:
+  - label: "A"
+    text: "void who_am_i(stat_double &data)"
+  - label: "B"
+    text: "function who_am_i(stat_double &data) -> void"
+  - label: "C"
+    text: "who_am_i(stat_double &data) void"
+  - label: "D"
+    text: "void who_am_i { stat_double &data }"
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. Order: return_type -> name -> ( -> params -> ).
+  B is wrong: C++ does not have a `function` keyword (that's TS or
+  Pascal).
+  C is wrong: return type goes BEFORE the name (CM-F22a-2).
+  D is wrong: parameters go in PARENS, not braces. Braces wrap the
+  BODY, which comes AFTER the header.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — function header order"
+
+commonMistakeIds: ["CM-F22a-1", "CM-F22a-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Refutes both the `function` keyword (TS import) and
+  return-type-after (Rust/Kotlin import).

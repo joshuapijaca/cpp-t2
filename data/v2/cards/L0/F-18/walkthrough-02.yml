@@ -1,0 +1,77 @@
+# =====================================================================
+# L0 / F-18 / WalkthroughCard 02
+# Atom: for-loop with array access (Q1 shape)
+# =====================================================================
+id: "L0-F18-walk-02"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  A for-loop iterating over an array of length SIZE. The canonical
+  Q1 shape. Walk through how `i` indexes each element on each
+  iteration, and why the loop must stop at i = SIZE (not i = SIZE+1).
+
+levelLabel: "L0 Foundation · Phase D · F-18"
+
+fullCode: |
+  const int SIZE = 4;
+  int arr[SIZE] = {7, 2, 9, 5};
+  int sum = 0;
+  for (int i = 0; i < SIZE; i++) {
+    sum = sum + arr[i];
+  }
+
+steps:
+  - line: 1
+    code: 'const int SIZE = 4;'
+    annotation: |
+      Compile-time size constant. SIZE = 4.
+    atomIds: ["F-18"]
+  - line: 2
+    code: 'int arr[SIZE] = {7, 2, 9, 5};'
+    annotation: |
+      Array of 4 ints. arr[0]=7, arr[1]=2, arr[2]=9, arr[3]=5.
+      VARIABLES: { sum: 0, arr[0]:7, arr[1]:2, arr[2]:9, arr[3]:5 }
+    atomIds: ["F-18"]
+  - line: 4
+    code: 'iter 1: i=0, test 0<4 true, body sum=0+7=7'
+    annotation: |
+      i=0. arr[0]=7. sum becomes 7. After body, i++ -> i=1.
+    atomIds: ["F-18b"]
+  - line: 4
+    code: 'iter 2: i=1, test 1<4 true, body sum=7+2=9'
+    annotation: |
+      i=1. arr[1]=2. sum becomes 9. After body, i++ -> i=2.
+    atomIds: ["F-18b"]
+  - line: 4
+    code: 'iter 3: i=2, test 2<4 true, body sum=9+9=18'
+    annotation: |
+      i=2. arr[2]=9. sum becomes 18. After body, i++ -> i=3.
+    atomIds: ["F-18b"]
+  - line: 4
+    code: 'iter 4: i=3, test 3<4 true, body sum=18+5=23'
+    annotation: |
+      i=3. arr[3]=5. sum becomes 23. After body, i++ -> i=4.
+    atomIds: ["F-18b"]
+  - line: 4
+    code: 'EXIT: i=4, test 4<4 false, stop'
+    annotation: |
+      4 < 4 is FALSE. Body does NOT run at i=4. If we had used
+      `i <= SIZE` we would access arr[4] — out of bounds, undefined
+      behaviour. `i < SIZE` is the safe canonical form. Final sum=23.
+    atomIds: ["F-18b", "F-18a"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/01-for-loop"
+
+commonMistakeIds: ["CM-F18a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Mirrors Q1 array-iteration shape.
+authoringStatus: "DRAFT"

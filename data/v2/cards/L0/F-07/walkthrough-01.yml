@@ -1,0 +1,80 @@
+# =====================================================================
+# L0 / F-07 / WalkthroughCard 01
+# Atom: Statement terminator: semicolon
+# Phase B: "Skeleton scaffolding"
+# =====================================================================
+id: "L0-F07-walk-01"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  In C++ every statement ends with a semicolon. The semicolon tells
+  the compiler "this instruction is finished — what comes next is the
+  start of a new instruction." Walk through this small program one
+  semicolon at a time. Each `;` you see is a statement boundary.
+
+levelLabel: "L0 Foundation · Phase B · F-07"
+
+fullCode: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    int x = 4;
+    int y = x + 1;
+    cout << y << endl;
+    return 0;
+  }
+
+steps:
+  - line: 2
+    code: 'using namespace std;'
+    annotation: |
+      The first statement of the file. Notice the `;` at the end —
+      `using namespace std` is a complete instruction, terminated by
+      the semicolon. Without that `;` the compiler keeps reading the
+      next line as if it were still part of this statement.
+    atomIds: ["F-07", "F-05"]
+  - line: 4
+    code: '  int x = 4;'
+    annotation: |
+      A variable declaration. Statement: "create an int named x and
+      store 4 in it." The semicolon ends it.
+    atomIds: ["F-07"]
+  - line: 5
+    code: '  int y = x + 1;'
+    annotation: |
+      Another declaration. Notice that `+` is just inside the
+      statement — operators don't need their own semicolons. The
+      WHOLE statement (everything from `int` to `1`) is one unit,
+      terminated by the single `;`.
+    atomIds: ["F-07"]
+  - line: 6
+    code: '  cout << y << endl;'
+    annotation: |
+      An output statement. Even though it has multiple `<<`
+      operators, it is ONE statement, ended by ONE `;`. You do NOT
+      put `;` between `cout` and `y` or between `y` and `endl` — only
+      at the very end.
+    atomIds: ["F-07"]
+  - line: 7
+    code: '  return 0;'
+    annotation: |
+      Return statement. Same rule — one `;` at the end.
+    atomIds: ["F-07", "F-06"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 1 · 2-communicating-syntax/2-trailside/02-statement.md (a statement is a complete instruction; in C++ each statement ends with a semicolon)"
+
+commonMistakeIds: ["CM-F07a", "CM-F07b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Walks the student through every statement boundary in a small
+  program. Emphasis on the rule that one statement = one terminator,
+  even when the statement spans multiple operators.

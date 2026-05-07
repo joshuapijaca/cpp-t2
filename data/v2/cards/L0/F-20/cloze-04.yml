@@ -1,0 +1,41 @@
+# =====================================================================
+# L0 / F-20 / ClozeCard 04
+# Atom: struct field-list braces
+# =====================================================================
+id: "L0-F20-cloze-04"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the matching pair of braces around the field list.
+
+code: |
+  struct stat_double ___
+    double numbers[SIZE];
+    double mystery;
+  ___;
+
+clozeSentence: "struct stat_double ___ ... ___;  // open + close field list"
+
+answer: "{ }"
+
+explanation: |
+  The field list is wrapped in matching braces: `{` opens it
+  immediately after the struct name (typically on the same line),
+  `}` closes it immediately before the terminating `;`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Forces students to type both braces. Common slip: writing only
+  `{` and forgetting the closing `}`.

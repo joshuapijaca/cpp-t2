@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 01 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Single-block, two braces — easiest possible match
+# =====================================================================
+id: "L0-F25-mcq-01"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  The opening brace marked HIGHLIGHT below opens `main`'s body.
+  Which closing brace pairs with it? (Depth-0 = outermost.)
+
+  ```cpp
+  int main() {   // <-- HIGHLIGHT (depth 0)
+    int x = 1;
+    return 0;
+  }              // <-- option A (depth 0)
+  ```
+
+correct: "A — the `}` on the line shown immediately after `return 0;` (depth 0)."
+
+distractors:
+  - "B — there must be a closing brace on the same line as `return 0;` and that is the match."
+  - "C — there is no matching `}`; the program is missing one."
+  - "D — every `;` counts as a closing brace, so the `;` after `return 0` is the match."
+
+explanation: |
+  A is correct. There is exactly one `{` and exactly one `}` in the
+  visible code, and they form the pair at depth 0. The depth label
+  is the colour cue: same colour = same pair.
+
+  B is wrong because `return 0;` ends with `;`, not `}`.
+  C is wrong because the visible code IS balanced.
+  D is wrong because `;` is a statement terminator, not a brace.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 1/30"
+
+commonMistakeIds: ["CM-F08c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Easiest possible brace match: depth-0, one pair. Sets up the
+  per-card depth-colour mental model that later cards exploit.

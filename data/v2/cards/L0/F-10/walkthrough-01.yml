@@ -1,0 +1,83 @@
+# =====================================================================
+# L0 / F-10 / WalkthroughCard 01
+# Atom: Primitive types — int, double, string
+# =====================================================================
+id: "L0-F10-walk-01"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Every variable in C++ has a TYPE. The type controls (a) what shape
+  of value the box can hold, and (b) how big the box is in memory.
+  SIT102 uses three primitive types in Test 2: `int`, `double`, and
+  `string`. Walk through each one — what value goes in, what cannot.
+
+levelLabel: "L0 Foundation Phase C F-10"
+
+fullCode: |
+  #include <iostream>
+  #include <string>
+  using namespace std;
+  int main() {
+    int count = 5;
+    double price = 9.99;
+    string name = "ana";
+    cout << count << endl;
+    cout << price << endl;
+    cout << name << endl;
+    return 0;
+  }
+
+steps:
+  - line: 2
+    code: '#include <string>'
+    annotation: |
+      To use the `string` type at all, the file must `#include <string>`.
+      Without this line, `string` is undefined. `int` and `double` are
+      built into the language and need no include.
+    atomIds: ["F-10"]
+  - line: 5
+    code: 'int count = 5;'
+    annotation: |
+      `int` holds whole numbers: ..., -2, -1, 0, 1, 2, ... It cannot
+      hold 5.5 — the decimal part is silently chopped if you assign one.
+      Use `int` for counts, indices, sizes, ages.
+    atomIds: ["F-10"]
+  - line: 6
+    code: 'double price = 9.99;'
+    annotation: |
+      `double` holds decimal numbers. SIT102 uses `double` (not float)
+      for every fractional number. Real test V2.0 used `double` for
+      every number in the desk_data array.
+    atomIds: ["F-10"]
+  - line: 7
+    code: 'string name = "ana";'
+    annotation: |
+      `string` holds text. The value must be wrapped in double quotes.
+      Single quotes (`'ana'`) do NOT make a string in C++ — they make a
+      character literal.
+    atomIds: ["F-10"]
+  - line: 8
+    code: 'cout << count << endl;'
+    annotation: |
+      `cout` works with all three types. The compiler picks the right
+      print routine based on the type of `count`. You do not write
+      anything special for int vs double vs string.
+    atomIds: ["F-10"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/3-structuring-data/0-panorama/0-type"
+
+commonMistakeIds: ["CM-F10a", "CM-F10b", "CM-F10d"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Three-type tour. Anchors `int` for counts (the num_to_read pattern),
+  `double` for the desk_data values, and `string` for any read-by-name
+  field. Foreshadows F-13 (cout) and F-14 (cin).

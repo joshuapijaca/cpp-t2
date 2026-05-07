@@ -1,0 +1,50 @@
+# =====================================================================
+# L3 / R-03 / TemplateRecallCard — fill-blank cars
+# =====================================================================
+id: "L3-R03-fill-04"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "TemplateRecallCard"
+stem: |
+  Fill the 5 placeholders {{R}} {{A}} {{I}} {{B}} {{T}} in read_cars.
+prompt: "5-blank fill-in"
+template: |
+  {{R}} read_cars(car_data {{A}}cars[], {{I}} number_to_read)
+  {
+    for (int i = 0; i < {{B}}; i++)
+    {
+      cout << "Engine litres: ";
+      cin >> {{T}};
+      cout << "Doors: ";
+      cin >> cars[i].doors;
+      cout << "Mileage (km): ";
+      cin >> cars[i].mileage;
+    }
+  }
+canonicalAnswer: |
+  void read_cars(car_data &cars[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Engine litres: ";
+      cin >> cars[i].engine_l;
+      cout << "Doors: ";
+      cin >> cars[i].doors;
+      cout << "Mileage (km): ";
+      cin >> cars[i].mileage;
+    }
+  }
+keyChecks:
+  - "void read_cars(car_data &cars[], int number_to_read)"
+  - "cars[i].engine_l"
+explanation: |
+  {{R}}=void, {{A}}=&, {{I}}=int, {{B}}=number_to_read, {{T}}=cars[i].engine_l.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

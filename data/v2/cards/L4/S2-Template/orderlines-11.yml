@@ -1,0 +1,45 @@
+id: "L4-S2-orderlines-11"
+schemaVersion: "v2"
+atomId: "Q-01"
+qTags: 
+  - "Q4"
+stage: 2
+level: "L4"
+type: "DecomposeCard"
+stem: "Where does the closing brace of main go?"
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.2 S2 OrderLines drill"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+code: |
+  int main()
+  {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int desk_num;
+  
+      cout << "How many desks? ";
+      cin >> desk_num;
+  
+      read_desks(desks, desk_num);
+  
+      for (int i = 0; i < desk_num; i++)
+      {
+          cout << desks[i].room_id << ", ";
+          cout << desks[i].d_id << ", ";
+          cout << desks[i].number_of_screens << endl;
+      }
+  
+      return 0;
+  }
+question: "Where does the closing brace of main go?"
+options: 
+  - {label: "A", text: "Right after `return 0;`."}
+  - {label: "B", text: "Right after the for-loop closing brace."}
+  - {label: "C", text: "Inside the for-loop body."}
+  - {label: "D", text: "Before const int MAX = 700."}
+correctLabel: "A"
+explanation: "main's closing `}` is the very last token of the file; it sits right after `return 0;`."

@@ -1,0 +1,60 @@
+# =====================================================================
+# L0 / F-24 / TraceCard 08 — sub-vocal predict-next-state
+# =====================================================================
+id: "L0-F24-trace-08"
+schemaVersion: "v2"
+atomId: "F-24"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Three lines. For each, say the next value out loud (or mouth it)
+  BEFORE pressing [step]. Then enter all three final values.
+
+code: |
+  int main() {
+    int p = 7;
+    int q = 8;
+    int r = 9;
+    return 0;
+  }
+
+variables: ["p", "q", "r"]
+
+expectedTrace:
+  - line: 2
+    variable: "p"
+    value: "7"
+    output: null
+  - line: 3
+    variable: "q"
+    value: "8"
+    output: null
+  - line: 4
+    variable: "r"
+    value: "9"
+    output: null
+
+terminalOutput: []
+
+inputMode: "per-step"
+
+q4StopCondition: "Speak the next value BEFORE pressing [step]."
+
+teachMe: |
+  PREDICTIONS: "p becomes seven", "q becomes eight", "r becomes nine".
+  Verify each. Final panel: { p: 7, q: 8, r: 9 }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sub-vocal predict card 8/30"
+
+commonMistakeIds: ["CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Three predictions in a row. The student is now rehearsing the
+  rhythm.

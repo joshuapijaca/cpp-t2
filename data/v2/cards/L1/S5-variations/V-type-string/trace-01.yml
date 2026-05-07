@@ -1,0 +1,87 @@
+# =====================================================================
+# L1 / V-type-string / TraceCard 01
+# type-string concat variant
+# =====================================================================
+id: "L1-V-typestr-01"
+schemaVersion: "v2"
+atomId: "A13"
+qTags: ["Q1"]
+stage: 5
+level: "L1"
+type: "TraceCard"
+
+stem: "Trace string-concat on stat_string with parts = {\"ab\", \"cd\", \"ef\"}. mystery starts empty; loop concatenates."
+
+code: |
+  const int SIZE = 3;
+  
+  struct stat_string {
+    string parts[SIZE];
+    string mystery;
+  };
+  
+  int main() {
+    stat_string data = { {"ab", "cd", "ef"}, "" };
+    data.mystery = "";
+    for (int i = 0; i < SIZE; i = i + 1) {
+      data.mystery = data.mystery + data.parts[i];
+    }
+    cout << data.mystery << endl;
+    return 0;
+  }
+
+variables: ["i", "data.mystery"]
+
+expectedTrace:
+  - line: 9
+    variable: "data.mystery"
+    value: '""'
+    output: null
+  - line: 10
+    variable: "data.mystery"
+    value: '""'
+    output: null
+  - line: 11
+    variable: "i"
+    value: "0"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: '"ab"'
+    output: null
+  - line: 11
+    variable: "i"
+    value: "1"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: '"abcd"'
+    output: null
+  - line: 11
+    variable: "i"
+    value: "2"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: '"abcdef"'
+    output: null
+  - line: 14
+    variable: ""
+    value: ""
+    output: "abcdef"
+
+terminalOutput: ["abcdef"]
+
+inputMode: "final-only"
+
+teachMe: "String concat: \"\" + \"ab\" + \"cd\" + \"ef\" = \"abcdef\"."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — string variant transfer"
+
+commonMistakeIds: ["CM-S5-type-confusion"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Type-string transfer trace."

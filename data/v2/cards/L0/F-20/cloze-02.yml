@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-20 / ClozeCard 02
+# Atom: struct closing semicolon
+# =====================================================================
+id: "L0-F20-cloze-02"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing punctuation that ends the struct definition.
+
+code: |
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  }___
+
+clozeSentence: "}___  // close + end-of-statement"
+
+answer: ";"
+
+explanation: |
+  The `}` closes the field list, but the struct definition is a
+  STATEMENT and must end with a `;`. Forgetting this `;` is the
+  highest-frequency Q2 marking error (CM-F20a).
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — closing `};` mandatory"
+
+commonMistakeIds: ["CM-F20a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Single-token cloze on the make-or-break punctuation.

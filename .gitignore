@@ -6,3 +6,13 @@ dist/
 *.log
 .DS_Store
 .vite/
+
+
+# v2 build outputs (regenerable)
+dist-v2/
+coverage/
+test-results/
+playwright-report/
+
+# Background test artifacts
+*.tmp

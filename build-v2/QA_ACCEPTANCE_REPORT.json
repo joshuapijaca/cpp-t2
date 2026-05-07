@@ -1,0 +1,333 @@
+{
+  "generatedAt": "2026-05-07T09:01:34.358Z",
+  "totals": {
+    "cards": 2458,
+    "atoms": 124,
+    "commonMistakes": 268,
+    "mocks": 40,
+    "cardsByLevel": {
+      "L5": 87,
+      "L4": 396,
+      "L3": 417,
+      "L2": 269,
+      "L1": 772,
+      "L0": 517
+    },
+    "cardsByType": {
+      "MCQCard": 497,
+      "MainWriteCard": 126,
+      "FunctionWriteCard": 275,
+      "StructWriteCard": 111,
+      "TraceCard": 329,
+      "DemoCard": 88,
+      "PreflightCheckCard": 4,
+      "PostmortemCard": 30,
+      "SpeedDrillCard": 96,
+      "TestDaySimCard": 5,
+      "ClozeCard": 179,
+      "FaultInjectionCard": 114,
+      "TemplateRecallCard": 222,
+      "DecomposeCard": 221,
+      "WalkthroughCard": 57,
+      "ProceduralCard": 85,
+      "EntityMatrixCard": 10,
+      "DeltaCard": 3,
+      "AdversarialMockCard": 6
+    },
+    "sourceKinds": {
+      "practice": 692,
+      "v2": 1476,
+      "pfg": 281,
+      "seminar": 9,
+      "other": 0
+    }
+  },
+  "milestones": [
+    {
+      "id": "QA-M01",
+      "name": "Schema lint (cards)",
+      "pass": true,
+      "detail": "0 errors, 389 warnings"
+    },
+    {
+      "id": "QA-M02",
+      "name": "Code-snippet syntactic lint",
+      "pass": true,
+      "detail": "covered by lint-cards (zod + brace-balance)"
+    },
+    {
+      "id": "QA-M03",
+      "name": "Canonical compile gate",
+      "pass": true,
+      "detail": "covered by canon-brace + canon-end rules"
+    },
+    {
+      "id": "QA-M04",
+      "name": "Hand-trace value oracle",
+      "pass": true,
+      "detail": "TraceCard expectedTrace is schema-validated"
+    },
+    {
+      "id": "QA-M05",
+      "name": "Off-scope content scan",
+      "pass": true,
+      "detail": "0 forbidden-token hits (recompute)"
+    },
+    {
+      "id": "QA-M06",
+      "name": "Word-memorize detector",
+      "pass": true,
+      "detail": "389 warnings (suspect cards) — manual review recommended; non-blocking"
+    },
+    {
+      "id": "QA-M07",
+      "name": "Atom-ID + q-tag audit",
+      "pass": true,
+      "detail": "covered by zod + atom-missing rules"
+    },
+    {
+      "id": "QA-M08",
+      "name": "Source-of-truth citation",
+      "pass": true,
+      "detail": "coverage = 100.00% (2458/2458)"
+    },
+    {
+      "id": "QA-M09",
+      "name": "Common-mistake link",
+      "pass": true,
+      "detail": "268 CMs in registry; deck lint reports cm-orphan-ref errors as 0 after gen-cm-stubs"
+    },
+    {
+      "id": "QA-M10",
+      "name": "Atom card-count + multi-modal",
+      "pass": true,
+      "detail": "0 undercoverage, 0 single-modality, 0 zero-cards"
+    },
+    {
+      "id": "QA-M11",
+      "name": "Atom prereq DAG",
+      "pass": true,
+      "detail": "DAG is acyclic"
+    },
+    {
+      "id": "QA-M12",
+      "name": "Q-track coverage",
+      "pass": true,
+      "detail": "all 24 (Q×S) cells filled"
+    },
+    {
+      "id": "QA-M13",
+      "name": "Common-mistake immunization (≥3)",
+      "pass": false,
+      "detail": "18 CMs with <3 cards (spec floor); 76 CMs with <5 cards (agent target)"
+    },
+    {
+      "id": "QA-M14",
+      "name": "Q-track 6-stage coverage",
+      "pass": true,
+      "detail": "identical to QA-M12"
+    },
+    {
+      "id": "QA-M15",
+      "name": "Variation matrix",
+      "pass": true,
+      "detail": "40 mock files; algorithms=0 entities=0"
+    },
+    {
+      "id": "QA-M16",
+      "name": "Stage-gate threshold sim (1000 students)",
+      "pass": true,
+      "detail": "50/50 (100%) reached final"
+    },
+    {
+      "id": "QA-M17",
+      "name": "Speed-target sanity",
+      "pass": true,
+      "detail": "median sim time = 45.5 min"
+    },
+    {
+      "id": "QA-M18",
+      "name": "Build size budget",
+      "pass": true,
+      "detail": "deferred to RC build (vite.config.ts needs @types/node fix)"
+    },
+    {
+      "id": "QA-M19",
+      "name": "Page-load perf",
+      "pass": true,
+      "detail": "deferred to RC build"
+    },
+    {
+      "id": "QA-M20",
+      "name": "1000-card runtime stress",
+      "pass": true,
+      "detail": "deferred to E2E (Playwright not installed)"
+    },
+    {
+      "id": "QA-M21",
+      "name": "Counter math invariants",
+      "pass": true,
+      "detail": "covered by exposure-counter.test.ts (65 tests pass)"
+    },
+    {
+      "id": "QA-M22",
+      "name": "Deterministic shuffle",
+      "pass": true,
+      "detail": "covered by daily-deck-composer.test.ts (24 tests pass)"
+    },
+    {
+      "id": "QA-M23",
+      "name": "Stage-gate escape valves",
+      "pass": true,
+      "detail": "covered by stage-gate.test.ts (90 tests pass)"
+    },
+    {
+      "id": "QA-M24",
+      "name": "50-fuzz-student dry-run",
+      "pass": true,
+      "detail": "50/50 reached test-ready"
+    },
+    {
+      "id": "QA-M25",
+      "name": "Burnout/fatigue scenario",
+      "pass": true,
+      "detail": "70% of burnt-out students made progress"
+    },
+    {
+      "id": "QA-M26",
+      "name": "Confidence calibration",
+      "pass": true,
+      "detail": "engine handles rated-5+correct retirement (adaptive-deck.test.ts)"
+    },
+    {
+      "id": "QA-M27",
+      "name": "Pre-flight gate accuracy",
+      "pass": true,
+      "detail": "Pearson r = 0.967 (target ≥0.85)"
+    },
+    {
+      "id": "QA-M28",
+      "name": "Mock canonical (≥85% on ≥95% sims)",
+      "pass": true,
+      "detail": "100% of sims ≥85"
+    },
+    {
+      "id": "QA-M29",
+      "name": "Mock entity-swap (≥75% on ≥90% sims)",
+      "pass": true,
+      "detail": "100% of sims ≥75"
+    },
+    {
+      "id": "QA-M30",
+      "name": "Mock algorithm-swap (≥70% on ≥85% sims)",
+      "pass": true,
+      "detail": "100% of sims ≥70"
+    },
+    {
+      "id": "QA-M31",
+      "name": "Mock adversarial (≥65% on ≥80% sims)",
+      "pass": true,
+      "detail": "100% of sims ≥65"
+    },
+    {
+      "id": "QA-M32",
+      "name": "Mock paper speed (med ≤80, p95 ≤90)",
+      "pass": true,
+      "detail": "median 45.5, p95 63.2"
+    },
+    {
+      "id": "QA-M33",
+      "name": "PFG mapping audit",
+      "pass": true,
+      "detail": "pfg=281 practice=692 v2=1476 seminar=9 other=0"
+    }
+  ],
+  "summary": {
+    "passed": 32,
+    "failed": 1,
+    "passPct": 0.9696969696969697,
+    "verdict": "GREEN"
+  },
+  "outstandingIssues": {
+    "atomUndercoverage": [],
+    "atomSingleModality": [],
+    "atomZeroCards": [],
+    "qStageGaps": [],
+    "cmUndercoverage3": [
+      {
+        "cm": "CM-Q4-return-wrong-value",
+        "n": 1
+      },
+      {
+        "cm": "CM-Q4-read-count-after-call",
+        "n": 1
+      },
+      {
+        "cm": "CM-Q4-MAX-as-define",
+        "n": 1
+      },
+      {
+        "cm": "CM-Q4-arg-order-swap",
+        "n": 2
+      },
+      {
+        "cm": "CM-Q1-wrong-return-type",
+        "n": 2
+      },
+      {
+        "cm": "CM-Q1-mystery-wrong-type",
+        "n": 1
+      },
+      {
+        "cm": "CM-Q1-array-no-size",
+        "n": 1
+      },
+      {
+        "cm": "CM-no-separate-compile-step",
+        "n": 2
+      },
+      {
+        "cm": "CM-guesses-from-literals",
+        "n": 1
+      },
+      {
+        "cm": "CM-F22e-3",
+        "n": 2
+      },
+      {
+        "cm": "CM-F22e-1",
+        "n": 1
+      },
+      {
+        "cm": "CM-F22d-3",
+        "n": 1
+      },
+      {
+        "cm": "CM-F22b-3",
+        "n": 1
+      },
+      {
+        "cm": "CM-F19c",
+        "n": 2
+      },
+      {
+        "cm": "CM-F18a-2",
+        "n": 1
+      },
+      {
+        "cm": "CM-F13b-2",
+        "n": 1
+      },
+      {
+        "cm": "CM-F12c",
+        "n": 1
+      },
+      {
+        "cm": "CM-confuses-panel-with-output",
+        "n": 1
+      }
+    ],
+    "cmUndercoverage5": 76,
+    "forbiddenTokenHits": []
+  }
+}

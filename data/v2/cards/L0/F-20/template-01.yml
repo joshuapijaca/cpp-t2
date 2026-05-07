@@ -1,0 +1,60 @@
+# =====================================================================
+# L0 / F-20 / TemplateRecallCard 01 — canonical struct template
+# =====================================================================
+id: "L0-F20-tmpl-01"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  From cold (no help screen), produce the canonical struct
+  definition template. Replace `<NAME>` and the field placeholders
+  with concrete tokens.
+
+prompt: "Recall the canonical struct definition template."
+
+template: |
+  struct <NAME> {
+    <type> <field_one>;
+    <type> <field_two>;
+  };
+
+canonicalAnswer: |
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+keyChecks:
+  - "struct"
+  - "stat_double"
+  - "{"
+  - "double numbers[SIZE]"
+  - "double mystery"
+  - "};"
+
+forbiddenTokens:
+  - "class"
+  - "Struct"
+  - "*"
+
+explanation: |
+  The shape: `struct <NAME> { <fields> };`. Five tokens to type:
+  `struct`, name, `{`, one or more field declarations (each `;`),
+  and the closing `};`. Test 2 V2.0 uses `stat_double` with two
+  fields.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — canonical struct template"
+
+commonMistakeIds: ["CM-F20a", "CM-F20c", "CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Free-recall test of the entire shape. The strongest retention
+  check before exam day.

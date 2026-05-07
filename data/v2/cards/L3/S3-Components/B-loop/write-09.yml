@@ -1,0 +1,34 @@
+# =====================================================================
+# L3 / R-02b / FunctionWriteCard — for-loop with read_count bound
+# =====================================================================
+id: "L3-R02b-write-09"
+schemaVersion: "v2"
+atomId: "R-02b"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write ONLY the for-loop header (no body) using read_count as the count parameter.
+prompt: "for-loop header with read_count bound"
+signatureHint: "for (int i = 0; i < read_count; i++)"
+canonicalAnswer: |
+  for (int i = 0; i < read_count; i++)
+  {
+  }
+keyChecks:
+  - "for (int i = 0; i < read_count; i++)"
+forbiddenTokens:
+  - "while"
+  - "<="
+  - "SIZE"
+explanation: |
+  Use the count parameter (read_count) as the bound. Half-open <, NOT <=.
+  Counter is int i; starts at 0; post-increment.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-off-by-one","CM-Q3-wrong-bound-SIZE"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

@@ -1,0 +1,79 @@
+SIT102 Test 2 (Practice) - 2026 T1
+
+Student Name:
+Student ID:
+
+                               Ocial Use
+
+    Complete  Fix and resubmit  Redo
+
+The following struct and procedure are dened.
+const int SIZE = 5;
+
+struct stat_double {
+   double numbers [SIZE];
+   double mystery;
+
+};
+
+void who_am_i ( stat_double &data )
+
+{
+
+   int           i;
+
+   data.mystery = data.numbers [0];
+
+   for (i = 0; i < SIZE; i++) {
+      if ( data.numbers [i] > data.mystery ) {
+          data.mystery = data.numbers [i];
+      }
+
+   }
+
+   return;
+}
+
+1. Hand execute the code below using this procedure.
+
+   // Initialise d.numbers with {-20.0, 3.2, 1.9, -1.5, 1.3}
+   // and d.mystery with 0.0'.
+   stat_double d = { {-20.0, 3.2, 1.9, -1.5, 1.3}, 0.0 };
+
+   who_am_i ( d );
+
+Test Code: V0.0                                               Page 1 of 2
+SIT102                          Test 2                                                           Trimester 1, 2026
+
+   You are creating a system for managing computers in an oce. The following elds are needed to
+   represent a computer: (1) an identication number; (2) a description; (3) a location.
+
+2. Write a data structure named computer_data to capture these elds.
+
+3. Write a function to read in the information for a number_to_read number of computers
+   into computer_list.
+
+   void read_computers ( computer_data &computer_list [], int number_to_read )
+
+4. Write the main function which asks the user for computer_num number of computers. Then
+   call your read_computers function to read in data for computer_num computers. Finally,
+   print the list of computers.
+
+int main ( )
+
+{
+
+const int     MAX = 100;    // Maximum size of array of computers
+
+computer_data computers [MAX];  // Array of computers
+
+int           computer_num; // Actual number of computers stored
+
+// Ask for number of computers
+
+// Read in computer list
+// Print list of computers
+
+}
+                                                                                                                                 Page 2 of 2
+

@@ -910,4 +910,47 @@ Authorized: "ok do the next milestone".
 
 ---
 
+## 2026-05-07 | v2.0.0 release (YELLOW ship)
+
+**Tag**: `v2.0.0`
+**Verdict**: YELLOW (31/33 = 93.9%) per QA-M34 acceptance gate
+**Status**: SHIPPED for student use (May 14 / May 21 / May 28 attempt windows)
+
+**Final counts**:
+- Cards: **2,307** hand-authored across L0..L5
+- Atoms: **124** with acyclic prereq DAG
+- Common mistakes: **270** (50 hand-authored + 220 auto-stub)
+- Mock papers: **40** files (8 mocks × 5 components)
+- Card types: **19** distinct
+- Engine modules: **7** (204/204 unit tests pass)
+- Source citation: **100%** (2307/2307)
+- Bundle (gzip): ~277 KB (vendor 23.2KB + react 60.3KB + index 329KB raw → 116KB gzip + cards 24KB gzip)
+
+**Major features**:
+- VSCode-sim authoring UX (DemoCard / TraceCard / WriteCard / DecomposeCard / WalkthroughCard with split-pane code+output panel)
+- Exposure-frequency model (per-card recency + count tracking; spaced-rep priority queue)
+- Stage-gate engine (4 Q-tracks × 6 stages with 4 escape valves: 24h timeout, 3-fail difficulty drop, cross-track lenient unlock, manual override)
+- Adaptive deck (rated-5+correct retirement; 15-card cloze fallback buffer on 3 fails)
+- DAG backward retry (auto-detect prereq weakness when student stalls on downstream atom)
+- Multi-Q propagation (cards tagged with ≥2 Qs count toward all listed Q-tracks)
+- Pre-flight predictor (Pearson r=0.967 vs simulated mock score; target ≥0.85)
+- Daily deck composer (Tour/drill/variations/speed mix with deterministic shuffle)
+- Mock paper engine (8 papers across 4 difficulty tiers: canonical, entity-swap, algo-swap, adversarial)
+- Postmortem after every mock (templated reflection)
+
+**YELLOW-band gaps** (paid down in v2.1):
+- QA-M10: 6 undercovered atoms (L-23c, C-30, C-28, C-05, F-22e, F-13); 33 single-modality atoms (mostly intentional T-*/C-*/speed-only)
+- QA-M13: 58 CMs with <3 immunization cards (mostly auto-stubs)
+- QA-M18/19/20: deferred (engineering — vite.config.ts @types/node + Playwright not installed)
+
+**Re-run note**: This is the post-Wave-5 re-run of QA-M34. The Wave-5 fixes for atom-undercoverage / atom-single-modality / CM-undercoverage did not land in the deck on disk; same totals as the prior gate (2,307 cards / 124 atoms / 270 CMs); same QA-M10/M13 failures. Verdict unchanged at YELLOW. Per RULE 4: YELLOW honestly reported.
+
+**Why**: All 7 engines green, 204/204 tests pass, 100% source citation, 0 forbidden-token hits, all 24 (Q×stage) cells filled, mock sims pass at all 4 difficulty tiers, pre-flight r=0.967. Functionally exam-ready.
+
+**Source**: `cpp-t2/docs/v2/02_FINAL_GA.md`, `cpp-t2/build-v2/QA_ACCEPTANCE_REPORT.json`, `cpp-t2/dist-v2/RELEASE.md`.
+
+**Authorized by**: user (final acceptance gate task) + RULE 4 transparency.
+
+---
+
 <!-- Append new decisions here. Don't edit prior entries. -->

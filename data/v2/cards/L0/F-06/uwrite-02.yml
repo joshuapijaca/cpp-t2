@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-06 / ProceduralCard 02 (μ-write)
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-uwrite-02"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Repair drill. The program below is missing `return 0;`. Add it in
+  the correct position. Type the repaired main from `int main() {`
+  to the closing brace.
+
+section: "L0 · F-06 · μ-write — repair missing return 0"
+
+prompt: |
+  Original (broken — missing return):
+
+  int main() {
+    cout << 5 << endl;
+  }
+
+  Add `return 0;` in the correct place. Show the repaired main from
+  the header to the closing brace.
+
+expectedAnswer: |
+  int main() {
+    cout << 5 << endl;
+    return 0;
+  }
+
+keyChecks:
+  - "int main()"
+  - "return 0;"
+  - "cout << 5 << endl;"
+
+variants:
+  - prompt: "Add the missing return 0; line to a main that prints 7."
+    expectedAnswer: |
+      int main() {
+        cout << 7 << endl;
+        return 0;
+      }
+
+source:
+  kind: "seminar"
+  ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:21:14 — Saloni: 'how do you do the hand execution' (return 0 ALWAYS the last line)"
+
+commonMistakeIds: ["CM-F06a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 2: repair drill — add the missing return 0;. Targets
+  CM-F06a (the highest-frequency Q4 error per Saloni's seminar).

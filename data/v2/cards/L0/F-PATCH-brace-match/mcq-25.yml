@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 25 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Two for-loops inside main (sequential)
+# =====================================================================
+id: "L0-F25-mcq-25"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Two for-loops back to back. The HIGHLIGHTED `{` opens the SECOND
+  for. Which `}` matches?
+
+  ```cpp
+  int main() {                          // depth 0 open
+    for (int i = 0; i < 3; i = i+1) {   // depth 1 open (first for)
+      cout << i << endl;
+    }                                   // option A (depth 1, first for)
+    for (int j = 0; j < 5; j = j+1) {   // <-- HIGHLIGHT (depth 1, second for)
+      cout << j << endl;
+    }                                   // <-- option B (depth 1, second for)
+    return 0;
+  }                                     // <-- option C (depth 0)
+  ```
+
+correct: "B — the `}` after `cout << j << endl;` (depth-1, second for's close)."
+
+distractors:
+  - "A — the `}` after `cout << i << endl;`, because for-loops chain into one closing brace."
+  - "C — the final `}` of main, because both for-loops nest under main."
+  - "D — there is no matching brace; the second for has no body."
+
+explanation: |
+  B is correct. The second for opens at the highlighted `{` and
+  closes at the NEXT depth-1 `}` AFTER the highlight. The earlier
+  `}` (option A) is already paired with the first for.
+
+  A is wrong: A is already paired.
+  C is wrong: C is depth 0.
+  D is wrong: B is visible.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 25/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Two siblings. Reinforces "nearest unmatched same-depth close
+  AFTER the highlight".

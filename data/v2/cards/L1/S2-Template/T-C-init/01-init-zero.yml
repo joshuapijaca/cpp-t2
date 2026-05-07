@@ -1,0 +1,41 @@
+id: "L1-S2-TC-01-init-zero"
+schemaVersion: "v2"
+atomId: "T-03"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Type the canonical pre-loop init for sum-anything algorithms.
+
+prompt: |
+  What is the pre-loop init line when the algorithm sums values?
+
+template: |
+  // (type the init line)
+
+canonicalAnswer: |
+  data.mystery = 0.0;
+
+keyChecks:
+  - "data.mystery"
+  - "= 0.0"
+
+forbiddenTokens: []
+
+explanation: |
+  `data.mystery = 0.0;` — accumulator starts at zero. Used for
+  sum-all, sum-positive, sum-negative, sum-even-indexed, etc.
+  This is the V2.0 line.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — data.mystery = 0.0"
+
+commonMistakeIds: ["CM-Q1-skip-init"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-C init = 0.0 (sum).
+authoringStatus: "DRAFT"

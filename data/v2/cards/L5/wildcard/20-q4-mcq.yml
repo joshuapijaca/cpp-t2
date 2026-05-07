@@ -1,0 +1,31 @@
+id: "L5-wildcard-20-q4"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 5
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  S5.5 wildcard: Return 0 placement.
+
+correct: "Last statement of main, before the closing `}`."
+
+distractors:
+  - "First statement of main."
+  - "After the array decl."
+  - "Inside the read function."
+
+explanation: |
+  return 0 must be the LAST statement of main, signaling success exit.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 wildcard"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #20: Q4 Return 0 placement.

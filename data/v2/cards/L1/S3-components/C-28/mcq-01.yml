@@ -1,0 +1,28 @@
+id: L1-S3-C-28-mcq-00
+schemaVersion: v2
+atomId: C-28
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-28
+commonMistakeIds:
+  - CM-C28a
+stem: >-
+  The for-loop has just exited (guard returned false). The mystery cell shows: ~~0.0~~ ~~2.4~~
+  ~~5.4~~ 7.4. The exam asks: what is data.mystery now?
+correct: 7.4 — the only unstruck value is the live one; that is the final answer.
+distractors:
+  - 15.2 — sum every value in the trail.
+  - 0.0 — the first written value is the canonical answer.
+  - 5.4 — the second-to-last value, since the loop was already exiting.
+explanation: >-
+  After loop exit, the LIVE value (the un-struck one) is the answer. Trail-as-audit confirms the
+  path; the answer itself is the live value.
+

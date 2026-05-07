@@ -1,0 +1,53 @@
+# =====================================================================
+# L0 / F-17 / TemplateRecallCard 03 (μWrite)
+# Atom: if testing equality
+# =====================================================================
+id: "L0-F17-write-03"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Write an if-statement that prints "match" when `n` is exactly
+  equal to 5.
+
+prompt: |
+  Produce an if that prints "match" iff n == 5.
+
+template: |
+  if (___) {
+    cout << ___ << endl;
+  }
+
+canonicalAnswer: |
+  if (n == 5) {
+    cout << "match" << endl;
+  }
+
+keyChecks:
+  - "if (n == 5)"
+  - "cout"
+  - "match"
+
+forbiddenTokens:
+  - "while"
+  - "do"
+
+explanation: |
+  `==` is equality. Always two equals signs inside an if. A single
+  `=` would assign 5 to n and the if would test `5` (truthy) every
+  time — the silent CM-F16a bug.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-1-comparisons"
+
+commonMistakeIds: ["CM-F16a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-21 / TemplateRecallCard 01 — composite token template
+# =====================================================================
+id: "L0-F21-tmpl-01"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  From cold, produce the canonical composite-token template.
+  Substitute the placeholders with the Test 2 V2.0 names.
+
+prompt: "Recall the canonical composite-token shape for accessing the i-th array slot of a struct field."
+
+template: |
+  <instance>.<field>[<index>]
+
+canonicalAnswer: |
+  cout << data.numbers[i] << endl;
+
+keyChecks:
+  - "data.numbers[i]"
+  - "cout"
+  - "endl"
+  - ";"
+
+forbiddenTokens:
+  - "->"
+  - "::"
+  - "data[i].numbers"
+
+explanation: |
+  Canonical composite token: `<instance>.<field>[<index>]`. Read
+  left-to-right: instance, dot, field, bracket-index. The dot is
+  the field operator; the brackets index INTO the field. Test 2
+  V2.0 uses `data.numbers[i]`.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `data.numbers[i]`"
+
+commonMistakeIds: ["CM-F21a", "CM-F21b", "CM-F21c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Free-recall on the load-bearing composite token. All three F-21
+  CMs immunised.

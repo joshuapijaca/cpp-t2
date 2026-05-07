@@ -1,0 +1,29 @@
+id: "L3-R04-mcq-01"
+schemaVersion: "v2"
+atomId: "R-04"
+qTags: ["Q3"]
+stage: 5
+level: "L3"
+type: "MCQCard"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#5.4 Variations"
+commonMistakeIds: ["CM-Q3-missing-index", "CM-Q3-missing-field"]
+stem: |
+  In a Q3 read variation, which line correctly reads the `width`
+  field of the i-th element of an array of `desk_data`?
+correct: "cin >> desks[i].width;"
+distractors:
+  - "cin >> desks.width;"
+  - "cin >> desks[i]->width;"
+  - "cin >> width[i];"
+explanation: |
+  `desks` is an array; `desks[i]` is the i-th struct; `.width`
+  reaches into that struct's field. Distractor 1 omits the index
+  (CM-Q3-missing-index). Distractor 2 uses `->`, which is for
+  pointers — `desks[i]` is a struct value/reference. Distractor 3
+  treats width as a free variable.
+notes: "MCQ form for QA-M10 type-diversity (R-04 was FunctionWriteCard only)."

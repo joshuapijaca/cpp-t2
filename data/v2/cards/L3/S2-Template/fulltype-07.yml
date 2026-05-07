@@ -1,0 +1,50 @@
+# =====================================================================
+# L3 / R-01 / FunctionWriteCard — full skeleton for dogs
+# =====================================================================
+id: "L3-R01-fulltype-07"
+schemaVersion: "v2"
+atomId: "R-01"
+qTags: ["Q3"]
+stage: 2
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Type the full read_dogs function from memory. 3 fields:
+  int age_yrs, double weight_kg, int visits.
+prompt: "Full read_dogs from skeleton."
+signatureHint: "void read_dogs(dog_data &dogs[], int number_to_read) { ... }"
+canonicalAnswer: |
+  void read_dogs(dog_data &dogs[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Age (yrs): ";
+      cin >> dogs[i].age_yrs;
+      cout << "Weight (kg): ";
+      cin >> dogs[i].weight_kg;
+      cout << "Vet visits: ";
+      cin >> dogs[i].visits;
+    }
+  }
+keyChecks:
+  - "void read_dogs"
+  - "&dogs[]"
+  - "int number_to_read"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> dogs[i].age_yrs;"
+  - "cin >> dogs[i].weight_kg;"
+  - "cin >> dogs[i].visits;"
+forbiddenTokens:
+  - "function"
+  - "->"
+  - "while"
+  - "scanf"
+explanation: |
+  Skeleton is fixed: void name + by-ref array + count int + for-loop + 3 prompt-pairs.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

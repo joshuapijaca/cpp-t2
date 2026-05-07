@@ -1,0 +1,66 @@
+# =====================================================================
+# L0 / F-20 / ProceduralCard 01 — struct write 3-streak
+# =====================================================================
+id: "L0-F20-proc-01"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Procedural drill — produce a struct definition on demand. Three
+  variants drill the same shape with different fields.
+
+section: "F-20 struct definition drill"
+
+prompt: |
+  Define a struct `coord_2d` with two int fields: `x` and `y`.
+
+expectedAnswer: |
+  struct coord_2d {
+    int x;
+    int y;
+  };
+
+keyChecks:
+  - "struct coord_2d"
+  - "int x"
+  - "int y"
+  - "};"
+
+variants:
+  - prompt: |
+      Define a struct `event` with a string `label` and a double `time`.
+    expectedAnswer: |
+      struct event {
+        string label;
+        double time;
+      };
+  - prompt: |
+      Define a struct `bag` with an int array `items` of size 10 and an int `count`.
+    expectedAnswer: |
+      struct bag {
+        int items[10];
+        int count;
+      };
+  - prompt: |
+      Define a struct `temperature_log` with a double array `readings` of size 7.
+    expectedAnswer: |
+      struct temperature_log {
+        double readings[7];
+      };
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20a", "CM-F20c", "CM-F20d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  3-streak procedural. Drills shape stability across very different
+  field sets. The third variant has only ONE field — confirms the
+  closing `};` is still required.

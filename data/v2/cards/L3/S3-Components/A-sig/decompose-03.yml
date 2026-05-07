@@ -1,0 +1,36 @@
+# =====================================================================
+# L3 / R-02a / DecomposeCard — compare signatures
+# =====================================================================
+id: "L3-R02a-decompose-03"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "DecomposeCard"
+stem: |
+  Compare two read function signatures. Pick the option that names the difference.
+code: |
+  // A:
+  void read_desks(desk_data &desks[], int n)
+  // B:
+  int read_desks(desk_data &desks[], int n)
+question: "Which option correctly describes the difference between A and B?"
+options:
+  - label: "A"
+    text: "B returns int — wrong return type."
+  - label: "B"
+    text: "B returns count"
+  - label: "C"
+    text: "A and B are equivalent"
+  - label: "D"
+    text: "B is shorter"
+correctLabel: "A"
+explanation: |
+  B returns int — wrong return type.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

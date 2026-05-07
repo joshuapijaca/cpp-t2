@@ -1,0 +1,40 @@
+# =====================================================================
+# L2 / L-23c / MCQCard 01 — Q2 spacing rules
+# =====================================================================
+id: "L2-S3c-space-mcq-01"
+schemaVersion: "v2"
+atomId: "L-23c"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "MCQCard"
+
+stem: |
+  SIT102 Q2 grades the formatting of your struct, not just whether
+  it compiles. Which option lists the four required spacing rules?
+
+correct: "One field per line, 4-space indent inside braces, single space between type and field name, closing `};` on its own line."
+
+distractors:
+  - "All fields on one line, tab-indent, no space between type and name, `};` flush against last field."
+  - "One field per line, no indent, double-space between type and name, closing `}` without semicolon."
+  - "Rules are not graded — any compiling struct earns full marks."
+
+explanation: |
+  SIT102 Q2 marking penalises layout defects even when the struct
+  compiles. The required rules: one field per line, 4-space indent,
+  one space between type and name, `};` on its own line.
+  Distractor 3 (CM-Q2-twofields style ignorance) is the most
+  dangerous misconception — students assume compilation is enough.
+
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 spacing block"
+
+commonMistakeIds: ["CM-Q2-twofields"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+notes: |
+  MCQ form for QA-M10 single-modality fix (was FaultInjectionCard
+  only). Drills the four formatting rules as a cohesive list.

@@ -1,0 +1,39 @@
+id: L1-S3-C-14-decomp-07
+schemaVersion: v2
+atomId: C-14
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: DecomposeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-14
+commonMistakeIds:
+  - CM-C14a
+  - CM-C14b
+stem: Distinguish `i` from `data.numbers[i]`.
+code: |-
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  stat_double data = { {4, 4, 4, 4, 4}, 0 };
+  int i = 2;
+  // what is data.numbers[i]?
+question: Which is the value of `data.numbers[i]`?
+options:
+  - label: A
+    text: 2 (the value of i)
+  - label: B
+    text: 4 (the i-th cell value)
+  - label: C
+    text: 0 (the mystery value)
+  - label: D
+    text: undefined — `data.numbers[i]` is not legal until SIZE is defined
+correctLabel: B
+explanation: data.numbers[i] reads the cell AT INDEX i, not the value of i. Confusing the two is M20.
+

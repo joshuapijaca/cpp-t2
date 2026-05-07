@@ -1,0 +1,46 @@
+# =====================================================================
+# L1 / C-26 strikethrough V2.0 / Decompose 03 — partial strike vs full
+# =====================================================================
+id: "L1-C26v20-decomp-03"
+schemaVersion: "v2"
+atomId: "C-26"
+qTags: ["Q1"]
+stage: 3
+level: "L1"
+type: "DecomposeCard"
+
+stem: "Two students show partial vs full strikethrough trails for V2.0 stimulus mystery cell. Pick the V2.0-correct one."
+
+code: |
+  // Student A wrote:
+  //   ~~-0.9~~ 7.4    (only struck the original; final live)
+  //
+  // Student B wrote:
+  //   ~~-0.9~~ ~~0.0~~ ~~2.4~~ ~~5.4~~ 7.4    (every overwrite struck)
+
+question: "Which trail is V2.0-correct?"
+
+options:
+  - label: "A"
+    text: "Student A — strike only the very first value."
+  - label: "B"
+    text: "Student B — every overwrite must strike the previous live value, leaving exactly one unstruck value at the end."
+  - label: "C"
+    text: "Both — strike whichever values you want."
+  - label: "D"
+    text: "Neither — strike nothing, just write the live value."
+
+correctLabel: "B"
+
+explanation: |
+  Partial strike is a hybrid that loses the audit trail of intermediate updates. Every overwrite strikes. Full trail wins.
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-26 — partial-strike spot-error"
+
+commonMistakeIds: ["CM-C26a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "Strikethrough decompose 3/4: partial-strike is wrong."

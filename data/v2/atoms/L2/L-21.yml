@@ -1,0 +1,22 @@
+id: L-21
+name: "Q2 S1 Tour — recognise the struct genre"
+level: L2
+teaches: "See the full Q2 question shape and the canonical 6-line answer for desk_data + computer_data. Pure recognition; no writing yet."
+prereqs: [F-08, F-09, F-10, F-20]
+usedByQs: [Q2]
+cardCountTarget: 20
+source:
+  - kind: practice
+    ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S1 TOUR (20 cards)"
+  - kind: practice
+    ref: "Test 2 V2.0 attempt 1 — `struct desk_data { int room_id; int d_id; int number_of_screens; };`"
+  - kind: practice
+    ref: "Practice test — `struct computer_data { int id; string description; string location; };`"
+commonMistakes:
+  - CM-F20a  # missing ; after closing }
+  - CM-F20b  # capitalised struct name
+  - CM-F20c  # capital Struct keyword
+  - CM-F20d  # missing ; on field line
+  - CM-F20e  # uses class instead of struct
+notes:
+  cardMix: { showAnswer: 4, spotError: 6, worked: 5, compare: 3, recall: 2 }

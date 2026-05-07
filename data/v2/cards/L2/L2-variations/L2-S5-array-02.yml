@@ -1,0 +1,28 @@
+
+id: "L2-S5-array-02"
+schemaVersion: "v2"
+atomId: "L-25"
+qTags: ["Q2"]
+stage: 5
+level: "L2"
+type: "StructWriteCard"
+stem: "Q2 array-field peek #2. A struct can hold a fixed-size array as one of its fields, written `type name[SIZE];`."
+prompt: "lab_data for an extended desk lab: an array of `desk_ids[SIZE]` ints plus the room_id int."
+canonicalAnswer: |
+  struct lab_data
+  {
+      int desk_ids[SIZE];
+      int room_id;
+  };
+requiredFields: ["desk_ids","room_id"]
+keyChecks: ["struct lab_data","};","["]
+forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
+explanation: "Q1 uses an array-field struct (`stat_double { double numbers[SIZE]; double mystery; }`). The pattern: `type field_name[SIZE];`."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.6 S5 VARIATIONS"
+commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Q1-shape preview through Q2 lens."

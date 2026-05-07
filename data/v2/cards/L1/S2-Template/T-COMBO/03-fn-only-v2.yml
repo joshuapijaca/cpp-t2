@@ -1,0 +1,55 @@
+id: "L1-S2-TC0-03-fn-only-v2"
+schemaVersion: "v2"
+atomId: "T-08"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Type just the V2.0 function (struct already given). 7 lines.
+
+prompt: |
+  The struct is given. Type the function definition.
+
+template: |
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+  // type the V2.0 function
+
+canonicalAnswer: |
+  void who_am_i(stat_double &data) {
+    data.mystery = 0.0;
+    for (int i = 0; i < SIZE; i++) {
+      if (data.numbers[i] > 0) {
+        data.mystery = data.mystery + data.numbers[i];
+      }
+    }
+  }
+
+keyChecks:
+  - "void who_am_i(stat_double &data)"
+  - "data.mystery = 0.0"
+  - "for (int i = 0; i < SIZE; i++)"
+  - "data.numbers[i] > 0"
+  - "data.mystery = data.mystery + data.numbers[i]"
+
+forbiddenTokens:
+  - "while"
+
+explanation: |
+  Function-only sub-rep. 7 lines of body inside the function braces.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — function body"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-COMBO V2.0 fn-only.
+authoringStatus: "DRAFT"

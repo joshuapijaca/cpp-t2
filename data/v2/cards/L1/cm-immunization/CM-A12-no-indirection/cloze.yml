@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-A12-no-indirection
+id: "L1-cmimm-CM-A12-no-indirection-cloze"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-A12-no-indirection mistake."
+
+code: |
+  // algo A12: mystery = mystery + numbers[___]
+  // (this is the indirection that makes A12 unique)
+
+clozeSentence: 'Fill in the index expression (it is NOT i).'
+
+answer: 'mystery'
+
+explanation: |
+  A12 indexes by `mystery`, creating an indirection (one extra read).
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-A12-no-indirection)"
+
+commonMistakeIds: ["CM-A12-no-indirection"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

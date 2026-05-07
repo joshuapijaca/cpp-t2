@@ -1,0 +1,29 @@
+id: "L4-S2-typeline-02"
+schemaVersion: "v2"
+atomId: "Q-01"
+qTags: 
+  - "Q4"
+stage: 2
+level: "L4"
+type: "TemplateRecallCard"
+stem: "Type the canonical line for: const MAX decl."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.2 S2 typeline drill"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Slot: const MAX decl. Type the line."
+template: "const int MAX = ___;"
+canonicalAnswer: "const int MAX = 700;"
+keyChecks: 
+  - "const"
+  - "int"
+  - "MAX"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+  - "scanf"
+explanation: "Canonical: `const int MAX = 700;`. This is the exact line for \"const MAX decl\" in the V2.0/practice main() skeleton."

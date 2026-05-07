@@ -1,0 +1,45 @@
+# =====================================================================
+# L0 / F-10 / ClozeCard 03
+# Atom: Primitive types — string for text
+# =====================================================================
+id: "L0-F10-cloze-03"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the type. Text values in SIT102 use one specific type that
+  needs an extra include.
+
+code: |
+  #include <iostream>
+  #include <___>
+  using namespace std;
+  int main() {
+    ___ first_name = "ana";
+    return 0;
+  }
+
+clozeSentence: |
+  Text values in SIT102 use the type `___`. The same word fills both
+  blanks above (the include header AND the variable type).
+
+answer: "string"
+
+explanation: |
+  `string` is the text type. The include header `<string>` brings the
+  type into scope. Both blanks take the same word: `string`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/3-structuring-data/0-panorama/0-type"
+
+commonMistakeIds: ["CM-F10b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Reinforces the include + type pairing.

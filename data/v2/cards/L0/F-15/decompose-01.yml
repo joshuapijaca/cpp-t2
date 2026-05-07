@@ -1,0 +1,68 @@
+# =====================================================================
+# L0 / F-15 / DecomposeCard 01
+# Atom: Prompt-then-read pair (order matters)
+# =====================================================================
+id: "L0-F15-decomp-01"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes the snippet below intending to read a value
+  with a label. Pick the option that best describes what is wrong.
+
+code: |
+  int desk_id;
+  cin >> desk_id;
+  cout << "desk_id: ";
+
+question: |
+  Why is this NOT a correct prompt-pair?
+
+options:
+  - label: "A"
+    text: |
+      The cin and cout lines are in the wrong order. The PROMPT must
+      come BEFORE the read. As written, the program freezes waiting
+      for input with no label, then prints the label after the user
+      typed.
+  - label: "B"
+    text: |
+      The variable type is wrong; cin only works with double, not
+      int.
+  - label: "C"
+    text: |
+      The prompt label is missing a question mark.
+  - label: "D"
+    text: |
+      The cout must use `>>` to talk to cin.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. The pattern is ALWAYS prompt first, read second:
+  ```
+  cout << "label: ";
+  cin >> variable;
+  ```
+  As written, the user sees a blank screen, types blindly, and only
+  AFTER the program reads sees the label printed.
+
+  B is wrong: cin works with int, double, string.
+  C is wrong: question marks are stylistic, not required.
+  D is wrong: cout always uses `<<`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+
+commonMistakeIds: ["CM-F15c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Targets the prompt-after-read order error. Specifically tested by
+  Q3 marking rubric.

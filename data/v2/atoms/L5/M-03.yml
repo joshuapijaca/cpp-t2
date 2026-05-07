@@ -1,0 +1,22 @@
+id: M-03
+name: "Adversarial + postmortem + wildcard S5.5 (4-field, while-loop edge, dynamic-count)"
+level: L5
+phase: C
+teaches: "Postmortem cards diff failed mock answers vs canonical; wildcard cards (S5.5) cover the 20% test-day risk of an unfamiliar shape (4-field struct, dynamic count, edge inputs)."
+prereqs: [M-01, M-02]
+usedByQs: [Q1, Q2, Q3, Q4]
+cardCountTarget: 50
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt + V2.0 — failure repair drills"
+  - kind: v2
+    ref: "Test 2 V2.0 attempt 1 — wildcard 4-field struct + dynamic count examples"
+commonMistakes:
+  - CM-mutate-array
+  - CM-int-vs-double
+  - CM-skipped-field
+  - CM-2-fields-1-line
+notes:
+  cardMix: { postmortem: 30, wildcard: 20 }
+  stage: S5_5
+  exposureClass: medium

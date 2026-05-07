@@ -1,0 +1,57 @@
+# =====================================================================
+# L0 / F-13a / DecomposeCard 01
+# Atom: cout << operator direction
+# =====================================================================
+id: "L0-F13a-decomp-01"
+schemaVersion: "v2"
+atomId: "F-13a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes `cout >> x;` intending to print x. Pick the option
+  that best describes what is wrong.
+
+code: |
+  int x = 7;
+  cout >> x;
+
+question: |
+  What is wrong with `cout >> x;`?
+
+options:
+  - label: "A"
+    text: |
+      The arrow direction is wrong. `>>` is for INPUT (cin >> x).
+      To print, the arrow must point toward cout: `cout << x;`.
+  - label: "B"
+    text: |
+      The semicolon is in the wrong place; it must come before `x`.
+  - label: "C"
+    text: |
+      The variable `x` must be quoted to print: `cout >> "x";`.
+  - label: "D"
+    text: |
+      The line is correct; cout accepts both `<<` and `>>` for output.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. cout uses `<<` (points TOWARD cout, into cout). cin
+  uses `>>` (points AWAY from cin, into the variable). Mixing them is
+  the most common Q3/Q4 syntax error.
+
+  The fix: `cout << x;`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F13a-1", "CM-F13a-2"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Targets the cout/cin direction confusion that cripples Q3.

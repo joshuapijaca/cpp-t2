@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 18 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Self-update with subtraction
+# =====================================================================
+id: "L0-F23-trace-18"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. The pattern is the same as card 17 but with a minus.
+  Final value of `n`?
+
+code: |
+  int main() {
+    int n = 8;
+    n = n - 3;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "8"
+    output: null
+  - line: 3
+    variable: "n"
+    value: "5"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Read 8, compute 8 - 3 = 5, write 5 back into `n`. Final panel:
+  { n: 5 }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 18/30"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Variant of card 17. Different operator, same shape.

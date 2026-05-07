@@ -1,0 +1,23 @@
+id: CM-missing-semi-field
+name: "Student omits semicolon at end of a field declaration"
+description: |
+  Inside `struct { ... }`, every field line ends with `;`. Students miss
+  one or more of these terminators. Compiler error cascades.
+whyItHappens: |
+  Three field lines + closing-brace `;` means four `;` per struct. With
+  many adjacent semicolons the eye drifts and one gets dropped. Also
+  Python/JS background omits line-terminators.
+immunizationStrategy: |
+  1. SpotError: struct with one field missing `;`; spot it.
+  2. Cloze: blank for each `;` in a 3-field struct.
+  3. MCQ: "How many `;` does a 3-field struct have? (4 — fields + close)"
+  4. WriteCard with key-check on every `;` location.
+  5. Demo card: highlight every `;` in a canonical struct.
+  6. Decompose: count terminators in a given struct.
+examImpact: medium
+atomDependencies: [F-07, F-20]
+qTracks: [Q2]
+relatedCMs: [CM-missing-semi-after-brace]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §4.6 Q2 Common Errors — missing `;` per field MEDIUM"

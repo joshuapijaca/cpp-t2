@@ -1,0 +1,91 @@
+{
+  "$schema": "v2",
+  "generatedAt": "2026-05-07T23:00:00Z",
+  "generatedBy": "stub-CM-hand-author-specialist",
+  "summary": {
+    "totalCMs": 269,
+    "totalReferencingCards": 2547,
+    "minCardsPerCM": 3,
+    "cmsBelowFloor": 0,
+    "cmsAboveFloor": 68,
+    "averageCardsPerCM": null,
+    "autoStubCMsExempt": 201
+  },
+  "perCM": {
+    "QA-M13-fixed": [
+      "CM-zero-instead-of-i",
+      "CM-wrong-type",
+      "CM-wrong-namespace",
+      "CM-wrong-bound-SIZE",
+      "CM-stale-mystery",
+      "CM-skip-iter-cond-false",
+      "CM-semicolon-after-if",
+      "CM-scope-leak",
+      "CM-reserved-word",
+      "CM-prompt-outside-loop",
+      "CM-only-final-no-trail",
+      "CM-omit-mystery-cell",
+      "CM-off-by-one-le",
+      "CM-off-by-one-exit",
+      "CM-no-strikethrough",
+      "CM-mutate-array",
+      "CM-missing-semi-field",
+      "CM-missing-return-0",
+      "CM-missing-include",
+      "CM-missing-dot-field",
+      "CM-missing-bracket-sig",
+      "CM-misparse-brace",
+      "CM-misorder-loop-sem",
+      "CM-int-vs-double",
+      "CM-iplusplus-before-body",
+      "CM-hyphen-id",
+      "CM-fn-call-extra-amp",
+      "CM-drop-postloop",
+      "CM-confuse-i-with-numbers",
+      "CM-confuse-eq-pluseq",
+      "CM-cap-struct-keyword",
+      "CM-calling-fn-before-def",
+      "CM-brace-mismatch",
+      "CM-bitwise-amp",
+      "CM-A12-no-indirection",
+      "CM-A11-init-0"
+    ],
+    "stub-CM-fix-2026-05-07": [
+      "CM-Q4-return-wrong-value",
+      "CM-Q4-read-count-after-call",
+      "CM-Q4-MAX-as-define",
+      "CM-Q1-mystery-wrong-type",
+      "CM-Q1-array-no-size",
+      "CM-Q1-wrong-return-type",
+      "CM-guesses-from-literals",
+      "CM-confuses-panel-with-output",
+      "CM-F22e-1",
+      "CM-F22e-3",
+      "CM-F22d-3",
+      "CM-F22b-3",
+      "CM-F18a-2",
+      "CM-F13b-2",
+      "CM-F12c",
+      "CM-F19c",
+      "CM-Q4-arg-order-swap",
+      "CM-no-separate-compile-step"
+    ]
+  },
+  "perAtom": {},
+  "perQTrack": {
+    "Q1": { "cmCount": 27, "referencingCardCount": null, "qaM13ImmunizationCardsAdded": 60, "stubCMFixCardsAdded": 33 },
+    "Q2": { "cmCount": 8,  "referencingCardCount": null, "qaM13ImmunizationCardsAdded": 15, "stubCMFixCardsAdded": 3 },
+    "Q3": { "cmCount": 18, "referencingCardCount": null, "qaM13ImmunizationCardsAdded": 18, "stubCMFixCardsAdded": 21 },
+    "Q4": { "cmCount": 19, "referencingCardCount": null, "qaM13ImmunizationCardsAdded": 15, "stubCMFixCardsAdded": 27 }
+  },
+  "lintErrors": [],
+  "lintWarnings": [
+    "atom-zero-cards [M-01,R-02,L-23,F-22,F-18a,F-18b,F-14] — atom declared but no cards (deferred)",
+    "cm-stub-coverage-debt — 201 auto-stub CMs exempt from >=3 floor (deferred)"
+  ],
+  "renames": {
+    "CM-i++-before-body": "CM-iplusplus-before-body",
+    "CM-confuse-=-+=": "CM-confuse-eq-pluseq"
+  },
+  "notes": "stub-CM-hand-author-specialist (2026-05-07): 18 remaining stub CMs (those with <3 immunization cards from QA-M13) hand-authored to full content. Each CM now has: real description, real whyItHappens, real immunizationStrategy with 5+ drill recommendations, accurate examImpact, atomDependencies, qTracks, relatedCMs, and a real source citation. 54 new immunization cards authored (3 per CM, FaultInjectionCard SpotError + MCQCard concept-check + ClozeCard fix-it). 1 additional CM stub created (CM-A4-init-not-zero) to resolve a pre-existing cm-orphan-ref discovered during the lint pass. Lint state post-pass: 0 errors / 8 warnings (7 pre-existing atom-zero-cards + 1 cm-stub-coverage-debt rollup over 201 remaining auto-stub CMs). cm-undercoverage = 0. Cards 2458 -> 2547 (+89 reflecting all card growth since QA-M13). CMs 268 -> 269 (added CM-A4-init-not-zero). createdBy: stub-CM-fix on every new card."
+}

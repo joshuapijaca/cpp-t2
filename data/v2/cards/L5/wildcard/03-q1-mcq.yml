@@ -1,0 +1,31 @@
+id: "L5-wildcard-03-q1"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 5
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  S5.5 wildcard: Empty cond run.
+
+correct: "mystery is unchanged from pre-loop init."
+
+distractors:
+  - "mystery becomes the brace-init seed."
+  - "mystery becomes the last element."
+  - "compile error."
+
+explanation: |
+  If no element triggers the if-condition, mystery keeps the pre-loop init value.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 wildcard"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #3: Q1 Empty cond run.

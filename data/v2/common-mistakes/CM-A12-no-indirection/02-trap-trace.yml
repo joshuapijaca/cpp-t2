@@ -1,0 +1,44 @@
+id: "CM-A12-no-indirection-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-A12-no-indirection: Q1 forgot data. indirection.
+
+code: |
+  // Trap: Wrote `mystery = numbers[i]` instead of `data.mystery = data.numbers[i]`.
+  mystery = numbers[i];
+  ;
+
+question: |
+  What goes wrong with the line above on Q1?
+
+options:
+  - label: "A"
+    text: "Wrote `mystery = numbers[i]` instead of `data.mystery = data.numbers[i]`."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Wrote `mystery = numbers[i]` instead of `data.mystery = data.numbers[i]`. The canonical pattern is: data.mystery = data.numbers[i];
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-A12-no-indirection"
+
+commonMistakeIds: ["CM-A12-no-indirection"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-A12-no-indirection.

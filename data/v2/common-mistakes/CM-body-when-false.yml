@@ -1,0 +1,28 @@
+id: CM-body-when-false
+name: "Student runs the loop body when the guard is false"
+description: |
+  In a for-loop trace, when `i < SIZE` evaluates to false, the body must
+  NOT run — control jumps out of the loop. Students still walk through one
+  more body iteration, mutating mystery one extra time, producing a trace
+  that overshoots the array by one cell.
+whyItHappens: |
+  Students treat the cond check as cosmetic and just keep iterating until
+  "feels done." The procedural mental model is "loop till array exhausted,"
+  not "evaluate cond every iter, exit immediately when false." The seminar
+  walkthrough at i==SIZE shows the cond evaluation visibly stops execution.
+immunizationStrategy: |
+  1. Trap-trace where the off-by-one body-on-false answer differs by exactly
+     the last array cell's contribution.
+  2. SpotError card with a buggy trace that ran one extra iteration.
+  3. MCQ: "When i==SIZE, does the body run? (yes/no)"
+  4. Procedural card: write the order of evaluation (init, cond, body, post).
+  5. Decompose card: split a for-loop into init/cond/body/post, label which
+     fires on the exit iter.
+  6. Trace pair: identical loops differing only by one false-cond iter.
+examImpact: high
+atomDependencies: [F-18a, F-18b, A4]
+qTracks: [Q1]
+relatedCMs: [CM-off-by-one-exit, CM-misorder-loop-sem]
+source:
+  kind: seminar
+  ref: "SIT102 Seminar Mondays 6pm new (2) — for-loop semantics walkthrough"

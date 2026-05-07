@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-13 / DecomposeCard 01 — chain order is left-to-right
+# =====================================================================
+id: "L0-F13-decompose-01"
+schemaVersion: "v2"
+atomId: "F-13"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Decide what the chained cout writes to the terminal. Read
+  left-to-right.
+
+code: |
+  int x = 3;
+  int y = 5;
+  cout << x << "+" << y << "=" << x + y << endl;
+
+question: |
+  What is the exact terminal line produced by the cout chain?
+
+options:
+  - label: "A"
+    text: "3+5=8"
+  - label: "B"
+    text: "x+y=x+y"
+  - label: "C"
+    text: "8"
+  - label: "D"
+    text: "3 + 5 = 8"
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. cout chains push each piece left-to-right: 3, then
+  the literal `+`, then 5, then `=`, then the value of `x + y` (which
+  is 8), then a newline.
+  B is wrong: variable values are inserted, not their names.
+  C is wrong: the literal characters are also part of the output.
+  D is wrong: nothing in the chain inserts spaces — only the
+  characters explicitly written between quotes appear.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec F-13 — chained output left-to-right semantics"
+
+commonMistakeIds: ["CM-F13a-2"]
+status: "NEW"
+createdBy: "atom-coverage-fix"
+authoringStatus: "DRAFT"
+notes: |
+  Decompose form for atom type-diversity per QA-M10. Reinforces
+  left-to-right chain semantics + fact that values (not names) are
+  printed.

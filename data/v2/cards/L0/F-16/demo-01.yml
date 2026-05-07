@@ -1,0 +1,58 @@
+# =====================================================================
+# L0 / F-16 / DemoCard 01
+# Atom: Comparison operators - the six-operator family
+# =====================================================================
+id: "L0-F16-demo-01"
+schemaVersion: "v2"
+atomId: "F-16"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: every comparison operator takes two values and produces a
+  single bool. There are EXACTLY six. Memorise the family, the
+  symbol order, and what each one ASKS.
+
+whyOneLine: "Comparison operators are how you ask the program a yes/no question — the answer drives every if and every loop test."
+
+demoCode: |
+  ┌─ COMPARISON OPERATORS ─────────────────────────────────┐
+  │  ==   equal to            (a == b)  is a equal to b?   │
+  │  !=   not equal to        (a != b)  is a not equal?    │
+  │  <    less than           (a <  b)  is a less than b?  │
+  │  >    greater than        (a >  b)  is a greater?      │
+  │  <=   less than or equal  (a <= b)  is a <= b?         │
+  │  >=   greater or equal    (a >= b)  is a >= b?         │
+  ├────────────────────────────────────────────────────────┤
+  │  output type: bool   (true / false)                    │
+  │  used inside: if (cond) { ... }                        │
+  │  WARNING:    `=` is ASSIGN, `==` is COMPARE            │
+  │              `<=` not `=<`,  `>=` not `=>`             │
+  └────────────────────────────────────────────────────────┘
+
+highlightTokens:
+  - "=="
+  - "!="
+  - "<="
+  - ">="
+  - "bool"
+  - "ASSIGN"
+  - "COMPARE"
+
+usedIn:
+  - "Q1 if condition: data.numbers[i] > data.mystery"
+  - "Q1 for loop test: i < SIZE"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-0-boolean-data"
+
+commonMistakeIds: ["CM-F16a", "CM-F16c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Family card. Establishes the closed set of
+  six operators so student can recognise them as one category.
+authoringStatus: "DRAFT"

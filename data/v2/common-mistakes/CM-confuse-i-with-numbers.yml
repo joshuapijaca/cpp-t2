@@ -1,0 +1,27 @@
+id: CM-confuse-i-with-numbers
+name: "Student confuses `i` (the index) with `numbers[i]` (the value)"
+description: |
+  The loop uses `i` as a counter and `numbers[i]` as the array value at
+  that counter. Students substitute `i` directly into expressions where
+  `numbers[i]` is meant, e.g. computing `mystery = i + 1` instead of
+  `mystery = mystery + numbers[i]`. Final answer is sum of indices, not
+  values.
+whyItHappens: |
+  The two are visually adjacent and the indirection is non-trivial. Many
+  students at this level have not yet internalised that `i` is a level of
+  meta-pointer to a cell. Reading `numbers[i]` requires two thoughts:
+  "what is i?" and "what is at numbers[i]?"
+immunizationStrategy: |
+  1. SpotError: trace summing indices instead of values; spot the slip.
+  2. MCQ: "When i==2, `numbers[i]` is...? (the value at index 2)"
+  3. Cloze: fill in three expressions distinguishing `i` from `numbers[i]`.
+  4. Decompose: split `numbers[i]` into INDEX-i, READ-array-at-i.
+  5. Pair-trace: identical loops, one uses i, one uses numbers[i].
+  6. Demo card: side-by-side i column vs numbers[i] column for 5 iters.
+examImpact: high
+atomDependencies: [F-19, F-21, A4]
+qTracks: [Q1]
+relatedCMs: [CM-mutate-array, CM-A12-no-indirection]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-2/5 — array element access"

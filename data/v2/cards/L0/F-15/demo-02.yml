@@ -1,0 +1,60 @@
+# =====================================================================
+# L0 / F-15 / DemoCard 02
+# Atom: Prompt-then-read pair (V2.0 main pattern)
+# =====================================================================
+id: "L0-F15-demo-02"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch how the prompt-pair plugs into a Q4 main. The full sequence:
+  read the count, loop that many times, prompt-and-read each value.
+
+whyOneLine: "Q4 main = (1) prompt+read count; (2) for-loop prompt+read each element."
+
+demoCode: |
+  // Q4 main (sketch): read N desks, then print them.
+  int main() {
+    int num_to_read;
+    cout << "num_to_read: ";
+    cin >> num_to_read;
+
+    desk_data desks[MAX];
+    int i;
+    for (i = 0; i < num_to_read; i++) {
+      cout << "desk " << i << " desk_id: ";
+      cin >> desks[i].desk_id;
+
+      cout << "desk " << i << " price: ";
+      cin >> desks[i].price;
+    }
+
+    // ... (then print the list) ...
+    return 0;
+  }
+
+highlightTokens:
+  - 'cout << "num_to_read: "'
+  - "cin >> num_to_read"
+  - 'cout << "desk " << i << " desk_id: "'
+  - "cin >> desks[i].desk_id"
+  - 'cout << "desk " << i << " price: "'
+  - "cin >> desks[i].price"
+
+usedIn:
+  - "Q4 main: full read sequence"
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: Q4 main reads num_to_read then loops reading desks"
+
+commonMistakeIds: ["CM-F15a", "CM-F15c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  The complete Q4 read flow. Three nested prompt-pairs.

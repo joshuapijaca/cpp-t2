@@ -1,0 +1,22 @@
+id: C-03
+name: Map values to indices 0..4
+level: L1
+teaches: First inner value = numbers[0]; last = numbers[4]. Index starts at 0.
+prereqs:
+  - F-19
+usedByQs:
+  - Q1
+cardCountTarget: 16
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-03
+    quote: 'C-03: 16 cards. Map values to indices 0..4.'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C03a
+  - CM-C03b
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

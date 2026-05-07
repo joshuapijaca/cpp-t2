@@ -1,0 +1,43 @@
+id: "L5-warmup-08-q4"
+schemaVersion: "v2"
+atomId: "M-04"
+qTags: ["Q4"]
+stage: 6
+level: "L5"
+type: "DemoCard"
+
+stem: |
+  Q4 canonical main demo. D7 warmup demo — passive observation.
+
+whyOneLine: "See the canonical Q4 main one more time before the test."
+
+demoCode: |
+  int main() {
+    const int MAX = 100;
+    desk_data arr[MAX];
+    int count;
+    cin >> count;
+    read_desks(arr, count);
+    print_desks(arr, count);
+    return 0;
+  }
+
+highlightTokens:
+  - "&data"
+  - "for ("
+  - "cin"
+  - "return 0;"
+
+usedIn:
+  - "Every Test 2 Q4 attempt"
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q4 — D7 warmup demo"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  D7 warmup #8: canonical Q4 demo.

@@ -1,0 +1,44 @@
+# =====================================================================
+# L0 / F-06 / MCQCard 02
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-mcq-02"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which of these is the correct, idiomatic SIT102 form of the
+  entry-function header?
+
+correct: "int main() {"
+
+distractors:
+  - "void main() {"
+  - "int Main() {"
+  - "int main {"
+
+explanation: |
+  Correct form: `int main() {` — return type `int`, lowercase name
+  `main`, empty parameter list `()`, opening brace `{`.
+
+  `void main()` is not valid standard C++; main must return int.
+  `int Main()` capitalises the M; identifiers are case-sensitive,
+  so `Main` is not the entry point the OS looks for.
+  `int main {` drops the parentheses; the parameter list is required
+  even when empty.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F06b", "CM-F06d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Form-MCQ. Each distractor encodes a specific real beginner typo.
+  Forces commitment to the exact 4-element shape of the header.

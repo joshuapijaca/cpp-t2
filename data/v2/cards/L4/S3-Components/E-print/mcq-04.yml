@@ -1,0 +1,22 @@
+id: "L4-S3E-mcq-04"
+schemaVersion: "v2"
+atomId: "Q-06"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "MCQCard"
+stem: "Chained vs separate cout — both legal?"
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block E mcq"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+correct: "Yes — `cout << a << b;` and `cout << a; cout << b;` are equivalent."
+distractors: 
+  - "No — chained is required."
+  - "No — separate is required."
+  - "Chained is faster but separate is safer."
+explanation: "Both produce the same output. Chained is the canonical SIT102 idiom."

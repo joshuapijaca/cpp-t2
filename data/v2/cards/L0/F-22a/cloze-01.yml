@@ -1,0 +1,38 @@
+# =====================================================================
+# L0 / F-22a / ClozeCard 01 — return type position
+# =====================================================================
+id: "L0-F22a-cloze-01"
+schemaVersion: "v2"
+atomId: "F-22a"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing return type for a procedure (returns nothing).
+
+code: |
+  ___ who_am_i(stat_double &data)
+  {
+  }
+
+clozeSentence: "___ who_am_i(...) { }   // procedure, returns nothing"
+
+answer: "void"
+
+explanation: |
+  `void` is the return type for a function that returns no value.
+  It comes FIRST in the header, before the function name. Test 2
+  Q3 read procedures all have return type `void`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/00-procedures"
+
+commonMistakeIds: ["CM-F22a-1"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Single-token cloze on the return type position.

@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-11 / ProceduralCard 02 (μWrite)
+# Atom: Variable declaration + initialisation (double)
+# =====================================================================
+id: "L0-F11-proc-02"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a single declaration line for a decimal accumulator.
+
+section: "F-11 declare-and-init drills"
+
+prompt: |
+  Declare a double `total` initialised to 0.0. End with a semicolon.
+
+expectedAnswer: "double total = 0.0;"
+
+keyChecks: ["double total = 0.0;"]
+
+variants:
+  - prompt: |
+      Declare a double `mystery` initialised to 0.0. End with a
+      semicolon.
+    expectedAnswer: "double mystery = 0.0;"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: data.mystery = 0.0; (declare/init for accumulator)"
+
+commonMistakeIds: ["CM-F11b"]
+
+notes: |
+  V2.0-anchored variant uses the EXACT field name from the test.

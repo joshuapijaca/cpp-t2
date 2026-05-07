@@ -1,0 +1,28 @@
+id: F-19
+name: "Fixed-size array T arr[N]"
+level: L0
+phase: E
+teaches: "`int arr[5];` declares 5 ints. N must be compile-time const. Indices 0..N-1. C++ arrays don't carry size."
+prereqs: [F-11, F-18b]
+usedByQs: [Q1, Q3, Q4]
+cardCountTarget: 24
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
+    quote: "An array is a variable that contains multiple values, each accessible via an index."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
+    quote: "When you declare an array with 4 elements, it will use indexes 0 to 3."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
+    quote: "int my_array[4]; declares an array of 4 integers."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:26:54 — Saloni: 'how do we draw an array is by ... Just like this. Now what is the size of the array which is 5?'"
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:27:11 — Saloni: 'the array usually starts with zero, so we'll start with zero'"
+commonMistakes:
+  - CM-F19a  # uses non-const for size: int arr[count];
+  - CM-F19b  # accesses arr[N] (out of bounds)
+  - CM-F19c  # treats arr.length as available (no — C++ arrays don't carry size)
+notes:
+  cardMix: { walkthrough: 2, demo: 3, decompose: 3, trace: 4, cloze: 4, μWrite: 4, tmplRec: 1, mcq: 2, proc: 1 }

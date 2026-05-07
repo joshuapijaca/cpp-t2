@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-20 / DemoCard 03
+# Atom: struct definition — case + keyword conventions
+# =====================================================================
+id: "L0-F20-demo-03"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: the keyword is `struct` (lowercase). The C++ language is
+  case-sensitive — `Struct` is not a keyword and will fail to
+  compile.
+
+whyOneLine: "The keyword is `struct` (lowercase). `Struct` and `STRUCT` are NOT keywords."
+
+demoCode: |
+  // CORRECT — keyword `struct` is lowercase:
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+  // WRONG — `Struct` is not a keyword:
+  // Struct stat_double { ... };          // <- will not compile
+  // STRUCT stat_double { ... };          // <- will not compile
+
+  // The struct NAME can be lower or snake_case. Test 2 V2.0 uses
+  // snake_case: `stat_double`.
+
+highlightTokens:
+  - "struct"
+  - "Struct"
+  - "STRUCT"
+  - "stat_double"
+
+usedIn:
+  - "Q2 entity write (the keyword `struct` must be lowercase)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20c", "CM-F20b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Drills CM-F20c (capital S) and CM-F20b (capital struct name).
+  Both are real misconceptions: students who used C# or Pascal-case
+  conventions tend to write `Struct Computer_Data`.

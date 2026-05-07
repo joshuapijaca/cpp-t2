@@ -1,0 +1,25 @@
+# =====================================================================
+# L3 / R-02a / MCQCard — signature mcq
+# =====================================================================
+id: "L3-R02a-mcq-09"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "MCQCard"
+stem: |
+  Brackets [] go where?
+correct: "after parameter name"
+distractors:
+  - "after type"
+  - "after & only"
+  - "outside parens"
+explanation: |
+  after parameter name
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

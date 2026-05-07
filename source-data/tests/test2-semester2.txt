@@ -1,0 +1,73 @@
+SIT102 Test 2 Semester 1, 2025 ­ Variant
+
+1. Code Execution
+The following struct and function are defined:
+const int SIZE = 5;
+
+struct stat_float {
+  float values[SIZE];
+  float result;
+
+};
+
+void find_min(stat_float &data) {
+  int i;
+  data.result = data.values[0];
+
+  for (i = 0; i < SIZE; i++) {
+    if (data.values[i] < data.result) {
+       data.result = data.values[i];
+    }
+
+  }
+
+  return;
+}
+
+Hand-execute the code below using the function. What is the
+final value of d.result?
+
+stat_float d = { {4.5, -3.2, 6.0, 0.0, -7.1}, 99.0 };
+find_min(d);
+
+Page 2 of 4
+
+2. Office Device Data Structure
+You are designing a program to manage office printers. Each printer record should store:
+    · a serial number (string),
+    · a model name (string),
+    · and the department it belongs to (string).
+
+Write a struct named printer_data to capture these fields.
+
+3. Read Function
+
+Write a function that reads information from the
+terminal for one printer.
+
+void read_printer(printer_data &printer)
+
+4. Print List Function
+
+Write a function to print all printers from an array, given
+the total count.
+
+void print_printer_list(printer_data list[], int count)
+
+Page 3 of 4
+
+5. Main Function
+
+Write the main function that:
+
+    · Asks the user how many printers are being tracked,
+    · Calls your read_printer function for each,
+    · Then prints them using print_printer_list.
+int main() {
+  const int MAX_PRINTERS = 50;
+  printer_data printers[MAX_PRINTERS];
+  int printer_count;
+
+  // Your code here...
+}
+

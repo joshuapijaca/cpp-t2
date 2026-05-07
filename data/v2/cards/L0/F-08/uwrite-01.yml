@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-08 / ProceduralCard 01 (μ-write)
+# Atom: Block delimiters: { and }
+# =====================================================================
+id: "L0-F08-uwrite-01"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a complete empty function body — header line, opening brace,
+  one body statement (`return 0;`), closing brace.
+
+section: "L0 · F-08 · μ-write — empty function body with matched braces"
+
+prompt: |
+  Type the smallest legal main function. Use the canonical header,
+  open with `{`, body has only `return 0;`, close with `}`.
+
+expectedAnswer: |
+  int main() {
+    return 0;
+  }
+
+keyChecks:
+  - "int main()"
+  - "{"
+  - "return 0;"
+  - "}"
+
+variants:
+  - prompt: "Type the empty function body skeleton — header, opening brace, return 0, closing brace."
+    expectedAnswer: |
+      int main() {
+        return 0;
+      }
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 1: empty function with matched braces. Locks in the
+  open/close pair as a unit.

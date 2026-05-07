@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-18 / TemplateRecallCard 05 — pure skeleton
+# =====================================================================
+id: "L0-F18-tmplrec-01"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Recall and write the canonical for-loop SKELETON with
+  placeholders for init / test / step / body.
+
+prompt: |
+  Produce the empty for-loop skeleton with the three header slots
+  and one body line.
+
+template: |
+  for (___; ___; ___) {
+    ___;
+  }
+
+canonicalAnswer: |
+  for (init; test; step) {
+    body;
+  }
+
+keyChecks:
+  - "for ("
+  - ";"
+  - ")"
+  - "{"
+  - "}"
+
+forbiddenTokens:
+  - "while"
+  - "do"
+
+explanation: |
+  Memorise this exact shape. `for`, paren, init, semicolon, test,
+  semicolon, step, paren, brace, body with semicolon, brace. Two
+  semicolons inside the header — never commas, never colons.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/04-3-for-loop"
+
+commonMistakeIds: ["CM-F18a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Pure skeleton recall.
+authoringStatus: "DRAFT"

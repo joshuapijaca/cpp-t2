@@ -1,0 +1,52 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 09 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Same code as 08, highlight the for (depth 1)
+# =====================================================================
+id: "L0-F25-mcq-09"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Same code as card 08. This time the HIGHLIGHTED `{` opens the
+  for-loop at depth 1. Which `}` matches?
+
+  ```cpp
+  int main() {                          // depth 0 open
+    for (int i = 0; i < 3; i = i+1) {   // <-- HIGHLIGHT (depth 1)
+      if (i > 0) {                      // depth 2 open
+        cout << i << endl;
+      }                                 // option A (depth 2)
+    }                                   // <-- option B (depth 1)
+    return 0;
+  }                                     // <-- option C (depth 0)
+  ```
+
+correct: "B — the `}` on a line by itself between the if's close and `return 0;` (depth-1 close)."
+
+distractors:
+  - "A — the `}` after the cout, since it is the first `}` you reach."
+  - "C — the final `}` of main, since the for-loop runs the rest of the program."
+  - "D — there is no matching brace; the for body shares main's closing brace."
+
+explanation: |
+  B is correct. depth-1 pairs with depth-1.
+
+  A is wrong: that closes the if (depth 2).
+  C is wrong: that closes main (depth 0).
+  D is wrong: every open has its own close.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 9/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Same shape as card 08; different highlight. Reps the depth rule.

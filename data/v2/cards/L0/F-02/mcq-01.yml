@@ -1,0 +1,43 @@
+# =====================================================================
+# L0 / F-02 / MCQCard 01
+# Atom: Compiler turns source into program
+# =====================================================================
+id: "L0-F02-mcq-01"
+schemaVersion: "v2"
+atomId: "F-02"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  You open a terminal in the folder containing `hello.cpp` and type the
+  command `g++ hello.cpp -o hello`, then press Enter. In this command,
+  what exactly is `g++` and what role does it play in producing the
+  runnable `hello` executable from your `.cpp` source file?
+
+correct: "g++ is the C++ compiler — a separate program that reads the source file and writes an executable."
+
+distractors:
+  - "g++ is the name of the source file you are about to write — `hello.cpp` is just optional documentation."
+  - "g++ is a synonym for the operating system; it is what runs your program once compiled."
+  - "g++ is the file extension required for all C++ source code, replacing `.cpp` on some systems."
+
+explanation: |
+  `g++` (the GNU C++ compiler) is a program installed on the machine.
+  It is invoked from the terminal with the source file as input and
+  produces an executable as output. The compiler is NOT the operating
+  system, NOT a file extension, and NOT the source file — it is a
+  third party that reads your text and writes the runnable binary.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md (Compilers and Interpreters)"
+
+commonMistakeIds: ["CM-no-separate-compile-step"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Targets the "what is g++?" beginner question. The 3 distractors map
+  to 3 distinct confusions: g++/source, g++/OS, g++/extension.

@@ -1,0 +1,42 @@
+id: "CM-2-fields-1-line-fixit"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Fix-it drill for CM-2-fields-1-line. The code has the bug; produce the canonical fix.
+
+brokenCode: |
+  // Q2: Q2 two fields on one line
+  int a; int b;
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  int a;
+int b;
+  ;
+
+bugCategory: "CM-2-fields-1-line"
+
+keyChecks: []
+
+explanation: |
+  Replace the broken line with: int a;
+int b;
+  Diagnosis: Wrote `int a; int b;` on one line — bad style for Test 2.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-2-fields-1-line"
+
+commonMistakeIds: ["CM-2-fields-1-line"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 3/5 (fix-it) for CM-2-fields-1-line.

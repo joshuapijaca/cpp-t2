@@ -1,0 +1,51 @@
+id: "L4-S5-diffentity-08"
+schemaVersion: "v2"
+atomId: "Q-09"
+qTags: 
+  - "Q4"
+stage: 5
+level: "L4"
+type: "MainWriteCard"
+stem: "[entity variation 8/10] Write the full main() for project_data."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.5 S5 entity variations"
+commonMistakeIds: 
+  - "CM-Q4-entity-naming-drift"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "entity = project_data; MAX = 80; count = p_count; fn = read_projects; fields = title, lead, status."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 80;
+      project_data projects[MAX];
+      int p_count;
+  
+      cout << "How many projects? ";
+      cin >> p_count;
+  
+      read_projects(projects, p_count);
+  
+      for (int i = 0; i < p_count; i++)
+      {
+          cout << projects[i].title << ", ";
+          cout << projects[i].lead << ", ";
+          cout << projects[i].status << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 80"
+  - "project_data projects[MAX]"
+  - "int p_count"
+  - "read_projects(projects, p_count)"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+expectedTerminal: 
+  - "How many projects?"
+explanation: "Same skeleton; new entity. Pattern transfer drill."

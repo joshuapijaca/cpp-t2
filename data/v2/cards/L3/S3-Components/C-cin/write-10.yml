@@ -1,0 +1,31 @@
+# =====================================================================
+# L3 / R-02c / FunctionWriteCard — cin into pizzas[i].diameter_cm
+# =====================================================================
+id: "L3-R02c-write-10"
+schemaVersion: "v2"
+atomId: "R-02c"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  GATING (Block C): write ONE cin statement that reads the field
+  'diameter_cm' into the i-th element of 'pizzas'.
+prompt: "Single cin statement: list[i].field shape."
+signatureHint: "cin >> pizzas[i].diameter_cm;"
+canonicalAnswer: |
+  cin >> pizzas[i].diameter_cm;
+keyChecks:
+  - "cin >> pizzas[i].diameter_cm;"
+forbiddenTokens:
+  - "while"
+  - "scanf"
+explanation: |
+  cin >> list[i].field; — composite shape. Index then dot then field.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-missing-index","CM-Q3-missing-field","CM-Q3-zero-instead-of-i"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

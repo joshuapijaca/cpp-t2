@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-20 / DemoCard 02
+# Atom: struct definition — semicolon discipline
+# =====================================================================
+id: "L0-F20-demo-02"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: a struct with N fields has N+1 semicolons. One per field,
+  plus one after the closing `}`. Count them.
+
+whyOneLine: "Every field ends with `;`. The `}` itself also gets a `;` — N+1 semicolons total."
+
+demoCode: |
+  struct stat_double {
+    double numbers[SIZE];   // ; #1 (after field 1)
+    double mystery;         // ; #2 (after field 2)
+  };                        // ; #3 (after closing brace)
+
+  // 2 fields -> 3 semicolons. Always N+1.
+
+  struct three_field {
+    int a;                  // ;
+    int b;                  // ;
+    int c;                  // ;
+  };                        // ;
+  // 3 fields -> 4 semicolons.
+
+highlightTokens:
+  - "; #1"
+  - "; #2"
+  - "; #3"
+  - "};"
+  - "N+1"
+
+usedIn:
+  - "Q2 entity write (the highest-loss error is forgetting `;` after `}`)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20a", "CM-F20d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Semicolon-counting drill. Building a felt rule "fields N -> N+1
+  semicolons" makes the missing `;` after `}` a noticeable absence.

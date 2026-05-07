@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 05 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Single double declaration
+# =====================================================================
+id: "L0-F23-trace-05"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Trace this. The type is `double`, the literal has a decimal point.
+  Final value of `pi` in the variables panel?
+
+code: |
+  int main() {
+    double pi = 3.14;
+    return 0;
+  }
+
+variables: ["pi"]
+
+expectedTrace:
+  - line: 2
+    variable: "pi"
+    value: "3.14"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Box `pi` holds the value 3.14. The panel does not care that the
+  type is `double` instead of `int` — it just stores whatever you
+  put in the box.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 5/30"
+
+commonMistakeIds: ["CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Introduces `double` and decimal literal. Still 1 box, still no
+  arithmetic.

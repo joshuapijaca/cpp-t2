@@ -1,0 +1,39 @@
+id: L1-S3-C-13-decomp-10
+schemaVersion: v2
+atomId: C-13
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: DecomposeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-13
+commonMistakeIds:
+  - CM-C13a
+  - CM-C13b
+stem: Pick the correct execution order for ONE iteration of `for (int i = 0; i < SIZE; i++) { body }`.
+code: |-
+  for (int i = 0; i < SIZE; i++) {
+    // body
+  }
+question: >-
+  Within a single iteration (after the init has already run once), what is the order of the three
+  phases?
+options:
+  - label: A
+    text: 1) i++  2) test i<SIZE  3) run body
+  - label: B
+    text: 1) test i<SIZE  2) run body  3) i++
+  - label: C
+    text: 1) run body  2) i++  3) test i<SIZE
+  - label: D
+    text: 1) run body  2) test i<SIZE  3) i++
+correctLabel: B
+explanation: >-
+  Each iteration: TEST the guard → if true, run BODY → run POST (i++). Then RE-test guard. Body runs
+  BEFORE i++; this is the M05 trap: putting i++ before the body off-by-ones the trace.
+

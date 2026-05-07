@@ -1,0 +1,60 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 20 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Two self-updates in a row
+# =====================================================================
+id: "L0-F23-trace-20"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through carefully. Two updates, one box. Each line uses the
+  CURRENT value of `n` (not the original). Final value?
+
+code: |
+  int main() {
+    int n = 2;
+    n = n + 3;
+    n = n * 2;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "2"
+    output: null
+  - line: 3
+    variable: "n"
+    value: "5"
+    output: null
+  - line: 4
+    variable: "n"
+    value: "10"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Walk it: 2 -> 2+3 = 5 -> 5*2 = 10. The second update uses the
+  result of the first, not the original 2. Final panel: { n: 10 }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 20/30"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Compounding self-updates. If the student grasps this, the loop
+  body in F-18 will not surprise them.

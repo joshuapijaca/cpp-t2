@@ -1,0 +1,47 @@
+id: "L4-S6-novel-timed-08"
+schemaVersion: "v2"
+atomId: "Q-10"
+qTags: 
+  - "Q4"
+stage: 6
+level: "L4"
+type: "SpeedDrillCard"
+stem: "[novel timed 8/10] 90s to write a full main() for menu_data."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.6 S6 timed novel"
+commonMistakeIds: 
+  - "CM-Q4-time-pressure-wrong-arg"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "menu_data: MAX=80, count=menu_num, fn=read_menus, fields=name, price, rating, prompt=\"How many menus?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 80;
+      menu_data menus[MAX];
+      int menu_num;
+  
+      cout << "How many menus? ";
+      cin >> menu_num;
+  
+      read_menus(menus, menu_num);
+  
+      for (int i = 0; i < menu_num; i++)
+      {
+          cout << menus[i].name << ", ";
+          cout << menus[i].price << ", ";
+          cout << menus[i].rating << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 80"
+  - "menu_data menus[MAX]"
+  - "int menu_num"
+  - "read_menus(menus, menu_num)"
+  - "i < menu_num"
+  - "return 0"
+explanation: "90s novel-entity transfer. Tests true fluency: not memorisation, transfer."

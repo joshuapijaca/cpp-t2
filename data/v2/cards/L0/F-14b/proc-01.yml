@@ -1,0 +1,43 @@
+# =====================================================================
+# L0 / F-14b / ProceduralCard 01 (μWrite)
+# Atom: cin reads one whitespace-delimited token (single read)
+# =====================================================================
+id: "L0-F14b-proc-01"
+schemaVersion: "v2"
+atomId: "F-14b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a single line that reads ONE int from the user.
+
+section: "F-14b cin one-token drills"
+
+prompt: |
+  Assume `int num_to_read;` is declared. Write the line that reads
+  the value from the user. End with `;`.
+
+expectedAnswer: "cin >> num_to_read;"
+
+keyChecks: ["cin >> num_to_read;"]
+
+variants:
+  - prompt: |
+      Assume `int desk_count;` is declared. Write the line that reads
+      desk_count from the user. End with `;`.
+    expectedAnswer: "cin >> desk_count;"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: cin >> num_to_read; equivalent (read-count pattern)"
+
+commonMistakeIds: []
+
+notes: |
+  Anchored to the V2.0 read-count name.

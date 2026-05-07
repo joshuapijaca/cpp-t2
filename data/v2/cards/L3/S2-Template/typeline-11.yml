@@ -1,0 +1,33 @@
+# =====================================================================
+# L3 / R-01 / TemplateRecallCard — type a single line
+# =====================================================================
+id: "L3-R01-typeline-11"
+schemaVersion: "v2"
+atomId: "R-01"
+qTags: ["Q3"]
+stage: 2
+level: "L3"
+type: "TemplateRecallCard"
+stem: |
+  Type the for-loop closing brace; close the function body too. The 12-line read_desks skeleton is fixed; type just this line.
+prompt: "Single-line type from skeleton."
+template: |
+  // for-loop {
+  // function {
+    }
+  }
+canonicalAnswer: |
+  // for-loop {
+  // function {
+    }
+  }
+keyChecks:
+  - "}"
+explanation: |
+  Line is one of the 12 in the canonical read_desks skeleton.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

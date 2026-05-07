@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-18 / ClozeCard 01
+# Atom: for keyword
+# =====================================================================
+id: "L0-F18-cloze-01"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the keyword that introduces a counted loop in C++.
+
+code: |
+  ___ (int i = 0; i < SIZE; i++) {
+    cout << i << endl;
+  }
+
+clozeSentence: |
+  ___ (int i = 0; i < SIZE; i++)
+
+answer: "for"
+
+explanation: |
+  `for` is the C++ keyword for a counted loop. The header has three
+  pieces (init; test; step) separated by semicolons.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/04-3-for-loop"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

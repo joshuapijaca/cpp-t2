@@ -1,0 +1,50 @@
+id: "L4-S1-walkthrough-v20"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: 
+  - "Q4"
+stage: 1
+level: "L4"
+type: "WalkthroughCard"
+stem: "Tour the V2.0 main() — desk_data with MAX=700, sum-positive Q1 algorithm. Read each line, see the 7 invariant pieces."
+source: 
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — desk_data main()"
+commonMistakeIds: 
+  - "CM-Q4-missing-const"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+levelLabel: "L4 · Q4 Tour · V2.0 desk main()"
+fullCode: |
+  int main()
+  {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int desk_num;
+  
+      cout << "How many desks? ";
+      cin >> desk_num;
+  
+      read_desks(desks, desk_num);
+  
+      for (int i = 0; i < desk_num; i++)
+      {
+          cout << desks[i].room_id << ", ";
+          cout << desks[i].d_id << ", ";
+          cout << desks[i].number_of_screens << endl;
+      }
+  
+      return 0;
+  }
+steps: 
+  - {line: 1, code: "int main()", annotation: "The entry point. Returns int (0 = success)."}
+  - {line: 3, code: "const int MAX = 700;", annotation: "Compile-time constant. const REQUIRED — used as array bound below."}
+  - {line: 4, code: "desk_data desks[MAX];", annotation: "Fixed-size array of 700 desk_data structs."}
+  - {line: 5, code: "int desk_num;", annotation: "How-many counter, supplied by user at runtime."}
+  - {line: 7, code: "cout << \"How many desks? \";", annotation: "Prompt: tells user what to type."}
+  - {line: 8, code: "cin >> desk_num;", annotation: "Reads desk_num. Now we know the real count."}
+  - {line: 10, code: "read_desks(desks, desk_num);", annotation: "NO & at call site. Pass count, NOT MAX."}
+  - {line: 12, code: "for (int i = 0; i < desk_num; i++)", annotation: "Loop bound by COUNT (not MAX)."}
+  - {line: 14, code: "cout << desks[i].room_id << \", \" << desks[i].d_id << \", \" << desks[i].number_of_screens << endl;", annotation: "Chained cout: 3 fields with comma separator + endl."}
+  - {line: 17, code: "return 0;", annotation: "Success exit. Last statement of main."}

@@ -1,0 +1,24 @@
+id: CM-missing-bracket-sig
+name: "Student omits `[]` in array parameter signature"
+description: |
+  The signature `<entity>_data &list[]` declares list as an array
+  (technically a reference to an array, decay-aware). Students drop `[]`,
+  declaring a single struct reference, which then fails when the body
+  attempts `list[i]`.
+whyItHappens: |
+  Students with no array-parameter experience write the simplest type
+  they can. The brackets feel decorative until the body uses them.
+immunizationStrategy: |
+  1. SpotError: signature `<entity>_data &list` (no `[]`); flag.
+  2. MCQ: "Why do we put `[]` in the parameter? (declares array param)"
+  3. Cloze: blank for `[]` after the parameter name.
+  4. WriteCard with key-check requiring `[]`.
+  5. Decompose: signature anatomy with `[]` highlighted.
+  6. Pair-write: with-[] vs without-[]; show body access fails.
+examImpact: medium
+atomDependencies: [F-19, F-22b]
+qTracks: [Q3]
+relatedCMs: [CM-missing-amp-sig]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §5.5 Q3 Common Errors — Missing `[]` in signature MEDIUM"

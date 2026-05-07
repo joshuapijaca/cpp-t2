@@ -1,0 +1,15 @@
+id: L-26
+name: "Q2 S6 Speed — timed full Q2 under 30/60/90s"
+level: L2
+teaches: "Type a full struct from a 1-line prompt under exam clock. Targets: 30s (3-field), 60s (4-field), 90s (cold-start novel entity). Real-test entities desk_data + computer_data emphasised."
+prereqs: [L-24, L-25]
+usedByQs: [Q2]
+cardCountTarget: 20
+source:
+  - kind: practice
+    ref: "docs/16_test2_specific_redesign_v2.md §4.3 S6 SPEED (20 cards)"
+commonMistakes:
+  - CM-F20a  # missing ; after } — drilled in every speed card
+  - CM-F20d  # missing ; on field
+notes:
+  caps: { 30s: 8, 60s: 8, 90s: 4 }

@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-06 / ProceduralCard 03 (μ-write)
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-uwrite-03"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Cold-recall. From a blank screen, type the FULL canonical Q4
+  skeleton: include preamble, using directive, empty main with
+  return 0, closing brace.
+
+section: "L0 · F-06 · μ-write — full Q4 skeleton from blank"
+
+prompt: |
+  Type the entire 5-line skeleton that every Q4 answer starts with.
+  Nothing on screen. No template. Reproduce from memory.
+
+expectedAnswer: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    return 0;
+  }
+
+keyChecks:
+  - "#include"
+  - "<iostream>"
+  - "using namespace std;"
+  - "int main()"
+  - "return 0;"
+
+forbiddenTokens:
+  - "void main"
+  - "iostream.h"
+
+variants:
+  - prompt: "From a blank screen, type the full empty Q4 skeleton — preamble + main + return."
+    expectedAnswer: |
+      #include <iostream>
+      using namespace std;
+      int main() {
+        return 0;
+      }
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-06 — canonical Q4 skeleton"
+
+commonMistakeIds: ["CM-F06a", "CM-F06b", "CM-F06c", "CM-F06d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 3: ultimate cold-recall drill. Combines F-04, F-05, F-06,
+  F-07, F-08 in one canonical skeleton. This is exactly what the
+  student writes on Test 2 day before filling in the body.

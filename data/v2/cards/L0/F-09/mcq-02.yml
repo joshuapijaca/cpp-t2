@@ -1,0 +1,41 @@
+# =====================================================================
+# L0 / F-09 / MCQCard 02
+# Atom: Identifier rules + naming (keyword reuse)
+# =====================================================================
+id: "L0-F09-mcq-02"
+schemaVersion: "v2"
+atomId: "F-09"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  A student writes `int struct = 0;` and the compiler refuses. Which
+  rule does this break?
+
+correct: "`struct` is a reserved C++ keyword and cannot be used as a variable name."
+
+distractors:
+  - "Variables of type `int` cannot have a value of 0; the compiler complains about the literal."
+  - "The semicolon is in the wrong place; it must come after `int` not after `0`."
+  - "Variables must be initialised with a non-zero value when first declared."
+
+explanation: |
+  C++ reserves a fixed list of words for the language itself: `int`,
+  `double`, `string`, `struct`, `for`, `if`, `return`, `void`, etc.
+  None of these can be used as a variable name. The compiler stops
+  immediately when it sees `int struct` because two type-keywords back-
+  to-back is meaningless. Pick a non-keyword name.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/2-communicating-syntax/2-trailside/04-identifier"
+
+commonMistakeIds: ["CM-F09b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Distractors are deliberately silly so the right answer is obvious
+  once the keyword rule is recalled.

@@ -1,0 +1,38 @@
+id: "L4-S3C-write-04"
+schemaVersion: "v2"
+atomId: "Q-04"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "FunctionWriteCard"
+stem: "Write the 3-line block: declare int emp_num;, prompt with cout, read with cin >> emp_num;."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block C count+prompt+cin"
+commonMistakeIds: 
+  - "CM-Q4-no-prompt"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Declare int emp_num, prompt the user \"How many employees?\", read with cin."
+signatureHint: |
+  int ___;
+  cout << "..."; cin >> ___;
+canonicalAnswer: |
+  int emp_num;
+  cout << "How many employees? ";
+  cin >> emp_num;
+keyChecks: 
+  - "int"
+  - "emp_num"
+  - "cout"
+  - "cin"
+  - ">>"
+  - ";"
+forbiddenTokens: 
+  - "getline"
+  - "while"
+  - "scanf"
+passByRefRequired: false
+explanation: "Decl int emp_num → cout prompt → cin >> emp_num. ALWAYS in this order."

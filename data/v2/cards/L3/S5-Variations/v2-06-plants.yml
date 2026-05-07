@@ -1,0 +1,39 @@
+# =====================================================================
+# L3 / R-04 / FunctionWriteCard — 2-field plants
+# =====================================================================
+id: "L3-R04-v2-06"
+schemaVersion: "v2"
+atomId: "R-04"
+qTags: ["Q3"]
+stage: 5
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Variation: plants with ONLY 2 fields (height_cm, leaves).
+prompt: "2-field variation"
+canonicalAnswer: |
+  void read_plants(plant_data &plants[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Height (cm): ";
+      cin >> plants[i].height_cm;
+      cout << "Leaves: ";
+      cin >> plants[i].leaves;
+    }
+  }
+keyChecks:
+  - "void read_plants(plant_data &plants[], int number_to_read)"
+  - "cin >> plants[i].height_cm;"
+  - "cin >> plants[i].leaves;"
+forbiddenTokens:
+  - "while"
+explanation: |
+  Same skeleton; the body has 2 prompt-pairs instead of 3.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

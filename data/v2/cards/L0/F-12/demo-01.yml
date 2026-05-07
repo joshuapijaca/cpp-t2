@@ -1,0 +1,47 @@
+# =====================================================================
+# L0 / F-12 / DemoCard 01
+# Atom: Assignment =
+# =====================================================================
+id: "L0-F12-demo-01"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch what `=` does. RHS is evaluated FIRST, then the result is
+  written into LHS. Two steps in order, every time.
+
+whyOneLine: "= is RHS-first, then write to LHS box. NOT comparison."
+
+demoCode: |
+  int total = 0;       // box total: 0
+  total = 5 + 3;       // RHS = 8, write 8.   total: 8
+  total = total * 2;   // RHS reads CURRENT total (8), times 2 = 16.
+                       // Then write 16. total: 16.
+  total = total - 1;   // RHS reads CURRENT total (16), minus 1 = 15.
+                       // Then write 15. total: 15.
+
+highlightTokens:
+  - "RHS"
+  - "total = 0"
+  - "total = 5 + 3"
+  - "total = total * 2"
+  - "total = total - 1"
+
+usedIn:
+  - "Q1 trace (every accumulator update is RHS-then-LHS)"
+  - "Q4 main (every cin >> x; followed by struct field assignment)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/0-panorama/4-assignment"
+
+commonMistakeIds: ["CM-F12b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Hammers the RHS-first rule with arithmetic.

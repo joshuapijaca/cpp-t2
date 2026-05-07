@@ -1,0 +1,26 @@
+id: F-18b
+name: "for-loop iteration order"
+level: L0
+phase: D
+teaches: "Per iteration: test → body → increment → repeat. Loop exits when test becomes false (i==N). Body never runs at i==N."
+prereqs: [F-18a]
+usedByQs: [Q1, Q3, Q4]
+cardCountTarget: 14
+parentAtom: F-18
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/04-3-for-loop"
+    quote: "Each iteration: evaluate condition; if false, exit; otherwise run body, then run step."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/1-tour/02-array-hand-execution"
+    quote: "When tracing a for loop, draw the value of i for each iteration; stop when the test fails."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:38:38 — Saloni: 'and then we go into the loop'"
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:41:18 — Saloni: 'is 5 less than five? No, so this is where we stop the loop'"
+commonMistakes:
+  - CM-F18b-1  # body runs at i==SIZE (off-by-one)
+  - CM-F18b-2  # i++ before body
+  - CM-F18b-3  # forgets that test happens FIRST each iter
+notes:
+  cardMix: { walkthrough: 1, demo: 1, decompose: 2, trace: 5, cloze: 2, μWrite: 2, mcq: 1 }

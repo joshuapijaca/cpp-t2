@@ -1,0 +1,24 @@
+id: F-22d
+name: "Mutation visibility after function returns"
+level: L0
+phase: E
+teaches: "Mutations a function makes through a `&` parameter are VISIBLE in the caller after the function returns. The caller sees the new value."
+prereqs: [F-22b, F-22c]
+usedByQs: [Q1, Q3]
+cardCountTarget: 6
+parentAtom: F-22
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
+    quote: "These allow you to create parameters which are used to update the passed in values."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/0-pointers-and-references"
+    quote: "A reference is an alternative name for an existing variable; it shares the same storage."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:30:15 — Saloni: 'so that's how I referred it' (caller's data persists)"
+commonMistakes:
+  - CM-F22d-1  # thinks function makes a local copy that is discarded
+  - CM-F22d-2  # writes the OLD caller value after the fn returns
+  - CM-F22d-3  # forgets to track the reference-link in trace memory
+notes:
+  cardMix: { trace: 4, demo: 1, decompose: 1 }

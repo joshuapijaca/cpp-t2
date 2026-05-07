@@ -1,0 +1,44 @@
+# =====================================================================
+# L0 / F-12 / ProceduralCard 04 (μWrite)
+# Atom: Assignment = (init pattern)
+# =====================================================================
+id: "L0-F12-proc-04"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the canonical accumulator init line.
+
+section: "F-12 assignment drills (init)"
+
+prompt: |
+  Assume `data` is a `stat_double` and the field `mystery` exists.
+  Write the line that initialises `data.mystery` to 0.0. End with
+  `;`.
+
+expectedAnswer: "data.mystery = 0.0;"
+
+keyChecks: ["data.mystery = 0.0;"]
+
+variants:
+  - prompt: |
+      Practice test variant: initialise `total_price` to 0.0. End with
+      `;`.
+    expectedAnswer: "total_price = 0.0;"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: data.mystery = 0.0;"
+
+commonMistakeIds: []
+
+notes: |
+  Pairs with proc-03 to give the full Q1 accumulator pattern.

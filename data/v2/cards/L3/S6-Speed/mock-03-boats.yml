@@ -1,0 +1,43 @@
+# =====================================================================
+# L3 / R-05 / SpeedDrillCard — mixed mock read_boats
+# =====================================================================
+id: "L3-R05-mock-03"
+schemaVersion: "v2"
+atomId: "R-05"
+qTags: ["Q3"]
+stage: 6
+level: "L3"
+type: "SpeedDrillCard"
+stem: |
+  MIXED MOCK: write the full read_boats function in 90 seconds.
+  Random entity surface; check for off-by-one and missing-& errors after writing.
+prompt: "Mixed mock: read_boats."
+canonicalAnswer: |
+  void read_boats(boat_data &boats[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Length (m): ";
+      cin >> boats[i].length_m;
+      cout << "Capacity: ";
+      cin >> boats[i].capacity;
+      cout << "Price: ";
+      cin >> boats[i].price;
+    }
+  }
+keyChecks:
+  - "void read_boats(boat_data &boats[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> boats[i].length_m;"
+  - "cin >> boats[i].capacity;"
+  - "cin >> boats[i].price;"
+forbiddenTokens:
+  - "while"
+explanation: |
+  Final fluency check. Same skeleton at exam pace.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

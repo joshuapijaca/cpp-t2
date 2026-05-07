@@ -1,0 +1,50 @@
+# =====================================================================
+# L3 / R-00 / WalkthroughCard — V2.0 read_desks tour
+# =====================================================================
+id: "L3-R00-walk-01"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 1
+level: "L3"
+type: "WalkthroughCard"
+stem: |
+  Tour: full read_desks function. Read each line and predict its role.
+  Hover the variables panel — it stays empty (no execution yet).
+levelLabel: "L3 Q3 Tour — V2.0 read_desks"
+fullCode: |
+  void read_desks(desk_data &desks[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Width: ";
+      cin >> desks[i].width;
+      cout << "Height: ";
+      cin >> desks[i].height;
+      cout << "Depth: ";
+      cin >> desks[i].depth;
+    }
+  }
+steps:
+  - line: 1
+    code: "void read_desks(desk_data &desks[], int number_to_read)"
+    annotation: "void = no return. read_desks = entity-named procedure. & means BY REFERENCE so the caller's array is filled. [] = parameter is an array."
+    atomIds: ["F-22", "F-22a"]
+  - line: 3
+    code: "  for (int i = 0; i < number_to_read; i++)"
+    annotation: "Count parameter is the bound, not SIZE. i takes 0..number_to_read-1 (half-open)."
+    atomIds: ["F-18"]
+  - line: 5
+    code: "    cout << \"Width: \";"
+    annotation: "cout prompt comes BEFORE the cin so the user sees what to type."
+    atomIds: ["F-15"]
+  - line: 6
+    code: "    cin >> desks[i].width;"
+    annotation: "cin >> desks[i].width — composite token: index [i] then .field. Skipping either is the #1 Q3 error."
+    atomIds: ["F-21", "F-15"]
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

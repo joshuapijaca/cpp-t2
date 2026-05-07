@@ -1,0 +1,47 @@
+id: "L4-S6-novel-timed-01"
+schemaVersion: "v2"
+atomId: "Q-10"
+qTags: 
+  - "Q4"
+stage: 6
+level: "L4"
+type: "SpeedDrillCard"
+stem: "[novel timed 1/10] 90s to write a full main() for task_data."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.6 S6 timed novel"
+commonMistakeIds: 
+  - "CM-Q4-time-pressure-wrong-arg"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "task_data: MAX=200, count=task_num, fn=read_tasks, fields=id, title, priority, prompt=\"How many tasks?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 200;
+      task_data tasks[MAX];
+      int task_num;
+  
+      cout << "How many tasks? ";
+      cin >> task_num;
+  
+      read_tasks(tasks, task_num);
+  
+      for (int i = 0; i < task_num; i++)
+      {
+          cout << tasks[i].id << ", ";
+          cout << tasks[i].title << ", ";
+          cout << tasks[i].priority << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 200"
+  - "task_data tasks[MAX]"
+  - "int task_num"
+  - "read_tasks(tasks, task_num)"
+  - "i < task_num"
+  - "return 0"
+explanation: "90s novel-entity transfer. Tests true fluency: not memorisation, transfer."

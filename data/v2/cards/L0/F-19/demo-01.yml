@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-19 / DemoCard 01
+# Atom: Fixed-size array — declaration syntax
+# =====================================================================
+id: "L0-F19-demo-01"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: the canonical array declaration. Type, name, size in
+  brackets, semicolon. Memorise the shape — every Q1 and Q3 trace
+  begins with one of these.
+
+whyOneLine: "`int arr[5];` allocates five int slots indexed 0 through 4."
+
+demoCode: |
+  // canonical fixed-size array declaration:
+  int arr[5];
+
+  // shape:        TYPE   NAME   [SIZE]   ;
+  // example A:    int    arr    [5]      ;
+  // example B:    double prices [10]     ;
+  // example C:    char   word   [20]     ;
+
+highlightTokens:
+  - "int arr[5];"
+  - "TYPE"
+  - "NAME"
+  - "[SIZE]"
+  - ";"
+
+usedIn:
+  - "Q1 trace (struct field `double numbers[SIZE];`)"
+  - "Q3 read function (array as struct field, then iterate)"
+  - "Q4 main program (declare local array, fill it, print it)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
+
+commonMistakeIds: ["CM-F19a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Pure shape exposure. The TYPE-NAME-[SIZE]-; chunk is the unit the
+  student needs to chunk-recognise under exam time pressure.

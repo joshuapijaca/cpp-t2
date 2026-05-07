@@ -1,0 +1,49 @@
+# =====================================================================
+# L0 / F-21 / FunctionWriteCard 02 — μ-write field assignment
+# =====================================================================
+id: "L0-F21-write-02"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "FunctionWriteCard"
+
+stem: |
+  Write a single C++ statement that sets the `mystery` field of
+  struct instance `data` to 0.0.
+
+prompt: "Initialise data.mystery to 0.0."
+
+signatureHint: "____ = 0.0;"
+
+canonicalAnswer: |
+  data.mystery = 0.0;
+
+keyChecks:
+  - "data.mystery"
+  - "= 0.0"
+  - ";"
+
+forbiddenTokens:
+  - "data->mystery"
+  - "data::mystery"
+  - "*"
+
+explanation: |
+  Standard initialisation of a scalar struct field. The same
+  `instance.field` token works on the LHS as on the RHS — here it
+  is the LHS of an assignment.
+
+passByRefRequired: false
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `data.mystery = 0.0;`"
+
+commonMistakeIds: ["CM-F21b", "CM-F21c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Drills the field-init step that opens every Q1/Q3 accumulator.

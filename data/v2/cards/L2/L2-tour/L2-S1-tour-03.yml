@@ -1,0 +1,27 @@
+
+id: "L2-S1-tour-03"
+schemaVersion: "v2"
+atomId: "L-21"
+qTags: ["Q2"]
+stage: 1
+level: "L2"
+type: "DemoCard"
+stem: "Q2 Tour 3 — see the canonical answer for book_data. Generic 3-field example with mixed string/int types. Read the structure top-to-bottom: keyword, name, brace, fields, closing `};`."
+whyOneLine: "Q2 always produces this 6-line shape — keyword + snake_case name + brace + 1-line-per-field + closing };."
+demoCode: |
+  struct book_data
+  {
+      string title;
+      string author;
+      int pages;
+  };
+highlightTokens: ["struct","book_data","};"]
+usedIn: ["Q2"]
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "S1 show-answer #3. Pure recognition — no input."

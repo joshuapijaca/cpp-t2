@@ -1,0 +1,57 @@
+# =====================================================================
+# L0 / F-16 / DemoCard 02
+# Atom: == vs = (the assign-as-test bug)
+# =====================================================================
+id: "L0-F16-demo-02"
+schemaVersion: "v2"
+atomId: "F-16"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the single most common novice bug. The line `if (x = 5)`
+  compiles. It runs. It is silently WRONG. See exactly why.
+
+whyOneLine: "Inside a condition, `=` ASSIGNS and `==` COMPARES — using one when you mean the other gives wrong answers, not compile errors."
+
+demoCode: |
+  ┌─ WRONG (silently broken) ──────────────────────────┐
+  │   int x = 3;                                       │
+  │   if (x = 5) {                  // assigns 5 to x! │
+  │       cout << "x equals 5";                        │
+  │   }                                                │
+  │                                                    │
+  │   AFTER:  x = 5  (was 3),  body RAN  (5 is truthy) │
+  └────────────────────────────────────────────────────┘
+
+  ┌─ RIGHT ────────────────────────────────────────────┐
+  │   int x = 3;                                       │
+  │   if (x == 5) {                 // compares only   │
+  │       cout << "x equals 5";                        │
+  │   }                                                │
+  │                                                    │
+  │   AFTER:  x = 3  (unchanged),  body did NOT run    │
+  └────────────────────────────────────────────────────┘
+
+highlightTokens:
+  - "x = 5"
+  - "x == 5"
+  - "ASSIGNS"
+  - "COMPARES"
+  - "silently"
+
+usedIn:
+  - "Q1 if condition (every if you write must use ==, not =)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-0-boolean-data"
+
+commonMistakeIds: ["CM-F16a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Specifically immunizes CM-F16a (= as test).
+authoringStatus: "DRAFT"

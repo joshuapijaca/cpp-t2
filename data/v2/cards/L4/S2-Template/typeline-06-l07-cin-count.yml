@@ -1,0 +1,28 @@
+id: "L4-S2-typeline-06"
+schemaVersion: "v2"
+atomId: "Q-01"
+qTags: 
+  - "Q4"
+stage: 2
+level: "L4"
+type: "TemplateRecallCard"
+stem: "Type the canonical line for: cin reads count."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.2 S2 typeline drill"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Slot: cin reads count. Type the line."
+template: "cin >> ___;"
+canonicalAnswer: "cin >> desk_num;"
+keyChecks: 
+  - "cin"
+  - "desk_num;"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+  - "scanf"
+explanation: "Canonical: `cin >> desk_num;`. This is the exact line for \"cin reads count\" in the V2.0/practice main() skeleton."

@@ -1,0 +1,150 @@
+SIT102 Introduction to Programming  P4 Control Flow
+
+Control Flow
+
+The adventure really starts here. This leg of the journey may be challenging, but
+you need to make sure you really understand these concepts and how to use
+them. Control flow is the central mechanism in programs when viewed as
+instructions. A solid understanding of the concepts and how to apply them will
+position you to speed through the next few modules.
+Learn to use control flow concepts and tools to create programs that respond to
+inputs and events. This will greatly enhance what you are capable of achieving.
+You should see this as a major milestone.
+Key aspects include:
+
+    · Seeing how boolean logic is used to control.
+    · Remembering that everything is still just a sequence, and that loops and
+
+         branches simply adjust which action is performed next.
+    · Learn to apply sequence, selection (branching), and repetition (loops) to
+
+         build small programs
+
+Show us that you can:
+
+    · Create small programs with:
+             o Boolean expressions that include comparisons and logical operators
+                  to form expressions that test given conditions
+             o Branches using if and switch/case statements
+             o Loops using while, do while, and for statements
+
+    · Correctly use programming terminology to explain your code.
+    · Do this task without using any concepts we haven't covered yet.
+
+                                    Page 1 of 4
+SIT102 Introduction to Programming  P4 Control Flow
+
+    · Capture your learning in the Learning Journey section. Include evidence
+         (screenshots) of your progress, and your thoughts on what you
+         accomplished, what challenges you faced, and what you found interesting.
+
+    · Provide sincere reflections in the Reflection section. Don't just tell us what
+         you did, tell us what you learned. Reflections that are brief or shallow will
+         not be accepted.
+
+Tip
+
+This is a big and important topic! You will need to dedicate some time to this, and
+you need to make sure that you really understand these ideas as they are central
+to everything in programming. Ensure you make use of all the support available
+to help you learn to use these new tools.
+
+                                    Page 2 of 4
+SIT102 Introduction to Programming  P4 Control Flow
+
+Complete the following:
+
+         1. Download and open the template from OnTrack.
+
+         2. Work your way through the Overview, Guided Tour, and In Depth
+
+             sections from Chapter 3: Control Flow of the V1 Programmers Guide.
+
+         3. Demonstrate how the following two small programming snippets run
+
+             using the Hand Execution process as described in the In Depth section.
+
+             Do this on paper with a pencil. Capture a photo of your workings.
+
+                    using static System.Console;
+                    using static System.Convert;
+
+                    int target;
+
+                    Write("Count to: ");
+                    target = ToInt32(ReadLine()); // User enters 5
+
+                    int i = 0;
+
+                    while (i < target)
+                    {
+
+                           WriteLine(i + 1);
+                           i++;
+                    }
+
+                    using static System.Console;
+                    using static System.Convert;
+
+                    int i;
+
+                    for (i = 0; i < 8; i++)
+                    {
+
+                           if (i > 0 && i % 3 == 0)
+                           {
+
+                                  i++;
+                                  continue;
+                           }
+
+                           WriteLine(i);
+                    }
+
+         4. Complete one of the Test Your Knowledge activities from the Control
+
+             Flow chapter of the Programmers Field Guide.
+
+         5. You should have enough to submit now, but if you want to deepen your
+
+             understanding have a look at Chapter 2: Communicating Syntax.
+
+                                                                                                  Page 3 of 4
+SIT102 Introduction to Programming  P4 Control Flow
+
+Tip: A bit stuck? Be sure to reach out!
+
+Your tutors are programming experts and are there to help. Be sure to reach out
+to them during the seminar, at the HelpHub, or ask a question on the SIT102
+Teams channel.
+
+         6. Complete your submission ­ complete the summary and related
+             activities in the template.
+
+         7. Upload to OnTrack and engage with feedback to get this complete!
+
+Available Resources
+
+We have many resources to assist in your learning journey ­ if you are ever unsure
+then please reach out to us, we are always happy to help.
+
+    · The SIT102 Teams channel ­ an active learning resource with weekly
+         announcements from the Unit Chair, and regular discussions/assistance
+         from the SIT102 teaching team and students.
+
+    · Seminars ­ you can attend both on-campus and online sessions, and join
+         as many as you like each week. Your tutors will provide demonstrations and
+         assistance to help guide your learning.
+
+    · HelpHubs ­ there are sessions hosted nearly everyday, both on-campus
+         and online providing one-on-one assistance from a tutor. Please join as
+         many as you like.
+
+    · PASS sessions ­ running every week, these sessions are run like a study
+         group, hosted by a past SIT102 student.
+
+For more information about the above resources please speak to your tutor or
+visit the SIT102 Teams channel.
+
+                                    Page 4 of 4
+

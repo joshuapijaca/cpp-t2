@@ -1,0 +1,29 @@
+
+id: "L2-S2-templ-05"
+schemaVersion: "v2"
+atomId: "L-22"
+qTags: ["Q2"]
+stage: 2
+level: "L2"
+type: "StructWriteCard"
+stem: "Q2 Template #5 — type the canonical 6-line skeleton verbatim. GPA decimal → `double`."
+prompt: "student_data: student_id (int), full_name (string), gpa (double)."
+canonicalAnswer: |
+  struct student_data
+  {
+      int student_id;
+      string full_name;
+      double gpa;
+  };
+requiredFields: ["student_id","full_name","gpa"]
+keyChecks: ["struct student_data","};","int student_id;","string full_name;","double gpa;"]
+forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
+explanation: "Skeleton drill: `struct` lowercase + name + opening `{` + one field per line each ending `;` + closing `};` (the highest-frequency Q2 error). GPA decimal → `double`."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S2 TEMPLATE"
+commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "S2 skeleton drill."

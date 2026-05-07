@@ -1,0 +1,58 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 09 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: First overwrite — same box, new value
+# =====================================================================
+id: "L0-F23-trace-09"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Same box, two writes. Step through. The variables panel only stores
+  the LATEST value of `n` after every line has run. What is it?
+
+code: |
+  int main() {
+    int n = 1;
+    n = 2;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "1"
+    output: null
+  - line: 3
+    variable: "n"
+    value: "2"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Line 2 writes 1 into box `n`. Line 3 overwrites with 2. The box
+  cannot hold both — the old value is gone. Final panel: { n: 2 }.
+
+  In a real debugger you would see the value flash from 1 to 2 in
+  the same row of the panel.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 9/30"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  First overwrite-pattern in the primer. Targets the misconception
+  that the panel stores history.

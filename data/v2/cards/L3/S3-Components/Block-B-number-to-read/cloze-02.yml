@@ -1,0 +1,37 @@
+# =====================================================================
+# L3 / Block B number_to_read / Cloze 02 — fill it again, computer
+# =====================================================================
+id: "L3-NumToRead-cloze-02"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "ClozeCard"
+
+stem: "Fill in the V2.0-canonical name of the count parameter."
+
+code: |
+  void read_computers(computer_data &computer_list[], int ____________)
+  {
+    for (int i = 0; i < number_to_read; i = i + 1) {
+      cin >> computer_list[i].id;
+    }
+  }
+
+clozeSentence: "Fill in the V2.0 literal parameter name (count of items to read): ____."
+
+answer: "number_to_read"
+
+explanation: |
+  Stay literal. `number_to_read` is the V2.0 mark target. Loop already references it inside the body.
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V Block B — number_to_read cloze (computer)"
+
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "Block B cloze 2: same name on computer entity."

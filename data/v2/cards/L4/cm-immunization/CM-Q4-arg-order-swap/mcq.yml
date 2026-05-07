@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-Q4-arg-order-swap
+id: "L4-cmimm-CM-Q4-arg-order-swap-mcq"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Given `void read_desks(desk_data desks[], int number_to_read)`, what is the canonical call?
+
+correct: '`read_desks(desks, desk_num);` — array first, count second'
+
+distractors:
+  - '`read_desks(desk_num, desks);` — count first, array second'
+  - '`read_desks(&desks, desk_num);` — array with extra &'
+  - '`read_desks(desks);` — no count argument'
+
+explanation: |
+  Call-site argument order must match the parameter declaration order. Test 2 V2.0 puts the array first, then the count.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block D — common-mistake immunization (CM-Q4-arg-order-swap)"
+
+commonMistakeIds: ["CM-Q4-arg-order-swap"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

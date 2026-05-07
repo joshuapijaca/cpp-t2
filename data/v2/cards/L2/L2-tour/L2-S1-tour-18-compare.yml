@@ -1,0 +1,46 @@
+
+id: "L2-S1-tour-18-compare"
+schemaVersion: "v2"
+atomId: "L-21"
+qTags: ["Q2"]
+stage: 1
+level: "L2"
+type: "DeltaCard"
+stem: "Q2 Tour compare #18. Two struct definitions side by side. Identify the meaningful difference."
+codeA: |
+  struct order_data
+  {
+      int order_id
+      double total;
+      bool paid;
+  };
+codeB: |
+  struct order_data
+  {
+      int order_id;
+      double total;
+      bool paid;
+  };
+prompt: "Find the missing token in version A. Write the corrected code."
+canonicalAnswer: |
+  struct order_data
+  {
+      int order_id;
+      double total;
+      bool paid;
+  };
+keyChecks:
+  - "struct order_data"
+  - "int order_id;"
+  - "double total;"
+  - "bool paid;"
+  - "};"
+explanation: "Version A is missing the `;` after `int order_id`. Every C++ statement ends with `;`; field declarations inside a struct are no exception."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S1 TOUR"
+commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Compare card sharpens spotting tiny differences (a missing ; vs not)."

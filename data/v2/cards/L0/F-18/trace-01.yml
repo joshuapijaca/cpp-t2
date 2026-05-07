@@ -1,0 +1,111 @@
+# =====================================================================
+# L0 / F-18 / TraceCard 01 (Card A in spec — iteration mechanics)
+# Atom: simple for loop with cout — predict "012"
+# =====================================================================
+id: "L0-F18-trace-01"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. The loop runs three times. Predict the terminal
+  output. Track `i` value at each iteration.
+
+code: |
+  int main() {
+    for (int i = 0; i < 3; i++) {
+      cout << i;
+    }
+    cout << endl;
+    return 0;
+  }
+
+variables: ["i"]
+
+expectedTrace:
+  - line: 2
+    variable: "i"
+    value: "0"
+    output: null
+    condition: "init: int i = 0"
+  - line: 2
+    variable: ""
+    value: ""
+    output: null
+    condition: "test: 0 < 3 -> true"
+  - line: 3
+    variable: ""
+    value: ""
+    output: "0"
+    condition: "body: cout << i  (i=0)"
+  - line: 2
+    variable: "i"
+    value: "1"
+    output: null
+    condition: "step: i++  (i: 0->1)"
+  - line: 2
+    variable: ""
+    value: ""
+    output: null
+    condition: "test: 1 < 3 -> true"
+  - line: 3
+    variable: ""
+    value: ""
+    output: "01"
+    condition: "body: cout << i  (i=1)"
+  - line: 2
+    variable: "i"
+    value: "2"
+    output: null
+    condition: "step: i++  (i: 1->2)"
+  - line: 2
+    variable: ""
+    value: ""
+    output: null
+    condition: "test: 2 < 3 -> true"
+  - line: 3
+    variable: ""
+    value: ""
+    output: "012"
+    condition: "body: cout << i  (i=2)"
+  - line: 2
+    variable: "i"
+    value: "3"
+    output: null
+    condition: "step: i++  (i: 2->3)"
+  - line: 2
+    variable: ""
+    value: ""
+    output: null
+    condition: "test: 3 < 3 -> FALSE, EXIT"
+  - line: 5
+    variable: ""
+    value: ""
+    output: "012"
+    condition: "cout << endl  (newline appended)"
+
+terminalOutput:
+  - "012"
+
+inputMode: "final-only"
+
+teachMe: |
+  Three iterations, three prints. i takes values 0, 1, 2 inside
+  the body. The body prints the BEFORE-step value, so the output
+  is 012, not 123. At i=3 the test is false and the loop exits;
+  the body never runs at i=3.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/04-3-for-loop"
+
+commonMistakeIds: ["CM-F18a", "CM-F18c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Spec Card A — iteration mechanics. Show
+  test/body/step ordering explicitly.
+authoringStatus: "DRAFT"

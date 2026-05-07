@@ -1,0 +1,32 @@
+id: "CM-missing-amp-sig-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-missing-amp-sig: Q3 missing & in signature. Q3 signature: array decay-form `arr[]` to allow mutation.
+
+correct: "void read_X(entity arr[], int count)"
+
+distractors:
+  - "void read_X(entity arr, int count)"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: void read_X(entity arr[], int count)
+  Mistake: Signature uses pass-by-value — mutations lost.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-missing-amp-sig"
+
+commonMistakeIds: ["CM-missing-amp-sig"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-missing-amp-sig.

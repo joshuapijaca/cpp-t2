@@ -1,0 +1,48 @@
+id: "L1-S1-tour-30-spot-error-no-strikethrough"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error 4/5. A student wrote only the final mystery value
+  without the trail. The number is correct — but is the answer
+  acceptable under the hand-execute rubric?
+
+brokenCode: |
+  // student answer (only the final number):
+  //   mystery = 3.9
+  ;
+
+bugLocations: [3]
+
+fixedCode: |
+  // ACCEPTABLE answer (full trail with strikethroughs):
+  //   mystery: ~-0.9~ ~0.0~ ~2.4~ ~3.4~ 3.9
+  ;
+
+bugCategory: "no strikethrough trail (work not shown)"
+
+keyChecks:
+  - "mystery"
+  - "3.9"
+
+explanation: |
+  M04 / M09: omitted the strikethrough trail. Even with the right
+  final number, hand-execute marking expects to see the WORK — every
+  intermediate mystery value with the old crossed out. A bare "3.9"
+  loses marks for missing process even when the answer is numerically
+  correct. Always produce the trail.
+
+source:
+  kind: "seminar"
+  ref: "SIT102 Seminar Mondays 6pm new (2) — show the work, full trail required"
+
+commonMistakeIds: ["CM-Q1-no-strikethrough"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Spot-error 4/5: no strikethrough trail.
+authoringStatus: "DRAFT"

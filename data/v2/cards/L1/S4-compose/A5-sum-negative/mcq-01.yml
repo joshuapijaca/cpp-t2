@@ -1,0 +1,31 @@
+# =====================================================================
+# L1 / sum-negative / MCQCard 01 — predict-final 1
+# =====================================================================
+id: "L1-A5-mcq-01"
+schemaVersion: "v2"
+atomId: "A5"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: "For sum-negative on numbers={-2.5, 3.5, -1.0, 2.0, -0.5}, what is the FINAL value of data.mystery printed?"
+
+correct: "-4"
+
+distractors:
+  - "1.5"
+  - "5.5"
+  - "0.0"
+
+explanation: "The sum-negative algorithm yields -4. Common errors land on the distractor values — see common-mistake catalogue."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — sum-negative predict-final"
+
+commonMistakeIds: ["CM-A5-flip-condition", "CM-A5-result-positive"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Predict-final MCQ: tests result without trace ceremony."

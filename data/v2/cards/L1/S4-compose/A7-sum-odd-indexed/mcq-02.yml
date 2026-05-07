@@ -1,0 +1,31 @@
+# =====================================================================
+# L1 / sum-odd-indexed / MCQCard 02 — predict-final 2
+# =====================================================================
+id: "L1-A7-mcq-02"
+schemaVersion: "v2"
+atomId: "A7"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: "For sum-odd-indexed on numbers={5.0, 5.0, 5.0, 5.0, 5.0}, what is the FINAL value of data.mystery printed?"
+
+correct: "10"
+
+distractors:
+  - "15.0"
+  - "25.0"
+  - "0.0"
+
+explanation: "The sum-odd-indexed algorithm yields 10. Common errors land on the distractor values — see common-mistake catalogue."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — sum-odd-indexed predict-final"
+
+commonMistakeIds: ["CM-A7-mod-on-value", "CM-A7-flip-parity"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Predict-final MCQ: tests result without trace ceremony."

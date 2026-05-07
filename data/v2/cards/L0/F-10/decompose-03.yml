@@ -1,0 +1,69 @@
+# =====================================================================
+# L0 / F-10 / DecomposeCard 03
+# Atom: Primitive types — float vs double in SIT102
+# =====================================================================
+id: "L0-F10-decomp-03"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student is writing the struct from the practice test. They are
+  unsure whether to use `float` or `double` for the price field.
+  Pick the option that best matches SIT102 idiom.
+
+code: |
+  // practice test asks: a struct desk_data with at least one
+  // numerical field
+  struct desk_data {
+    int desk_id;
+    ?????? price;   // pick the type
+  };
+
+question: |
+  Which type fills in the blank for SIT102?
+
+options:
+  - label: "A"
+    text: |
+      `float price;` — SIT102 prefers float because it uses less
+      memory than double.
+  - label: "B"
+    text: |
+      `double price;` — SIT102 idiom and the PFG always use double for
+      decimal numbers.
+  - label: "C"
+    text: |
+      `int price;` — money is a count of cents, so int is correct.
+  - label: "D"
+    text: |
+      `string price;` — currency values are always written as text.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. SIT102 uses `double` for every decimal number. The PFG
+  introduces float once but then uses double everywhere. The real test
+  V2.0 used `double` for every numeric field.
+
+  A is wrong: float exists in C++ but SIT102 does not use it. Stick
+  with double for marker compatibility.
+  C is wrong: SIT102 represents money as a real (decimal) number, not
+  cents. The simpler model wins on a written exam.
+  D is wrong: numerical comparisons and arithmetic require a number
+  type, not text.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: stat_double has `double numbers[SIZE]; double mystery;`"
+
+commonMistakeIds: ["CM-F10d"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Prevents the float/double confusion that costs marks even when the
+  code logic is correct. Anchored to V2.0 test struct.

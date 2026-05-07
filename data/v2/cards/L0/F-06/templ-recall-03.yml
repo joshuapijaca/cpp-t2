@@ -1,0 +1,63 @@
+# =====================================================================
+# L0 / F-06 / TemplateRecallCard 03
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-tmpl-03"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Stage 3: full Q4 skeleton with preamble. Reproduce the entire
+  5-line shape from the SECTION-LEVEL placeholders.
+
+prompt: |
+  Fill the placeholders to produce the full canonical Q4 skeleton
+  (preamble + empty main).
+
+template: |
+  {{PREAMBLE_LINES}}
+  {{MAIN_HEADER_LINE_INCLUDING_OPENING_BRACE}}
+    {{RETURN_LINE}}
+  {{CLOSING_BRACE}}
+
+canonicalAnswer: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    return 0;
+  }
+
+keyChecks:
+  - "#include"
+  - "<iostream>"
+  - "using namespace std;"
+  - "int main()"
+  - "return 0;"
+
+forbiddenTokens:
+  - "void main"
+  - "iostream.h"
+
+explanation: |
+  Filled in:
+  - `{{PREAMBLE_LINES}}` = `#include <iostream>` and `using namespace std;`
+  - `{{MAIN_HEADER_LINE}}` = `int main() {`
+  - `{{RETURN_LINE}}` = `return 0;`
+
+  Together: the canonical 5-line Q4 skeleton.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-06 — canonical Q4 skeleton"
+
+commonMistakeIds: ["CM-F06a", "CM-F06b", "CM-F06d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Stage-3 template-recall. Highest-difficulty templated drill.
+  Cold-recall (no scaffold) handled by uwrite-03.

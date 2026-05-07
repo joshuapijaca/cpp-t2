@@ -1,0 +1,52 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 06 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: For-loop inside main
+# =====================================================================
+id: "L0-F25-mcq-06"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  for-loop inside main. The HIGHLIGHTED `{` opens the for-body at
+  depth 1. Which `}` matches?
+
+  ```cpp
+  int main() {                        // depth 0 open
+    for (int i = 0; i < 3; i = i+1) { // <-- HIGHLIGHT (depth 1)
+      cout << i << endl;
+    }                                 // <-- option A (depth 1)
+    return 0;
+  }                                   // <-- option B (depth 0)
+  ```
+
+correct: "A — the `}` on the line after the cout (depth-1 close)."
+
+distractors:
+  - "B — the final `}` of main, because the for-loop's body is the rest of the program."
+  - "C — there is no matching brace; for-loops use `endfor`."
+  - "D — the `)` at the end of the for-header is the matching brace."
+
+explanation: |
+  A is correct. The for-body opens at the highlighted `{` and
+  closes at the next `}` at depth 1.
+
+  B is wrong: that closes main, not the for.
+  C is wrong: C++ uses `}`, not `endfor`.
+  D is wrong: `)` matches `(`, not `{`.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 6/30"
+
+commonMistakeIds: ["CM-F08c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  For-loop nesting introduced. Distractor D targets the `()` vs
+  `{}` confusion.

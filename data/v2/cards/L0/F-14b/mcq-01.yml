@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-14b / MCQCard 01
+# Atom: cin reads one whitespace-delimited token
+# =====================================================================
+id: "L0-F14b-mcq-01"
+schemaVersion: "v2"
+atomId: "F-14b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  A user types `12 34 56` and presses Enter. The program runs three
+  separate `cin >> x;` statements. What ends up in the three boxes?
+
+correct: "Box 1 = 12, box 2 = 34, box 3 = 56 — each cin reads one whitespace-delimited token."
+
+distractors:
+  - "All three boxes are 0 because cin requires one Enter per value."
+  - "Box 1 = 123456 — cin reads the entire line and treats spaces as part of the token."
+  - "Only box 1 = 12; boxes 2 and 3 are empty because cin returns after one read."
+
+explanation: |
+  Each `cin >>` reads exactly ONE whitespace-delimited token. Three
+  cins consume three tokens. Whitespace between tokens (spaces, tabs,
+  newlines) is automatically skipped. So 12, 34, 56 land in the three
+  boxes in order.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F14b-3"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Tests the one-token-per-cin rule.

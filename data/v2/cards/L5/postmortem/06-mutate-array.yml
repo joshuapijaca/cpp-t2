@@ -1,0 +1,60 @@
+id: "L5-postmortem-06-mutate-array"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Q1 trace — student inverted the assignment direction: wrote `data.numbers[i] = data.mystery` instead of `data.mystery = data.numbers[i]`. The mystery accumulator never updated; the input array got clobbered. Read the diff.
+
+failedAttempt: |
+  void who_am_i(test_data &data) {
+      data.mystery = data.numbers[0];
+      for (int i = 1; i < SIZE; i++) {
+          if (data.numbers[i] > data.mystery) {
+              data.numbers[i] = data.mystery;
+          }
+      }
+  }
+
+diagnosis: |
+  C++ assignment is `lhs = rhs` — left side is the destination. The student wrote `data.numbers[i] = data.mystery`, which OVERWRITES the input array element with the (unchanged) mystery accumulator. Result: `mystery` is stuck at `numbers[0]` for the entire trace; the input array gets corrupted at every iteration where the if-condition fires. Final mystery = numbers[0] (the seed), not the maximum.
+
+repairSteps:
+  - "if (data.numbers[i] > data.mystery) {"
+  - "    data.mystery = data.numbers[i];   // mystery on LEFT (it's the accumulator)"
+  - "}"
+
+preventionTip: |
+  The accumulator (the variable you're computing) is on the LEFT. The input (the value you're reading) is on the RIGHT. For find-max: `mystery = numbers[i]` — never the other way. Mantra: "accumulator-left, input-right."
+
+explanation: |
+  Lesson learned — assignment direction encodes WHAT YOU'RE COMPUTING. If you flip the sides, you compute nothing (or worse: you destroy the input). Tracing reveals this immediately: mystery never changes. Always identify the accumulator first ("which variable is the answer?") and put it on the left of `=`.
+
+canonicalAnswer: |
+  void who_am_i(test_data &data) {
+      data.mystery = data.numbers[0];
+      for (int i = 1; i < SIZE; i++) {
+          if (data.numbers[i] > data.mystery) {
+              data.mystery = data.numbers[i];
+          }
+      }
+  }
+
+annotations:
+  - line: 5
+    severity: err
+    note: "`data.numbers[i] = data.mystery` writes TO the input. Should be `data.mystery = data.numbers[i]` — accumulator on left."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q1 assignment direction"
+
+commonMistakeIds: ["CM-mutate-array"]
+status: "NEW"
+createdBy: "SA-L5-Postmortem-Rewrite"
+authoringStatus: "DRAFT"
+notes: |
+  Postmortem #06 — Q1 / inverted assignment direction.

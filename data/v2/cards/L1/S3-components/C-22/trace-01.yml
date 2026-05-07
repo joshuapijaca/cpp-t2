@@ -1,0 +1,45 @@
+id: L1-S3-C-22-trace-00
+schemaVersion: v2
+atomId: C-22
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: TraceCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-22
+commonMistakeIds:
+  - CM-C22a
+stem: Apply `data.mystery = data.numbers[i];` with i=0. What is data.mystery after?
+code: |-
+  int main() {
+    stat_double data = { {2.4, -3.7, -1.7, 3, 2}, -0.9 };
+    int i = 0;
+    data.mystery = data.numbers[i];
+    cout << data.mystery << endl;
+    return 0;
+  }
+variables:
+  - data.mystery
+expectedTrace:
+  - line: 3
+    variable: i
+    value: '0'
+    output: null
+  - line: 4
+    variable: data.mystery
+    value: '2.4'
+    output: null
+  - line: 5
+    variable: ''
+    value: ''
+    output: '2.4'
+terminalOutput:
+  - '2.4'
+inputMode: final-only
+teachMe: Plain assignment OVERWRITES. The OLD mystery is gone — strikethrough it.
+

@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-16 / MCQCard 01
+# Atom: == vs = recognition
+# =====================================================================
+id: "L0-F16-mcq-01"
+schemaVersion: "v2"
+atomId: "F-16"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Inside an if condition `if ( ??? )`, you want to ask the question
+  "are these two values equal?". Which C++ symbol performs this
+  exact equality test (and not assignment)?
+
+correct: "Two equal signs side-by-side: =="
+
+distractors:
+  - "A single equal sign: ="
+  - "A colon-equals: :="
+  - "An exclamation followed by equals: !="
+
+explanation: |
+  `==` (two equals) is the equality TEST. A single `=` is
+  ASSIGNMENT. `!=` is the OPPOSITE test (not equal). C++ does not
+  use `:=`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-0-boolean-data"
+
+commonMistakeIds: ["CM-F16a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

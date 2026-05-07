@@ -1,0 +1,74 @@
+# =====================================================================
+# L0 / F-16 / TraceCard 01
+# Atom: Comparison operators evaluating to bool
+# =====================================================================
+id: "L0-F16-trace-01"
+schemaVersion: "v2"
+atomId: "F-16"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. After every comparison, write the resulting bool
+  (`true` or `false`) into the variables panel.
+
+code: |
+  int main() {
+    int x = 4;
+    int y = 7;
+    bool a = (x < y);
+    bool b = (x == y);
+    bool c = (x >= 4);
+    return 0;
+  }
+
+variables: ["x", "y", "a", "b", "c"]
+
+expectedTrace:
+  - line: 2
+    variable: "x"
+    value: "4"
+    output: null
+  - line: 3
+    variable: "y"
+    value: "7"
+    output: null
+  - line: 4
+    variable: "a"
+    value: "true"
+    output: null
+    condition: "4 < 7 -> true"
+  - line: 5
+    variable: "b"
+    value: "false"
+    output: null
+    condition: "4 == 7 -> false"
+  - line: 6
+    variable: "c"
+    value: "true"
+    output: null
+    condition: "4 >= 4 -> true"
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Each comparison reads its two operands first (e.g. line 4 reads
+  x=4 and y=7), then asks the question (`<`, `==`, `>=`), then
+  stores the answer (`true` or `false`) into the bool variable.
+  Notice line 6 — `>=` is true when the values are EQUAL too, not
+  only when strictly greater.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-1-comparisons"
+
+commonMistakeIds: ["CM-F16b"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Pure comparison-result trace. No if yet.
+authoringStatus: "DRAFT"

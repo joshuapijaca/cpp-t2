@@ -1,0 +1,31 @@
+# =====================================================================
+# L1 / index-of-max / MCQCard 03 — predict-final 3
+# =====================================================================
+id: "L1-A12-mcq-03"
+schemaVersion: "v2"
+atomId: "A12"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: "For index-of-max on numbers={5.0, 4.0, 3.0, 2.0, 1.0}, what is the FINAL value of data.mystery printed?"
+
+correct: "0"
+
+distractors:
+  - "5.0"
+  - "4"
+  - "1"
+
+explanation: "The index-of-max algorithm yields 0. Common errors land on the distractor values — see common-mistake catalogue."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — index-of-max predict-final"
+
+commonMistakeIds: ["CM-A12-store-value-not-index", "CM-A12-comparison-against-numbers-i", "CM-A12-init-with-numbers-zero", "CM-A12-store-i-plus-1"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Predict-final MCQ: tests result without trace ceremony."

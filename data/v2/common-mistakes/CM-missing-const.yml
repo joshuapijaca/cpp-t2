@@ -1,0 +1,25 @@
+id: CM-missing-const
+name: "Student omits `const` on MAX declaration"
+description: |
+  In Q4 main, the array capacity is declared `const int MAX = 100;`.
+  Students drop `const`, declaring a regular variable. Combined with
+  `<entity>_data <plural>[MAX];`, this is a variable-sized array (VLA),
+  non-standard C++ and explicitly disallowed by the unit's marking.
+whyItHappens: |
+  `const` feels redundant to students if they don't intend to change MAX.
+  They don't realise that the array-size context REQUIRES a compile-time
+  constant.
+immunizationStrategy: |
+  1. SpotError: `int MAX = 100;` (no const); flag.
+  2. MCQ: "Why must MAX be `const`? (array-size requires compile-time const)"
+  3. Cloze: blank for `const` keyword.
+  4. WriteCard with key-check on `const int MAX`.
+  5. Demo card: with-const compiles, without doesn't (per spec).
+  6. Decompose: distinguish const decl vs runtime decl.
+examImpact: high
+atomDependencies: [F-11, F-19]
+qTracks: [Q4]
+relatedCMs: [CM-var-sized-array]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §6.5 Q4 Common Errors — Missing `const` on MAX HIGH"

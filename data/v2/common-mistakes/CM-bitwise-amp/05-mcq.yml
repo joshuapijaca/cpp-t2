@@ -1,0 +1,32 @@
+id: "CM-bitwise-amp-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-bitwise-amp: Q1 bitwise & vs logical &&. Logical AND: && (two ampersands).
+
+correct: "if (a > 0 && b > 0)"
+
+distractors:
+  - "if (a > 0 & b > 0)"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: if (a > 0 && b > 0)
+  Mistake: Used single & for logical AND.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-bitwise-amp"
+
+commonMistakeIds: ["CM-bitwise-amp"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-bitwise-amp.

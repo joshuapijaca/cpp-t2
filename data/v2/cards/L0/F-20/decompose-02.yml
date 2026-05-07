@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-20 / DecomposeCard 02
+# Atom: struct definition — keyword case
+# =====================================================================
+id: "L0-F20-decomp-02"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  This struct definition will fail to compile. Pick the option that
+  identifies the bug.
+
+code: |
+  Struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+question: |
+  What is the first bug the compiler reports?
+
+options:
+  - label: "A"
+    text: "Nothing — `Struct` and `struct` are the same to the compiler."
+  - label: "B"
+    text: "The keyword should be `struct` (lowercase). `Struct` is NOT a C++ keyword."
+  - label: "C"
+    text: "The fields should be inside parentheses, not braces."
+  - label: "D"
+    text: "Structs can only have ONE field at a time."
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. C++ keywords are case-sensitive: only `struct` (all
+  lowercase) is recognised. Writing `Struct` makes the compiler
+  treat it as an undeclared identifier, not a keyword.
+  A is wrong: case matters.
+  C is wrong: structs use `{ }` for the field list, never parens.
+  D is wrong: structs may have any number of fields.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Targets CM-F20c (capital-S struct keyword). The Pascal-case import
+  from C# is the most common source.

@@ -1,0 +1,83 @@
+id: "L5-postmortem-28-missing-dot-field"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Q4 main — student swapped argument order: `read_students(count, students)`. Compile error: `count` is `int` but the parameter wants `student_data[]`. Read the diff.
+
+failedAttempt: |
+  int main()
+  {
+      const int MAX = 100;
+      student_data students[MAX];
+      int count = 0;
+
+      cout << "How many students? ";
+      cin >> count;
+
+      read_students(count, students);
+      print_students(count, students);
+
+      return 0;
+  }
+
+diagnosis: |
+  Function arguments are positional: their order at the call site MUST match the order in the function's signature. `read_students(student_data students[], int count)` expects array first, count second. The student wrote `count` first (wrong type for parameter 1) and `students` second (wrong type for parameter 2). Compiler error: "cannot convert int to student_data[]". Common under exam pressure when a student is rushing.
+
+repairSteps:
+  - "int main()"
+  - "{"
+  - "    const int MAX = 100;"
+  - "    student_data students[MAX];"
+  - "    int count = 0;"
+  - "    cout << \"How many students? \";"
+  - "    cin >> count;"
+  - "    read_students(students, count);    // <-- array FIRST, count SECOND"
+  - "    print_students(students, count);"
+  - "    return 0;"
+  - "}"
+
+preventionTip: |
+  Argument order at the call site = parameter order in the signature. Read the signature first; type the call in the same order. For SIT102 read/print functions: array, then count. Mantra: "data first, count second."
+
+explanation: |
+  Lesson learned — under time pressure students reverse argument order because both arguments "go together" in their head. The compiler catches this when the types differ (as here), but if both args were the same type the bug would be silent. Build the discipline: type each argument deliberately, in spec order, every time.
+
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 100;
+      student_data students[MAX];
+      int count = 0;
+
+      cout << "How many students? ";
+      cin >> count;
+
+      read_students(students, count);
+      print_students(students, count);
+
+      return 0;
+  }
+
+annotations:
+  - line: 10
+    severity: err
+    note: "Argument order swapped: `count` first, `students` second. Should be `students` first, `count` second."
+  - line: 11
+    severity: err
+    note: "Same swap. Both calls fail compile due to type mismatch (int vs array)."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q4 argument order"
+
+commonMistakeIds: ["CM-Q4-arg-order-swap"]
+status: "NEW"
+createdBy: "SA-L5-Postmortem-Rewrite"
+authoringStatus: "DRAFT"
+notes: |
+  Postmortem #28 — Q4 / argument order swap at call site.

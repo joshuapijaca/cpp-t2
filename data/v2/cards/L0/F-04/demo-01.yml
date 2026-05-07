@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-04 / DemoCard 01
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-demo-01"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch what `#include <iostream>` brings into your file. The line is
+  short, but it loads the names you'll use on every Q3 and Q4 answer.
+
+whyOneLine: "Without #include <iostream>, the names cout, cin, and endl do not exist in your file."
+
+demoCode: |
+  // BEFORE the include:
+  //   cout, cin, endl  -->  UNKNOWN to the compiler
+  //   any line that uses them  -->  ERROR
+
+  #include <iostream>
+
+  // AFTER the include, these names exist:
+  //   cout    --> the standard output stream  (used in Q3 and Q4)
+  //   cin     --> the standard input stream   (used in Q3 input fns)
+  //   endl    --> end-of-line flush           (used in every cout)
+
+highlightTokens:
+  - "#include <iostream>"
+  - "cout"
+  - "cin"
+  - "endl"
+  - "UNKNOWN"
+
+usedIn:
+  - "Q3 input/output function (every cin >> x and cout << x line)"
+  - "Q4 main program (every cout << ... in the answer body)"
+  - "Q1 trace cards (you trace cout output that only exists because of this)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md (iostream provides cin and cout for terminal I/O)"
+
+commonMistakeIds: ["CM-F04a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Pure see-card. The BEFORE/AFTER frame makes the include's job
+  tangible: it grants identifiers. No compile, no run — just the
+  vocabulary lift.

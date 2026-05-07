@@ -1,0 +1,54 @@
+/* cpp-t2 v2 — Typography */
+/* Two stacks: code (monospace) for source/terminal/cards; UI (sans) for chrome. */
+
+:root {
+  --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", ui-monospace,
+               "Menlo", "Consolas", monospace;
+  --font-ui:   ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+
+  /* Type ramp — keep tight; the code editor surface prefers density. */
+  --fs-micro:  11px;   /* statusbar, line-numbers, metadata     */
+  --fs-code:   14px;   /* code panels (default)                 */
+  --fs-prompt: 15px;   /* card prompt body                      */
+  --fs-h3:     16px;   /* small section heading                 */
+  --fs-h2:     18px;   /* card title                            */
+  --fs-h1:     22px;   /* page heading                          */
+
+  --lh-code: 1.55;     /* breathing room in source              */
+  --lh-ui:   1.45;     /* tighter for prose                     */
+
+  --tracking-code: 0;
+  --tracking-ui:   -0.005em;
+}
+
+/* Defaults: UI font everywhere; opt into mono on .mono / <code> / <pre>. */
+html, body {
+  font-family: var(--font-ui);
+  font-size: var(--fs-prompt);
+  line-height: var(--lh-ui);
+  letter-spacing: var(--tracking-ui);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: "ss01", "cv02", "cv11";
+  /* Disable code-font ligatures on UI surface */
+  font-variant-ligatures: none;
+}
+
+code, pre, kbd, samp, .mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-code);
+  line-height: var(--lh-code);
+  letter-spacing: var(--tracking-code);
+  /* Disable ligatures globally — `==`, `!=`, `->`, `<=` must read literally
+     for a hand-execution learning app. */
+  font-variant-ligatures: none;
+  font-feature-settings: "calt" 0, "liga" 0;
+}
+
+h1 { font-size: var(--fs-h1); font-weight: 600; line-height: 1.25; }
+h2 { font-size: var(--fs-h2); font-weight: 600; line-height: 1.3;  }
+h3 { font-size: var(--fs-h3); font-weight: 600; line-height: 1.35; }
+small, .micro { font-size: var(--fs-micro); color: var(--text-2); }
+
+/* Tabular numerals for line numbers, counters, statusbar metrics */
+.tabular { font-variant-numeric: tabular-nums; }

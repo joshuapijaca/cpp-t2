@@ -1,0 +1,48 @@
+id: "L1-S1-tour-18-memory-midtrace"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "DemoCard"
+
+stem: |
+  Memory format 3/4: mid-trace, after some iterations. mystery shows
+  its trail of values with strikethroughs. Array cells stay frozen
+  (they are NEVER mutated in Q1).
+
+whyOneLine: "Mid-trace: array cells unchanged, mystery shows full history with old values struck through."
+
+demoCode: |
+  // After iter 2 of sum-positives (i=0 added 2.4, i=2 added 1.0)
+
+  +-- MID-TRACE -----------------------------------------+
+  |                                                      |
+  |   numbers[0]  numbers[1]  numbers[2]                 |
+  |   [  2.4   ]  [ -3.7   ]  [  1.0   ]                 |
+  |                                                      |
+  |   numbers[3]  numbers[4]   mystery                   |
+  |   [ -2.1   ]  [  0.5   ]   ~-0.9~ ~0.0~ ~2.4~ 3.4    |
+  |                                                      |
+  +------------------------------------------------------+
+
+highlightTokens:
+  - "~-0.9~"
+  - "~0.0~"
+  - "~2.4~"
+  - "3.4"
+  - "NEVER"
+
+usedIn:
+  - "Q1: every iteration appends one new value to the mystery trail"
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — mid-trace state during sum-positives"
+
+commonMistakeIds: ["CM-Q1-no-strikethrough"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Memory box format: mid-trace with strikethroughs.
+authoringStatus: "DRAFT"

@@ -1,0 +1,82 @@
+# =====================================================================
+# L0 / F-15 / TraceCard 02
+# Atom: Prompt-then-read pair (multiple prompts)
+# =====================================================================
+id: "L0-F15-trace-02"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. User types `7` for desk_id, then `19.99` for price.
+  Type the final values and terminal output.
+
+code: |
+  int main() {
+    int desk_id;
+    double price;
+    cout << "desk_id: ";
+    cin >> desk_id;
+    cout << "price: ";
+    cin >> price;
+    cout << desk_id << " " << price << endl;
+    return 0;
+  }
+
+variables: ["desk_id", "price"]
+
+userInputs: ["7", "19.99"]
+inputLabels: ["desk_id", "price"]
+
+expectedTrace:
+  - line: 4
+    variable: ""
+    value: ""
+    output: "desk_id: "
+  - line: 5
+    variable: "desk_id"
+    value: "7"
+    output: null
+  - line: 6
+    variable: ""
+    value: ""
+    output: "desk_id: price: "
+  - line: 7
+    variable: "price"
+    value: "19.99"
+    output: null
+  - line: 8
+    variable: ""
+    value: ""
+    output: "desk_id: price: 7 19.99"
+
+terminalOutput: ["desk_id: price: 7 19.99"]
+
+inputMode: "per-step"
+
+teachMe: |
+  - Line 4: print `desk_id: `.
+  - Line 5: read 7 into desk_id.
+  - Line 6: print `price: ` (appended on same terminal line).
+  - Line 7: read 19.99 into price.
+  - Line 8: print `7 19.99` then newline.
+
+  Final: desk_id=7, price=19.99. Terminal: `desk_id: price: 7 19.99`.
+
+  Note: because no endl appears between prompts, the displayed
+  prompts run together on one line — typical of the SIT102 trace
+  output style.
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: read_desks two-field read"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Two-pair trace. Demonstrates the no-newline-prompt style.

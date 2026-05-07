@@ -1,0 +1,46 @@
+id: "L1-S2-TA-12-cloze-2line-mystery"
+schemaVersion: "v2"
+atomId: "T-01"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Two-line cloze. Fill in the entire scalar-field declaration line.
+
+prompt: |
+  Provide the full scalar (mystery) field declaration line.
+
+template: |
+  struct stat_double {
+    double numbers[SIZE];
+    ___;
+  };
+
+canonicalAnswer: |
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+keyChecks:
+  - "double mystery"
+
+forbiddenTokens:
+  - "while"
+
+explanation: |
+  Full line: `double mystery;`. Type, name, semicolon. The simplest
+  field but easy to forget the trailing semicolon.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — mystery field"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-A 2-line cloze: mystery field.
+authoringStatus: "DRAFT"

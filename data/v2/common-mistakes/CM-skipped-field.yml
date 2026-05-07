@@ -1,0 +1,24 @@
+id: CM-skipped-field
+name: "Student skips a field in the read sequence"
+description: |
+  A 3-field struct needs 3 cin lines per iter. Students miss one
+  (typically the middle one), leaving that field uninitialised. Tutor
+  marks each missing cin as a failure.
+whyItHappens: |
+  Visual rhythm of typing 2 cins makes the third easy to skip. Students
+  don't cross-check signature vs cin count. Especially common when fields
+  have similar names.
+immunizationStrategy: |
+  1. SpotError: 3-field struct with only 2 cins; flag missing.
+  2. MCQ: "How many cin calls per iter for a 3-field struct? (3)"
+  3. Cloze: fill in all 3 cin lines.
+  4. WriteCard graded on field count match.
+  5. Decompose: list every field then list every cin; cross-check.
+  6. Demo card: 4-field struct with 4 cins; show pattern.
+examImpact: medium
+atomDependencies: [F-14a, F-14b, F-21]
+qTracks: [Q3]
+relatedCMs: [CM-prompt-outside-loop, CM-missing-dot-field]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §5.5 Q3 Common Errors — Skipped field MEDIUM"

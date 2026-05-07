@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-24 / TraceCard 16 — sub-vocal predict-next-state
+# =====================================================================
+id: "L0-F24-trace-16"
+schemaVersion: "v2"
+atomId: "F-24"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Predict-first. Self-update. For line 3, say the result of
+  `n + 1` out loud (or mouth it) BEFORE pressing [step].
+
+code: |
+  int main() {
+    int n = 6;
+    n = n + 1;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "6"
+    output: null
+  - line: 3
+    variable: "n"
+    value: "7"
+    output: null
+
+terminalOutput: []
+
+inputMode: "per-step"
+
+q4StopCondition: "Articulate the new value BEFORE pressing [step]."
+
+teachMe: |
+  PREDICTION 1: "n becomes six".
+  PREDICTION 2: "n becomes seven" (6 + 1).
+  Final panel: { n: 7 }.
+
+  When self-updating, sub-vocalise the NEW value (7), not "n plus
+  one".
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sub-vocal predict card 16/30"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Self-update with explicit articulation rule (say the result, not
+  the expression).

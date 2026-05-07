@@ -1,0 +1,46 @@
+id: L1-S3-C-30-decomp-03
+schemaVersion: v2
+atomId: C-30
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: DecomposeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-30
+commonMistakeIds:
+  - CM-C30a
+stem: Pick the correct memory-model picture for who_am_i(stat_double &data).
+code: |-
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  void who_am_i(stat_double &data) {
+    data.mystery = 7.4;
+  }
+  int main() {
+    stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+    who_am_i(d);   // & in signature, no & at call site
+    cout << d.mystery << endl;
+    return 0;
+  }
+question: After who_am_i(d) returns, what does main print?
+options:
+  - label: A
+    text: '-0.9 — main`s d was not affected (function got a copy).'
+  - label: B
+    text: 7.4 — d and the function`s data were the same memory; the mutation persists.
+  - label: C
+    text: 0.0 — main`s d is reset to default after the function call.
+  - label: D
+    text: undefined — accessing d after who_am_i is illegal.
+correctLabel: B
+explanation: >-
+  The & in the signature gives data the SAME memory as the caller`s d. Mutations are visible in
+  main.
+

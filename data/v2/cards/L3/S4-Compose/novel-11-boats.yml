@@ -1,0 +1,48 @@
+# =====================================================================
+# L3 / R-03 / FunctionWriteCard — novel read_boats
+# =====================================================================
+id: "L3-R03-novel-11"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the FULL read_boats function. boat_data has 3 fields:
+  double length_m, int capacity, double price.
+prompt: "Compose: novel entity read_boats."
+signatureHint: "void read_boats(boat_data &boats[], int number_to_read) { ... }"
+canonicalAnswer: |
+  void read_boats(boat_data &boats[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Length (m): ";
+      cin >> boats[i].length_m;
+      cout << "Capacity: ";
+      cin >> boats[i].capacity;
+      cout << "Price: ";
+      cin >> boats[i].price;
+    }
+  }
+keyChecks:
+  - "void read_boats(boat_data &boats[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> boats[i].length_m;"
+  - "cin >> boats[i].capacity;"
+  - "cin >> boats[i].price;"
+forbiddenTokens:
+  - "function"
+  - "->"
+  - "while"
+explanation: |
+  Novel entity. Same skeleton; only entity + field surface rotates.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-off-by-one","CM-Q3-missing-amp","CM-Q3-missing-index","CM-Q3-missing-field"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

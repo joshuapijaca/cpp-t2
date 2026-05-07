@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-12 / MCQCard 02
+# Atom: Assignment = (RHS-first evaluation)
+# =====================================================================
+id: "L0-F12-mcq-02"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Trace these two lines:
+    int n = 4;
+    n = n * 3;
+  What is in box `n` afterwards?
+
+correct: "12 — RHS reads current n (4), multiplies by 3 to get 12, then writes 12."
+
+distractors:
+  - "n is unchanged because n * 3 was never assigned."
+  - "0 — int variables reset to 0 on assignment."
+  - "Three values are stored: 4, 12, and the running n."
+
+explanation: |
+  RHS-first rule: evaluate `n * 3` using the CURRENT n (4). 4 * 3 =
+  12. Write 12 into box n. The box held 4, now holds 12.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/0-panorama/4-assignment"
+
+commonMistakeIds: ["CM-F12b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Different operator (multiply) to vary the practice.

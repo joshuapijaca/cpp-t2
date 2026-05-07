@@ -1,0 +1,58 @@
+     SIT102 Test 1 (Practice) - 2026 T1
+
+      Student Name:
+
+      Student ID:
+
+   1. Write the terminal command to create a new dotnet project in the current directory.
+   dotnet new console
+   2. Write a terminal command to compile a C++ source file named Virus.cpp to an executable
+
+       named virus using the SplashKit library.
+clang++ Virus.cpp -l splashkit -o virus
+g++ Virus.cpp -l splashkit ­o virus
+
+       Read the following code, which contains a bug.
+       using static System . Console ;
+       using static System .Convert ;
+
+       int valueKeeper ;
+       int myCounter ;
+       int dummy Var ;
+       int i;
+//" instate of 11 and readline without space
+       Write ( " Ent er i niti al val ue: " );
+       val ue Kee pe r = T ol nt 32 ( ReadLi ne () );
+
+       Write ( " Enter count value: " );
+       my C ou nter = Tolnt3 2 ( ReadLine () );
+
+       i = 0;
+
+       do {
+           WriteLine ( valueKeeper ); II Print out valueK ee per
+           valueKeeper --;
+           i++;
+
+       } whi le ( val ueKeeper != my Counter );
+
+   3. Hand execute this code with the following inputs:
+       Enter initial value: 10
+       Enter count value: 8
+
+Test Code: V1.O                                                                               Page 1 of 2
+SIT1O2  Test 1                                                                                        Term 1, 2O26
+
+4. Hand execute this code with the following inputs up to i == 4.
+
+    Enter initial value: 14
+    Enter count value: 16
+
+5. What is the bug in this program?
+
+6. Write C# code which continuously prompts a user to input a number, terminating if the number
+   is divisible by 11. Recall that the remainder operator in C# is %, so an integer stored in num is
+   divisible by 11 if (num % 11) == 0.
+
+                                                                                                      Page 2 of 2
+

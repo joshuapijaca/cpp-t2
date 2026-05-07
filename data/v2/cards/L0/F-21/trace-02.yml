@@ -1,0 +1,95 @@
+# =====================================================================
+# L0 / F-21 / TraceCard 02 — composite obj.field[i] read
+# =====================================================================
+id: "L0-F21-trace-02"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. The struct `d` has an array field `numbers`. Track
+  each slot of `d.numbers`. Fill in the terminal output.
+
+code: |
+  int main() {
+    stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+    cout << d.numbers[0] << endl;
+    cout << d.numbers[2] << endl;
+    cout << d.numbers[4] << endl;
+    cout << d.mystery << endl;
+    return 0;
+  }
+
+variables: ["d.numbers[0]", "d.numbers[1]", "d.numbers[2]", "d.numbers[3]", "d.numbers[4]", "d.mystery"]
+
+expectedTrace:
+  - line: 2
+    variable: "d.numbers[0]"
+    value: "2.4"
+    output: null
+  - line: 2
+    variable: "d.numbers[1]"
+    value: "-3.7"
+    output: null
+  - line: 2
+    variable: "d.numbers[2]"
+    value: "-1.7"
+    output: null
+  - line: 2
+    variable: "d.numbers[3]"
+    value: "3.0"
+    output: null
+  - line: 2
+    variable: "d.numbers[4]"
+    value: "2.0"
+    output: null
+  - line: 2
+    variable: "d.mystery"
+    value: "-0.9"
+    output: null
+  - line: 3
+    variable: ""
+    value: ""
+    output: "2.4"
+  - line: 4
+    variable: ""
+    value: ""
+    output: "-1.7"
+  - line: 5
+    variable: ""
+    value: ""
+    output: "2"
+  - line: 6
+    variable: ""
+    value: ""
+    output: "-0.9"
+
+terminalOutput: ["2.4", "-1.7", "2", "-0.9"]
+
+inputMode: "final-only"
+
+teachMe: |
+  - Line 2: brace-init fills the inner array slots and the scalar.
+    d.numbers = {2.4, -3.7, -1.7, 3.0, 2.0}, d.mystery = -0.9.
+  - Line 3: `d.numbers[0]` = 2.4. Print 2.4.
+  - Line 4: `d.numbers[2]` = -1.7. Print -1.7.
+  - Line 5: `d.numbers[4]` = 2.0. Print 2 (cout drops trailing zeros).
+  - Line 6: `d.mystery` = -0.9. Print -0.9.
+
+  Read order: dot first, then bracket index. `d.numbers[i]` is the
+  i-th slot of the array field, NOT `d[i].numbers`.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `data = { {2.4,...}, -0.9 }` instance"
+
+commonMistakeIds: ["CM-F21a", "CM-F19b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Drills the EXACT Test 2 V2.0 instance + composite-token reads.
+  Critical Q1 prep card.

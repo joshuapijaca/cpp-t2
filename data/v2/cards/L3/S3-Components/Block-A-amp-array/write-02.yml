@@ -1,0 +1,47 @@
+# =====================================================================
+# L3 / Block A amp-array / FunctionWrite 02 — computer_data
+# =====================================================================
+id: "L3-AmpArr-write-02"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+
+stem: "Write ONLY the signature line for read_computers. The & must sit on the array decay parameter, written `&computer_list[]` exactly."
+
+prompt: "Write the signature only (no body) for read_computers that reads computer_data items by reference."
+
+signatureHint: "void read_computers(computer_data &computer_list[], int number_to_read)"
+
+canonicalAnswer: |
+  void read_computers(computer_data &computer_list[], int number_to_read)
+  {
+  }
+
+keyChecks:
+  - "void"
+  - "read_computers"
+  - "computer_data"
+  - "&computer_list[]"
+  - "int number_to_read"
+
+forbiddenTokens:
+  - "*"
+  - "function"
+
+explanation: |
+  &computer_list[] — & glued to the param name; [] glued after. Both required. Same V2.0 placement pattern across all entities.
+
+passByRefRequired: true
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V Block A — &list[] placement"
+
+commonMistakeIds: ["CM-Q3-missing-amp", "CM-Q3-missing-brackets-sig"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "Block A entity 2 (computer). &list[] placement drill."

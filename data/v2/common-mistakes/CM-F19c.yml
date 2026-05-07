@@ -1,0 +1,37 @@
+id: CM-F19c
+name: "Thinks C++ raw arrays carry their size (arr.length / arr.size())"
+description: |
+  In C++, raw arrays declared `int arr[5];` do NOT carry size with
+  them — there's no `arr.length` (Java/JS), no `arr.size()` (vector
+  / std::array), and `sizeof(arr)/sizeof(arr[0])` only works at the
+  array's home scope. Inside a function that received the array, the
+  size is permanently lost. The standard C++ workaround is to pass
+  size as a separate parameter, or use a file-scope `const int SIZE`
+  symbol (Test 2 V2.0 does this). Students writing `arr.length`
+  silently fail to compile.
+whyItHappens: |
+  Massive multi-language imports: JavaScript arrays have `.length`,
+  Java arrays have `.length`, Python lists have `len()`, C# arrays
+  have `.Length`. ALL of them carry size. C++ raw arrays are an
+  outlier among modern languages — students assume the modern
+  convention applies. Compounded by the fact that `std::array` and
+  `std::vector` DO have `.size()`, so any C++ they've seen with
+  modern containers reinforces the wrong rule for raw arrays.
+immunizationStrategy: |
+  1. MCQ: "Inside a function, how to get array size?" — `.length` /
+     `.size()` / SIZE param / sizeof().
+  2. SpotError: `for (int i = 0; i < arr.length; i++)` — replace with
+     `i < SIZE`.
+  3. Demo: side-by-side JS/Java/C++ (raw vs vector), highlight the
+     C++ raw-array exception.
+  4. Walkthrough: trace through array-param call showing decay erases
+     size info.
+  5. Cloze: `for (int i = 0; i < ___; i++)` — fill with SIZE constant.
+  6. Decompose: 4 ways to get size — pick the C++ raw-array idiom.
+examImpact: medium
+atomDependencies: [F-19, F-22e]
+qTracks: [Q1, Q3, Q4]
+relatedCMs: [CM-F19a, CM-F19b, CM-F22e-3, CM-Q1-array-no-size]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"

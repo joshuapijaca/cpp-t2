@@ -1,0 +1,45 @@
+# =====================================================================
+# L3 / R-00 / WalkthroughCard — practice read_computers tour
+# =====================================================================
+id: "L3-R00-walk-02"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 1
+level: "L3"
+type: "WalkthroughCard"
+stem: |
+  Practice-test shape: read_computers. Same skeleton, different surface tokens.
+levelLabel: "L3 Q3 Tour — practice read_computers"
+fullCode: |
+  void read_computers(computer_data &computers[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "CPU speed (GHz): ";
+      cin >> computers[i].cpu_speed;
+      cout << "RAM (GB): ";
+      cin >> computers[i].ram_gb;
+      cout << "Price ($): ";
+      cin >> computers[i].price;
+    }
+  }
+steps:
+  - line: 1
+    code: "void read_computers(computer_data &computers[], int number_to_read)"
+    annotation: "Entity name swapped desks -> computers. Field types may include int + double mixed."
+    atomIds: ["F-22", "F-22a"]
+  - line: 3
+    code: "  for (int i = 0; i < number_to_read; i++)"
+    annotation: "Same for-loop pattern. Always parameter as bound."
+    atomIds: ["F-18"]
+  - line: 5
+    code: "    cout << \"CPU speed (GHz): \";"
+    annotation: "Prompt strings change but the pair pattern is identical."
+    atomIds: ["F-15"]
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q3 read_computers"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

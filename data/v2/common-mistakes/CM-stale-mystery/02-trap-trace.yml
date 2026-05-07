@@ -1,0 +1,44 @@
+id: "CM-stale-mystery-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-stale-mystery: Q1 stale mystery on final iter.
+
+code: |
+  // Trap: Reported mystery from iteration 4 even though i=5 ran and updated.
+  // final mystery = value at i=4
+  ;
+
+question: |
+  What goes wrong with the line above on Q1?
+
+options:
+  - label: "A"
+    text: "Reported mystery from iteration 4 even though i=5 ran and updated."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Reported mystery from iteration 4 even though i=5 ran and updated. The canonical pattern is: // final mystery = LAST written value
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-stale-mystery"
+
+commonMistakeIds: ["CM-stale-mystery"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-stale-mystery.

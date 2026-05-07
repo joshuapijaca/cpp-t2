@@ -1,0 +1,31 @@
+id: F-22b
+name: "Pass-by-reference & semantics"
+level: L0
+phase: E
+teaches: "`Type &p` in signature: p is the SAME memory as caller's variable. Mutations inside fn persist after return. No `&` at call site."
+prereqs: [F-22a]
+usedByQs: [Q1, Q3]
+cardCountTarget: 16
+parentAtom: F-22
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/0-pointers-and-references"
+    quote: "A reference is an alternative name for an existing variable; it shares the same storage."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
+    quote: "These allow you to create parameters which are used to update the passed in values."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
+    quote: "You must pass a variable to a reference - it cannot be a calculated value as the parameter needs to be able to write the result back to somewhere in memory."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/4-indirect-access/1-tour/00-explore-references"
+    quote: "void update_player(player_data &player) { ... } modifies the caller's player_data."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:30:15 — Saloni: 'double D. So that's how I referred it' (referring to passing struct by reference)"
+commonMistakes:
+  - CM-F22b-1  # forgets & in signature → caller's data unchanged (Q3 high-frequency error per spec)
+  - CM-F22b-2  # adds & at call site: read_X(&data)  (wrong; & only in signature)
+  - CM-F22b-3  # treats & as the bitwise AND operator
+  - CM-F22b-4  # uses *p instead of &p (pointer syntax confusion)
+notes:
+  cardMix: { walkthrough: 1, demo: 2, decompose: 2, trace: 4, cloze: 2, μWrite: 3, tmplRec: 1, mcq: 1 }

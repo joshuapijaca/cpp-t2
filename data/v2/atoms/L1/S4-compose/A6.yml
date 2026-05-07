@@ -1,0 +1,19 @@
+id: A6
+name: "Q1 Compose: sum-even-indexed algorithm"
+level: L1
+phase: S4
+teaches: "Trace sum of elements at even indices. Init mystery = 0.0; for i=0..SIZE-1, if i % 2 == 0 then mystery = mystery + numbers[i]. Tests modulo on INDEX, not value."
+prereqs: [A4]
+usedByQs: [Q1]
+cardCountTarget: 10
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — index-conditional accumulator"
+commonMistakes:
+  - CM-A6-mod-on-value
+  - CM-A6-flip-parity
+notes:
+  cardMix: { trace: 6, mcq: 2, decompose: 2 }
+  stage: S4
+  exposureClass: medium
+  progression: "2 simple -> 2 mixed-sign -> 2 edge -> 2 adversarial -> 1 final-only -> 1 spot-error"

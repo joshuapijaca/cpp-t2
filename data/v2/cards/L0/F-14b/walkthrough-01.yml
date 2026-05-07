@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-14b / WalkthroughCard 01
+# Atom: cin reads one whitespace-delimited token
+# =====================================================================
+id: "L0-F14b-walk-01"
+schemaVersion: "v2"
+atomId: "F-14b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  cin reads ONE token at a time. A token is a sequence of characters
+  ending at the first whitespace (space, tab, or newline). Walk
+  through what each `cin >> x;` actually consumes.
+
+levelLabel: "L0 Foundation Phase C F-14b"
+
+fullCode: |
+  int a, b;
+  string name;
+
+  cin >> a;
+  cin >> b;
+  cin >> name;
+
+steps:
+  - line: 4
+    code: 'cin >> a;'
+    annotation: |
+      User types: `5 12 ana<Enter>`. cin sees the buffer `5 12 ana\n`
+      and reads characters until whitespace: it consumes `5`, converts
+      to int 5, and stores in a. The pointer now sits BEFORE the
+      space.
+    atomIds: ["F-14b"]
+  - line: 5
+    code: 'cin >> b;'
+    annotation: |
+      cin SKIPS leading whitespace (the space), then reads `12`,
+      converts to int, stores in b. The pointer now sits before the
+      space after `12`.
+    atomIds: ["F-14b"]
+  - line: 6
+    code: 'cin >> name;'
+    annotation: |
+      cin skips the next space, then reads `ana` (until \n). Stores
+      "ana" in name. The newline stays in the buffer.
+
+      One single user line `5 12 ana` filled three variables.
+    atomIds: ["F-14b"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F14b-1", "CM-F14b-3"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Establishes one-token-per-cin behaviour with a multi-value example.

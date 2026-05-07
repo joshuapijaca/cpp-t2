@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-21 / DemoCard 03 — dot is C++ field operator (not -> or ::)
+# =====================================================================
+id: "L0-F21-demo-03"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: in Test 2 the field operator is ALWAYS the dot `.`. Other
+  operators (`->`, `::`) belong to syntax that is OUT of scope.
+
+whyOneLine: "Use `.` for fields. `->` is for pointers (off-scope); `::` is for namespaces (off-scope)."
+
+demoCode: |
+  // CORRECT (Test 2 scope):
+  data.mystery
+  data.numbers[i]
+
+  // WRONG — `->` is for pointer-to-struct (off-scope):
+  // data->mystery
+  // data->numbers[i]
+
+  // WRONG — `::` is the namespace operator (off-scope):
+  // data::mystery
+  // data::numbers[i]
+
+highlightTokens:
+  - "data.mystery"
+  - "data.numbers[i]"
+  - "data->mystery"
+  - "data::mystery"
+
+usedIn:
+  - "All Q-tracks — dot is the only field operator in test scope"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements"
+
+commonMistakeIds: ["CM-F21b", "CM-F21c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Immunises against `->` (pointer syntax import) and `::` (Java/C#
+  namespace import). Both are off-scope but tempting.

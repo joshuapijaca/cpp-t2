@@ -1,0 +1,71 @@
+# =====================================================================
+# L0 / F-11 / DecomposeCard 02
+# Atom: Variable declaration + initialisation
+# =====================================================================
+id: "L0-F11-decomp-02"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Pick the option that best describes the difference between the two
+  forms below.
+
+code: |
+  // Form A:
+  int score;
+  score = 0;
+
+  // Form B:
+  int score = 0;
+
+question: |
+  After both lines of Form A run, and after the single line of Form B
+  runs, what is in box `score`?
+
+options:
+  - label: "A"
+    text: |
+      Both end with `score = 0`. Form B is just a shorter way to write
+      Form A.
+  - label: "B"
+    text: |
+      Form A ends with `score = garbage` because the second line is
+      shadowed by the first.
+  - label: "C"
+    text: |
+      Form B does not compile because you cannot mix declaration and
+      assignment.
+  - label: "D"
+    text: |
+      Form A ends with `score = 0`; Form B ends with `score = NULL`
+      because of the missing comma.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. Both forms reach the same final state — `score`
+  contains 0. Form B is the canonical short version.
+
+  Difference is the BETWEEN-LINE state of Form A: between line 1 and
+  line 2, box `score` holds garbage. Form B never has that gap.
+
+  B is wrong: assignments are not shadowed; the second line writes 0.
+  C is wrong: declaration with initialisation is the most common
+  C++ pattern.
+  D is wrong: NULL is a pointer concept; not relevant here.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F11a", "CM-F11b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Establishes that Form A and Form B converge to the same state, but
+  Form A has an unsafe intermediate state.

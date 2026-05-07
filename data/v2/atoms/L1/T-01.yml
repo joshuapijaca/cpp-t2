@@ -1,0 +1,21 @@
+id: T-01
+name: "T-A skeleton: stat_double struct decl"
+level: L1
+phase: S2
+teaches: "Verbatim recall of the canonical Q1 struct: `struct stat_double { double numbers[SIZE]; double mystery; };` — including SIZE constant, brace, semicolon."
+prereqs: [F-19, F-20, T-00]
+usedByQs: [Q1]
+cardCountTarget: 18
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt §0 — `struct stat_double { double numbers[SIZE]; double mystery; };`"
+  - kind: v2
+    ref: "Test 2 V2.0 attempt 1 — same struct, sum-positive variant"
+commonMistakes:
+  - CM-Q1-struct-no-trailing-semi
+  - CM-Q1-array-no-size
+  - CM-Q1-mystery-wrong-type
+notes:
+  cardMix: { templateRecall: 18 }
+  stage: S2
+  exposureClass: medium

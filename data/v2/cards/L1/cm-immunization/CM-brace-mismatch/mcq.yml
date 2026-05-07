@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-brace-mismatch
+id: "L1-cmimm-CM-brace-mismatch-mcq"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  Two `{` are opened. How many `}` must close them?
+
+correct: 'Two `}` — one per `{`'
+
+distractors:
+  - 'One — last brace closes all.'
+  - 'Three — extra one for safety.'
+  - 'Zero — the compiler closes them.'
+
+explanation: |
+  Braces match 1:1. Each `{` requires its own `}`.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-brace-mismatch)"
+
+commonMistakeIds: ["CM-brace-mismatch"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

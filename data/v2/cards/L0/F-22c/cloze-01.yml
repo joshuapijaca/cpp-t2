@@ -1,0 +1,37 @@
+# =====================================================================
+# L0 / F-22c / ClozeCard 01 — bare call site
+# =====================================================================
+id: "L0-F22c-cloze-01"
+schemaVersion: "v2"
+atomId: "F-22c"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the call site. The function signature is
+  `void who_am_i(stat_double &data);` and the local variable is `d`.
+
+code: |
+  who_am_i(___);
+
+clozeSentence: "who_am_i(___);   // call with local d"
+
+answer: "d"
+
+explanation: |
+  At the call site, write the bare variable name `d`. NO `&`. The
+  reference binding is automatic — the compiler sees `&` in the
+  signature and arranges the alias.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `who_am_i ( d );`"
+
+commonMistakeIds: ["CM-F22c-1"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Smallest possible cloze. The student must NOT type `&d`.

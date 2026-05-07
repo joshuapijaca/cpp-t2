@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-11 / DemoCard 02
+# Atom: Variable declaration + initialisation (declare-and-initialise)
+# =====================================================================
+id: "L0-F11-demo-02"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the safe pattern. `int x = 0;` opens the box AND writes 0 in
+  one step. From line 1 onward, reading `x` is predictable.
+
+whyOneLine: "int x = 0; opens a box AND writes a starting value. Always safe to read."
+
+demoCode: |
+  int count = 0;          // box `count` opens, value 0 written
+  double total = 0.0;     // box `total` opens, value 0.0 written
+  string label = "desk";  // box `label` opens, text desk written
+  cout << count << endl;  // prints: 0
+  cout << total << endl;  // prints: 0
+  cout << label << endl;  // prints: desk
+
+highlightTokens:
+  - "int count = 0;"
+  - "double total = 0.0;"
+  - 'string label = "desk";'
+  - "= 0"
+  - "= 0.0"
+  - '= "desk"'
+
+usedIn:
+  - "Q4 main (every local variable initialised at declaration is safe to use)"
+  - "Q3 read fn (initialise the read-count parameter at zero)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F11b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  The safe canonical declaration pattern. Three types covered.

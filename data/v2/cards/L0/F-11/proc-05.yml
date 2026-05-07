@@ -1,0 +1,46 @@
+# =====================================================================
+# L0 / F-11 / ProceduralCard 05 (μWrite)
+# Atom: Variable declaration + initialisation (struct field init)
+# =====================================================================
+id: "L0-F11-proc-05"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the canonical V2.0 struct initialisation line. Use brace-list
+  syntax.
+
+section: "F-11 declare-and-init drills (struct)"
+
+prompt: |
+  Declare a `stat_double` named `d` and initialise it with:
+  - numbers = {2.4, -3.7, -1.7, 3.0, 2.0}
+  - mystery = -0.9
+  Use brace-list syntax. End with a semicolon.
+
+expectedAnswer: "stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };"
+
+keyChecks: ["stat_double d", "{2.4, -3.7, -1.7, 3.0, 2.0}", "-0.9", ";"]
+
+variants:
+  - prompt: |
+      Practice test format: declare a `desk_data` named `desk` with
+      desk_id = 1 and price = 19.99. Use brace-list. End with `;`.
+    expectedAnswer: "desk_data desk = { 1, 19.99 };"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };"
+
+commonMistakeIds: []
+
+notes: |
+  EXACT V2.0 trace setup line. Critical Q1 muscle memory.

@@ -1,0 +1,65 @@
+# =====================================================================
+# L0 / F-11 / DecomposeCard 03
+# Atom: Variable declaration + initialisation (missing type)
+# =====================================================================
+id: "L0-F11-decomp-03"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes the line below inside main. The compiler refuses.
+  Pick the best fix.
+
+code: |
+  int main() {
+    score = 0;
+    cout << score << endl;
+    return 0;
+  }
+
+question: |
+  What is missing for this program to compile?
+
+options:
+  - label: "A"
+    text: |
+      Add a TYPE in front of `score` on line 2: `int score = 0;`. The
+      first time a variable is used, you must declare its type.
+  - label: "B"
+    text: |
+      Add `using namespace std;` at the top of the file.
+  - label: "C"
+    text: |
+      Replace `=` with `==` on line 2 to compare instead of assign.
+  - label: "D"
+    text: |
+      Move `return 0;` above `cout` so the compiler sees the return
+      first.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. `score = 0;` looks like assignment, but `score` has
+  not been declared. The compiler does not know what type it is, so it
+  refuses. Fix: declare and initialise on first use:
+  `int score = 0;`.
+
+  B is wrong: this is not a namespace problem.
+  C is wrong: this would not be assignment any more, it would be a
+  comparison — and `score` is still undeclared.
+  D is wrong: line ordering does not solve the missing-type problem.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F11a"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Targets the missing-type-on-first-use mistake.

@@ -1,0 +1,49 @@
+# =====================================================================
+# L0 / F-04 / MCQCard 01
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-mcq-01"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  What does `#include <iostream>` actually DO when the compiler
+  encounters it on the first line of a `.cpp` file?
+
+correct: "It tells the preprocessor to copy the contents of the iostream header file into your file before compiling, which makes names like cout, cin, and endl available."
+
+distractors:
+  - "It runs the iostream library at program-start, similar to how main() runs."
+  - "It encrypts the rest of the file so other students cannot read your code."
+  - "It is a comment that human readers use to label the file's purpose; the compiler ignores it."
+
+explanation: |
+  `#` lines are processed by the C++ *preprocessor* — a step that runs
+  *before* compilation. When the preprocessor sees `#include
+  <iostream>`, it splices the iostream header's contents into your
+  file at that location. After splicing, the names `cout`, `cin`, and
+  `endl` are declared and the compiler can resolve them later when
+  it sees them in your code.
+
+  Distractor 1 confuses include with runtime execution — `#include`
+  is purely a build-time, source-text operation.
+  Distractor 2 is fictional — the preprocessor does not encrypt.
+  Distractor 3 mistakes `#` for a comment marker — `//` is the C++
+  comment marker, not `#`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 1 · 1-sequence-and-data/2-trailside/10-library.md"
+
+commonMistakeIds: ["CM-F04a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Concept-MCQ on the *meaning* of include. Reinforces the F-02
+  build-time-vs-runtime distinction one level up: the preprocessor
+  is yet another build-time stage.

@@ -1,0 +1,31 @@
+# =====================================================================
+# L3 / R-02c / FunctionWriteCard — cin into computers[i].cpu_speed
+# =====================================================================
+id: "L3-R02c-write-02"
+schemaVersion: "v2"
+atomId: "R-02c"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  GATING (Block C): write ONE cin statement that reads the field
+  'cpu_speed' into the i-th element of 'computers'.
+prompt: "Single cin statement: list[i].field shape."
+signatureHint: "cin >> computers[i].cpu_speed;"
+canonicalAnswer: |
+  cin >> computers[i].cpu_speed;
+keyChecks:
+  - "cin >> computers[i].cpu_speed;"
+forbiddenTokens:
+  - "while"
+  - "scanf"
+explanation: |
+  cin >> list[i].field; — composite shape. Index then dot then field.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-missing-index","CM-Q3-missing-field","CM-Q3-zero-instead-of-i"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

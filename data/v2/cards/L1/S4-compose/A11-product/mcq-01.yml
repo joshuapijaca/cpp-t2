@@ -1,0 +1,31 @@
+# =====================================================================
+# L1 / product / MCQCard 01 — predict-final 1
+# =====================================================================
+id: "L1-A11-mcq-01"
+schemaVersion: "v2"
+atomId: "A11"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: "For product on numbers={10.0, 1.0, 1.0, 1.0, 1.0}, what is the FINAL value of data.mystery printed?"
+
+correct: "10"
+
+distractors:
+  - "14.0"
+  - "0.0"
+  - "bogus2"
+
+explanation: "The product algorithm yields 10. Common errors land on the distractor values — see common-mistake catalogue."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — product predict-final"
+
+commonMistakeIds: ["CM-A11-init-zero", "CM-A11-zero-element-zeroes-all"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Predict-final MCQ: tests result without trace ceremony."

@@ -1,0 +1,39 @@
+id: "L5-warmup-06-q2"
+schemaVersion: "v2"
+atomId: "M-04"
+qTags: ["Q2"]
+stage: 6
+level: "L5"
+type: "DemoCard"
+
+stem: |
+  Q2 canonical struct demo. D7 warmup demo — passive observation.
+
+whyOneLine: "See the canonical struct shape one more time before the test."
+
+demoCode: |
+  struct desk_data {
+    string material;
+    int drawers;
+    double height;
+  };
+
+highlightTokens:
+  - "&data"
+  - "for ("
+  - "cin"
+  - "return 0;"
+
+usedIn:
+  - "Every Test 2 Q2 attempt"
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q2 — D7 warmup demo"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  D7 warmup #6: canonical Q2 demo.

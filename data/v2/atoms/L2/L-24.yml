@@ -1,0 +1,20 @@
+id: L-24
+name: "Q2 S4 Compose — full struct from English prompt"
+level: L2
+teaches: "Read 1-2 line English description of an entity → produce the full struct. 30 entities (top 10 + 20 variants), each drilled. desk_data + computer_data load-bearing."
+prereqs: [L-22, L-23]
+usedByQs: [Q2]
+cardCountTarget: 70
+source:
+  - kind: practice
+    ref: "docs/16_test2_specific_redesign_v2.md §4.5 Entity Pool (35 entities)"
+  - kind: practice
+    ref: "Test 2 V2.0 — desk_data; Practice — computer_data"
+commonMistakes:
+  - CM-F20a
+  - CM-F20b
+  - CM-F20c
+  - CM-F20d
+  - CM-Q2-wrong-type
+notes:
+  buckets: { entity-prompt: 30, repeats: 30, free-write: 10 }

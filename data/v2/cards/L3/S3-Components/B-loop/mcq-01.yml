@@ -1,0 +1,25 @@
+# =====================================================================
+# L3 / R-02b / MCQCard — loop mcq
+# =====================================================================
+id: "L3-R02b-mcq-01"
+schemaVersion: "v2"
+atomId: "R-02b"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "MCQCard"
+stem: |
+  Which for-loop is canonical for read_X with count parameter n?
+correct: "for (int i = 0; i < n; i++)"
+distractors:
+  - "for (int i = 0; i <= n; i++)"
+  - "for (int i = 1; i < n; i++)"
+  - "for (int i = 0; i < SIZE; i++)"
+explanation: |
+  for (int i = 0; i < n; i++)
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

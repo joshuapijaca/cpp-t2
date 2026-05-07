@@ -1,0 +1,46 @@
+# =====================================================================
+# L1 / sum-positive / DecomposeCard 01 — spot-error 1
+# =====================================================================
+id: "L1-A4-decomp-01"
+schemaVersion: "v2"
+atomId: "A4"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "DecomposeCard"
+
+stem: "The code below CLAIMS to compute sum-positive on numbers={2.0, 4.0, 6.0, 8.0, 10.0}. There is a bug. Identify it."
+
+code: |
+  data.mystery = 0.0;
+  for (int i = 0; i < SIZE; i = i + 1) {
+    if (data.numbers[i] >= 0) {
+      data.mystery = data.mystery + data.numbers[i];
+    }
+  }
+
+question: "Pick the option that correctly identifies the bug."
+
+options:
+  - label: "A"
+    text: "The bug: `>=` is wrong: it includes 0 in sum-positive; the correct check is `> 0`. The correct output should be 30."
+  - label: "B"
+    text: "The code is correct — it produces the right answer."
+  - label: "C"
+    text: "The bug is the loop bound `i < SIZE`; should be `i <= SIZE`."
+  - label: "D"
+    text: "The bug is in the cout statement; missing endl flush."
+
+correctLabel: "A"
+
+explanation: "Spot-error drill. `>=` is wrong: it includes 0 in sum-positive; the correct check is `> 0`. Targets CM-A4-skip-condition, CM-A4-include-zero, CM-A4-flip-condition."
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — sum-positive bug variants"
+
+commonMistakeIds: ["CM-A4-skip-condition", "CM-A4-include-zero", "CM-A4-flip-condition"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Spot-error decompose card."

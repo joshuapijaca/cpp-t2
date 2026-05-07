@@ -1,0 +1,44 @@
+id: "CM-no-strikethrough-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q1 no strikethrough on supersedes. The code below has the bug labeled
+  by CM-no-strikethrough. Find the line and provide the fix.
+
+brokenCode: |
+  // Q1 broken excerpt:
+  // 3.0, 5.7, 7.4 (which is the answer?)
+  // (canonical was: // strikethrough: ~~3.0~~ ~~5.7~~ 7.4 (final))
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  // strikethrough: ~~3.0~~ ~~5.7~~ 7.4 (final)
+  ;
+
+bugCategory: "CM-no-strikethrough"
+
+keyChecks:
+  - "// strikethrough: ~~3.0~~ ~~5."
+
+explanation: |
+  Bug: Memory column lists 4 mystery values without indicating which is current.
+  Fix: // strikethrough: ~~3.0~~ ~~5.7~~ 7.4 (final)
+  This common mistake costs marks on Q1 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-no-strikethrough"
+
+commonMistakeIds: ["CM-no-strikethrough"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-no-strikethrough.

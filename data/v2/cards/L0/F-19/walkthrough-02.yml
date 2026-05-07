@@ -1,0 +1,68 @@
+# =====================================================================
+# L0 / F-19 / WalkthroughCard 02
+# Atom: Fixed-size array — connecting SIZE symbol to bracket size
+# =====================================================================
+id: "L0-F19-walk-02"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Test 2 V2.0 declares a `const int SIZE = 5;` outside any struct,
+  then uses `SIZE` inside the struct field `double numbers[SIZE];`.
+  Walk through the connection between the two appearances of the
+  word SIZE.
+
+levelLabel: "L0 Foundation · Phase E · F-19"
+
+fullCode: |
+  const int SIZE = 5;
+
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+  int main() {
+    stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+    return 0;
+  }
+
+steps:
+  - line: 1
+    code: 'const int SIZE = 5;'
+    annotation: |
+      A `const int` named SIZE with value 5. `const` makes it a
+      compile-time constant, which is exactly what an array size
+      requires. It is in scope for the rest of the file.
+    atomIds: ["F-11"]
+  - line: 4
+    code: '    double numbers[SIZE];'
+    annotation: |
+      Inside the struct, the field `numbers` is an array of doubles.
+      The size `[SIZE]` is the SAME `5` as line 1 — the compiler
+      substitutes 5 here. So `numbers` has 5 slots indexed 0..4.
+    atomIds: ["F-19", "F-20"]
+  - line: 9
+    code: '    stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };'
+    annotation: |
+      The five values inside the inner braces fill the five slots of
+      `d.numbers`: d.numbers[0]=2.4, d.numbers[1]=-3.7, ..., d.numbers[4]=2.0.
+      The trailing `-0.9` fills the second field `d.mystery`.
+    atomIds: ["F-19", "F-20", "F-21"]
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `const int SIZE = 5;` + `double numbers[SIZE];`"
+
+commonMistakeIds: ["CM-F19a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Bridges the abstract "SIZE must be a compile-time const" rule to
+  the concrete Test 2 V2.0 shape. Reading this card before sitting
+  the exam should make `numbers[SIZE]` instantly readable.

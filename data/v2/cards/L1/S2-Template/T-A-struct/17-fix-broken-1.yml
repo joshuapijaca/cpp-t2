@@ -1,0 +1,51 @@
+id: "L1-S2-TA-17-fix-broken-1"
+schemaVersion: "v2"
+atomId: "T-01"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  This struct is missing one piece. Type the FULL corrected version.
+
+prompt: |
+  Spot what is missing and rewrite the struct correctly.
+
+template: |
+  // BROKEN (missing trailing punctuation):
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  }
+
+canonicalAnswer: |
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+keyChecks:
+  - "};"
+  - "stat_double"
+  - "numbers[SIZE]"
+  - "mystery"
+
+forbiddenTokens:
+  - "class"
+
+explanation: |
+  Missing `;` after the closing brace. Add `;` to make it `};`.
+  This is the #1 silent compile error on Q2 and the easiest mark
+  to lose.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — struct closing"
+
+commonMistakeIds: ["CM-Q1-struct-no-trailing-semi"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-A repair: missing trailing semi.
+authoringStatus: "DRAFT"

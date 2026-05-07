@@ -1,0 +1,73 @@
+# =====================================================================
+# L0 / F-03 / DecomposeCard 02
+# Atom: Hand-execution — what counts as the "answer" of a trace
+# =====================================================================
+id: "L0-F03-decomp-02"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  You hand-executed a program correctly. You now have a variables
+  panel: { x: 5, y: 12, z: 17 }, and a terminal output: `17`. The
+  exam question asks "What does the program print?" Pick the option
+  that gives the right deliverable.
+
+code: |
+  int main() {
+    int x = 5;
+    int y = 12;
+    int z = x + y;
+    cout << z << endl;
+    return 0;
+  }
+
+question: |
+  Which is the answer the marker is looking for?
+
+options:
+  - label: "A"
+    text: |
+      The full variables panel: `x: 5, y: 12, z: 17` — list every box
+      and its final value.
+  - label: "B"
+    text: |
+      Only the terminal output: `17`. The variables panel is your
+      working notes, not the answer.
+  - label: "C"
+    text: |
+      The source code itself, copied out neatly.
+  - label: "D"
+    text: |
+      The intermediate computation `5 + 12 = 17` — show the addition,
+      not the printed value.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. The exam asks what the PROGRAM PRINTS — that is the
+  terminal output and only the terminal output. The variables panel
+  is your scratchpad to *arrive* at the answer, not the answer itself.
+  Some Q1 questions also ask for the final value of certain variables
+  separately; in that case you copy from your scratchpad. Always read
+  the question literally: print = terminal, value of x = box x.
+
+  A overshoots (panel ≠ output). C is irrelevant. D shows working but
+  misses the asked artifact.
+
+source:
+  kind: "practice"
+  ref: "SIT102 past-paper Q1 phrasing — 'What does the program print?' is the literal exam wording"
+
+commonMistakeIds: ["CM-confuses-panel-with-output"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Disambiguates the two artifacts produced by hand-execution. Many
+  students lose easy marks by writing the panel where the question
+  asked for the output, or vice versa. This card makes the distinction
+  explicit at the very start.

@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-06 / MCQCard 01
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-mcq-01"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  What does `return 0;` at the end of `main` actually do? Pick the
+  option that matches the C++ standard's defined behaviour.
+
+correct: "It ends main() and returns the integer 0 to the operating system as the program's exit status, signalling success."
+
+distractors:
+  - "It prints the digit 0 to the terminal as a final line of output."
+  - "It clears all variables in the variables panel before the program ends."
+  - "It loops back to the start of main, repeating execution from the top."
+
+explanation: |
+  `return 0;` is a return statement. It (1) ends the function `main`
+  (no later statements run), and (2) hands the integer 0 back to
+  whoever called main — which, for a program, is the operating
+  system. The OS treats 0 as "success" and any non-zero value as a
+  failure code.
+
+  Distractor 1 confuses return-value with cout output. The terminal
+  shows ONLY what `cout` printed; `return 0;` is silent.
+  Distractor 2 fictionalises a clean-up effect. Variable scope ends
+  naturally when main exits; `return` doesn't actively clear them.
+  Distractor 3 invents a loop. `return` exits — never repeats.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F06a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Concept-MCQ on what return 0; means. Distractor 1 catches the
+  high-frequency confusion ("does it print 0?"). All distractors
+  are real beginner mental models.

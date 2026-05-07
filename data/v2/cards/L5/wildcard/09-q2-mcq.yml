@@ -1,0 +1,31 @@
+id: "L5-wildcard-09-q2"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 5
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  S5.5 wildcard: Hyphen in struct name.
+
+correct: "Replace `-` with `_`: e.g. computer-data -> computer_data."
+
+distractors:
+  - "Use camelCase: computerData (also valid but spec asks snake)."
+  - "Quote with backticks: `computer-data`."
+  - "Hyphens are fine in C++ identifiers."
+
+explanation: |
+  C++ identifiers allow letters, digits, underscores. Hyphens are subtraction operators.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 wildcard"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #9: Q2 Hyphen in struct name.

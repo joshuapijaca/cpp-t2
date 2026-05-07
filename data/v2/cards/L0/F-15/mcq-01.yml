@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-15 / MCQCard 01
+# Atom: Prompt-then-read pair
+# =====================================================================
+id: "L0-F15-mcq-01"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which of these is the canonical SIT102 prompt-pair for reading an
+  int `desk_id` from the user?
+
+correct: 'cout << "desk_id: "; then cin >> desk_id;  (prompt first, with trailing space, no endl on prompt)'
+
+distractors:
+  - "cin >> desk_id;  then  cout << \"desk_id: \";  (read first, then label after — wrong order)"
+  - "cout << \"desk_id\" << endl;  then  cin >> desk_id;  (endl puts label on its own line — wrong style)"
+  - "cout << \"desk_id:\";  then  cin >> desk_id;  (no trailing space — value will touch the colon)"
+
+explanation: |
+  The canonical prompt-pair has THREE properties:
+  1. cout BEFORE cin (prompt first).
+  2. Trailing space inside the quotes (`"label: "`).
+  3. NO `endl` on the prompt (cursor stays on the line).
+  Only one option matches all three.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+
+commonMistakeIds: ["CM-F15a", "CM-F15b", "CM-F15c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Tests recall of all three properties simultaneously.

@@ -1,0 +1,33 @@
+# Hand-authored CM immunization (ClozeCard) for CM-guesses-from-literals
+id: "L1-cmimm-CM-guesses-from-literals-cloze"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Hand-execute the 3 lines and fill in what cout prints."
+
+code: |
+  int a = 4;
+  int b = a * 3;
+  cout << b << endl;
+  // Terminal output: ___
+
+clozeSentence: 'After hand-execution (line 1: a=4; line 2: b = 4*3 = 12), fill in what is printed.'
+
+answer: '12'
+
+explanation: |
+  Don't guess from `int a = 4;`. Trace line 2: b = 4 * 3 = 12. cout << b prints 12. Hand-execution beats guessing.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-03 hand-execution paradigm — common-mistake immunization (CM-guesses-from-literals)"
+
+commonMistakeIds: ["CM-guesses-from-literals"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

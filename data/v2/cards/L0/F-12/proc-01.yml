@@ -1,0 +1,43 @@
+# =====================================================================
+# L0 / F-12 / ProceduralCard 01 (μWrite)
+# Atom: Assignment =
+# =====================================================================
+id: "L0-F12-proc-01"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a single line that assigns a value to an existing variable.
+
+section: "F-12 assignment drills"
+
+prompt: |
+  Assume `int x;` is already declared. Write the line that assigns 5
+  into x. End with a semicolon.
+
+expectedAnswer: "x = 5;"
+
+keyChecks: ["x = 5;"]
+
+variants:
+  - prompt: |
+      Assume `double total;` is declared. Write the line that assigns
+      0.0 into total. End with a semicolon.
+    expectedAnswer: "total = 0.0;"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/08-assignment-statement"
+
+commonMistakeIds: ["CM-F12a"]
+
+notes: |
+  Smallest assignment drill.

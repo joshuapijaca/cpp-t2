@@ -1,0 +1,27 @@
+# =====================================================================
+# L3 / R-01 / TemplateRecallCard — fill cin slot
+# =====================================================================
+id: "L3-R01-fill-cin-02"
+schemaVersion: "v2"
+atomId: "R-01"
+qTags: ["Q3"]
+stage: 2
+level: "L3"
+type: "TemplateRecallCard"
+stem: |
+  Fill the {{O}} slot in the cin statement.
+prompt: "Fill {{O}} placeholder."
+template: |
+  cin {{O}} desks[i].width;
+canonicalAnswer: |
+  cin >> desks[i].width;
+keyChecks:
+  - ">>"
+explanation: |
+  Right-shift for read direction.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

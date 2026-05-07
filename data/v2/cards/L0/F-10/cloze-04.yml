@@ -1,0 +1,47 @@
+# =====================================================================
+# L0 / F-10 / ClozeCard 04
+# Atom: Primitive types — case sensitivity
+# =====================================================================
+id: "L0-F10-cloze-04"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the corrected casing. C++ type names are case-sensitive.
+
+code: |
+  // The student wrote:
+  Int score = 0;
+  Double price = 9.99;
+  String name = "ana";
+
+  // The correct version is:
+  ___ score = 0;
+  ___ price = 9.99;
+  ___ name = "ana";
+
+clozeSentence: |
+  All three primitive type names are written with all-lowercase
+  letters: `int`, `double`, `___` (text).
+
+answer: "string"
+
+explanation: |
+  All three of `int`, `double`, `string` are lowercase. The compiler
+  rejects `Int`, `Double`, `String` (or any other capitalisation) as
+  unknown types. C++ is strictly case-sensitive.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/06-type"
+
+commonMistakeIds: ["CM-F10c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Targets the capitalisation common mistake.

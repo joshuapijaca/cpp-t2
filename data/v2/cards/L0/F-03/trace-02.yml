@@ -1,0 +1,66 @@
+# =====================================================================
+# L0 / F-03 / TraceCard 02
+# Atom: Hand-execution paradigm
+# Purpose: Predict the terminal output for a single cout
+# =====================================================================
+id: "L0-F03-trace-02"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Now there is a `cout`. Predict what appears in the terminal panel
+  after the program finishes. Also fill in the value of `x` in the
+  variables panel.
+
+code: |
+  int main() {
+    int x = 8;
+    cout << x << endl;
+    return 0;
+  }
+
+variables: ["x"]
+
+expectedTrace:
+  - line: 2
+    variable: "x"
+    value: "8"
+    output: null
+  - line: 3
+    variable: ""
+    value: ""
+    output: "8"
+
+terminalOutput: ["8"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Step-by-step:
+  - Line 2: `int x = 8;` — open box `x`, write 8. Panel: { x: 8 }.
+  - Line 3: `cout << x << endl;` — look up `x` (it is 8), write `8`
+    to the terminal, then a newline.
+  - Line 4: `return 0;` — program ends.
+
+  Final variables panel: x = 8.
+  Final terminal output: 8
+
+  Note: `cout << x` prints the VALUE inside box `x`, not the letter
+  `x`. The variable name does NOT appear in the terminal.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-03 trace primer; PFG Part 1 — first cout exposure"
+
+commonMistakeIds: ["CM-prints-variable-name", "CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Targets the "prints variable name" misconception (writes `x` instead
+  of `8`). Also introduces the single-cout pattern that all later
+  traces extend.

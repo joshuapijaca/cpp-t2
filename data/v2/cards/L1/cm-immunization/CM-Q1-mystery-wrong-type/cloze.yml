@@ -1,0 +1,33 @@
+# Hand-authored CM immunization (ClozeCard) for CM-Q1-mystery-wrong-type
+id: "L1-cmimm-CM-Q1-mystery-wrong-type-cloze"
+schemaVersion: "v2"
+atomId: "T-01"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in the missing type for the mystery field of stat_double."
+
+code: |
+  struct stat_double {
+      double numbers[SIZE];
+      ___ mystery;
+  };
+
+clozeSentence: 'Fill in the type that matches the array element type.'
+
+answer: 'double'
+
+explanation: |
+  Accumulator type matches element type. numbers[] holds doubles, so mystery (which sums/products them) must also be double.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-mystery-wrong-type)"
+
+commonMistakeIds: ["CM-Q1-mystery-wrong-type"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

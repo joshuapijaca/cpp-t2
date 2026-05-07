@@ -1,0 +1,35 @@
+
+id: "L2-S3b-name-03"
+schemaVersion: "v2"
+atomId: "L-23b"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "DecomposeCard"
+stem: "Q2 field-naming drill #3. snake_case only. Choose the legal field-name format."
+code: |
+  struct stats_data
+  {
+      string label;
+      double percentage;
+  };
+question: "Pick the legal identifier for a percentage field."
+options:
+  - label: "A"
+    text: "`%age`"
+  - label: "B"
+    text: "`percentage`"
+  - label: "C"
+    text: "`percent age`"
+  - label: "D"
+    text: "`Percent Age`"
+correctLabel: "B"
+explanation: "`%`, space, and uppercase break either C++ rules or SIT102 style."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-camelcase","CM-Q2-hyphen","CM-Q2-reserved"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Field-naming legality check."

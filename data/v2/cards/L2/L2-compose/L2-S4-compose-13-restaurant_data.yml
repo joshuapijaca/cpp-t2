@@ -1,0 +1,29 @@
+
+id: "L2-S4-compose-13-restaurant_data"
+schemaVersion: "v2"
+atomId: "L-24"
+qTags: ["Q2"]
+stage: 4
+level: "L2"
+type: "StructWriteCard"
+stem: "Q2 Compose #13. From the English description, write the full struct: name, opening brace, fields one per line, closing `};`."
+prompt: "A restaurant has a name, a location, and a rating."
+canonicalAnswer: |
+  struct restaurant_data
+  {
+      string name;
+      string location;
+      double rating;
+  };
+requiredFields: ["name","location","rating"]
+keyChecks: ["struct restaurant_data","};","string name;","string location;","double rating;"]
+forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
+explanation: "restaurant_data captures 3 attributes (name, location, rating). Type-by-noun: name→string, location→string, rating→double."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.5 S4 COMPOSE"
+commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "S4 full-compose card."

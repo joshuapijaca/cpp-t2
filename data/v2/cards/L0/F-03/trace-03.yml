@@ -1,0 +1,76 @@
+# =====================================================================
+# L0 / F-03 / TraceCard 03
+# Atom: Hand-execution paradigm
+# Purpose: Two variables + arithmetic — first multi-step mental simulation
+# =====================================================================
+id: "L0-F03-trace-03"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Two variables this time. Hand-execute the program. Fill the final
+  values of `a` and `b` in the variables panel, and the terminal
+  output.
+
+code: |
+  int main() {
+    int a = 6;
+    int b = 9;
+    int c = a + b;
+    cout << c << endl;
+    return 0;
+  }
+
+variables: ["a", "b", "c"]
+
+expectedTrace:
+  - line: 2
+    variable: "a"
+    value: "6"
+    output: null
+  - line: 3
+    variable: "b"
+    value: "9"
+    output: null
+  - line: 4
+    variable: "c"
+    value: "15"
+    output: null
+  - line: 5
+    variable: ""
+    value: ""
+    output: "15"
+
+terminalOutput: ["15"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Step-by-step:
+  - Line 2: open box `a`, write 6.       Panel: { a: 6 }
+  - Line 3: open box `b`, write 9.       Panel: { a: 6, b: 9 }
+  - Line 4: read a=6 and b=9, add → 15.  Panel: { a: 6, b: 9, c: 15 }
+  - Line 5: print value of c (15).       Terminal: 15
+
+  Final answer:
+    a = 6
+    b = 9
+    c = 15
+    output: 15
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-03 trace primer — multi-variable arithmetic introduction"
+
+commonMistakeIds: ["CM-skips-mental-state", "CM-arithmetic-error"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Three boxes is the right next step after one. Arithmetic is trivial
+  (6+9=15) so the cognitive load is on the *process* of moving values
+  between boxes, not on the math. Bigger numbers come at L1.

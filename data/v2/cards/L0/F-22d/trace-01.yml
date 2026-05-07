@@ -1,0 +1,79 @@
+# =====================================================================
+# L0 / F-22d / TraceCard 01 — caller sees mutation
+# (LOAD-BEARING for Q1+Q3 — embedded in agent report)
+# =====================================================================
+id: "L0-F22d-trace-01"
+schemaVersion: "v2"
+atomId: "F-22d"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. The function `bump` takes its int parameter BY
+  REFERENCE (`&`). Trace `n` in main — what value does it hold
+  AFTER the call returns?
+
+code: |
+  void bump(int &x) {
+    x = x + 1;
+  }
+
+  int main() {
+    int n = 5;
+    bump(n);
+    cout << n << endl;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 6
+    variable: "n"
+    value: "5"
+    output: null
+  - line: 7
+    variable: "n"
+    value: "6"
+    output: null
+  - line: 8
+    variable: ""
+    value: ""
+    output: "6"
+
+terminalOutput: ["6"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Step-by-step:
+  - Line 6: int n = 5;
+    Panel: { n: 5 }
+  - Line 7: bump(n);
+    The `&x` in the signature makes `x` an alias for the caller's
+    `n`. Inside bump, the line `x = x + 1` writes 6 into the SAME
+    storage as `n`.
+    Panel after call: { n: ~~5~~ 6 }
+  - Line 8: cout << n;
+    Reads the current `n` (= 6). Prints 6.
+
+  Final: n = 6. Terminal: 6.
+
+  Trap: a beginner might think bump operates on a local copy and
+  the caller's `n` stays at 5. Wrong — `&` makes them the same
+  variable. The mutation persists.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-22d — mutation visibility"
+
+commonMistakeIds: ["CM-F22d-1", "CM-F22d-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  THE highest-stakes F-22d trace. Drives home that the CALLER's
+  variable changes after a pass-by-reference call. Smallest
+  possible code that exhibits the effect.

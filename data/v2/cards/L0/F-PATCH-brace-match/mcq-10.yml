@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 10 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Same code as 08-09, highlight main (depth 0)
+# =====================================================================
+id: "L0-F25-mcq-10"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Same code as cards 08 and 09. Now the HIGHLIGHTED `{` opens main
+  at depth 0. Which `}` matches?
+
+  ```cpp
+  int main() {                          // <-- HIGHLIGHT (depth 0)
+    for (int i = 0; i < 3; i = i+1) {   // depth 1 open
+      if (i > 0) {                      // depth 2 open
+        cout << i << endl;
+      }                                 // option A (depth 2)
+    }                                   // option B (depth 1)
+    return 0;
+  }                                     // <-- option C (depth 0)
+  ```
+
+correct: "C — the final `}` on its own line at the very bottom (depth-0 close)."
+
+distractors:
+  - "A — the `}` after the cout, because it is the first `}` after main opens."
+  - "B — the `}` between the if's close and `return 0;`, because that aligns with main."
+  - "D — there is no `}` matching main; that is why the program errors."
+
+explanation: |
+  C is correct. depth-0 matches depth-0. main's open is the
+  highlighted `{`, and its close is the very last `}`.
+
+  A and B are at deeper depths (2 and 1) — they pair with their own
+  inner blocks.
+  D is wrong: option C exists.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 10/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Same code as 08 and 09. Three identical-shape cards, three
+  different highlights. The depth rule should be drilled by now.

@@ -1,0 +1,26 @@
+id: L1-S3-C-04-mcq-02
+schemaVersion: v2
+atomId: C-04
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-04
+commonMistakeIds:
+  - CM-C04a
+stem: >-
+  Before tracing Q1, you draw memory cells for `double numbers[SIZE]` (SIZE=5). How many cells do
+  you draw, and what are their labels?
+correct: 5 cells, labelled numbers[0], numbers[1], numbers[2], numbers[3], numbers[4].
+distractors:
+  - 6 cells, labelled numbers[0]..numbers[5] (because SIZE=5 means 5 is included).
+  - 5 cells, labelled numbers[1]..numbers[5] (1-indexed).
+  - No cells — arrays do not need separate boxes when tracing.
+explanation: C++ arrays are 0-indexed and length SIZE means valid indices are 0..SIZE-1.
+

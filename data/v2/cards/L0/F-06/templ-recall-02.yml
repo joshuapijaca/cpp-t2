@@ -1,0 +1,53 @@
+# =====================================================================
+# L0 / F-06 / TemplateRecallCard 02
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-tmpl-02"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Stage 2: less scaffolding. The opening of the body is given as a
+  placeholder; you supply the body's only statement (the return).
+
+prompt: |
+  Fill in the function header AND the return statement to complete
+  the empty main skeleton.
+
+template: |
+  {{HEADER_LINE_INCLUDING_OPENING_BRACE}}
+    {{RETURN_LINE}}
+  {{CLOSING_BRACE}}
+
+canonicalAnswer: |
+  int main() {
+    return 0;
+  }
+
+keyChecks:
+  - "int main()"
+  - "return 0;"
+
+forbiddenTokens:
+  - "void main"
+
+explanation: |
+  Filled in: `{{HEADER_LINE}}` = `int main() {`,
+  `{{RETURN_LINE}}` = `return 0;`. The closing brace is given.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F06a", "CM-F06b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Stage-2 template-recall. The student fills in the two load-bearing
+  lines (header + return). Mid-difficulty between stage-1 and the
+  cold-recall drill (uwrite-03).

@@ -1,0 +1,103 @@
+# =====================================================================
+# L1 / V-type-int / TraceCard 07
+# type-int variant
+# =====================================================================
+id: "L1-V-typeint-07"
+schemaVersion: "v2"
+atomId: "A13"
+qTags: ["Q1"]
+stage: 5
+level: "L1"
+type: "TraceCard"
+
+stem: "Trace sum-all on stat_int { numbers = {3, 7, 1, 4, 9} }. Note the integer mystery (no decimal point)."
+
+code: |
+  const int SIZE = 5;
+  
+  struct stat_int {
+    int numbers[SIZE];
+    int mystery;
+  };
+  
+  int main() {
+    stat_int data = { {3, 7, 1, 4, 9}, 0 };
+    data.mystery = 0;
+    for (int i = 0; i < SIZE; i = i + 1) {
+      data.mystery = data.mystery + data.numbers[i];
+    }
+    cout << data.mystery << endl;
+    return 0;
+  }
+
+variables: ["i", "data.mystery"]
+
+expectedTrace:
+  - line: 9
+    variable: "data.mystery"
+    value: "0"
+    output: null
+  - line: 10
+    variable: "data.mystery"
+    value: "0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "0"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: "3"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "1"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: "10"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "2"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: "11"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "3"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: "15"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "4"
+    output: null
+  - line: 12
+    variable: "data.mystery"
+    value: "24"
+    output: null
+  - line: 14
+    variable: ""
+    value: ""
+    output: "24"
+
+terminalOutput: ["24"]
+
+inputMode: "final-only"
+
+teachMe: "int sum: 0 -> 3 -> a += 7 -> a += 1 -> a += 4 -> a += 9 = 24."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — int variant transfer"
+
+commonMistakeIds: ["CM-S5-type-confusion"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Type-int transfer trace."

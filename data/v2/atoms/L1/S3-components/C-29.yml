@@ -1,0 +1,21 @@
+id: C-29
+name: Don't mutate array cells
+level: L1
+teaches: numbers[i] is read-only in Q1; only mystery / count change.
+prereqs:
+  - F-19
+usedByQs:
+  - Q1
+cardCountTarget: 6
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-29
+    quote: 'C-29: 6 cards. Don''t mutate array cells.'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C29a
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

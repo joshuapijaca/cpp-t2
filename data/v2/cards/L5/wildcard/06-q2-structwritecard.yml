@@ -1,0 +1,45 @@
+id: "L5-wildcard-06-q2"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 5
+level: "L5"
+type: "StructWriteCard"
+
+stem: |
+  S5.5 wildcard: 4-field struct define. Write the struct.
+
+prompt: |
+  Define a struct game_data with: string title; string genre; int year; double rating;
+
+canonicalAnswer: |
+  struct game_data {
+    string title;
+    string genre;
+    int year;
+    double rating;
+  };
+
+keyChecks:
+  - "struct"
+  - "};"
+
+forbiddenTokens:
+  - "class"
+
+requiredFields: ["title","genre","year","rating"]
+
+explanation: |
+  Wildcard struct: 4 fields. Each field its own line,
+  semicolon terminator. Closing brace requires the trailing semicolon.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 4-field"
+
+commonMistakeIds: ["CM-missing-semi-after-brace", "CM-2-fields-1-line"]
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #6: Q2 4-field struct define.

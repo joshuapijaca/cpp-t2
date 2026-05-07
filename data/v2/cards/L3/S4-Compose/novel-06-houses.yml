@@ -1,0 +1,48 @@
+# =====================================================================
+# L3 / R-03 / FunctionWriteCard — novel read_houses
+# =====================================================================
+id: "L3-R03-novel-06"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the FULL read_houses function. house_data has 3 fields:
+  int bedrooms, double area_m2, double price.
+prompt: "Compose: novel entity read_houses."
+signatureHint: "void read_houses(house_data &houses[], int number_to_read) { ... }"
+canonicalAnswer: |
+  void read_houses(house_data &houses[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Bedrooms: ";
+      cin >> houses[i].bedrooms;
+      cout << "Area (m^2): ";
+      cin >> houses[i].area_m2;
+      cout << "Price: ";
+      cin >> houses[i].price;
+    }
+  }
+keyChecks:
+  - "void read_houses(house_data &houses[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> houses[i].bedrooms;"
+  - "cin >> houses[i].area_m2;"
+  - "cin >> houses[i].price;"
+forbiddenTokens:
+  - "function"
+  - "->"
+  - "while"
+explanation: |
+  Novel entity. Same skeleton; only entity + field surface rotates.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-off-by-one","CM-Q3-missing-amp","CM-Q3-missing-index","CM-Q3-missing-field"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

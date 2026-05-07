@@ -1,0 +1,53 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 12 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Function-body brace match
+# =====================================================================
+id: "L0-F25-mcq-12"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  A free function defined above main. The HIGHLIGHTED `{` opens
+  the function's body. Which `}` matches?
+
+  ```cpp
+  void greet() {     // <-- HIGHLIGHT (depth 0, greet)
+    cout << "hi";
+  }                  // <-- option A (depth 0, greet close)
+  int main() {       // depth 0 open (main)
+    greet();
+    return 0;
+  }                  // <-- option B (depth 0, main close)
+  ```
+
+correct: "A — the `}` on the line after the cout (depth 0, greet's close)."
+
+distractors:
+  - "B — the final `}` of main, since both function bodies share one closing brace."
+  - "C — the `(` and `)` of `greet()` close the body."
+  - "D — there is no matching `}`; functions without a return need none."
+
+explanation: |
+  A is correct. greet opens at the highlighted `{` and closes at
+  the next `}` at the same depth.
+
+  B is wrong: B closes main, not greet.
+  C is wrong: parens enclose the parameter list, not the body.
+  D is wrong: every function body needs `}`.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 12/30"
+
+commonMistakeIds: ["CM-F08a", "CM-F08c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Free-function brace match. Reinforces "depth 0" can hold multiple
+  function bodies side by side.

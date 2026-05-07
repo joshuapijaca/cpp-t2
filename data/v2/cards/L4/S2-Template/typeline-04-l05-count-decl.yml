@@ -1,0 +1,28 @@
+id: "L4-S2-typeline-04"
+schemaVersion: "v2"
+atomId: "Q-01"
+qTags: 
+  - "Q4"
+stage: 2
+level: "L4"
+type: "TemplateRecallCard"
+stem: "Type the canonical line for: count var decl."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.2 S2 typeline drill"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Slot: count var decl. Type the line."
+template: "int ___;"
+canonicalAnswer: "int desk_num;"
+keyChecks: 
+  - "int"
+  - "desk_num;"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+  - "scanf"
+explanation: "Canonical: `int desk_num;`. This is the exact line for \"count var decl\" in the V2.0/practice main() skeleton."

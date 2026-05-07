@@ -1,0 +1,45 @@
+# =====================================================================
+# L3 / R-04 / FunctionWriteCard — 4-field houses
+# =====================================================================
+id: "L3-R04-v4-08"
+schemaVersion: "v2"
+atomId: "R-04"
+qTags: ["Q3"]
+stage: 5
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Variation: houses with 4 fields (3 original + extra).
+prompt: "4-field variation"
+canonicalAnswer: |
+  void read_houses(house_data &houses[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Bedrooms: ";
+      cin >> houses[i].bedrooms;
+      cout << "Area (m^2): ";
+      cin >> houses[i].area_m2;
+      cout << "Price: ";
+      cin >> houses[i].price;
+      cout << "Extra: ";
+      cin >> houses[i].extra;
+    }
+  }
+keyChecks:
+  - "void read_houses(house_data &houses[], int number_to_read)"
+  - "cin >> houses[i].bedrooms;"
+  - "cin >> houses[i].area_m2;"
+  - "cin >> houses[i].price;"
+  - "cin >> houses[i].extra;"
+forbiddenTokens:
+  - "while"
+explanation: |
+  4 fields = 4 prompt-pairs in struct-declaration order.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

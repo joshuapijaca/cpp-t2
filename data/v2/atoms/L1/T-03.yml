@@ -1,0 +1,19 @@
+id: T-03
+name: "T-C skeleton: pre-loop init `data.mystery = INIT;`"
+level: L1
+phase: S2
+teaches: "Verbatim recall of the pre-loop accumulator init line. INIT varies by algorithm: 0.0 for sum, -1.0/0 for count, data.numbers[0] for max/min, 1.0 for product."
+prereqs: [F-21, T-02]
+usedByQs: [Q1]
+cardCountTarget: 12
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — `data.mystery = data.numbers[0];` (find-max)"
+  - kind: v2
+    ref: "Test 2 V2.0 attempt 1 — `data.mystery = 0.0;` (sum-positive)"
+commonMistakes:
+  - CM-Q1-skip-init
+notes:
+  cardMix: { templateRecall: 12 }
+  stage: S2
+  exposureClass: short

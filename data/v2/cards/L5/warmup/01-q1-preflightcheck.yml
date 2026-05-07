@@ -1,0 +1,36 @@
+id: "L5-warmup-01-q1"
+schemaVersion: "v2"
+atomId: "M-04"
+qTags: ["Q1"]
+stage: 6
+level: "L5"
+type: "PreflightCheckCard"
+
+stem: |
+  Q1 preflight checklist — D7 morning warmup. Run through this checklist before
+  attempting Q1 on the test.
+
+scenario: |
+  Before reading the Q1 prompt, run through this 5-step preflight.
+
+checklist:
+  - "Identify the algorithm (find-max, sum-positive, count-X, etc.)."
+  - "Note the pre-loop init value (data.numbers[0] or 0 or 0.0)."
+  - "Note the if-condition."
+  - "Note the action (= for find-max, += for sum, +1 for count)."
+  - "Set up the trace table: i, cond, mystery, output."
+
+explanation: |
+  Warmup preflight for Q1. The checklist captures the 4-6 highest-
+  leverage steps. If all are checked, the answer almost writes itself.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q1 — D7 warmup pack"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  D7 warmup #1: Q1.

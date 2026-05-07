@@ -1,0 +1,60 @@
+id: "L5-postmortem-07-off-by-one-exit"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Q1 trace — student wrote `i <= SIZE` and tried to access `numbers[SIZE]` after the loop exits. Out-of-bounds read; trace shows a phantom 6th iteration. Read the diff.
+
+failedAttempt: |
+  void who_am_i(test_data &data) {
+      data.mystery = 0.0;
+      for (int i = 0; i <= SIZE; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+      }
+  }
+
+diagnosis: |
+  With SIZE = 5, valid indices are `0, 1, 2, 3, 4`. The condition `i <= SIZE` lets the loop run while `i <= 5`, so iteration 5 reads `numbers[5]` — past the end of the array. Undefined behavior in C++ (might read garbage, might crash). The trace adds a non-existent 6th row. Off-by-one at the EXIT condition.
+
+repairSteps:
+  - "for (int i = 0; i < SIZE; i++) {   // <-- use `<`, not `<=`"
+  - "    data.mystery = data.mystery + data.numbers[i];"
+  - "}"
+  - "// After loop, i == SIZE. numbers[i] is out-of-bounds — never index it post-loop."
+
+preventionTip: |
+  For `int arr[N]`, valid indices are `0..N-1`. The loop bound is `i < N`, never `i <= N`. After the loop, i == N — do not use `numbers[i]` again. Mantra: "less-than, never less-than-or-equal."
+
+explanation: |
+  Lesson learned — `<=` reads as friendly inclusive, but in array iteration it walks off the end. Compiler accepts it; runtime behavior is undefined. Trace shows it as a spurious extra row. The canonical form `i < SIZE` is muscle memory you must drill until it's automatic.
+
+canonicalAnswer: |
+  void who_am_i(test_data &data) {
+      data.mystery = 0.0;
+      for (int i = 0; i < SIZE; i++) {
+          data.mystery = data.mystery + data.numbers[i];
+      }
+  }
+
+annotations:
+  - line: 3
+    severity: err
+    note: "`i <= SIZE` reads numbers[SIZE], which is out of bounds. Should be `i < SIZE`."
+  - line: 4
+    severity: warn
+    note: "Body itself is fine. The bug is the loop bound; this line runs one extra time with an out-of-range i."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q1 loop bound off-by-one"
+
+commonMistakeIds: ["CM-off-by-one-exit"]
+status: "NEW"
+createdBy: "SA-L5-Postmortem-Rewrite"
+authoringStatus: "DRAFT"
+notes: |
+  Postmortem #07 — Q1 / off-by-one exit (i <= SIZE).

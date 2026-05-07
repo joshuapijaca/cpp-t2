@@ -1,0 +1,44 @@
+id: "CM-only-final-no-trail-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q1 reported only final no trail. The code below has the bug labeled
+  by CM-only-final-no-trail. Find the line and provide the fix.
+
+brokenCode: |
+  // Q1 broken excerpt:
+  // answer = 7.4
+  // (canonical was: // i=0 cond->T mystery=2.4; i=1 cond->F mystery=2.4; ...)
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  // i=0 cond->T mystery=2.4; i=1 cond->F mystery=2.4; ...
+  ;
+
+bugCategory: "CM-only-final-no-trail"
+
+keyChecks:
+  - "// i=0 cond->T mystery=2.4; i="
+
+explanation: |
+  Bug: Wrote "answer = 7.4" with no iteration trace.
+  Fix: // i=0 cond->T mystery=2.4; i=1 cond->F mystery=2.4; ...
+  This common mistake costs marks on Q1 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-only-final-no-trail"
+
+commonMistakeIds: ["CM-only-final-no-trail"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-only-final-no-trail.

@@ -1,0 +1,24 @@
+id: CM-hyphen-id
+name: "Student uses hyphen or space in identifier"
+description: |
+  C++ identifiers allow only `[A-Za-z_][A-Za-z0-9_]*`. Students write
+  `computer-data` (compiler reads as subtraction `computer - data`) or
+  `computer data` (two tokens) instead of `computer_data`.
+whyItHappens: |
+  English uses hyphens for compound nouns. Students mirror that into
+  identifiers without realising `-` is the subtraction operator. Spaces
+  feel natural for separation.
+immunizationStrategy: |
+  1. SpotError: `computer-data` flagged as illegal identifier.
+  2. MCQ: "Which is legal: `computer-data`, `computer_data`, `computer data`?"
+  3. Cloze: convert hyphenated -> snake_case.
+  4. WriteCard with key-check rejecting hyphens and spaces.
+  5. Decompose: identify legal-identifier rule (start letter/_, body alphanum/_).
+  6. Demo card: contrast identifier rule with English compound noun rule.
+examImpact: low
+atomDependencies: [F-09, F-20]
+qTracks: [Q2]
+relatedCMs: [CM-cap-struct-name, CM-reserved-word]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §4.6 Q2 Common Errors — Hyphen/space in identifier LOW"

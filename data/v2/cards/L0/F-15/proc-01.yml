@@ -1,0 +1,47 @@
+# =====================================================================
+# L0 / F-15 / ProceduralCard 01 (μWrite)  — Q3 critical
+# Atom: Prompt-then-read pair
+# =====================================================================
+id: "L0-F15-proc-01"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the canonical two-line prompt-pair.
+
+section: "F-15 prompt-pair drills"
+
+prompt: |
+  Assume `int desk_id;` is declared. Write the two lines that prompt
+  the user with `desk_id: ` and read the value into desk_id.
+
+expectedAnswer: |
+  cout << "desk_id: ";
+  cin >> desk_id;
+
+keyChecks: ['cout << "desk_id: ";', "cin >> desk_id;"]
+
+variants:
+  - prompt: |
+      Assume `double price;` is declared. Write the two lines that
+      prompt with `price: ` and read into price.
+    expectedAnswer: |
+      cout << "price: ";
+      cin >> price;
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: read_desks function uses prompt-pair per field"
+
+commonMistakeIds: ["CM-F15a", "CM-F15c"]
+
+notes: |
+  Smallest prompt-pair drill. THE Q3-critical idiom.

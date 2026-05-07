@@ -1,0 +1,39 @@
+# =====================================================================
+# L3 / R-02a / FunctionWriteCard — signature for houses
+# =====================================================================
+id: "L3-R02a-write-08"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write ONLY the signature line (no body) for read_houses that reads
+  3 house_data items by reference.
+prompt: "Signature only for read_houses."
+signatureHint: "void read_houses(house_data &houses[], int number_to_read)"
+canonicalAnswer: |
+  void read_houses(house_data &houses[], int number_to_read)
+  {
+  }
+keyChecks:
+  - "void"
+  - "read_houses"
+  - "house_data"
+  - "&houses[]"
+  - "int number_to_read"
+forbiddenTokens:
+  - "function"
+  - "->"
+explanation: |
+  void = no return. house_data &houses[] = reference to array of struct.
+  int number_to_read = element count. Order: return-type, name, params.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-missing-amp","CM-Q3-missing-brackets-sig"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

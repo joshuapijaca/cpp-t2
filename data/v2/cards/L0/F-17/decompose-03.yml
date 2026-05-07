@@ -1,0 +1,63 @@
+# =====================================================================
+# L0 / F-17 / DecomposeCard 03
+# Atom: braces required for the curriculum
+# =====================================================================
+id: "L0-F17-decomp-03"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Look at the two snippets. Which is the curriculum-canonical form
+  for this Test 2?
+
+code: |
+  // Form A
+  if (x > 0)
+      cout << "pos" << endl;
+
+  // Form B
+  if (x > 0) {
+      cout << "pos" << endl;
+  }
+
+question: |
+  Which form should you ALWAYS write on the test?
+
+options:
+  - label: "A"
+    text: |
+      Form A — drop the braces because there is only one statement.
+  - label: "B"
+    text: |
+      Form B — always use braces, even for one statement. Braces
+      are mandatory in this curriculum.
+  - label: "C"
+    text: |
+      Either; mix freely depending on style preference.
+  - label: "D"
+    text: |
+      Form B but only for nested ifs; Form A for top-level ifs.
+
+correctLabel: "B"
+
+explanation: |
+  B. This curriculum requires explicit braces on every if body —
+  no exceptions. It eliminates the silent CM-F17c bug ("only the
+  first statement after `if (cond)` is conditional") and matches
+  the literal shape used on Q1 of the Test 2 practice paper.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec — curriculum convention: braces always required on if body"
+
+commonMistakeIds: ["CM-F17c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Sets the always-braces convention up
+  front.
+authoringStatus: "DRAFT"

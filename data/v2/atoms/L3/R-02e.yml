@@ -1,0 +1,18 @@
+id: R-02e
+name: "Q3 Components Block E: multi-field sequencing"
+level: L3
+teaches: "When struct has 2/3/4/5 fields, repeat the prompt-pair pattern in struct-declaration order. Defends skipped-field, reordered-field, single-field-twice."
+prereqs: [R-02d]
+usedByQs: [Q3]
+cardCountTarget: 20
+parentAtom: R-02
+source:
+  - kind: v2
+    ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#5.3 Block E — Multi-field sequencing"
+commonMistakes:
+  - CM-Q3-skipped-field
+  - CM-Q3-reordered-field
+notes:
+  cardMix: { write: 12, decompose: 6, mcq: 2 }
+  stage: S3
+  exposureClass: medium

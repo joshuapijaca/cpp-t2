@@ -1,0 +1,67 @@
+# =====================================================================
+# L0 / F-17 / TraceCard 01
+# Atom: if TRUE branch — body runs
+# =====================================================================
+id: "L0-F17-trace-01"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. Predict what is printed.
+
+code: |
+  int main() {
+    int n = 8;
+    if (n > 5) {
+      cout << "big" << endl;
+    }
+    cout << "end" << endl;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "8"
+    output: null
+  - line: 3
+    variable: ""
+    value: ""
+    output: null
+    condition: "8 > 5 -> true, enter body"
+  - line: 4
+    variable: ""
+    value: ""
+    output: "big"
+  - line: 6
+    variable: ""
+    value: ""
+    output: "end"
+
+terminalOutput:
+  - "big"
+  - "end"
+
+inputMode: "final-only"
+
+teachMe: |
+  Condition `n > 5` reads n=8, asks 8>5, gets true. The body runs
+  and prints "big". After the closing brace, line 6 runs and
+  prints "end". Both lines print.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"
+
+commonMistakeIds: ["CM-F17a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

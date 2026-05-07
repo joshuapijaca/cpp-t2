@@ -1,0 +1,53 @@
+# =====================================================================
+# L0 / F-21 / FunctionWriteCard 04 — μ-write cin into composite
+# =====================================================================
+id: "L0-F21-write-04"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "FunctionWriteCard"
+
+stem: |
+  Write a single C++ statement that reads from cin into the i-th
+  element of `data.numbers`.
+
+prompt: "cin >> the i-th slot of data.numbers."
+
+signatureHint: "cin >> ____;"
+
+canonicalAnswer: |
+  cin >> data.numbers[i];
+
+keyChecks:
+  - "cin"
+  - ">>"
+  - "data.numbers[i]"
+  - ";"
+
+forbiddenTokens:
+  - "data[i].numbers"
+  - "data->numbers"
+  - "*"
+  - "scanf"
+
+explanation: |
+  cin reads input into the composite token directly. Same shape as
+  any other composite-token use; cin treats it as an lvalue and
+  writes the input value there. This is the body of the Q3 read
+  function loop.
+
+passByRefRequired: false
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — Q3 read function body line"
+
+commonMistakeIds: ["CM-F21a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Mirror of the Q3 read-function body line. Drills cin into a
+  composite token — easy to slip and write `data[i].numbers`.

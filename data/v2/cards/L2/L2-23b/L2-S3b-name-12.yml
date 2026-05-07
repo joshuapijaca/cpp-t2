@@ -1,0 +1,35 @@
+
+id: "L2-S3b-name-12"
+schemaVersion: "v2"
+atomId: "L-23b"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "DecomposeCard"
+stem: "Q2 field-naming drill #12. snake_case only. Choose the legal field-name format."
+code: |
+  struct event_data
+  {
+      string name;
+      int attendees;
+  };
+question: "Pick the legal identifier (no whitespace)."
+options:
+  - label: "A"
+    text: "`name`"
+  - label: "B"
+    text: "`event name`"
+  - label: "C"
+    text: "`event-name`"
+  - label: "D"
+    text: "`event.name`"
+correctLabel: "A"
+explanation: "Whitespace, `-`, and `.` are not allowed in C++ identifiers."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-camelcase","CM-Q2-hyphen","CM-Q2-reserved"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Field-naming legality check."

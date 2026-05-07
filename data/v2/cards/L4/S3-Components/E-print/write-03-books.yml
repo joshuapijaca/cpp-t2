@@ -1,0 +1,43 @@
+id: "L4-S3E-write-03"
+schemaVersion: "v2"
+atomId: "Q-06"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "FunctionWriteCard"
+stem: "Write the print for-loop: iterate i=0..book_count-1 and chained-cout the 3 fields."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block E print loop"
+commonMistakeIds: 
+  - "CM-Q4-loop-uses-MAX"
+  - "CM-Q4-no-endl"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Print all book_count books as comma-separated rows (3 fields per row + endl)."
+signatureHint: |
+  for (int i = 0; i < ___; i++) {
+    cout << ___[i].___ << ", " << ___[i].___ << ", " << ___[i].___ << endl;
+  }
+canonicalAnswer: |
+  for (int i = 0; i < book_count; i++)
+  {
+      cout << books[i].title << ", ";
+      cout << books[i].author << ", ";
+      cout << books[i].pages << endl;
+  }
+keyChecks: 
+  - "i < book_count"
+  - "books"
+  - "title"
+  - "author"
+  - "pages"
+  - "endl"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+passByRefRequired: false
+explanation: "Loop bound = book_count (count, NOT MAX). Last cout in body uses endl. Comma separators between fields."

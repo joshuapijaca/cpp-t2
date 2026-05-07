@@ -1,0 +1,31 @@
+id: A13
+name: "Q1 S5 Variations: type/size/algo transfer"
+level: L1
+phase: S5
+teaches: "Transfer the 12 algorithms across type variants (int/string/bool), size variants (3, 7, 10), algorithm transfers (find-max <-> find-min, sum-positive <-> sum-negative). Two-mystery cards force tracking two state variables. Tests skill, not memorization."
+prereqs: [A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12]
+usedByQs: [Q1]
+cardCountTarget: 60
+source:
+  - kind: v2
+    ref: "Test 2 V2.0 attempt 1 — generalisation across struct types and SIZE values"
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — transfer test"
+commonMistakes:
+  - CM-S5-type-confusion
+  - CM-S5-size-hard-coded
+  - CM-S5-algo-confusion
+  - CM-S5-two-mystery-track-one
+notes:
+  cardMix: { trace: 36, mcq: 12, decompose: 12 }
+  stage: S5
+  exposureClass: long
+  variantBuckets:
+    type-int: 8
+    type-string: 8
+    type-bool: 8
+    size-3: 6
+    size-7: 6
+    size-10: 6
+    algo-transfer: 10
+    two-mystery: 8

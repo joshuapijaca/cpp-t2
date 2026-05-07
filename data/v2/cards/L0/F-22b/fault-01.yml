@@ -1,0 +1,72 @@
+# =====================================================================
+# L0 / F-22b / FaultInjectionCard 01 — missing `&` in signature
+# =====================================================================
+id: "L0-F22b-fault-01"
+schemaVersion: "v2"
+atomId: "F-22b"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "FaultInjectionCard"
+
+stem: |
+  This Q3 read function compiles AND runs without errors — yet the
+  test will mark it WRONG. Find the bug, point to the line, and
+  give the fix.
+
+brokenCode: |
+  void read_data(stat_double data)
+  {
+    int i;
+    data.mystery = 0.0;
+    for (i = 0; i < SIZE; i++) {
+      cin >> data.numbers[i];
+    }
+  }
+
+bugLocations: [1]
+
+fixedCode: |
+  void read_data(stat_double &data)
+  {
+    int i;
+    data.mystery = 0.0;
+    for (i = 0; i < SIZE; i++) {
+      cin >> data.numbers[i];
+    }
+  }
+
+bugCategory: "missing &"
+
+keyChecks:
+  - "stat_double &data"
+  - "&data"
+
+explanation: |
+  Bug: line 1 takes `data` BY VALUE (no `&`). The function receives
+  a COPY of the caller's struct. Inside the function, the loop
+  reads cin into `data.numbers[i]` — but those writes go into the
+  COPY, not the caller's variable. After return, the caller's
+  struct is unchanged. The grader checks the caller's struct →
+  zero marks for the read step.
+
+  Fix: add `&` between `stat_double` and `data` so `data` becomes
+  a REFERENCE to the caller's variable. Mutations now persist.
+
+  Lesson: a Q3 read function that takes its output by value
+  COMPILES, runs without crashing, but produces wrong observable
+  behaviour. The bug is INVISIBLE without testing — drill the `&`
+  into muscle memory.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — high-frequency Q3 marking loss"
+
+commonMistakeIds: ["CM-F22b-1"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Highest-stakes fault-injection in F-22. Drives home that the
+  bug is silent: code compiles + runs + crashes nothing, but loses
+  the entire Q3.

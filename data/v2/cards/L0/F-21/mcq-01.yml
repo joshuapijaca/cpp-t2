@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-21 / MCQCard 01 — composite token order
+# =====================================================================
+id: "L0-F21-mcq-01"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Given `struct stat_double { double numbers[5]; };` and instance
+  `stat_double data;`, which token reads slot 2 of the `numbers`
+  field of `data`?
+
+correct: "data.numbers[2]"
+
+distractors:
+  - "data[2].numbers — index first, then dot."
+  - "data->numbers[2] — pointer-arrow operator."
+  - "data::numbers[2] — scope-resolution operator."
+
+explanation: |
+  `data.numbers[2]` is the canonical composite token: instance, dot,
+  field, bracket-index.
+  `data[2].numbers` would require `data` to be an array of structs,
+  not a struct with an array field — different shape (CM-F21a).
+  `->` is for pointer-to-struct (off-scope, CM-F21b).
+  `::` is for namespaces / class statics (off-scope, CM-F21c).
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `data.numbers[i]`"
+
+commonMistakeIds: ["CM-F21a", "CM-F21b", "CM-F21c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  All three F-21 CMs in one MCQ. Direct discrimination test on
+  the composite token form.

@@ -1,0 +1,69 @@
+id: "L4-S1-spoterror-09"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: 
+  - "Q4"
+stage: 1
+level: "L4"
+type: "FaultInjectionCard"
+stem: "Spot the bug: wrong type. Read the broken main() and identify which line is wrong, then write the fix."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 Q4 common error #09 — wrong type"
+commonMistakeIds: 
+  - "CM-Q4-count-wrong-type"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+brokenCode: |
+  int main()
+  {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      double desk_num;
+  
+      cout << "How many desks? ";
+      cin >> desk_num;
+  
+      read_desks(desks, desk_num);
+  
+      for (int i = 0; i < desk_num; i++)
+      {
+          cout << desks[i].room_id << ", ";
+          cout << desks[i].d_id << ", ";
+          cout << desks[i].number_of_screens << endl;
+      }
+  
+      return 0;
+  }
+bugLocations: 
+  - 5
+fixedCode: |
+  int main()
+  {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int desk_num;
+  
+      cout << "How many desks? ";
+      cin >> desk_num;
+  
+      read_desks(desks, desk_num);
+  
+      for (int i = 0; i < desk_num; i++)
+      {
+          cout << desks[i].room_id << ", ";
+          cout << desks[i].d_id << ", ";
+          cout << desks[i].number_of_screens << endl;
+      }
+  
+      return 0;
+  }
+bugCategory: "wrong type"
+keyChecks: 
+  - "const int MAX"
+  - "desks[MAX]"
+  - "read_desks(desks, desk_num)"
+  - "i < desk_num"
+  - "return 0;"
+explanation: "count_var must be int (used as array index + loop counter). double would force narrowing conversions everywhere."

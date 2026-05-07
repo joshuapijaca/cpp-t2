@@ -1,0 +1,119 @@
+# =====================================================================
+# L0 / F-18 / TraceCard 02 (Card B in spec — sum=10)
+# Atom: for-loop accumulator, predict sum=10
+# =====================================================================
+id: "L0-F18-trace-02"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. The body adds the loop index into a running total.
+  Predict the final value of `sum`. Track sum at each iteration.
+
+code: |
+  int main() {
+    int sum = 0;
+    for (int i = 0; i < 5; i++) {
+      sum += i;
+    }
+    cout << sum << endl;
+    return 0;
+  }
+
+variables: ["sum", "i"]
+
+expectedTrace:
+  - line: 2
+    variable: "sum"
+    value: "0"
+    output: null
+  - line: 3
+    variable: "i"
+    value: "0"
+    output: null
+    condition: "init"
+  - line: 4
+    variable: "sum"
+    value: "0"
+    output: null
+    condition: "iter 1: sum = 0 + 0 = 0"
+  - line: 3
+    variable: "i"
+    value: "1"
+    output: null
+    condition: "step"
+  - line: 4
+    variable: "sum"
+    value: "1"
+    output: null
+    condition: "iter 2: sum = 0 + 1 = 1"
+  - line: 3
+    variable: "i"
+    value: "2"
+    output: null
+    condition: "step"
+  - line: 4
+    variable: "sum"
+    value: "3"
+    output: null
+    condition: "iter 3: sum = 1 + 2 = 3"
+  - line: 3
+    variable: "i"
+    value: "3"
+    output: null
+    condition: "step"
+  - line: 4
+    variable: "sum"
+    value: "6"
+    output: null
+    condition: "iter 4: sum = 3 + 3 = 6"
+  - line: 3
+    variable: "i"
+    value: "4"
+    output: null
+    condition: "step"
+  - line: 4
+    variable: "sum"
+    value: "10"
+    output: null
+    condition: "iter 5: sum = 6 + 4 = 10"
+  - line: 3
+    variable: "i"
+    value: "5"
+    output: null
+    condition: "step (after last body)"
+  - line: 3
+    variable: ""
+    value: ""
+    output: null
+    condition: "test: 5 < 5 false, EXIT"
+  - line: 6
+    variable: ""
+    value: ""
+    output: "10"
+
+terminalOutput:
+  - "10"
+
+inputMode: "final-only"
+
+teachMe: |
+  Five iterations: i = 0, 1, 2, 3, 4. Each adds i to sum. Running
+  total: 0, 1, 3, 6, 10. Final sum = 10 = 0+1+2+3+4. The terminal
+  prints 10. (Note: `sum += i` is `sum = sum + i` — read sum and
+  i, add, write back into sum.)
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/01-for-loop"
+
+commonMistakeIds: ["CM-F18a", "CM-F18c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Spec Card B — accumulator pattern.
+authoringStatus: "DRAFT"

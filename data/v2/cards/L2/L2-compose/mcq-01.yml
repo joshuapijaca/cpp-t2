@@ -1,0 +1,54 @@
+id: "L2-S4-compose-mcq-01"
+schemaVersion: "v2"
+atomId: "L-24"
+qTags: ["Q2"]
+stage: 4
+level: "L2"
+type: "MCQCard"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+source:
+  kind: "practice"
+  ref: "Practice test — computer_data noun→type mapping"
+commonMistakeIds: ["CM-F20a", "CM-F20b"]
+stem: |
+  Given the prompt "a computer in the lab has an inventory id, a
+  free-text description, and a location string", which struct is
+  the correct compose?
+correct: |-
+  struct computer_data
+  {
+      int id;
+      string description;
+      string location;
+  };
+distractors:
+  - |-
+    struct computer_data {
+      int id, description, location;
+    }
+  - |-
+    Struct computer_data
+    {
+        int id;
+        char description;
+        char location;
+    };
+  - |-
+    struct computer_data
+    {
+        double id;
+        string description;
+        string location;
+    };
+explanation: |
+  Map nouns to types: `id` is a counter (`int`), `description` and
+  `location` are free text (`string`). One field per line; closing
+  `};` mandatory.
+  Distractor 1 collapses fields onto one line and uses `int` for
+  description/location. Distractor 2 capitalises `Struct` (case-
+  sensitive language; this is a syntax error) and uses `char` (a
+  single character, not a string). Distractor 3 stores id as
+  `double` — wasteful for an integer counter.
+notes: "MCQ form for QA-M10 type-diversity (L-24 was StructWriteCard only)."

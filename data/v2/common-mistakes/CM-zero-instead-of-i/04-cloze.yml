@@ -1,0 +1,35 @@
+id: "CM-zero-instead-of-i-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-zero-instead-of-i: Q3 zero instead of i index. Fill the blank.
+
+code: |
+  // Canonical Q3 excerpt with blank:
+  // ____ >> arr[i].field;
+  ;
+
+clozeSentence: |
+  Complete the canonical line: cin >> arr[i].field;
+
+answer: "cin >> arr[i].field;"
+
+explanation: |
+  Canonical pattern: cin >> arr[i].field;
+  Mistake to avoid: Wrote `arr[0]` inside loop — overwrites element 0 every iter.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-zero-instead-of-i"
+
+commonMistakeIds: ["CM-zero-instead-of-i"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-zero-instead-of-i.

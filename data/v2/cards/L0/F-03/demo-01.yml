@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-03 / DemoCard 01
+# Atom: Hand-execution paradigm — what the panels look like
+# =====================================================================
+id: "L0-F03-demo-01"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: this is what hand-execution LOOKS LIKE on screen. Two panels:
+  the **variables panel** (your memory boxes) and the **terminal panel**
+  (what the program prints). Every trace card you see in this app uses
+  these same two panels.
+
+whyOneLine: "Hand-execution = reading code line-by-line while updating the variables panel and terminal panel in your head."
+
+demoCode: |
+  ┌─ trace.cpp ─────────────┐  ┌─ VARIABLES ──────────┐
+  │ 1│ int main() {          │  │ name │ value │ scope │
+  │ 2│   int a = 3;          │  │ a    │ 3     │ local │
+  │ 3│   int b = 4;          │  │ b    │ 4     │ local │
+  │▶4│   int c = a + b;      │  │ c    │ 7     │ local │
+  │ 5│   cout << c << endl;  │  └──────────────────────┘
+  │ 6│   return 0;           │  ┌─ TERMINAL ───────────┐
+  │ 7│ }                     │  │ $ ./prog             │
+  └─────────────────────────┘  │ _                    │
+                                └──────────────────────┘
+
+  The little ▶ marks which line is about to execute next.
+
+highlightTokens:
+  - "VARIABLES"
+  - "TERMINAL"
+  - "name │ value │ scope"
+  - "▶"
+  - "memory boxes"
+
+usedIn:
+  - "Q1 trace (every Q1 trace card on the test uses this exact two-panel mental layout)"
+  - "Q4 main program (you mentally trace the program you wrote to verify it)"
+
+source:
+  kind: "v2"
+  ref: "C++T2 docs §code editor debugger panels (docs/18 line 339)"
+
+commonMistakeIds: ["CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Pure mirror-neuron card. Student SEES the panel layout used by every
+  later trace card in the app. Familiarity with the visual primitive
+  costs zero effort if it is established here. The ASCII rendering
+  matches the post-M22 interactive TraceCard UI shown in the milestone
+  plan.

@@ -1,0 +1,31 @@
+id: "L1-S2-TB-mcq-01"
+schemaVersion: "v2"
+atomId: "T-02"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "MCQCard"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — `void who_am_i(stat_double &data)`"
+commonMistakeIds: ["CM-Q1-missing-amp"]
+stem: |
+  Which line is the canonical Q1 function signature as it appears on
+  the test?
+correct: "void who_am_i(stat_double &data)"
+distractors:
+  - "void who_am_i(stat_double data)"
+  - "double who_am_i(stat_double &data)"
+  - "void who_am_i(&stat_double data)"
+explanation: |
+  The signature is `void who_am_i(stat_double &data)`. The `&` after
+  the type makes `data` a reference (alias) to the caller's struct;
+  mutations are visible to the caller.
+  Distractor 1 (CM-Q1-missing-amp) drops the `&` and silently passes
+  by value — the loop's mutations are then lost. Distractor 2
+  changes the return type. Distractor 3 puts the `&` on the wrong
+  side of the type, which is a syntax error.
+notes: "MCQ form for QA-M10 type-diversity."

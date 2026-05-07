@@ -1,0 +1,22 @@
+id: C-09
+name: Read for-loop init i=0
+level: L1
+teaches: The for-header init `int i = 0` runs once and sets i to 0.
+prereqs:
+  - F-09
+  - F-18
+usedByQs:
+  - Q1
+cardCountTarget: 6
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-09
+    quote: 'C-09: 6 cards. Read for-loop init i=0.'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C09a
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

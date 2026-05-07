@@ -1,0 +1,43 @@
+id: "L1-S1-tour-07-anatomy-array-field"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "DemoCard"
+
+stem: |
+  Anatomy 2/10: the array field. `double numbers[SIZE];` declares
+  5 doubles inside the struct. Indices 0..4. Access with
+  `data.numbers[i]`.
+
+whyOneLine: "`numbers[SIZE]` reserves SIZE cells; index range is 0..SIZE-1, never SIZE."
+
+demoCode: |
+  struct stat_double {
+    double numbers[SIZE];   // <- 5 cells: numbers[0..4]
+    double mystery;
+  };
+
+  // memory layout when SIZE = 5:
+  //   numbers[0]  numbers[1]  numbers[2]  numbers[3]  numbers[4]
+  //   [   ?   ]   [   ?   ]   [   ?   ]   [   ?   ]   [   ?   ]
+
+highlightTokens:
+  - "numbers[SIZE]"
+  - "numbers[0]"
+  - "numbers[4]"
+
+usedIn:
+  - "Q1: every iteration reads data.numbers[i]"
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §0 — array field inside struct"
+
+commonMistakeIds: ["CM-Q1-start-at-1"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Anatomy: array-field shape + index range.
+authoringStatus: "DRAFT"

@@ -1,0 +1,45 @@
+# =====================================================================
+# L3 / R-04 / FunctionWriteCard — 4-field cars
+# =====================================================================
+id: "L3-R04-v4-04"
+schemaVersion: "v2"
+atomId: "R-04"
+qTags: ["Q3"]
+stage: 5
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Variation: cars with 4 fields (3 original + extra).
+prompt: "4-field variation"
+canonicalAnswer: |
+  void read_cars(car_data &cars[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Engine litres: ";
+      cin >> cars[i].engine_l;
+      cout << "Doors: ";
+      cin >> cars[i].doors;
+      cout << "Mileage (km): ";
+      cin >> cars[i].mileage;
+      cout << "Extra: ";
+      cin >> cars[i].extra;
+    }
+  }
+keyChecks:
+  - "void read_cars(car_data &cars[], int number_to_read)"
+  - "cin >> cars[i].engine_l;"
+  - "cin >> cars[i].doors;"
+  - "cin >> cars[i].mileage;"
+  - "cin >> cars[i].extra;"
+forbiddenTokens:
+  - "while"
+explanation: |
+  4 fields = 4 prompt-pairs in struct-declaration order.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

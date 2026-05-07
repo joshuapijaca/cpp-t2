@@ -1,0 +1,54 @@
+# =====================================================================
+# L3 / R-03 / FunctionWriteCard — cold-start pizzas
+# =====================================================================
+id: "L3-R03-cold-07"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Cold start. You are given only the entity name 'pizzas'. Choose
+  3 plausible fields, write the struct, and then the matching read_pizzas.
+prompt: "Cold-start pizzas (Q2 + Q3)."
+signatureHint: "Entity: pizzas. Choose fields, write Q2 struct, then Q3 read fn."
+canonicalAnswer: |
+  struct pizza_data
+  {
+    double diameter_cm;
+    int toppings;
+    double price;
+  };
+
+  void read_pizzas(pizza_data &pizzas[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Diameter (cm): ";
+      cin >> pizzas[i].diameter_cm;
+      cout << "Toppings: ";
+      cin >> pizzas[i].toppings;
+      cout << "Price: ";
+      cin >> pizzas[i].price;
+    }
+  }
+keyChecks:
+  - "struct pizza_data"
+  - "void read_pizzas(pizza_data &pizzas[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "pizzas[i].diameter_cm"
+  - "pizzas[i].toppings"
+  - "pizzas[i].price"
+forbiddenTokens:
+  - "while"
+  - "function"
+explanation: |
+  Cold-start drill: any plausible 3 fields work, but the read fn skeleton stays fixed.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

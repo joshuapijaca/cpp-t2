@@ -1,0 +1,19 @@
+id: T-06
+name: "T-F skeleton: brace-init `stat_double d = {{...}, init};`"
+level: L1
+phase: S2
+teaches: "Verbatim recall of the call-site brace-initialiser. Outer brace = struct; inner brace = array of SIZE values; trailing scalar = mystery init. Real V2.0 form: `stat_double d = {{2.4,-3.7,1.0,-2.1,0.5}, -0.9};`."
+prereqs: [F-19, F-20, T-01]
+usedByQs: [Q1]
+cardCountTarget: 18
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — `stat_double d = { {-20.0, 3.2, 1.9, -1.5, 1.3}, 0.0 };`"
+  - kind: v2
+    ref: "Test 2 V2.0 attempt 1 — `stat_double d = {{2.4,-3.7,1.0,-2.1,0.5}, -0.9};`"
+commonMistakes:
+  - CM-Q1-misparse-outer-vs-inner
+notes:
+  cardMix: { templateRecall: 18 }
+  stage: S2
+  exposureClass: medium

@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 07 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Two ints, no arithmetic
+# =====================================================================
+id: "L0-F23-trace-07"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Two declarations this time. Step through and fill in both `a` and
+  `b` in the variables panel.
+
+code: |
+  int main() {
+    int a = 4;
+    int b = 9;
+    return 0;
+  }
+
+variables: ["a", "b"]
+
+expectedTrace:
+  - line: 2
+    variable: "a"
+    value: "4"
+    output: null
+  - line: 3
+    variable: "b"
+    value: "9"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Two lines, two boxes. Line 2 opens `a` with 4; line 3 opens `b`
+  with 9. Final panel: { a: 4, b: 9 }. The boxes do not interact.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 7/30"
+
+commonMistakeIds: ["CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  First multi-box card in the primer. Ensures the student types into
+  the panel twice in one card.

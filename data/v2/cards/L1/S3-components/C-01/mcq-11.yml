@@ -1,0 +1,29 @@
+id: L1-S3-C-01-mcq-10
+schemaVersion: v2
+atomId: C-01
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-01
+commonMistakeIds:
+  - CM-C01a
+  - CM-C01b
+stem: >-
+  In `stat_double d = { {2.4, -3.7, -1.7, 3, 2}, -0.9 };`, what does the *outer* pair of braces
+  represent?
+correct: The whole struct value — both fields (the array and mystery) bundled together.
+distractors:
+  - Only the array field — the inner brace is decoration.
+  - A function call returning a struct — braces are arguments.
+  - A new namespace — braces declare a scope, not a value.
+explanation: >-
+  Outer braces are the **struct brace-init list**: every field of `stat_double` in declared order.
+  Inner brace is the array sub-init.
+

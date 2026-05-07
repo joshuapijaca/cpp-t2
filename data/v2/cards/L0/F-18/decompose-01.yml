@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-18 / DecomposeCard 01
+# Atom: number of iterations
+# =====================================================================
+id: "L0-F18-decomp-01"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  How many times does the body of this for-loop run?
+
+code: |
+  for (int i = 0; i < 5; i++) {
+    cout << "tick" << endl;
+  }
+
+question: |
+  Count the iterations.
+
+options:
+  - label: "A"
+    text: |
+      4 times — i takes values 0, 1, 2, 3 and stops when i = 4.
+  - label: "B"
+    text: |
+      5 times — i takes values 0, 1, 2, 3, 4 and stops when test
+      `i < 5` becomes false at i = 5.
+  - label: "C"
+    text: |
+      6 times — i takes values 0..5 inclusive.
+  - label: "D"
+    text: |
+      Infinite — i never reaches 5 because the test runs first.
+
+correctLabel: "B"
+
+explanation: |
+  B. With `i = 0` start, `i < 5` test, the body runs while i is 0,
+  1, 2, 3, 4 — five values, five iterations. At i = 5 the test
+  `5 < 5` is false and the loop exits.
+  A — confuses < with <= (off by one).
+  C — would be true with `i <= 5`.
+  D — i++ runs every iteration, so i does climb.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/04-3-for-loop"
+
+commonMistakeIds: ["CM-F18a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Counting iterations is a Q1 hand-trace
+  pre-requisite skill.
+authoringStatus: "DRAFT"

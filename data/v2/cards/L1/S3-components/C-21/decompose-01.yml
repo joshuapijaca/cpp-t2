@@ -1,0 +1,40 @@
+id: "L1-S3-C-21-decomp-01"
+schemaVersion: "v2"
+atomId: "C-21"
+qTags: ["Q1"]
+stage: 3
+level: "L1"
+type: "DecomposeCard"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-21"
+commonMistakeIds: ["CM-C21a"]
+stem: |
+  Trace one iteration where `data.numbers[i]` is -3 and
+  `data.mystery` is currently 7.4. The if-condition checks for a
+  positive value.
+code: |
+  if (data.numbers[i] > 0) {
+    data.mystery = data.mystery + data.numbers[i];
+  }
+question: |
+  After this iteration, what is the value of `data.mystery`?
+options:
+  - label: "A"
+    text: "4.4 — the body runs anyway and adds -3 to mystery."
+  - label: "B"
+    text: "7.4 — the guard is false (-3 is not > 0); the body is skipped, mystery is unchanged."
+  - label: "C"
+    text: "0 — the guard is false; mystery is reset."
+  - label: "D"
+    text: "-3 — when the guard is false the value is overwritten with the array element."
+correctLabel: "B"
+explanation: |
+  When the if-condition is false, the body is skipped and mystery
+  carries through unchanged. -3 is not greater than 0, so the
+  sum-positive body does not run. Targets CM-C21a (still runs the
+  body when the guard is false).
+notes: "Decompose form for QA-M10 type-diversity. Drills the if-false skip."

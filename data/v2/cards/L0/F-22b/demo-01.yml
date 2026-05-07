@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-22b / DemoCard 01 — `&` placement in signature
+# =====================================================================
+id: "L0-F22b-demo-01"
+schemaVersion: "v2"
+atomId: "F-22b"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: in the signature, `&` goes between the TYPE and the NAME.
+  It marks this parameter as a reference (alias).
+
+whyOneLine: "`void f(Type &param)` — `&` between type and name marks the alias."
+
+demoCode: |
+  // canonical pass-by-reference signature shape:
+  void f(Type &param) { ... }
+
+  // Test 2 V2.0:
+  void who_am_i(stat_double &data)
+
+  // Other examples (still pass-by-reference):
+  void increment(int &x)
+  void rename(string &name)
+  void update_score(double &score)
+
+  // CONTRAST — pass-by-value (no &, default copy):
+  void show(int x)              // copies x; mutations LOCAL only
+  void greet(string name)       // copies name; LOCAL only
+
+highlightTokens:
+  - "Type &param"
+  - "stat_double &data"
+  - "int &x"
+  - "string &name"
+  - "double &score"
+
+usedIn:
+  - "Q3 read function (write a `void read_xxx(Type &out)` signature)"
+  - "Q1 trace (function modifies the caller's struct via reference)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
+
+commonMistakeIds: ["CM-F22b-1", "CM-F22b-4"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Pure shape exposure on the `&` placement. The contrast section
+  shows what NO `&` looks like (pass by value), so the student can
+  see both shapes side-by-side.

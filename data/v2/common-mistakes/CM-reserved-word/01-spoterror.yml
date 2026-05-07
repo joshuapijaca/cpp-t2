@@ -1,0 +1,44 @@
+id: "CM-reserved-word-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q2 reserved word as field. The code below has the bug labeled
+  by CM-reserved-word. Find the line and provide the fix.
+
+brokenCode: |
+  // Q2 broken excerpt:
+  int int;
+  // (canonical was: int count;)
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  int count;
+  ;
+
+bugCategory: "CM-reserved-word"
+
+keyChecks:
+  - "int count;"
+
+explanation: |
+  Bug: Used `int` or `return` as a field name.
+  Fix: int count;
+  This common mistake costs marks on Q2 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-reserved-word"
+
+commonMistakeIds: ["CM-reserved-word"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-reserved-word.

@@ -1,0 +1,65 @@
+# =====================================================================
+# L0 / F-22e / DecomposeCard 01 — array param does not copy
+# =====================================================================
+id: "L0-F22e-decomp-01"
+schemaVersion: "v2"
+atomId: "F-22e"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  The function below mutates `arr[0]`. Pick the option that
+  correctly states what the caller sees afterwards.
+
+code: |
+  void zero_first(int arr[], int size) {
+    arr[0] = 0;
+  }
+
+  int main() {
+    int data[3] = {7, 8, 9};
+    zero_first(data, 3);
+    cout << data[0] << endl;
+  }
+
+question: |
+  After `zero_first(data, 3);` returns, what does main print?
+
+options:
+  - label: "A"
+    text: "0 — array parameters do NOT make a copy. arr inside the function is a reference to the caller's storage. The mutation persists."
+  - label: "B"
+    text: "7 — arr inside the function is a local copy of data; mutations are local-only."
+  - label: "C"
+    text: "Undefined — passing arrays without `&` is unspecified behaviour in C++."
+  - label: "D"
+    text: "Compile error — arrays must always be passed via `&`."
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. When an array is passed to a function as `T arr[]`,
+  it DECAYS — the function receives a pointer-like alias to the
+  caller's storage, not a copy. Mutations through `arr[i]` ARE
+  visible in the caller.
+  B is wrong (CM-F22e-3: "array param makes a copy"). Arrays do not
+  copy on call; only scalars and structs do.
+  C is wrong: behaviour is fully defined.
+  D is wrong: arrays without `&` is the standard C-inherited form.
+  (Test 2 V2.0 wraps the array in a struct and passes the struct
+  by reference, but the underlying mechanism is the same — no copy.)
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
+
+commonMistakeIds: ["CM-F22e-3"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Refutes the "array makes a copy" misconception (CM-F22e-3).
+  Important because students who learned pass-by-value carry that
+  intuition over to arrays, then are surprised by mutation.

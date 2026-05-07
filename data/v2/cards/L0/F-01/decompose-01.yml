@@ -1,0 +1,73 @@
+# =====================================================================
+# L0 / F-01 / DecomposeCard 01
+# Atom: Source code is plain text
+# =====================================================================
+id: "L0-F01-decomp-01"
+schemaVersion: "v2"
+atomId: "F-01"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Below is the file `hello.cpp` saved on a computer. Pick the option that
+  best describes what the file *is*, before anything is run.
+
+code: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << "hello" << endl;
+    return 0;
+  }
+
+question: |
+  Right now (no compiler has touched this), what is `hello.cpp` on disk?
+
+options:
+  - label: "A"
+    text: |
+      A running program — when you save the file, the computer
+      automatically starts executing those lines.
+  - label: "B"
+    text: |
+      A plain-text file. It is a sequence of typed characters
+      (letters, spaces, punctuation) saved by an editor. Nothing in it is
+      running yet.
+  - label: "C"
+    text: |
+      A binary file in machine code that only the CPU can read; humans
+      cannot open it in a text editor.
+  - label: "D"
+    text: |
+      A live conversation with the C++ compiler — the file talks to the
+      compiler in real time as you type.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. A `.cpp` file is plain text. You can open it in any text
+  editor (VSCode, Notepad, vim) and read it. Nothing in the file is
+  "alive" — saving the file does not run anything. The compiler (F-02)
+  is a separate program that reads this text later.
+
+  A is wrong: saving never runs code. Files do not auto-execute.
+  C is wrong: machine code is what the *compiler produces* (F-02), not
+  what you write. Source files are human-readable text.
+  D is wrong: there is no live link to the compiler. The compiler only
+  acts when you invoke it explicitly (`g++ hello.cpp -o hello`).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md (Source Code and the Compiler)"
+
+commonMistakeIds: ["CM-confuses-source-with-program", "CM-source-is-magic"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Decompose forces commitment to a single mental model. The three wrong
+  options are *real* novice misconceptions, not strawmen — A captures
+  "files auto-run", C captures the binary/text confusion, D captures
+  the "live magic" feeling beginners report.

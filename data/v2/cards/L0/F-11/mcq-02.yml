@@ -1,0 +1,38 @@
+# =====================================================================
+# L0 / F-11 / MCQCard 02
+# Atom: Variable declaration + initialisation
+# =====================================================================
+id: "L0-F11-mcq-02"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which line correctly declares an int `i` AND gives it a starting
+  value of 0?
+
+correct: "int i = 0;"
+
+distractors:
+  - "i = int 0;"
+  - "int i: 0;"
+  - "i: int = 0;"
+
+explanation: |
+  C++ syntax is TYPE NAME = VALUE;. The other three options use
+  syntax from other languages (Python uses `i: int = 0`,
+  Pascal uses `i: int`, etc.) and fail to compile in C++.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F11a"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Recall the correct C++ shape; reject neighbouring-language shapes.

@@ -1,0 +1,29 @@
+# =====================================================================
+# L3 / R-02c / MCQCard — cin into struct array (gating)
+# =====================================================================
+id: "L3-R02c-mcq-06"
+schemaVersion: "v2"
+atomId: "R-02c"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "MCQCard"
+stem: |
+  GATING DRILL: Block C tests cin >> list[i].field composite token.
+  Which is the composite token to read into the i-th element's field?
+correct: "list[i].field"
+distractors:
+  - "list.field[i]"
+  - "list[i]"
+  - "list.field"
+explanation: |
+  Block C gating answer: list[i].field.
+  The composite token list[i].field has fixed shape: list name, then
+  [i] index, then .field. Skipping any piece is the #1 Q3 error.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-missing-index","CM-Q3-missing-field","CM-Q3-zero-instead-of-i","CM-Q3-cin-leftshift"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

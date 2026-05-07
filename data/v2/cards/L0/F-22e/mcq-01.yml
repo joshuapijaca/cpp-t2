@@ -1,0 +1,44 @@
+# =====================================================================
+# L0 / F-22e / MCQCard 01 — find size inside function
+# =====================================================================
+id: "L0-F22e-mcq-01"
+schemaVersion: "v2"
+atomId: "F-22e"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Inside a function `void use(int arr[]) { ... }`, you need to know
+  how many elements `arr` has. What is the correct Test-2 strategy?
+
+correct: "Either pass the size as an additional parameter (`int size`) or rely on a file-scope `const int SIZE` constant that the function can see."
+
+distractors:
+  - "Use `arr.length` — every C++ array carries its own length."
+  - "Use `sizeof(arr) / sizeof(arr[0])` — this works inside any function that receives an array."
+  - "There is no way; you must guess and use a `for (int i = 0; i < 100; i++)` loop and hope the array is at least that big."
+
+explanation: |
+  Inside the function, `arr` has decayed to a pointer-like form
+  and the size information is lost. The two clean solutions are:
+  (1) pass an int `size` parameter alongside the array, or
+  (2) use a file-scope `const int SIZE = 5;` (Test 2 V2.0's
+  approach) that every function can see.
+  Distractor 1 (CM-F22e-2): `arr.length` is JS/Java/C# syntax.
+  Distractor 2 (CM-F22e-2): `sizeof` works at the array's home
+  scope, NOT inside a function that received the array.
+  Distractor 3 is dangerous nonsense.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `const int SIZE` file-scope strategy"
+
+commonMistakeIds: ["CM-F22e-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Reinforces the size-as-parameter and file-scope-const idioms.
+  Targets CM-F22e-2 (looking for size inside the function).

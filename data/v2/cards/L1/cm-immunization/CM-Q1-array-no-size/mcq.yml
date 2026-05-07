@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-Q1-array-no-size
+id: "L1-cmimm-CM-Q1-array-no-size-mcq"
+schemaVersion: "v2"
+atomId: "T-01"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  Inside a struct, what is the right way to declare a fixed-size array field?
+
+correct: '`double numbers[SIZE];` where `const int SIZE = 5;` was declared above the struct'
+
+distractors:
+  - '`double numbers[];` — empty brackets, sized by initialiser'
+  - '`double numbers[n];` — sized by a runtime variable'
+  - '`double numbers;` — no brackets, single value'
+
+explanation: |
+  Struct array fields require a compile-time-known size. Empty brackets are illegal inside a struct (unlike function parameters, where they decay to a pointer).
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-array-no-size)"
+
+commonMistakeIds: ["CM-Q1-array-no-size"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

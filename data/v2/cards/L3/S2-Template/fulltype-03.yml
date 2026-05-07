@@ -1,0 +1,50 @@
+# =====================================================================
+# L3 / R-01 / FunctionWriteCard — full skeleton for books
+# =====================================================================
+id: "L3-R01-fulltype-03"
+schemaVersion: "v2"
+atomId: "R-01"
+qTags: ["Q3"]
+stage: 2
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Type the full read_books function from memory. 3 fields:
+  int pages, double price, double rating.
+prompt: "Full read_books from skeleton."
+signatureHint: "void read_books(book_data &books[], int number_to_read) { ... }"
+canonicalAnswer: |
+  void read_books(book_data &books[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Pages: ";
+      cin >> books[i].pages;
+      cout << "Price: ";
+      cin >> books[i].price;
+      cout << "Rating: ";
+      cin >> books[i].rating;
+    }
+  }
+keyChecks:
+  - "void read_books"
+  - "&books[]"
+  - "int number_to_read"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> books[i].pages;"
+  - "cin >> books[i].price;"
+  - "cin >> books[i].rating;"
+forbiddenTokens:
+  - "function"
+  - "->"
+  - "while"
+  - "scanf"
+explanation: |
+  Skeleton is fixed: void name + by-ref array + count int + for-loop + 3 prompt-pairs.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

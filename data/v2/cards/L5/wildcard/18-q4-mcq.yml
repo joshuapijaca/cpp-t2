@@ -1,0 +1,31 @@
+id: "L5-wildcard-18-q4"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 5
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  S5.5 wildcard: Amp at call site trap.
+
+correct: "read_X(arr, count) — bare names, no `&`."
+
+distractors:
+  - "read_X(&arr, &count) — & at call site."
+  - "read_X(*arr, count) — pointer dereference."
+  - "read_X(arr[], count) — repeat the brackets."
+
+explanation: |
+  C++ pass-by-reference is in the SIGNATURE only. At the call site, you pass bare variable names.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 wildcard"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #18: Q4 Amp at call site trap.

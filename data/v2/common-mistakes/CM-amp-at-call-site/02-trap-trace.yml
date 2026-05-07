@@ -1,0 +1,44 @@
+id: "CM-amp-at-call-site-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-amp-at-call-site: Q4 & at call site.
+
+code: |
+  // Trap: Wrote `read_X(&arr, &count)` — & belongs in signature only.
+  read_X(&arr, &count);
+  ;
+
+question: |
+  What goes wrong with the line above on Q4?
+
+options:
+  - label: "A"
+    text: "Wrote `read_X(&arr, &count)` — & belongs in signature only."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Wrote `read_X(&arr, &count)` — & belongs in signature only. The canonical pattern is: read_X(arr, count);
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-amp-at-call-site"
+
+commonMistakeIds: ["CM-amp-at-call-site"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-amp-at-call-site.

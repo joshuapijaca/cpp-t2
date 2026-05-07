@@ -1,0 +1,38 @@
+id: L1-S3-C-27-decomp-01
+schemaVersion: v2
+atomId: C-27
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: DecomposeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-27
+commonMistakeIds:
+  - CM-C27a
+stem: Pick the correct trail after three sequential writes to mystery.
+code: |-
+  // data.mystery starts at 0.0
+  // then 2.4 (after iter 0)
+  // then 5.4 (after iter 3)
+  // then 7.4 (after iter 4)
+  // the trail in the mystery cell:
+question: Which option is the correct trail-of-three notation?
+options:
+  - label: A
+    text: 0.0 2.4 5.4 7.4   (no strikes; pick eyeballed last)
+  - label: B
+    text: 7.4   (only the final value)
+  - label: C
+    text: ~~0.0~~ ~~2.4~~ ~~5.4~~ 7.4   (three strikes, one live)
+  - label: D
+    text: 0.0 + 2.4 + 5.4 + 7.4 = 15.2   (cumulative tape)
+correctLabel: C
+explanation: >-
+  Three writes ⇒ three strikes ⇒ one live value (7.4). C is canonical, A drops the trail (M09), D is
+  double-counting.
+

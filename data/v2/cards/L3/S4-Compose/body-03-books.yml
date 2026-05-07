@@ -1,0 +1,45 @@
+# =====================================================================
+# L3 / R-03 / FunctionWriteCard — body-only books
+# =====================================================================
+id: "L3-R03-body-03"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  The signature and braces are given. Write ONLY the body (for-loop +
+  prompt-pairs) for read_books.
+prompt: "Body-only completion."
+signatureHint: |
+  void read_books(book_data &books[], int number_to_read)
+  {
+    // YOUR BODY HERE
+  }
+canonicalAnswer: |
+  for (int i = 0; i < number_to_read; i++)
+  {
+    cout << "Pages: ";
+    cin >> books[i].pages;
+    cout << "Price: ";
+    cin >> books[i].price;
+    cout << "Rating: ";
+    cin >> books[i].rating;
+  }
+keyChecks:
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> books[i].pages;"
+  - "cin >> books[i].price;"
+  - "cin >> books[i].rating;"
+forbiddenTokens:
+  - "while"
+  - "scanf"
+explanation: |
+  Body = for-loop + 3 prompt-pairs. Signature already provided.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

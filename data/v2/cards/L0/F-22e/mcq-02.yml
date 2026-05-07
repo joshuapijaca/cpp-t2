@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-22e / MCQCard 02 — array param does not copy
+# =====================================================================
+id: "L0-F22e-mcq-02"
+schemaVersion: "v2"
+atomId: "F-22e"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  A function declared `void grow(int arr[], int size)` writes to
+  `arr[2]`. The caller calls `grow(nums, 5);` where `nums` is an
+  `int[5]`. Which statement is true after `grow` returns?
+
+correct: "The mutation to `arr[2]` is visible in the caller's `nums[2]`; arrays are not copied on a function call."
+
+distractors:
+  - "The mutation is local to `grow`; `nums` is unchanged because arrays are passed by value."
+  - "The mutation is undefined behaviour because `int arr[]` was declared without `&`."
+  - "The mutation only persists if the function is also marked `&` in its return type."
+
+explanation: |
+  When an array is passed via `T arr[]`, it DECAYS — the function
+  receives an alias to the caller's storage, not a copy. Mutations
+  through `arr[i]` ARE visible in the caller. Targets CM-F22e-3
+  (thinks array param makes a copy). Test 2 V2.0 wraps the array
+  inside a struct passed by reference, but the underlying mechanism
+  is the same: no copy.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
+
+commonMistakeIds: ["CM-F22e-3"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+notes: |
+  Reinforces no-copy semantics. MCQ form for exposure floor per
+  QA-M10.

@@ -1,0 +1,22 @@
+id: C-30
+name: Pass-by-ref = same memory
+level: L1
+teaches: who_am_i(stat_double &data) edits the caller`s struct directly.
+prereqs:
+  - F-22b
+  - F-22d
+usedByQs:
+  - Q1
+cardCountTarget: 4
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-30
+    quote: 'C-30: 4 cards. Pass-by-ref = same memory.'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C30a
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

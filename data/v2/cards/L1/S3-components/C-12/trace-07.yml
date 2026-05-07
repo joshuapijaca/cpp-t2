@@ -1,0 +1,44 @@
+id: L1-S3-C-12-trace-06
+schemaVersion: v2
+atomId: C-12
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: TraceCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-12
+commonMistakeIds:
+  - CM-C12a
+stem: Execute `i++`. If i is 1 before, what is i after?
+code: |-
+  int main() {
+    int i = 1;
+    i++;
+    cout << i << endl;
+    return 0;
+  }
+variables:
+  - i
+expectedTrace:
+  - line: 2
+    variable: i
+    value: '1'
+    output: null
+  - line: 3
+    variable: i
+    value: '2'
+    output: null
+  - line: 4
+    variable: ''
+    value: ''
+    output: '2'
+terminalOutput:
+  - '2'
+inputMode: final-only
+teachMe: i++ adds 1 to i. In a for-loop, this runs AFTER the body, before the next guard test.
+

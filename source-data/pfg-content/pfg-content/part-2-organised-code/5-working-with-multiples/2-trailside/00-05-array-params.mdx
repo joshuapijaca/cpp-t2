@@ -1,0 +1,101 @@
+---
+title: Arrays as parameters
+sidebar:
+  label: " - Array Parameters"
+---
+
+As with other variables, you can have array parameters to allow arrays to be passed to functions and procedures. The only real difference is that the array can potentially store significantly more data than other variables. When the array is passed by value, each of its elements must be copied into the parameter. Passing the parameter in this way means that there will be two copies of the data in memory, which takes more time and more memory.
+
+You should avoid passing arrays by value, and instead pass them by reference. When passed by reference, we can think of the array itself being passed across. This gives the called function or procedure access to the data, but does not require that the values be copied across. As we saw before, you can use a `const` reference if you do not want the array's data to be changed.
+
+<a id="FigureArrayPassByRef"></a>
+![Arrays should always be passed by reference](./images/array-parameter-idea.png)
+<div class="caption">Arrays should always be passed by reference</div><br/>
+
+:::note
+
+- Pass by Reference and Pass by Value are **terms** that explain how data is passed to a Parameter.
+- With arrays you should always use *Pass by Reference*. This will be faster and take less memory.
+- The **const** keyword can be used to indicate that the parameter should not be able to be changed by the called code.
+:::
+
+## In C/C++
+
+Ok, this is one of the places where C/C++ does something *"interesting"*. Because passing an array by value is a bad idea, the language does not allow you to pass arrays by value at all. Instead, when you pass an array to a parameter it will pass the address of the array. This then introduces some inconsistencies in the syntax and the way it treats arrays.
+
+:::tip[Syntax]
+
+![Syntax for parameter declarations with arrays](./images/fn-array-param.png)
+
+In C/C++, you use the `[ ]` syntax to indicate that you will be passed an array. You do **not** specify the size of the array, as the parameter can accept arrays of varying size. Though, you may recall that C does not have any way to know the size of the array, so you usually have to add a size parameter to tell the function or procedure the number of elements in the array.
+
+:::
+
+When you pass a value to an array parameter, you do **not** need to get the address of arrays, as you would do with other types when passing to a pointer. Instead, this is done for you by the compiler. When you pass the array, it gets the address and passes that to the array parameter. Interestingly, this means you can declare the array as either an array or as a pointer. Both work the same, though the array syntax would better communicate your intention.
+
+:::tip
+
+If you can, put your arrays in a struct in C/C++. Then you can avoid all the nasty syntax that comes about as a result of trying to work directly with the array. With the struct, you can pass it by reference using standard syntax. You can pass by value, if you really want to (it's a bad idea). You can also use the struct to keep track of the number of elements you have in the array, meaning you have everything you need in the one place.
+
+:::
+
+## Example
+
+The following sample code demonstrates passing arrays either using the array or pointer syntax for the parameter. Notice that you can also use the `[...]` notation with the pointer, this is a result from the decision to always pass arrays by reference.
+
+```cpp
+/* Program: test-array-passing.c */
+#include <stdio.h>
+
+void test_pass_in_only_v1(const int data[], int size)
+{
+    printf("Can only read from data -> %d...%d\n", data[0], data[size - 1]);
+}
+
+void test_pass_in_and_out_v1(int data[], int size)
+{
+    printf("Can read and change data\n");
+    data[0] = data[0] + 1;                  //increment first
+    data[size - 1] = data[size - 1] * 2;    //double last
+}
+
+//----------------------------------------------------------------
+
+void test_pass_in_only_v2(const int *data, int size)
+{
+    printf("Can only read from data -> %d...%d\n", data[0], data[size - 1]);
+}
+
+void test_pass_in_and_out_v2(int *data, int size)
+{
+    printf("Can read and change data\n");
+    data[0] = data[0] + 1;                  //increment first
+    data[size - 1] = data[size - 1] * 2;    //double last
+}
+
+//----------------------------------------------------------------
+
+int main()
+{
+    int my_data[] = {1, 2, 3};
+    int other_data[] = {1, 2};
+    
+    test_pass_in_and_out_v1(my_data, 3);
+    test_pass_in_and_out_v2(other_data, 2);
+    
+    test_pass_in_only_v1(my_data, 3);
+    test_pass_in_only_v1(other_data, 2);
+    
+    return 0;
+}
+```
+
+## Arrays are not pointers
+
+The C/C++ array syntax can result in some confusion about arrays and pointers. Some people say that "arrays are pointers", but that is not true. The array is a variable, with sufficient storage to store a number of values. When you pass this to a parameter, you get the address being passed across. This does not change the array. Try to keep these clearly in your mind. In C, you can have an array, you just cannot directly pass it to a parameter.
+
+This confusion is understandable. You can pass it to a pointer. So it must be a pointer! You can use `[]` with pointers. So arrays must be pointers too! No! Sorry, this is just a result of decisions made during the design of this language. By treating arrays differently, the language makes this confusing if you do not have a strong mental model of what is going on.
+
+When you declare an array, picture it as an array. That is the right mental model.
+
+When you pass an array in C, remember it will pass it the pointer to the array. The array is not a pointer, the compiler just has code in it that says "if it is an array, pass the address instead".

@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-06 / TemplateRecallCard 01
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-tmpl-01"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Stage 1: most placeholders given. Fill {{RT}} (return type),
+  {{NM}} (function name), {{RV}} (return value).
+
+prompt: |
+  Reconstruct the empty main skeleton.
+
+template: |
+  {{RT}} {{NM}}() {
+    return {{RV}};
+  }
+
+canonicalAnswer: |
+  int main() {
+    return 0;
+  }
+
+keyChecks:
+  - "int"
+  - "main"
+  - "return 0;"
+
+forbiddenTokens:
+  - "void"
+  - "Main"
+
+explanation: |
+  Filled in: `{{RT}}` = `int`, `{{NM}}` = `main`, `{{RV}}` = `0`.
+  Together: `int main() { return 0; }` — the smallest legal
+  program.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F06b", "CM-F06d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Stage-1 template-recall. Forbidden tokens lock out void main
+  and Main with capital M.

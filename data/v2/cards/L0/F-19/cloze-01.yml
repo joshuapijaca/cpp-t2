@@ -1,0 +1,37 @@
+# =====================================================================
+# L0 / F-19 / ClozeCard 01
+# Atom: Fixed-size array — declaration size token
+# =====================================================================
+id: "L0-F19-cloze-01"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing token to declare a 5-int array called `arr`.
+
+code: |
+  int arr[___];
+
+clozeSentence: "int arr[___];  // declares 5-int storage"
+
+answer: "5"
+
+explanation: |
+  The size goes between the brackets after the name. `int arr[5];`
+  allocates 5 int slots indexed 0..4. The size must be a compile-time
+  constant (an int literal or a `const int` value).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
+
+commonMistakeIds: ["CM-F19a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Smallest possible cloze on declaration syntax. One blank, one token.

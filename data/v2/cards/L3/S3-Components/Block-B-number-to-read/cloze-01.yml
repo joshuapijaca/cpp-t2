@@ -1,0 +1,37 @@
+# =====================================================================
+# L3 / Block B number_to_read / Cloze 01 — fill the param name
+# =====================================================================
+id: "L3-NumToRead-cloze-01"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "ClozeCard"
+
+stem: "Fill in the V2.0-canonical name of the count parameter for the read function signature."
+
+code: |
+  void read_desks(desk_data &desk_list[], int ____________)
+  {
+    for (int i = 0; i < number_to_read; i = i + 1) {
+      cin >> desk_list[i].name;
+    }
+  }
+
+clozeSentence: "The V2.0 test uses the literal parameter name ____ for the count of items to read."
+
+answer: "number_to_read"
+
+explanation: |
+  V2.0 names the count param `number_to_read`. Use the literal name. The for-loop body already references it.
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V Block B — number_to_read cloze"
+
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "Block B cloze: parameter name itself."

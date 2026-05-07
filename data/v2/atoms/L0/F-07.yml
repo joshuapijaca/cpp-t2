@@ -1,0 +1,24 @@
+id: F-07
+name: "Statement terminator: semicolon"
+level: L0
+phase: B
+teaches: "Every statement ends with `;`. The single most common novice error."
+prereqs: [F-04, F-05]
+usedByQs: [Q1, Q2, Q3, Q4]
+cardCountTarget: 17
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/2-communicating-syntax/2-trailside/02-statement"
+    quote: "A statement is a complete instruction. In C++ each statement ends with a semicolon."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-0-cpp-syntax"
+    quote: "Missing semicolons are the most frequent compiler error for beginners."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:25:39 — Saloni walking the struct, emphasising line-end punctuation when she draws boxes"
+commonMistakes:
+  - CM-F07a  # forgets ; after };  (Q2 highest-frequency error)
+  - CM-F07b  # forgets ; after every field line
+  - CM-F07c  # adds ; after if condition: if (x>0); { ... }
+  - CM-F07d  # adds ; after for header: for(...);  { ... }
+notes:
+  cardMix: { walkthrough: 1, demo: 2, decompose: 2, cloze: 4, μWrite: 4, mcq: 3, proc: 1 }

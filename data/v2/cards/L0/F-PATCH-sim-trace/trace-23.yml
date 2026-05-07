@@ -1,0 +1,58 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 23 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Print a string literal then a variable
+# =====================================================================
+id: "L0-F23-trace-23"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. The cout chains a literal and a variable. What is the
+  final value of `x`, and what appears in the terminal?
+
+code: |
+  int main() {
+    int x = 42;
+    cout << "value: " << x << endl;
+    return 0;
+  }
+
+variables: ["x"]
+
+expectedTrace:
+  - line: 2
+    variable: "x"
+    value: "42"
+    output: null
+  - line: 3
+    variable: ""
+    value: ""
+    output: "value: 42"
+
+terminalOutput: ["value: 42"]
+
+inputMode: "final-only"
+
+teachMe: |
+  cout chain: write the literal text "value: ", then look up box `x`
+  (= 42) and write 42, then newline. Terminal: value: 42.
+
+  The space inside "value: " is part of the literal, so it appears
+  before the 42.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 23/30"
+
+commonMistakeIds: ["CM-prints-variable-name"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  First chained-cout in the primer. Reps the literal-then-variable
+  pattern that dominates Q3 prompts.

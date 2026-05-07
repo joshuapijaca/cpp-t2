@@ -1,0 +1,74 @@
+# =====================================================================
+# L0 / F-22d / TraceCard 03 — struct mutation visibility (Test 2 shape)
+# =====================================================================
+id: "L0-F22d-trace-03"
+schemaVersion: "v2"
+atomId: "F-22d"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  This is a simplified Test 2 V2.0 shape. The function `init_zero`
+  takes a `stat_double` BY REFERENCE and zeroes its `mystery`
+  field. After the call, what does `d.mystery` hold in main?
+
+code: |
+  void init_zero(stat_double &data) {
+    data.mystery = 0.0;
+  }
+
+  int main() {
+    stat_double d = { {1.0, 2.0, 3.0, 4.0, 5.0}, -0.9 };
+    init_zero(d);
+    cout << d.mystery << endl;
+    return 0;
+  }
+
+variables: ["d.mystery"]
+
+expectedTrace:
+  - line: 6
+    variable: "d.mystery"
+    value: "-0.9"
+    output: null
+  - line: 7
+    variable: "d.mystery"
+    value: "0"
+    output: null
+  - line: 8
+    variable: ""
+    value: ""
+    output: "0"
+
+terminalOutput: ["0"]
+
+inputMode: "final-only"
+
+teachMe: |
+  - Line 6: d.mystery = -0.9 (from brace-init).
+  - Line 7: init_zero(d);
+    Inside the call, `data` is an alias for `d`. The body line
+    `data.mystery = 0.0;` writes 0.0 into the same storage as
+    `d.mystery`.
+    After the call: d.mystery = 0.0.
+  - Line 8: cout << d.mystery; prints 0.
+
+  Final: d.mystery = 0. Terminal: 0.
+
+  Pattern check: this is exactly how Test 2 V2.0's `who_am_i`
+  initialises `data.mystery = 0.0` — the caller sees the change.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `who_am_i` initialises caller's mystery via reference"
+
+commonMistakeIds: ["CM-F22d-1", "CM-F22d-2"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Bridges F-22d to the Test 2 V2.0 shape. Establishes that the
+  Q1 trace must propagate the function's mutations back into the
+  caller's struct.

@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-11 / ProceduralCard 04 (μWrite)
+# Atom: Variable declaration + initialisation (multi-line block)
+# =====================================================================
+id: "L0-F11-proc-04"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the three lines that begin a typical Q3/Q4 main: declare a
+  count, an accumulator, and a label.
+
+section: "F-11 declare-and-init drills (multi-line)"
+
+prompt: |
+  Declare and initialise three variables on three lines:
+  - int `i` to 0
+  - double `total` to 0.0
+  - string `label` to "desk"
+
+expectedAnswer: |
+  int i = 0;
+  double total = 0.0;
+  string label = "desk";
+
+keyChecks: ["int i = 0;", "double total = 0.0;", 'string label = "desk";']
+
+variants:
+  - prompt: |
+      Declare and initialise three variables on three lines:
+      - int `count` to 0
+      - double `mystery` to 0.0
+      - string `name` to "ana"
+    expectedAnswer: |
+      int count = 0;
+      double mystery = 0.0;
+      string name = "ana";
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F11a", "CM-F11b"]
+
+notes: |
+  Multi-line drill that builds the Q3/Q4 prologue.

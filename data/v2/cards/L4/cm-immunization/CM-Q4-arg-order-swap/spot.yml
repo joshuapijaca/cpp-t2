@@ -1,0 +1,41 @@
+# Hand-authored CM immunization (FaultInjectionCard) for CM-Q4-arg-order-swap
+id: "L4-cmimm-CM-Q4-arg-order-swap-spot"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  This call has the arguments in the wrong order. Fix the order to match the read_desks signature.
+
+brokenCode: |
+  // Signature: void read_desks(desk_data desks[], int number_to_read)
+  // Call site:
+  read_desks(desk_num, desks);
+
+bugLocations: [3]
+
+fixedCode: |
+  // Signature: void read_desks(desk_data desks[], int number_to_read)
+  // Call site (corrected):
+  read_desks(desks, desk_num);
+
+bugCategory: "argument order swap (count first, array second)"
+
+keyChecks:
+  - "read_desks(desks, desk_num)"
+
+explanation: |
+  Argument order MUST match the function signature: array first, count second. Swapping them passes an int where an array is expected — usually a hard compile error.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block D — common-mistake immunization (CM-Q4-arg-order-swap)"
+
+commonMistakeIds: ["CM-Q4-arg-order-swap"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

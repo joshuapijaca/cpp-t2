@@ -1,0 +1,90 @@
+SIT102 Introduction to Programming  P7 Structuring Code
+
+Structuring Code
+
+This next part of the journey focuses on code as a way of structuring your
+instructions and data to better organise the logic and your thoughts. These first
+steps will introduce you to functions and procedures, and how you can use these
+to contain your logic into small chunks - so managing control flow is constrained
+to these smaller building blocks from which you can then construct larger
+programs.
+
+Key aspects include:
+
+    · Seeing how functions and procedure let you compartmentalise your code -
+         so you never need to create large and complex control flow logic. Instead,
+         you build many small functions and procedures that each perform part of
+         the solution you are creating.
+
+    · Make sure to pay attention to parameters, these are essential to allowing
+         you to give your functions and procedures the data they need to perform
+         their tasks.
+
+Show us that you can:
+
+    · Create functions and procedures in C++ to break programming problems
+         down into smaller, reusable parts.
+
+    · Use parameters and local variables to manage data.
+    · Return data from functions.
+    · Focus on using functions and procedures to structure your code, with
+
+         parameters to accept input data, without global variables.
+    · Do this task without using anything we haven't covered yet.
+    · Capture your learning in the Learning Journey section. Include evidence
+
+         (screenshots) of your progress, and your thoughts on what you
+         accomplished, what challenges you faced, and what you found interesting.
+
+                                                                                                  Page 1 of 3
+SIT102 Introduction to Programming  P7 Structuring Code
+
+· Provide sincere reflections in the Reflection section. Don't just tell us what
+    you did, tell us what you learned. Reflections that are brief or shallow will
+    not be accepted.
+
+Complete the following:
+
+1. Download and open the template from OnTrack.
+2. Read through the Introduction section and Overview section from Chapter 2:
+
+    Structuring Code.
+3. Complete the Guided Tour from Chapter 2: Structuring Code.
+4. Complete one of the Test Your Knowledge activities.
+5. You should have enough to submit now, but if you want to deepen your
+
+    understanding have a look at the concepts in the In Depth section ­
+    understanding functions, procedures, and parameters in depth will be
+    important as you start to build larger programs.
+6. Complete your submission ­ complete the summary and related activities in
+    the template.
+7. Upload to OnTrack and engage with feedback to get this complete!
+
+Available Resources
+
+We have many resources to assist in your learning journey ­ if you are ever unsure
+then please reach out to us, we are always happy to help.
+
+    · The SIT102 Teams channel ­ an active learning resource with weekly
+         announcements from the Unit Chair, and regular discussions/assistance
+         from the SIT102 teaching team and students.
+
+    · Seminars ­ you can attend both on-campus and online sessions, and join
+         as many as you like each week. Your tutors will provide demonstrations and
+         assistance to help guide your learning.
+
+                                    Page 2 of 3
+SIT102 Introduction to Programming  P7 Structuring Code
+
+    · HelpHubs ­ there are sessions hosted nearly everyday, both on-campus
+         and online providing one-on-one assistance from a tutor. Please join as
+         many as you like.
+
+    · PASS sessions ­ running every week, these sessions are run like a study
+         group, hosted by a past SIT102 student.
+
+For more information about the above resources please speak to your tutor or
+visit the SIT102 Teams channel.
+
+                                    Page 3 of 3
+

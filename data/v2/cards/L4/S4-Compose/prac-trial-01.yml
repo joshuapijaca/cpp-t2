@@ -1,0 +1,57 @@
+id: "L4-S4-prac-trial-01"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[practice trial 1/10] Write the COMPLETE main() for the practice computer_data variant. MAX=100, count=computer_num, fn=read_computers, fields=id/description/location."
+source: 
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — full main()"
+commonMistakeIds: 
+  - "CM-Q4-missing-const"
+  - "CM-Q4-pass-MAX-not-count"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Write the full practice main() exactly. const MAX=100, computer_data computers[MAX], int computer_num, prompt+cin, read_computers call, print loop, return 0."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 100;
+      computer_data computers[MAX];
+      int computer_num;
+  
+      cout << "How many computers? ";
+      cin >> computer_num;
+  
+      read_computers(computers, computer_num);
+  
+      for (int i = 0; i < computer_num; i++)
+      {
+          cout << computers[i].id << ", ";
+          cout << computers[i].description << ", ";
+          cout << computers[i].location << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 100"
+  - "computer_data computers[MAX]"
+  - "int computer_num"
+  - "cin >> computer_num"
+  - "read_computers(computers, computer_num)"
+  - "i < computer_num"
+  - "computers[i].id"
+  - "endl"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many computers?"
+explanation: "Canonical practice main(). Same skeleton as V2.0 with different MAX/entity."

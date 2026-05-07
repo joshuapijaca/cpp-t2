@@ -1,0 +1,44 @@
+id: "CM-pass-MAX-not-count-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q4 pass MAX vs count. The code below has the bug labeled
+  by CM-pass-MAX-not-count. Find the line and provide the fix.
+
+brokenCode: |
+  // Q4 broken excerpt:
+  read_X(arr, MAX);
+  // (canonical was: read_X(arr, count);)
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  read_X(arr, count);
+  ;
+
+bugCategory: "CM-pass-MAX-not-count"
+
+keyChecks:
+  - "read_X(arr, count);"
+
+explanation: |
+  Bug: Called `read_X(arr, MAX)` instead of `read_X(arr, count)`.
+  Fix: read_X(arr, count);
+  This common mistake costs marks on Q4 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-pass-MAX-not-count"
+
+commonMistakeIds: ["CM-pass-MAX-not-count"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-pass-MAX-not-count.

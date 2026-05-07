@@ -1,0 +1,20 @@
+
+id: "L2-S3a-n2t-22"
+schemaVersion: "v2"
+atomId: "L-23a"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "MCQCard"
+stem: "Q2 noun→type #22. A struct field needs a type. The English noun `title` should be stored as which C++ primitive?"
+correct: "`string` — a book/movie title is free text"
+distractors: ["`int` — integers cannot represent decimal or text content this noun implies.","`double` — a floating-point number is overkill for this noun.","`char` — a single character cannot hold this noun."]
+explanation: "`title` is best stored as `string` because a book/movie title is free text"
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-wrong-type"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Noun→type drill, string bucket."

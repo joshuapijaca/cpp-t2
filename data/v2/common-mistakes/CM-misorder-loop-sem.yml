@@ -1,0 +1,25 @@
+id: CM-misorder-loop-sem
+name: "Student misorders for-loop semantics (init/cond/body/post)"
+description: |
+  Correct order: init once -> cond check -> body -> post -> cond check
+  -> body -> post -> ... -> cond fails -> exit. Students mix up the order
+  (e.g. post before body, or cond before init), producing iter rows that
+  do not match the program's actual control flow.
+whyItHappens: |
+  All four phases live in the same line `for (init; cond; post)`. Visual
+  proximity makes ordering tempting to guess. Compounded by the fact that
+  init runs ONCE while cond/body/post repeat.
+immunizationStrategy: |
+  1. Decompose card: order the four phases in their execution sequence.
+  2. SpotError: trace with reordered phases; spot the mistake.
+  3. MCQ: "Which runs first: init or cond? (init)"
+  4. Cloze: fill in phase labels for a 5-iter trace.
+  5. Demo card: animation-style frame-by-frame phase order.
+  6. Trace card requiring student to label each row's phase.
+examImpact: high
+atomDependencies: [F-18a, F-18b, A4]
+qTracks: [Q1]
+relatedCMs: [CM-i++-before-body, CM-skip-pre-loop-init, CM-body-when-false]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow — for-loop semantics"

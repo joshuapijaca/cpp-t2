@@ -1,0 +1,22 @@
+id: C-18
+name: Evaluate numbers[i] < 0
+level: L1
+teaches: Test if the cell value is negative (sum-negative guard).
+prereqs:
+  - F-16
+  - F-19
+usedByQs:
+  - Q1
+cardCountTarget: 8
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-18
+    quote: 'C-18: 8 cards. Evaluate numbers[i] < 0.'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C18a
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

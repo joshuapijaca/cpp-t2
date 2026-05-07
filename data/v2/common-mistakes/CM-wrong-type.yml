@@ -1,0 +1,24 @@
+id: CM-wrong-type
+name: "Student picks the wrong primitive type for a field"
+description: |
+  Noun -> type mapping: `id` is `int`, `description` is `string`, `price`
+  is `double`. Students substitute wrong types: `int description`,
+  `string id`, `int price` (loses cents). 35-entity entity-pool grading
+  is strict on type matches.
+whyItHappens: |
+  Without the noun-type map drilled in, students guess from English. Some
+  nouns have ambiguous defaults (e.g. `weight` could be int or double).
+immunizationStrategy: |
+  1. NounTypeMatrix card: 40 nouns -> classify into int/double/string/bool/char.
+  2. SpotError: struct with `int description`; flag type mismatch.
+  3. MCQ: "What type fits `price`? (double)"
+  4. Cloze: fill in the type for `<type> id;`.
+  5. EntityMatrix card: full struct from English prompt, type-graded.
+  6. Decompose: list 5 buckets and their canonical nouns.
+examImpact: high
+atomDependencies: [F-10, F-20]
+qTracks: [Q2]
+relatedCMs: [CM-2-fields-1-line, CM-cap-struct-name]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §4.4 — Noun -> Type Map (50-card S3a block)"

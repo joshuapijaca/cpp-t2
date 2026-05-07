@@ -1,0 +1,45 @@
+id: "L4-S2-orderlines-06"
+schemaVersion: "v2"
+atomId: "Q-01"
+qTags: 
+  - "Q4"
+stage: 2
+level: "L4"
+type: "DecomposeCard"
+stem: "In the print loop, which two pieces appear in this order?"
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.2 S2 OrderLines drill"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+code: |
+  int main()
+  {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int desk_num;
+  
+      cout << "How many desks? ";
+      cin >> desk_num;
+  
+      read_desks(desks, desk_num);
+  
+      for (int i = 0; i < desk_num; i++)
+      {
+          cout << desks[i].room_id << ", ";
+          cout << desks[i].d_id << ", ";
+          cout << desks[i].number_of_screens << endl;
+      }
+  
+      return 0;
+  }
+question: "In the print loop, which two pieces appear in this order?"
+options: 
+  - {label: "A", text: "for header → opening brace → cout fields → endl → closing brace"}
+  - {label: "B", text: "opening brace → for header → cout fields → endl → closing brace"}
+  - {label: "C", text: "for header → cout fields → opening brace → endl → closing brace"}
+  - {label: "D", text: "cout fields → for header → endl → opening brace → closing brace"}
+correctLabel: "A"
+explanation: "for-header first, then `{`, then body, then `}`. Body chains cout statements with endl on the LAST one."

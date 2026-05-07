@@ -1,0 +1,57 @@
+# =====================================================================
+# L0 / F-20 / StructWriteCard 02 — three-field variant
+# =====================================================================
+id: "L0-F20-write-02"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "StructWriteCard"
+
+stem: |
+  Write a struct definition for a `player` entity with three fields:
+  a string `name`, an int `score`, and a double `accuracy`.
+
+prompt: "Define a struct `player` with fields: string name, int score, double accuracy."
+
+canonicalAnswer: |
+  struct player {
+    string name;
+    int score;
+    double accuracy;
+  };
+
+requiredFields:
+  - "name"
+  - "score"
+  - "accuracy"
+
+keyChecks:
+  - "struct player"
+  - "string name"
+  - "int score"
+  - "double accuracy"
+  - "};"
+
+forbiddenTokens:
+  - "class"
+  - "Struct"
+  - "*"
+
+explanation: |
+  Same shape as F-20 write-01 but with three fields and three
+  different types. Forces the student to apply the canonical shape
+  to a new entity rather than just copying out the test data.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
+
+commonMistakeIds: ["CM-F20a", "CM-F20d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Generalisation drill. Different domain (player), different field
+  types — but same five tokens of the shape.

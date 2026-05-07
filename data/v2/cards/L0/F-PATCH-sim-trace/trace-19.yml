@@ -1,0 +1,53 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 19 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Self-update with multiplication
+# =====================================================================
+id: "L0-F23-trace-19"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. Self-update with `*`. Final value of `n`?
+
+code: |
+  int main() {
+    int n = 3;
+    n = n * 4;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "3"
+    output: null
+  - line: 3
+    variable: "n"
+    value: "12"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Read 3, compute 3 * 4 = 12, write 12 back into `n`. Final panel:
+  { n: 12 }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 19/30"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Self-update with multiplication. Reps the read-write order.

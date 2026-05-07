@@ -1,0 +1,45 @@
+id: "L1-S2-TE-19-fix-eq-vs-pluseq"
+schemaVersion: "v2"
+atomId: "T-05"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  This sum-positive body uses `=` where it should accumulate. Fix it.
+
+prompt: |
+  Provide the corrected action so mystery accumulates.
+
+template: |
+  // BROKEN
+  if (data.numbers[i] > 0) {
+    data.mystery = data.numbers[i];
+  }
+
+canonicalAnswer: |
+  if (data.numbers[i] > 0) {
+    data.mystery = data.mystery + data.numbers[i];
+  }
+
+keyChecks:
+  - "data.mystery + data.numbers[i]"
+
+forbiddenTokens: []
+
+explanation: |
+  The broken version OVERWRITES mystery with each cell, so only the
+  last positive cell survives — that's find-max-of-positives, not
+  sum. Add `data.mystery + ` on the RHS to accumulate.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — sum vs replace"
+
+commonMistakeIds: ["CM-Q1-eq-vs-pluseq"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-E repair: = vs += (accumulate vs replace).
+authoringStatus: "DRAFT"

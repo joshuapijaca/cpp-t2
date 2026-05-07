@@ -1,0 +1,50 @@
+id: "L4-S5-diffmax-06"
+schemaVersion: "v2"
+atomId: "Q-09"
+qTags: 
+  - "Q4"
+stage: 5
+level: "L4"
+type: "MainWriteCard"
+stem: "[MAX variation 6/10] Write the V2.0 main() with MAX = 500. Everything else identical."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.5 S5 MAX variations"
+commonMistakeIds: 
+  - "CM-Q4-MAX-hardcode"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Re-write the V2.0 main but use MAX = 500."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 500;
+      desk_data desks[MAX];
+      int desk_num;
+  
+      cout << "How many desks? ";
+      cin >> desk_num;
+  
+      read_desks(desks, desk_num);
+  
+      for (int i = 0; i < desk_num; i++)
+      {
+          cout << desks[i].room_id << ", ";
+          cout << desks[i].d_id << ", ";
+          cout << desks[i].number_of_screens << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 500"
+  - "desks[MAX]"
+  - "desk_num"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+expectedTerminal: 
+  - "How many desks?"
+explanation: "MAX is a parameter — not a magic literal. The skeleton is identical for any MAX."

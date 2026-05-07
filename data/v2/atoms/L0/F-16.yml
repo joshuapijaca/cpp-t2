@@ -1,0 +1,23 @@
+id: F-16
+name: "Comparison operators"
+level: L0
+phase: D
+teaches: "==, !=, <, >, <=, >= produce bool. = is assignment, == is comparison."
+prereqs: [F-12]
+usedByQs: [Q1]
+cardCountTarget: 17
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-1-comparisons"
+    quote: "Comparison operators take two values and produce a boolean: true or false."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-0-boolean-data"
+    quote: "Use == to test equality. Using a single = inside an if condition is a common bug."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:37:23 — Saloni: 'now we cheque if data dot numbers I' walking the if condition"
+commonMistakes:
+  - CM-F16a  # writes = inside if condition (assignment-as-test)
+  - CM-F16b  # confuses < and >
+  - CM-F16c  # uses =< and => (typo in operator order)
+notes:
+  cardMix: { walkthrough: 1, demo: 2, decompose: 2, trace: 2, cloze: 3, μWrite: 3, mcq: 3, proc: 1 }

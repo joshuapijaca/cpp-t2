@@ -1,0 +1,41 @@
+id: "L1-S2-TC-07-init-one"
+schemaVersion: "v2"
+atomId: "T-03"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Type the pre-loop init for product (multiply-all) algorithms.
+
+prompt: |
+  What is the pre-loop init for the product algorithm?
+
+template: |
+  // (type the init line)
+
+canonicalAnswer: |
+  data.mystery = 1.0;
+
+keyChecks:
+  - "data.mystery"
+  - "= 1.0"
+
+forbiddenTokens: []
+
+explanation: |
+  `data.mystery = 1.0;` — multiplicative identity. Starting at 0.0
+  on a product would zero everything; the canonical product init is
+  `1.0`.
+
+source:
+  kind: "v2"
+  ref: "docs/16_test2_specific_redesign_v2.md §3.5 — A11 product init"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-C init = 1.0 (product).
+authoringStatus: "DRAFT"

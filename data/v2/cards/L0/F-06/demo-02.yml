@@ -1,0 +1,57 @@
+# =====================================================================
+# L0 / F-06 / DemoCard 02
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-demo-02"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Anatomy of `int main()`. Each part has a fixed role. Watch the
+  return type, the name, the parameter list, and the opening brace.
+
+whyOneLine: "int main() = return type 'int' + function name 'main' + empty parens () + opening brace { for the body."
+
+demoCode: |
+  //   int    main    ()    OPEN-BRACE
+  //    |      |      |        |
+  //    |      |      |        +-- opening brace: body starts after this
+  //    |      |      +----------- empty parameter list (no inputs)
+  //    |      +------------------ function name (lowercase, exactly: main)
+  //    +------------------------- return type: int (function returns integer)
+  //
+  //    Wrong forms beginners write:
+  //      - void main      -->  return type must be int, not void
+  //      - capital Main   -->  M uppercase; OS looks for lowercase main
+  //      - int main NO-PARENS  --> the parameter list parens are required
+
+  int main() {
+    return 0;
+  }
+
+highlightTokens:
+  - "int"
+  - "main"
+  - "()"
+  - "{"
+  - "void main()"
+  - "Main()"
+
+usedIn:
+  - "Q4 main program (every answer defines this exact header)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F06b", "CM-F06d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Anatomy demo. Calls out the two highest-frequency header errors:
+  void main (CM-F06b) and Main() with capital M (CM-F06d).

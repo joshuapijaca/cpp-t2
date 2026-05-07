@@ -1,0 +1,52 @@
+# =====================================================================
+# L0 / F-19 / FunctionWriteCard 02 — μ-write declaration + initialiser
+# Atom: Fixed-size array — declaration + brace-list
+# =====================================================================
+id: "L0-F19-write-02"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "FunctionWriteCard"
+
+stem: |
+  Write a single C++ statement that declares an int array `arr` of 4
+  elements and initialises it with the values 10, 20, 30, 40.
+
+prompt: "Declare and initialise int arr[4] with {10, 20, 30, 40}."
+
+signatureHint: "int arr[4] = { ____ };"
+
+canonicalAnswer: |
+  int arr[4] = {10, 20, 30, 40};
+
+keyChecks:
+  - "int arr[4]"
+  - "{10, 20, 30, 40}"
+  - ";"
+
+forbiddenTokens:
+  - "*"
+  - "new"
+  - "vector"
+
+explanation: |
+  Brace-list initialiser form. The `{ ... }` provides the slot values
+  in index order: arr[0]=10, arr[1]=20, arr[2]=30, arr[3]=40. The `=`
+  ties the brace list to the declared variable; the `;` ends the
+  statement.
+
+passByRefRequired: false
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — brace-list initialiser pattern"
+
+commonMistakeIds: ["CM-F19a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Drills the `=  { ... };` shape. Important for Q4 main programs that
+  hard-code test data before passing to a function.

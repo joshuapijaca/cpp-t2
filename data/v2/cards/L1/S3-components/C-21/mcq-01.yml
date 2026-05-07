@@ -1,0 +1,28 @@
+id: L1-S3-C-21-mcq-00
+schemaVersion: v2
+atomId: C-21
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-21
+commonMistakeIds:
+  - CM-C21a
+stem: >-
+  In `if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }`, the condition
+  evaluates to FALSE. What happens?
+correct: The body is SKIPPED. data.mystery is unchanged for this iteration.
+distractors:
+  - The body still runs because there is no else.
+  - data.mystery is reset to 0.
+  - The loop exits immediately.
+explanation: >-
+  If false, the body is skipped and data.mystery does NOT change. Drop a row in the trail with no
+  mutation. M03 trap is running the body anyway.
+

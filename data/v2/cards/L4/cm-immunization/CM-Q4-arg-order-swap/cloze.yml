@@ -1,0 +1,32 @@
+# Hand-authored CM immunization (ClozeCard) for CM-Q4-arg-order-swap
+id: "L4-cmimm-CM-Q4-arg-order-swap-cloze"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: "Fill in the read_desks call with arguments in the canonical order."
+
+code: |
+  // Signature: void read_desks(desk_data desks[], int number_to_read)
+  cin >> desk_num;
+  ___;
+
+clozeSentence: 'Fill in the call with arguments in signature order.'
+
+answer: 'read_desks(desks, desk_num)'
+
+explanation: |
+  Order matches signature: array first (desks), count second (desk_num). No `&`, no extra parameters.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block D — common-mistake immunization (CM-Q4-arg-order-swap)"
+
+commonMistakeIds: ["CM-Q4-arg-order-swap"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

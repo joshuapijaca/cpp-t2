@@ -1,0 +1,44 @@
+id: "CM-skipped-field-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-skipped-field: Q3 skipped field in read.
+
+code: |
+  // Trap: Read 2 of 3 fields per iteration — misalignment.
+  cin >> arr[i].brand; cin >> arr[i].price; // year skipped
+  ;
+
+question: |
+  What goes wrong with the line above on Q3?
+
+options:
+  - label: "A"
+    text: "Read 2 of 3 fields per iteration — misalignment."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Read 2 of 3 fields per iteration — misalignment. The canonical pattern is: cin >> arr[i].brand; cin >> arr[i].year; cin >> arr[i].price;
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-skipped-field"
+
+commonMistakeIds: ["CM-skipped-field"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-skipped-field.

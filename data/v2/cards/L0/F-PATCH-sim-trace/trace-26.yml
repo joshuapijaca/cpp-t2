@@ -1,0 +1,66 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 26 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Print before update — old value goes to terminal
+# =====================================================================
+id: "L0-F23-trace-26"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. The cout runs BEFORE the update, so the terminal
+  shows the original value. Enter both panels.
+
+code: |
+  int main() {
+    int n = 7;
+    cout << n << endl;
+    n = n + 100;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "7"
+    output: null
+  - line: 3
+    variable: ""
+    value: ""
+    output: "7"
+  - line: 4
+    variable: "n"
+    value: "107"
+    output: null
+
+terminalOutput: ["7"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Walk it:
+  - Line 2: box n holds 7.
+  - Line 3: cout reads 7 and prints. Terminal: 7
+  - Line 4: 7 + 100 = 107 written back into n.
+  Final panel: { n: 107 }. Terminal: 7.
+
+  The terminal shows whatever value was in the box AT THE MOMENT
+  cout ran, not the final value at the end of the program.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 26/30"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Mirror image of card 25. Forces the student to keep the panel-state
+  and the terminal-state separate in their head.

@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-F22b-3
+id: "L1-cmimm-CM-F22b-3-mcq"
+schemaVersion: "v2"
+atomId: "F-22b"
+qTags: ["Q1", "Q3"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  After `who_am_i(d);` (where who_am_i is void and uses `stat_double &data`), the caller's d.mystery is...
+
+correct: 'changed — the reference exposed d to the function, which assigned to it'
+
+distractors:
+  - 'unchanged — pass-by-value made a copy'
+  - 'undefined — no return value to capture'
+  - 'depends on the return type of who_am_i'
+
+explanation: |
+  Pass-by-reference (`&data`) makes data inside the function an alias for the caller's variable. Assignments through the alias mutate the caller's storage. No return value needed — that's the entire point of `&`.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-22b — common-mistake immunization (CM-F22b-3)"
+
+commonMistakeIds: ["CM-F22b-3"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

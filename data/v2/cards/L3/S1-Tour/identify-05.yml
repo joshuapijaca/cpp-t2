@@ -1,0 +1,25 @@
+# =====================================================================
+# L3 / R-00 / MCQCard — identify
+# =====================================================================
+id: "L3-R00-id-05"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 1
+level: "L3"
+type: "MCQCard"
+stem: |
+  Which placement of the prompt is canonical?
+correct: "cout BEFORE cin in the same iteration"
+distractors:
+  - "cout AFTER cin"
+  - "cout outside the loop only"
+  - "cout never used"
+explanation: |
+  Q3 anatomy: void return, by-reference array, count parameter as bound, prompt-then-cin pair, [i].field index.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

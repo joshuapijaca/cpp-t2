@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-confuse-i-with-numbers
+id: "L1-cmimm-CM-confuse-i-with-numbers-mcq"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  In `mystery = mystery + numbers[i]`, what value is added to mystery on iter 0?
+
+correct: '`numbers[0]` (the first array value)'
+
+distractors:
+  - '`0` (the value of `i`)'
+  - '`SIZE` (the array length)'
+  - '`mystery` (the accumulator itself)'
+
+explanation: |
+  Add the array VALUE, not the index. `numbers[0]` is the first element's data.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-confuse-i-with-numbers)"
+
+commonMistakeIds: ["CM-confuse-i-with-numbers"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

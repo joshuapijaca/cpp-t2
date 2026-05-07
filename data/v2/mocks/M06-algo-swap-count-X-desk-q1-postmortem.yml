@@ -1,0 +1,63 @@
+# =====================================================================
+# L5 / Mock M06 Q1 POSTMORTEM
+# Diff failed attempt vs canonical, surface repair steps.
+# =====================================================================
+id: "L5-mock-M06-q1-postmortem"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Postmortem for Mock M06 Q1 (hand-execute). Why did the failed
+  attempt below lose marks? What's the exact repair?
+
+failedAttempt: |
+  // Student forgot pre-loop init.
+  void who_am_i(stat_double &data) {
+    int i;
+    // (init line forgotten)
+    for (i = 0; i < SIZE; i++) {
+      if (data.numbers[i] > 5) {
+        data.mystery = data.mystery + 1;
+      }
+    }
+    return;
+  }
+  // Result: d.mystery is whatever brace-init set (0), not 3.
+
+diagnosis: |
+  Skipping the pre-loop init (line `data.mystery = 0;`)
+  leaves data.mystery at the brace-init value (0). The
+  algorithm body NEVER overwrites it because the comparison happens
+  against a stale seed. Hand-execute proves: at i=0 the if-test
+  runs against 0, possibly fires, possibly not — but the
+  canonical answer requires the seed to start at 0, which
+  is the contract of this algorithm.
+
+repairSteps:
+  - "Add line `data.mystery = 0;` before the for-loop."
+  - "Re-run the hand-trace with the seed value."
+  - "Verify final d.mystery equals 3."
+
+preventionTip: |
+  Before reading the algorithm body, ALWAYS write the pre-loop init line first.
+
+explanation: |
+  Postmortem cards diff your failed answer against the canonical
+  answer, label the bug, and surface exactly what to repair. Per
+  Mock retry policy §7.5: any 70-89 score injects 4 postmortem
+  cards (one per Q) before the next mock attempt unlocks.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 — Mock M06 retro"
+
+commonMistakeIds: ["CM-skip-pre-loop-init"]
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Mock M06 retro — Q1 repair drill.

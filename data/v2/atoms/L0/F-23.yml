@@ -1,0 +1,27 @@
+id: F-23
+name: "Sim-trace primer (variables-panel meta-skill)"
+level: L0
+phase: A
+teaches: "Drill the meta-skill of using a variables panel like a debugger to track program state. Per-line, a value enters or leaves a labelled box. Build the muscle BEFORE any real algorithm so the panel-discipline is automatic by L1."
+prereqs: [F-03, F-08]
+usedByQs: [Q1, Q4]
+cardCountTarget: 30
+source:
+  - kind: v2
+    ref: "C++T2 spec §B.2 patch — sim-trace primer (30-card augmentation)"
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/07-hand-execution"
+    quote: "Capture the variables as boxes on your page, and use these to keep track of the values that change as the program runs."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:23:09 — Saloni: hand-execution demo"
+commonMistakes:
+  - CM-skips-mental-state
+  - CM-uses-old-value-after-update
+  - CM-prints-variable-name
+notes:
+  cardMix: { trace: 30 }
+  rationale: |
+    F-03 introduces hand-execution; F-23 turns it into a 30-rep
+    procedural drill targeting the panel-interaction reflex itself.
+    Programs are deliberately tiny (2-5 lines) so cognitive load is
+    on the *act of moving values into boxes*, not on logic.

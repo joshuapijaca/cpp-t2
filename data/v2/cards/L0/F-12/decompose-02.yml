@@ -1,0 +1,61 @@
+# =====================================================================
+# L0 / F-12 / DecomposeCard 02
+# Atom: Assignment = (RHS-first evaluation)
+# =====================================================================
+id: "L0-F12-decomp-02"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Pick the option that correctly traces this line.
+
+code: |
+  int total = 5;
+  total = total + 3;
+
+question: |
+  After both lines run, what is in box `total`?
+
+options:
+  - label: "A"
+    text: |
+      total = 8 — the RHS reads the current value (5), adds 3 to
+      get 8, then writes 8 to total.
+  - label: "B"
+    text: |
+      total = 3 — the RHS uses the new total, which has not been
+      written yet, so it is treated as 0 + 3.
+  - label: "C"
+    text: |
+      total = 13 — `total + 3` means concatenation, so 5 and 3 fuse
+      to 53, minus the leading wrap = 13.
+  - label: "D"
+    text: |
+      The line is impossible because you cannot have the same name on
+      both sides of `=`.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. The RHS is evaluated FIRST, using the CURRENT value of
+  total (5). 5 + 3 = 8. Then 8 is written into total.
+
+  B is wrong: the LHS is not used in the RHS evaluation.
+  C is wrong: `+` on int is arithmetic, not concatenation.
+  D is wrong: the same name on both sides is the most common
+  C++ pattern (read-modify-write).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/0-panorama/4-assignment"
+
+commonMistakeIds: ["CM-F12b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Forces commitment to RHS-first evaluation order.

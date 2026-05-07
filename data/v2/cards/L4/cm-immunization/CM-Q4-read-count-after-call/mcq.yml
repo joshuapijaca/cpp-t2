@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-Q4-read-count-after-call
+id: "L4-cmimm-CM-Q4-read-count-after-call-mcq"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  In Q4 main(), in what order should these 3 lines appear?
+
+correct: '`cin >> desk_num;` then `read_desks(desks, desk_num);` then `for (int i = 0; i < desk_num; i++)`'
+
+distractors:
+  - '`read_desks(desks, desk_num);` then `cin >> desk_num;` then loop'
+  - 'loop first, then cin, then read_desks'
+  - 'order does not matter — variables are global'
+
+explanation: |
+  Counts must be READ from cin BEFORE they are USED. Calling read_desks before cin makes desk_num garbage; the read function then reads garbage slots. Always: prompt → cin → call → loop.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §6.4 Q4 main() ordering — common-mistake immunization (CM-Q4-read-count-after-call)"
+
+commonMistakeIds: ["CM-Q4-read-count-after-call"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

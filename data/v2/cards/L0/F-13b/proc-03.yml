@@ -1,0 +1,44 @@
+# =====================================================================
+# L0 / F-13b / ProceduralCard 03 (μWrite)
+# Atom: cout chained values + endl (V2.0 result print)
+# =====================================================================
+id: "L0-F13b-proc-03"
+schemaVersion: "v2"
+atomId: "F-13b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the line that would print the V2.0 trace result with a label.
+
+section: "F-13b chained-output drills (V2.0 anchor)"
+
+prompt: |
+  Assume `stat_double data;` is filled. Write the line that prints
+  `mystery: ` then `data.mystery` then a newline. End with `;`.
+
+expectedAnswer: 'cout << "mystery: " << data.mystery << endl;'
+
+keyChecks: ["cout", '"mystery: "', "data.mystery", "endl", ";"]
+
+variants:
+  - prompt: |
+      Practice test variant: print `desk_id: ` then `desk.desk_id`
+      then newline.
+    expectedAnswer: 'cout << "desk_id: " << desk.desk_id << endl;'
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1 + practice test: labelled struct field print"
+
+commonMistakeIds: []
+
+notes: |
+  Anchored to BOTH the V2.0 mystery field and the practice test
+  desk_id field.

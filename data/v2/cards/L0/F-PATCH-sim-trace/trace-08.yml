@@ -1,0 +1,60 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 08 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Three ints, no arithmetic
+# =====================================================================
+id: "L0-F23-trace-08"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Three boxes. Step through each line, then enter every final value
+  in the variables panel.
+
+code: |
+  int main() {
+    int x = 2;
+    int y = 5;
+    int z = 8;
+    return 0;
+  }
+
+variables: ["x", "y", "z"]
+
+expectedTrace:
+  - line: 2
+    variable: "x"
+    value: "2"
+    output: null
+  - line: 3
+    variable: "y"
+    value: "5"
+    output: null
+  - line: 4
+    variable: "z"
+    value: "8"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Three lines, three boxes, no arithmetic. Final panel:
+  { x: 2, y: 5, z: 8 }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 8/30"
+
+commonMistakeIds: ["CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Builds panel-discipline at 3 boxes. Still no arithmetic to keep
+  load on the procedure.

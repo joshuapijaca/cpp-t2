@@ -1,0 +1,35 @@
+id: "CM-mutate-array-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-mutate-array: Q1 mutating numbers[] not mystery. Fill the blank.
+
+code: |
+  // Canonical Q1 excerpt with blank:
+  // ____.mystery = data.numbers[i];
+  ;
+
+clozeSentence: |
+  Complete the canonical line: data.mystery = data.numbers[i];
+
+answer: "data.mystery = data.numbers[i];"
+
+explanation: |
+  Canonical pattern: data.mystery = data.numbers[i];
+  Mistake to avoid: Wrote data.numbers[i] = data.mystery — wrong direction.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-mutate-array"
+
+commonMistakeIds: ["CM-mutate-array"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-mutate-array.

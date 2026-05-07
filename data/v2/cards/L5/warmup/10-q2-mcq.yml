@@ -1,0 +1,31 @@
+id: "L5-warmup-10-q2"
+schemaVersion: "v2"
+atomId: "M-04"
+qTags: ["Q2"]
+stage: 6
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  Q2 struct close — D7 warmup quick-check. (Easy mode, confidence prime.)
+
+correct: "}; (closing brace then semicolon)"
+
+distractors:
+  - "} (just closing brace)"
+  - "}, (closing brace then comma)"
+  - "} end (English keyword)"
+
+explanation: |
+  Every struct definition ends with `};`. The semicolon is mandatory.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q2 — D7 warmup MCQ"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  D7 warmup #10: Q2 quick MCQ.

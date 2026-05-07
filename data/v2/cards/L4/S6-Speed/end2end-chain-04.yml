@@ -1,0 +1,24 @@
+id: "L4-S6-end2end-chain-04"
+schemaVersion: "v2"
+atomId: "Q-10"
+qTags: 
+  - "Q4"
+stage: 6
+level: "L4"
+type: "TestDaySimCard"
+stem: "[end-to-end chain 4/5] 8 minutes to write Q2 + Q3 + Q4 for employee_data. Simulates the back half of Test 2 (Q2 + Q3 + Q4 = ~8 min budget)."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.6 S6 end-to-end chain (8min)"
+commonMistakeIds: 
+  - "CM-Q4-time-pressure-skip-const"
+  - "CM-Q4-time-pressure-no-return"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+questionSet: 
+  - {questionNumber: "Q1", prompt: "Q1 hand-execute placeholder — see L1 for Q1 content.", canonicalAnswer: "// Q1 hand-execute (out-of-scope here; Q1 in L1)."}
+  - {questionNumber: "Q2", prompt: "Write the employee_data struct (3 fields).", canonicalAnswer: "struct employee_data\n{\n    int id;\n    string name;\n    double salary;\n};"}
+  - {questionNumber: "Q3", prompt: "Write the read_employees function.", canonicalAnswer: "void read_employees(employee_data employees[], int &count)\n{\n    cout << \"How many employees? \";\n    cin >> count;\n    for (int i = 0; i < count; i++)\n    {\n        cin >> employees[i].id;\n        cin >> employees[i].name;\n        cin >> employees[i].salary;\n    }\n}"}
+  - {questionNumber: "Q4", prompt: "Write the main() that calls read_employees and prints all rows.", canonicalAnswer: "int main()\n{\n    const int MAX = 500;\n    employee_data employees[MAX];\n    int emp_num;\n\n    cout << \"How many employees? \";\n    cin >> emp_num;\n\n    read_employees(employees, emp_num);\n\n    for (int i = 0; i < emp_num; i++)\n    {\n        cout << employees[i].id << \", \";\n        cout << employees[i].name << \", \";\n        cout << employees[i].salary << endl;\n    }\n\n    return 0;\n}"}
+explanation: "Test-day chain simulator. Splitting Q2+Q3+Q4 over 8 min mirrors actual exam pacing minus Q1."

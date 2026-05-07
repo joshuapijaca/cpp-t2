@@ -1,0 +1,48 @@
+# =====================================================================
+# L3 / R-03 / FunctionWriteCard — novel read_books
+# =====================================================================
+id: "L3-R03-novel-01"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the FULL read_books function. book_data has 3 fields:
+  int pages, double price, double rating.
+prompt: "Compose: novel entity read_books."
+signatureHint: "void read_books(book_data &books[], int number_to_read) { ... }"
+canonicalAnswer: |
+  void read_books(book_data &books[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Pages: ";
+      cin >> books[i].pages;
+      cout << "Price: ";
+      cin >> books[i].price;
+      cout << "Rating: ";
+      cin >> books[i].rating;
+    }
+  }
+keyChecks:
+  - "void read_books(book_data &books[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> books[i].pages;"
+  - "cin >> books[i].price;"
+  - "cin >> books[i].rating;"
+forbiddenTokens:
+  - "function"
+  - "->"
+  - "while"
+explanation: |
+  Novel entity. Same skeleton; only entity + field surface rotates.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-off-by-one","CM-Q3-missing-amp","CM-Q3-missing-index","CM-Q3-missing-field"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

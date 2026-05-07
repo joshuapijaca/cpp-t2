@@ -1,0 +1,22 @@
+id: A1
+name: "Q1 Compose: find-max algorithm"
+level: L1
+phase: S4
+teaches: "Trace a complete find-max loop on stat_double { double numbers[SIZE]; double mystery; }. Init mystery = numbers[0], for i=1..SIZE-1 if numbers[i] > mystery then mystery = numbers[i]. Practice 14 traces from all-positive to adversarial."
+prereqs: [T-00, T-01, T-02, T-03, T-04, T-05, T-06, T-07, T-08]
+usedByQs: [Q1]
+cardCountTarget: 14
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — find-max walkthrough on stat_double"
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:30-00:45"
+commonMistakes:
+  - CM-A1-init-with-zero
+  - CM-A1-start-at-zero-double-count
+  - CM-A1-use-lt-instead-of-gt
+notes:
+  cardMix: { trace: 10, mcq: 2, decompose: 2 }
+  stage: S4
+  exposureClass: long
+  progression: "2 simple all-positive -> 2 mixed-sign -> 2 edge -> 2 adversarial -> 2 final-only predict -> 2 spot-error"

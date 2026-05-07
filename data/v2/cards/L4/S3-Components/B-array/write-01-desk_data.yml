@@ -1,0 +1,32 @@
+id: "L4-S3B-write-01"
+schemaVersion: "v2"
+atomId: "Q-03"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "FunctionWriteCard"
+stem: "Write ONE LINE: declare a fixed-size array of desk_data called desks, sized by MAX."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block B array decl"
+commonMistakeIds: 
+  - "CM-Q4-var-sized-array"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Declare `desk_data desks[MAX];`"
+signatureHint: "___ ___[MAX];"
+canonicalAnswer: "desk_data desks[MAX];"
+keyChecks: 
+  - "desk_data"
+  - "desks"
+  - "[MAX]"
+  - ";"
+forbiddenTokens: 
+  - "vector"
+  - "new"
+  - "*"
+  - "array<"
+passByRefRequired: false
+explanation: "Canonical: `desk_data desks[MAX];` — type, name, [bound], semicolon. MAX MUST be a compile-time constant (NOT count_var)."

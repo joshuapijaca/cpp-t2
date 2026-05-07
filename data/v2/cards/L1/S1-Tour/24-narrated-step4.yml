@@ -1,0 +1,54 @@
+id: "L1-S1-tour-24-narrated-step4"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "WalkthroughCard"
+
+stem: |
+  Narrated trace 4/6: post + skipped iteration. After body, run i++.
+  Test guard. Enter next iter. data.numbers[1]=-3.7. Cond false.
+  Body SKIPPED. Continue.
+
+levelLabel: "L1 Q1 hand-execute · S1 Tour · narrated trace step 4"
+
+fullCode: |
+  // (after body of iter 0)
+  // post: i++
+  // guard: i < SIZE
+  // next iter (i=1): if (data.numbers[1] > 0) { ... }
+
+steps:
+  - line: 1
+    code: 'i++ -> i = 1'
+    annotation: |
+      Post-increment fires AFTER the body, BEFORE the next guard test.
+      VARIABLES: { i: ~0~ 1 }
+    atomIds: ["T-04"]
+  - line: 2
+    code: '1 < 5 ? -> true.'
+    annotation: |
+      Guard: 1 < 5. True. Enter body again.
+    atomIds: ["T-04"]
+  - line: 3
+    code: 'data.numbers[1] = -3.7. -3.7 > 0 ? -> false.'
+    annotation: |
+      Cond false. Body SKIPPED. mystery unchanged. Continue to post.
+    atomIds: ["T-05"]
+  - line: 4
+    code: '(no mystery update — body was skipped)'
+    annotation: |
+      mystery: ~-0.9~ ~0.0~ 2.4   (no new entry; iter contributed nothing)
+    atomIds: ["T-05"]
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — i=1 iteration with negative value"
+
+commonMistakeIds: ["CM-Q1-run-when-false"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Narrated trace step 4: post-increment + skipped iteration.
+authoringStatus: "DRAFT"

@@ -1,0 +1,36 @@
+# =====================================================================
+# L3 / R-02e / FunctionWriteCard — 2-field body for phones
+# =====================================================================
+id: "L3-R02e-write-05"
+schemaVersion: "v2"
+atomId: "R-02e"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the BODY of the for-loop only (no signature, no for-header):
+  2 prompt-pair sequence for 'phones[i]' fields:
+  storage_gb, battery_mah.
+prompt: "2-field prompt-pair sequence"
+canonicalAnswer: |
+  cout << "Storage (GB): ";
+  cin >> phones[i].storage_gb;
+  cout << "Battery (mAh): ";
+  cin >> phones[i].battery_mah;
+keyChecks:
+  - "cin >> phones[i].storage_gb;"
+  - "cin >> phones[i].battery_mah;"
+forbiddenTokens:
+  - "while"
+  - "endl"
+explanation: |
+  2 fields means 2 prompt-pairs in struct-declaration order.
+  Each pair is cout-prompt + cin-into-list[i].field.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-skipped-field","CM-Q3-reordered-field"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

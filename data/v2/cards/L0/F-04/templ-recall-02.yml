@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-04 / TemplateRecallCard 02
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-tmpl-02"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Stage 2: harder. The template is mostly blank. Reproduce the entire
+  preamble from the single-token hints.
+
+prompt: |
+  Fill the template — only the keywords are given, you supply
+  everything else (hash, brackets, header name, namespace name,
+  semicolon).
+
+template: |
+  ___include _________
+  using namespace ___;
+
+canonicalAnswer: |
+  #include <iostream>
+  using namespace std;
+
+keyChecks:
+  - "#include"
+  - "<iostream>"
+  - "using namespace std;"
+
+forbiddenTokens:
+  - "iostream.h"
+
+explanation: |
+  Filled in: `#include <iostream>` then `using namespace std;`. The
+  punctuation is the hard part — the leading `#`, the angle brackets,
+  the trailing semicolon on line 2 (note: NO semicolon on line 1).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F04a", "CM-F04b", "CM-F04c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Stage 2 of 3: skeleton with maximum ambiguity. The student
+  reconstructs both lines from minimal cues. Stage 3 (cold-recall)
+  is provided by uwrite-03.

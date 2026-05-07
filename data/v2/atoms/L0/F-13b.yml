@@ -1,0 +1,24 @@
+id: F-13b
+name: "cout chained values + endl"
+level: L0
+phase: C
+teaches: "`cout << a << \", \" << b << endl;` — chain literals and variables; endl ends line."
+prereqs: [F-13a]
+usedByQs: [Q3, Q4]
+cardCountTarget: 12
+parentAtom: F-13
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+    quote: "Multiple values can be sent in one statement by chaining the << operator."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/0-panorama/6-terminal-method-to-use"
+    quote: "endl marks the end of a line of output."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:21:30 — Saloni walks the structure of a Q4 main containing chained cout output"
+commonMistakes:
+  - CM-F13b-1  # forgets endl, lines run together
+  - CM-F13b-2  # uses + instead of << for concatenation
+  - CM-F13b-3  # uses comma instead of <<
+notes:
+  cardMix: { walkthrough: 1, demo: 2, decompose: 2, cloze: 2, μWrite: 2, tmplRec: 1, mcq: 1, proc: 1 }

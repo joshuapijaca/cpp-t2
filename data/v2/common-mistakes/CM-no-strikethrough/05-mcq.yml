@@ -1,0 +1,32 @@
+id: "CM-no-strikethrough-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-no-strikethrough: Q1 no strikethrough on supersedes. When data.mystery is reassigned, strikethrough the old value.
+
+correct: "// strikethrough: ~~3.0~~ ~~5.7~~ 7.4 (final)"
+
+distractors:
+  - "// 3.0, 5.7, 7.4 (which is the answer?)"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: // strikethrough: ~~3.0~~ ~~5.7~~ 7.4 (final)
+  Mistake: Memory column lists 4 mystery values without indicating which is current.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-no-strikethrough"
+
+commonMistakeIds: ["CM-no-strikethrough"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-no-strikethrough.

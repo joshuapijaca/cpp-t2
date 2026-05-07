@@ -1,0 +1,32 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-missing-include
+id: "L4-cmimm-CM-missing-include-cloze"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-missing-include mistake."
+
+code: |
+  #include <___>
+  using namespace std;
+  int main() { cout << "Hi"; return 0; }
+
+clozeSentence: 'Fill in the header name that provides `cout`.'
+
+answer: 'iostream'
+
+explanation: |
+  `<iostream>` is the C++ I/O stream header.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-missing-include)"
+
+commonMistakeIds: ["CM-missing-include"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

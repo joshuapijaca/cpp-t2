@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-21 / ClozeCard 02 — composite token
+# =====================================================================
+id: "L0-F21-cloze-02"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the composite token that reads element index `i` of the
+  array field `numbers` belonging to struct instance `data`.
+
+code: |
+  cout << ___ << endl;
+
+clozeSentence: "cout << ___ << endl;  // i-th element of numbers field of data"
+
+answer: "data.numbers[i]"
+
+explanation: |
+  Read left-to-right: instance, dot, field, bracket-index.
+  `data.numbers[i]` is the i-th slot of the `numbers` array field
+  of `data`. This is the EXACT Test 2 V2.0 token.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `data.numbers[i]`"
+
+commonMistakeIds: ["CM-F21a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Cloze that forces the student to type the exact composite token.
+  Forbidden patterns (`data[i].numbers`, `data->numbers[i]`) are
+  blocked at lint.

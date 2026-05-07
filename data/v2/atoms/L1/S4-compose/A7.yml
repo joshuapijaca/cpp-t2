@@ -1,0 +1,19 @@
+id: A7
+name: "Q1 Compose: sum-odd-indexed algorithm"
+level: L1
+phase: S4
+teaches: "Trace sum of elements at odd indices. Init mystery = 0.0; for i=0..SIZE-1, if i % 2 == 1 then mystery = mystery + numbers[i]. Mirror of sum-even-indexed."
+prereqs: [A6]
+usedByQs: [Q1]
+cardCountTarget: 10
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — index-conditional accumulator (odd variant)"
+commonMistakes:
+  - CM-A7-mod-on-value
+  - CM-A7-flip-parity
+notes:
+  cardMix: { trace: 6, mcq: 2, decompose: 2 }
+  stage: S4
+  exposureClass: medium
+  progression: "2 simple -> 2 mixed-sign -> 2 edge -> 2 adversarial -> 1 final-only -> 1 spot-error"

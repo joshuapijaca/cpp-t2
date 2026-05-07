@@ -1,0 +1,40 @@
+id: "CM-iplusplus-before-body-fixit"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Fix-it drill for CM-iplusplus-before-body. The code has the bug; produce the canonical fix.
+
+brokenCode: |
+  // Q1: Q1 i++ before body trace
+  // init -> i++ -> cond -> body -> ...
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  // init -> cond -> body -> i++ -> cond -> body -> ...
+  ;
+
+bugCategory: "CM-iplusplus-before-body"
+
+keyChecks: []
+
+explanation: |
+  Replace the broken line with: // init -> cond -> body -> i++ -> cond -> body -> ...
+  Diagnosis: Trace processes elements 1..5 instead of 0..4.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-iplusplus-before-body"
+
+commonMistakeIds: ["CM-iplusplus-before-body"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 3/5 (fix-it) for CM-iplusplus-before-body.

@@ -1,0 +1,82 @@
+# =====================================================================
+# L0 / F-03 / WalkthroughCard 02
+# Atom: Hand-execution paradigm — variables CHANGE
+# =====================================================================
+id: "L0-F03-walk-02"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Variables can change value during execution. When you hand-execute,
+  you cross out the OLD value and write the NEW value. Walk through
+  this program. Watch how `x` changes on each line.
+
+levelLabel: "L0 Foundation · Phase A · F-03"
+
+fullCode: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    int x = 1;
+    x = x + 10;
+    x = x * 2;
+    cout << x << endl;
+    return 0;
+  }
+
+steps:
+  - line: 4
+    code: 'int x = 1;'
+    annotation: |
+      Open box `x`. Write `1`.
+      VARIABLES PANEL: { x: 1 }
+      TERMINAL: (empty)
+    atomIds: ["F-03"]
+  - line: 5
+    code: 'x = x + 10;'
+    annotation: |
+      The right side is computed FIRST: read `x` (it is 1), add 10 → 11.
+      Then write 11 INTO box `x`. Cross out the old `1`. Box `x` now
+      holds `11`.
+      VARIABLES PANEL: { x: 11 }   (old: ~~1~~)
+      TERMINAL: (empty)
+    atomIds: ["F-03"]
+  - line: 6
+    code: 'x = x * 2;'
+    annotation: |
+      Right side first: read `x` (now 11), multiply by 2 → 22. Write
+      22 into box `x`. Cross out the 11.
+      VARIABLES PANEL: { x: 22 }   (old: ~~1~~ ~~11~~)
+      TERMINAL: (empty)
+    atomIds: ["F-03"]
+  - line: 7
+    code: 'cout << x << endl;'
+    annotation: |
+      Read the CURRENT value of `x` (22) and write to terminal.
+      VARIABLES PANEL: { x: 22 }
+      TERMINAL: 22
+    atomIds: ["F-03"]
+  - line: 8
+    code: 'return 0;'
+    annotation: |
+      Program ends. The marker only sees what was printed: `22`.
+      That is the trace answer.
+    atomIds: ["F-03"]
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-03 hand-execution — mutating-variable pattern, foundational for all Q1 traces"
+
+commonMistakeIds: ["CM-uses-old-value-after-update", "CM-evaluates-lhs-first"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  Establishes the strikethrough convention for old values. Aligns with
+  the post-M22 interactive TraceCard UI: "Old values get strikethrough
+  (like the APK the user liked)." Reinforces RHS-first evaluation,
+  which is the #1 trace-arithmetic error.

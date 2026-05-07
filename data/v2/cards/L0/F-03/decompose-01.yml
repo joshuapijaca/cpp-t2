@@ -1,0 +1,76 @@
+# =====================================================================
+# L0 / F-03 / DecomposeCard 01
+# Atom: Hand-execution — purpose of the technique
+# =====================================================================
+id: "L0-F03-decomp-01"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  In the Test 2 exam room you are NOT allowed to compile or run code.
+  You sit at a desk with paper and a question that asks: "What does
+  this program print?" Below is a 4-line program. Pick the option that
+  best describes what you must DO to answer.
+
+code: |
+  int main() {
+    int a = 4;
+    int b = a * 3;
+    cout << b << endl;
+    return 0;
+  }
+
+question: |
+  How do you arrive at the printed value with no compiler?
+
+options:
+  - label: "A"
+    text: |
+      Look at the last `cout` line and write whatever variable name
+      appears (here: `b`). The marker accepts the variable name as the
+      answer.
+  - label: "B"
+    text: |
+      Pretend to BE the CPU: read each line in order, maintain a mental
+      variables panel, and update it as you go. After line 2 `a = 4`,
+      after line 3 `b = 12`, then `cout << b` prints `12`.
+  - label: "C"
+    text: |
+      Guess based on the size of the literal in line 1 — programs
+      usually print numbers close to whatever number appears first.
+  - label: "D"
+    text: |
+      Submit the source code as your answer; the marker will run it for
+      you and write down the output.
+
+correctLabel: "B"
+
+explanation: |
+  B is the hand-execution paradigm. You become the CPU. You walk
+  through the source line-by-line, maintain the state of every
+  variable in your head (or on paper), and read off what `cout`
+  produces. This is the entire skill being tested in Q1.
+
+  A is wrong — you write the VALUE, not the variable name.
+  C is wrong — guessing from literals fails the moment any arithmetic
+  happens (which is always).
+  D is wrong — the marker grades your written answer, not the source
+  code. Test 2 is a hand-execution exam.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-03; SIT102 Test 2 Q1 format (paper-based, no compiler)"
+
+commonMistakeIds: ["CM-jumps-to-final-answer", "CM-guesses-from-literals"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  The single most important conceptual card in Phase A. If the student
+  internalises B here, every Q1 trace card they ever see works. If
+  they internalise A, C, or D, the entire Q1 track will fail. This
+  card is the mental-model gate.

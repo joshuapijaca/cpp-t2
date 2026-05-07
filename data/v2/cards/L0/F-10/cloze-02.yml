@@ -1,0 +1,41 @@
+# =====================================================================
+# L0 / F-10 / ClozeCard 02
+# Atom: Primitive types — double for decimals
+# =====================================================================
+id: "L0-F10-cloze-02"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the type. Decimal numbers in SIT102 always use one specific
+  primitive type.
+
+code: |
+  ___ price = 19.99;
+  ___ height = 175.5;
+  ___ rate = 0.05;
+
+clozeSentence: |
+  Decimal numbers in SIT102 use the type `___`.
+
+answer: "double"
+
+explanation: |
+  `double` holds decimal (fractional) numbers. SIT102 idiom says
+  always double, never float. The real test V2.0 used double for every
+  number in the desk_data.numbers array.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: stat_double { double numbers[SIZE]; double mystery; };"
+
+commonMistakeIds: ["CM-F10d"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Pairs with cloze-01.

@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-19 / TemplateRecallCard 01
+# Atom: Fixed-size array — recall the canonical declaration template
+# =====================================================================
+id: "L0-F19-tmpl-01"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  From scratch (no help screen), produce the canonical fixed-size
+  array declaration template. Replace `<TYPE>`, `<NAME>`, `<SIZE>`
+  with concrete tokens.
+
+prompt: "Recall the canonical fixed-size array declaration shape."
+
+template: |
+  <TYPE> <NAME>[<SIZE>];
+
+canonicalAnswer: |
+  int arr[5];
+
+keyChecks:
+  - "int"
+  - "arr"
+  - "[5]"
+  - ";"
+
+forbiddenTokens:
+  - "*"
+  - "new"
+  - "vector"
+  - "array<"
+
+explanation: |
+  The canonical fixed-size array declaration: TYPE NAME [SIZE] ;
+  Any concrete instantiation (with valid type / valid name / int
+  size literal) counts. The shape — type first, name second, size
+  in brackets after the name, semicolon — is the load-bearing
+  pattern.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
+
+commonMistakeIds: ["CM-F19a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Free-recall template. No prompt, no example — student types from
+  cold. This is the strongest retention check for the syntax.

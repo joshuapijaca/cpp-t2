@@ -1,0 +1,37 @@
+# =====================================================================
+# L0 / F-21 / ClozeCard 03 — write to scalar field
+# =====================================================================
+id: "L0-F21-cloze-03"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the LHS to assign the value 0 to the `mystery` field of
+  struct instance `data`.
+
+code: |
+  ___ = 0.0;
+
+clozeSentence: "___ = 0.0;  // assign 0 to mystery field of data"
+
+answer: "data.mystery"
+
+explanation: |
+  The same `instance.field` token works on the LHS of an assignment.
+  `data.mystery = 0.0;` writes 0 into the `mystery` field of `data`.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `data.mystery = 0.0;`"
+
+commonMistakeIds: ["CM-F21a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Drills the LHS use. Q1 trace + Q3 read function both initialise
+  `data.mystery = 0.0;` before the loop.

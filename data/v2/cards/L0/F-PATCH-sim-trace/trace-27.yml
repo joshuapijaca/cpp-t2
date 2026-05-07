@@ -1,0 +1,65 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 27 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Two-variable arithmetic with print
+# =====================================================================
+id: "L0-F23-trace-27"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. Two boxes, an arithmetic line, and a print. Enter
+  the final values and the terminal output.
+
+code: |
+  int main() {
+    int a = 7;
+    int b = 3;
+    int c = a * b;
+    cout << c << endl;
+    return 0;
+  }
+
+variables: ["a", "b", "c"]
+
+expectedTrace:
+  - line: 2
+    variable: "a"
+    value: "7"
+    output: null
+  - line: 3
+    variable: "b"
+    value: "3"
+    output: null
+  - line: 4
+    variable: "c"
+    value: "21"
+    output: null
+  - line: 5
+    variable: ""
+    value: ""
+    output: "21"
+
+terminalOutput: ["21"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Walk it: a = 7, b = 3, then c = 7 * 3 = 21, then cout prints 21.
+  Final panel: { a: 7, b: 3, c: 21 }. Terminal: 21.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 27/30"
+
+commonMistakeIds: ["CM-arithmetic-error"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Three-box trace with arithmetic and print. Shape match to the
+  warmest Q1 questions.

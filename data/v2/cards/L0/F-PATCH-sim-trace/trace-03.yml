@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 03 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Single int with a zero literal
+# =====================================================================
+id: "L0-F23-trace-03"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Trace this in your head. Final value of `score` in the variables
+  panel?
+
+code: |
+  int main() {
+    int score = 0;
+    return 0;
+  }
+
+variables: ["score"]
+
+expectedTrace:
+  - line: 2
+    variable: "score"
+    value: "0"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Zero is a value just like any other integer. Box `score` holds 0
+  after line 2.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 3/30"
+
+commonMistakeIds: ["CM-skips-mental-state"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Edge value (0) so students don't think the panel only handles
+  positive numbers.

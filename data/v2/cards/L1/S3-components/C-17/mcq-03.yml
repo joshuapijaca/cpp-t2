@@ -1,0 +1,24 @@
+id: L1-S3-C-17-mcq-02
+schemaVersion: v2
+atomId: C-17
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-17
+commonMistakeIds:
+  - CM-C17a
+stem: data.numbers[2] = 3. Evaluate `data.numbers[2] > 0`. (Sum-positive guard, V2.0 attempt-1.)
+correct: 'true'
+distractors:
+  - 'false'
+  - undefined
+  - true only if i is even
+explanation: '3 > 0 is true. '
+

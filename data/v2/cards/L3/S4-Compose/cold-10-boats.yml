@@ -1,0 +1,54 @@
+# =====================================================================
+# L3 / R-03 / FunctionWriteCard — cold-start boats
+# =====================================================================
+id: "L3-R03-cold-10"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Cold start. You are given only the entity name 'boats'. Choose
+  3 plausible fields, write the struct, and then the matching read_boats.
+prompt: "Cold-start boats (Q2 + Q3)."
+signatureHint: "Entity: boats. Choose fields, write Q2 struct, then Q3 read fn."
+canonicalAnswer: |
+  struct boat_data
+  {
+    double length_m;
+    int capacity;
+    double price;
+  };
+
+  void read_boats(boat_data &boats[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Length (m): ";
+      cin >> boats[i].length_m;
+      cout << "Capacity: ";
+      cin >> boats[i].capacity;
+      cout << "Price: ";
+      cin >> boats[i].price;
+    }
+  }
+keyChecks:
+  - "struct boat_data"
+  - "void read_boats(boat_data &boats[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "boats[i].length_m"
+  - "boats[i].capacity"
+  - "boats[i].price"
+forbiddenTokens:
+  - "while"
+  - "function"
+explanation: |
+  Cold-start drill: any plausible 3 fields work, but the read fn skeleton stays fixed.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

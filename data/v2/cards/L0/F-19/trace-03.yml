@@ -1,0 +1,95 @@
+# =====================================================================
+# L0 / F-19 / TraceCard 03
+# Atom: Fixed-size array — index drives the read
+# =====================================================================
+id: "L0-F19-trace-03"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  The cout uses a variable as the index. Read the value of `i`, then
+  use it to look up the right slot. Fill in `i` (final) and the
+  terminal output.
+
+code: |
+  int main() {
+    int arr[5] = {2, 4, 6, 8, 10};
+    int i = 2;
+    cout << arr[i] << endl;
+    i = 4;
+    cout << arr[i] << endl;
+    return 0;
+  }
+
+variables: ["i", "arr[0]", "arr[1]", "arr[2]", "arr[3]", "arr[4]"]
+
+expectedTrace:
+  - line: 2
+    variable: "arr[0]"
+    value: "2"
+    output: null
+  - line: 2
+    variable: "arr[1]"
+    value: "4"
+    output: null
+  - line: 2
+    variable: "arr[2]"
+    value: "6"
+    output: null
+  - line: 2
+    variable: "arr[3]"
+    value: "8"
+    output: null
+  - line: 2
+    variable: "arr[4]"
+    value: "10"
+    output: null
+  - line: 3
+    variable: "i"
+    value: "2"
+    output: null
+  - line: 4
+    variable: ""
+    value: ""
+    output: "6"
+  - line: 5
+    variable: "i"
+    value: "4"
+    output: null
+  - line: 6
+    variable: ""
+    value: ""
+    output: "10"
+
+terminalOutput: ["6", "10"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Step-by-step:
+  - Line 2: arr is initialised. arr = {2, 4, 6, 8, 10}.
+  - Line 3: i = 2.
+  - Line 4: cout << arr[i]; i is 2, so this is arr[2] = 6. Print 6.
+  - Line 5: i = 4. (Reassigned. Old value 2 is gone.)
+  - Line 6: cout << arr[i]; i is now 4, so arr[4] = 10. Print 10.
+
+  Final: i = 4. Terminal: 6 then 10.
+
+  Trap: forgetting that the index variable can change between reads.
+  The print at line 6 uses the NEW i, not the old.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-19 — variable-driven index access"
+
+commonMistakeIds: ["CM-F19b", "CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Bridges F-03 reassignment with F-19 indexing — exactly the pattern
+  the Q1 trace uses inside a loop body.

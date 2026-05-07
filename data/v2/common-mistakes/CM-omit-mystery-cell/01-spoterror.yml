@@ -1,0 +1,44 @@
+id: "CM-omit-mystery-cell-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q1 omitted mystery cell on stable iter. The code below has the bug labeled
+  by CM-omit-mystery-cell. Find the line and provide the fix.
+
+brokenCode: |
+  // Q1 broken excerpt:
+  // i=1 cond -> F mystery=  (blank)
+  // (canonical was: // i=1 cond -> F mystery=2.4 (carry forward))
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  // i=1 cond -> F mystery=2.4 (carry forward)
+  ;
+
+bugCategory: "CM-omit-mystery-cell"
+
+keyChecks:
+  - "// i=1 cond -> F mystery=2.4 ("
+
+explanation: |
+  Bug: Left mystery column empty when it did not change.
+  Fix: // i=1 cond -> F mystery=2.4 (carry forward)
+  This common mistake costs marks on Q1 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-omit-mystery-cell"
+
+commonMistakeIds: ["CM-omit-mystery-cell"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-omit-mystery-cell.

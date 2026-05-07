@@ -1,0 +1,45 @@
+# =====================================================================
+# L3 / R-02e / FunctionWriteCard — 5-field body for games
+# =====================================================================
+id: "L3-R02e-write-12"
+schemaVersion: "v2"
+atomId: "R-02e"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the BODY of the for-loop only (no signature, no for-header):
+  5 prompt-pair sequence for 'games[i]' fields:
+  players, duration, price, extra4, extra5.
+prompt: "5-field prompt-pair sequence"
+canonicalAnswer: |
+  cout << "Players: ";
+  cin >> games[i].players;
+  cout << "Duration (h): ";
+  cin >> games[i].duration;
+  cout << "Price: ";
+  cin >> games[i].price;
+  cout << "Extra 4: ";
+  cin >> games[i].extra4;
+  cout << "Extra 5: ";
+  cin >> games[i].extra5;
+keyChecks:
+  - "cin >> games[i].players;"
+  - "cin >> games[i].duration;"
+  - "cin >> games[i].price;"
+  - "cin >> games[i].extra4;"
+  - "cin >> games[i].extra5;"
+forbiddenTokens:
+  - "while"
+  - "endl"
+explanation: |
+  5 fields means 5 prompt-pairs in struct-declaration order.
+  Each pair is cout-prompt + cin-into-list[i].field.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-skipped-field","CM-Q3-reordered-field"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

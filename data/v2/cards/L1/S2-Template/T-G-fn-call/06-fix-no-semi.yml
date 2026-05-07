@@ -1,0 +1,40 @@
+id: "L1-S2-TG-06-fix-no-semi"
+schemaVersion: "v2"
+atomId: "T-07"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  This call is missing a terminator. Fix it.
+
+prompt: |
+  Add the missing punctuation.
+
+template: |
+  // BROKEN
+  who_am_i(d)
+
+canonicalAnswer: |
+  who_am_i(d);
+
+keyChecks:
+  - "who_am_i(d);"
+
+forbiddenTokens: []
+
+explanation: |
+  Add the trailing `;`. Function calls are statements; statements end
+  with `;`.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — call statement terminator"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-G repair: missing semi.
+authoringStatus: "DRAFT"

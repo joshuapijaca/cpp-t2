@@ -1,0 +1,44 @@
+id: "CM-drop-postloop-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-drop-postloop: Q1 dropped post-loop output.
+
+code: |
+  // Trap: Stopped trace at loop exit, missed the cout after.
+  // trace stops at for-loop }
+  ;
+
+question: |
+  What goes wrong with the line above on Q1?
+
+options:
+  - label: "A"
+    text: "Stopped trace at loop exit, missed the cout after."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Stopped trace at loop exit, missed the cout after. The canonical pattern is: // trace continues past for-loop close
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-drop-postloop"
+
+commonMistakeIds: ["CM-drop-postloop"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-drop-postloop.

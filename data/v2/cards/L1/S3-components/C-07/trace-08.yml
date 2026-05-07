@@ -1,0 +1,42 @@
+id: L1-S3-C-07-trace-07
+schemaVersion: v2
+atomId: C-07
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: TraceCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-07
+commonMistakeIds:
+  - CM-C07a
+stem: Step the pre-loop init line. After line 3, what is data.mystery?
+code: |-
+  int main() {
+    stat_double data = { {4, 4, 4, 4, 4}, 0 };
+    data.mystery = 0.0;
+    cout << data.mystery << endl;
+    return 0;
+  }
+variables:
+  - data.mystery
+expectedTrace:
+  - line: 3
+    variable: data.mystery
+    value: '0.0'
+    output: null
+  - line: 4
+    variable: ''
+    value: ''
+    output: '0'
+terminalOutput:
+  - '0'
+inputMode: final-only
+teachMe: >-
+  Pre-loop init = before the for header. The line `data.mystery = 0.0;` overwrites the brace-init
+  value with 0.0.
+

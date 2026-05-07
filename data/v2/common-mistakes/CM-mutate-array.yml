@@ -1,0 +1,27 @@
+id: CM-mutate-array
+name: "Student mutates array cells during a read-only trace"
+description: |
+  Q1 algorithms (sum-positive, max, average) READ data.numbers[i] but only
+  WRITE to data.mystery. Students mistakenly write a new value to a
+  numbers[] cell during the trace, treating the array as scratch space.
+  Especially bad on A12 (numbers[mystery]) where indirection is mistaken
+  for assignment.
+whyItHappens: |
+  In daily life, "data store" implies mutability. C++ semantics here are
+  subtle: pass-by-reference allows mutation but the algorithm chooses not
+  to. Students see `&data` and assume "everything writeable" rather than
+  reading the body to see which fields get assigned.
+immunizationStrategy: |
+  1. Trace card: numbers[i] cells with a "READ ONLY" badge.
+  2. SpotError card: buggy trace where numbers[2] was overwritten; spot it.
+  3. MCQ: "Which of these lines mutates numbers[i]? (none, in this fn)"
+  4. Decompose: classify each line as READ or WRITE on numbers vs mystery.
+  5. Cloze: blank for the verb (assigns / reads) of each line.
+  6. Pair-trace: mutate-array bug vs correct version, diff highlighted.
+examImpact: medium
+atomDependencies: [F-19, F-21, A4, A12]
+qTracks: [Q1]
+relatedCMs: [CM-confuse-i-with-numbers, CM-A12-no-indirection]
+source:
+  kind: practice
+  ref: "Test2-SIT102-practice-2026T1.txt — who_am_i reads numbers[i], writes only mystery"

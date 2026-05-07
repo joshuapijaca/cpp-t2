@@ -1,0 +1,39 @@
+id: L1-S3-C-01-decomp-09
+schemaVersion: v2
+atomId: C-01
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: DecomposeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-01
+commonMistakeIds:
+  - CM-C01a
+  - CM-C01b
+stem: Identify what the outer braces enclose.
+code: |-
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  stat_double d = { {1.5, 2.5, 3.5, 4.5, 5.5}, 0 };
+question: What is the *outer* brace pair enclosing?
+options:
+  - label: A
+    text: Just the array values — outer = inner.
+  - label: B
+    text: 'The whole struct: array field + mystery field.'
+  - label: C
+    text: A C++ scope block; nothing to do with the struct.
+  - label: D
+    text: A function body for `d`.
+correctLabel: B
+explanation: >-
+  Outer braces = the struct brace-init list, listing every field in declared order. Inner = the
+  array sub-init.
+

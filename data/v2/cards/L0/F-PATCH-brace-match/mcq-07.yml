@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 07 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Highlight the OUTER (main's) brace with a for inside
+# =====================================================================
+id: "L0-F25-mcq-07"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Same shape as card 06, but the HIGHLIGHTED brace is main's
+  opening brace at depth 0. Which `}` matches?
+
+  ```cpp
+  int main() {                        // <-- HIGHLIGHT (depth 0)
+    for (int i = 0; i < 3; i = i+1) { // depth 1 open
+      cout << i << endl;
+    }                                 // option A (depth 1)
+    return 0;
+  }                                   // <-- option B (depth 0)
+  ```
+
+correct: "B — the final `}` on its own line (depth-0 close)."
+
+distractors:
+  - "A — the `}` after the cout, because that is the first `}` after the highlighted brace."
+  - "C — there is no matching brace; main never closes in this code."
+  - "D — both option A and option B are correct; main has two closing braces."
+
+explanation: |
+  B is correct. main opens at depth 0 and closes at the final `}`,
+  also at depth 0. Option A is at depth 1 — it pairs with the for.
+
+  A is wrong: depth 1 only pairs with depth 1.
+  C is wrong: B exists.
+  D is wrong: each `{` matches exactly one `}`.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 7/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Mirror of card 06.

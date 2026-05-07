@@ -1,0 +1,25 @@
+id: T-00
+name: "Q1 Tour: see the question + the answer end-to-end"
+level: L1
+phase: S1
+teaches: "First exposure to a Q1 hand-execute question. Recognise the V2.0 stat_double + sum-positives shape and the practice find-max shape. See full memory layout, narrated trace, and common-mistake spot-error variants. No input — pure orientation."
+prereqs: [F-17, F-18, F-19, F-20, F-21, F-22a]
+usedByQs: [Q1]
+cardCountTarget: 32
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — find-max walkthrough on stat_double { double numbers[SIZE]; double mystery; }"
+  - kind: v2
+    ref: "Test 2 V2.0 attempt 1 (2026-05-07) — sum-positive variant on same skeleton, brace-init {{2.4,-3.7,...}, -0.9}"
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:30-00:45 — Saloni Mehta walkthrough of practice Q1"
+commonMistakes:
+  - CM-Q1-skip-init
+  - CM-Q1-start-at-1
+  - CM-Q1-run-when-false
+  - CM-Q1-no-strikethrough
+  - CM-Q1-iplusplus-before-body
+notes:
+  cardMix: { walkthrough: 6, demo: 11, decompose: 5, mcq: 5, faultInjection: 5 }
+  stage: S1
+  exposureClass: long

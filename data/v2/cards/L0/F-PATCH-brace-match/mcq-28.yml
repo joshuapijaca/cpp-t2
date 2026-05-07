@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 28 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Struct + function + main, highlight a deep brace
+# =====================================================================
+id: "L0-F25-mcq-28"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q2", "Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Struct above, function in the middle, main below — three depth-0
+  pairs. The HIGHLIGHTED `{` opens the function `print`. Which `}`
+  matches?
+
+  ```cpp
+  struct Box {              // depth 0 open (struct)
+    int w;
+    int h;
+  };                        // option A (depth 0, struct close)
+  void print(Box b) {       // <-- HIGHLIGHT (depth 0, print)
+    cout << b.w << endl;
+  }                         // <-- option B (depth 0, print close)
+  int main() {              // depth 0 open (main)
+    Box bx;
+    print(bx);
+    return 0;
+  }                         // <-- option C (depth 0, main close)
+  ```
+
+correct: "B — the `}` on the line after the cout (depth 0, print's close)."
+
+distractors:
+  - "A — the `};` line, because all depth-0 blocks chain through that close."
+  - "C — the final `}` of main, since the function call inside main draws all braces inward."
+  - "D — there is no matching brace; void functions have no body close."
+
+explanation: |
+  B is correct. print opens at depth 0 and closes at the next
+  depth-0 `}` AFTER the highlight (option B).
+
+  A is wrong: A closes the struct.
+  C is wrong: C closes main.
+  D is wrong: void functions still have `{` and `}`.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 28/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Three sequential depth-0 blocks. The "after the highlight" rule
+  is what separates A from B.

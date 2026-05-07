@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 13 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Multiplication of two literals
+# =====================================================================
+id: "L0-F23-trace-13"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. Final value of `area` in the variables panel?
+
+code: |
+  int main() {
+    int area = 6 * 4;
+    return 0;
+  }
+
+variables: ["area"]
+
+expectedTrace:
+  - line: 2
+    variable: "area"
+    value: "24"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  Compute 6 * 4 (= 24), then write 24 into box `area`. Final panel:
+  { area: 24 }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 13/30"
+
+commonMistakeIds: ["CM-arithmetic-error"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Multiplication. Numbers chosen so the answer is unambiguous.

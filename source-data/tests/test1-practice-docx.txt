@@ -1,0 +1,54 @@
+     SIT102 Test 1 (Practice) - 2026 T1
+
+      Student Name:
+
+      Student ID:
+
+   1. Write the terminal command to create a new dotnet project in the current directory.
+   dotnet new console --force
+
+dontnet new console
+   2. Write a terminal command to compile a C++ source file named Virus.cpp to an executable
+       named virus using the SplashKit library.
+
+  SplashKit Manager g++ virus.cpp -o virus
+
+g++ Virus.cpp -l splashkit ­o virus
+       Read the followin g code, which contains a bug.
+       using st a t ic Syst em . Console ;
+       using st a t ic Syst em . Convert ;
+       in t va lueKeeper ;
+       in t myC ount er ;
+       in t dum m y Va r ;
+       in t i;
+       Writ e ( 11 E nt er in itia l va lue: 11 );
+       va lueKe ep e r = T olnt 32 ( R ea d L ine () );
+       Writ e ( 11 E nt er count va lue: 11 );
+       my C ount er = T olnt 32 ( R ea d L ine () );
+       i = 0;
+       do {
+           Writ eLin e ( v a lu eKeep er ); II Print out va lueKee p e r
+           v a lu eKeep er --;
+           i++;
+       } while ( va lueKeep er != myC ount er );
+
+   3. Hand execute this code with the followin g inputs:
+       E nt er in it ia l va lue: 10
+       Enter count va lue: 8
+
+Test Code: V1.O                                                                               Page 1 of 2
+SIT1O2  Test 1                                                                                        Term 1, 2O26
+
+4. Hand execute this code with the followin g inputs up to i == 4.
+
+    Ent er in itia l va lue: 14
+    Ent er count va lue: 16
+
+5. What is the bug in this program?
+
+6. Write C# code which continuously prompts a user to input a number, terminating if the number
+   is divisible by 11. Recall that the remainder operator in C# is %, so an integer stored in num is
+   divisib le by 11 if (num % 11) == 0.
+
+                                                                                                      Page 2 of 2
+

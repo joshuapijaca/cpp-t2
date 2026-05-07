@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-05 / DemoCard 01
+# Atom: using namespace std;
+# =====================================================================
+id: "L0-F05-demo-01"
+schemaVersion: "v2"
+atomId: "F-05"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the effect. Same program, same output — but the body changes
+  shape depending on whether `using namespace std;` is present.
+
+whyOneLine: "using namespace std; lets you write cout instead of std::cout — SIT102's default style."
+
+demoCode: |
+  // ============  WITHOUT the directive  ============
+  #include <iostream>
+  int main() {
+    std::cout << "ok" << std::endl;
+    return 0;
+  }
+
+  // ============  WITH the directive  ============
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << "ok" << endl;
+    return 0;
+  }
+
+  // The OUTPUT is identical: ok
+  // Only the call sites change: std::cout -> cout, std::endl -> endl.
+
+highlightTokens:
+  - "using namespace std;"
+  - "std::cout"
+  - "cout"
+  - "OUTPUT is identical"
+
+usedIn:
+  - "Q4 main program (line 2 of every answer)"
+  - "Q3 input/output function (still needed when the function uses cout/cin)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"
+
+commonMistakeIds: ["CM-F05a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Pure demo. Establishes the equivalence: with/without the directive
+  produces the same output, but the body reads differently. Locks
+  in why we always include the directive in C++T2 answers.

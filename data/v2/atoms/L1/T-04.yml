@@ -1,0 +1,20 @@
+id: T-04
+name: "T-D skeleton: for-header `for (int i = 0; i < SIZE; i++)`"
+level: L1
+phase: S2
+teaches: "Verbatim recall of the canonical Q1 counted-loop header. Init `int i = 0`, guard `i < SIZE`, post `i++`. Stop when guard fails (i==SIZE)."
+prereqs: [F-18, T-03]
+usedByQs: [Q1]
+cardCountTarget: 22
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — `for (i = 0; i < SIZE; i++) { ... }`"
+  - kind: v2
+    ref: "Test 2 V2.0 attempt 1 — same header with `int i` instead of `int i;` outside"
+commonMistakes:
+  - CM-Q1-off-by-one
+  - CM-Q1-iplusplus-before-body
+notes:
+  cardMix: { templateRecall: 22 }
+  stage: S2
+  exposureClass: medium

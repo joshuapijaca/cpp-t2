@@ -1,0 +1,37 @@
+id: CM-no-separate-compile-step
+name: "Believes hello.cpp can run directly without compilation"
+description: |
+  C++ source code (`hello.cpp`) is plain text. The CPU cannot execute
+  text — the source must first be compiled by a separate program (g++)
+  into a binary executable (`hello`), and only then can the OS run it.
+  Students think `hello.cpp` itself is the program, or that running
+  the source is "what computers do". The mental model "source ↔
+  executable, compiler bridges them" is missing, so debugging,
+  filename conventions, and exam questions about compile errors all
+  collapse.
+whyItHappens: |
+  Web-first programming experience: HTML/JS run "in the browser"
+  with no visible compile step. Python is interpreted — typing
+  `python hello.py` feels like "run my source". When students meet
+  C++, the "edit-save-compile-run" loop adds a step they don't have
+  a slot for. They conflate the source file with the executable
+  because IDEs hide the compile invocation behind a green Play
+  button. Until they see two files (source + executable), the
+  distinction stays invisible.
+immunizationStrategy: |
+  1. Walkthrough: terminal session showing `ls`, `g++`, `ls`, `./run`
+     with two files visible after compile.
+  2. MCQ: "What does g++ do?" — runs source / compiles to executable
+     / is the OS / replaces .cpp.
+  3. Demo: side-by-side `cat hello.cpp` (text) vs `./hello` (program).
+  4. Decompose: pick the order: write → compile → run.
+  5. SpotError: "I tried to run hello.cpp directly and got error" —
+     pick the missing step.
+  6. Cloze: terminal command `g++ hello.cpp ___` — fill `-o hello`.
+examImpact: medium
+atomDependencies: [F-01, F-02]
+qTracks: [Q1, Q2, Q3, Q4]
+relatedCMs: [CM-confuses-source-with-program]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"

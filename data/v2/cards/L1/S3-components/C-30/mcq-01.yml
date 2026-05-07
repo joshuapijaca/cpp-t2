@@ -1,0 +1,30 @@
+id: L1-S3-C-30-mcq-00
+schemaVersion: v2
+atomId: C-30
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-30
+commonMistakeIds:
+  - CM-C30a
+stem: >-
+  void who_am_i(stat_double &data) { ... } is called as who_am_i(d); from main. Do d and data refer
+  to the same memory or different memory?
+correct: >-
+  Same memory. The & makes data an alias for the caller`s d. Mutations inside who_am_i are visible
+  in main.
+distractors:
+  - Different memory. The function gets a copy of d; main`s d is untouched.
+  - Same memory only for scalars; arrays inside d are still copied.
+  - Same memory only when the function returns void; otherwise it is a copy.
+explanation: >-
+  Pass-by-reference (&) shares the same memory. Without &, the struct would be copied
+  (pass-by-value) and mutations would not be visible.
+

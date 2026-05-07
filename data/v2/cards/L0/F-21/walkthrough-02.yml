@@ -1,0 +1,73 @@
+# =====================================================================
+# L0 / F-21 / WalkthroughCard 02
+# Atom: Dot access — composite obj.array[i] and obj.scalar
+# =====================================================================
+id: "L0-F21-walk-02"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Test 2 V2.0 mixes dot-access with array indexing in one line:
+  `data.numbers[i]`. Walk through how to read this composite token
+  left-to-right.
+
+levelLabel: "L0 Foundation · Phase E · F-21"
+
+fullCode: |
+  const int SIZE = 5;
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+  int main() {
+    stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+    cout << d.mystery << endl;
+    cout << d.numbers[0] << endl;
+    cout << d.numbers[2] << endl;
+    return 0;
+  }
+
+steps:
+  - line: 9
+    code: '  cout << d.mystery << endl;'
+    annotation: |
+      Simple case: `d.mystery` reads the `mystery` field of `d`.
+      That field is a single double = -0.9. cout prints -0.9.
+    atomIds: ["F-21"]
+  - line: 10
+    code: '  cout << d.numbers[0] << endl;'
+    annotation: |
+      Composite. Read it left-to-right:
+        `d`         — the struct instance
+        `.`         — field access
+        `numbers`   — the array field
+        `[0]`       — the index INTO that array
+      `d.numbers[0]` is the first slot of the field. Value = 2.4.
+      Print order: dot FIRST, then index.
+    atomIds: ["F-21", "F-19"]
+  - line: 11
+    code: '  cout << d.numbers[2] << endl;'
+    annotation: |
+      Same shape with index 2. `d.numbers[2]` = -1.7.
+      The pattern: `instance.field[index]`. The dot binds tighter
+      than the brackets in this expression.
+    atomIds: ["F-21", "F-19"]
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `data.numbers[i]` composite token"
+
+commonMistakeIds: ["CM-F21a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Critical walkthrough. Drills `data.numbers[i]` — the exact
+  composite token Q1 trace and Q3 read function both rely on.
+  Writing it as `data[i].numbers` is CM-F21a (composite token
+  confusion).

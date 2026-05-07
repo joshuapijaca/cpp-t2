@@ -1,0 +1,27 @@
+id: Q-00
+name: "L4 Q4 Tour: see full main() end-to-end"
+level: L4
+teaches: "First exposure to a Q4 main() — the V2.0 desk_data shape (MAX=700) and the practice computer_data shape (MAX=100). Recognise the 7-piece skeleton: const MAX, struct array decl, count var, prompt+cin, read fn call, print loop, return 0. SpotError variants immunize the 8 highest-frequency Q4 errors."
+prereqs: [F-06, F-19, F-20, F-21, F-22, F-15]
+usedByQs: [Q4]
+cardCountTarget: 25
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — main() with computer_data, MAX=100, find-max algorithm"
+  - kind: v2
+    ref: "Test 2 V2.0 attempt 1 (2026-05-07) — main() with desk_data, MAX=700, sum-positive variant"
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) — Saloni Mehta walkthrough of practice Q4 main()"
+commonMistakes:
+  - CM-Q4-missing-const
+  - CM-Q4-var-sized-array
+  - CM-Q4-read-count-after-call
+  - CM-Q4-pass-MAX-not-count
+  - CM-Q4-amp-at-call
+  - CM-Q4-loop-uses-MAX
+  - CM-Q4-missing-return
+  - CM-Q4-no-endl
+notes:
+  cardMix: { walkthrough: 4, demo: 4, decompose: 4, mcq: 5, faultInjection: 8 }
+  stage: S1
+  exposureClass: long

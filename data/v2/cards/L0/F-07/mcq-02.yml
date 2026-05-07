@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-07 / MCQCard 02
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-mcq-02"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q2"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which is the correct, fully-terminated ending of a C++ struct
+  definition? Pick the option that matches what Q2 marking accepts.
+
+correct: "};"
+
+distractors:
+  - "}"
+  - ";"
+  - "};;"
+
+explanation: |
+  Correct: `};` — the closing brace of the struct, immediately
+  followed by a semicolon. The struct definition is itself a
+  statement; the brace closes the field list, the semicolon
+  terminates the statement.
+
+  `}` alone is missing the terminator (the highest-frequency Q2
+  error per Saloni's seminar).
+  `;` alone is missing the closing brace.
+  `};;` adds a second redundant semicolon — legal but
+  non-idiomatic; in practice marking accepts only the canonical
+  single `};`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 3-structuring-data/2-trailside/03-01-struct.md"
+
+commonMistakeIds: ["CM-F07a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Form-MCQ on the canonical `};` ending. Each distractor encodes
+  a real beginner partial-correct: missing `;`, missing `}`,
+  doubled `;`.

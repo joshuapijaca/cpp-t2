@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-07 / MCQCard 03
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-mcq-03"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which line below would the compiler REJECT (cause an error)?
+  Each line is shown standalone — pick the one that is malformed.
+
+correct: "int main(); { return 0; }"
+
+distractors:
+  - "int x = 5;"
+  - "cout << 7 << endl;"
+  - "return 0;"
+
+explanation: |
+  `int main(); { return 0; }` is wrong because the `;` after
+  `int main()` turns that line into a forward DECLARATION (a
+  promise to define main later), and then the `{ return 0; }`
+  block has no function header to attach to. The compiler errors:
+  the function-header line must NOT end with `;` when followed by
+  a body.
+
+  The other three lines are legal C++ statements:
+  - `int x = 5;` — declaration with `;`
+  - `cout << 7 << endl;` — output statement with `;`
+  - `return 0;` — return statement with `;`
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-0-cpp-syntax.md"
+
+commonMistakeIds: ["CM-F07c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Inverse-MCQ: which line is broken? Targets CM-F07c (adds `;`
+  after a function header). The three legal options remind the
+  student that `;` IS required on declaration, output, and return.

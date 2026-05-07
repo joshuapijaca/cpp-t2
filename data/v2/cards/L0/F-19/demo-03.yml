@@ -1,0 +1,57 @@
+# =====================================================================
+# L0 / F-19 / DemoCard 03
+# Atom: Fixed-size array — initialiser-list literal
+# =====================================================================
+id: "L0-F19-demo-03"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: instead of declaring then assigning each slot, you can
+  initialise an array with a brace-list. This is the form Test 2
+  uses: `{2.4, -3.7, -1.7, 3.0, 2.0}`.
+
+whyOneLine: "`int arr[5] = {1, 2, 3, 4, 5};` declares + initialises in one step."
+
+demoCode: |
+  // explicit form:
+  int arr[5];
+  arr[0] = 10;
+  arr[1] = 20;
+  arr[2] = 30;
+  arr[3] = 40;
+  arr[4] = 50;
+
+  // brace-list form (same result, one statement):
+  int arr[5] = {10, 20, 30, 40, 50};
+
+  // matches Test 2 V2.0:
+  double numbers[5] = {2.4, -3.7, -1.7, 3.0, 2.0};
+
+highlightTokens:
+  - "int arr[5] = {"
+  - "10, 20, 30, 40, 50"
+  - "};"
+  - "double numbers[5]"
+  - "{2.4, -3.7, -1.7, 3.0, 2.0}"
+
+usedIn:
+  - "Q1 trace (struct + array initialised at declaration)"
+  - "Q4 main program (test data hard-coded as brace list)"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9};`"
+
+commonMistakeIds: ["CM-F19a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Connects F-19 to the actual exam shape. The student will see
+  `{2.4, -3.7, -1.7, 3.0, 2.0}` on test day and must recognise
+  it as an array initialiser, not a function call or set literal.

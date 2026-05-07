@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-10 / ProceduralCard 02 (μWrite)
+# Atom: Primitive types — declare-and-initialise
+# =====================================================================
+id: "L0-F10-proc-02"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a single declaration line that gives the variable an initial
+  value.
+
+section: "F-10 type-write drills"
+
+prompt: |
+  Declare an int `i` and initialise it to 0. End with a semicolon.
+
+expectedAnswer: "int i = 0;"
+
+keyChecks: ["int", "i", "=", "0", ";"]
+
+variants:
+  - prompt: |
+      Declare a double `total` and initialise it to 0.0. End with a
+      semicolon.
+    expectedAnswer: "double total = 0.0;"
+  - prompt: |
+      Declare a string `label` and initialise it to "desk". End with
+      a semicolon.
+    expectedAnswer: 'string label = "desk";'
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F10a", "CM-F10b"]
+
+notes: |
+  Adds the initialisation step. Three variants cover the three types.
+  The `i = 0` pattern matches the for-loop counter idiom.

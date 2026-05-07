@@ -1,0 +1,44 @@
+id: "CM-skip-iter-cond-false-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-skip-iter-cond-false: Q1 skipped iter when cond false.
+
+code: |
+  // Trap: Omitted rows where if-cond was false — graders need to see them.
+  // (no row for i=2)
+  ;
+
+question: |
+  What goes wrong with the line above on Q1?
+
+options:
+  - label: "A"
+    text: "Omitted rows where if-cond was false — graders need to see them."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Omitted rows where if-cond was false — graders need to see them. The canonical pattern is: // i=2 cond -> false, mystery unchanged
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-skip-iter-cond-false"
+
+commonMistakeIds: ["CM-skip-iter-cond-false"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-skip-iter-cond-false.

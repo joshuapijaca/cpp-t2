@@ -1,0 +1,32 @@
+id: "CM-skip-pre-loop-init-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-skip-pre-loop-init: Q1 skip pre-loop init. find-max — initialize data.mystery to data.numbers[0] before the loop.
+
+correct: "data.mystery = data.numbers[0];"
+
+distractors:
+  - "// (init line forgotten)"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: data.mystery = data.numbers[0];
+  Mistake: data.mystery never initialized before the for-loop.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-skip-pre-loop-init"
+
+commonMistakeIds: ["CM-skip-pre-loop-init"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-skip-pre-loop-init.

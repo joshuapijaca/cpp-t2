@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-20 / ClozeCard 05
+# Atom: struct name placement
+# =====================================================================
+id: "L0-F20-cloze-05"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the struct name to match the Test 2 V2.0 shape.
+
+code: |
+  struct ___ {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+clozeSentence: "struct ___ { ... };  // matches Test 2 V2.0"
+
+answer: "stat_double"
+
+explanation: |
+  The struct name comes between the `struct` keyword and the
+  opening brace. Test 2 V2.0 uses `stat_double` (snake_case, all
+  lowercase). The name is a USER choice but the test gives it to
+  you — copy it verbatim including underscore.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `stat_double`"
+
+commonMistakeIds: ["CM-F20b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Drills attention to the test-given name. Misreading `stat_double`
+  as `Stat_Double` or `statDouble` is a common Q2 error (CM-F20b).

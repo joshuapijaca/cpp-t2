@@ -1,0 +1,52 @@
+# =====================================================================
+# L0 / F-06 / DemoCard 01
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-demo-01"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the smallest possible legal C++ program. It prints nothing,
+  declares no variables — but it compiles and runs. This is the
+  empty Q4 skeleton you scaffold every answer onto.
+
+whyOneLine: "The minimum C++ program is int main() { return 0; } — the entry point + a successful exit."
+
+demoCode: |
+  // The smallest legal C++ program:
+
+  #include <iostream>
+  using namespace std;
+  int main() {
+    return 0;
+  }
+
+  // It compiles, runs, prints nothing, and exits with status 0.
+  // Everything else in any Q4 answer is built INSIDE the braces of main.
+
+highlightTokens:
+  - "int main()"
+  - "return 0;"
+  - "{"
+  - "}"
+
+usedIn:
+  - "Q4 main program (skeleton for every answer)"
+  - "Q1 trace cards (the program being traced is wrapped in this)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md (int main() { write_line(\"Hello\"); return 0; })"
+
+commonMistakeIds: ["CM-F06a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Smallest-skeleton demo. Establishes the empty container the
+  student fills in for every Q4 answer.

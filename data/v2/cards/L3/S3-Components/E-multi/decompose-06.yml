@@ -1,0 +1,36 @@
+# =====================================================================
+# L3 / R-02e / DecomposeCard — multi-field compare
+# =====================================================================
+id: "L3-R02e-decompose-06"
+schemaVersion: "v2"
+atomId: "R-02e"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "DecomposeCard"
+stem: |
+  Compare two multi-field bodies. Pick the option that names the difference.
+code: |
+  // A:
+  cin>>d[i].a; cin>>d[i].b; cin>>d[i].c; cin>>d[i].dd;
+  // B:
+  cin>>d[i].a; cin>>d[i].b; cin>>d[i].dd;
+question: "Which option correctly describes the difference between A and B?"
+options:
+  - label: "A"
+    text: "B drops one field (3 instead of 4)."
+  - label: "B"
+    text: "A and B are equivalent"
+  - label: "C"
+    text: "B is shorter and equal"
+  - label: "D"
+    text: "B is faster"
+correctLabel: "A"
+explanation: |
+  B drops one field (3 instead of 4).
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

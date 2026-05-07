@@ -1,0 +1,25 @@
+id: R-01
+name: "Q3 Template: void read_X(X &L[], int n) skeleton"
+level: L3
+teaches: "Drill the 12-line invariant skeleton: void read_X signature, for-loop with parameter bound, and a triple of (cout prompt, cin >> list[i].field) pairs. Type-from-memory with model, ordering scrambled lines, fill-slot placeholders, full-from-prompt, and timed type."
+prereqs: [R-00, F-15, F-18, F-19, F-21, F-22, F-22a]
+usedByQs: [Q3]
+cardCountTarget: 60
+source:
+  - kind: v2
+    ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#5.1 Invariant Template"
+    quote: "void read_<entity>(<entity>_data &<list_param>[], int <count_param>)"
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/2-organising-code/1-tour/02-01-read-fns"
+    quote: "void read_X(...) is the standard signature for an interactive read procedure."
+commonMistakes:
+  - CM-Q3-off-by-one
+  - CM-Q3-missing-amp
+  - CM-Q3-missing-brackets-sig
+  - CM-Q3-missing-index
+  - CM-Q3-missing-field
+  - CM-Q3-wrong-bound-SIZE
+notes:
+  cardMix: { tmplrec: 28, fillslot: 24, fulltype: 8 }
+  stage: S2
+  exposureClass: long

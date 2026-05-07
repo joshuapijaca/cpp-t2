@@ -1,0 +1,20 @@
+
+id: "L2-S3a-n2t-21"
+schemaVersion: "v2"
+atomId: "L-23a"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "MCQCard"
+stem: "Q2 noun→type #21. A struct field needs a type. The English noun `name` should be stored as which C++ primitive?"
+correct: "`string` — a name is a sequence of characters of unknown length"
+distractors: ["`int` — integers cannot represent decimal or text content this noun implies.","`double` — a floating-point number is overkill for this noun.","`char` — a single character cannot hold this noun."]
+explanation: "`name` is best stored as `string` because a name is a sequence of characters of unknown length"
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-wrong-type"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Noun→type drill, string bucket."

@@ -1,0 +1,43 @@
+# =====================================================================
+# L0 / F-09 / ClozeCard 01
+# Atom: Identifier rules + naming
+# =====================================================================
+id: "L0-F09-cloze-01"
+schemaVersion: "v2"
+atomId: "F-09"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing word. SIT102 names every variable, function and
+  struct using one specific style.
+
+code: |
+  double total_price = 9.99;
+  string first_name = "ana";
+  void read_desk(int num_to_read);
+
+clozeSentence: |
+  The naming style used above is called ___ case. Words are joined by
+  underscores, and only lowercase letters appear.
+
+answer: "snake"
+
+explanation: |
+  snake_case is the SIT102 convention. Words are joined by `_` and
+  every letter is lowercase. Examples: `total_price`, `first_name`,
+  `num_to_read`. The opposite styles are camelCase (totalPrice) and
+  PascalCase (TotalPrice), which SIT102 does NOT use.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/3-naming-convention"
+
+commonMistakeIds: ["CM-F09c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Single-word recall. Quick warm-up between heavier cards.

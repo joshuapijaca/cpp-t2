@@ -1,0 +1,36 @@
+# =====================================================================
+# L3 / R-00 / DecomposeCard — compare A vs B
+# =====================================================================
+id: "L3-R00-compare-01"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 1
+level: "L3"
+type: "DecomposeCard"
+stem: |
+  Compare two forms. Pick the option that names the real difference.
+code: |
+  // A:
+  cin >> desks[i].width
+  // B:
+  cin >> desks.width
+question: "Which option correctly describes the difference between A and B?"
+options:
+  - label: "A"
+    text: "Missing [i] in B — does not compile."
+  - label: "B"
+    text: "B is faster"
+  - label: "C"
+    text: "A and B are equivalent"
+  - label: "D"
+    text: "B reads more data"
+correctLabel: "A"
+explanation: |
+  Missing [i] in B — does not compile.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

@@ -1,0 +1,23 @@
+id: F-11
+name: "Variable declaration + initialisation"
+level: L0
+phase: C
+teaches: "`int x;` declares; `int x = 5;` declares-and-initialises. Uninitialised variables hold garbage."
+prereqs: [F-10]
+usedByQs: [Q1, Q3, Q4]
+cardCountTarget: 23
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/07-variable"
+    quote: "A variable is a named location in memory that can hold a value of a given type."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+    quote: "Declarations may include an initial value: int score = 0; — without an initialiser, the value is undefined."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:28:00 — Saloni: 'every variable has a memory block, so we will have a memory block for mystery'"
+commonMistakes:
+  - CM-F11a  # forgets type on first use (writes x = 5 without int)
+  - CM-F11b  # treats uninitialised int as 0
+  - CM-F11c  # mixes declaration into expression position
+notes:
+  cardMix: { walkthrough: 2, demo: 3, decompose: 3, trace: 3, cloze: 4, μWrite: 4, tmplRec: 1, mcq: 2, proc: 1 }

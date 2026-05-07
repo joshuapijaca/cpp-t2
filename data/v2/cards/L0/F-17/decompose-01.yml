@@ -1,0 +1,65 @@
+# =====================================================================
+# L0 / F-17 / DecomposeCard 01
+# Atom: what if-body actually does
+# =====================================================================
+id: "L0-F17-decomp-01"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Pick the option that best describes when the body of this if
+  runs.
+
+code: |
+  int x = 4;
+  if (x > 10) {
+    cout << "huge" << endl;
+  }
+  cout << "end" << endl;
+
+question: |
+  When does the line `cout << "huge" << endl;` execute?
+
+options:
+  - label: "A"
+    text: |
+      Always — cout statements always run regardless of any if
+      condition.
+  - label: "B"
+    text: |
+      Never in this snippet — `x > 10` evaluates to false (4 is not
+      greater than 10), so the body is skipped. Only `end` is
+      printed.
+  - label: "C"
+    text: |
+      Only on the SECOND time the program runs.
+  - label: "D"
+    text: |
+      Once before the if and once inside, totalling two prints.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. The if condition `x > 10` evaluates to false
+  (4 is not greater than 10) so the body is SKIPPED entirely. The
+  `end` cout runs because it is OUTSIDE the if braces.
+
+  A — wrong; cout inside an if is gated by the condition.
+  C — programs do not have multiple "runs" in C++.
+  D — wrong; the body runs at most once per visit, and here zero.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/02-branches"
+
+commonMistakeIds: ["CM-F17a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Targets CM-F17a — runs body when cond
+  false.
+authoringStatus: "DRAFT"

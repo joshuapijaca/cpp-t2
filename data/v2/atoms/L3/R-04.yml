@@ -1,0 +1,19 @@
+id: R-04
+name: "Q3 Variations: field counts, names, types"
+level: L3
+teaches: "Variations: 2-field structs (10), 4-field (10), 5-field (5), param-name variants (10), list-name variants (5), string fields (5), mixed-type (5). Same skeleton with rotated entity/field surfaces."
+prereqs: [R-03]
+usedByQs: [Q3]
+cardCountTarget: 50
+source:
+  - kind: v2
+    ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#5.4-5.5 Variations + Common errors"
+commonMistakes:
+  - CM-Q3-off-by-one
+  - CM-Q3-missing-amp
+  - CM-Q3-missing-index
+  - CM-Q3-missing-field
+notes:
+  cardMix: { write: 50 }
+  stage: S5
+  exposureClass: medium

@@ -1,0 +1,41 @@
+id: "L1-S2-TC-08-init-count-zero"
+schemaVersion: "v2"
+atomId: "T-03"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Type the pre-loop init for COUNT algorithms (count-positive,
+  count-matching, etc.). Note the integer literal.
+
+prompt: |
+  What is the pre-loop init for a count-positive algorithm?
+
+template: |
+  // (type the init line)
+
+canonicalAnswer: |
+  data.mystery = 0;
+
+keyChecks:
+  - "data.mystery"
+  - "= 0"
+
+forbiddenTokens: []
+
+explanation: |
+  `data.mystery = 0;` — counts are integers but mystery is a double,
+  so the literal `0` (no decimal) is fine and the compiler converts.
+
+source:
+  kind: "v2"
+  ref: "docs/16_test2_specific_redesign_v2.md §3.5 — A8 count init"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-C init = 0 (count).
+authoringStatus: "DRAFT"

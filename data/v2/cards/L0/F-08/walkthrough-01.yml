@@ -1,0 +1,100 @@
+# =====================================================================
+# L0 / F-08 / WalkthroughCard 01
+# Atom: Block delimiters: { and }
+# Phase B: "Skeleton scaffolding"
+# =====================================================================
+id: "L0-F08-walk-01"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Braces (`{` and `}`) group statements into BLOCKS. A block is a
+  sequence of statements treated as one unit. Every `{` must have a
+  matching `}`. Walk through this program and notice how the braces
+  define exactly TWO blocks — one for the struct, one for the
+  function body.
+
+levelLabel: "L0 Foundation · Phase B · F-08"
+
+fullCode: |
+  #include <iostream>
+  using namespace std;
+  struct Point {
+    int x;
+    int y;
+  };
+  int main() {
+    Point p;
+    p.x = 3;
+    cout << p.x << endl;
+    return 0;
+  }
+
+steps:
+  - line: 3
+    code: 'struct Point {'
+    annotation: |
+      Opening brace number 1. Begins the FIELD LIST of the struct.
+      Everything from this `{` until its matching `}` is "inside the
+      struct."
+    atomIds: ["F-08"]
+  - line: 4
+    code: '  int x;'
+    annotation: |
+      Inside the struct's brace pair. This is one of the fields the
+      braces enclose.
+    atomIds: ["F-08"]
+  - line: 5
+    code: '  int y;'
+    annotation: |
+      Still inside the struct's brace pair.
+    atomIds: ["F-08"]
+  - line: 6
+    code: '};'
+    annotation: |
+      Closing brace number 1. Ends the struct's field list. Notice
+      the trailing `;` — for STRUCT definitions only, the close is
+      `};` (F-07). After this `}` we are back at file-scope, no
+      longer "inside" any block.
+    atomIds: ["F-08", "F-07"]
+  - line: 7
+    code: 'int main() {'
+    annotation: |
+      Opening brace number 2. Begins main's BODY. Everything from
+      this `{` until its matching `}` is "inside main."
+    atomIds: ["F-08", "F-06"]
+  - line: 8
+    code: '  Point p;'
+    annotation: |
+      Inside main's body block.
+    atomIds: ["F-08"]
+  - line: 11
+    code: '  return 0;'
+    annotation: |
+      Last statement INSIDE main's body. The next line will close
+      the body.
+    atomIds: ["F-06"]
+  - line: 12
+    code: '}'
+    annotation: |
+      Closing brace number 2. Matches the `{` from line 7. Ends
+      main's body. Notice — for FUNCTION bodies, the close is just
+      `}` (no trailing `;`). The `};` shape is for structs only.
+    atomIds: ["F-08"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md (a compound statement is enclosed in braces and groups multiple statements into one block) + Part 2 · 3-structuring-data/2-trailside/03-01-struct.md"
+
+commonMistakeIds: ["CM-F08a", "CM-F08b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Walks every brace boundary in a typical Q2+Q4 program. Two
+  brace pairs, exactly. The student leaves with a felt sense of
+  "open here, close there" — the basis for every later atom.

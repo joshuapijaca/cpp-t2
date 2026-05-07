@@ -1,0 +1,30 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-no-strikethrough
+id: "L1-cmimm-CM-no-strikethrough-cloze"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-no-strikethrough mistake."
+
+code: |
+  // mystery: ___2.4___ 6.1   (use the strikethrough convention)
+
+clozeSentence: 'Fill in the bracket pair that signals strikethrough (use the project convention `~...~`).'
+
+answer: '~'
+
+explanation: |
+  The convention is `~old~ new` — tilde brackets indicate strikethrough.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-no-strikethrough)"
+
+commonMistakeIds: ["CM-no-strikethrough"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

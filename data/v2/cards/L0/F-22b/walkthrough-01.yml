@@ -1,0 +1,66 @@
+# =====================================================================
+# L0 / F-22b / WalkthroughCard 01
+# Atom: Pass-by-reference signature `Type &param`
+# =====================================================================
+id: "L0-F22b-walk-01"
+schemaVersion: "v2"
+atomId: "F-22b"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  The `&` in a function signature is the pass-by-reference marker.
+  It means: this parameter aliases the caller's variable, so any
+  mutation inside the function persists after return. Walk through
+  exactly where the `&` goes.
+
+levelLabel: "L0 Foundation · Phase E · F-22b"
+
+fullCode: |
+  void who_am_i(stat_double &data)
+  {
+    data.mystery = 0.0;
+  }
+
+steps:
+  - line: 1
+    code: 'void who_am_i(stat_double &data)'
+    annotation: |
+      Drill into the parameter list `(stat_double &data)`:
+        `stat_double`  — the parameter TYPE
+        ` `            — required space (or none)
+        `&`            — the pass-by-reference marker
+        `data`         — the parameter NAME
+      Read it as: "stat_double reference named data". The `&` glues
+      the type and name together — together they say "an alias for
+      a stat_double variable owned by the caller".
+    atomIds: ["F-22b"]
+  - line: 3
+    code: '  data.mystery = 0.0;'
+    annotation: |
+      Inside the function, `data` is the caller's variable. Writing
+      `data.mystery = 0.0` here actually changes the CALLER's struct
+      because `&` made `data` an alias, not a copy.
+    atomIds: ["F-21", "F-22b"]
+  - line: 4
+    code: '}'
+    annotation: |
+      After the function returns, the change persists in the
+      caller's variable. The reference goes out of scope but the
+      caller's underlying storage now holds the new value.
+    atomIds: ["F-22b"]
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `void who_am_i ( stat_double &data )` signature"
+
+commonMistakeIds: ["CM-F22b-1", "CM-F22b-3", "CM-F22b-4"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  First-touch walkthrough on the EXACT exam signature. Drives home
+  the placement of `&` (between type and name) and the consequence
+  (caller's variable mutated).

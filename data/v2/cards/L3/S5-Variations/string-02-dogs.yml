@@ -1,0 +1,41 @@
+# =====================================================================
+# L3 / R-04 / FunctionWriteCard — string field dogs
+# =====================================================================
+id: "L3-R04-string-02"
+schemaVersion: "v2"
+atomId: "R-04"
+qTags: ["Q3"]
+stage: 5
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Variation: dogs with a string 'name' as the first field.
+  cin >> works for whitespace-delimited string tokens.
+prompt: "string-field variant"
+canonicalAnswer: |
+  void read_dogs(dog_data &dogs[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Name: ";
+      cin >> dogs[i].name;
+      cout << "Age (yrs): ";
+      cin >> dogs[i].age_yrs;
+      cout << "Weight (kg): ";
+      cin >> dogs[i].weight_kg;
+    }
+  }
+keyChecks:
+  - "cin >> dogs[i].name;"
+forbiddenTokens:
+  - "while"
+  - "getline"
+explanation: |
+  cin >> reads up to first whitespace into the string. No getline required for single-token names.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

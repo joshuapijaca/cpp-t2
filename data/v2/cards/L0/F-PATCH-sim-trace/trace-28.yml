@@ -1,0 +1,65 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 28 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Two reassignments, one print
+# =====================================================================
+id: "L0-F23-trace-28"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. Three writes to box `n` then a print. Enter the
+  final value and the terminal output.
+
+code: |
+  int main() {
+    int n = 1;
+    n = 2;
+    n = 3;
+    cout << n << endl;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "1"
+    output: null
+  - line: 3
+    variable: "n"
+    value: "2"
+    output: null
+  - line: 4
+    variable: "n"
+    value: "3"
+    output: null
+  - line: 5
+    variable: ""
+    value: ""
+    output: "3"
+
+terminalOutput: ["3"]
+
+inputMode: "final-only"
+
+teachMe: |
+  The box overwrites at each line: 1 -> 2 -> 3. The cout runs after
+  all three writes and reads 3. Final panel: { n: 3 }. Terminal: 3.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 28/30"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Three overwrites then a print. Common Q1 trap: students sometimes
+  print the first value out of habit.

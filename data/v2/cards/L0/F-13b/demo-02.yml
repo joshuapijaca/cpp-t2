@@ -1,0 +1,46 @@
+# =====================================================================
+# L0 / F-13b / DemoCard 02
+# Atom: cout chained values + endl (struct field print)
+# =====================================================================
+id: "L0-F13b-demo-02"
+schemaVersion: "v2"
+atomId: "F-13b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch how Q4 prints a struct. Each line of output combines a label
+  and a field value via chained <<.
+
+whyOneLine: "Print struct fields with cout << label << field << endl; per line."
+
+demoCode: |
+  // Practice test: print desk_data after reading.
+  cout << "desk_id: " << desk.desk_id << endl;
+  cout << "price: " << desk.price << endl;
+  // Terminal:
+  // desk_id: 1
+  // price: 19.99
+
+highlightTokens:
+  - 'cout << "desk_id: "'
+  - "desk.desk_id"
+  - 'cout << "price: "'
+  - "desk.price"
+  - "endl"
+
+usedIn:
+  - "Q4 main: print desk fields after reading user input"
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: print desk_data fields after reading"
+
+commonMistakeIds: ["CM-F13b-1"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Q4 print pattern. Critical for the "print list" requirement.

@@ -1,0 +1,48 @@
+# =====================================================================
+# L3 / Block B number_to_read / FunctionWrite 02 — different entity
+# =====================================================================
+id: "L3-NumToRead-write-02"
+schemaVersion: "v2"
+atomId: "R-02a"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+
+stem: "Write the read_books signature with parameter named exactly `number_to_read`. Do NOT abbreviate."
+
+prompt: "Write the signature only for read_books. Count parameter MUST be `number_to_read`."
+
+signatureHint: "void read_books(book_data &book_list[], int number_to_read)"
+
+canonicalAnswer: |
+  void read_books(book_data &book_list[], int number_to_read)
+  {
+  }
+
+keyChecks:
+  - "void"
+  - "read_books"
+  - "book_data"
+  - "&book_list[]"
+  - "int number_to_read"
+
+forbiddenTokens:
+  - "int n"
+  - "int count"
+  - "int size"
+
+explanation: |
+  Same V2.0 pattern, different entity. Param name stays literal: `number_to_read`.
+
+passByRefRequired: true
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V Block B — number_to_read"
+
+commonMistakeIds: ["CM-Q3-missing-amp"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "Block B drill: literal `number_to_read` on book entity."

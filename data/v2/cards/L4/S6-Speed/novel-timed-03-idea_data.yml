@@ -1,0 +1,47 @@
+id: "L4-S6-novel-timed-03"
+schemaVersion: "v2"
+atomId: "Q-10"
+qTags: 
+  - "Q4"
+stage: 6
+level: "L4"
+type: "SpeedDrillCard"
+stem: "[novel timed 3/10] 90s to write a full main() for idea_data."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.6 S6 timed novel"
+commonMistakeIds: 
+  - "CM-Q4-time-pressure-wrong-arg"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "idea_data: MAX=50, count=idea_num, fn=read_ideas, fields=title, category, rating, prompt=\"How many ideas?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 50;
+      idea_data ideas[MAX];
+      int idea_num;
+  
+      cout << "How many ideas? ";
+      cin >> idea_num;
+  
+      read_ideas(ideas, idea_num);
+  
+      for (int i = 0; i < idea_num; i++)
+      {
+          cout << ideas[i].title << ", ";
+          cout << ideas[i].category << ", ";
+          cout << ideas[i].rating << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 50"
+  - "idea_data ideas[MAX]"
+  - "int idea_num"
+  - "read_ideas(ideas, idea_num)"
+  - "i < idea_num"
+  - "return 0"
+explanation: "90s novel-entity transfer. Tests true fluency: not memorisation, transfer."

@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-10 / MCQCard 01
+# Atom: Primitive types — int truncation
+# =====================================================================
+id: "L0-F10-mcq-01"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  After `int x = 7.8;` runs, what value is stored in `x`?
+
+correct: "7 — int chops the decimal part. The .8 is silently dropped, no rounding."
+
+distractors:
+  - "8 — int rounds to the nearest whole number."
+  - "7.8 — int can store any number, the type is just a hint."
+  - "The line fails to compile because 7.8 is not an int literal."
+
+explanation: |
+  `int` truncates toward zero. 7.8 becomes 7. There is no rounding.
+  This is one of the silent bugs that causes wrong answers in
+  hand-execution traces. Always reach for `double` when the value can
+  be a decimal.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/06-type"
+
+commonMistakeIds: ["CM-F10a"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Reinforces the truncation rule with a different number than the
+  decompose card.

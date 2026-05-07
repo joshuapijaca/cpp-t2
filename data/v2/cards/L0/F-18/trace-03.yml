@@ -1,0 +1,122 @@
+# =====================================================================
+# L0 / F-18 / TraceCard 03 (Card C in spec — Q1-shaped)
+# Atom: array iteration with if inside
+# =====================================================================
+id: "L0-F18-trace-03"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. This is a stripped-down version of the Test 2 Q1
+  shape: a for-loop iterating over an array, with an if inside
+  that updates a running maximum. Track `mystery` carefully.
+
+code: |
+  int main() {
+    const int SIZE = 4;
+    double numbers[SIZE] = {-2.0, 5.5, 1.3, 4.0};
+    double mystery = numbers[0];
+    for (int i = 0; i < SIZE; i++) {
+      if (numbers[i] > mystery) {
+        mystery = numbers[i];
+      }
+    }
+    cout << mystery << endl;
+    return 0;
+  }
+
+variables: ["mystery", "i"]
+
+expectedTrace:
+  - line: 4
+    variable: "mystery"
+    value: "-2.0"
+    output: null
+    condition: "init mystery = numbers[0] = -2.0"
+  - line: 5
+    variable: "i"
+    value: "0"
+    output: null
+    condition: "init i = 0"
+  - line: 6
+    variable: ""
+    value: ""
+    output: null
+    condition: "iter 1: i=0, numbers[0]=-2.0, -2.0 > -2.0 false, skip"
+  - line: 5
+    variable: "i"
+    value: "1"
+    output: null
+    condition: "step"
+  - line: 6
+    variable: ""
+    value: ""
+    output: null
+    condition: "iter 2: i=1, numbers[1]=5.5, 5.5 > -2.0 true"
+  - line: 7
+    variable: "mystery"
+    value: "5.5"
+    output: null
+    condition: "body: mystery = 5.5"
+  - line: 5
+    variable: "i"
+    value: "2"
+    output: null
+    condition: "step"
+  - line: 6
+    variable: ""
+    value: ""
+    output: null
+    condition: "iter 3: i=2, numbers[2]=1.3, 1.3 > 5.5 false, skip"
+  - line: 5
+    variable: "i"
+    value: "3"
+    output: null
+    condition: "step"
+  - line: 6
+    variable: ""
+    value: ""
+    output: null
+    condition: "iter 4: i=3, numbers[3]=4.0, 4.0 > 5.5 false, skip"
+  - line: 5
+    variable: "i"
+    value: "4"
+    output: null
+    condition: "step"
+  - line: 5
+    variable: ""
+    value: ""
+    output: null
+    condition: "test: 4 < 4 false, EXIT"
+  - line: 10
+    variable: ""
+    value: ""
+    output: "5.5"
+
+terminalOutput:
+  - "5.5"
+
+inputMode: "final-only"
+
+teachMe: |
+  Four iterations. mystery starts at numbers[0] = -2.0. Iter 1: skip
+  (-2.0 not > -2.0). Iter 2: mystery becomes 5.5. Iter 3: skip
+  (1.3 not > 5.5). Iter 4: skip (4.0 not > 5.5). Final mystery =
+  5.5 — the maximum of the array. This is exactly the Q1 shape:
+  for-loop + if-condition + update.
+
+source:
+  kind: "v2"
+  ref: "Test2-SIT102-practice (1).docx — who_am_i max-finding pattern"
+
+commonMistakeIds: ["CM-F18a", "CM-F17a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Spec Card C — Q1-shaped array iteration
+  with if. The single most exam-relevant trace in this batch.
+authoringStatus: "DRAFT"

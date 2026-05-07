@@ -1,0 +1,24 @@
+id: F-14
+name: "cin >> var token semantics"
+level: L0
+phase: C
+teaches: "`cin >> x;` reads ONE whitespace-delimited token, type-converts to x's type. >> goes from cin INTO x."
+prereqs: [F-04, F-11]
+usedByQs: [Q3, Q4]
+cardCountTarget: 24
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+    quote: ">> is the extraction operator: it pulls a value from cin into the variable on the right."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/5-terminal-functions"
+    quote: "cin reads one token at a time, separated by whitespace."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:30:55 — Saloni: 'if you see, I will enter these values'"
+commonMistakes:
+  - CM-F14a  # writes cin << x (wrong direction)
+  - CM-F14b  # cin >> string truncates on whitespace (gap MU-10)
+  - CM-F14c  # forgets that cin reads ONE token, not whole line
+splitInto: [F-14a, F-14b]
+notes:
+  cardMix: { walkthrough: 2, demo: 3, decompose: 3, trace: 3, cloze: 4, μWrite: 4, tmplRec: 1, mcq: 3, proc: 1 }

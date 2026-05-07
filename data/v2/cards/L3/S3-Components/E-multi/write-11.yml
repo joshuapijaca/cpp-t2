@@ -1,0 +1,42 @@
+# =====================================================================
+# L3 / R-02e / FunctionWriteCard — 4-field body for fridges
+# =====================================================================
+id: "L3-R02e-write-11"
+schemaVersion: "v2"
+atomId: "R-02e"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the BODY of the for-loop only (no signature, no for-header):
+  4 prompt-pair sequence for 'fridges[i]' fields:
+  volume_l, shelves, price, extra4.
+prompt: "4-field prompt-pair sequence"
+canonicalAnswer: |
+  cout << "Volume (L): ";
+  cin >> fridges[i].volume_l;
+  cout << "Shelves: ";
+  cin >> fridges[i].shelves;
+  cout << "Price: ";
+  cin >> fridges[i].price;
+  cout << "Extra 4: ";
+  cin >> fridges[i].extra4;
+keyChecks:
+  - "cin >> fridges[i].volume_l;"
+  - "cin >> fridges[i].shelves;"
+  - "cin >> fridges[i].price;"
+  - "cin >> fridges[i].extra4;"
+forbiddenTokens:
+  - "while"
+  - "endl"
+explanation: |
+  4 fields means 4 prompt-pairs in struct-declaration order.
+  Each pair is cout-prompt + cin-into-list[i].field.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-skipped-field","CM-Q3-reordered-field"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

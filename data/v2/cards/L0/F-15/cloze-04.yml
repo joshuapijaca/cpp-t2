@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-15 / ClozeCard 04
+# Atom: Prompt-then-read pair (order rule)
+# =====================================================================
+id: "L0-F15-cloze-04"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the keyword that goes FIRST in a prompt-pair.
+
+code: |
+  ___ << "desk_id: ";
+  cin >> desk_id;
+
+clozeSentence: |
+  The first line of every prompt-pair is a `___ << "label: ";`
+  output.
+
+answer: "cout"
+
+explanation: |
+  cout always comes first. The prompt label is printed BEFORE the
+  cin so the user knows what to type. Order: cout (prompt) -> cin
+  (read).
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+
+commonMistakeIds: ["CM-F15c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Order rule recall.

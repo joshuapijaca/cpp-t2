@@ -1,0 +1,35 @@
+id: "CM-omit-mystery-cell-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-omit-mystery-cell: Q1 omitted mystery cell on stable iter. Fill the blank.
+
+code: |
+  // Canonical Q1 excerpt with blank:
+  // // ____=1 cond -> F mystery=2.4 (carry forward)
+  ;
+
+clozeSentence: |
+  Complete the canonical line: // i=1 cond -> F mystery=2.4 (carry forward)
+
+answer: "// i=1 cond -> F mystery=2.4 (carry forward)"
+
+explanation: |
+  Canonical pattern: // i=1 cond -> F mystery=2.4 (carry forward)
+  Mistake to avoid: Left mystery column empty when it did not change.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-omit-mystery-cell"
+
+commonMistakeIds: ["CM-omit-mystery-cell"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-omit-mystery-cell.

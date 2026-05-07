@@ -1,0 +1,84 @@
+id: "L4-S4-coldstart-03"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[cold-start 3/15] Entity: invoice_data. From ENTITY NAME ONLY, write all three: Q2 struct, Q3 read fn, Q4 main(). Fields chosen at your discretion (suggested: id, amount, date)."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 cold-start Q2+Q3+Q4 chain"
+commonMistakeIds: 
+  - "CM-Q4-amp-at-call"
+  - "CM-Q4-pass-MAX-not-count"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: |
+  Entity name: invoice_data. Write all 3 questions:
+  Q2 — struct definition with fields
+  Q3 — read fn signature + body that fills the array
+  Q4 — main() that calls the read fn and prints all rows.
+  
+  Suggested fields: id, amount, date with types int, double, string. MAX = 500. count_var = inv_count. fn = read_invoices. prompt = "How many invoices?".
+canonicalAnswer: |
+  // Q2: struct
+  struct invoice_data
+  {
+      int id;
+      double amount;
+      string date;
+  };
+  
+  // Q3: read fn
+  void read_invoices(invoice_data &invoices[], int &count)
+  {
+      cout << "How many invoices? ";
+      cin >> count;
+      for (int i = 0; i < count; i++)
+      {
+          cin >> invoices[i].id;
+          cin >> invoices[i].amount;
+          cin >> invoices[i].date;
+      }
+  }
+  
+  // Q4: main
+  int main()
+  {
+      const int MAX = 500;
+      invoice_data invoices[MAX];
+      int inv_count;
+  
+      cout << "How many invoices? ";
+      cin >> inv_count;
+  
+      read_invoices(invoices, inv_count);
+  
+      for (int i = 0; i < inv_count; i++)
+      {
+          cout << invoices[i].id << ", ";
+          cout << invoices[i].amount << ", ";
+          cout << invoices[i].date << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "struct invoice_data"
+  - "id"
+  - "amount"
+  - "date"
+  - "read_invoices"
+  - "invoice_data invoices[MAX]"
+  - "i < inv_count"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many invoices?"
+explanation: "End-to-end transfer: from entity name → 3-question integrated answer. Tests whether the student internalised the full Q2/Q3/Q4 pipeline."

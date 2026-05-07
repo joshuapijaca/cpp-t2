@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-11 / ClozeCard 02
+# Atom: Variable declaration + initialisation (semicolon)
+# =====================================================================
+id: "L0-F11-cloze-02"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing terminator. Every C++ declaration ends with the
+  same character.
+
+code: |
+  int desk_count = 0___
+  double price = 9.99___
+  string name = "ana"___
+
+clozeSentence: |
+  Every declaration line in C++ ends with a `___` character.
+
+answer: ";"
+
+explanation: |
+  The semicolon terminates every C++ statement, including declarations.
+  Forgetting it is the #1 syntax error in beginner C++ programs.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/2-communicating-syntax/2-trailside/05-statement"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Reinforces F-07 semicolon rule in F-11 context.

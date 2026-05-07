@@ -1,0 +1,45 @@
+id: "L4-S5-withprintfn-07"
+schemaVersion: "v2"
+atomId: "Q-09"
+qTags: 
+  - "Q4"
+stage: 5
+level: "L4"
+type: "MainWriteCard"
+stem: "[print-fn variation 7/10] Instead of inline for-loop, call print_desks(desks, desk_num) AFTER read_desks. Same result; cleaner main."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.5 S5 with-print-fn variant"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "Re-write V2.0 main using a separate print fn `print_desks(desks, desk_num)` instead of an inline for-loop."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int desk_num;
+  
+      cout << "How many desks? ";
+      cin >> desk_num;
+  
+      read_desks(desks, desk_num);
+      print_desks(desks, desk_num);
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 700"
+  - "desks[MAX]"
+  - "cin >> desk_num"
+  - "read_desks(desks, desk_num)"
+  - "print_desks(desks, desk_num)"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "for"
+expectedTerminal: 
+  - "How many desks?"
+explanation: "Replacing inline loop with a print fn call shows that the loop is encapsulated. Same arg pattern: array + count, no &."

@@ -1,0 +1,24 @@
+id: F-18a
+name: "for-loop header anatomy"
+level: L0
+phase: D
+teaches: "`for (init; test; inc)` — three semicolon-separated parts. Init runs once; test before each iter; inc after each iter."
+prereqs: [F-17]
+usedByQs: [Q1, Q3, Q4]
+cardCountTarget: 12
+parentAtom: F-18
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/04-3-for-loop"
+    quote: "for (initialisation; condition; step)"
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/04-while"
+    quote: "A for loop is shorthand for a while loop with init and step factored out."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:36:31 — Saloni: 'It tells you for I equal to 0'"
+commonMistakes:
+  - CM-F18a-1  # uses commas instead of semicolons in header
+  - CM-F18a-2  # forgets to declare i in init
+  - CM-F18a-3  # places ; after closing paren of for header
+notes:
+  cardMix: { walkthrough: 1, demo: 2, decompose: 1, cloze: 3, μWrite: 2, tmplRec: 1, mcq: 1, proc: 1 }

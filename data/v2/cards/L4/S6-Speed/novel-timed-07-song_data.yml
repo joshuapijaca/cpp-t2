@@ -1,0 +1,47 @@
+id: "L4-S6-novel-timed-07"
+schemaVersion: "v2"
+atomId: "Q-10"
+qTags: 
+  - "Q4"
+stage: 6
+level: "L4"
+type: "SpeedDrillCard"
+stem: "[novel timed 7/10] 90s to write a full main() for song_data."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.6 S6 timed novel"
+commonMistakeIds: 
+  - "CM-Q4-time-pressure-wrong-arg"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "song_data: MAX=500, count=song_num, fn=read_songs, fields=title, artist, length, prompt=\"How many songs?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 500;
+      song_data songs[MAX];
+      int song_num;
+  
+      cout << "How many songs? ";
+      cin >> song_num;
+  
+      read_songs(songs, song_num);
+  
+      for (int i = 0; i < song_num; i++)
+      {
+          cout << songs[i].title << ", ";
+          cout << songs[i].artist << ", ";
+          cout << songs[i].length << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 500"
+  - "song_data songs[MAX]"
+  - "int song_num"
+  - "read_songs(songs, song_num)"
+  - "i < song_num"
+  - "return 0"
+explanation: "90s novel-entity transfer. Tests true fluency: not memorisation, transfer."

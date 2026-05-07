@@ -1,0 +1,36 @@
+# =====================================================================
+# L0 / F-21 / ClozeCard 01 — dot operator
+# =====================================================================
+id: "L0-F21-cloze-01"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing operator that accesses the field `mystery` of
+  struct instance `data`.
+
+code: |
+  cout << data___mystery << endl;
+
+clozeSentence: "data___mystery   // field-access"
+
+answer: "."
+
+explanation: |
+  The dot `.` is the field-access operator for struct instances.
+  `data.mystery` reads the `mystery` field of `data`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements"
+
+commonMistakeIds: ["CM-F21b", "CM-F21c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Smallest possible cloze. Single character.

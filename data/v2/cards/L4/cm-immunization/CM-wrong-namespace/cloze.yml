@@ -1,0 +1,36 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-wrong-namespace
+id: "L4-cmimm-CM-wrong-namespace-cloze"
+schemaVersion: "v2"
+atomId: "Q-00"
+qTags: ["Q4"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-wrong-namespace mistake."
+
+code: |
+  #include <iostream>
+  ___ namespace std;
+  
+  int main() {
+    cout << "Hi";
+    return 0;
+  }
+
+clozeSentence: 'Fill in the keyword that brings the std namespace into scope.'
+
+answer: 'using'
+
+explanation: |
+  `using namespace std;` exposes cin, cout, endl without a `std::` prefix.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-wrong-namespace)"
+
+commonMistakeIds: ["CM-wrong-namespace"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

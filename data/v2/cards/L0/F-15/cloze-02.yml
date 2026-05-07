@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-15 / ClozeCard 02
+# Atom: Prompt-then-read pair (the read cin)
+# =====================================================================
+id: "L0-F15-cloze-02"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing read line.
+
+code: |
+  int desk_id;
+  cout << "desk_id: ";
+  ____________________
+
+clozeSentence: |
+  The single line that reads the user's typed value INTO desk_id is
+  `___`.
+
+answer: "cin >> desk_id;"
+
+explanation: |
+  Canonical read: `cin >> desk_id;`. cin first, then `>>`, then the
+  variable name, then `;`. Pulls one whitespace-delimited token.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Recall of the read cin shape.

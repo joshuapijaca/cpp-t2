@@ -1,0 +1,44 @@
+id: "CM-body-when-false-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q1 body run when condition false. The code below has the bug labeled
+  by CM-body-when-false. Find the line and provide the fix.
+
+brokenCode: |
+  // Q1 broken excerpt:
+  data.mystery = data.mystery + data.numbers[i]; // outside the if
+  // (canonical was: if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; })
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }
+  ;
+
+bugCategory: "CM-body-when-false"
+
+keyChecks:
+  - "if (data.numbers[i] > 0) { dat"
+
+explanation: |
+  Bug: Action runs unconditionally instead of inside the if-body.
+  Fix: if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }
+  This common mistake costs marks on Q1 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-body-when-false"
+
+commonMistakeIds: ["CM-body-when-false"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-body-when-false.

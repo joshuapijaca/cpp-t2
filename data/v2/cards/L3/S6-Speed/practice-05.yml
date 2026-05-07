@@ -1,0 +1,42 @@
+# =====================================================================
+# L3 / R-05 / SpeedDrillCard — practice timed read_computers
+# =====================================================================
+id: "L3-R05-practice-05"
+schemaVersion: "v2"
+atomId: "R-05"
+qTags: ["Q3"]
+stage: 6
+level: "L3"
+type: "SpeedDrillCard"
+stem: |
+  TIMED (practice): write the full read_computers function in 60 seconds.
+prompt: "Practice timed: read_computers (3 fields)."
+canonicalAnswer: |
+  void read_computers(computer_data &computers[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "CPU speed (GHz): ";
+      cin >> computers[i].cpu_speed;
+      cout << "RAM (GB): ";
+      cin >> computers[i].ram_gb;
+      cout << "Price ($): ";
+      cin >> computers[i].price;
+    }
+  }
+keyChecks:
+  - "void read_computers(computer_data &computers[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> computers[i].cpu_speed;"
+  - "cin >> computers[i].ram_gb;"
+  - "cin >> computers[i].price;"
+forbiddenTokens:
+  - "while"
+explanation: |
+  Practice-test Q3 shape under timed conditions.
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q3 read_computers"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

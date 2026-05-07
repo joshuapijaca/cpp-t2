@@ -1,0 +1,40 @@
+id: "CM-array-from-1-fixit"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Fix-it drill for CM-array-from-1. The code has the bug; produce the canonical fix.
+
+brokenCode: |
+  // Q1: Q1 array indexed from 1
+  for (i = 1; i < SIZE; i++) {
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  for (i = 0; i < SIZE; i++) {
+  ;
+
+bugCategory: "CM-array-from-1"
+
+keyChecks: []
+
+explanation: |
+  Replace the broken line with: for (i = 0; i < SIZE; i++) {
+  Diagnosis: for-loop starts at i = 1 — skips element 0.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-array-from-1"
+
+commonMistakeIds: ["CM-array-from-1"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 3/5 (fix-it) for CM-array-from-1.

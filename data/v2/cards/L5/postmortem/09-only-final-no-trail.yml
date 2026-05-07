@@ -1,0 +1,68 @@
+id: "L5-postmortem-09-only-final-no-trail"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Q2 struct — student forgot the `;` after the closing `}` of a struct definition. Compiler error cascade: every line below blames a different variable. Read the diff.
+
+failedAttempt: |
+  struct student_data
+  {
+      string name;
+      int age;
+      double gpa;
+  }
+
+  int main()
+  {
+      student_data me;
+      return 0;
+  }
+
+diagnosis: |
+  Every struct (and class, and union, and enum) definition in C++ ends with `};` — the closing brace AND a semicolon. The student wrote just `}`. The compiler then tries to read `int main()` as part of the struct declaration, producing baffling error messages like "expected ';' before 'int'". One missing character; two dozen errors.
+
+repairSteps:
+  - "struct student_data"
+  - "{"
+  - "    string name;"
+  - "    int age;"
+  - "    double gpa;"
+  - "};   // <-- semicolon AFTER the closing brace"
+
+preventionTip: |
+  Every `}` that closes a struct/class/union must be followed by `;`. When you type the closing brace, immediately type `;`. Mantra: "brace-semicolon, brace-semicolon."
+
+explanation: |
+  Lesson learned — `};` is a single mental unit for type definitions in C++. The compiler error you'll see won't say "missing semicolon after struct" — it'll say "expected `;` before `int`" on the line after, which is misleading. When you see weird errors right after a struct definition, check the closing `}` first.
+
+canonicalAnswer: |
+  struct student_data
+  {
+      string name;
+      int age;
+      double gpa;
+  };
+
+annotations:
+  - line: 6
+    severity: err
+    note: "Missing `;` after `}`. Should be `};`. Triggers a cascade of compiler errors on subsequent lines."
+  - line: 8
+    severity: warn
+    note: "This is where the visible error appears — `int main()` interpreted as part of the struct declaration."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q2 struct definition syntax"
+
+commonMistakeIds: ["CM-missing-semi-after-brace"]
+status: "NEW"
+createdBy: "SA-L5-Postmortem-Rewrite"
+authoringStatus: "DRAFT"
+notes: |
+  Postmortem #09 — Q2 / missing `;` after struct closing brace.

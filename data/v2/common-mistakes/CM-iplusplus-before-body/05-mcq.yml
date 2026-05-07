@@ -1,0 +1,32 @@
+id: "CM-iplusplus-before-body-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-iplusplus-before-body: Q1 i++ before body trace. Order the for-loop semantics: init, cond, body, increment.
+
+correct: "// init -> cond -> body -> i++ -> cond -> body -> ..."
+
+distractors:
+  - "// init -> i++ -> cond -> body -> ..."
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: // init -> cond -> body -> i++ -> cond -> body -> ...
+  Mistake: Trace processes elements 1..5 instead of 0..4.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-iplusplus-before-body"
+
+commonMistakeIds: ["CM-iplusplus-before-body"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-iplusplus-before-body.

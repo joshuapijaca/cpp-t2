@@ -1,0 +1,36 @@
+
+id: "L2-S5-reverse-04"
+schemaVersion: "v2"
+atomId: "L-25"
+qTags: ["Q2"]
+stage: 5
+level: "L2"
+type: "DecomposeCard"
+stem: "Q2 reverse drill #4. Given the struct code, infer the most likely English entity description."
+code: |
+  struct hotel_data
+  {
+      string name;
+      int stars;
+      double price_per_night;
+  };
+question: "Which English description best matches this struct?"
+options:
+  - label: "A"
+    text: "A movie record (title, year, runtime)."
+  - label: "B"
+    text: "A hotel record (name, star rating, nightly price)."
+  - label: "C"
+    text: "A song (title, year, duration)."
+  - label: "D"
+    text: "A vehicle (name, year, price)."
+correctLabel: "B"
+explanation: "The field name + type combination uniquely fingerprints the entity."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.6 S5 VARIATIONS"
+commonMistakeIds: ["CM-Q2-wrong-type"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Reverse-engineer the prompt from the code."

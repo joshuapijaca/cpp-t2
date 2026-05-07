@@ -1,0 +1,24 @@
+id: F-06
+name: "int main() and return 0"
+level: L0
+phase: B
+teaches: "Program entry point; main returns 0 on success. Every Q4 answer needs this exact frame."
+prereqs: [F-07, F-08]
+usedByQs: [Q4]
+cardCountTarget: 24
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/2-main-function"
+    quote: "main is the entry point of every C++ program. It returns an int — typically 0 to indicate success."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-0/1-digital-realities/2-trailside/6-source-code"
+    quote: "int main() { write_line(\"Hello\"); return 0; }"
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:21:14 — Saloni: 'we have only four questions ... how do you declare a struct, how do you do the hand execution'"
+commonMistakes:
+  - CM-F06a  # forgets return 0 (Q4 high-frequency error)
+  - CM-F06b  # writes void main()
+  - CM-F06c  # places return 0 outside the closing brace
+  - CM-F06d  # writes Main() with capital M
+notes:
+  cardMix: { walkthrough: 2, demo: 3, decompose: 3, trace: 2, cloze: 4, μWrite: 3, tmplRec: 3, mcq: 2, proc: 2 }

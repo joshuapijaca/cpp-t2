@@ -1,0 +1,44 @@
+# =====================================================================
+# L0 / F-05 / ClozeCard 02
+# Atom: using namespace std;
+# =====================================================================
+id: "L0-F05-cloze-02"
+schemaVersion: "v2"
+atomId: "F-05"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill the blank with the namespace name. Mind the case — the
+  standard-library namespace is lowercase.
+
+code: |
+  #include <iostream>
+  using namespace ____;
+  int main() {
+    cout << 2 << endl;
+    return 0;
+  }
+
+clozeSentence: |
+  using namespace ____;
+
+answer: "std"
+
+explanation: |
+  The namespace name is `std` (all lowercase). Capital forms like
+  `STD` or `Std` will not compile — namespaces are case-sensitive
+  identifiers.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F05c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Cloze 2: namespace name. Targets CM-F05c (capitalises std).

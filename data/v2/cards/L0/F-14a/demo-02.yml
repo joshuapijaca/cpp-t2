@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-14a / DemoCard 02
+# Atom: cin >> operator direction (cout vs cin)
+# =====================================================================
+id: "L0-F14a-demo-02"
+schemaVersion: "v2"
+atomId: "F-14a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the symmetry. cout writes; cin reads. Same operator shape
+  (`<<` vs `>>`), opposite direction.
+
+whyOneLine: "cout uses <<; cin uses >>. Opposite arrows for opposite directions."
+
+demoCode: |
+  int x;
+  cin >> x;          // user types value, written INTO x
+  cout << x;         // value of x written OUT to terminal
+
+  // Memory aid:
+  //   cout << value         (value flows INTO cout)
+  //   cin  >> variable      (value flows INTO variable)
+  // Both arrows point AWAY from the source, TOWARD the destination.
+
+highlightTokens:
+  - "cin >> x"
+  - "cout << x"
+  - "<<"
+  - ">>"
+  - "INTO"
+
+usedIn:
+  - "Q3 read fn (cout prompt + cin read pair)"
+  - "Q4 main (read user input then echo back with cout)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/0-pano/5-terminal-functions"
+
+commonMistakeIds: ["CM-F14a-1", "CM-F14a-2"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Side-by-side cout/cin direction. Critical pre-warning before F-15
+  prompt-pair.

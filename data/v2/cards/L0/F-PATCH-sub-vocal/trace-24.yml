@@ -1,0 +1,64 @@
+# =====================================================================
+# L0 / F-24 / TraceCard 24 — sub-vocal predict-next-state
+# =====================================================================
+id: "L0-F24-trace-24"
+schemaVersion: "v2"
+atomId: "F-24"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Predict-first. Update then print. Speak the next value of `n` AND
+  the printed line BEFORE pressing [step].
+
+code: |
+  int main() {
+    int n = 4;
+    n = n + 6;
+    cout << n << endl;
+    return 0;
+  }
+
+variables: ["n"]
+
+expectedTrace:
+  - line: 2
+    variable: "n"
+    value: "4"
+    output: null
+  - line: 3
+    variable: "n"
+    value: "10"
+    output: null
+  - line: 4
+    variable: ""
+    value: ""
+    output: "10"
+
+terminalOutput: ["10"]
+
+inputMode: "per-step"
+
+q4StopCondition: "Articulate the next value or printed line BEFORE pressing [step]."
+
+teachMe: |
+  PREDICTIONS:
+  - line 2: "n becomes four"
+  - line 3: "n becomes ten"
+  - line 4: "terminal receives ten" (NOT four — the value updated
+    on line 3)
+  Final panel: { n: 10 }. Terminal: 10.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sub-vocal predict card 24/30"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Update-then-print with sub-vocal. Articulating the printed value
+  catches the use-old-value error.

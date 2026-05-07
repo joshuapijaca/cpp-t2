@@ -1,0 +1,45 @@
+id: "CM-2-fields-1-line-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-2-fields-1-line: Q2 two fields on one line.
+
+code: |
+  // Trap: Wrote `int a; int b;` on one line — bad style for Test 2.
+  int a; int b;
+  ;
+
+question: |
+  What goes wrong with the line above on Q2?
+
+options:
+  - label: "A"
+    text: "Wrote `int a; int b;` on one line — bad style for Test 2."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  Wrote `int a; int b;` on one line — bad style for Test 2. The canonical pattern is: int a;
+int b;
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-2-fields-1-line"
+
+commonMistakeIds: ["CM-2-fields-1-line"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-2-fields-1-line.

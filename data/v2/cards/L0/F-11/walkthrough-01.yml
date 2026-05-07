@@ -1,0 +1,64 @@
+# =====================================================================
+# L0 / F-11 / WalkthroughCard 01
+# Atom: Variable declaration + initialisation
+# =====================================================================
+id: "L0-F11-walk-01"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  In C++ a variable is a NAMED MEMORY BOX. Declaring it opens the box
+  and writes a label. Initialising it puts a starting value inside.
+  Walk through the four shapes — each does something different.
+
+levelLabel: "L0 Foundation Phase C F-11"
+
+fullCode: |
+  int a;          // declare without value
+  int b = 0;      // declare AND initialise to 0
+  int c = a;      // declare AND initialise from another variable
+  int d, e;       // two declarations on one line
+
+steps:
+  - line: 1
+    code: 'int a;'
+    annotation: |
+      Open a box named `a`, type int. NO value is written. The box
+      contains GARBAGE — whatever leftover bits were in memory. Reading
+      `a` here gives an unpredictable result.
+    atomIds: ["F-11"]
+  - line: 2
+    code: 'int b = 0;'
+    annotation: |
+      Open a box named `b`, type int. Then immediately write the value
+      0 inside. The `= 0` is the initialiser. Box `b` now contains a
+      known, predictable value.
+    atomIds: ["F-11"]
+  - line: 3
+    code: 'int c = a;'
+    annotation: |
+      Open box `c`, then COPY whatever is in box `a` into box `c`. If
+      `a` is uninitialised garbage, `c` is now garbage too.
+    atomIds: ["F-11"]
+  - line: 4
+    code: 'int d, e;'
+    annotation: |
+      Two declarations on one line. Open box `d`, then box `e`. Both
+      are int, both are uninitialised. The comma separates the names.
+    atomIds: ["F-11"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F11a", "CM-F11b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Establishes the four declaration shapes. Critical: line 1 leaves the
+  box GARBAGE (not zero). Saloni emphasised this in the seminar.

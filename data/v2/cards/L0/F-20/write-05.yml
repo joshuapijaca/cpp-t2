@@ -1,0 +1,61 @@
+# =====================================================================
+# L0 / F-20 / StructWriteCard 05 — exam-grade with const SIZE
+# =====================================================================
+id: "L0-F20-write-05"
+schemaVersion: "v2"
+atomId: "F-20"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "StructWriteCard"
+
+stem: |
+  Write the FULL Test 2 V2.0 entity block: the `const int SIZE = 5;`
+  line followed by the `stat_double` struct definition. Both lines
+  must be present.
+
+prompt: "Write `const int SIZE = 5;` followed by the stat_double struct."
+
+canonicalAnswer: |
+  const int SIZE = 5;
+
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+requiredFields:
+  - "numbers"
+  - "mystery"
+
+keyChecks:
+  - "const int SIZE = 5;"
+  - "struct stat_double"
+  - "double numbers[SIZE]"
+  - "double mystery"
+  - "};"
+
+forbiddenTokens:
+  - "class"
+  - "Struct"
+  - "*"
+
+explanation: |
+  This is the full opening of every Test 2 V2.0 program. Two
+  separate top-level statements, both ending in `;`:
+    1. `const int SIZE = 5;`     // the size constant
+    2. `struct stat_double { ... };`   // the entity
+  In real programs they sit before `int main()` so every later
+  function and main can see them.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — full entity block opening"
+
+commonMistakeIds: ["CM-F20a", "CM-F20d", "CM-F19a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Exam-grade write. Two statements together — the highest-stakes
+  block on the test. Drills the `const` + `struct` combo.

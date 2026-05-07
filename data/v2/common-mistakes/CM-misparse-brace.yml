@@ -1,0 +1,25 @@
+id: CM-misparse-brace
+name: "Student misparses outer vs inner brace-init"
+description: |
+  Brace-init `stat_double d = { {-20.0, 3.2, 1.9, -1.5, 1.3}, 0.0 };`
+  has TWO levels: outer brace for the struct, inner brace for the array.
+  Students read all 6 numbers as flat or assign them to the wrong fields,
+  e.g. mystery becomes 3.2 (the second array cell) instead of 0.0.
+whyItHappens: |
+  Nested brace syntax is dense. The space between `{...}` and `0.0` is the
+  only visual cue separating the array literal from the struct's second
+  field. Students ignore the comma boundary and treat braces as decoration.
+immunizationStrategy: |
+  1. SpotError: trace with mystery initialised to a wrong (array) value.
+  2. Cloze: fill in numbers and mystery from the brace-init.
+  3. MCQ: "In `{ {a, b, c}, d }`, what is the struct's second field? (d)"
+  4. Decompose: split brace-init into struct{ array{...}, scalar }.
+  5. Pair-init: `{ {a,b}, c }` vs `{ a, b, c }`, contrast.
+  6. Trace card requiring student to extract initial state from brace-init.
+examImpact: high
+atomDependencies: [F-19, F-20, F-21, A4]
+qTracks: [Q1]
+relatedCMs: [CM-stale-mystery, CM-skip-pre-loop-init]
+source:
+  kind: practice
+  ref: "Test2-SIT102-practice-2026T1.txt line 41 — brace-init pattern"

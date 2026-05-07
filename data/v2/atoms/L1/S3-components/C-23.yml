@@ -1,0 +1,24 @@
+id: C-23
+name: 'Mutation: mystery = mystery+numbers[i]'
+level: L1
+teaches: Add numbers[i] to mystery and store back (sum accumulator).
+prereqs:
+  - F-12
+  - F-14a
+  - F-19
+usedByQs:
+  - Q1
+cardCountTarget: 14
+source:
+  - kind: v2
+    ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-23
+    quote: 'C-23: 14 cards. Mutation: mystery = mystery+numbers[i].'
+  - kind: practice
+    ref: practice/V2.0 (stat_double / numbers[SIZE] / mystery / who_am_i)
+commonMistakes:
+  - CM-C23a
+  - CM-C23b
+notes:
+  stage: L1-S3 components
+  drill: atomic mental op, isolate to automaticity
+

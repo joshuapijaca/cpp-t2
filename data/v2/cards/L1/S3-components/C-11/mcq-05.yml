@@ -1,0 +1,25 @@
+id: L1-S3-C-11-mcq-04
+schemaVersion: v2
+atomId: C-11
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-11
+commonMistakeIds:
+  - CM-C11a
+  - CM-C11b
+stem: SIZE is 5. After 5 iterations, i has become 5. Evaluate `i < SIZE`. What happens next?
+correct: false → the loop exits without running the body again.
+distractors:
+  - true → the body runs one more time (off-by-one).
+  - true → the body runs but i is reset to 0.
+  - undefined behaviour — i==SIZE is illegal in C++.
+explanation: 5 < 5 is false, so the body is SKIPPED on this re-test and control falls past the closing brace.
+

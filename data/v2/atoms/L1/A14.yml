@@ -1,0 +1,26 @@
+id: A14
+name: "Q1 S6 Speed: timed traces + 2-min target"
+level: L1
+phase: S6
+teaches: "Timed traces under exam-pace pressure. Warmups, real-exam reps (sum-positive on V2.0 shape), mixed mocks, and full Q1 mocks. Target: 2 min per trace, 5 min for full Q1 mock."
+prereqs: [A13]
+usedByQs: [Q1]
+cardCountTarget: 34
+source:
+  - kind: v2
+    ref: "Test 2 V2.0 — timed exam-day reproduction"
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — exam-pace targets"
+commonMistakes:
+  - CM-S6-rush-skip-init
+  - CM-S6-no-strikethrough-under-time
+  - CM-S6-misread-condition
+notes:
+  cardMix: { trace: 22, speedDrill: 6, adversarialMock: 6 }
+  stage: S6
+  exposureClass: short
+  speedTargets:
+    warmup: "60s flash, 120s answer"
+    realExamReps: "120s per trace"
+    mixedMocks: "120s per trace"
+    fullQ1Mocks: "300s = 5min"

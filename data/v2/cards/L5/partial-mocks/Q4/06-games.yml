@@ -1,0 +1,55 @@
+id: "L5-partial-Q4-06-games"
+schemaVersion: "v2"
+atomId: "M-02"
+qTags: ["Q4"]
+stage: 5
+level: "L5"
+type: "SpeedDrillCard"
+
+stem: |
+  Partial-mock Q4: main for games. 4-min cap. const int MAX, array,
+  count, read, print, return 0.
+
+prompt: |
+  Write int main() that:
+    1. Declares const int MAX = 100;
+    2. Declares game_data arr[MAX];
+    3. Reads count from cin (count <= MAX).
+    4. Calls read_games(arr, count).
+    5. Calls print_games(arr, count).
+    6. Returns 0.
+
+canonicalAnswer: |
+  int main() {
+    const int MAX = 100;
+    game_data arr[MAX];
+    int count;
+    cin >> count;
+    read_games(arr, count);
+    print_games(arr, count);
+    return 0;
+  }
+
+keyChecks:
+  - "const int MAX = 100;"
+  - "game_data arr[MAX];"
+  - "cin >> count;"
+  - "read_games(arr, count);"
+  - "return 0;"
+
+
+explanation: |
+  Q4 partial: main wires count -> read -> print -> return. The
+  `const int MAX = 100;` line is a rubric token; it MUST appear.
+  `arr[MAX]` (not `arr[100]`) per the same rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt §Q4 — partial main variant"
+
+commonMistakeIds: ["CM-missing-const", "CM-var-sized-array", "CM-pass-MAX-not-count", "CM-amp-at-call-site"]
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Partial Q4 #6: games.

@@ -1,0 +1,47 @@
+# =====================================================================
+# L0 / F-16 / TemplateRecallCard 03
+# Atom: write >= boundary
+# =====================================================================
+id: "L0-F16-write-03"
+schemaVersion: "v2"
+atomId: "F-16"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Write a one-line condition that is TRUE when `score` is at least
+  50 (50 itself counts as passing).
+
+prompt: |
+  Produce a C++ boolean expression that is true iff score >= 50.
+
+template: |
+  score ___ 50
+
+canonicalAnswer: |
+  score >= 50;
+
+keyChecks:
+  - "score >= 50"
+
+forbiddenTokens:
+  - "while"
+  - "do"
+  - "=>"
+
+explanation: |
+  `>=` (greater than or equal). The symbol order is `>` then `=`,
+  never `=>`. "At least 50" includes 50, so use `>=`, not `>`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-1-comparisons"
+
+commonMistakeIds: ["CM-F16c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

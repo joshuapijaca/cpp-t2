@@ -1,0 +1,120 @@
+SIT102 Introduction to Programming  T1 Test 1
+
+Test 1
+
+Programming is a foundational skill in computing, and it is important to
+understand this well before progressing to other units. The tests enable you to
+demonstrate that you have achieved the required knowledge and skills.
+Tip
+Do not worry overly about the tests. If you have achieved the learning goals from
+the previous pass tasks you will have no trouble in completing this test. Your
+seminar tutors will also provide live demonstrations of the practice test questions
+to help you prepare, so be sure to attend.
+
+Test 1:
+
+    · will take place in Week 5,
+    · will cover concepts from P2-P4,
+    · is closed book,
+    · you will have up to 90 minutes to complete it,
+    · answers must be in the Hand Execution format taught here,
+    · this test is intended as a practice; if you fail the test you will be given a
+
+         chance to fix your mistakes.
+
+Complete the following:
+
+1. Sit the test in Week 5
+
+Campus Students:
+    · Must attend their campus at the scheduled day, to complete the test on
+         paper. Look at the Class Timetables and see `Assessment 1' for the day,
+         time, and room number, and ensure you have enrolled into a session
+
+                                    Page 1 of 4
+SIT102 Introduction to Programming  T1 Test 1
+
+    via the STAR system. You will hand your completed test to your
+    supervising tutor.
+· Remember to bring your student ID card and writing material to the test.
+
+Online Students:
+    · Your test will be available online for completion at home. You will have a
+         48-hour window to complete it, starting on the same day as the Campus-
+         based students. Information on how to access the test will be emailed
+         closer to the test date.
+    · You can complete it on paper (then take a scan/photo), or on your
+         computer (with a drawing/writing program).
+
+2. Engage with Feedback
+
+You will receive feedback after completing the test via task T1 on OnTrack. When
+you receive feedback, your tutor will indicate if your test is Complete, or you have
+aspects you need to Fix and Resubmit. There are different things you need to
+undertake, depending on the status of the task:
+
+    · Complete: You have demonstrated competency with all tested concepts;
+         well done! You do not need to sit this test again. Focus on your remaining
+         tasks.
+
+    · Fix and Resubmit: Great effort; you are close to complete. You should
+         attend your next seminar to receive your test back, where you can review
+         your results. You will be given a supplementary test to complete (via task
+         T1 on OnTrack).
+
+    · Redo: Your answers indicate that you need to revise part of the unit. You
+         should attend your next seminar to receive your test back, where you can
+
+                                                                                                  Page 2 of 4
+SIT102 Introduction to Programming  T1 Test 1
+
+review your results. You will be given a supplementary test to complete (via
+task T1 on OnTrack) a few days afterwards.
+
+3. Frequently Asked Questions
+
+Do I need to submit something for task T1 on OnTrack, and what does the
+start date and due date mean?
+
+There is nothing to submit for task T1. Instead, task T1 is where you will get
+feedback on the outcome of your test (e.g. Complete, Resubmit or Redo), and
+additional comments from your assessor.
+
+You can ignore the start date and due date of Task T1 ­ most important is to
+ensure that you know what date Test 1 has been scheduled for (per our
+instructions above), and complete the test on that date.
+
+What if I fail or miss Test 1?
+
+You will receive constructive feedback on your answers and have the opportunity
+to fix them. If you miss Test 1, there is no chance to resit, but you will given a
+chance to complete a supplementary test instead (you will receive instructions
+within task T1 on OnTrack on how to access it).
+
+What if I fail or miss Test 2?
+You will have the chance to resit the test in Week 10, and one more time in Week
+11. Failure to complete Test 2 to a satisfactory level means that you may not be
+eligible to receive a passing grade for the unit.
+
+What if I cannot complete the test on the day/time scheduled?
+
+                                    Page 3 of 4
+SIT102 Introduction to Programming  T1 Test 1
+
+The assessment requirements were clearly communicated to all students in the
+SIT102 Handbook, the SIT102 Unit Guide, and by your tutors at the beginning of
+the trimester. Expected is that all students can make appropriate arrangements
+to be available.
+
+I am a Campus student, but can I take the Online test instead?
+No, if you are enrolled as a Campus student, you must complete the test on
+campus.
+
+Must I get 100% on the test to pass it?
+
+Not necessarily. We want to see that you understand the concepts well. If you
+make minor mistakes but overall the answer is correct and understandable, it is
+likely we will accept it.
+
+                                    Page 4 of 4
+

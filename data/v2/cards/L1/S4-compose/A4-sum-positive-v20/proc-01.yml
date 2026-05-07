@@ -1,0 +1,36 @@
+# =====================================================================
+# L1 / sum-positive V2.0 / Procedural 01 — write the reset line
+# =====================================================================
+id: "L1-A4v20-proc-01"
+schemaVersion: "v2"
+atomId: "A4"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "ProceduralCard"
+
+stem: "Write the slot of sum-positive that resets the accumulator before the loop."
+
+section: "V2.0 sum-positive algorithm body — slot 1 of 3"
+prompt: "Write the single C++ statement that resets data.mystery to 0.0 (this is the line BEFORE the for-loop in the V2.0 stimulus)."
+expectedAnswer: "data.mystery = 0.0;"
+keyChecks:
+  - "data.mystery"
+  - "0.0"
+  - "="
+
+variants:
+  - prompt: "Same, but with the variable named `d` instead of `data`."
+    expectedAnswer: "d.mystery = 0.0;"
+  - prompt: "Same line for the V2.0 stimulus."
+    expectedAnswer: "data.mystery = 0.0;"
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — sum-positive body slot: reset"
+
+commonMistakeIds: ["CM-A4-init-not-zero"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "V2.0 sum-positive body slot 1: reset accumulator."

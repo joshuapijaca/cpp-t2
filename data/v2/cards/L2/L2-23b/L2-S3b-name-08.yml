@@ -1,0 +1,35 @@
+
+id: "L2-S3b-name-08"
+schemaVersion: "v2"
+atomId: "L-23b"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "DecomposeCard"
+stem: "Q2 field-naming drill #8. snake_case only. Choose the legal field-name format."
+code: |
+  struct user_data
+  {
+      int id;
+      bool is_active;
+  };
+question: "Pick the SIT102-style snake_case for \"is currently active\"."
+options:
+  - label: "A"
+    text: "`isActive`"
+  - label: "B"
+    text: "`is_active`"
+  - label: "C"
+    text: "`is-active`"
+  - label: "D"
+    text: "`IsActive`"
+correctLabel: "B"
+explanation: "Snake_case lowercase with `_`."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-camelcase","CM-Q2-hyphen","CM-Q2-reserved"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Field-naming legality check."

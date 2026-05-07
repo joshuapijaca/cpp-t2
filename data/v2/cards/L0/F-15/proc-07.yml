@@ -1,0 +1,44 @@
+# =====================================================================
+# L0 / F-15 / ProceduralCard 07 (μWrite)
+# Atom: Prompt-then-read pair (full read function body)
+# =====================================================================
+id: "L0-F15-proc-07"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the complete loop body of a Q3 read_desks function.
+
+section: "F-15 prompt-pair drills (loop body)"
+
+prompt: |
+  Inside `for (i = 0; i < num_to_read; i++) { ... }` write the loop
+  body that prompt-reads desks[i].desk_id and desks[i].price using
+  loop-index labels.
+
+expectedAnswer: |
+  cout << "desk " << i << " desk_id: ";
+  cin >> desks[i].desk_id;
+  cout << "desk " << i << " price: ";
+  cin >> desks[i].price;
+
+keyChecks: ['cout << "desk " << i << " desk_id: ";', "cin >> desks[i].desk_id;", 'cout << "desk " << i << " price: ";', "cin >> desks[i].price;"]
+
+variants: []
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: full loop body of read_desks"
+
+commonMistakeIds: ["CM-F15a"]
+
+notes: |
+  THE Q3 loop body, full size, exact answer the marker expects.

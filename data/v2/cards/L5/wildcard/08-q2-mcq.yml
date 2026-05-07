@@ -1,0 +1,31 @@
+id: "L5-wildcard-08-q2"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 5
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  S5.5 wildcard: Reserved word as field.
+
+correct: "Rename the field — `int` is a reserved word and cannot be a field name."
+
+distractors:
+  - "Quote it: \"int\"."
+  - "Use Int (capital)."
+  - "Add an underscore prefix: _int."
+
+explanation: |
+  `int`/`return`/`if` are reserved. Field names cannot be C++ keywords; rename to `count` or similar.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 wildcard"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #8: Q2 Reserved word as field.

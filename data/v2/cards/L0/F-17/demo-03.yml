@@ -1,0 +1,57 @@
+# =====================================================================
+# L0 / F-17 / DemoCard 03
+# Atom: if mirrors Q1 real shape
+# =====================================================================
+id: "L0-F17-demo-03"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the EXACT shape of the if you will see on Q1. Inside a for
+  loop, an if checks an array element against a running value, and
+  conditionally updates the running value.
+
+whyOneLine: "The Q1 if pattern is `if (data.numbers[i] > data.mystery) { data.mystery = data.numbers[i]; }` — recognise it on sight."
+
+demoCode: |
+  ┌─ Q1 CANONICAL if ─────────────────────────────────┐
+  │                                                   │
+  │   for (i = 0; i < SIZE; i++) {                    │
+  │       if ( data.numbers[i] > data.mystery ) {     │
+  │           data.mystery = data.numbers[i];         │
+  │       }                                           │
+  │   }                                               │
+  │                                                   │
+  │   if has 3 parts:                                 │
+  │     1. condition: data.numbers[i] > data.mystery  │
+  │     2. body:      one assignment                  │
+  │     3. braces:    required, even for one stmt     │
+  │                                                   │
+  │   The if updates mystery ONLY when current array  │
+  │   element is strictly greater. Otherwise mystery  │
+  │   stays where it is.                              │
+  └───────────────────────────────────────────────────┘
+
+highlightTokens:
+  - "if ( data.numbers[i] > data.mystery )"
+  - "data.mystery = data.numbers[i];"
+  - "Q1 CANONICAL"
+
+usedIn:
+  - "Q1 who_am_i procedure body (literal Test 2 V2.0 shape)"
+
+source:
+  kind: "v2"
+  ref: "Test2-SIT102-practice (1).docx — who_am_i body"
+
+commonMistakeIds: ["CM-F17c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Mirror-neuron exposure to literal Q1
+  pattern.
+authoringStatus: "DRAFT"

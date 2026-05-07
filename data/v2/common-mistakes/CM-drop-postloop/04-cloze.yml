@@ -1,0 +1,35 @@
+id: "CM-drop-postloop-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-drop-postloop: Q1 dropped post-loop output. Fill the blank.
+
+code: |
+  // Canonical Q1 excerpt with blank:
+  // // ____ continues past for-loop close
+  ;
+
+clozeSentence: |
+  Complete the canonical line: // trace continues past for-loop close
+
+answer: "// trace continues past for-loop close"
+
+explanation: |
+  Canonical pattern: // trace continues past for-loop close
+  Mistake to avoid: Stopped trace at loop exit, missed the cout after.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-drop-postloop"
+
+commonMistakeIds: ["CM-drop-postloop"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-drop-postloop.

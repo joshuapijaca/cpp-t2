@@ -1,0 +1,36 @@
+
+id: "L2-S2-ident-23"
+schemaVersion: "v2"
+atomId: "L-22"
+qTags: ["Q2"]
+stage: 2
+level: "L2"
+type: "DecomposeCard"
+stem: "Q2 identifier rules drill #23. Which identifier follows SIT102 snake_case style for the bedroom field?"
+code: |
+  struct house_data
+  {
+      string address;
+      int bedrooms;
+      double price;
+  };
+question: "Which identifier follows SIT102 snake_case style for the bedroom field?"
+options:
+  - label: "A"
+    text: "`bedrooms`"
+  - label: "B"
+    text: "`Bedrooms`"
+  - label: "C"
+    text: "`bed-rooms`"
+  - label: "D"
+    text: "`#bedrooms`"
+correctLabel: "C"
+explanation: "`bedrooms` is lowercase snake_case and matches SIT102 style."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S2 TEMPLATE"
+commonMistakeIds: ["CM-Q2-camelcase","CM-Q2-hyphen"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Identifier-rules pick-the-correct."

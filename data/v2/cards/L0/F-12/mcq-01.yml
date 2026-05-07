@@ -1,0 +1,37 @@
+# =====================================================================
+# L0 / F-12 / MCQCard 01
+# Atom: Assignment = (= vs ==)
+# =====================================================================
+id: "L0-F12-mcq-01"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Which symbol writes a value INTO a variable in C++?
+
+correct: "= (single equals sign)"
+
+distractors:
+  - "== (double equals sign)"
+  - ":= (colon equals)"
+  - "<- (left arrow)"
+
+explanation: |
+  Single `=` is assignment. `==` is comparison (used in if/while
+  conditions). `:=` is the Pascal/Go assignment operator. `<-` is
+  used by R and Haskell. C++ uses `=` for write, `==` for compare.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/08-assignment-statement"
+
+commonMistakeIds: ["CM-F12a"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Distractors are real assignment operators from other languages.

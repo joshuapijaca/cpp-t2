@@ -1,0 +1,35 @@
+
+id: "L2-S3c-space-02"
+schemaVersion: "v2"
+atomId: "L-23c"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "FaultInjectionCard"
+stem: "Q2 spacing drill #2. The struct compiles but its layout is wrong by SIT102 style: fields not indented (no 4-space indent inside braces). One field per line, 4-space indent inside braces."
+brokenCode: |
+  struct desk_data
+  {
+  int room_id;
+  int d_id;
+  int number_of_screens;
+  };
+bugLocations: [2]
+fixedCode: |
+  struct desk_data
+  {
+      int room_id;
+      int d_id;
+      int number_of_screens;
+  };
+bugCategory: "fields not indented (no 4-space indent inside braces)"
+keyChecks: ["};"]
+explanation: "SIT102 Q2 expects one field per line. Two-fields-on-one-line is graded as a defect even though it compiles."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-twofields"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Whitespace correctness card."

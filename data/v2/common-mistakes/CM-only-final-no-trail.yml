@@ -1,0 +1,25 @@
+id: CM-only-final-no-trail
+name: "Student writes only the final value, no per-iter trail"
+description: |
+  Hand-execution paradigm requires the student to show a row per iteration:
+  the value of i, what cond evaluated to, and the resulting state of each
+  variable. Students collapse all iterations into one final answer, which
+  the tutor cannot mark partial-credit.
+whyItHappens: |
+  Students with strong mental arithmetic compute the answer head-only and
+  write only the result, treating the trace as a question rather than as
+  the deliverable. Saloni's marking rubric explicitly requires the trail.
+immunizationStrategy: |
+  1. Demo card showing tutor rubric awarding marks per iteration row.
+  2. SpotError: a sheet with only the final value; mark "missing trail."
+  3. Cloze: fill in 5 iter rows; missing-row card.
+  4. MCQ: "Trace mark rubric — what is graded? (per-iter rows + final)"
+  5. Decompose: full trace divided into init / per-iter / final cells.
+  6. Trace card with per-iter rows REQUIRED for grading to pass.
+examImpact: high
+atomDependencies: [F-03, F-22d, A4]
+qTracks: [Q1]
+relatedCMs: [CM-no-strikethrough]
+source:
+  kind: seminar
+  ref: "SIT102 Seminar Mondays 6pm new (2) — Saloni: 'show every step'"

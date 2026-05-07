@@ -1,0 +1,60 @@
+# =====================================================================
+# L0 / F-19 / FunctionWriteCard 01 — μ-write of a declaration
+# Atom: Fixed-size array — declaration only
+# =====================================================================
+id: "L0-F19-write-01"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "FunctionWriteCard"
+
+stem: |
+  Write a single C++ statement that declares a fixed-size array of
+  SIZE doubles called `numbers`. Assume `const int SIZE = 5;` is
+  already in scope.
+
+prompt: "Declare a fixed-size array of SIZE doubles called `numbers`."
+
+signatureHint: "double ____[____];"
+
+canonicalAnswer: |
+  double numbers[SIZE];
+
+keyChecks:
+  - "double"
+  - "numbers"
+  - "SIZE"
+  - "[SIZE]"
+  - ";"
+
+forbiddenTokens:
+  - "*"
+  - "new"
+  - "vector"
+  - "array<"
+
+explanation: |
+  Canonical form: TYPE NAME [SIZE] ;
+  - TYPE: `double` (each slot holds a double)
+  - NAME: `numbers`
+  - SIZE: `SIZE` (the const int already in scope; using a const is
+    the correct way to size an array by symbol)
+  - `;` ends the statement
+  This matches the Test 2 V2.0 struct-field shape exactly.
+
+passByRefRequired: false
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `double numbers[SIZE];` field"
+
+commonMistakeIds: ["CM-F19a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Tiniest possible write. Builds the muscle for typing the four
+  tokens in correct order. Forbidden tokens block `new[]` /
+  `std::vector` / `std::array` (off-scope).

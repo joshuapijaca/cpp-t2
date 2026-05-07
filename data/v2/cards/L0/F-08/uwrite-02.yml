@@ -1,0 +1,59 @@
+# =====================================================================
+# L0 / F-08 / ProceduralCard 02 (μ-write)
+# Atom: Block delimiters: { and }
+# =====================================================================
+id: "L0-F08-uwrite-02"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Repair drill. The function below is missing its closing brace.
+  Add it. Type the entire repaired function.
+
+section: "L0 · F-08 · μ-write — repair missing closing brace"
+
+prompt: |
+  Original (broken — last line is missing):
+
+  int main() {
+    cout << 4 << endl;
+    return 0;
+
+  Add the missing `}` on its own line at the end. Type the entire
+  repaired function.
+
+expectedAnswer: |
+  int main() {
+    cout << 4 << endl;
+    return 0;
+  }
+
+keyChecks:
+  - "int main()"
+  - "cout << 4 << endl;"
+  - "return 0;"
+  - "}"
+
+variants:
+  - prompt: "Repair: add the missing `}` to a main that prints 9."
+    expectedAnswer: |
+      int main() {
+        cout << 9 << endl;
+        return 0;
+      }
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 2: targeted repair. The student adds the missing close.
+  Targets CM-F08a — highest-frequency F-08 error.

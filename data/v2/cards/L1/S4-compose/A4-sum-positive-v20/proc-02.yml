@@ -1,0 +1,45 @@
+# =====================================================================
+# L1 / sum-positive V2.0 / Procedural 02 — write the if-guard line
+# =====================================================================
+id: "L1-A4v20-proc-02"
+schemaVersion: "v2"
+atomId: "A4"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "ProceduralCard"
+
+stem: "Write the slot of sum-positive that guards on positive-only."
+
+section: "V2.0 sum-positive algorithm body — slot 2 of 3"
+prompt: "Write the if-block (header + body + close brace) that gates the accumulation on `data.numbers[i] > 0` and adds data.numbers[i] to data.mystery."
+expectedAnswer: |
+  if (data.numbers[i] > 0) {
+    data.mystery = data.mystery + data.numbers[i];
+  }
+keyChecks:
+  - "if"
+  - "data.numbers[i]"
+  - "> 0"
+
+variants:
+  - prompt: "Same guarded-update block, but compound assignment `+=` inside."
+    expectedAnswer: |
+      if (data.numbers[i] > 0) {
+        data.mystery += data.numbers[i];
+      }
+  - prompt: "Same guarded-update block, variable named `d` instead of `data`."
+    expectedAnswer: |
+      if (d.numbers[i] > 0) {
+        d.mystery = d.mystery + d.numbers[i];
+      }
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — sum-positive body slot: if-guard"
+
+commonMistakeIds: ["CM-A4-include-zero", "CM-A4-flip-condition"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "V2.0 sum-positive body slot 2: positive-only guard. > 0 not >= 0."

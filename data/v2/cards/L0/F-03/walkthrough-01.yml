@@ -1,0 +1,88 @@
+# =====================================================================
+# L0 / F-03 / WalkthroughCard 01
+# Atom: Hand-execution paradigm
+# Phase A: "What code IS"
+# =====================================================================
+id: "L0-F03-walk-01"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  THIS atom is what Test 2 Question 1 is built on. Hand-execution =
+  pretending to BE the CPU. You read each line of source code in order
+  and write down (mentally or on paper) what the variables hold and
+  what the terminal would print. Walk through this 3-line program. Each
+  step is one line of execution.
+
+levelLabel: "L0 Foundation · Phase A · F-03"
+
+fullCode: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    int x = 5;
+    int y = 7;
+    int sum = x + y;
+    cout << sum << endl;
+    return 0;
+  }
+
+steps:
+  - line: 4
+    code: 'int x = 5;'
+    annotation: |
+      Open a "memory box" labelled `x`. Write `5` inside it. The CPU
+      now has one variable: x = 5. Nothing prints yet.
+      VARIABLES PANEL: { x: 5 }
+      TERMINAL: (empty)
+    atomIds: ["F-03"]
+  - line: 5
+    code: 'int y = 7;'
+    annotation: |
+      Open a second box labelled `y`. Write `7` inside it. Two boxes
+      now exist.
+      VARIABLES PANEL: { x: 5, y: 7 }
+      TERMINAL: (empty)
+    atomIds: ["F-03"]
+  - line: 6
+    code: 'int sum = x + y;'
+    annotation: |
+      Read the values from the boxes: `x` is 5, `y` is 7. Add them: 12.
+      Open a new box `sum` and write `12` inside.
+      VARIABLES PANEL: { x: 5, y: 7, sum: 12 }
+      TERMINAL: (empty)
+    atomIds: ["F-03"]
+  - line: 7
+    code: 'cout << sum << endl;'
+    annotation: |
+      `cout` means "print to the terminal." Look up `sum` in your boxes
+      (12) and write `12` to the terminal output. `endl` adds a newline.
+      VARIABLES PANEL: { x: 5, y: 7, sum: 12 }
+      TERMINAL: 12
+    atomIds: ["F-03"]
+  - line: 8
+    code: 'return 0;'
+    annotation: |
+      The program ends. The boxes are erased. The terminal output is
+      what the marker SEES: `12`. That single number is the entire
+      "answer" of this program — and that is what you produce on Q1.
+    atomIds: ["F-03"]
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-03 hand-execution paradigm; cf. Test 2 Q1 trace requirement"
+
+commonMistakeIds: ["CM-skips-mental-state", "CM-jumps-to-final-answer"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseA"
+notes: |
+  First exposure to the "memory boxes + terminal" two-pane mental model.
+  This is the SAME model the code editor debugger panel shows in later
+  trace cards. Establishing the pattern here on the simplest possible
+  program (3 ints + 1 cout) means the visual primitive is already
+  familiar when L1 traces ramp difficulty.

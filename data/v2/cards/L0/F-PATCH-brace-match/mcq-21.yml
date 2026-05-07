@@ -1,0 +1,52 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 21 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: For inside if (the OTHER way around)
+# =====================================================================
+id: "L0-F25-mcq-21"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  An if at depth 1 contains a for at depth 2. The HIGHLIGHTED `{`
+  opens the FOR-loop body. Which `}` matches?
+
+  ```cpp
+  int main() {                            // depth 0 open
+    if (n > 0) {                          // depth 1 open (if)
+      for (int i = 0; i < n; i = i+1) {   // <-- HIGHLIGHT (depth 2)
+        cout << i << endl;
+      }                                   // <-- option A (depth 2)
+    }                                     // <-- option B (depth 1)
+    return 0;
+  }                                       // <-- option C (depth 0)
+  ```
+
+correct: "A — the `}` on the line immediately after the cout (depth 2, for-body close)."
+
+distractors:
+  - "B — the next `}`, because the for and the if are at the same depth."
+  - "C — the final `}` of main, since the for stretches to main's end."
+  - "D — there is no matching brace; the for already has braces in its header."
+
+explanation: |
+  A is correct. depth-2 matches depth-2.
+
+  B is wrong: B is depth 1 (closes the if).
+  C is wrong: C is depth 0.
+  D is wrong: the parens in the header do NOT count as braces.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 21/30"
+
+commonMistakeIds: ["CM-F08a", "CM-F08c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  if-then-for nesting, mirror of card 09.

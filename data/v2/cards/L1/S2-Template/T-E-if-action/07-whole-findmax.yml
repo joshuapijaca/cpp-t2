@@ -1,0 +1,42 @@
+id: "L1-S2-TE-07-whole-findmax"
+schemaVersion: "v2"
+atomId: "T-05"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Type the practice find-max if-action body verbatim.
+
+prompt: |
+  Reproduce the practice Q1 if-action (find-max).
+
+template: |
+  // (type the find-max if-action)
+
+canonicalAnswer: |
+  if (data.numbers[i] > data.mystery) {
+    data.mystery = data.numbers[i];
+  }
+
+keyChecks:
+  - "data.numbers[i] > data.mystery"
+  - "data.mystery = data.numbers[i]"
+
+forbiddenTokens: []
+
+explanation: |
+  find-max: cond compares the cell to the running best; action
+  REPLACES mystery (no addition).
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — find-max body"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-E find-max whole.
+authoringStatus: "DRAFT"

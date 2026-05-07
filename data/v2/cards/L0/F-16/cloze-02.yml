@@ -1,0 +1,40 @@
+# =====================================================================
+# L0 / F-16 / ClozeCard 02
+# Atom: != fill-in
+# =====================================================================
+id: "L0-F16-cloze-02"
+schemaVersion: "v2"
+atomId: "F-16"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the blank with the operator that means "not equal to".
+
+code: |
+  int n = 4;
+  if (n ___ 0) {
+    cout << "non-zero" << endl;
+  }
+
+clozeSentence: |
+  if (n ___ 0)
+
+answer: "!="
+
+explanation: |
+  `!=` is the not-equal test. The `!` symbol generally means NOT in
+  C++. The condition is true when the two operands DIFFER.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-1-comparisons"
+
+commonMistakeIds: ["CM-F16b"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

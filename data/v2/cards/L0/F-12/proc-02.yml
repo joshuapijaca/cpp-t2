@@ -1,0 +1,43 @@
+# =====================================================================
+# L0 / F-12 / ProceduralCard 02 (μWrite)
+# Atom: Assignment = (read-modify-write)
+# =====================================================================
+id: "L0-F12-proc-02"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a single line that increases a variable by adding to itself.
+
+section: "F-12 assignment drills (read-modify-write)"
+
+prompt: |
+  Assume `int total;` is declared. Write the line that ADDS the value
+  of `n` into total (i.e. total becomes total + n). End with `;`.
+
+expectedAnswer: "total = total + n;"
+
+keyChecks: ["total = total + n;"]
+
+variants:
+  - prompt: |
+      Assume `int count;` is declared. Write the line that increases
+      count by 1 (without using ++). End with `;`.
+    expectedAnswer: "count = count + 1;"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/0-panorama/4-assignment"
+
+commonMistakeIds: ["CM-F12b"]
+
+notes: |
+  Drills the read-modify-write idiom that V2.0 Q1 tests.

@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-15 / ProceduralCard 05 (μWrite)
+# Atom: Prompt-then-read pair (string field)
+# =====================================================================
+id: "L0-F15-proc-05"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a prompt-pair that reads a STRING field from the user.
+
+section: "F-15 prompt-pair drills (string field)"
+
+prompt: |
+  Assume `string first_name;` is declared. Write the two lines that
+  prompt with `first_name: ` and read into first_name.
+
+expectedAnswer: |
+  cout << "first_name: ";
+  cin >> first_name;
+
+keyChecks: ['cout << "first_name: ";', "cin >> first_name;"]
+
+variants:
+  - prompt: |
+      Assume `string label;` is declared. Write the prompt-pair for
+      label.
+    expectedAnswer: |
+      cout << "label: ";
+      cin >> label;
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+
+commonMistakeIds: []
+
+notes: |
+  String prompt-pair. Reminds the student about cin >> name's
+  whitespace truncation.

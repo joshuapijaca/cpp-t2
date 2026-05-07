@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-bitwise-amp
+id: "L1-cmimm-CM-bitwise-amp-mcq"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  For combining boolean conditions in C++, which operator?
+
+correct: '`&&` — logical AND with short-circuit'
+
+distractors:
+  - '`&` — bitwise AND'
+  - '`and` — only some compilers'
+  - '`*` — multiplication'
+
+explanation: |
+  `&&` works on booleans, short-circuits, and is the only correct choice for `if (a && b)`.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-bitwise-amp)"
+
+commonMistakeIds: ["CM-bitwise-amp"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

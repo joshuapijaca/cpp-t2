@@ -1,0 +1,46 @@
+# =====================================================================
+# L0 / F-18 / ClozeCard 05
+# Atom: full Q1 for-loop header
+# =====================================================================
+id: "L0-F18-cloze-05"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the entire for-loop header used in the Test 2 V2.0 Q1
+  procedure (`who_am_i`). Variable `i` already exists outside.
+
+code: |
+  // i declared earlier
+  for (___) {
+    if (data.numbers[i] > data.mystery) {
+      data.mystery = data.numbers[i];
+    }
+  }
+
+clozeSentence: |
+  for (___)
+
+answer: "i = 0; i < SIZE; i++"
+
+explanation: |
+  This is the literal Q1 header. Note that `i` is NOT declared in
+  the init slot here — it was declared above (because the V2.0
+  practice paper uses `int i;` declared earlier). When `i` already
+  exists, the init slot just assigns: `i = 0`.
+
+source:
+  kind: "v2"
+  ref: "Test2-SIT102-practice (1).docx — who_am_i for header"
+
+commonMistakeIds: ["CM-F18a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Mirrors literal Test 2 V2.0 form
+  (i declared earlier with int i; outside the loop).
+authoringStatus: "DRAFT"

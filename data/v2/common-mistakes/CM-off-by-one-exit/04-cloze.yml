@@ -1,0 +1,35 @@
+id: "CM-off-by-one-exit-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-off-by-one-exit: Q1 off-by-one exit i==SIZE. Fill the blank.
+
+code: |
+  // Canonical Q1 excerpt with blank:
+  // // ____-loop: do NOT use data.numbers[i]
+  ;
+
+clozeSentence: |
+  Complete the canonical line: // post-loop: do NOT use data.numbers[i]
+
+answer: "// post-loop: do NOT use data.numbers[i]"
+
+explanation: |
+  Canonical pattern: // post-loop: do NOT use data.numbers[i]
+  Mistake to avoid: Indexed numbers[i] after loop exit (i == SIZE, out-of-bounds).
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-off-by-one-exit"
+
+commonMistakeIds: ["CM-off-by-one-exit"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-off-by-one-exit.

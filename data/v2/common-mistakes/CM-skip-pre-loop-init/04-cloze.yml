@@ -1,0 +1,35 @@
+id: "CM-skip-pre-loop-init-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-skip-pre-loop-init: Q1 skip pre-loop init. Fill the blank.
+
+code: |
+  // Canonical Q1 excerpt with blank:
+  // ____.mystery = data.numbers[0];
+  ;
+
+clozeSentence: |
+  Complete the canonical line: data.mystery = data.numbers[0];
+
+answer: "data.mystery = data.numbers[0];"
+
+explanation: |
+  Canonical pattern: data.mystery = data.numbers[0];
+  Mistake to avoid: data.mystery never initialized before the for-loop.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-skip-pre-loop-init"
+
+commonMistakeIds: ["CM-skip-pre-loop-init"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-skip-pre-loop-init.

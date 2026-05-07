@@ -1,0 +1,58 @@
+# =====================================================================
+# L0 / F-13 / TraceCard 02
+# Atom: cout chained output (label + value)
+# =====================================================================
+id: "L0-F13-trace-02"
+schemaVersion: "v2"
+atomId: "F-13"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. The cout statement uses a label and a value. Predict
+  the exact terminal output.
+
+code: |
+  int main() {
+    double price = 9.99;
+    cout << "price: " << price << endl;
+    return 0;
+  }
+
+variables: ["price"]
+
+expectedTrace:
+  - line: 2
+    variable: "price"
+    value: "9.99"
+    output: null
+  - line: 3
+    variable: ""
+    value: ""
+    output: "price: 9.99"
+
+terminalOutput: ["price: 9.99"]
+
+inputMode: "final-only"
+
+teachMe: |
+  - Line 2: price = 9.99.
+  - Line 3: cout chain
+    - `<< "price: "` -> push "price: ". Terminal: price:
+    - `<< price` -> push 9.99. Terminal: price: 9.99
+    - `<< endl` -> push newline.
+
+  Final output: `price: 9.99`.
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: labelled-print pattern"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Label+value trace. Used by Q4 print loop.

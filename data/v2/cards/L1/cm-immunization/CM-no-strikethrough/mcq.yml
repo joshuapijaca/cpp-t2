@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-no-strikethrough
+id: "L1-cmimm-CM-no-strikethrough-mcq"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  Best Q1 hand-execution practice when mystery updates each iteration:
+
+correct: 'Write new value next to old; strike old through.'
+
+distractors:
+  - 'Erase the old value cleanly.'
+  - 'Track only the latest value.'
+  - 'Use a separate sheet per iteration.'
+
+explanation: |
+  The strikethrough trail lets the marker see every step; if you erase, partial credit disappears.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-no-strikethrough)"
+
+commonMistakeIds: ["CM-no-strikethrough"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

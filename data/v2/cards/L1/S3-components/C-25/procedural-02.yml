@@ -1,0 +1,30 @@
+id: L1-S3-C-25-proc-01
+schemaVersion: v2
+atomId: C-25
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: ProceduralCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-25
+commonMistakeIds:
+  - CM-C25a
+stem: Write the counting-accumulator mutation.
+section: 'C-25 mutation: count = count + 1'
+prompt: >-
+  Write the single C++ statement that increments the local int `count` by 1 using the count = count
+  + 1 form (no ++).
+expectedAnswer: count = count + 1;
+keyChecks:
+  - count
+  - count + 1
+  - '='
+variants:
+  - prompt: Same, but increment a struct field `data.mystery` (treated as int counter).
+    expectedAnswer: data.mystery = data.mystery + 1;
+

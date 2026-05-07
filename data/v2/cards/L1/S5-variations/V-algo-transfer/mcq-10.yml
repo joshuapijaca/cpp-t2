@@ -1,0 +1,31 @@
+# =====================================================================
+# L1 / V-algo-transfer / MCQCard 10 — transfer count-positive -> count-matching
+# =====================================================================
+id: "L1-V-algoxfer-10"
+schemaVersion: "v2"
+atomId: "A13"
+qTags: ["Q1"]
+stage: 5
+level: "L1"
+type: "MCQCard"
+
+stem: "Variant transfer: change `count-positive` to `count-matching`. Identify the single line that must change."
+
+correct: "Change the comparison/condition inside the loop body so it implements count-matching instead of count-positive."
+
+distractors:
+  - "Change the array initialiser only."
+  - "Change the SIZE constant only."
+  - "Change the cout line only."
+
+explanation: "count-positive and count-matching differ ONLY in the loop body's condition/operator. Init line and bounds are the same shape."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — count-positive -> count-matching transfer"
+
+commonMistakeIds: ["CM-S5-algo-confusion"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L1-S4S5S6"
+notes: "Algorithm-transfer MCQ. Tests recognition of which line varies."

@@ -1,0 +1,52 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 11 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: First arithmetic — addition of two literals
+# =====================================================================
+id: "L0-F23-trace-11"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  First arithmetic. The right-hand side `3 + 4` is computed, then the
+  result is written into box `sum`. Step through and enter the final
+  value of `sum`.
+
+code: |
+  int main() {
+    int sum = 3 + 4;
+    return 0;
+  }
+
+variables: ["sum"]
+
+expectedTrace:
+  - line: 2
+    variable: "sum"
+    value: "7"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  RHS-first rule: compute 3 + 4 first (= 7), then write 7 into box
+  `sum`. The expression `3 + 4` is NOT stored — only the result is.
+  Final panel: { sum: 7 }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 11/30"
+
+commonMistakeIds: ["CM-arithmetic-error"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  First arithmetic in primer. RHS-first is the load-bearing rule for
+  every later trace.

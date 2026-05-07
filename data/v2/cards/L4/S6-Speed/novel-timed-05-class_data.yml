@@ -1,0 +1,47 @@
+id: "L4-S6-novel-timed-05"
+schemaVersion: "v2"
+atomId: "Q-10"
+qTags: 
+  - "Q4"
+stage: 6
+level: "L4"
+type: "SpeedDrillCard"
+stem: "[novel timed 5/10] 90s to write a full main() for class_data."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.6 S6 timed novel"
+commonMistakeIds: 
+  - "CM-Q4-time-pressure-wrong-arg"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "class_data: MAX=30, count=class_num, fn=read_classes, fields=code, topic, size, prompt=\"How many classes?\"."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 30;
+      class_data classes[MAX];
+      int class_num;
+  
+      cout << "How many classes? ";
+      cin >> class_num;
+  
+      read_classes(classes, class_num);
+  
+      for (int i = 0; i < class_num; i++)
+      {
+          cout << classes[i].code << ", ";
+          cout << classes[i].topic << ", ";
+          cout << classes[i].size << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 30"
+  - "class_data classes[MAX]"
+  - "int class_num"
+  - "read_classes(classes, class_num)"
+  - "i < class_num"
+  - "return 0"
+explanation: "90s novel-entity transfer. Tests true fluency: not memorisation, transfer."

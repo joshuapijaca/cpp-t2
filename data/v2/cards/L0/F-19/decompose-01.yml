@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-19 / DecomposeCard 01
+# Atom: Fixed-size array — index-vs-size confusion
+# =====================================================================
+id: "L0-F19-decomp-01"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  Pick the option that correctly describes the valid index range for
+  this array.
+
+code: |
+  const int SIZE = 5;
+  int arr[SIZE];
+
+question: |
+  Which indices are valid for `arr` (no out-of-bounds access)?
+
+options:
+  - label: "A"
+    text: "0, 1, 2, 3, 4 — five valid indices, ending at SIZE - 1."
+  - label: "B"
+    text: "1, 2, 3, 4, 5 — indices start at 1 (like everyday counting)."
+  - label: "C"
+    text: "0, 1, 2, 3, 4, 5 — six valid indices, including arr[SIZE]."
+  - label: "D"
+    text: "0 only — only the first slot is guaranteed to exist."
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. C++ arrays are zero-based: an array of SIZE = 5 has
+  indices 0 through SIZE - 1 = 4. Total: five slots.
+  B is wrong: C++ does not start at 1.
+  C is wrong: arr[5] is out of bounds — that slot does not exist.
+  This is the most common Q1 trace error (CM-F19b).
+  D is wrong: all five slots exist; only arr[5] and beyond are invalid.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
+
+commonMistakeIds: ["CM-F19b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Targets CM-F19b head-on. Distractors B (1-based) and C (off-by-one)
+  are both real novice mental models the student arrives with.

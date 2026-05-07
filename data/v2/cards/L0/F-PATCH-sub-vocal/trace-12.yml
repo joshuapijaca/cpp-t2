@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-24 / TraceCard 12 — sub-vocal predict-next-state
+# =====================================================================
+id: "L0-F24-trace-12"
+schemaVersion: "v2"
+atomId: "F-24"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Predict-first. Integer division — say the WHOLE quotient (drop the
+  remainder) out loud (or mouth it) BEFORE pressing [step].
+
+code: |
+  int main() {
+    int q = 13 / 4;
+    return 0;
+  }
+
+variables: ["q"]
+
+expectedTrace:
+  - line: 2
+    variable: "q"
+    value: "3"
+    output: null
+
+terminalOutput: []
+
+inputMode: "per-step"
+
+q4StopCondition: "Say the integer quotient BEFORE pressing [step]."
+
+teachMe: |
+  PREDICTION: "q becomes three" (NOT 3.25).
+  Verify: 13 / 4 with both ints is 3 (the .25 is dropped, NOT
+  rounded). Final panel: { q: 3 }.
+
+  Sub-vocalising "three" — instead of "three point two five" — is
+  what locks in the integer-division rule.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sub-vocal predict card 12/30"
+
+commonMistakeIds: ["CM-arithmetic-error"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Integer-division trap. Articulating "three" is what catches the
+  trap; the fingers tend to type 3.25 if the brain glides past.

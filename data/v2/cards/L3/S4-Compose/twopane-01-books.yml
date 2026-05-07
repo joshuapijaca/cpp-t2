@@ -1,0 +1,52 @@
+# =====================================================================
+# L3 / R-03 / FunctionWriteCard — two-pane Q2->Q3 books
+# =====================================================================
+id: "L3-R03-twopane-01"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Two-pane: Q2 struct shown left. Write the matching Q3 read_books.
+prompt: "Two-pane Q2 -> Q3."
+signatureHint: |
+  Given:
+  struct book_data
+  {
+    int pages;
+    double price;
+    double rating;
+  };
+  Write read_books.
+canonicalAnswer: |
+  void read_books(book_data &books[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Pages: ";
+      cin >> books[i].pages;
+      cout << "Price: ";
+      cin >> books[i].price;
+      cout << "Rating: ";
+      cin >> books[i].rating;
+    }
+  }
+keyChecks:
+  - "void read_books(book_data &books[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> books[i].pages;"
+  - "cin >> books[i].price;"
+  - "cin >> books[i].rating;"
+forbiddenTokens:
+  - "while"
+explanation: |
+  Read fields in struct-declaration order. Each field gets one prompt-pair.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

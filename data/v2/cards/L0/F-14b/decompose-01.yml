@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-14b / DecomposeCard 01
+# Atom: cin reads one whitespace-delimited token
+# =====================================================================
+id: "L0-F14b-decomp-01"
+schemaVersion: "v2"
+atomId: "F-14b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A user runs the program below and types `John Smith` then Enter.
+  Pick the option that best describes what is in box `name`.
+
+code: |
+  string name;
+  cin >> name;
+  cout << name << endl;
+
+question: |
+  After the line `cin >> name;` runs with input `John Smith`, what
+  is in box `name`?
+
+options:
+  - label: "A"
+    text: |
+      `name` holds "John Smith" — cin reads the entire line until
+      Enter.
+  - label: "B"
+    text: |
+      `name` holds "John" — cin >> on a string stops at the first
+      whitespace; "Smith" stays unread in the buffer.
+  - label: "C"
+    text: |
+      `name` is empty because the input has a space.
+  - label: "D"
+    text: |
+      The program crashes because cin cannot accept names with spaces.
+
+correctLabel: "B"
+
+explanation: |
+  B is correct. `cin >> name` reads characters until it hits
+  whitespace. The space between John and Smith ends the read. `name`
+  is "John". "Smith" remains in the buffer for the next cin.
+
+  A is wrong: that would require a different read function.
+  C is wrong: the leading word IS captured.
+  D is wrong: no crash; just truncation.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F14b-1"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Targets the multi-word truncation misconception.

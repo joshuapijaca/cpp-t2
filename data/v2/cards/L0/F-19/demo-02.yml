@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-19 / DemoCard 02
+# Atom: Fixed-size array — index range 0..N-1
+# =====================================================================
+id: "L0-F19-demo-02"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch: an array of size 5 has indices 0, 1, 2, 3, 4 — never 5.
+  The number in `[5]` is the SIZE, not the last index.
+
+whyOneLine: "An N-element array has indices 0..N-1 — `arr[N]` is out of bounds."
+
+demoCode: |
+  int arr[5];   // SIZE = 5, indices = 0,1,2,3,4
+
+  // valid:       arr[0]   arr[1]   arr[2]   arr[3]   arr[4]
+  // INVALID:     arr[5]   arr[-1]  arr[6]   arr[100]
+
+  // mental model: |0|1|2|3|4|     <- 5 boxes, numbered 0..4
+
+highlightTokens:
+  - "SIZE = 5"
+  - "indices = 0,1,2,3,4"
+  - "arr[0]"
+  - "arr[4]"
+  - "INVALID"
+  - "arr[5]"
+
+usedIn:
+  - "Q1 trace (loop `for (i=0; i<SIZE; i++)` reads arr[0]..arr[SIZE-1])"
+  - "Q3 read function (loop fills arr[0]..arr[N-1])"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
+
+commonMistakeIds: ["CM-F19b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Off-by-one immunisation. The mental model with 5 numbered boxes
+  blocks the most common F-19 trace error: writing the value of
+  arr[5] in a 5-element array.

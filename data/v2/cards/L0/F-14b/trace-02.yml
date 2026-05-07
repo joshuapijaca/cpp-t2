@@ -1,0 +1,65 @@
+# =====================================================================
+# L0 / F-14b / TraceCard 02
+# Atom: cin reads one whitespace-delimited token (multiple cins)
+# =====================================================================
+id: "L0-F14b-trace-02"
+schemaVersion: "v2"
+atomId: "F-14b"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. The user types two values separated by a space. Type
+  the final values into the panel.
+
+code: |
+  int main() {
+    int a, b;
+    cin >> a;
+    cin >> b;
+    cout << a + b << endl;
+    return 0;
+  }
+
+variables: ["a", "b"]
+
+userInputs: ["7", "3"]
+inputLabels: ["a", "b"]
+
+expectedTrace:
+  - line: 3
+    variable: "a"
+    value: "7"
+    output: null
+  - line: 4
+    variable: "b"
+    value: "3"
+    output: null
+  - line: 5
+    variable: ""
+    value: ""
+    output: "10"
+
+terminalOutput: ["10"]
+
+inputMode: "per-step"
+
+teachMe: |
+  - Line 3: cin reads 7, stores in a.
+  - Line 4: cin reads 3, stores in b.
+  - Line 5: a + b = 7 + 3 = 10. Print 10.
+
+  Final: a=7, b=3. Terminal: 10.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec F-14b trace primer — two cins"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Two-cin trace.

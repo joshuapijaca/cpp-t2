@@ -1,0 +1,82 @@
+# =====================================================================
+# L0 / F-05 / WalkthroughCard 01
+# Atom: using namespace std;
+# Phase B: "Skeleton scaffolding"
+# =====================================================================
+id: "L0-F05-walk-01"
+schemaVersion: "v2"
+atomId: "F-05"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  After F-04 brought iostream in, every name from the standard library
+  technically lives inside a *namespace* called `std`. Without further
+  setup you would have to type `std::cout` everywhere. The line
+  `using namespace std;` lifts that prefix off — `cout` alone now
+  works. SIT102 uses this style. Walk through these two equivalent
+  programs side-by-side.
+
+levelLabel: "L0 Foundation · Phase B · F-05"
+
+fullCode: |
+  // ===  WITH the using directive (SIT102 style) ===
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << "hi" << endl;
+    return 0;
+  }
+
+  // ===  WITHOUT the using directive (also valid) ===
+  #include <iostream>
+  int main() {
+    std::cout << "hi" << std::endl;
+    return 0;
+  }
+
+steps:
+  - line: 2
+    code: '#include <iostream>'
+    annotation: |
+      F-04. Brings the names in. After this, every standard-library
+      name exists, but technically inside `std::`.
+    atomIds: ["F-04"]
+  - line: 3
+    code: 'using namespace std;'
+    annotation: |
+      THIS line. It says "I want every name from `std` to be usable
+      without the `std::` prefix in this file." After it, you write
+      `cout` instead of `std::cout`. The semicolon at the end is
+      required — this is a normal C++ statement.
+    atomIds: ["F-05", "F-07"]
+  - line: 5
+    code: '  cout << "hi" << endl;'
+    annotation: |
+      Inside main, plain `cout` and plain `endl` work. No `std::`. This
+      is the form the SIT102 worked examples (and Saloni's seminar
+      walk-through) use.
+    atomIds: ["F-05"]
+  - line: 11
+    code: '  std::cout << "hi" << std::endl;'
+    annotation: |
+      The same line WITHOUT the using directive: every reference to a
+      std name must be written `std::name`. This is fully legal C++,
+      but verbose; SIT102 marking expects the using-namespace style.
+    atomIds: ["F-05"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md (using namespace std lets you write cout instead of std::cout)"
+
+commonMistakeIds: ["CM-F05a", "CM-F05b", "CM-F05c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Side-by-side walkthrough makes the prefix-lifting tangible. The
+  with/without contrast also primes the student to recognise std::
+  in any third-party code they encounter later, while keeping the
+  SIT102 idiomatic style as their default.

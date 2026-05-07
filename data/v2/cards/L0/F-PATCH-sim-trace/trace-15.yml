@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-23 / TraceCard 15 — sim-trace primer
+# Atom: Sim-trace primer (variables-panel meta-skill)
+# Purpose: Modulo
+# =====================================================================
+id: "L0-F23-trace-15"
+schemaVersion: "v2"
+atomId: "F-23"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Step through. The `%` operator returns the remainder of integer
+  division. Final value of `r`?
+
+code: |
+  int main() {
+    int r = 17 % 5;
+    return 0;
+  }
+
+variables: ["r"]
+
+expectedTrace:
+  - line: 2
+    variable: "r"
+    value: "2"
+    output: null
+
+terminalOutput: []
+
+inputMode: "final-only"
+
+teachMe: |
+  17 / 5 is 3 remainder 2, so 17 % 5 = 2. Final panel: { r: 2 }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sim-trace primer card 15/30"
+
+commonMistakeIds: ["CM-arithmetic-error"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Modulo introduction. Crucial for Q1 patterns like even/odd checks.

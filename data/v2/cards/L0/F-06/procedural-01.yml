@@ -1,0 +1,73 @@
+# =====================================================================
+# L0 / F-06 / ProceduralCard (procedural-tagged) 01
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-proc-01"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Build a complete program that prints the number 5 once and exits
+  successfully. Use the canonical Q4 preamble plus `int main()` plus
+  `return 0;`.
+
+section: "L0 · F-06 · procedural — print 5 with full skeleton"
+
+prompt: |
+  Write a complete C++T2 program that prints `5` (followed by a
+  newline) to the terminal and exits with status 0.
+
+expectedAnswer: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << 5 << endl;
+    return 0;
+  }
+
+keyChecks:
+  - "#include"
+  - "<iostream>"
+  - "using namespace std;"
+  - "int main()"
+  - "cout << 5 << endl;"
+  - "return 0;"
+
+forbiddenTokens:
+  - "void main"
+  - "iostream.h"
+
+variants:
+  - prompt: "Write a complete program that prints 8 once."
+    expectedAnswer: |
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << 8 << endl;
+        return 0;
+      }
+  - prompt: "Write a complete program that prints the string \"hi\" once."
+    expectedAnswer: |
+      #include <iostream>
+      using namespace std;
+      int main() {
+        cout << "hi" << endl;
+        return 0;
+      }
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-06 procedural — first end-to-end Q4-style answer"
+
+commonMistakeIds: ["CM-F06a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Procedural drill 1: end-to-end mini-Q4. The student builds the
+  full skeleton + a one-line body. Variants ratchet up the body
+  but keep the skeleton fixed.

@@ -1,0 +1,72 @@
+# =====================================================================
+# L0 / F-06 / DecomposeCard 02
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-decomp-02"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "DecomposeCard"
+
+stem: |
+  A student writes the program below and the marker takes 1 mark off
+  for "missing return 0;". Where exactly should `return 0;` go?
+
+code: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    int x = 5;
+    cout << x << endl;
+  }
+
+question: |
+  Where does `return 0;` belong?
+
+options:
+  - label: "A"
+    text: |
+      As the last statement INSIDE the function body: after the cout
+      and BEFORE the closing brace `}` on its own line.
+  - label: "B"
+    text: |
+      OUTSIDE the closing brace, on its own line at the very end of
+      the file (after the `}`).
+  - label: "C"
+    text: |
+      As the very FIRST statement inside main, immediately after
+      `int main() {`.
+  - label: "D"
+    text: |
+      Anywhere — `return 0;` can sit on any line; the compiler will
+      reorder statements at compile time.
+
+correctLabel: "A"
+
+explanation: |
+  A is correct. `return 0;` is the function's exit statement. It
+  belongs as the LAST line of the function body — after every other
+  statement, BEFORE the closing brace.
+
+  B is wrong: outside the brace, `return` is not in any function and
+  the compiler errors with "return outside function".
+  C is wrong: putting `return 0;` first means main exits before any
+  cout runs; the program prints nothing.
+  D is wrong: the compiler does not reorder statements — order is
+  the entire point of imperative code.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md + Saloni's seminar walk-through"
+
+commonMistakeIds: ["CM-F06a", "CM-F06c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Position-of-return decompose. Targets CM-F06a (forgets return) and
+  CM-F06c (return outside the brace). Distractor C catches the
+  "puts return first" misunderstanding (return makes the function
+  exit, so any code after it does not run).

@@ -1,0 +1,47 @@
+# =====================================================================
+# L0 / F-15 / ProceduralCard 02 (μWrite)
+# Atom: Prompt-then-read pair (struct field)
+# =====================================================================
+id: "L0-F15-proc-02"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type a prompt-pair that reads into a struct field.
+
+section: "F-15 prompt-pair drills (struct field)"
+
+prompt: |
+  Assume `desk_data desk;` is declared. Write the two lines that
+  prompt with `desk_id: ` and read into `desk.desk_id`.
+
+expectedAnswer: |
+  cout << "desk_id: ";
+  cin >> desk.desk_id;
+
+keyChecks: ['cout << "desk_id: ";', "cin >> desk.desk_id;"]
+
+variants:
+  - prompt: |
+      Assume `desk_data desk;` is declared. Write the prompt-pair
+      that reads into `desk.price`.
+    expectedAnswer: |
+      cout << "price: ";
+      cin >> desk.price;
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Practice test 2026 T1: read into desk.desk_id and desk.price"
+
+commonMistakeIds: ["CM-F15a", "CM-F15c"]
+
+notes: |
+  Q3 read-into-struct-field pattern.

@@ -1,0 +1,109 @@
+SIT102 Introduction to Programming  P2 Building and Running
+
+First steps: Building and Running
+
+Before you start to create your own programs, you need to learn how they are
+built and run. In this task, your aim is to learn how to setup your computer with
+the tools to build software, and how to use these to build and run programs from
+supplied code.
+Key aspects include:
+
+    · Starting to see how to picture a program, using the digital reality metaphor.
+
+Show us that you can:
+
+         · Build and run C# programs, when given the program's code:
+             o Use the terminal to create a folder for the project
+             o Create the project using the dotnet tool and add packages
+             o Edit the code in VS Code
+             o Build and run the program from the terminal in VS Code
+
+         · Build and run C/C++ programs, when given the code:
+             o Create a cpp file to store the code
+             o Edit the code in VS Code
+             o Compile and run at the terminal in VS Code
+
+         · Capture your learning in the Learning Journey section. Include evidence
+             (screenshots) of your progress, and your thoughts on what you
+             accomplished, what challenges you faced, and what you found
+             interesting.
+
+         · Provide sincere reflections in the Reflection section. Don't just tell us
+             what you did, tell us what you learned. Reflections that are brief or
+             shallow may not be accepted.
+
+Complete the following:
+
+         1. Download and open the template from OnTrack.
+
+                                                          Page 1 of 3
+SIT102 Introduction to Programming  P2 Building and Running
+
+         2. Start by reviewing the steps in the Installation overview within the V1
+             Programmers Guide to get VS Code and SplashKit installed. Make sure
+             to capture this in your learning journey.
+
+Problems with installation?
+
+Visit the SIT102 Teams channel where there is a Setting-Up Discussions channel ­
+in there is a handy video to watch and a troubleshooting guide.
+
+         3. Follow the Guided Tour in Chapter 3 Building Programs ­ make sure to
+             add this to your learning journey.
+
+         4. You should have enough to submit... but if you want to explore this
+             further, skim over the first few chapters for context, and to see more
+             about using the terminal.
+                  a. Part 0: First Steps ­ get an idea of how the material is organised.
+                  b. Part 0 - Chapter 1: Digital Realities ­ think about what programs
+                      are.
+                  c. Part 0 - Chapter 2: Computer Use ­ explore terminal commands
+                      in depth.
+                  d. Part 0 - Chapter 3: Building Programs ­ read about what is
+                      happening with compiling and running.
+
+Feeling a bit lost?
+
+No problem at all! Your tutors are experts and would love to assist. Please reach
+out during your seminars (you can attend as many seminars as you like) or write
+a message on the SIT102 Teams channel.
+
+         5. Complete your submission ­ complete the summary and related
+             activities in the template.
+
+         6. Upload to OnTrack and engage with feedback to get this complete!
+
+                                    Page 2 of 3
+SIT102 Introduction to Programming  P2 Building and Running
+
+Available Resources
+
+We have many resources to assist in your learning journey ­ if you are ever unsure
+then please reach out to us, we are always happy to help.
+
+    · The SIT102 Teams channel ­ an active learning resource with weekly
+         announcements from the Unit Chair, and regular discussions/assistance
+         from the SIT102 teaching team and students.
+
+    · Seminars ­ you can attend both on-campus and online sessions, and join
+         as many as you like each week. Your tutors will provide demonstrations and
+         assistance to help guide your learning.
+
+    · HelpHubs ­ there are sessions hosted nearly everyday, both on-campus
+         and online providing one-on-one assistance from a tutor. Please join as
+         many as you like.
+
+    · PASS sessions ­ running every week, these sessions are run like a study
+         group, hosted by a past SIT102 student.
+
+For more information about the above resources please speak to your tutor or
+visit the SIT102 Teams channel.
+
+Caution: Acceptable use of Artificial Intelligence
+
+It is acceptable to use AI to improve your style, as you would be using a spell
+checker to improve your spelling. Do not ask an AI to write the summary for you:
+this is cheating because it does not demonstrate that you understand anything.
+
+                                    Page 3 of 3
+

@@ -1,0 +1,26 @@
+id: CM-bitwise-amp
+name: "Student treats `&` as bitwise-AND in pass-by-reference signature"
+description: |
+  In `void who_am_i(stat_double &data)`, the `&` is a reference modifier.
+  Students misread it as bitwise-AND ("data AND something"), invent extra
+  parameters, or skip the modifier entirely. Affects how they trace
+  mutations: they fail to realise data is the caller's struct.
+whyItHappens: |
+  In other contexts `&` IS bitwise-AND. C++ overloads the symbol: in a
+  declaration after a type, `&` means reference; as a binary operator
+  between expressions, `&` is bitwise. Position-dependent semantics
+  confuse novices.
+immunizationStrategy: |
+  1. MCQ: "In `int &x`, what does `&` mean? (reference, not bitwise)"
+  2. SpotError: signature with missing `&`; mutations don't reach caller.
+  3. Cloze: blank for the `&` in a signature; type it.
+  4. Decompose: classify each `&` in a code listing as reference vs bitwise.
+  5. Demo card: side-by-side reference (`int &x`) vs bitwise (`x & y`).
+  6. Trace card showing identical body but `&` removed -> caller sees no change.
+examImpact: medium
+atomDependencies: [F-22b, F-22c]
+qTracks: [Q1, Q3]
+relatedCMs: [CM-missing-amp-sig, CM-amp-at-call-site]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-3 — pass-by-reference syntax"

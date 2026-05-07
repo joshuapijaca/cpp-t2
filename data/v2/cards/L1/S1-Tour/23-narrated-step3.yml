@@ -1,0 +1,48 @@
+id: "L1-S1-tour-23-narrated-step3"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "WalkthroughCard"
+
+stem: |
+  Narrated trace 3/6: first iteration body. i=0. Read
+  data.numbers[0]=2.4. Test cond. True. Update mystery. Watch the
+  values flow.
+
+levelLabel: "L1 Q1 hand-execute · S1 Tour · narrated trace step 3"
+
+fullCode: |
+  if (data.numbers[i] > 0) {
+    data.mystery = data.mystery + data.numbers[i];
+  }
+
+steps:
+  - line: 1
+    code: 'i = 0; data.numbers[0] = 2.4'
+    annotation: |
+      Look up data.numbers[i] with i=0. That cell holds 2.4.
+    atomIds: ["T-05"]
+  - line: 2
+    code: '2.4 > 0 ? -> true.'
+    annotation: |
+      Cond: 2.4 > 0 evaluates to true. Enter the if body.
+    atomIds: ["T-05"]
+  - line: 3
+    code: 'data.mystery = data.mystery + data.numbers[i];'
+    annotation: |
+      RHS first: 0.0 + 2.4 = 2.4. Store into mystery.
+      mystery: ~-0.9~ ~0.0~ 2.4
+    atomIds: ["T-05"]
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — i=0 iteration"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Narrated trace step 3: first iteration body.
+authoringStatus: "DRAFT"

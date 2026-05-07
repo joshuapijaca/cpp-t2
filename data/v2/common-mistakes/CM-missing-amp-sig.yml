@@ -1,0 +1,26 @@
+id: CM-missing-amp-sig
+name: "Student omits `&` in pass-by-reference signature"
+description: |
+  In `void read_<entity>(<entity>_data &list[], int number_to_read)`, the
+  `&` makes the array pass-by-reference. Students drop `&`, the function
+  receives a copy of (a decayed pointer to) the array, and any reads
+  filled into `list[i]` may not propagate back. Marked wrong despite
+  apparent compile success in some contexts.
+whyItHappens: |
+  Bitwise-AND confusion (CM-bitwise-amp's sibling). Students see `&` and
+  treat it as decoration. Q3 marking treats missing `&` as functionally
+  wrong.
+immunizationStrategy: |
+  1. SpotError: read fn signature missing `&`; flag.
+  2. MCQ: "Why does the array param need `&`? (mutations propagate)"
+  3. Cloze: blank for the `&` in the signature.
+  4. WriteCard with key-check requiring `&`.
+  5. Demo card: with-& mutations vs without-& copy semantics.
+  6. Decompose: signature anatomy: type, &, name, [], comma, etc.
+examImpact: high
+atomDependencies: [F-22b, F-22c]
+qTracks: [Q3]
+relatedCMs: [CM-bitwise-amp, CM-amp-at-call-site]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §5.5 Q3 Common Errors — Missing `&` in signature HIGH"

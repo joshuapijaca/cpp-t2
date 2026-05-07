@@ -1,0 +1,50 @@
+# =====================================================================
+# L0 / F-08 / MCQCard 01
+# Atom: Block delimiters: { and }
+# =====================================================================
+id: "L0-F08-mcq-01"
+schemaVersion: "v2"
+atomId: "F-08"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  What is the rule about the COUNT of `{` and `}` characters in a
+  valid C++ source file? Pick the option that captures the rule
+  the compiler actually enforces.
+
+correct: "Every `{` must have exactly one matching `}` later in the file. The total count of `{` and `}` characters must therefore be equal."
+
+distractors:
+  - "More `{` than `}` is acceptable so long as the program ends with a return statement."
+  - "Curly braces are optional; they make the code prettier but the compiler ignores them."
+  - "A C++ file should have at least one `{` for every line of code, regardless of pairing."
+
+explanation: |
+  Every `{` opens a block; every `}` closes one. They come in
+  matched pairs. Whatever number of `{` characters a file has, it
+  must have the same number of `}` characters — this is enforced
+  by the compiler.
+
+  Distractor 1 invents a fictional rule. Mismatched braces are an
+  immediate error.
+  Distractor 2 is wrong: braces are required syntax for blocks
+  (struct field lists, function bodies). Without them the
+  compiler cannot tell where a block starts and ends.
+  Distractor 3 is fictional: braces are about blocks, not about
+  per-line decoration.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"
+
+commonMistakeIds: ["CM-F08a", "CM-F08b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Concept-MCQ on brace pairing. Establishes the count-the-braces
+  rule that drives every later debugging move when a "expected }"
+  error appears.

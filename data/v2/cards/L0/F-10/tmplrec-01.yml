@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-10 / TemplateRecallCard 01
+# Atom: Primitive types — full file skeleton with string include
+# =====================================================================
+id: "L0-F10-tmplrec-01"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TemplateRecallCard"
+
+stem: |
+  Recall the canonical SIT102 file header for any program that uses
+  strings. Fill the template with the exact two include lines and the
+  using-namespace line.
+
+prompt: |
+  Type the three lines that always appear at the top of a SIT102 main
+  program that uses strings. Order: iostream include, string include,
+  using namespace.
+
+template: |
+  #include <_____>
+  #include <_____>
+  using namespace _____;
+
+canonicalAnswer: |
+  #include <iostream>
+  #include <string>
+  using namespace std;
+
+keyChecks: ["#include <iostream>", "#include <string>", "using namespace std;"]
+
+forbiddenTokens: []
+
+explanation: |
+  Every SIT102 program that uses strings has these three lines at the
+  top. `<iostream>` for cout/cin, `<string>` for the string type,
+  `using namespace std;` so the names appear without the `std::`
+  prefix. Memorise the order; markers expect this header.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/0-pano/5-terminal-functions"
+
+commonMistakeIds: ["CM-F10b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Boilerplate recall. The file header is the same for every Test 2
+  question that involves strings, so this template runs hundreds of
+  times during the exam.

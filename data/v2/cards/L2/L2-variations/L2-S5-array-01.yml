@@ -1,0 +1,28 @@
+
+id: "L2-S5-array-01"
+schemaVersion: "v2"
+atomId: "L-25"
+qTags: ["Q2"]
+stage: 5
+level: "L2"
+type: "StructWriteCard"
+stem: "Q2 array-field peek #1. A struct can hold a fixed-size array as one of its fields, written `type name[SIZE];`."
+prompt: "stat_double for Q1: an array of `numbers[SIZE]` doubles plus a `mystery` double."
+canonicalAnswer: |
+  struct stat_double
+  {
+      double numbers[SIZE];
+      double mystery;
+  };
+requiredFields: ["numbers","mystery"]
+keyChecks: ["struct stat_double","};","["]
+forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
+explanation: "Q1 uses an array-field struct (`stat_double { double numbers[SIZE]; double mystery; }`). The pattern: `type field_name[SIZE];`."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.6 S5 VARIATIONS"
+commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Q1-shape preview through Q2 lens."

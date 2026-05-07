@@ -1,0 +1,20 @@
+id: Q-01
+name: "L4 Q4 Template: 18-line main() skeleton recall"
+level: L4
+teaches: "Verbatim recall of the 18-line main() skeleton: int main(), const int MAX, struct array decl, int count, cout prompt + cin, fn call without &, for loop bound by count, chained cout with endl, return 0. TypeLine + OrderLines + FillSlot drills."
+prereqs: [Q-00]
+usedByQs: [Q4]
+cardCountTarget: 50
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt §main — full 18-line main() canonical"
+  - kind: v2
+    ref: "Test 2 V2.0 — same 18-line skeleton, different MAX/entity"
+commonMistakes:
+  - CM-Q4-skeleton-line-order
+  - CM-Q4-missing-const
+  - CM-Q4-missing-return
+notes:
+  cardMix: { templateRecall: 50 }
+  stage: S2
+  exposureClass: medium

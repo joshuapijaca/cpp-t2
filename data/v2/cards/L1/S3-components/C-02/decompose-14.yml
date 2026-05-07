@@ -1,0 +1,37 @@
+id: L1-S3-C-02-decomp-13
+schemaVersion: v2
+atomId: C-02
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: DecomposeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-02
+commonMistakeIds:
+  - CM-C02a
+  - CM-C02b
+stem: Identify what the inner braces enclose.
+code: |-
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+  stat_double d = { {-1, -2, -3, -4, -5}, 0 };
+question: What is the inner brace pair enclosing?
+options:
+  - label: A
+    text: The 5 array values, mapped to numbers[0]..numbers[4].
+  - label: B
+    text: The single mystery value.
+  - label: C
+    text: A nested anonymous struct with 5 fields.
+  - label: D
+    text: A discarded comment block.
+correctLabel: A
+explanation: Inner braces = the array sub-init; each value lands in numbers[0]..numbers[4] in order.
+

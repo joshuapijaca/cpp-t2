@@ -1,0 +1,94 @@
+# =====================================================================
+# L0 / F-07 / ProceduralCard (procedural-tagged) 01
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-proc-01"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q2", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  End-to-end repair drill. The program below has SEVERAL different
+  semicolon errors — some missing, some misplaced. Repair every
+  one. Type the entire repaired program from the include line to
+  the closing brace of main.
+
+section: "L0 · F-07 · procedural — multi-error repair"
+
+prompt: |
+  Original (multiple semicolon errors):
+
+  #include <iostream>;
+  using namespace std
+  struct Point {
+    int x
+    int y;
+  }
+  int main() {
+    Point p
+    p.x = 3
+    cout << p.x << endl
+    return 0
+  }
+
+  Repair every error. Type the entire fixed program.
+
+expectedAnswer: |
+  #include <iostream>
+  using namespace std;
+  struct Point {
+    int x;
+    int y;
+  };
+  int main() {
+    Point p;
+    p.x = 3;
+    cout << p.x << endl;
+    return 0;
+  }
+
+keyChecks:
+  - "#include <iostream>"
+  - "using namespace std;"
+  - "struct Point {"
+  - "int x;"
+  - "int y;"
+  - "};"
+  - "int main()"
+  - "Point p;"
+  - "p.x = 3;"
+  - "cout << p.x << endl;"
+  - "return 0;"
+
+variants:
+  - prompt: "Same kind of multi-error repair on a struct Cell { int row; int col; }; with main printing one field."
+    expectedAnswer: |
+      #include <iostream>
+      using namespace std;
+      struct Cell {
+        int row;
+        int col;
+      };
+      int main() {
+        Cell c;
+        c.row = 4;
+        cout << c.row << endl;
+        return 0;
+      }
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-07 procedural — full-program semicolon repair"
+
+commonMistakeIds: ["CM-F07a", "CM-F07b", "CM-F07c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Procedural drill: every F-07 error type in one program. The
+  student must remove the spurious `;` after `#include`, add
+  semicolons to every field and statement, and add the canonical
+  `};` to the struct close. Highest-difficulty F-07 card.

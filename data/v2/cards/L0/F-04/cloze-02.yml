@@ -1,0 +1,45 @@
+# =====================================================================
+# L0 / F-04 / ClozeCard 02
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-cloze-02"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill the blank with the header name. Use angle brackets exactly as
+  they should appear in the source.
+
+code: |
+  #include ____
+  using namespace std;
+  int main() {
+    cout << 1 << endl;
+    return 0;
+  }
+
+clozeSentence: |
+  #include ____
+
+answer: "<iostream>"
+
+explanation: |
+  The header name is `iostream`, written between angle brackets:
+  `<iostream>`. Standard-library headers always use angle brackets
+  (not double quotes) and never carry a `.h` suffix in modern C++.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F04c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Targets the "uses double quotes" mistake (CM-F04c). The student
+  has to type the angle brackets and the bare name `iostream`.

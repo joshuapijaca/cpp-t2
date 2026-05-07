@@ -1,0 +1,81 @@
+# =====================================================================
+# L0 / F-21 / TraceCard 04 — accumulator pattern
+# =====================================================================
+id: "L0-F21-trace-04"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Hand-execute. This is the EXACT accumulator pattern Test 2 Q1
+  uses: a scalar field (`mystery`) accumulates values from selected
+  array slots. Fill in `mystery` (final) and the terminal output.
+
+code: |
+  int main() {
+    stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, 0.0 };
+    d.mystery = d.mystery + d.numbers[0];
+    d.mystery = d.mystery + d.numbers[3];
+    d.mystery = d.mystery + d.numbers[4];
+    cout << d.mystery << endl;
+    return 0;
+  }
+
+variables: ["d.mystery"]
+
+expectedTrace:
+  - line: 2
+    variable: "d.mystery"
+    value: "0"
+    output: null
+  - line: 3
+    variable: "d.mystery"
+    value: "2.4"
+    output: null
+  - line: 4
+    variable: "d.mystery"
+    value: "5.4"
+    output: null
+  - line: 5
+    variable: "d.mystery"
+    value: "7.4"
+    output: null
+  - line: 6
+    variable: ""
+    value: ""
+    output: "7.4"
+
+terminalOutput: ["7.4"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Step-by-step (RHS first, write LHS):
+  - Line 2: d.mystery = 0 (init).
+  - Line 3: d.mystery = 0 + 2.4 = 2.4.   d.numbers[0] read.
+  - Line 4: d.mystery = 2.4 + 3.0 = 5.4. d.numbers[3] read.
+  - Line 5: d.mystery = 5.4 + 2.0 = 7.4. d.numbers[4] read.
+  - Line 6: print 7.4.
+
+  Final: d.mystery = 7.4.
+
+  Trap: this is the Q1 accumulator pattern. Each line reads a
+  different slot of d.numbers but writes to the SAME field
+  d.mystery. The OLD d.mystery is replaced each line — use the
+  current value, not the initial 0.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — Q1 accumulator pattern (selective sum into mystery)"
+
+commonMistakeIds: ["CM-F21a", "CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Highest-stakes F-21 trace. Mirrors the Q1 accumulator body almost
+  verbatim. Drills both composite-token reads and the
+  reassign-with-current-value pattern.

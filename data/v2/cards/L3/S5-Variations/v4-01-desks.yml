@@ -1,0 +1,45 @@
+# =====================================================================
+# L3 / R-04 / FunctionWriteCard — 4-field desks
+# =====================================================================
+id: "L3-R04-v4-01"
+schemaVersion: "v2"
+atomId: "R-04"
+qTags: ["Q3"]
+stage: 5
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Variation: desks with 4 fields (3 original + extra).
+prompt: "4-field variation"
+canonicalAnswer: |
+  void read_desks(desk_data &desks[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Width: ";
+      cin >> desks[i].width;
+      cout << "Height: ";
+      cin >> desks[i].height;
+      cout << "Depth: ";
+      cin >> desks[i].depth;
+      cout << "Extra: ";
+      cin >> desks[i].extra;
+    }
+  }
+keyChecks:
+  - "void read_desks(desk_data &desks[], int number_to_read)"
+  - "cin >> desks[i].width;"
+  - "cin >> desks[i].height;"
+  - "cin >> desks[i].depth;"
+  - "cin >> desks[i].extra;"
+forbiddenTokens:
+  - "while"
+explanation: |
+  4 fields = 4 prompt-pairs in struct-declaration order.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

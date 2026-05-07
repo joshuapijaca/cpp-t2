@@ -1,0 +1,25 @@
+id: L1-S3-C-02-mcq-12
+schemaVersion: v2
+atomId: C-02
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-02
+commonMistakeIds:
+  - CM-C02a
+  - CM-C02b
+stem: In `stat_double d = { {5, 4, 3, 2, 1}, 0 };`, what does the *inner* brace pair enclose?
+correct: The 5 elements that fill numbers[0]..numbers[4].
+distractors:
+  - A nested struct definition with 5 fields.
+  - A function-style cast that converts the doubles into one value.
+  - A list of arguments passed to the constructor of stat_double.
+explanation: 'Inner braces are the **array brace-init**: 5 doubles map to numbers[0]..numbers[4] in order.'
+

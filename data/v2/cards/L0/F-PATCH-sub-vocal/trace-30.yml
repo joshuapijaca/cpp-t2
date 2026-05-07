@@ -1,0 +1,97 @@
+# =====================================================================
+# L0 / F-24 / TraceCard 30 — sub-vocal predict-next-state (capstone)
+# =====================================================================
+id: "L0-F24-trace-30"
+schemaVersion: "v2"
+atomId: "F-24"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  CAPSTONE. Three boxes, swap-pattern, two prints. For EVERY line,
+  speak the next value (or printed line) out loud (or mouth it)
+  BEFORE pressing [step]. No silent skipping.
+
+code: |
+  int main() {
+    int a = 1;
+    int b = 2;
+    int t = a;
+    a = b;
+    b = t;
+    cout << a << endl;
+    cout << b << endl;
+    return 0;
+  }
+
+variables: ["a", "b", "t"]
+
+expectedTrace:
+  - line: 2
+    variable: "a"
+    value: "1"
+    output: null
+  - line: 3
+    variable: "b"
+    value: "2"
+    output: null
+  - line: 4
+    variable: "t"
+    value: "1"
+    output: null
+  - line: 5
+    variable: "a"
+    value: "2"
+    output: null
+  - line: 6
+    variable: "b"
+    value: "1"
+    output: null
+  - line: 7
+    variable: ""
+    value: ""
+    output: "2"
+  - line: 8
+    variable: ""
+    value: ""
+    output: "1"
+
+terminalOutput: ["2", "1"]
+
+inputMode: "per-step"
+
+q4StopCondition: "Articulate the next value BEFORE pressing [step]."
+
+teachMe: |
+  This is the swap idiom. Walk it slowly:
+  - line 2: a becomes one
+  - line 3: b becomes two
+  - line 4: t becomes one (copy of a)
+  - line 5: a becomes two (copy of b)
+  - line 6: b becomes one (copy of t = old a)
+  - line 7: terminal receives two (current a)
+  - line 8: terminal receives one (current b)
+  Final panel: { a: 2, b: 1, t: 1 }.
+  Terminal: line 1 = 2, line 2 = 1.
+
+  WHY THE TEMP: Without `t`, line 5 would overwrite a, and line 6
+  would copy the new a (= 2) back into b — both boxes would end
+  up at 2 instead of swapping.
+
+  Sub-vocalising at each line is the only way to keep the three
+  boxes straight.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sub-vocal predict card 30/30 (capstone)"
+
+commonMistakeIds: ["CM-uses-old-value-after-update"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Capstone uses the swap idiom — 3 boxes, 5 writes, 2 prints.
+  Sub-vocal articulation is the ONLY discipline that gets this right
+  on the first attempt.

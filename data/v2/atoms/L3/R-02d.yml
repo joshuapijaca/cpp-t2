@@ -1,0 +1,18 @@
+id: R-02d
+name: "Q3 Components Block D: prompt-then-read pair"
+level: L3
+teaches: "Prompt-pair pattern: cout << \"Field prompt: \"; cin >> list[i].field; — always paired, prompt before cin, single line each. Defends prompt-outside-loop and skipped-prompt."
+prereqs: [F-15]
+usedByQs: [Q3]
+cardCountTarget: 20
+parentAtom: R-02
+source:
+  - kind: v2
+    ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#5.3 Block D — Prompt-then-read pair"
+commonMistakes:
+  - CM-Q3-prompt-outside-loop
+  - CM-Q3-skipped-prompt
+notes:
+  cardMix: { write: 12, decompose: 5, mcq: 3 }
+  stage: S3
+  exposureClass: medium

@@ -1,0 +1,29 @@
+
+id: "L2-S4-compose-51-tv_show_data"
+schemaVersion: "v2"
+atomId: "L-24"
+qTags: ["Q2"]
+stage: 4
+level: "L2"
+type: "StructWriteCard"
+stem: "Q2 Compose #51. From the English description, write the full struct: name, opening brace, fields one per line, closing `};`."
+prompt: "COLD START: a TV show has a title, a season count, and a finale flag. Pick types yourself."
+canonicalAnswer: |
+  struct tv_show_data
+  {
+      string title;
+      int season_count;
+      bool is_finished;
+  };
+requiredFields: ["title","season_count","is_finished"]
+keyChecks: ["struct tv_show_data","};","string title;","int season_count;","bool is_finished;"]
+forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
+explanation: "tv_show_data captures 3 attributes (title, season_count, is_finished). Type-by-noun: title→string, season_count→int, is_finished→bool."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.5 S4 COMPOSE"
+commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "S4 full-compose card."

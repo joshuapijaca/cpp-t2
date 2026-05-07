@@ -1,0 +1,29 @@
+id: L1-S3-C-14-mcq-12
+schemaVersion: v2
+atomId: C-14
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-14
+commonMistakeIds:
+  - CM-C14a
+  - CM-C14b
+stem: >-
+  Given `stat_double data = { {5, 4, 3, 2, 1}, 0 };` and i = 2, evaluate `data.numbers[i]`. (Note:
+  NOT the value of i.)
+correct: '3'
+distractors:
+  - '2'
+  - '2'
+  - '0'
+explanation: >-
+  data.numbers[i] dereferences index i of the array. With i=2, that is numbers[2] = 3. Mistake to
+  avoid: returning i (=2) instead of the cell value.
+

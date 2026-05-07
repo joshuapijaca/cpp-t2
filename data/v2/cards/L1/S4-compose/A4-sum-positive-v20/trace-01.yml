@@ -1,0 +1,114 @@
+# =====================================================================
+# L1 / sum-positive V2.0 / TraceCard 01
+# REAL V2.0 EXAM STIMULUS — verbose strikethrough notation
+# =====================================================================
+id: "L1-A4v20-trace-01"
+schemaVersion: "v2"
+atomId: "A4"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "TraceCard"
+
+stem: "Hand-execute sum-positive on stat_double { numbers = {2.4, -3.7, -1.7, 3.0, 2.0}, mystery = -0.9 }. EXACT V2.0 EXAM STIMULUS. Use strikethrough notation in the mystery cell as each new value overwrites the previous one."
+
+code: |
+  const int SIZE = 5;
+
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+  int main() {
+    stat_double data = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+    data.mystery = 0.0;
+    for (int i = 0; i < SIZE; i = i + 1) {
+      if (data.numbers[i] > 0) {
+        data.mystery = data.mystery + data.numbers[i];
+      }
+    }
+    cout << data.mystery << endl;
+    return 0;
+  }
+
+variables: ["i", "data.mystery"]
+
+expectedTrace:
+  - line: 9
+    variable: "data.mystery"
+    value: "-0.9"
+    output: null
+  - line: 10
+    variable: "data.mystery"
+    value: "0.0"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "0"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "2.4"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "1"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "2"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "3"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "5.4"
+    output: null
+  - line: 11
+    variable: "i"
+    value: "4"
+    output: null
+  - line: 13
+    variable: "data.mystery"
+    value: "7.4"
+    output: null
+  - line: 17
+    variable: ""
+    value: ""
+    output: "7.4"
+
+terminalOutput: ["7.4"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Strikethrough convention (verbose):
+    data.mystery cell trail:
+      ~~-0.9~~ ~~0.0~~ ~~2.4~~ ~~5.4~~ 7.4
+    Each new value strikes the previous live value.
+    Only the rightmost (unstruck) value is the live one.
+
+  Step-by-step (i, data.mystery, action):
+    init brace:    mystery = -0.9
+    line 10:       mystery = 0.0   (resets)
+    i = 0, 2.4 > 0  -> mystery = 0.0 + 2.4 = 2.4
+    i = 1, -3.7 > 0 false, skip
+    i = 2, -1.7 > 0 false, skip
+    i = 3, 3.0 > 0  -> mystery = 2.4 + 3.0 = 5.4
+    i = 4, 2.0 > 0  -> mystery = 5.4 + 2.0 = 7.4
+    print: 7.4
+
+  Final terminal output: 7.4
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — EXACT stimulus {2.4,-3.7,-1.7,3.0,2.0}, init -0.9, final 7.4"
+
+commonMistakeIds: ["CM-A4-skip-condition", "CM-A4-include-zero", "CM-A4-flip-condition", "CM-C26a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "V2.0 exact stimulus drill. Verbose strikethrough notation enforced in teachMe."

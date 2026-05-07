@@ -1,0 +1,79 @@
+# =====================================================================
+# L0 / F-19 / TraceCard 02
+# Atom: Fixed-size array — initialiser-list literal
+# =====================================================================
+id: "L0-F19-trace-02"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  This program initialises an array with a brace-list. Each
+  comma-separated value goes into the next slot, starting at index 0.
+  Fill in arr[0]..arr[3] and the terminal output.
+
+code: |
+  int main() {
+    int arr[4] = {10, 20, 30, 40};
+    cout << arr[0] << endl;
+    cout << arr[3] << endl;
+    return 0;
+  }
+
+variables: ["arr[0]", "arr[1]", "arr[2]", "arr[3]"]
+
+expectedTrace:
+  - line: 2
+    variable: "arr[0]"
+    value: "10"
+    output: null
+  - line: 2
+    variable: "arr[1]"
+    value: "20"
+    output: null
+  - line: 2
+    variable: "arr[2]"
+    value: "30"
+    output: null
+  - line: 2
+    variable: "arr[3]"
+    value: "40"
+    output: null
+  - line: 3
+    variable: ""
+    value: ""
+    output: "10"
+  - line: 4
+    variable: ""
+    value: ""
+    output: "40"
+
+terminalOutput: ["10", "40"]
+
+inputMode: "final-only"
+
+teachMe: |
+  The brace-list `{10, 20, 30, 40}` fills the slots in order:
+    arr[0] = 10
+    arr[1] = 20
+    arr[2] = 30
+    arr[3] = 40
+  Reading arr[0] and arr[3] then prints the first and last values.
+
+  Trap: the `{ }` is one statement (line 2). All four assignments
+  happen on that single line.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — `double numbers[5] = {2.4, -3.7, -1.7, 3.0, 2.0}` shape"
+
+commonMistakeIds: ["CM-F19b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Bridges F-19 to the actual exam initialisation pattern. Forces the
+  student to see that arr[3] is the FOURTH slot (not third).

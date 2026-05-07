@@ -1,0 +1,37 @@
+# =====================================================================
+# L3 / R-02c / ProceduralCard — 3-streak cin variants
+# =====================================================================
+id: "L3-R02c-proc-03"
+schemaVersion: "v2"
+atomId: "R-02c"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "ProceduralCard"
+section: "cin into struct array element"
+stem: |
+  3-streak (Block C gating): write three cin statements, one per entity.
+prompt: |
+  Write the three cin statements to read the FIRST field of each:
+  dogs / age_yrs, houses / bedrooms, bikes / gears.
+expectedAnswer: |
+  cin >> dogs[i].age_yrs;
+  cin >> houses[i].bedrooms;
+  cin >> bikes[i].gears;
+keyChecks:
+  - "cin >> dogs[i].age_yrs;"
+  - "cin >> houses[i].bedrooms;"
+  - "cin >> bikes[i].gears;"
+variants:
+  - prompt: |
+      Same three lists but second field of each.
+    expectedAnswer: |
+      cin >> dogs[i].weight_kg;
+      cin >> houses[i].area_m2;
+      cin >> bikes[i].weight_kg;
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

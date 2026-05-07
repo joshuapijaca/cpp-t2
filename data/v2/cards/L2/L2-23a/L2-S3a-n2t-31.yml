@@ -1,0 +1,20 @@
+
+id: "L2-S3a-n2t-31"
+schemaVersion: "v2"
+atomId: "L-23a"
+qTags: ["Q2"]
+stage: 3
+level: "L2"
+type: "MCQCard"
+stem: "Q2 noun→type #31. A struct field needs a type. The English noun `is_active` should be stored as which C++ primitive?"
+correct: "`bool` — an `is_*` flag is true/false → `bool`"
+distractors: ["`int` — integers cannot represent decimal or text content this noun implies.","`string` — a string is the wrong type for this scalar quantity.","`char` — a single character cannot hold this noun."]
+explanation: "`is_active` is best stored as `bool` because an `is_*` flag is true/false → `bool`"
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
+commonMistakeIds: ["CM-Q2-wrong-type"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Noun→type drill, bool bucket."

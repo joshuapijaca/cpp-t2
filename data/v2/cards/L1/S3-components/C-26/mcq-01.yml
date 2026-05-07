@@ -1,0 +1,29 @@
+id: L1-S3-C-26-mcq-00
+schemaVersion: v2
+atomId: C-26
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-26
+commonMistakeIds:
+  - CM-C26a
+  - CM-C26b
+stem: >-
+  When mystery is overwritten from 2.4 to 5.4 mid-trace, what is the correct hand-execute notation
+  in the mystery cell?
+correct: ~~2.4~~ 5.4   (strike old, write new beside it)
+distractors:
+  - 5.4   (just the new value; old is gone forever)
+  - 2.4 + 5.4 = 7.8   (sum the old and new)
+  - 2.4, 5.4   (comma-separated; both are still live)
+explanation: >-
+  Strikethrough shows you SAW the old value but it is no longer the live value. Marker prevents M09
+  (drop trail). Markers also let you reread the trail end-to-end.
+

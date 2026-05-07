@@ -1,0 +1,44 @@
+id: "CM-confuse-eq-pluseq-spoterror"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Spot the error. Q1 = vs += confusion. The code below has the bug labeled
+  by CM-confuse-eq-pluseq. Find the line and provide the fix.
+
+brokenCode: |
+  // Q1 broken excerpt:
+  data.mystery = data.numbers[i]; // sum (wrong)
+  // (canonical was: data.mystery = data.mystery + data.numbers[i]; // sum)
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  data.mystery = data.mystery + data.numbers[i]; // sum
+  ;
+
+bugCategory: "CM-confuse-eq-pluseq"
+
+keyChecks:
+  - "data.mystery = data.mystery + "
+
+explanation: |
+  Bug: sum-positive used = instead of += (or vice versa for find-max).
+  Fix: data.mystery = data.mystery + data.numbers[i]; // sum
+  This common mistake costs marks on Q1 per the rubric.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-confuse-eq-pluseq"
+
+commonMistakeIds: ["CM-confuse-eq-pluseq"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 1/5 (SpotError) for CM-confuse-eq-pluseq.

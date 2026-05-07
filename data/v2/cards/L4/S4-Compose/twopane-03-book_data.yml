@@ -1,0 +1,68 @@
+id: "L4-S4-twopane-03"
+schemaVersion: "v2"
+atomId: "Q-08"
+qTags: 
+  - "Q4"
+stage: 4
+level: "L4"
+type: "MainWriteCard"
+stem: "[two-pane 3/10] Q2 (struct) and Q3 (read fn signature) are GIVEN below. Your job: write Q4 main() that uses them."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.4 S4 two-pane Q2+Q3+Q4 integration"
+commonMistakeIds: 
+  - "CM-Q4-amp-at-call"
+  - "CM-Q4-pass-MAX-not-count"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: |
+  LEFT PANE (given):
+  struct book_data
+  {
+      string title;
+      string author;
+      int pages;
+  };
+  
+  void read_books(book_data books[], int &count);
+  
+  RIGHT PANE (write): the full main() that calls read_books and prints all 3 fields per row. MAX = 200; count = book_count; prompt = "How many books?".
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 200;
+      book_data books[MAX];
+      int book_count;
+  
+      cout << "How many books? ";
+      cin >> book_count;
+  
+      read_books(books, book_count);
+  
+      for (int i = 0; i < book_count; i++)
+      {
+          cout << books[i].title << ", ";
+          cout << books[i].author << ", ";
+          cout << books[i].pages << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX = 200"
+  - "book_data books[MAX]"
+  - "int book_count"
+  - "read_books(books, book_count)"
+  - "i < book_count"
+  - "books[i].title"
+  - "books[i].author"
+  - "books[i].pages"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+  - "printf"
+expectedTerminal: 
+  - "How many books?"
+explanation: "Two-pane integration: main() consumes Q2 struct and Q3 read fn. Practise calling the SAME signature shown on the left (no & at call site)."

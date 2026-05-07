@@ -1,0 +1,25 @@
+# =====================================================================
+# L3 / R-00 / MCQCard — identify
+# =====================================================================
+id: "L3-R00-id-04"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 1
+level: "L3"
+type: "MCQCard"
+stem: |
+  Which is the canonical return type of read_X?
+correct: "void"
+distractors:
+  - "int"
+  - "double"
+  - "bool"
+explanation: |
+  Q3 anatomy: void return, by-reference array, count parameter as bound, prompt-then-cin pair, [i].field index.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

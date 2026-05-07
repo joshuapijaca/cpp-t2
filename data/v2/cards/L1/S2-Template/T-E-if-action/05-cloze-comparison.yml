@@ -1,0 +1,46 @@
+id: "L1-S2-TE-05-cloze-comparison"
+schemaVersion: "v2"
+atomId: "T-05"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Fill in just the comparison operator.
+
+prompt: |
+  Which operator goes between data.numbers[i] and 0?
+
+template: |
+  if (data.numbers[i] ___ 0) {
+    data.mystery = data.mystery + data.numbers[i];
+  }
+
+canonicalAnswer: |
+  if (data.numbers[i] > 0) {
+    data.mystery = data.mystery + data.numbers[i];
+  }
+
+keyChecks:
+  - ">"
+  - "data.numbers[i] > 0"
+
+forbiddenTokens:
+  - "<"
+  - "=="
+
+explanation: |
+  `>` — strict greater. `>= 0` would include zero (zero is neither
+  positive nor negative; sum-positive convention is strictly > 0).
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — > 0"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-E cloze: comparison operator.
+authoringStatus: "DRAFT"

@@ -1,0 +1,35 @@
+id: "CM-confuse-eq-pluseq-cloze"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "ClozeCard"
+
+stem: |
+  Cloze for CM-confuse-eq-pluseq: Q1 = vs += confusion. Fill the blank.
+
+code: |
+  // Canonical Q1 excerpt with blank:
+  // ____.mystery = data.mystery + data.numbers[i]; // sum
+  ;
+
+clozeSentence: |
+  Complete the canonical line: data.mystery = data.mystery + data.numbers[i]; // sum
+
+answer: "data.mystery = data.mystery + data.numbers[i]; // sum"
+
+explanation: |
+  Canonical pattern: data.mystery = data.mystery + data.numbers[i]; // sum
+  Mistake to avoid: sum-positive used = instead of += (or vice versa for find-max).
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-confuse-eq-pluseq"
+
+commonMistakeIds: ["CM-confuse-eq-pluseq"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 4/5 (cloze) for CM-confuse-eq-pluseq.

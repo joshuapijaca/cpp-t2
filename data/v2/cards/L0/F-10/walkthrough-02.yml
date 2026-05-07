@@ -1,0 +1,78 @@
+# =====================================================================
+# L0 / F-10 / WalkthroughCard 02
+# Atom: Primitive types — when to pick which
+# =====================================================================
+id: "L0-F10-walk-02"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Picking the right type matters. The wrong type causes silent bugs
+  (an int chops the decimal) or compile errors (a string without
+  include). Walk through how to choose.
+
+levelLabel: "L0 Foundation Phase C F-10"
+
+fullCode: |
+  // Counts and indices: int.
+  int desk_count = 0;
+  int i;
+
+  // Money, percentages, measurements: double.
+  double price = 19.99;
+  double height_cm = 175.5;
+  double rate = 0.05;
+
+  // Words, names, labels: string. Needs <string>.
+  string first_name = "ana";
+  string label = "desk";
+
+steps:
+  - line: 2
+    code: 'int desk_count = 0;'
+    annotation: |
+      Anything you COUNT is an int. "How many desks?" answer: 5, not
+      5.0. Use int.
+    atomIds: ["F-10"]
+  - line: 3
+    code: 'int i;'
+    annotation: |
+      Loop indices and array indices are ints. `arr[2]` requires an
+      integer subscript.
+    atomIds: ["F-10"]
+  - line: 6
+    code: 'double price = 19.99;'
+    annotation: |
+      Money has cents. 19.99 is a decimal. If you used `int price`,
+      you would silently drop the .99 and store 19. Always double for
+      currency in SIT102.
+    atomIds: ["F-10"]
+  - line: 7
+    code: 'double height_cm = 175.5;'
+    annotation: |
+      Real-world measurements are doubles. Heights, weights,
+      temperatures, distances. Test V2.0 used double for every number
+      in the desk_data.numbers array.
+    atomIds: ["F-10"]
+  - line: 11
+    code: 'string first_name = "ana";'
+    annotation: |
+      Anything that is text — names, labels, descriptions — is a
+      string. Must include `<string>` at the top of the file.
+    atomIds: ["F-10"]
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: stat_double uses doubles for desk numbers; practice test asks for double fields"
+
+commonMistakeIds: ["CM-F10a", "CM-F10b"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Decision-rule walkthrough. Each type has a clear domain (counts vs.
+  measurements vs. text). Removes the "which do I pick?" hesitation.

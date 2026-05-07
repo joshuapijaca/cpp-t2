@@ -1,0 +1,20 @@
+id: "L4-S3D-cloze-03"
+schemaVersion: "v2"
+atomId: "Q-05"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "ClozeCard"
+stem: "`read_desks(desks, ___);` — fill the count arg (NOT MAX)."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block D cloze"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+code: "read_desks(desks, desk_num);"
+clozeSentence: "`read_desks(desks, ___);` — fill the count arg (NOT MAX)."
+answer: "desk_num"
+explanation: "Answer: `desk_num`."

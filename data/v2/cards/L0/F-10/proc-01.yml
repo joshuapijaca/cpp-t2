@@ -1,0 +1,48 @@
+# =====================================================================
+# L0 / F-10 / ProceduralCard 01 (μWrite)
+# Atom: Primitive types — declare-with-type
+# =====================================================================
+id: "L0-F10-proc-01"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Type the variable declaration line. Pick the correct primitive type
+  for the described value.
+
+section: "F-10 type-write drills"
+
+prompt: |
+  Declare a variable named `count` that stores how many desks the user
+  has. End with a semicolon.
+
+expectedAnswer: "int count;"
+
+keyChecks: ["int", "count", ";"]
+
+variants:
+  - prompt: |
+      Declare a variable named `price` that stores a decimal money
+      amount. End with a semicolon.
+    expectedAnswer: "double price;"
+  - prompt: |
+      Declare a variable named `first_name` that stores a person's
+      name. End with a semicolon.
+    expectedAnswer: "string first_name;"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F10a", "CM-F10c"]
+
+notes: |
+  Pure type-pick μWrite. Three variants cover the three primitives.

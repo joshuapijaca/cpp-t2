@@ -1,0 +1,49 @@
+# =====================================================================
+# L3 / R-03 / FunctionWriteCard — V2.0 read_desks
+# =====================================================================
+id: "L3-R03-desks-04"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the FULL read_desks function (V2.0 exam shape). desk_data has
+  3 double fields: width, height, depth. Use number_to_read as the count.
+prompt: "Compose: full read_desks."
+signatureHint: "void read_desks(desk_data &desks[], int number_to_read) { ... }"
+canonicalAnswer: |
+  void read_desks(desk_data &desks[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Width: ";
+      cin >> desks[i].width;
+      cout << "Height: ";
+      cin >> desks[i].height;
+      cout << "Depth: ";
+      cin >> desks[i].depth;
+    }
+  }
+keyChecks:
+  - "void read_desks(desk_data &desks[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> desks[i].width;"
+  - "cin >> desks[i].height;"
+  - "cin >> desks[i].depth;"
+forbiddenTokens:
+  - "function"
+  - "->"
+  - "while"
+  - "scanf"
+explanation: |
+  V2.0 exam Q3. Skeleton 12 lines: signature, brace, for, brace, 3 prompt-pairs, brace, brace.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-off-by-one","CM-Q3-missing-amp","CM-Q3-missing-index"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

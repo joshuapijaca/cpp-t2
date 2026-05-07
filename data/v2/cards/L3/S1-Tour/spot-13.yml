@@ -1,0 +1,26 @@
+# =====================================================================
+# L3 / R-00 / MCQCard — spot the error
+# =====================================================================
+id: "L3-R00-spot-13"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 1
+level: "L3"
+type: "MCQCard"
+stem: |
+  Inside the read_desks loop, one line below is buggy. Pick the buggy form.
+correct: "cin >> &desks[i].width"
+distractors:
+  - "cin >> desks[i].width"
+  - "cin >> &items[i].width"
+  - "cin >> &desks[i].height"
+explanation: |
+  No & before the variable name in cin >>; the operator already takes a reference. Correct form: cin >> desks[i].width
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-spot"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

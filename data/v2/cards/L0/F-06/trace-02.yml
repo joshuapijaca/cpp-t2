@@ -1,0 +1,68 @@
+# =====================================================================
+# L0 / F-06 / TraceCard 02
+# Atom: int main() and return 0;
+# =====================================================================
+id: "L0-F06-trace-02"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q1", "Q4"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Trace this program. Two cout statements sit BEFORE `return 0;`
+  inside the body of main. Predict both lines of terminal output.
+
+code: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    cout << "start" << endl;
+    cout << "end" << endl;
+    return 0;
+  }
+
+variables: []
+
+expectedTrace:
+  - line: 4
+    variable: ""
+    value: ""
+    output: "start"
+  - line: 5
+    variable: ""
+    value: ""
+    output: "end"
+
+terminalOutput: ["start", "end"]
+
+inputMode: "final-only"
+
+teachMe: |
+  Step-by-step:
+  - Line 4 `cout << "start" << endl;` — write `start\n` to terminal.
+  - Line 5 `cout << "end" << endl;` — write `end\n` to terminal.
+  - Line 6 `return 0;` — main exits.
+
+  Variables panel: (empty — no variables declared).
+  Terminal output:
+    start
+    end
+
+  Each `cout` runs in source-code order, top to bottom. `return 0;`
+  is the LAST line of the body — only after both cout statements
+  have run.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-06 trace primer — main body with two output statements"
+
+commonMistakeIds: ["CM-F06c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Trace card 2: anchors body-execution-then-return order. Two outputs
+  before the return — student must realise return does not run early
+  and does not interrupt the output sequence.

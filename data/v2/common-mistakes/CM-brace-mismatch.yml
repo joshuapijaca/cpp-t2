@@ -1,0 +1,24 @@
+id: CM-brace-mismatch
+name: "Student opens or closes braces incorrectly (mismatch)"
+description: |
+  Q1-Q4 code involves nested `{ ... }` blocks (function body, struct,
+  loop, if). Students drop a closing brace, add an extra one, or close
+  in the wrong order. Compiler errors cascade.
+whyItHappens: |
+  Hand-written code lacks editor brace-matching. Students lose track of
+  nesting depth, especially in multi-line functions with multiple inner
+  blocks. Indentation also goes off.
+immunizationStrategy: |
+  1. SpotError: code with extra/missing brace; pinpoint mismatch.
+  2. MCQ: "How many `{` in this function? Match `}` count."
+  3. Cloze: insert missing brace at correct depth.
+  4. WriteCard with brace-counter UI feedback.
+  5. Decompose: walk the depth counter through a code listing.
+  6. Demo card: indentation shows nesting; mismatch breaks visual.
+examImpact: high
+atomDependencies: [F-08]
+qTracks: [Q1, Q2, Q3, Q4]
+relatedCMs: [CM-misparse-brace, CM-missing-semi-after-brace]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §8.4 Common-Mistake Immunization Audit — Brace mismatch"

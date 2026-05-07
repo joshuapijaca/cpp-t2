@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-F12c
+id: "L1-cmimm-CM-F12c-mcq"
+schemaVersion: "v2"
+atomId: "F-12"
+qTags: ["Q1", "Q4"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  In C++, what does `if (x = 5)` actually do (assuming int x = 3 above)?
+
+correct: 'Assigns 5 to x and runs the body (5 is non-zero, treated as true)'
+
+distractors:
+  - 'Compares x to 5 and runs the body if equal'
+  - 'Fails to compile — = is illegal in if'
+  - 'Runs the body once and skips on retry'
+
+explanation: |
+  `=` is assignment. The expression `x = 5` evaluates to the assigned value (5), and 5 is non-zero, so the if-condition is always true. As a side effect, x becomes 5. The intended comparison needs `==`.
+
+source:
+  kind: "pfg"
+  ref: "PFG part-1/1-sequence-and-data/2-trailside/08-assignment-statement — common-mistake immunization (CM-F12c)"
+
+commonMistakeIds: ["CM-F12c"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

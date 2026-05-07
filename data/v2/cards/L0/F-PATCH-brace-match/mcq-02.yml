@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 02 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Two adjacent blocks at depth 0
+# =====================================================================
+id: "L0-F25-mcq-02"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q2", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Two top-level blocks (a struct and main). The HIGHLIGHTED `{`
+  below opens the struct. Which `}` closes it?
+
+  ```cpp
+  struct Point {   // <-- HIGHLIGHT (depth 0, struct)
+    int x;
+    int y;
+  };               // <-- option A (depth 0, struct close)
+  int main() {    // <-- option B opens main (depth 0, main)
+    return 0;
+  }                // <-- option C closes main (depth 0, main close)
+  ```
+
+correct: "A — the `};` line. The `}` part closes the struct; the `;` finishes the struct declaration."
+
+distractors:
+  - "B — the `{` on the next line, which opens `main`. Two opening braces in a row pair with each other."
+  - "C — the `}` after `return 0;`. The struct's brace and main's brace are adjacent so they share."
+  - "D — none of the visible `}` characters; the struct must be closed with `END` instead."
+
+explanation: |
+  A is correct. The struct opens at the highlighted `{` and closes
+  at the matching `}` (which sits in front of the required `;`).
+
+  B is wrong: two `{`s in a row do NOT pair with each other; each
+  pairs with the matching `}` later.
+  C is wrong: the `}` on option C closes `main`, not the struct.
+  D is wrong: option A IS visible.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 2/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Two depth-0 blocks side by side. Reinforces that opens and closes
+  pair INWARDS, not adjacently.

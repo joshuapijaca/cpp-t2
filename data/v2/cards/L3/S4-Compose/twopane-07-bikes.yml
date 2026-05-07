@@ -1,0 +1,52 @@
+# =====================================================================
+# L3 / R-03 / FunctionWriteCard — two-pane Q2->Q3 bikes
+# =====================================================================
+id: "L3-R03-twopane-07"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Two-pane: Q2 struct shown left. Write the matching Q3 read_bikes.
+prompt: "Two-pane Q2 -> Q3."
+signatureHint: |
+  Given:
+  struct bike_data
+  {
+    int gears;
+    double weight_kg;
+    double price;
+  };
+  Write read_bikes.
+canonicalAnswer: |
+  void read_bikes(bike_data &bikes[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "Gears: ";
+      cin >> bikes[i].gears;
+      cout << "Weight (kg): ";
+      cin >> bikes[i].weight_kg;
+      cout << "Price: ";
+      cin >> bikes[i].price;
+    }
+  }
+keyChecks:
+  - "void read_bikes(bike_data &bikes[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> bikes[i].gears;"
+  - "cin >> bikes[i].weight_kg;"
+  - "cin >> bikes[i].price;"
+forbiddenTokens:
+  - "while"
+explanation: |
+  Read fields in struct-declaration order. Each field gets one prompt-pair.
+passByRefRequired: true
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

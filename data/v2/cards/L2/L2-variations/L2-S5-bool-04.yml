@@ -1,0 +1,29 @@
+
+id: "L2-S5-bool-04"
+schemaVersion: "v2"
+atomId: "L-25"
+qTags: ["Q2"]
+stage: 5
+level: "L2"
+type: "StructWriteCard"
+stem: "Q2 bool edge case #4. Boolean fields use `bool`, not `int`, and idiomatically prefix with `is_` or `has_`."
+prompt: "product_data with warranty: sku (string), price (double), has_warranty (bool)."
+canonicalAnswer: |
+  struct product_data
+  {
+      string sku;
+      double price;
+      bool has_warranty;
+  };
+requiredFields: ["sku","price","has_warranty"]
+keyChecks: ["bool ","};","struct product_data"]
+forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
+explanation: "Boolean fields drill: `bool has_warranty;` is the canonical form. `int 0/1` is wrong on Q2."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.6 S5 VARIATIONS"
+commonMistakeIds: ["CM-Q2-bool-edge"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "bool edge case."

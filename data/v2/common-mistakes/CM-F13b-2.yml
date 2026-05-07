@@ -1,0 +1,32 @@
+id: CM-F13b-2
+name: "cout uses `+` to concatenate text and int (Java string-concat habit)"
+description: |
+  cout chains values with the stream-insertion operator `<<`, not `+`:
+  `cout << "x = " << x << endl;`. Students from Java/JavaScript write
+  `cout << "x = " + x + endl;` — the compiler treats `"x = " + x` as
+  pointer arithmetic on a string literal (advancing the pointer by `x`
+  characters), not concatenation. Output is garbage or seg-faults.
+  This is one of the silent failure modes that compiles but produces
+  nonsense at runtime.
+whyItHappens: |
+  Java / C# / Python all use `+` for string concatenation, and most
+  intro-CS students were taught one of those first. The `<<` operator
+  is foreign and visually noisy. `+` "feels right" because it reads as
+  "put A and B together". The fact that C++ compiles `"text" + 5`
+  (silently performing pointer arithmetic) reinforces the bug because
+  there's no error message at compile time.
+immunizationStrategy: |
+  1. SpotError: `cout << "x = " + x + endl;` — replace `+` with `<<`.
+  2. MCQ: "Correct cout for `x = 5\\n`?" — 4 options including the +
+     form and a comma form (Python).
+  3. Cloze: blank the operators in `cout ___ "x = " ___ x ___ endl;`.
+  4. Demo: trace what `"text" + 5` actually does (pointer arithmetic).
+  5. Decompose: 4 cout statements — pick the C++ idiom.
+  6. Walkthrough: explicit "<< vs + vs ," compare in three languages.
+examImpact: medium
+atomDependencies: [F-13, F-13b]
+qTracks: [Q3, Q4]
+relatedCMs: [CM-F13b-1, CM-F13b-3]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"

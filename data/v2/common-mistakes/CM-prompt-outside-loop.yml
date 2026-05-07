@@ -1,0 +1,25 @@
+id: CM-prompt-outside-loop
+name: "Student puts prompt-then-read pair outside the loop"
+description: |
+  Each iter of the read loop should prompt-then-read for that entity:
+  `cout << "Enter X: "; cin >> list[i].x;`. Students put the prompt
+  ABOVE the loop (one prompt for the whole batch) instead of per-iter.
+  User has no idea which entity index they're entering.
+whyItHappens: |
+  Single-prompt feels efficient. Students miss that "enter info for N
+  computers" requires N prompts, one per entity. Pattern carry-over from
+  scalar input cases.
+immunizationStrategy: |
+  1. SpotError: prompt above the loop; flag misplacement.
+  2. MCQ: "Where does `cout << \"Enter ID: \"` belong? (inside loop)"
+  3. Cloze: place prompt and cin pair inside loop body.
+  4. WriteCard requiring prompt-cin pair per field.
+  5. Decompose: split body into prompt-cin pairs per field.
+  6. Demo card: trace I/O for N=3 entities; show 3 prompts per field.
+examImpact: medium
+atomDependencies: [F-13b, F-14b, F-15, F-18b]
+qTracks: [Q3]
+relatedCMs: [CM-skipped-field]
+source:
+  kind: v2
+  ref: "Test 2 V2.0 spec §5.5 Q3 Common Errors — Prompt outside loop MEDIUM"

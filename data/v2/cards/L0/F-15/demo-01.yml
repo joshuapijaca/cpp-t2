@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-15 / DemoCard 01
+# Atom: Prompt-then-read pair  (THE Q3 PATTERN)
+# =====================================================================
+id: "L0-F15-demo-01"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the canonical prompt-pair. ALWAYS two lines: label, then
+  cin. Never one without the other.
+
+whyOneLine: 'cout << "X: "; cin >> x;  the canonical Q3/Q4 input idiom.'
+
+demoCode: |
+  // Read num_to_read from user
+  int num_to_read;
+  cout << "num_to_read: ";
+  cin >> num_to_read;
+
+  // Read desk_id from user
+  int desk_id;
+  cout << "desk_id: ";
+  cin >> desk_id;
+
+  // Read price from user
+  double price;
+  cout << "price: ";
+  cin >> price;
+
+  // PATTERN: cout label (with trailing space) -> cin variable
+  // The label tells the user what to type.
+  // The cin captures the typed value.
+
+highlightTokens:
+  - 'cout << "num_to_read: "'
+  - "cin >> num_to_read"
+  - 'cout << "desk_id: "'
+  - "cin >> desk_id"
+  - 'cout << "price: "'
+  - "cin >> price"
+  - "PATTERN"
+
+usedIn:
+  - "Q3 read fn (every field of every struct read this way)"
+  - "Q4 main (read num_to_read, then read each array element)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+
+commonMistakeIds: ["CM-F15a", "CM-F15c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Three prompt-pairs in a row. Demonstrates the repeated shape used
+  by every read function.

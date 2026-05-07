@@ -1,0 +1,44 @@
+id: "CM-skip-pre-loop-init-trap-trace"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "DecomposeCard"
+
+stem: |
+  Trap-trace for CM-skip-pre-loop-init: Q1 skip pre-loop init.
+
+code: |
+  // Trap: data.mystery never initialized before the for-loop.
+  // (init line forgotten)
+  ;
+
+question: |
+  What goes wrong with the line above on Q1?
+
+options:
+  - label: "A"
+    text: "data.mystery never initialized before the for-loop."
+  - label: "B"
+    text: "Compile error caught immediately."
+  - label: "C"
+    text: "Nothing — both forms are equivalent."
+  - label: "D"
+    text: "Runtime crash at the first iteration."
+
+correctLabel: "A"
+
+explanation: |
+  data.mystery never initialized before the for-loop. The canonical pattern is: data.mystery = data.numbers[0];
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-skip-pre-loop-init"
+
+commonMistakeIds: ["CM-skip-pre-loop-init"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 2/5 (trap-trace) for CM-skip-pre-loop-init.

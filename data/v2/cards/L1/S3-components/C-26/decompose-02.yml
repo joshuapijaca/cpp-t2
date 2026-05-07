@@ -1,0 +1,38 @@
+id: L1-S3-C-26-decomp-01
+schemaVersion: v2
+atomId: C-26
+qTags:
+  - Q1
+stage: 3
+level: L1
+type: DecomposeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S3-Components
+source:
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-26
+commonMistakeIds:
+  - CM-C26a
+  - CM-C26b
+stem: Pick the correctly-strikethrough memory cell after two writes.
+code: |-
+  // trace context: data.mystery starts at 0.0
+  // then becomes 2.4 (after iter 0)
+  // then becomes 5.4 (after iter 3)
+  // the cell now shows:
+question: Which cell content is the correct hand-execute notation?
+options:
+  - label: A
+    text: 0.0 2.4 5.4   (no marks; eye picks the last one)
+  - label: B
+    text: ~~0.0~~ ~~2.4~~ 5.4   (both old values struck; only 5.4 is live)
+  - label: C
+    text: 5.4   (only the live value matters)
+  - label: D
+    text: mystery is now invalid (writing twice is undefined)
+correctLabel: B
+explanation: >-
+  Each write strikes the previous live value. The trail is auditable; only the last unstruck value
+  is live.
+

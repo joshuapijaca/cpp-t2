@@ -1,0 +1,72 @@
+id: "L5-postmortem-24-missing-semi-field"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 5
+level: "L5"
+type: "PostmortemCard"
+
+stem: |
+  Q3 read function — student forgot one of the required field reads inside the loop. Struct has 3 fields but the loop only reads 2; field 3 stays default-initialised for every record.
+
+failedAttempt: |
+  void read_students(student_data students[], int count)
+  {
+      for (int i = 0; i < count; i++)
+      {
+          cout << "Enter name: ";
+          cin >> students[i].name;
+          cout << "Enter age: ";
+          cin >> students[i].age;
+      }
+  }
+
+diagnosis: |
+  The `student_data` struct has three fields: `name`, `age`, `gpa`. The student's loop reads `name` and `age` but skipped `gpa`. Every record in the array has gpa = 0.0 (default-init for double). Compiles, takes user input correctly for the two fields, but main's downstream output shows gpa = 0 for all records. Easy to miss in self-review because the visible cin's look right.
+
+repairSteps:
+  - "for (int i = 0; i < count; i++)"
+  - "{"
+  - "    cout << \"Enter name: \";"
+  - "    cin >> students[i].name;"
+  - "    cout << \"Enter age: \";"
+  - "    cin >> students[i].age;"
+  - "    cout << \"Enter GPA: \";"
+  - "    cin >> students[i].gpa;     // <-- ADD missed field"
+  - "}"
+
+preventionTip: |
+  Cross-check your read loop against the struct definition. Count the fields; count the cin lines. They must match. When the spec defines N fields, your loop has N prompt + cin pairs.
+
+explanation: |
+  Lesson learned — read functions and struct definitions must stay in sync. Add a field to the struct? Add a cin to the read fn. Drop a field? Drop the cin. The auto-grader runs end-to-end I/O tests; missing reads show up as default values in main's output. Always re-read the struct after writing the read fn.
+
+canonicalAnswer: |
+  void read_students(student_data students[], int count)
+  {
+      for (int i = 0; i < count; i++)
+      {
+          cout << "Enter name: ";
+          cin >> students[i].name;
+          cout << "Enter age: ";
+          cin >> students[i].age;
+          cout << "Enter GPA: ";
+          cin >> students[i].gpa;
+      }
+  }
+
+annotations:
+  - line: 8
+    severity: err
+    note: "Loop body ends without reading `gpa`. Add a third prompt + cin pair before the closing `}`."
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q3 field count completeness"
+
+commonMistakeIds: ["CM-Q3-skipped-field"]
+status: "NEW"
+createdBy: "SA-L5-Postmortem-Rewrite"
+authoringStatus: "DRAFT"
+notes: |
+  Postmortem #24 — Q3 / skipped field in read loop.

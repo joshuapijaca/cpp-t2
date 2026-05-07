@@ -1,0 +1,45 @@
+# =====================================================================
+# L0 / F-21 / MCQCard 02 — array-of-structs vs struct-with-array
+# =====================================================================
+id: "L0-F21-mcq-02"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Given `point pts[5];` (an array OF struct points, where point has
+  field `x`), which token reads the `x` field of the third point?
+
+correct: "pts[2].x — index first, then dot."
+
+distractors:
+  - "pts.x[2] — dot first, then index."
+  - "pts->x[2] — pointer-arrow operator."
+  - "pts[2]::x — scope-resolution."
+
+explanation: |
+  `pts` is an array of structs. To pick one struct first, then read
+  one of its fields, the order is `pts[index].field` =
+  `pts[2].x`.
+  `pts.x[2]` would require `pts` itself to be a struct with a field
+  called `x` that is an array — different shape (CM-F21a).
+  Note: this is the OPPOSITE order from `data.numbers[i]` because
+  the underlying shape is opposite (array of structs vs struct
+  with array). Both are valid C++; pick the one matching your
+  declaration.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/3-0-struct-array"
+
+commonMistakeIds: ["CM-F21a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Mirror of mcq-01 with opposite shape. Forces the student to map
+  the declaration to the access order rather than memorise one
+  token.

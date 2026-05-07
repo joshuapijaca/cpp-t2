@@ -1,0 +1,49 @@
+# =====================================================================
+# L0 / F-24 / TraceCard 11 — sub-vocal predict-next-state
+# =====================================================================
+id: "L0-F24-trace-11"
+schemaVersion: "v2"
+atomId: "F-24"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "TraceCard"
+
+stem: |
+  Predict-first. Multiplication. Articulate the product out loud (or
+  mouth it) BEFORE pressing [step]. Final value of `area`?
+
+code: |
+  int main() {
+    int area = 8 * 3;
+    return 0;
+  }
+
+variables: ["area"]
+
+expectedTrace:
+  - line: 2
+    variable: "area"
+    value: "24"
+    output: null
+
+terminalOutput: []
+
+inputMode: "per-step"
+
+q4StopCondition: "Say the product BEFORE pressing [step]."
+
+teachMe: |
+  PREDICTION: "area becomes twenty-four".
+  Verify: 8 * 3 = 24. Final panel: { area: 24 }.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — sub-vocal predict card 11/30"
+
+commonMistakeIds: ["CM-arithmetic-error"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Multiplication with sub-vocal.

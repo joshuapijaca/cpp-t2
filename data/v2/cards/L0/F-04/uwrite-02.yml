@@ -1,0 +1,62 @@
+# =====================================================================
+# L0 / F-04 / ProceduralCard 02 (μ-write)
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-uwrite-02"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  A friend's program below has every line typed correctly EXCEPT the
+  include line is missing. Add only that one missing line at the very
+  top, leaving the rest of the file unchanged. Type the resulting
+  first line plus the using line that already exists.
+
+section: "L0 · F-04 · μ-write — repair missing include"
+
+prompt: |
+  Original file (broken):
+
+  using namespace std;
+  int main() {
+    cout << 1 << endl;
+    return 0;
+  }
+
+  Add the missing include directive at the top. Type your repaired
+  preamble (the include line you added plus the using line).
+
+expectedAnswer: |
+  #include <iostream>
+  using namespace std;
+
+keyChecks:
+  - "#include"
+  - "<iostream>"
+
+variants:
+  - prompt: "Patch the missing include for a Q4 answer that uses cout to print one number."
+    expectedAnswer: |
+      #include <iostream>
+      using namespace std;
+  - prompt: "The compiler says 'cout was not declared'. Add the missing line that fixes this. Show the include line plus the using line."
+    expectedAnswer: |
+      #include <iostream>
+      using namespace std;
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+
+commonMistakeIds: ["CM-F04a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  μ-write 2: repair drill. Students see "broken" code and must add
+  the missing include. Diagnoses the same mistake as decompose-01
+  but in production mode (write, not pick).

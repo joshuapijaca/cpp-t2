@@ -1,0 +1,48 @@
+# =====================================================================
+# L3 / R-03 / FunctionWriteCard — practice read_computers
+# =====================================================================
+id: "L3-R03-computers-06"
+schemaVersion: "v2"
+atomId: "R-03"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the FULL read_computers function. computer_data has 3 fields:
+  cpu_speed (double), ram_gb (int), price (double).
+prompt: "Compose: full read_computers."
+signatureHint: "void read_computers(computer_data &computers[], int number_to_read) { ... }"
+canonicalAnswer: |
+  void read_computers(computer_data &computers[], int number_to_read)
+  {
+    for (int i = 0; i < number_to_read; i++)
+    {
+      cout << "CPU speed (GHz): ";
+      cin >> computers[i].cpu_speed;
+      cout << "RAM (GB): ";
+      cin >> computers[i].ram_gb;
+      cout << "Price ($): ";
+      cin >> computers[i].price;
+    }
+  }
+keyChecks:
+  - "void read_computers(computer_data &computers[], int number_to_read)"
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "cin >> computers[i].cpu_speed;"
+  - "cin >> computers[i].ram_gb;"
+  - "cin >> computers[i].price;"
+forbiddenTokens:
+  - "function"
+  - "->"
+  - "while"
+explanation: |
+  Practice-test Q3 shape. Same 12-line skeleton with rotated entity.
+passByRefRequired: true
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q3 read_computers"
+commonMistakeIds: ["CM-Q3-off-by-one","CM-Q3-missing-amp","CM-Q3-missing-index"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

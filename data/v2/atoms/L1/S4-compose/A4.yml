@@ -1,0 +1,24 @@
+id: A4
+name: "Q1 Compose: sum-positive (V2.0 REAL TEST)"
+level: L1
+phase: S4
+teaches: "Trace sum-positive loop. Init mystery = 0.0; for i=0..SIZE-1, if numbers[i] > 0 then mystery = mystery + numbers[i]. CRITICAL: this was the V2.0 real exam question on 2026-05-07. Brace-init values vary across cards. Drilling priority MAX."
+prereqs: [A3]
+usedByQs: [Q1]
+cardCountTarget: 16
+source:
+  - kind: v2
+    ref: "Test 2 V2.0 attempt 1 (2026-05-07) — sum-positive on stat_double { double numbers[5], double mystery }"
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — accumulator-with-condition pattern"
+commonMistakes:
+  - CM-A4-skip-condition
+  - CM-A4-include-zero
+  - CM-A4-init-not-zero
+  - CM-A4-flip-condition
+notes:
+  cardMix: { trace: 10, mcq: 3, decompose: 3 }
+  stage: S4
+  exposureClass: long
+  progression: "3 all-positive -> 3 mixed-sign (REAL V2.0 SHAPE) -> 2 all-negative edge -> 2 single-positive -> 2 zero-handling -> 2 adversarial -> 2 spot-error"
+  realExamPriority: HIGHEST

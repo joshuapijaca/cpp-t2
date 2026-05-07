@@ -1,0 +1,46 @@
+id: "L5-wildcard-11-q3"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q3"]
+stage: 5
+level: "L5"
+type: "FunctionWriteCard"
+
+stem: |
+  S5.5 wildcard: Dynamic count read. Write the function.
+
+prompt: |
+  Write read_orders(order_data arr[], int count). Loop reads 3 fields per element.
+
+canonicalAnswer: |
+  void read_orders(order_data arr[], int count) {
+    int i;
+    for (i = 0; i < count; i++) {
+      cin >> arr[i].customer;
+      cin >> arr[i].items;
+      cin >> arr[i].total;
+    }
+  }
+
+keyChecks:
+  - "for (i = 0; i < count; i++)"
+  - "cin >>"
+
+forbiddenTokens: []
+
+passByRefRequired: false
+
+explanation: |
+  Wildcard read function: array passed by decay-form (`arr[]`).
+  Loop bound is the runtime count; cin reads each field per element.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 dynamic-count read"
+
+commonMistakeIds: ["CM-missing-amp-sig", "CM-skipped-field"]
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #11: Q3 Dynamic count read.

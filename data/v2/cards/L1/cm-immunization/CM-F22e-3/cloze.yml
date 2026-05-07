@@ -1,0 +1,37 @@
+# Hand-authored CM immunization (ClozeCard) for CM-F22e-3
+id: "L1-cmimm-CM-F22e-3-cloze"
+schemaVersion: "v2"
+atomId: "F-22e"
+qTags: ["Q1", "Q3"]
+stage: 4
+level: "L1"
+type: "ClozeCard"
+
+stem: "Fill in what data[0] holds in main after the call."
+
+code: |
+  void zero_first(int arr[], int size) {
+      arr[0] = 0;
+  }
+  int main() {
+      int data[3] = {7, 8, 9};
+      zero_first(data, 3);
+      // After call, data[0] == ___
+  }
+
+clozeSentence: 'Fill in the value of data[0] after zero_first returns.'
+
+answer: '0'
+
+explanation: |
+  Raw array decay: arr inside zero_first aliases caller's data. Setting arr[0] = 0 mutates data[0] in main. The mutation persists.
+
+source:
+  kind: "v2"
+  ref: "PFG part-2/5-working-with-multiples — common-mistake immunization (CM-F22e-3)"
+
+commonMistakeIds: ["CM-F22e-3"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

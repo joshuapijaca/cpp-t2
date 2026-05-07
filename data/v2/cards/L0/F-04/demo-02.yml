@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-04 / DemoCard 02
+# Atom: #include <iostream>
+# =====================================================================
+id: "L0-F04-demo-02"
+schemaVersion: "v2"
+atomId: "F-04"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  The include line has a fixed shape. Notice the punctuation marks —
+  every character matters. Watch the anatomy of `#include <iostream>`.
+
+whyOneLine: "The include line uses # then include then a space then <iostream> with angle brackets — no quotes, no semicolon, no .h."
+
+demoCode: |
+  //  Anatomy of the line (every character labelled):
+  //
+  //   #  include   <iostream>
+  //   |  |          |
+  //   |  |          +-- header name in ANGLE brackets, NO ".h" suffix
+  //   |  +------------- the keyword "include" (lowercase, exactly)
+  //   +---------------- the hash sign (preprocessor marker)
+  //
+  //  Note: NO trailing semicolon. Preprocessor directives end at the
+  //  newline, not at `;`. Adding a semicolon is a beginner habit
+  //  imported from the rest of C++ — wrong here.
+
+  #include <iostream>
+
+highlightTokens:
+  - "#"
+  - "include"
+  - "<iostream>"
+  - "ANGLE brackets"
+  - "NO trailing semicolon"
+
+usedIn:
+  - "Q4 main program (line 1 of every answer)"
+  - "Q3 input/output function (still needed even when you only write a function)"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md (preamble structure)"
+
+commonMistakeIds: ["CM-F04b", "CM-F04c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Anatomy demo — addresses the two highest-frequency typos
+  (missing #, "iostream" in quotes instead of angles). The
+  no-semicolon rule is mentioned because it surprises every novice.

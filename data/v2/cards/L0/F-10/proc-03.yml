@@ -1,0 +1,53 @@
+# =====================================================================
+# L0 / F-10 / ProceduralCard 03 (μWrite)
+# Atom: Primitive types — three declarations
+# =====================================================================
+id: "L0-F10-proc-03"
+schemaVersion: "v2"
+atomId: "F-10"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Write three declaration lines, one per type. Pick the right type
+  for each value.
+
+section: "F-10 type-write drills (multi-type)"
+
+prompt: |
+  Declare three variables: `desk_count` for a count, `price` for a
+  decimal money amount, `name` for text. Each on its own line, each
+  ending in a semicolon.
+
+expectedAnswer: |
+  int desk_count;
+  double price;
+  string name;
+
+keyChecks: ["int desk_count;", "double price;", "string name;"]
+
+variants:
+  - prompt: |
+      Declare three variables: `i` (int counter), `total` (double sum),
+      `label` (string name). Each on its own line, each ending in a
+      semicolon.
+    expectedAnswer: |
+      int i;
+      double total;
+      string label;
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+
+commonMistakeIds: ["CM-F10a", "CM-F10b"]
+
+notes: |
+  Multi-line drill that forces the student to pick a different type for
+  each variable. Fastest test of "do you know which type goes where?".

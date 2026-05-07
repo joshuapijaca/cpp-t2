@@ -1,0 +1,44 @@
+id: "L1-S1-tour-21-narrated-step1"
+schemaVersion: "v2"
+atomId: "T-00"
+qTags: ["Q1"]
+stage: 1
+level: "L1"
+type: "WalkthroughCard"
+
+stem: |
+  Narrated trace 1/6: pre-loop init step. Start of who_am_i. The first
+  line `data.mystery = 0.0;` ALWAYS fires once before the loop. mystery
+  changes from -0.9 (brace-init value) to 0.0.
+
+levelLabel: "L1 Q1 hand-execute · S1 Tour · narrated trace step 1"
+
+fullCode: |
+  void who_am_i(stat_double &data) {
+    data.mystery = 0.0;            // <-- THIS line, fires once
+    for (int i = 0; i < SIZE; i++) {
+      if (data.numbers[i] > 0) {
+        data.mystery = data.mystery + data.numbers[i];
+      }
+    }
+  }
+
+steps:
+  - line: 1
+    code: 'data.mystery = 0.0;'
+    annotation: |
+      Read the line. LHS = data.mystery. RHS = 0.0 (a literal).
+      Compute RHS first (already 0.0). Store into LHS.
+      mystery: ~-0.9~ 0.0
+    atomIds: ["T-03"]
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — pre-loop init line"
+
+commonMistakeIds: ["CM-Q1-skip-init"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  Narrated trace step 1: pre-loop init.
+authoringStatus: "DRAFT"

@@ -1,0 +1,56 @@
+# =====================================================================
+# L0 / F-21 / ProceduralCard 01 — composite token drill
+# =====================================================================
+id: "L0-F21-proc-01"
+schemaVersion: "v2"
+atomId: "F-21"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Procedural drill — write composite-token expressions on demand.
+
+section: "F-21 composite-token drill"
+
+prompt: |
+  Write the C++ statement that prints slot 0 of the `numbers` array
+  field of struct instance `data`, followed by endl.
+
+expectedAnswer: |
+  cout << data.numbers[0] << endl;
+
+keyChecks:
+  - "cout"
+  - "data.numbers[0]"
+  - "endl"
+  - ";"
+
+variants:
+  - prompt: |
+      Write the statement that prints slot `i` of `data.numbers`,
+      followed by endl.
+    expectedAnswer: |
+      cout << data.numbers[i] << endl;
+  - prompt: |
+      Write the statement that prints the `mystery` field of `data`,
+      followed by endl.
+    expectedAnswer: |
+      cout << data.mystery << endl;
+  - prompt: |
+      Write the assignment that sets `data.numbers[3]` to 42.0.
+    expectedAnswer: |
+      data.numbers[3] = 42.0;
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — composite tokens used in Q1 and Q3"
+
+commonMistakeIds: ["CM-F21a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  3-streak procedural. Variants cover the three idioms: read by
+  literal, read by variable, write by literal.

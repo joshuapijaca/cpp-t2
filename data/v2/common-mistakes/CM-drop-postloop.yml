@@ -1,0 +1,25 @@
+id: CM-drop-postloop
+name: "Student drops the post-loop step (e.g. divide by SIZE for average)"
+description: |
+  Average algorithms accumulate during the loop but require a final
+  divide-by-SIZE AFTER the loop exits. Students stop at the loop exit and
+  treat the running sum as the answer. Same pattern for percent
+  calculation and any post-processing.
+whyItHappens: |
+  Loop closure feels like "done." Students see the cond fail and stop,
+  failing to scan past the closing brace. The post-loop line is short and
+  easy to miss visually.
+immunizationStrategy: |
+  1. SpotError: trace stopping at loop exit, no /SIZE; spot the bug.
+  2. Cloze: blank for the post-loop assignment line.
+  3. MCQ: "After the for-loop closes, what runs next? (the next statement)"
+  4. Trace card requiring final /SIZE step in the answer.
+  5. Decompose: split function body into pre-loop, loop, post-loop, return.
+  6. Pair-trace: identical loop, one with /SIZE, one without; diff.
+examImpact: medium
+atomDependencies: [F-18b, A10, A1]
+qTracks: [Q1]
+relatedCMs: [CM-skip-pre-loop-init]
+source:
+  kind: pfg
+  ref: "Programming Fundamentals Guide § part-2 — average algorithm post-loop divide"

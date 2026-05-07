@@ -1,0 +1,48 @@
+id: "L1-S2-TA-02-whole-rep2"
+schemaVersion: "v2"
+atomId: "T-01"
+qTags: ["Q1"]
+stage: 2
+level: "L1"
+type: "TemplateRecallCard"
+
+stem: |
+  Rep 2: type the whole stat_double struct from blank, no template
+  hint this time.
+
+prompt: |
+  Type the canonical Q1 struct stat_double from memory. No template.
+
+template: |
+  // (blank — type from memory)
+
+canonicalAnswer: |
+  struct stat_double {
+    double numbers[SIZE];
+    double mystery;
+  };
+
+keyChecks:
+  - "struct stat_double"
+  - "numbers[SIZE]"
+  - "mystery"
+  - "};"
+
+forbiddenTokens:
+  - "while"
+  - "class"
+
+explanation: |
+  Same shape, no hint. The trailing `;` after `}` is the most
+  forgotten character on the whole test.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 — struct stat_double"
+
+commonMistakeIds: ["CM-Q1-struct-no-trailing-semi"]
+status: "NEW"
+createdBy: "SA-L1-S1S2"
+notes: |
+  T-A rep 02 — whole, no template hint.
+authoringStatus: "DRAFT"

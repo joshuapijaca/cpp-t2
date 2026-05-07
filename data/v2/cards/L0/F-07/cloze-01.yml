@@ -1,0 +1,41 @@
+# =====================================================================
+# L0 / F-07 / ClozeCard 01
+# Atom: Statement terminator: semicolon
+# =====================================================================
+id: "L0-F07-cloze-01"
+schemaVersion: "v2"
+atomId: "F-07"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill the blank with the single character that must end every
+  C++ statement.
+
+code: |
+  int x = 5_
+  cout << x << endl_
+
+clozeSentence: |
+  int x = 5_       (the underscore is the missing character)
+
+answer: ";"
+
+explanation: |
+  The missing character is `;` — the C++ statement terminator. Both
+  lines are statements (declaration, output) and each must end with
+  its own `;`.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 1 · 2-communicating-syntax/2-trailside/02-statement.md"
+
+commonMistakeIds: ["CM-F07b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Cloze 1: the simplest possible recall — name the character.
+  Targets CM-F07b (forgets ; after every statement).

@@ -1,0 +1,32 @@
+id: "CM-A11-init-0-mcq"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "MCQCard"
+
+stem: |
+  Rule recall for CM-A11-init-0: Q1 init zero confusion. find-max init = numbers[0]. sum init = 0.
+
+correct: "data.mystery = data.numbers[0]; // find-max"
+
+distractors:
+  - "data.mystery = 0; // wrong for find-max"
+  - "// no init needed"
+  - "// the compiler infers it"
+
+explanation: |
+  Canonical: data.mystery = data.numbers[0]; // find-max
+  Mistake: Initialized find-max with 0 instead of numbers[0].
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-A11-init-0"
+
+commonMistakeIds: ["CM-A11-init-0"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 5/5 (rule-recall MCQ) for CM-A11-init-0.

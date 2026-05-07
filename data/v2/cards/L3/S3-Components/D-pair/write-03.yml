@@ -1,0 +1,33 @@
+# =====================================================================
+# L3 / R-02d / FunctionWriteCard — prompt-pair books.rating
+# =====================================================================
+id: "L3-R02d-write-03"
+schemaVersion: "v2"
+atomId: "R-02d"
+qTags: ["Q3"]
+stage: 3
+level: "L3"
+type: "FunctionWriteCard"
+stem: |
+  Write the two-line prompt-pair to read the 'rating' field of
+  'books[i]'. Prompt comes first (cout, no endl), then cin.
+prompt: "Two-line cout/cin prompt-pair."
+canonicalAnswer: |
+  cout << "Rating: ";
+  cin >> books[i].rating;
+keyChecks:
+  - "cout << \"Rating: \";"
+  - "cin >> books[i].rating;"
+forbiddenTokens:
+  - "endl"
+  - "while"
+explanation: |
+  cout << "Prompt: "; on its own line (no endl), then cin >> list[i].field; .
+  Without endl, the user types on the same line as the prompt.
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-prompt-outside-loop","CM-Q3-skipped-prompt"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

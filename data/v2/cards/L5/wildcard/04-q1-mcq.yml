@@ -1,0 +1,31 @@
+id: "L5-wildcard-04-q1"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 5
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  S5.5 wildcard: All-equal trace.
+
+correct: "mystery == 5.0 (all elements identical)."
+
+distractors:
+  - "mystery == 0.0 (init unchanged)."
+  - "mystery == sum."
+  - "compile error."
+
+explanation: |
+  If every element equals 5.0 in find-max, mystery starts at 5.0 and never updates.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 wildcard"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #4: Q1 All-equal trace.

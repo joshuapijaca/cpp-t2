@@ -1,0 +1,51 @@
+# =====================================================================
+# L0 / F-09 / ProceduralCard 01 (μWrite)
+# Atom: Identifier rules + naming
+# =====================================================================
+id: "L0-F09-proc-01"
+schemaVersion: "v2"
+atomId: "F-09"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ProceduralCard"
+
+stem: |
+  Translate a plain-English variable description into a legal SIT102
+  identifier declaration. Use the identifier as the variable name in
+  a full `TYPE NAME;` line.
+
+section: "F-09 identifier writing"
+
+prompt: |
+  An int that stores how many desks the user wants to read.
+  Use snake_case. Write the full declaration line.
+
+expectedAnswer: "int num_to_read;"
+
+keyChecks: ["num_to_read"]
+
+variants:
+  - prompt: |
+      A double that stores the total price of an order. snake_case.
+      Full declaration line.
+    expectedAnswer: "double total_price;"
+  - prompt: |
+      A string that stores a person's first name. snake_case. Full
+      declaration line.
+    expectedAnswer: "string first_name;"
+
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: num_to_read parameter on read function"
+
+commonMistakeIds: ["CM-F09c"]
+
+notes: |
+  μWrite drill. Three variants force the student to actually type
+  snake_case names. The first variant uses the EXACT identifier from
+  the real test (num_to_read).

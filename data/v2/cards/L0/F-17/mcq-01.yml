@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-17 / MCQCard 01
+# Atom: when does an if body run
+# =====================================================================
+id: "L0-F17-mcq-01"
+schemaVersion: "v2"
+atomId: "F-17"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Given a plain `if (cond) { body }` with no else clause, under
+  what condition does the body of the if-statement execute, and
+  how many times per visit?
+
+correct: "Only when the condition evaluates to true."
+
+distractors:
+  - "Always — the condition is just documentation."
+  - "Only when the condition evaluates to false."
+  - "On every other call to the function."
+
+explanation: |
+  An if is a GATE. The condition is evaluated; if true, body runs
+  (once); if false, body is skipped entirely. There is no "every
+  other" or "always" behaviour.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/02-branches"
+
+commonMistakeIds: ["CM-F17a"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT.
+authoringStatus: "DRAFT"

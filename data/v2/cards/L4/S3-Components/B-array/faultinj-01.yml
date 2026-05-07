@@ -1,0 +1,28 @@
+id: "L4-S3B-faultinj-01"
+schemaVersion: "v2"
+atomId: "Q-03"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "FaultInjectionCard"
+stem: "Fix the bug: variable-length array."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block B fault"
+commonMistakeIds: 
+  - "CM-Q4-var-sized-array"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+brokenCode: "desk_data desks[desk_num];"
+bugLocations: 
+  - 1
+fixedCode: "desk_data desks[MAX];"
+bugCategory: "variable-length array"
+keyChecks: 
+  - "desk_data"
+  - "desks"
+  - "[MAX]"
+  - ";"
+explanation: "desk_num is runtime → use MAX (compile-time const)."

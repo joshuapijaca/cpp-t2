@@ -1,0 +1,26 @@
+# =====================================================================
+# L3 / R-00 / MCQCard — spot the error
+# =====================================================================
+id: "L3-R00-spot-11"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 1
+level: "L3"
+type: "MCQCard"
+stem: |
+  Inside the read_desks loop, one line below is buggy. Pick the buggy form.
+correct: "for (int i = 1; i <= number_to_read; i++)"
+distractors:
+  - "for (int i = 0; i < number_to_read; i++)"
+  - "for (int i = 0; i <= number_to_read; i++)"
+  - "for (int i = 1; i < number_to_read; i++)"
+explanation: |
+  Both off-by-one bugs at once: starts at 1 (skips index 0) AND exits at <= (overruns by 1). Correct form: for (int i = 0; i < number_to_read; i++)
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+commonMistakeIds: ["CM-Q3-spot"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L3-Q3"

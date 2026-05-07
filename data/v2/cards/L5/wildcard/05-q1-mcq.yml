@@ -1,0 +1,31 @@
+id: "L5-wildcard-05-q1"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 5
+level: "L5"
+type: "MCQCard"
+
+stem: |
+  S5.5 wildcard: Negative-init seed.
+
+correct: "For find-max with all negatives: mystery == numbers[0] if it is the largest, else update once."
+
+distractors:
+  - "mystery stays 0."
+  - "mystery stays at brace-init value."
+  - "mystery becomes 0 always."
+
+explanation: |
+  find-max on all-negative arrays: init = numbers[0], updates only when a larger (less negative) value found.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — S5.5 wildcard"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-L5-Mock"
+authoringStatus: "DRAFT"
+notes: |
+  Wildcard #5: Q1 Negative-init seed.

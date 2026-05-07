@@ -1,0 +1,31 @@
+# Auto-emitted CM immunization (MCQCard) for CM-off-by-one-le
+id: "L3-cmimm-CM-off-by-one-le-mcq"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "MCQCard"
+
+stem: |
+  You want exactly SIZE iterations of a 0-indexed loop. Which bound?
+
+correct: '`i < SIZE` — strict less-than'
+
+distractors:
+  - '`i <= SIZE` — inclusive'
+  - '`i < SIZE - 1` — stops one early'
+  - '`i != SIZE + 1` — explicit'
+
+explanation: |
+  0..SIZE-1 is SIZE values. `<` gives that. `<=` gives SIZE+1 values (including a no-such-cell at index SIZE).
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-off-by-one-le)"
+
+commonMistakeIds: ["CM-off-by-one-le"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

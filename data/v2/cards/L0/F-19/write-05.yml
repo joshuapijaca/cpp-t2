@@ -1,0 +1,58 @@
+# =====================================================================
+# L0 / F-19 / FunctionWriteCard 05 — μ-write loop-fill skeleton
+# Atom: Fixed-size array — fill with a for-loop
+# =====================================================================
+id: "L0-F19-write-05"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "FunctionWriteCard"
+
+stem: |
+  Write a 3-line for-loop that reads SIZE doubles from cin into
+  arr[0]..arr[SIZE-1]. Use `i` as the loop variable.
+
+prompt: "Loop SIZE times and read each cin >> arr[i]."
+
+signatureHint: "for (int i = 0; i < SIZE; i++) { ____ }"
+
+canonicalAnswer: |
+  for (int i = 0; i < SIZE; i++) {
+    cin >> arr[i];
+  }
+
+keyChecks:
+  - "for (int i = 0; i < SIZE; i++)"
+  - "cin >> arr[i]"
+  - ";"
+  - "{"
+  - "}"
+
+forbiddenTokens:
+  - "*"
+  - "while"
+  - "do"
+  - "scanf"
+
+explanation: |
+  Standard array-fill loop. `i = 0` starts at the first index;
+  `i < SIZE` stops before going out of bounds; `i++` advances; the
+  body reads one value per iteration into `arr[i]`. This is the
+  exact shape Q3 read functions use to populate `data.numbers`.
+
+passByRefRequired: false
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — Q3 read function fills `data.numbers[i]`"
+
+commonMistakeIds: ["CM-F19b"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Bridges F-19 to the Q3 read-function shape. The `i < SIZE` (NOT
+  `i <= SIZE`) condition is the off-by-one safeguard — drilling it
+  here saves Q3 marks.

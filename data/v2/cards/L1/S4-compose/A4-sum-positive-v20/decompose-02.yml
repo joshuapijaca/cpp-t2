@@ -1,0 +1,44 @@
+# =====================================================================
+# L1 / sum-positive V2.0 / Decompose 02 — spot-error: included negatives
+# =====================================================================
+id: "L1-A4v20-decomp-02"
+schemaVersion: "v2"
+atomId: "A4"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "DecomposeCard"
+
+stem: "Another student traced V2.0 stimulus { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 } and got mystery = 2.0. Identify their error."
+
+code: |
+  // student's trace trail:
+  //   0.0 -> 2.4 -> -1.3 -> -3.0 -> 0.0 -> 2.0
+  // they wrote: print 2.0
+
+question: "Pick the option that correctly identifies the bug in the student's trace."
+
+options:
+  - label: "A"
+    text: "Student dropped the if-condition entirely and summed every element including negatives. Correct trail is 0.0 -> 2.4 -> 5.4 -> 7.4 (skipping the negatives)."
+  - label: "B"
+    text: "Student forgot the reset to 0.0."
+  - label: "C"
+    text: "Student computed max instead of sum-positive."
+  - label: "D"
+    text: "Student is correct; the answer is 2.0."
+
+correctLabel: "A"
+
+explanation: |
+  0+2.4=2.4; 2.4-3.7=-1.3; -1.3-1.7=-3.0; -3.0+3.0=0.0; 0.0+2.0=2.0. Matches "skip-condition" error. Targets CM-A4-skip-condition.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — EXACT stimulus, spot-error 'no condition'"
+
+commonMistakeIds: ["CM-A4-skip-condition"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-Coverage-Fill"
+notes: "V2.0 exact stimulus spot-error: dropped the > 0 check."

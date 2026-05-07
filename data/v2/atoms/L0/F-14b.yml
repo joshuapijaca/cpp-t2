@@ -1,0 +1,24 @@
+id: F-14b
+name: "cin reads one whitespace-delimited token"
+level: L0
+phase: C
+teaches: "`cin >> x;` consumes input until first whitespace; multi-word strings need getline. Type-converts to x's type."
+prereqs: [F-14a, F-10]
+usedByQs: [Q3, Q4]
+cardCountTarget: 14
+parentAtom: F-14
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+    quote: "When using >>, whitespace separates tokens; reading a string with >> stops at the first space."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/5-terminal-functions"
+    quote: "To read a whole line including spaces, use getline(cin, str) instead of cin >> str."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:30:15 — Saloni notes typing each value separately for the trace"
+commonMistakes:
+  - CM-F14b-1  # cin >> name truncates 'John Smith' to 'John'
+  - CM-F14b-2  # types non-numeric input into int — fail-state confusion
+  - CM-F14b-3  # forgets that cin advances input pointer past consumed whitespace
+notes:
+  cardMix: { walkthrough: 1, demo: 1, decompose: 2, trace: 3, cloze: 2, μWrite: 2, tmplRec: 1, mcq: 1, proc: 1 }

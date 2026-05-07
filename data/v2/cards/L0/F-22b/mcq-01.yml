@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-22b / MCQCard 01 — `&` placement
+# =====================================================================
+id: "L0-F22b-mcq-01"
+schemaVersion: "v2"
+atomId: "F-22b"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  In the function signature `void f(int &x)`, where exactly does the
+  `&` go and what does it mean?
+
+correct: "Between the type `int` and the name `x` — it marks `x` as a reference (alias) to the caller's variable, so mutations persist."
+
+distractors:
+  - "Before the type, like `&int x` — it marks the type as nullable."
+  - "After the name, like `int x&` — it is a postfix increment marker."
+  - "Anywhere — placement does not matter as long as `&` appears in the line."
+
+explanation: |
+  `&` always sits between the TYPE and the NAME in a parameter
+  declaration: `Type &name`. This binds the parameter as a
+  reference (alias). Placement IS load-bearing — `&int x` is a
+  syntax error, `int x&` is a syntax error.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
+
+commonMistakeIds: ["CM-F22b-1"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Targets the placement directly. Distractor 4 is intentional —
+  some students believe placement is flexible. It is not.

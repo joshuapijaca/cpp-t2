@@ -1,0 +1,30 @@
+id: CM-Q4-read-count-after-call
+name: "Q4: call read_X(arr, count) before reading count from cin"
+description: |
+  In Q4 the canonical main() ordering is: declare → prompt → cin >> count
+  → call read_X(arr, count) → loop print. Students invert the last two:
+  they call `read_desks(desks, desk_num)` BEFORE `cin >> desk_num`, so
+  desk_num is uninitialised when the read function uses it as the loop
+  bound. The result is undefined behaviour — usually garbage iterations
+  reading from cin or seg-faulting on out-of-bounds slots.
+whyItHappens: |
+  Students mentally group all "input" steps together and think
+  "read_desks reads desks AND the count". They miss that the count is a
+  user input read by main(), then PASSED to read_desks as a parameter.
+  Pattern-matching error: they see `read_X` and think it does its own
+  reading start-to-end. Compounded by the fact that the variable name
+  `desk_num` looks like something the function should fetch.
+immunizationStrategy: |
+  1. SpotError: full main() with read_desks called before cin >> desk_num.
+  2. MCQ: "Order the 4 lines of main()" with cin/declare/call/loop options.
+  3. Cloze: rewrite a broken main with a numbered fix-list.
+  4. Decompose: pick the correct ordering rationale (uninitialised → UB).
+  5. Walkthrough: trace a UB execution showing why count must come first.
+  6. Trace: hand-execute broken version and watch desk_num be garbage.
+examImpact: high
+atomDependencies: [Q-00, Q-04, F-15]
+qTracks: [Q4]
+relatedCMs: [CM-Q4-arg-order-swap, CM-prompt-outside-loop]
+source:
+  kind: v2
+  ref: "C++T2 spec §6.4 Q4 main() ordering (Block 0); SIT102 Test 2 V2.0 attempt 1"

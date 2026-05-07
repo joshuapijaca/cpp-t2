@@ -1,0 +1,18 @@
+id: Q-10
+name: "L4 Q4 Speed: timed full main() under exam clock"
+level: L4
+teaches: "Speed drills under exam pressure. 5 V2.0 timed (90s), 5 practice timed (90s), 10 novel under 90s, 5 end-to-end Q2+Q3+Q4 chain under 8 min. Goal: produce a correct main() under time pressure equivalent to test conditions."
+prereqs: [Q-09]
+usedByQs: [Q4]
+cardCountTarget: 25
+source:
+  - kind: v2
+    ref: "C++T2 spec §6.2 S6 speed — timed full main() at <=90s, full chain <=8min"
+commonMistakes:
+  - CM-Q4-time-pressure-skip-const
+  - CM-Q4-time-pressure-no-return
+  - CM-Q4-time-pressure-wrong-arg
+notes:
+  cardMix: { speedDrill: 20, testDaySim: 5 }
+  stage: S6
+  exposureClass: short

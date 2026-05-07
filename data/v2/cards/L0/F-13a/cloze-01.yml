@@ -1,0 +1,38 @@
+# =====================================================================
+# L0 / F-13a / ClozeCard 01
+# Atom: cout << operator direction
+# =====================================================================
+id: "L0-F13a-cloze-01"
+schemaVersion: "v2"
+atomId: "F-13a"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the operator that pushes a value INTO cout.
+
+code: |
+  cout ___ x;
+  cout ___ "hello";
+
+clozeSentence: |
+  The two-character operator that pushes values into cout is `___`.
+
+answer: "<<"
+
+explanation: |
+  `<<` is the insertion operator. It points TOWARD cout, indicating
+  the value flows into cout. Pair: `cin >>` for input.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+
+commonMistakeIds: ["CM-F13a-1"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Two-character recall.

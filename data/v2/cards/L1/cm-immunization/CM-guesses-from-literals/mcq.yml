@@ -1,0 +1,31 @@
+# Hand-authored CM immunization (MCQCard) for CM-guesses-from-literals
+id: "L1-cmimm-CM-guesses-from-literals-mcq"
+schemaVersion: "v2"
+atomId: "F-03"
+qTags: ["Q1", "Q4"]
+stage: 4
+level: "L1"
+type: "MCQCard"
+
+stem: |
+  In Q1 ("What does this program print?") with no compiler, what is the only reliable strategy?
+
+correct: 'Hand-execute: maintain a variables panel, walk line-by-line, read off cout output'
+
+distractors:
+  - 'Guess based on the largest literal in the code'
+  - 'Guess based on the first variable assigned'
+  - 'Skip and rely on partial credit'
+
+explanation: |
+  Guessing fails the moment any arithmetic happens (which is always). Hand-execution is the only reliable method: be the CPU, maintain the panel, read off output.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §F-03 hand-execution paradigm — common-mistake immunization (CM-guesses-from-literals)"
+
+commonMistakeIds: ["CM-guesses-from-literals"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (MCQCard / concept check)"
+authoringStatus: "DRAFT"

@@ -1,0 +1,40 @@
+# Auto-emitted CM immunization (FaultInjectionCard) for CM-misorder-loop-sem
+id: "L1-cmimm-CM-misorder-loop-sem-spot"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "FaultInjectionCard"
+
+stem: |
+  This Q1 trace ran the post-statement BEFORE the body. Spot the iteration where the order went wrong.
+
+brokenCode: |
+  // for (int i = 0; i < 3; i++) { mystery = mystery + numbers[i]; }
+  // student trace:
+  // i=0 -> i++ first: i=1 -> body: mystery += numbers[1]   // BUG
+
+bugLocations: [3]
+
+fixedCode: |
+  // CORRECT order: init -> condition -> BODY -> post-stmt -> condition -> ...
+  // i=0: cond OK -> body uses numbers[0] -> post: i=1 -> cond OK -> body uses numbers[1] -> ...
+
+bugCategory: 'misordered loop semantics — i++ before body'
+
+keyChecks:
+  - 'numbers[0]'
+
+explanation: |
+  For-loop order: init, then (condition, body, post-stmt) repeatedly. The body executes BEFORE i++ each iteration.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-misorder-loop-sem)"
+
+commonMistakeIds: ["CM-misorder-loop-sem"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

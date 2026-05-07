@@ -1,0 +1,45 @@
+id: "L4-S2-orderlines-03"
+schemaVersion: "v2"
+atomId: "Q-01"
+qTags: 
+  - "Q4"
+stage: 2
+level: "L4"
+type: "DecomposeCard"
+stem: "Where does `return 0;` go relative to the print loop?"
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.2 S2 OrderLines drill"
+commonMistakeIds: []
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+code: |
+  int main()
+  {
+      const int MAX = 700;
+      desk_data desks[MAX];
+      int desk_num;
+  
+      cout << "How many desks? ";
+      cin >> desk_num;
+  
+      read_desks(desks, desk_num);
+  
+      for (int i = 0; i < desk_num; i++)
+      {
+          cout << desks[i].room_id << ", ";
+          cout << desks[i].d_id << ", ";
+          cout << desks[i].number_of_screens << endl;
+      }
+  
+      return 0;
+  }
+question: "Where does `return 0;` go relative to the print loop?"
+options: 
+  - {label: "A", text: "Before the print loop."}
+  - {label: "B", text: "Inside the print-loop body."}
+  - {label: "C", text: "After the print loop, before main's closing brace."}
+  - {label: "D", text: "After main's closing brace."}
+correctLabel: "C"
+explanation: "return 0 is the LAST statement of main, AFTER the print loop, BEFORE the closing brace of main."

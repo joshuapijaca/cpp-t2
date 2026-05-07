@@ -1,0 +1,47 @@
+# =====================================================================
+# L1 / S3-components / C-05 / DemoCard 01 — scalar vs array cell
+# =====================================================================
+id: "L1-S3-C-05-demo-01"
+schemaVersion: "v2"
+atomId: "C-05"
+qTags: ["Q1"]
+stage: 3
+level: "L1"
+type: "DemoCard"
+
+stem: |
+  Watch how the scalar field `mystery` is drawn versus the array
+  field `numbers[SIZE]`.
+
+whyOneLine: "Scalars draw as 1 named cell; arrays draw as N indexed cells."
+
+demoCode: |
+  struct stat_double {
+    double numbers[SIZE];   // array — SIZE cells, indexed
+    double mystery;          // scalar — 1 cell, named
+  };
+
+  // Memory sketch (with const int SIZE = 5):
+  // numbers[0] | numbers[1] | numbers[2] | numbers[3] | numbers[4]
+  // mystery
+
+highlightTokens:
+  - "double mystery;"
+  - "numbers[0]"
+  - "numbers[4]"
+  - "mystery"
+
+usedIn:
+  - "Q1 trace — write running result into mystery cell across iterations"
+
+source:
+  kind: "v2"
+  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-05"
+
+commonMistakeIds: ["CM-C05a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "atom-coverage-fix"
+notes: |
+  Pure exposure: shows the scalar-vs-array drawing convention side
+  by side. Demo type for QA-M10 exposure floor.

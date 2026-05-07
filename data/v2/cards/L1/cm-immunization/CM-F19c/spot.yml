@@ -1,0 +1,45 @@
+# Hand-authored CM immunization (FaultInjectionCard) for CM-F19c
+id: "L1-cmimm-CM-F19c-spot"
+schemaVersion: "v2"
+atomId: "F-19"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 4
+level: "L1"
+type: "FaultInjectionCard"
+
+stem: |
+  This loop tries to use arr.length (Java/JS style). Fix it to use the SIZE constant.
+
+brokenCode: |
+  const int SIZE = 5;
+  int arr[SIZE] = {1,2,3,4,5};
+  for (int i = 0; i < arr.length; i++) {
+      cout << arr[i] << endl;
+  }
+
+bugLocations: [3]
+
+fixedCode: |
+  const int SIZE = 5;
+  int arr[SIZE] = {1,2,3,4,5};
+  for (int i = 0; i < SIZE; i++) {
+      cout << arr[i] << endl;
+  }
+
+bugCategory: "C++ raw arrays do not have .length / .size()"
+
+keyChecks:
+  - "i < SIZE"
+
+explanation: |
+  C++ raw arrays do NOT carry size with them — `arr.length` is JS/Java syntax and is a compile error here. Use the `const int SIZE` symbol or pass size as a separate parameter.
+
+source:
+  kind: "pfg"
+  ref: "PFG part-2/5-working-with-multiples — common-mistake immunization (CM-F19c)"
+
+commonMistakeIds: ["CM-F19c"]
+status: "NEW"
+createdBy: "stub-CM-fix"
+notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

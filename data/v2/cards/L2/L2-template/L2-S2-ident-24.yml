@@ -1,0 +1,36 @@
+
+id: "L2-S2-ident-24"
+schemaVersion: "v2"
+atomId: "L-22"
+qTags: ["Q2"]
+stage: 2
+level: "L2"
+type: "DecomposeCard"
+stem: "Q2 identifier rules drill #24. Which identifier is legal AND SIT102-styled for the full-name field?"
+code: |
+  struct student_data
+  {
+      int student_id;
+      string full_name;
+      double gpa;
+  };
+question: "Which identifier is legal AND SIT102-styled for the full-name field?"
+options:
+  - label: "A"
+    text: "`fullName`"
+  - label: "B"
+    text: "`Full_Name`"
+  - label: "C"
+    text: "`full_name`"
+  - label: "D"
+    text: "`full name`"
+correctLabel: "C"
+explanation: "`full_name` is snake_case and contains no spaces; `full name` is illegal in C++."
+source:
+  kind: "practice"
+  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S2 TEMPLATE"
+commonMistakeIds: ["CM-Q2-camelcase","CM-Q2-hyphen"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L2-Q2"
+notes: "Identifier-rules pick-the-correct."

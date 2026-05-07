@@ -1,0 +1,42 @@
+# =====================================================================
+# L0 / F-09 / MCQCard 03
+# Atom: Identifier rules + naming (SIT102 style)
+# =====================================================================
+id: "L0-F09-mcq-03"
+schemaVersion: "v2"
+atomId: "F-09"
+qTags: ["Q1", "Q2", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  In SIT102, what is the canonical naming style for a variable that
+  stores a person's last name?
+
+correct: "last_name"
+
+distractors:
+  - "lastName"
+  - "LastName"
+  - "LAST_NAME"
+
+explanation: |
+  SIT102 (and the PFG) uses snake_case for every variable, struct
+  field, and function name. The other three are real conventions in
+  other languages: lastName is camelCase (Java, JavaScript), LastName
+  is PascalCase (C# class names), LAST_NAME is SCREAMING_SNAKE_CASE
+  (constants in some languages). All three compile, but none of them
+  match SIT102 idiom and the marker will deduct style marks.
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/3-naming-convention"
+
+commonMistakeIds: ["CM-F09c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Distractors are real naming conventions to make the question harder.
+  All four COMPILE; only one matches SIT102 idiom.

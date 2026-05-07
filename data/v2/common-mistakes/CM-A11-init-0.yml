@@ -1,0 +1,25 @@
+id: CM-A11-init-0
+name: "Student initialises mystery to 0.0 on A11 (product algorithm)"
+description: |
+  A11 is the running-product algorithm: `mystery = mystery * numbers[i]`.
+  The seed must be 1.0 (multiplicative identity), not 0.0. Students copy
+  the sum-template seed of 0.0 and the running product collapses to 0
+  forever.
+whyItHappens: |
+  Sum-template (A1-A4) seeds 0.0 because `0 + x == x`. Students transfer
+  this without thinking about the operation: 0 is additive identity but
+  multiplicative annihilator. Every other Q1 algorithm starts at 0.0.
+immunizationStrategy: |
+  1. MCQ: "Product algorithm seed: 0.0 or 1.0?"
+  2. SpotError: trace with mystery seeded 0.0 in product; spot collapse.
+  3. Cloze: blank for the pre-loop seed in a product fn.
+  4. Decompose: identify the operation type -> determine identity element.
+  5. Pair-trace: sum (seed 0.0) vs product (seed 1.0) on same data.
+  6. Demo card: identity-element table (sum->0, product->1, max->-inf etc).
+examImpact: medium
+atomDependencies: [F-12, A11]
+qTracks: [Q1]
+relatedCMs: [CM-skip-pre-loop-init, CM-confuse-=-+=]
+source:
+  kind: practice
+  ref: "Practice algorithm pool A11 (running product, seed 1.0)"

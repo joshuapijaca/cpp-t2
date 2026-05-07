@@ -1,0 +1,40 @@
+id: "CM-misparse-brace-fixit"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q1"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Fix-it drill for CM-misparse-brace. The code has the bug; produce the canonical fix.
+
+brokenCode: |
+  // Q1: Q1 misparsed brace-init
+  // d.numbers = {1,2,3,4,5,0}
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  stat_double d = {{1.0,2.0,3.0,4.0,5.0}, 0.0};
+  ;
+
+bugCategory: "CM-misparse-brace"
+
+keyChecks: []
+
+explanation: |
+  Replace the broken line with: stat_double d = {{1.0,2.0,3.0,4.0,5.0}, 0.0};
+  Diagnosis: Treated {{1,2,3,4,5}, 0} as a 6-element array.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-misparse-brace"
+
+commonMistakeIds: ["CM-misparse-brace"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 3/5 (fix-it) for CM-misparse-brace.

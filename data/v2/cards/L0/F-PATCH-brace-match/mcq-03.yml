@@ -1,0 +1,54 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 03 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: One nested block (if inside main)
+# =====================================================================
+id: "L0-F25-mcq-03"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q1"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Two nested blocks. The HIGHLIGHTED `{` below is the if-block at
+  depth 1. Which `}` is its match?
+
+  ```cpp
+  int main() {     // depth 0 open
+    if (1 < 2) {   // <-- HIGHLIGHT (depth 1)
+      int n = 0;
+    }              // <-- option A (depth 1 close)
+    return 0;
+  }                // <-- option B (depth 0 close)
+  ```
+
+correct: "A — the `}` on the line after `int n = 0;` (the depth-1 close)."
+
+distractors:
+  - "B — the final `}` of `main` because that is the only visible closing brace."
+  - "C — there is no matching brace; the if needs `endif` to close."
+  - "D — the `}` of main, because the if-block does not need a closing brace when it has only one statement."
+
+explanation: |
+  A is correct. The if-block opens at the highlighted `{` and
+  closes at the next `}` at the same depth (depth 1). Depth-1
+  matches with depth-1, depth-0 matches with depth-0.
+
+  B is wrong: the final `}` is at depth 0, so it pairs with main's
+  opening `{`, not the if's.
+  C is wrong: C++ uses braces, not endif.
+  D is wrong: even single-statement blocks need `}` if you opened
+  with `{`.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 3/30"
+
+commonMistakeIds: ["CM-F08a", "CM-F08c"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  First nested case. Establishes the depth-matching rule.

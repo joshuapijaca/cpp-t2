@@ -1,0 +1,32 @@
+# Auto-emitted CM immunization (ClozeCard) for CM-off-by-one-le
+id: "L3-cmimm-CM-off-by-one-le-cloze"
+schemaVersion: "v2"
+atomId: "R-00"
+qTags: ["Q3"]
+stage: 4
+level: "L3"
+type: "ClozeCard"
+
+stem: "Fill in the missing token to fix this CM-off-by-one-le mistake."
+
+code: |
+  for (int i = 0; i ___ SIZE; i++) {
+    cin >> data.numbers[i];
+  }
+
+clozeSentence: 'Fill in the comparison so the loop runs exactly SIZE times.'
+
+answer: '<'
+
+explanation: |
+  Strict `<` matches indices 0..SIZE-1.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-off-by-one-le)"
+
+commonMistakeIds: ["CM-off-by-one-le"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
+authoringStatus: "DRAFT"

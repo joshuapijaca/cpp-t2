@@ -1,0 +1,66 @@
+# =====================================================================
+# L0 / F-15 / WalkthroughCard 01
+# Atom: Prompt-then-read pair  (THE Q3 CRITICAL PATTERN)
+# =====================================================================
+id: "L0-F15-walk-01"
+schemaVersion: "v2"
+atomId: "F-15"
+qTags: ["Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  Every Q3 read function and every Q4 main uses the SAME two-line
+  pattern: print a label, then read a value. The label is the
+  PROMPT; the cin is the READ. Walk through the pattern carefully.
+
+levelLabel: "L0 Foundation Phase C F-15"
+
+fullCode: |
+  // Read one int from the user, with a labelled prompt.
+  int desk_id;
+  cout << "desk_id: ";
+  cin >> desk_id;
+
+steps:
+  - line: 2
+    code: 'int desk_id;'
+    annotation: |
+      Declare the box. No initial value yet — cin will write into it.
+    atomIds: ["F-11"]
+  - line: 3
+    code: 'cout << "desk_id: ";'
+    annotation: |
+      The PROMPT. Print the label `desk_id: ` to the terminal.
+
+      CRITICAL DETAILS:
+      - There is a TRAILING SPACE inside the quotes (`": "`) so the
+        user does not type touching the colon.
+      - There is NO `endl` — the cursor stays on the same line so
+        the user types right after the label.
+      - The prompt is plain text; it does not "ask" cin for anything.
+        It just paints characters on the terminal.
+    atomIds: ["F-13b"]
+  - line: 4
+    code: 'cin >> desk_id;'
+    annotation: |
+      The READ. cin waits for the user to type, then writes ONE
+      token into desk_id.
+
+      Order matters: the prompt MUST come BEFORE the cin. If you put
+      cin first, the user has no idea what to type and the program
+      appears frozen.
+    atomIds: ["F-14b"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+
+commonMistakeIds: ["CM-F15a", "CM-F15b", "CM-F15c"]
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  THE most-used pattern on Q3 and Q4. Memorise verbatim. Three
+  critical details: trailing space, no endl, prompt-before-read.

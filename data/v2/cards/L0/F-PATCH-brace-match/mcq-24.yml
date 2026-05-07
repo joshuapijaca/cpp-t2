@@ -1,0 +1,55 @@
+# =====================================================================
+# L0 / F-25 / MCQCard 24 — brace-match drill
+# Atom: Brace-match drill (depth-coloured nested blocks)
+# Purpose: Same code as 23, highlight the function (depth 0)
+# =====================================================================
+id: "L0-F25-mcq-24"
+schemaVersion: "v2"
+atomId: "F-25"
+qTags: ["Q3"]
+stage: 0
+level: "L0"
+type: "MCQCard"
+
+stem: |
+  Same code as card 23. This time the HIGHLIGHTED `{` opens the
+  function `printAll` itself (depth 0). Which `}` matches?
+
+  ```cpp
+  void printAll(int n) {                // <-- HIGHLIGHT (depth 0)
+    for (int i = 0; i < n; i = i+1) {   // depth 1 open
+      cout << i << endl;
+    }                                   // option A (depth 1)
+    // close brace below at depth 0:
+  }                                     // <-- option B (depth 0)
+  int main() {                          // depth 0 open (main)
+    printAll(3);
+    return 0;
+  }                                     // <-- option C (depth 0, main)
+  ```
+
+correct: "B — the `}` between the for's close and `int main()` (depth 0, printAll close)."
+
+distractors:
+  - "A — the `}` after the cout, since that is the first `}` after the highlighted brace."
+  - "C — the final `}` of main, because the function chain extends to main's close."
+  - "D — there is no matching brace; the function declaration ends at `n)`."
+
+explanation: |
+  B is correct. printAll opens at depth 0 and closes at the next
+  depth-0 `}` (option B). main has its own pair (option C).
+
+  A is wrong: A is depth 1.
+  C is wrong: C closes main.
+  D is wrong: `n)` only closes the parameter list.
+
+source:
+  kind: "v2"
+  ref: "C++T2 spec §B.2 patch — brace-match drill card 24/30"
+
+commonMistakeIds: ["CM-F08a"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L0-PATCH"
+notes: |
+  Mirror of card 23.

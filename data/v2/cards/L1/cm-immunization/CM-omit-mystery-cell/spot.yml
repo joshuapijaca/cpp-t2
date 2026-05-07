@@ -1,0 +1,41 @@
+# Auto-emitted CM immunization (FaultInjectionCard) for CM-omit-mystery-cell
+id: "L1-cmimm-CM-omit-mystery-cell-spot"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "FaultInjectionCard"
+
+stem: |
+  This Q1 brace-init forgot the mystery field. What goes wrong at compile/run?
+
+brokenCode: |
+  struct stat_double {
+    double numbers[5];
+    double mystery;
+  };
+  stat_double data = {{2.4, 3.7, 1.0, 2.1, 0.5}};
+
+bugLocations: [4]
+
+fixedCode: |
+  stat_double data = {{2.4, 3.7, 1.0, 2.1, 0.5}, -0.9};
+
+bugCategory: 'missing mystery brace-init value'
+
+keyChecks:
+  - '-0.9'
+
+explanation: |
+  Brace-init must list every field in order. Omitting mystery gives it `0.0` (default-init for double); the question expected -0.9 from the question paper. Always include every field.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-omit-mystery-cell)"
+
+commonMistakeIds: ["CM-omit-mystery-cell"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

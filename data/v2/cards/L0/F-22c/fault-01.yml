@@ -1,0 +1,66 @@
+# =====================================================================
+# L0 / F-22c / FaultInjectionCard 01 — `&` at call site
+# =====================================================================
+id: "L0-F22c-fault-01"
+schemaVersion: "v2"
+atomId: "F-22c"
+qTags: ["Q1", "Q3"]
+stage: 0
+level: "L0"
+type: "FaultInjectionCard"
+
+stem: |
+  This program will fail to compile. Find the line, name the bug,
+  and write the fix.
+
+brokenCode: |
+  void who_am_i(stat_double &data);
+
+  int main() {
+    stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+    who_am_i(&d);
+    return 0;
+  }
+
+bugLocations: [5]
+
+fixedCode: |
+  void who_am_i(stat_double &data);
+
+  int main() {
+    stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+    who_am_i(d);
+    return 0;
+  }
+
+bugCategory: "extra & at call site"
+
+keyChecks:
+  - "who_am_i(d)"
+
+explanation: |
+  Bug: `who_am_i(&d)` passes `&d` (a `stat_double*` pointer)
+  instead of a `stat_double`. The function signature wants a
+  reference to a `stat_double`, not a pointer. Compile error:
+  cannot convert `stat_double*` to `stat_double&`.
+
+  Fix: drop the `&`. Pass the bare variable `d` — the compiler
+  binds it as a reference automatically because the signature
+  says `&data`.
+
+  Mental rule: `&` in signature → reference binding; `&` at call
+  site → address-of operator (different operator with the same
+  spelling). Test 2 only uses the FIRST form.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 — common Q1/Q3 call-site error"
+
+commonMistakeIds: ["CM-F22c-1"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseE"
+notes: |
+  Drives home that the SAME character `&` plays different roles
+  in the two contexts. Without that distinction the student
+  symmetrises and adds `&` at both sites.

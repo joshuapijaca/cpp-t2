@@ -1,0 +1,28 @@
+id: "L4-S3D-faultinj-04"
+schemaVersion: "v2"
+atomId: "Q-05"
+qTags: 
+  - "Q4"
+stage: 3
+level: "L4"
+type: "FaultInjectionCard"
+stem: "[GATING] Fix the bug: pass MAX not count."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.3 Block D fault"
+commonMistakeIds: 
+  - "CM-Q4-pass-MAX-not-count"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+brokenCode: "read_desks(desks, MAX);"
+bugLocations: 
+  - 1
+fixedCode: "read_desks(desks, desk_num);"
+bugCategory: "pass MAX not count"
+keyChecks: 
+  - "read_desks"
+  - "desks"
+  - "desk_num"
+  - ";"
+explanation: "Bug: pass MAX not count. Canonical: `read_desks(desks, desk_num);` — no `&`, count NOT MAX, array first."

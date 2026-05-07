@@ -1,0 +1,53 @@
+id: "L4-S5-difffields-05"
+schemaVersion: "v2"
+atomId: "Q-09"
+qTags: 
+  - "Q4"
+stage: 5
+level: "L4"
+type: "MainWriteCard"
+stem: "[field-count variation 5/10] 2 fields per row: code, description. Adjust the print loop accordingly."
+source: 
+  kind: "v2"
+  ref: "C++T2 spec §6.5 S5 field-count variations"
+commonMistakeIds: 
+  - "CM-Q4-field-count-fixed-3"
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-L4-Q4"
+prompt: "2 fields: code, description. Update print loop to chain 2 cout statements with comma separator + endl on the last."
+canonicalAnswer: |
+  int main()
+  {
+      const int MAX = 100;
+      computer_data computers[MAX];
+      int computer_num;
+  
+      cout << "How many computers? ";
+      cin >> computer_num;
+  
+      read_computers(computers, computer_num);
+  
+      for (int i = 0; i < computer_num; i++)
+      {
+          cout << computers[i].code << ", ";
+          cout << computers[i].description << endl;
+      }
+  
+      return 0;
+  }
+keyChecks: 
+  - "const int MAX"
+  - "computer_data computers[MAX]"
+  - "computer_num"
+  - "read_computers(computers, computer_num)"
+  - "code"
+  - "description"
+  - "endl"
+  - "return 0"
+forbiddenTokens: 
+  - "while"
+  - "getline"
+expectedTerminal: 
+  - "How many computers?"
+explanation: "2 fields → 2 chained couts in the print loop. The skeleton is otherwise identical."

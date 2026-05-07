@@ -1,0 +1,39 @@
+# =====================================================================
+# L0 / F-11 / ClozeCard 03
+# Atom: Variable declaration + initialisation (V2.0 anchor)
+# =====================================================================
+id: "L0-F11-cloze-03"
+schemaVersion: "v2"
+atomId: "F-11"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "ClozeCard"
+
+stem: |
+  Fill in the missing word from the V2.0 test trace setup.
+
+code: |
+  ___ d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };
+  who_am_i ( d );
+
+clozeSentence: |
+  The struct type used to declare `d` on the V2.0 test was `___`.
+
+answer: "stat_double"
+
+explanation: |
+  V2.0 test introduced the struct `stat_double` with a numbers array
+  and a mystery field. The trace declared `stat_double d = { ... };`
+  to initialise both fields in one statement.
+
+source:
+  kind: "practice"
+  ref: "Test 2 V2.0 attempt 1: stat_double d = { ... };"
+
+commonMistakeIds: []
+status: "NEW"
+createdBy: "SA-PhaseC"
+authoringStatus: "DRAFT"
+notes: |
+  Test-anchored recall: the EXACT struct name used on V2.0.

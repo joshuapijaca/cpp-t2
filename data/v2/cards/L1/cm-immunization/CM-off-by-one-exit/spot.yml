@@ -1,0 +1,41 @@
+# Auto-emitted CM immunization (FaultInjectionCard) for CM-off-by-one-exit
+id: "L1-cmimm-CM-off-by-one-exit-spot"
+schemaVersion: "v2"
+atomId: "A1"
+qTags: ["Q1"]
+stage: 4
+level: "L1"
+type: "FaultInjectionCard"
+
+stem: |
+  A Q1 trace claims the loop ran 6 times when SIZE=5. Spot the off-by-one in the trace.
+
+brokenCode: |
+  // SIZE = 5
+  // i=0..4 run, then trace adds:
+  // i=5: 9.7 + 0.0 = 9.7   mystery = 9.7
+
+bugLocations: [3]
+
+fixedCode: |
+  // SIZE = 5
+  // i=0..4 run; loop EXITS after i=4 because i++ -> 5 fails `i<5`.
+  // No iteration at i=5.
+
+bugCategory: 'off-by-one — extra exit iteration'
+
+keyChecks:
+  - 'i=4'
+
+explanation: |
+  After i=4 the post-stmt `i++` makes i=5; the condition `i<5` fails so the body never runs at i=5. Final iter is i=4.
+
+source:
+  kind: "v2"
+  ref: "Test 2 V2.0 — common-mistake immunization (CM-off-by-one-exit)"
+
+commonMistakeIds: ["CM-off-by-one-exit"]
+status: "NEW"
+createdBy: "QA-M13-fix"
+notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
+authoringStatus: "DRAFT"

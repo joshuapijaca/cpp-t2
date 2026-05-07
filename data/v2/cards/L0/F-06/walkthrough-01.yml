@@ -1,0 +1,79 @@
+# =====================================================================
+# L0 / F-06 / WalkthroughCard 01
+# Atom: int main() and return 0;
+# Phase B: "Skeleton scaffolding"
+# =====================================================================
+id: "L0-F06-walk-01"
+schemaVersion: "v2"
+atomId: "F-06"
+qTags: ["Q4"]
+stage: 0
+level: "L0"
+type: "WalkthroughCard"
+
+stem: |
+  A C++ program needs a single starting point — a function called
+  `main`. When you run a compiled program, the operating system finds
+  `main` and runs that function. `main` is required to return an
+  integer (the *exit code*). On success you return `0`. Walk through
+  the smallest possible legal program one line at a time.
+
+levelLabel: "L0 Foundation · Phase B · F-06"
+
+fullCode: |
+  #include <iostream>
+  using namespace std;
+  int main() {
+    return 0;
+  }
+
+steps:
+  - line: 1
+    code: '#include <iostream>'
+    annotation: |
+      Preamble (F-04). Skipped for now — focus is line 3.
+    atomIds: ["F-04"]
+  - line: 2
+    code: 'using namespace std;'
+    annotation: |
+      Preamble (F-05). Skipped — focus is line 3.
+    atomIds: ["F-05"]
+  - line: 3
+    code: 'int main() {'
+    annotation: |
+      The program's entry point. Read it left-to-right:
+        `int`     — the function returns an integer
+        `main`    — the function's name (lowercase, exact)
+        `()`      — empty parameter list
+        `{`       — opening brace of the function body (F-08)
+      The OS will call this function when the program starts.
+    atomIds: ["F-06", "F-08"]
+  - line: 4
+    code: '  return 0;'
+    annotation: |
+      Return the integer `0`. By convention, `0` means "the program
+      finished successfully." Non-zero values mean "something went
+      wrong" — we always return `0` on Test 2 answers. The trailing
+      `;` (F-07) is required.
+    atomIds: ["F-06", "F-07"]
+  - line: 5
+    code: '}'
+    annotation: |
+      The closing brace ends the function body (F-08). Whatever code
+      sat between `{` and `}` is the body of `main`. After the brace
+      the program ends.
+    atomIds: ["F-08"]
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md (main is the entry point of every C++ program; returns int — typically 0 to indicate success)"
+
+commonMistakeIds: ["CM-F06a", "CM-F06b", "CM-F06c", "CM-F06d"]
+status: "NEW"
+authoringStatus: "DRAFT"
+createdBy: "SA-PhaseB"
+notes: |
+  Tightest possible main(). The annotations call out every load-bearing
+  part: int return type, lowercase name, empty parens, opening brace,
+  return 0, semicolon, closing brace. The four common-mistake IDs
+  cover all four failure modes the seminar VTT highlights.

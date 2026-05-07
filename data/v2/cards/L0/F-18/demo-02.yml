@@ -1,0 +1,63 @@
+# =====================================================================
+# L0 / F-18 / DemoCard 02
+# Atom: i++ AFTER body, not before
+# =====================================================================
+id: "L0-F18-demo-02"
+schemaVersion: "v2"
+atomId: "F-18"
+qTags: ["Q1", "Q3", "Q4"]
+stage: 0
+level: "L0"
+type: "DemoCard"
+
+stem: |
+  Watch the iteration order. Each iteration: TEST first, BODY
+  next, STEP last. The body sees the BEFORE-step value of i.
+
+whyOneLine: "Inside the body, i has its current iteration value (0, 1, 2, ...) — i++ runs only AFTER the body completes."
+
+demoCode: |
+  ┌─ ITERATION ORDER ─────────────────────────────────┐
+  │                                                   │
+  │   for (int i = 0; i < 3; i++) {                   │
+  │       cout << i << endl;                          │
+  │   }                                               │
+  │                                                   │
+  │   Time line:                                      │
+  │     1.  init        i = 0                         │
+  │     2.  test        0 < 3? true                   │
+  │     3.  body        print 0                       │
+  │     4.  step        i++   -> i = 1                │
+  │     5.  test        1 < 3? true                   │
+  │     6.  body        print 1                       │
+  │     7.  step        i++   -> i = 2                │
+  │     8.  test        2 < 3? true                   │
+  │     9.  body        print 2                       │
+  │    10.  step        i++   -> i = 3                │
+  │    11.  test        3 < 3? false  -> EXIT         │
+  │                                                   │
+  │   Output: 0, 1, 2  (NOT 1, 2, 3)                  │
+  └───────────────────────────────────────────────────┘
+
+highlightTokens:
+  - "init"
+  - "test"
+  - "body"
+  - "step"
+  - "0, 1, 2"
+  - "EXIT"
+
+usedIn:
+  - "Q1 hand-trace of for-loop iteration"
+  - "every for-loop on the test"
+
+source:
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/04-3-for-loop"
+
+commonMistakeIds: ["CM-F18b", "CM-F18c"]
+status: "NEW"
+createdBy: "SA-PhaseD"
+notes: |
+  authoringStatus: DRAFT. Targets CM-F18c (i++ before body).
+authoringStatus: "DRAFT"

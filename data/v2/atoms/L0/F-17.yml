@@ -1,0 +1,25 @@
+id: F-17
+name: "if (cond) { ... } (no else)"
+level: L0
+phase: D
+teaches: "Body executes ONLY when cond evaluates true. The Q1 algorithm gate."
+prereqs: [F-16]
+usedByQs: [Q1]
+cardCountTarget: 24
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/02-branches"
+    quote: "An if statement executes its body only when the condition is true."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"
+    quote: "if (condition) { statements }  — the braces are required when the body has more than one statement."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:37:06 — Saloni: 'is data dot numbers I, ... so we go inside the if loop'"
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:40:04 — Saloni: '2 greater than 1.9? No. So do we get into this loop? No.'"
+commonMistakes:
+  - CM-F17a  # runs body when cond is false (M03 from spec)
+  - CM-F17b  # places ; after if (cond);
+  - CM-F17c  # forgets braces, only first stmt is conditional
+notes:
+  cardMix: { walkthrough: 2, demo: 3, decompose: 3, trace: 4, cloze: 4, μWrite: 4, tmplRec: 1, mcq: 2, proc: 1 }

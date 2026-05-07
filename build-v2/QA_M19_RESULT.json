@@ -1,0 +1,50 @@
+{
+  "milestone": "QA-M19",
+  "name": "Page-load perf (TTI + mount)",
+  "timestamp": "2026-05-07T08:48:49.912Z",
+  "runs": 10,
+  "budgetMs": 2000,
+  "samples": {
+    "tti": [
+      13.3,
+      7.8,
+      5.7,
+      7,
+      7.2,
+      6,
+      7.3,
+      6.7,
+      8.1,
+      6.1
+    ],
+    "mount": [
+      1044,
+      1014,
+      1032,
+      1022,
+      1037,
+      1024,
+      1029,
+      1035,
+      1028,
+      1053
+    ]
+  },
+  "tti": {
+    "min": 5.7,
+    "median": 7.2,
+    "mean": 7.52,
+    "p95": 13.3,
+    "max": 13.3
+  },
+  "mount": {
+    "min": 1014,
+    "median": 1032,
+    "mean": 1031.8,
+    "p95": 1053,
+    "max": 1053
+  },
+  "consoleErrors": 0,
+  "pass": true,
+  "method": "playwright + nav-timing (domInteractive) + wall-clock to post-deck-load mount"
+}

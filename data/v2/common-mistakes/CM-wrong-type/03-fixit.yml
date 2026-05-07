@@ -1,0 +1,40 @@
+id: "CM-wrong-type-fixit"
+schemaVersion: "v2"
+atomId: "M-03"
+qTags: ["Q2"]
+stage: 4
+level: "L4"
+type: "FaultInjectionCard"
+
+stem: |
+  Fix-it drill for CM-wrong-type. The code has the bug; produce the canonical fix.
+
+brokenCode: |
+  // Q2: Q2 wrong field type
+  int price;
+  ;
+
+bugLocations: [1]
+
+fixedCode: |
+  double price;
+  ;
+
+bugCategory: "CM-wrong-type"
+
+keyChecks: []
+
+explanation: |
+  Replace the broken line with: double price;
+  Diagnosis: Wrote `int price` for desk — should be double.
+
+source:
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-wrong-type"
+
+commonMistakeIds: ["CM-wrong-type"]
+status: "NEW"
+createdBy: "SA-CM-Immune"
+authoringStatus: "DRAFT"
+notes: |
+  CM card 3/5 (fix-it) for CM-wrong-type.

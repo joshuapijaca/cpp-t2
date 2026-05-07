@@ -1,0 +1,22 @@
+id: F-02
+name: "Compiler turns source into program"
+level: L0
+phase: A
+teaches: "g++ file.cpp -o prog; the source file is not the running program."
+prereqs: [F-01]
+usedByQs: [Q1, Q2, Q3, Q4]
+cardCountTarget: 6
+source:
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-0/1-digital-realities/2-trailside/6-source-code (Compilers and Interpreters)"
+    quote: "A compiler is a program that converts source code into machine code and saves it as an executable file called a program."
+  - kind: pfg
+    ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/1-2-compiling-steps"
+    quote: "Pre-processing, compiling, assembling, linking — four steps from .cpp to .exe."
+  - kind: seminar
+    ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:18:09 — Saloni: 'I think I have my computer set up for the hand execution'"
+commonMistakes:
+  - CM-F02a  # forgetting to recompile after editing
+  - CM-F02b  # confusing source vs binary
+notes:
+  cardMix: { walkthrough: 1, demo: 1, decompose: 1, mcq: 3 }

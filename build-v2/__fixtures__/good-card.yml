@@ -1,0 +1,35 @@
+# =====================================================================
+# build-v2/__fixtures__/good-card.yml
+# Minimal valid v2 FunctionWriteCard. Lint should report 0 errors.
+# =====================================================================
+- id: good-card-001
+  schemaVersion: v2
+  atomId: F-07
+  qTags: [Q2]
+  stage: 2
+  level: L2
+  type: FunctionWriteCard
+  stem: "Write a function `swap` that swaps two ints by reference. The two parameters must be passed by reference so the caller's values change."
+  source:
+    kind: pfg
+    ref: "PFG ch.7 §7.3"
+  commonMistakeIds: []
+  status: NEW
+  createdBy: SA-fixture
+  reviewedBy: []
+  authoringStatus: DRAFT
+  prompt: "Write a function swap(int& a, int& b) that exchanges the two values."
+  signatureHint: "void swap(int& a, int& b)"
+  canonicalAnswer: |
+    void swap(int& a, int& b) {
+      int tmp = a;
+      a = b;
+      b = tmp;
+    }
+  keyChecks:
+    - "int& a"
+    - "int& b"
+    - "tmp = a"
+  forbiddenTokens: []
+  explanation: "Reference parameters bind the caller's variable to the parameter name; assignment through the parameter mutates the caller's variable."
+  passByRefRequired: true

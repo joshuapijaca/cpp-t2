@@ -1,0 +1,19 @@
+id: Q-03
+name: "L4 Q4 Block B: struct array declaration arr[MAX]"
+level: L4
+teaches: "Block B — declare a fixed-size array of struct: `<entity>_data <plural>[MAX];`. Why MAX (compile-time const), NEVER count (runtime variable → variable-length array, off-scope). Position after const decl, before count var."
+prereqs: [Q-02, F-19, F-20]
+usedByQs: [Q4]
+cardCountTarget: 20
+source:
+  - kind: practice
+    ref: "Test2-SIT102-practice-2026T1.txt — `computer_data computers[MAX];`"
+  - kind: v2
+    ref: "Test 2 V2.0 — `desk_data desks[MAX];`"
+commonMistakes:
+  - CM-Q4-var-sized-array
+  - CM-Q4-array-size-wrong
+notes:
+  cardMix: { write: 8, cloze: 4, mcq: 4, faultInjection: 4 }
+  stage: S3
+  exposureClass: medium
