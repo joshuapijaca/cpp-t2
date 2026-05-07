@@ -1,17 +1,20 @@
-id: "L1-S3-C-11-decomp-01"
-schemaVersion: "v2"
-atomId: "C-11"
-qTags: ["Q1"]
+id: L1-S3-C-11-decomp-01
+schemaVersion: v2
+atomId: C-11
+qTags:
+  - Q1
 stage: 3
-level: "L1"
-type: "DecomposeCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L1
+type: DecomposeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-11"
-commonMistakeIds: ["CM-C11a", "CM-C11b"]
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-11
+commonMistakeIds:
+  - CM-C11a
+  - CM-C11b
 stem: |
   Decide what happens when the guard returns false.
 code: |
@@ -24,18 +27,19 @@ question: |
   When i has just been incremented to 5 and `i < SIZE` is re-tested,
   what happens?
 options:
-  - label: "A"
-    text: "The guard is true (5 == SIZE) and the body runs one more time."
-  - label: "B"
-    text: "The guard is false (5 is not less than 5); the body is skipped and the loop exits."
-  - label: "C"
-    text: "The guard wraps around and i is reset to 0; the loop continues."
-  - label: "D"
-    text: "The compiler emits a runtime error because i has reached SIZE."
-correctLabel: "B"
+  - label: A
+    text: The guard is true (5 == SIZE) and the body runs one more time.
+  - label: B
+    text: The guard is false (5 is not less than 5); the body is skipped and the loop exits.
+  - label: C
+    text: The guard wraps around and i is reset to 0; the loop continues.
+  - label: D
+    text: The compiler emits a runtime error because i has reached SIZE.
+correctLabel: B
 explanation: |
   `i < SIZE` is strict less-than. When i is 5 and SIZE is 5, the
   guard is false, the body is skipped, and the loop exits. Targets
   CM-C11a/CM-C11b (running the body one extra iteration / treating
   the guard as <=).
-notes: "Decompose form for QA-M10 type-diversity."
+notes: Decompose form for QA-M10 type-diversity.
+drills: tier1:Q1:if-cond-gt

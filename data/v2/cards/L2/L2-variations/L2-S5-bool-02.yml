@@ -1,13 +1,13 @@
-
-id: "L2-S5-bool-02"
-schemaVersion: "v2"
-atomId: "L-25"
-qTags: ["Q2"]
+id: L2-S5-bool-02
+schemaVersion: v2
+atomId: L-25
+qTags:
+  - Q2
 stage: 5
-level: "L2"
-type: "StructWriteCard"
-stem: "Q2 bool edge case #2. Boolean fields use `bool`, not `int`, and idiomatically prefix with `is_` or `has_`."
-prompt: "invoice_data: invoice_id (int), amount (double), paid flag (bool)."
+level: L2
+type: StructWriteCard
+stem: 'Q2 bool edge case #2. Boolean fields use `bool`, not `int`, and idiomatically prefix with `is_` or `has_`.'
+prompt: 'invoice_data: invoice_id (int), amount (double), paid flag (bool).'
 canonicalAnswer: |
   struct invoice_data
   {
@@ -15,15 +15,36 @@ canonicalAnswer: |
       double amount;
       bool paid;
   };
-requiredFields: ["invoice_id","amount","paid"]
-keyChecks: ["bool ","};","struct invoice_data"]
-forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
-explanation: "Boolean fields drill: `bool paid;` is the canonical form. `int 0/1` is wrong on Q2."
+requiredFields:
+  - invoice_id
+  - amount
+  - paid
+keyChecks:
+  - 'bool '
+  - '};'
+  - struct invoice_data
+forbiddenTokens:
+  - class
+  - Struct
+  - STRUCT
+  - typedef
+  - '*'
+  - '->'
+explanation: 'Boolean fields drill: `bool paid;` is the canonical form. `int 0/1` is wrong on Q2.'
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.6 S5 VARIATIONS"
-commonMistakeIds: ["CM-Q2-bool-edge"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "bool edge case."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations.md §type-decl
+    variations
+commonMistakeIds:
+  - CM-Q2-bool-edge
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L2-Q2
+notes: bool edge case.
+drills:
+  - tier1:Q2:q2-field-type-decl
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations.md
+    §type-decl variations

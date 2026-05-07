@@ -26,10 +26,16 @@ explanation: |
 
 source:
   kind: "v2"
-  ref: "C++T2 spec §6.4 Q4 main() ordering — common-mistake immunization (CM-Q4-read-count-after-call)"
+  ref: "v2:Q4 — CM immunization: cin >> count AFTER fn call"
 
 commonMistakeIds: ["CM-Q4-read-count-after-call"]
 status: "NEW"
 createdBy: "stub-CM-fix"
 notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
 authoringStatus: "DRAFT"
+drills:
+  - tier1:Q4:read-count
+tier2:
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-1-variable-constant
+  - tier2:v2:Q4
+  - tier2:practice:Q4

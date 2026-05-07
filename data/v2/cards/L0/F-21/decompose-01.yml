@@ -43,9 +43,10 @@ explanation: |
      would require data to be an array of structs.
   D is wrong: there are no parens, so this is not a function call.
 
+drills: ["tier1:prereq:dot-access-obj-field"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — `data.numbers[i]`"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements"
 
 commonMistakeIds: ["CM-F21a"]
 status: "NEW"

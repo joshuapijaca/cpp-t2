@@ -1,16 +1,12 @@
-# =====================================================================
-# L1 / index-of-max / DecomposeCard 02 — spot-error 2
-# =====================================================================
-id: "L1-A12-decomp-02"
-schemaVersion: "v2"
-atomId: "A12"
-qTags: ["Q1"]
+id: L1-A12-decomp-02
+schemaVersion: v2
+atomId: A12
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "DecomposeCard"
-
-stem: "The code below CLAIMS to compute index-of-max on numbers={-2.0, -5.0, -1.0, -7.0, -3.0}. There is a bug. Identify it."
-
+level: L1
+type: DecomposeCard
+stem: The code below CLAIMS to compute index-of-max on numbers={-2.0, -5.0, -1.0, -7.0, -3.0}. There is a bug. Identify it.
 code: |
   data.mystery = 0;
   for (int i = 1; i < SIZE; i = i + 1) {
@@ -18,29 +14,35 @@ code: |
       data.mystery = data.numbers[i];
     }
   }
-
-question: "Pick the option that correctly identifies the bug."
-
+question: Pick the option that correctly identifies the bug.
 options:
-  - label: "A"
-    text: "The bug: compares numbers[i] against data.mystery (an int treated as value) — wrong: index-of-max needs `numbers[i] > numbers[data.mystery]` AND must store `i` (index), not numbers[i] (value). The correct output should be 2."
-  - label: "B"
-    text: "The code is correct — it produces the right answer."
-  - label: "C"
-    text: "The bug is the loop bound `i < SIZE`; should be `i <= SIZE`."
-  - label: "D"
-    text: "The bug is in the cout statement; missing endl flush."
-
-correctLabel: "A"
-
-explanation: "Spot-error drill. compares numbers[i] against data.mystery (an int treated as value) — wrong: index-of-max needs `numbers[i] > numbers[data.mystery]` AND must store `i` (index), not numbers[i] (value). Targets CM-A12-store-value-not-index, CM-A12-comparison-against-numbers-i, CM-A12-init-with-numbers-zero, CM-A12-store-i-plus-1."
-
+  - label: A
+    text: >-
+      The bug: compares numbers[i] against data.mystery (an int treated as value) — wrong: index-of-max needs
+      `numbers[i] > numbers[data.mystery]` AND must store `i` (index), not numbers[i] (value). The correct output should
+      be 2.
+  - label: B
+    text: The code is correct — it produces the right answer.
+  - label: C
+    text: The bug is the loop bound `i < SIZE`; should be `i <= SIZE`.
+  - label: D
+    text: The bug is in the cout statement; missing endl flush.
+correctLabel: A
+explanation: >-
+  Spot-error drill. compares numbers[i] against data.mystery (an int treated as value) — wrong: index-of-max needs
+  `numbers[i] > numbers[data.mystery]` AND must store `i` (index), not numbers[i] (value). Targets
+  CM-A12-store-value-not-index, CM-A12-comparison-against-numbers-i, CM-A12-init-with-numbers-zero,
+  CM-A12-store-i-plus-1.
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — index-of-max spot-error"
-
-commonMistakeIds: ["CM-A12-store-value-not-index", "CM-A12-comparison-against-numbers-i", "CM-A12-init-with-numbers-zero", "CM-A12-store-i-plus-1"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
-notes: "Spot-error decompose card."
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — index-of-max spot-error
+commonMistakeIds:
+  - CM-A12-store-value-not-index
+  - CM-A12-comparison-against-numbers-i
+  - CM-A12-init-with-numbers-zero
+  - CM-A12-store-i-plus-1
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
+notes: Spot-error decompose card.
+drills: tier1:Q1:accumulator

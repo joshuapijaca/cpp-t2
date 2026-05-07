@@ -1,43 +1,43 @@
-id: "L5-partial-Q2-01-computer"
-schemaVersion: "v2"
-atomId: "M-02"
-qTags: ["Q2"]
+id: L5-partial-Q2-01-computer
+schemaVersion: v2
+atomId: M-02
+qTags:
+  - Q2
+drills: ["Q2"]
 stage: 5
-level: "L5"
-type: "SpeedDrillCard"
-
+level: L5
+type: StructWriteCard
 stem: |
   Partial-mock Q2: define computer_data. 4-min cap. Write the struct
   with fields in order, terminating semicolons everywhere.
-
 prompt: |
   Define a struct named computer_data with the following fields (in order):
   string brand; int year; double price;
-
 canonicalAnswer: |
   struct computer_data {
     string brand;
     int year;
     double price;
   };
-
 keyChecks:
-  - "struct computer_data"
-  - "};"
-
-
+  - struct computer_data
+  - '};'
+forbiddenTokens: []
 explanation: |
   Q2 partial: define computer_data with 3
   fields. Each field on its own line, semicolon terminator. Closing
   brace requires a final `;` per the C++ struct rule.
-
+requiredFields: []
 source:
   kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt §Q2 — partial struct variant"
-
-commonMistakeIds: ["CM-missing-semi-after-brace", "CM-cap-struct-name", "CM-2-fields-1-line"]
-status: "NEW"
-createdBy: "SA-L5-Mock"
-authoringStatus: "DRAFT"
+  ref: Test2-SIT102-practice-2026T1.txt §Q2 — partial struct variant
+commonMistakeIds:
+  - CM-missing-semi-after-brace
+  - CM-cap-struct-name
+  - CM-2-fields-1-line
+status: NEW
+createdBy: SA-L5-Mock
 notes: |
   Partial Q2 #1: computer_data.
+authoringStatus: DRAFT
+migratedFrom: SpeedDrillCard

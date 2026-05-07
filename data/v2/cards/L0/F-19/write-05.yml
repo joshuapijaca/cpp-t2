@@ -44,6 +44,7 @@ explanation: |
 
 passByRefRequired: false
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
   kind: "practice"
   ref: "Test 2 V2.0 — Q3 read function fills `data.numbers[i]`"

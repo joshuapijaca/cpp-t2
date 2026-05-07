@@ -1,12 +1,12 @@
-
-id: "L2-S1-tour-20-recall"
-schemaVersion: "v2"
-atomId: "L-21"
-qTags: ["Q2"]
+id: L2-S1-tour-20-recall
+schemaVersion: v2
+atomId: L-21
+qTags:
+  - Q2
 stage: 1
-level: "L2"
-type: "DecomposeCard"
-stem: "Q2 Tour recall #20. Read the struct and answer the comprehension question — pure recognition, no writing."
+level: L2
+type: DecomposeCard
+stem: 'Q2 Tour recall #20. Read the struct and answer the comprehension question — pure recognition, no writing.'
 code: |
   struct computer_data
   {
@@ -14,23 +14,36 @@ code: |
       string description;
       string location;
   };
-question: "What single character ends the struct definition (after the closing brace)?"
+question: What single character ends the struct definition (after the closing brace)?
 options:
-  - label: "A"
-    text: "`.`"
-  - label: "B"
-    text: "`,`"
-  - label: "C"
-    text: "`;`"
-  - label: "D"
-    text: "nothing — `}` alone is enough"
-correctLabel: "C"
-explanation: "A struct definition is a statement; like every C++ statement it terminates with `;` AFTER the closing `}`. This is the most-missed token on Q2."
+  - label: A
+    text: '`.`'
+  - label: B
+    text: '`,`'
+  - label: C
+    text: '`;`'
+  - label: D
+    text: nothing — `}` alone is enough
+correctLabel: C
+explanation: >-
+  A struct definition is a statement; like every C++ statement it terminates with `;` AFTER the closing `}`. This is the
+  most-missed token on Q2.
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S1 TOUR"
-commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "End-of-tour recognition check."
+  kind: pfg
+  ref: pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md (struct definition reference)
+commonMistakeIds:
+  - CM-F20a
+  - CM-F20b
+  - CM-F20c
+  - CM-F20d
+  - CM-F20e
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L2-Q2
+notes: End-of-tour recognition check.
+drills:
+  - tier1:Q2:q2-closing-brace
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md (struct definition
+    reference)

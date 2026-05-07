@@ -9,7 +9,7 @@ type: "MainWriteCard"
 stem: "[MAX variation 4/10] Write the V2.0 main() with MAX = 200. Everything else identical."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.5 S5 MAX variations"
+  ref: "v2:Q4 — S5 variation: different MAX value, same skeleton"
 commonMistakeIds: 
   - "CM-Q4-MAX-hardcode"
 status: "NEW"
@@ -48,3 +48,10 @@ forbiddenTokens:
 expectedTerminal: 
   - "How many desks?"
 explanation: "MAX is a parameter — not a magic literal. The skeleton is identical for any MAX."
+drills:
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+tier2:
+  - tier2:v2:Q4
+  - tier2:pfg:part-1-instructions/1-sequence-and-data/2-trailside/07-variable
+  - tier2:pfg:part-3-programs-as-concepts/3-collections/2-trailside/10-arrays

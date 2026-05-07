@@ -1,42 +1,35 @@
-id: "L1-S2-TF-08-variant-1"
-schemaVersion: "v2"
-atomId: "T-06"
-qTags: ["Q1"]
+id: L1-S2-TF-08-variant-1
+schemaVersion: v2
+atomId: T-06
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Different array values. Type the brace-init for these specific
   numbers: 5.0, -1.0, 2.0, -3.0, 4.0 with mystery start = 0.0.
-
 prompt: |
   Reproduce the brace-init line for the given values.
-
 template: |
   // values: numbers = {5.0, -1.0, 2.0, -3.0, 4.0}, mystery = 0.0
   // type the canonical brace-init
-
 canonicalAnswer: |
   stat_double d = {{5.0, -1.0, 2.0, -3.0, 4.0}, 0.0};
-
 keyChecks:
-  - "stat_double d"
+  - stat_double d
   - "{5.0, -1.0, 2.0, -3.0, 4.0}"
   - "0.0"
-
 forbiddenTokens: []
-
 explanation: |
   Same shape, different values. The skeleton is fixed.
-
 source:
-  kind: "v2"
-  ref: "docs/16_test2_specific_redesign_v2.md §3.6 — variant brace-init"
-
+  kind: v2
+  ref: docs/16_test2_specific_redesign_v2.md §3.6 — variant brace-init
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-F variant: 5.0/-1.0/2.0/-3.0/4.0.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:brace-init-nested

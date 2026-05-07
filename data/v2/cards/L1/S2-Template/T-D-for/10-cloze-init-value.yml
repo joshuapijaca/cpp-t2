@@ -1,42 +1,36 @@
-id: "L1-S2-TD-10-cloze-init-value"
-schemaVersion: "v2"
-atomId: "T-04"
-qTags: ["Q1"]
+id: L1-S2-TD-10-cloze-init-value
+schemaVersion: v2
+atomId: T-04
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Fill in the loop variable's initial value.
-
 prompt: |
   What does i start at?
-
 template: |
   for (int i = ___; i < SIZE; i++) {
   }
-
 canonicalAnswer: |
   for (int i = 0; i < SIZE; i++) {
   }
-
 keyChecks:
-  - "i = 0"
-
+  - i = 0
 forbiddenTokens:
-  - "i = 1"
-
+  - i = 1
 explanation: |
   `0` — array indices in C++ start at zero. Starting at 1 skips
   numbers[0].
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — i = 0"
-
-commonMistakeIds: ["CM-Q1-start-at-1"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — i = 0
+commonMistakeIds:
+  - CM-Q1-start-at-1
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-D cloze: init = 0.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:for-header

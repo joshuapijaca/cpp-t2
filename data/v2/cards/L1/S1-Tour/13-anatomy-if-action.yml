@@ -1,19 +1,17 @@
-id: "L1-S1-tour-13-anatomy-if-action"
-schemaVersion: "v2"
-atomId: "T-00"
-qTags: ["Q1"]
+id: L1-S1-tour-13-anatomy-if-action
+schemaVersion: v2
+atomId: T-00
+qTags:
+  - Q1
 stage: 1
-level: "L1"
-type: "DemoCard"
-
+level: L1
+type: DemoCard
 stem: |
   Anatomy 8/10: the if-action. The mutation that updates
   `data.mystery`. Pattern: `data.mystery = <something using
   data.numbers[i]>;`. Sum-positive uses
   `data.mystery = data.mystery + data.numbers[i];`.
-
-whyOneLine: "The action is always an assignment to `data.mystery` — the array cells are NEVER mutated."
-
+whyOneLine: The action is always an assignment to `data.mystery` — the array cells are NEVER mutated.
 demoCode: |
   if (data.numbers[i] > 0) {
     data.mystery = data.mystery + data.numbers[i];
@@ -28,22 +26,20 @@ demoCode: |
   //   sum-pos:    data.mystery = data.mystery + data.numbers[i];
   //   product:    data.mystery = data.mystery * data.numbers[i];
   //   count-pos:  data.mystery = data.mystery + 1;
-
 highlightTokens:
   - "data.mystery = "
-  - "data.mystery + data.numbers[i]"
-  - "NEVER"
-
+  - data.mystery + data.numbers[i]
+  - NEVER
 usedIn:
   - "Q1: action mutates the accumulator"
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — `data.mystery = data.mystery + data.numbers[i]`"
-
-commonMistakeIds: ["CM-Q1-eq-vs-pluseq"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — `data.mystery = data.mystery + data.numbers[i]`
+commonMistakeIds:
+  - CM-Q1-eq-vs-pluseq
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   Anatomy: if-action shape + algorithm variants.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:accumulator

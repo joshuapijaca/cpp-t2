@@ -46,6 +46,7 @@ variants:
         return 0;
       }
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "seminar"
   ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:21:14 — Saloni: 'how do you do the hand execution' (return 0 ALWAYS the last line)"

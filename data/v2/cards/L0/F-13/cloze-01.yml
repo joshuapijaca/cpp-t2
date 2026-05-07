@@ -25,6 +25,7 @@ explanation: |
   Without `endl`, the next `cout` runs onto the same terminal line.
   Targets CM-F13b (forgets endl, output runs together).
 
+drills: ["tier1:prereq:cout-chained-output"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/5-terminal-functions"

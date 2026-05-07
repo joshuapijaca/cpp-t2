@@ -22,8 +22,12 @@ explanation: |
 
 source:
   kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-missing-bracket-sig)"
+  ref: "Test 2 V2.0 attempt 1 — Q3 signature paren omission CM-missing-bracket-sig"
 
+drills:
+  - "tier1:Q3:R-00"
+  - "tier2:v2:Q3"
+  - "tier2:practice:Q3"
 commonMistakeIds: ["CM-missing-bracket-sig"]
 status: "NEW"
 createdBy: "QA-M13-fix"

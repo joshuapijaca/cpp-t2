@@ -28,9 +28,10 @@ explanation: |
   endl) needs its own `<<`. The single statement reads
   `cout << "x = " << x << endl;`.
 
+drills: ["tier1:prereq:cout-chained-values-endl"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F13b-3"]
 status: "NEW"

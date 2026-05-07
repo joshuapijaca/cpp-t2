@@ -32,4 +32,4 @@ options:
     text: the average of the trail
 correctLabel: A
 explanation: Only the un-struck value is live. The loop exit does NOT reset mystery. cout reads the live value.
-
+drills: tier1:Q1:trace-strikethrough

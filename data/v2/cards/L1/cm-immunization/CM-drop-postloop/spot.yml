@@ -1,40 +1,37 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-drop-postloop
-id: "L1-cmimm-CM-drop-postloop-spot"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-drop-postloop-spot
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   This Q1 trace stops at the loop end without doing the post-loop division. Find what's missing.
 
-brokenCode: |
+  Code under review:
   // algo: average = mystery / SIZE  (this happens AFTER the loop)
   // student trace ends at: mystery = 9.7
   // final answer: 9.7   // BUG: forgot to divide
 
-bugLocations: [3]
 
-fixedCode: |
-  // after the loop: average = mystery / SIZE = 9.7 / 5 = 1.94
-  // final answer: 1.94
-
-bugCategory: 'dropped post-loop step'
-
-keyChecks:
-  - '9.7 / 5'
-
-explanation: |
-  Some Q1 algorithms have work AFTER the loop (e.g. average = sum / N). Reading the function body to the closing brace is essential — don't stop at the loop.
-
+  Which diagnosis describes the bug?
+correct: dropped post-loop step
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  Some Q1 algorithms have work AFTER the loop (e.g. average = sum / N). Reading the function body to the closing brace
+  is essential — don't stop at the loop.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-drop-postloop)"
-
-commonMistakeIds: ["CM-drop-postloop"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-drop-postloop)
+commonMistakeIds:
+  - CM-drop-postloop
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

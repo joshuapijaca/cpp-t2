@@ -65,6 +65,7 @@ steps:
       behaviour. `i < SIZE` is the safe canonical form. Final sum=23.
     atomIds: ["F-18b", "F-18a"]
 
+drills: ["tier1:prereq:for-int-i-0-i-n-i-counting-loop"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/01-for-loop"

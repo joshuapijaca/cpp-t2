@@ -1,44 +1,39 @@
-# =====================================================================
-# L1 / sum-all / DecomposeCard 02 — spot-error 2
-# =====================================================================
-id: "L1-A3-decomp-02"
-schemaVersion: "v2"
-atomId: "A3"
-qTags: ["Q1"]
+id: L1-A3-decomp-02
+schemaVersion: v2
+atomId: A3
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "DecomposeCard"
-
-stem: "The code below CLAIMS to compute sum-all on numbers={10.0, -10.0, 5.0, -5.0, 0.0}. There is a bug. Identify it."
-
+level: L1
+type: DecomposeCard
+stem: The code below CLAIMS to compute sum-all on numbers={10.0, -10.0, 5.0, -5.0, 0.0}. There is a bug. Identify it.
 code: |
   data.mystery = 0;
   for (int i = 0; i < SIZE; i = i + 1) {
     data.mystery = data.mystery + data.numbers[i];
   }
-
-question: "Pick the option that correctly identifies the bug."
-
+question: Pick the option that correctly identifies the bug.
 options:
-  - label: "A"
+  - label: A
     text: "The bug: the loop body is missing the conditional that sum-all requires. The correct output should be 0."
-  - label: "B"
-    text: "The code is correct — it produces the right answer."
-  - label: "C"
-    text: "The bug is the loop bound `i < SIZE`; should be `i <= SIZE`."
-  - label: "D"
-    text: "The bug is in the cout statement; missing endl flush."
-
-correctLabel: "A"
-
-explanation: "Spot-error drill. the loop body is missing the conditional that sum-all requires. Targets CM-A3-init-not-zero, CM-A3-skip-element."
-
+  - label: B
+    text: The code is correct — it produces the right answer.
+  - label: C
+    text: The bug is the loop bound `i < SIZE`; should be `i <= SIZE`.
+  - label: D
+    text: The bug is in the cout statement; missing endl flush.
+correctLabel: A
+explanation: >-
+  Spot-error drill. the loop body is missing the conditional that sum-all requires. Targets CM-A3-init-not-zero,
+  CM-A3-skip-element.
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — sum-all spot-error"
-
-commonMistakeIds: ["CM-A3-init-not-zero", "CM-A3-skip-element"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
-notes: "Spot-error decompose card."
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — sum-all spot-error
+commonMistakeIds:
+  - CM-A3-init-not-zero
+  - CM-A3-skip-element
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
+notes: Spot-error decompose card.
+drills: tier1:Q1:accumulator

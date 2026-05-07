@@ -1,31 +1,27 @@
-# Auto-emitted CM immunization (MCQCard) for CM-A11-init-0
-id: "L1-cmimm-CM-A11-init-0-mcq"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-A11-init-0-mcq
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   For the running-product algorithm `mystery = mystery * numbers[i]`, what pre-loop seed?
-
-correct: '`1.0` — multiplicative identity'
-
+correct: "`1.0` — multiplicative identity"
 distractors:
-  - '`0.0` — additive identity'
-  - '`numbers[0]` — first element'
-  - '`-1.0` — neutral?'
-
+  - "`0.0` — additive identity"
+  - "`numbers[0]` — first element"
+  - "`-1.0` — neutral?"
 explanation: |
   Product seed is 1 because `1 * x == x`. 0 annihilates and you get 0.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-A11-init-0)"
-
-commonMistakeIds: ["CM-A11-init-0"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-A11-init-0)
+commonMistakeIds:
+  - CM-A11-init-0
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

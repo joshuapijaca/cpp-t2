@@ -56,9 +56,10 @@ teachMe: |
   - line 5: "terminal receives two"
   Final panel: { a: 6, b: 4, diff: 2 }. Terminal: 2.
 
+drills: ["tier1:prereq:sub-vocal-predict-next-state-drill"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §B.2 patch — sub-vocal predict card 28/30"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/07-hand-execution"
 
 commonMistakeIds: ["CM-arithmetic-error"]
 status: "NEW"

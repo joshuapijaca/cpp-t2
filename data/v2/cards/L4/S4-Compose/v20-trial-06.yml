@@ -9,7 +9,7 @@ type: "MainWriteCard"
 stem: "[V2.0 trial 6/10] Write the COMPLETE main() for the V2.0 desk_data variant. MAX=700, count=desk_num, fn=read_desks, fields=room_id/d_id/number_of_screens."
 source: 
   kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — full main()"
+  ref: "v2:Q4 — S4 trial: write the V2.0 desk_data main()"
 commonMistakeIds: 
   - "CM-Q4-missing-const"
   - "CM-Q4-pass-MAX-not-count"
@@ -58,3 +58,18 @@ forbiddenTokens:
 expectedTerminal: 
   - "How many desks?"
 explanation: "Canonical V2.0 main(). Practice typing this from scratch 10 times → motor memory under exam pressure."
+drills:
+  - tier1:Q4:int-main
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+  - tier1:Q4:fn-call-no-amp
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+  - tier1:Q4:return-0
+tier2:
+  - tier2:v2:Q4
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations
+  - tier2:seminar:saloni-2 @ 47:17

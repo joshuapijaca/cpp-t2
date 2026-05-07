@@ -22,13 +22,13 @@ code: |-
 question: What does the numbers array hold after the loop?
 options:
   - label: A
-    text: '[2.4, -3.7, -1.7, 3.0, 2.0]   (unchanged; array is read-only)'
+    text: "[2.4, -3.7, -1.7, 3.0, 2.0]   (unchanged; array is read-only)"
   - label: B
-    text: '[0.0, 0.0, 0.0, 0.0, 0.0]   (consumed, set to 0)'
+    text: "[0.0, 0.0, 0.0, 0.0, 0.0]   (consumed, set to 0)"
   - label: C
-    text: '[2.4, 5.4, 5.4, 5.4, 7.4]   (running sum stored back)'
+    text: "[2.4, 5.4, 5.4, 5.4, 7.4]   (running sum stored back)"
   - label: D
     text: the array is now invalid
 correctLabel: A
 explanation: numbers[i] only appears on the RHS in this loop. The array is unchanged. ONLY mystery moved.
-
+drills: tier1:Q1:trace-strikethrough

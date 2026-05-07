@@ -1,30 +1,25 @@
-# Auto-emitted CM immunization (ClozeCard) for CM-int-vs-double
-id: "L1-cmimm-CM-int-vs-double-cloze"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-int-vs-double-cloze
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "ClozeCard"
-
-stem: "Fill in the missing token to fix this CM-int-vs-double mistake."
-
+level: L1
+type: ClozeCard
+stem: Fill in the missing token to fix this CM-int-vs-double mistake.
 code: |
   // 0.0 + 2.4 = ___    mystery (double) = 2.4
-
-clozeSentence: 'Fill in the decimal arithmetic result (2 dp).'
-
-answer: '2.4'
-
+clozeSentence: Fill in the decimal arithmetic result (2 dp).
+answer: "2.4"
 explanation: |
   0.0 + 2.4 = 2.4. Keep the decimal.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-int-vs-double)"
-
-commonMistakeIds: ["CM-int-vs-double"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-int-vs-double)
+commonMistakeIds:
+  - CM-int-vs-double
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

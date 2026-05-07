@@ -1,18 +1,16 @@
-id: "L1-S1-tour-02-practice-q"
-schemaVersion: "v2"
-atomId: "T-00"
-qTags: ["Q1"]
+id: L1-S1-tour-02-practice-q
+schemaVersion: v2
+atomId: T-00
+qTags:
+  - Q1
 stage: 1
-level: "L1"
-type: "DemoCard"
-
+level: L1
+type: DemoCard
 stem: |
   This is the practice-test Q1. Read the procedure (find-max). Then
   read the hand-execute body. The brace-init values are
   {-20.0, 3.2, 1.9, -1.5, 1.3} and mystery starts at 0.0.
-
-whyOneLine: "Practice Q1 = find-max algorithm with mixed-sign array; canonical answer is 3.2."
-
+whyOneLine: Practice Q1 = find-max algorithm with mixed-sign array; canonical answer is 3.2.
 demoCode: |
   // PROCEDURE
   void who_am_i(stat_double &data) {
@@ -30,24 +28,21 @@ demoCode: |
   stat_double d = {{-20.0, 3.2, 1.9, -1.5, 1.3}, 0.0};
   who_am_i(d);
   // What is d.mystery now?
-
 highlightTokens:
-  - "data.numbers[0]"
-  - "data.numbers[i] > data.mystery"
-  - "data.mystery = data.numbers[i]"
+  - data.numbers[0]
+  - data.numbers[i] > data.mystery
+  - data.mystery = data.numbers[i]
   - "{-20.0, 3.2, 1.9, -1.5, 1.3}"
-
 usedIn:
-  - "Q1 practice — find-max"
-  - "Variant of V2.0 sum-positive (different cond/action)"
-
+  - Q1 practice — find-max
+  - Variant of V2.0 sum-positive (different cond/action)
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt §0 — practice Q1 procedure + body"
-
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt §0 — practice Q1 procedure + body
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   S1 Tour 02: practice Q + brace-init. Pair with card 03 which shows the answer trace.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:accumulator

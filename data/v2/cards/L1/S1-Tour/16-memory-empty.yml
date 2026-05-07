@@ -1,18 +1,16 @@
-id: "L1-S1-tour-16-memory-empty"
-schemaVersion: "v2"
-atomId: "T-00"
-qTags: ["Q1"]
+id: L1-S1-tour-16-memory-empty
+schemaVersion: v2
+atomId: T-00
+qTags:
+  - Q1
 stage: 1
-level: "L1"
-type: "DemoCard"
-
+level: L1
+type: DemoCard
 stem: |
   Memory format 1/4: the empty layout. Six cells — five for
   numbers[0..4] and one for mystery — each starts empty before
   the brace-init runs.
-
-whyOneLine: "Always draw 6 cells before any execution — 5 array slots + 1 mystery slot."
-
+whyOneLine: Always draw 6 cells before any execution — 5 array slots + 1 mystery slot.
 demoCode: |
   +-- BEFORE any execution -------------------------------+
   |                                                       |
@@ -23,22 +21,19 @@ demoCode: |
   |   [        ]  [        ]   [        ]                 |
   |                                                       |
   +-------------------------------------------------------+
-
 highlightTokens:
-  - "numbers[0]"
-  - "numbers[4]"
-  - "mystery"
-
+  - numbers[0]
+  - numbers[4]
+  - mystery
 usedIn:
   - "Q1: this is the canvas you draw at the start of every trace"
-
 source:
-  kind: "seminar"
-  ref: "SIT102 Seminar Mondays 6pm new (2) — Saloni's draw-the-boxes-first technique"
-
+  kind: seminar
+  ref: "Saloni Mondays-6pm-new-2 @ 00:23:02 — Q1 hand-execution"
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   Memory box format: empty.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

@@ -44,6 +44,7 @@ highlightTokens:
 usedIn:
   - "Q1 if condition (the most common silent if bug)"
 
+drills: ["tier1:prereq:if-cond-no-else"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"

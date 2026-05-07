@@ -16,10 +16,10 @@ commonMistakeIds:
   - CM-C06a
   - CM-C06b
 stem: After `stat_double d = { {2.4, -3.7, -1.7, 3, 2}, -0.9 };` runs, what are the cell values?
-correct: 'numbers: [2.4, -3.7, -1.7, 3, 2], mystery: -0.9'
+correct: "numbers: [2.4, -3.7, -1.7, 3, 2], mystery: -0.9"
 distractors:
-  - 'numbers: [2, 3, -1.7, -3.7, 2.4], mystery: -0.9'
-  - 'numbers: [2.4, -3.7, -1.7, 3, 2], mystery: 2.4'
-  - 'numbers: [-0.9, 2.4, -3.7, -1.7, 3], mystery: 2'
+  - "numbers: [2, 3, -1.7, -3.7, 2.4], mystery: -0.9"
+  - "numbers: [2.4, -3.7, -1.7, 3, 2], mystery: 2.4"
+  - "numbers: [-0.9, 2.4, -3.7, -1.7, 3], mystery: 2"
 explanation: Inner brace fills numbers[0..4] left-to-right; the trailing scalar fills mystery.
-
+drills: tier1:Q1:trace-strikethrough

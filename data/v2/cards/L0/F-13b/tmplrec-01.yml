@@ -38,9 +38,10 @@ explanation: |
 
   Used in EVERY Q3 prompt and EVERY Q4 print.
 
+drills: ["tier1:prereq:cout-chained-values-endl"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: []
 status: "NEW"

@@ -21,5 +21,5 @@ distractors:
   - A nested struct definition with 5 fields.
   - A function-style cast that converts the doubles into one value.
   - A list of arguments passed to the constructor of stat_double.
-explanation: 'Inner braces are the **array brace-init**: 5 doubles map to numbers[0]..numbers[4] in order.'
-
+explanation: "Inner braces are the **array brace-init**: 5 doubles map to numbers[0]..numbers[4] in order."
+drills: tier1:Q1:trace-strikethrough

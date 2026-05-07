@@ -1,45 +1,17 @@
-id: "L5-postmortem-22-cap-struct-name"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: L5-postmortem-22-cap-struct-name
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
+drills: ["Q3"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q3 read function — student wrote `cin << students[i].name` instead of `cin >> students[i].name`. Wrong stream direction; nothing reads from stdin.
-
-failedAttempt: |
-  void read_students(student_data students[], int count)
-  {
-      for (int i = 0; i < count; i++)
-      {
-          cout << "Enter name: ";
-          cin << students[i].name;
-          cout << "Enter age: ";
-          cin << students[i].age;
-      }
-  }
-
-diagnosis: |
-  `cin >>` reads FROM standard input INTO a variable. `cout <<` writes TO standard output FROM a variable. Direction matters: `cin << var` would mean "write var TO cin," which is meaningless. Most C++ compilers actually error out on `cin << some_struct_field` ("no operator `<<` matching"), but for primitive types they sometimes compile silently with no effect — the worst possible failure mode.
-
-repairSteps:
-  - "for (int i = 0; i < count; i++)"
-  - "{"
-  - "    cout << \"Enter name: \";   // cout <<  (output)"
-  - "    cin >> students[i].name;   // cin >>  (input)"
-  - "    cout << \"Enter age: \";"
-  - "    cin >> students[i].age;"
-  - "}"
-
-preventionTip: |
-  Streams are arrows pointing at the destination: `cin >> var` (data flows INTO var); `cout << var` (data flows OUT to terminal). Mantra: "cin-right, cout-left." The arrows always point at the variable when reading; always point away when writing.
-
-explanation: |
-  Lesson learned — operator direction for streams is fixed. `cin <<` is essentially a typo for `cin >>` and produces wrong behavior whether or not it compiles. When you find yourself typing `cin`, the next two characters are ALWAYS `>>`. Train both directions until they're reflex.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q3 read function — student wrote `cin << students[i].name` instead of `cin >> students[i].name`. Wrong stream
+  direction; nothing reads from stdin.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   void read_students(student_data students[], int count)
   {
       for (int i = 0; i < count; i++)
@@ -50,22 +22,43 @@ canonicalAnswer: |
           cin >> students[i].age;
       }
   }
-
-annotations:
+steps:
+  - line: 1
+    code: for (int i = 0; i < count; i++)
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '    cout << "Enter name: ";   // cout <<  (output)'
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: '    cin >> students[i].name;   // cin >>  (input)'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '    cout << "Enter age: ";'
+    annotation: Repair step 5
+    atomIds: []
   - line: 6
-    severity: err
-    note: "`cin << ...` is wrong direction. Should be `cin >> students[i].name`."
-  - line: 8
-    severity: err
-    note: "Same direction error. Reading uses `>>`, writing uses `<<`."
-
+    code: '    cin >> students[i].age;'
+    annotation: Repair step 6
+    atomIds: []
+  - line: 7
+    code: '}'
+    annotation: Repair step 7
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q3 stream direction"
-
-commonMistakeIds: ["CM-Q3-cin-leftshift"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q3 stream direction
+commonMistakeIds:
+  - CM-Q3-cin-leftshift
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #22 — Q3 / `cin <<` wrong direction.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

@@ -1,13 +1,13 @@
-
-id: "L2-S2-templ-03"
-schemaVersion: "v2"
-atomId: "L-22"
-qTags: ["Q2"]
+id: L2-S2-templ-03
+schemaVersion: v2
+atomId: L-22
+qTags:
+  - Q2
 stage: 2
-level: "L2"
-type: "StructWriteCard"
-stem: "Q2 Template #3 — type the canonical 6-line skeleton verbatim. Mixed types — string fields stay one-per-line."
-prompt: "book_data: title (string), author (string), pages (int)."
+level: L2
+type: StructWriteCard
+stem: 'Q2 Template #3 — type the canonical 6-line skeleton verbatim. Mixed types — string fields stay one-per-line.'
+prompt: 'book_data: title (string), author (string), pages (int).'
 canonicalAnswer: |
   struct book_data
   {
@@ -15,15 +15,44 @@ canonicalAnswer: |
       string author;
       int pages;
   };
-requiredFields: ["title","author","pages"]
-keyChecks: ["struct book_data","};","string title;","string author;","int pages;"]
-forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
-explanation: "Skeleton drill: `struct` lowercase + name + opening `{` + one field per line each ending `;` + closing `};` (the highest-frequency Q2 error). Mixed types — string fields stay one-per-line."
+requiredFields:
+  - title
+  - author
+  - pages
+keyChecks:
+  - struct book_data
+  - '};'
+  - string title;
+  - string author;
+  - int pages;
+forbiddenTokens:
+  - class
+  - Struct
+  - STRUCT
+  - typedef
+  - '*'
+  - '->'
+explanation: >-
+  Skeleton drill: `struct` lowercase + name + opening `{` + one field per line each ending `;` + closing `};` (the
+  highest-frequency Q2 error). Mixed types — string fields stay one-per-line.
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S2 TEMPLATE"
-commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "S2 skeleton drill."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §C/C++ syntax (struct + name + {
+    fields } ; skeleton)
+commonMistakeIds:
+  - CM-F20a
+  - CM-F20b
+  - CM-F20c
+  - CM-F20d
+  - CM-F20e
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L2-Q2
+notes: S2 skeleton drill.
+drills:
+  - tier1:Q2:q2-trailing-semi
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §C/C++ syntax
+    (struct + name + { fields } ; skeleton)

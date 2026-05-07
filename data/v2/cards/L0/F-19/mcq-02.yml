@@ -29,6 +29,7 @@ explanation: |
   only valid for parameter lists (decay), not local declarations.
   A non-integer literal like 3.5 is a type error.
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"

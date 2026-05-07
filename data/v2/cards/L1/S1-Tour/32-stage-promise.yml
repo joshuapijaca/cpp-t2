@@ -1,18 +1,16 @@
-id: "L1-S1-tour-32-stage-promise"
-schemaVersion: "v2"
-atomId: "T-00"
-qTags: ["Q1"]
+id: L1-S1-tour-32-stage-promise
+schemaVersion: v2
+atomId: T-00
+qTags:
+  - Q1
 stage: 1
-level: "L1"
-type: "DemoCard"
-
+level: L1
+type: DemoCard
 stem: |
   Stage promise. After S1 Tour, you have seen the genre and the canon
   answer twice. The next 5 stages drill it into reflex. Target: a full
   Q1 in 90 seconds, end-to-end, on May 14 morning.
-
-whyOneLine: "S2 templates, S3 components, S4 compose, S5 variations, S6 speed — by the end you write the whole thing in 90 seconds."
-
+whyOneLine: S2 templates, S3 components, S4 compose, S5 variations, S6 speed — by the end you write the whole thing in 90 seconds.
 demoCode: |
   +-- L1 Q1 hand-execute path -----------------------------+
   |                                                        |
@@ -25,25 +23,22 @@ demoCode: |
   |                                                        |
   |   target on test day: 90 sec end-to-end                |
   +--------------------------------------------------------+
-
 highlightTokens:
-  - "S2"
-  - "S3"
-  - "S4"
-  - "S5"
-  - "S6"
-  - "90 sec"
-
+  - S2
+  - S3
+  - S4
+  - S5
+  - S6
+  - 90 sec
 usedIn:
   - "Q1: end-to-end fluency on May 14"
-
 source:
-  kind: "v2"
-  ref: "docs/16_test2_specific_redesign_v2.md §3.1 — L1 stage overview"
-
+  kind: v2
+  ref: docs/16_test2_specific_redesign_v2.md §3.1 — L1 stage overview
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   Stage promise card — closes out S1.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

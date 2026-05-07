@@ -33,9 +33,10 @@ explanation: |
   alone is for *defining* a namespace, not opening one for unqualified
   access.
 
+drills: ["tier1:prereq:using-namespace-std"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/3-code"
 
 commonMistakeIds: ["CM-F05b"]
 status: "NEW"

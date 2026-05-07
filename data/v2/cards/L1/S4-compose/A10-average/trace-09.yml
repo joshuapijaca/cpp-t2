@@ -1,25 +1,22 @@
-# =====================================================================
-# L1 / average / TraceCard 09
-# floats
-# =====================================================================
-id: "L1-A10-trace-09"
-schemaVersion: "v2"
-atomId: "A10"
-qTags: ["Q1"]
+id: L1-A10-trace-09
+schemaVersion: v2
+atomId: A10
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "TraceCard"
-
-stem: "Hand-execute the average loop on stat_double { numbers = {2.5, 3.5, 4.5, 5.5, 6.5}, mystery = ? }. Track i and data.mystery in the panel; print final mystery. floats."
-
+level: L1
+type: TraceCard
+stem: >-
+  Hand-execute the average loop on stat_double { numbers = {2.5, 3.5, 4.5, 5.5, 6.5}, mystery = ? }. Track i and
+  data.mystery in the panel; print final mystery. floats.
 code: |
   const int SIZE = 5;
-  
+
   struct stat_double {
     double numbers[SIZE];
     double mystery;
   };
-  
+
   int main() {
     stat_double data = { {2.5, 3.5, 4.5, 5.5, 6.5}, 0 };
     data.mystery = 0.0;
@@ -30,71 +27,69 @@ code: |
     cout << data.mystery << endl;
     return 0;
   }
-
-variables: ["i", "data.mystery"]
-
+variables:
+  - i
+  - data.mystery
 expectedTrace:
   - line: 9
-    variable: "data.mystery"
+    variable: data.mystery
     value: "0"
     output: null
   - line: 10
-    variable: "data.mystery"
+    variable: data.mystery
     value: "0.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "0"
     output: null
   - line: 13
-    variable: "data.mystery"
+    variable: data.mystery
     value: "2.5"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "1"
     output: null
   - line: 13
-    variable: "data.mystery"
+    variable: data.mystery
     value: "6.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "2"
     output: null
   - line: 13
-    variable: "data.mystery"
+    variable: data.mystery
     value: "10.5"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "3"
     output: null
   - line: 13
-    variable: "data.mystery"
+    variable: data.mystery
     value: "16.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "4"
     output: null
   - line: 13
-    variable: "data.mystery"
+    variable: data.mystery
     value: "22.5"
     output: null
   - line: 16
-    variable: "data.mystery"
+    variable: data.mystery
     value: "4.5"
     output: null
   - line: 17
     variable: ""
     value: ""
     output: "4.5"
-
-terminalOutput: ["4.5"]
-
-inputMode: "final-only"
-
+terminalOutput:
+  - "4.5"
+inputMode: final-only
 teachMe: |
   After hand-execution:
     data.mystery = 0
@@ -111,15 +106,17 @@ teachMe: |
     data.mystery = 22.5
     data.mystery = 4.5
     Print: 4.5
-  
+
   Final terminal output: 4.5
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — average variant"
-
-commonMistakeIds: ["CM-A10-divide-inside-loop", "CM-A10-forget-divide", "CM-A10-int-div-truncate"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — average variant
+commonMistakeIds:
+  - CM-A10-divide-inside-loop
+  - CM-A10-forget-divide
+  - CM-A10-int-div-truncate
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
 notes: "Progression: floats. Trace card. Input mode: final-only."
+drills: tier1:Q1:accumulator

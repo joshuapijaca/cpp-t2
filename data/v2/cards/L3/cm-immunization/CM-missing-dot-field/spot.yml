@@ -1,45 +1,41 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-missing-dot-field
-id: "L3-cmimm-CM-missing-dot-field-spot"
-schemaVersion: "v2"
-atomId: "R-00"
-qTags: ["Q3"]
+id: L3-cmimm-CM-missing-dot-field-spot
+schemaVersion: v2
+atomId: R-00
+qTags:
+  - Q3
 stage: 4
-level: "L3"
-type: "FaultInjectionCard"
-
-stem: |
+level: L3
+type: MCQCard
+stem: |-
   This Q3 read function fails to compile because a struct field access is malformed. Spot the bug.
 
-brokenCode: |
+  Code under review:
   void read_data(stat_double &data) {
     for (int i = 0; i < SIZE; i++) {
       cin >> data numbers[i];
     }
   }
 
-bugLocations: [3]
 
-fixedCode: |
-  void read_data(stat_double &data) {
-    for (int i = 0; i < SIZE; i++) {
-      cin >> data.numbers[i];
-    }
-  }
-
-bugCategory: 'missing `.` between struct and field'
-
-keyChecks:
-  - 'data.numbers[i]'
-
+  Which diagnosis describes the bug?
+correct: missing `.` between struct and field
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
 explanation: |
   Field access uses `.` (or `->` for pointers). `data numbers[i]` is two tokens with nothing between them.
-
 source:
   kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-missing-dot-field)"
-
-commonMistakeIds: ["CM-missing-dot-field"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  ref: "Test 2 V2.0 attempt 1 — Q3 body cin missing .field CM-missing-dot-field"
+drills:
+  - "tier1:Q3:R-02c"
+  - "tier2:v2:Q3"
+  - "tier2:practice:Q3"
+commonMistakeIds:
+  - CM-missing-dot-field
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard

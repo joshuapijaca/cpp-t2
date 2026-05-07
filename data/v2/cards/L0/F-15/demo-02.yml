@@ -48,6 +48,7 @@ highlightTokens:
 usedIn:
   - "Q4 main: full read sequence"
 
+drills: ["tier1:prereq:prompt-then-read-pair"]
 source:
   kind: "practice"
   ref: "Practice test 2026 T1: Q4 main reads num_to_read then loops reading desks"

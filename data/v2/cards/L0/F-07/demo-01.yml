@@ -39,6 +39,7 @@ usedIn:
   - "Q3 input/output function (every cin/cout statement ends with ;)"
   - "Q4 main program (every body statement ends with ;)"
 
+drills: ["tier1:prereq:statement-terminator-semicolon"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-0-cpp-syntax.md (missing semicolons are the most frequent compiler error for beginners)"

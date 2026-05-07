@@ -15,10 +15,10 @@ source:
 commonMistakeIds:
   - CM-C16a
 stem: data.numbers[0] = 2.4, data.mystery = -0.9. Evaluate `data.numbers[0] > data.mystery`.
-correct: 'true'
+correct: "true"
 distractors:
-  - 'false'
+  - "false"
   - undefined (cannot compare doubles)
   - depends on i
 explanation: 2.4 > -0.9 is true. This is the find-max guard pattern.
-
+drills: tier1:Q1:trace-strikethrough

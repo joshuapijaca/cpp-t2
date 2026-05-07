@@ -15,10 +15,10 @@ source:
 commonMistakeIds:
   - CM-C18a
 stem: data.numbers[4] = 5. Evaluate `data.numbers[4] < 0`. (Sum-negative guard.)
-correct: 'false'
+correct: "false"
 distractors:
-  - 'true'
+  - "true"
   - undefined
   - false only if cell is integer
 explanation: 5 < 0 is false. 0 is NOT < 0.
-
+drills: tier1:Q1:trace-strikethrough

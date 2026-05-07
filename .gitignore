@@ -16,3 +16,10 @@ playwright-report/
 
 # Background test artifacts
 *.tmp
+
+# vite-plugin-pwa dev output (regenerable; emits sw.js, registerSW.js, manifest stub on dev start)
+dev-dist/
+# Built service-worker artifact (lives in dist-v2/ but listed as a safety net
+# in case anyone moves the build output up a level).
+sw.js
+workbox-*.js

@@ -44,9 +44,10 @@ status: "NEW"
 createdBy: "SA-PhaseC"
 authoringStatus: "DRAFT"
 
+drills: ["tier1:prereq:variable-declaration-initialisation"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/07-variable"
 
 commonMistakeIds: ["CM-F11a", "CM-F11b"]
 

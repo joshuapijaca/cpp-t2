@@ -1,42 +1,35 @@
-id: "L1-S2-TE-12-whole-countpos"
-schemaVersion: "v2"
-atomId: "T-05"
-qTags: ["Q1"]
+id: L1-S2-TE-12-whole-countpos
+schemaVersion: v2
+atomId: T-05
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Type the count-positive if-action body verbatim.
-
 prompt: |
   Reproduce the count-positive if-action.
-
 template: |
   // (type the count-positive if-action)
-
 canonicalAnswer: |
   if (data.numbers[i] > 0) {
     data.mystery = data.mystery + 1;
   }
-
 keyChecks:
-  - "data.numbers[i] > 0"
-  - "data.mystery = data.mystery + 1"
-
+  - data.numbers[i] > 0
+  - data.mystery = data.mystery + 1
 forbiddenTokens: []
-
 explanation: |
   count-positive: cond is `> 0`, action increments mystery by 1
   (not by data.numbers[i]).
-
 source:
-  kind: "v2"
-  ref: "docs/16_test2_specific_redesign_v2.md §3.5 — A8 count-positive"
-
+  kind: v2
+  ref: docs/16_test2_specific_redesign_v2.md §3.5 — A8 count-positive
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-E count-positive whole.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:if-cond-gt

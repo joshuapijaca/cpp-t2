@@ -52,6 +52,7 @@ teachMe: |
   closing brace to line 6, which prints "end". Final output: just
   "end".
 
+drills: ["tier1:prereq:if-cond-no-else"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/02-branches"

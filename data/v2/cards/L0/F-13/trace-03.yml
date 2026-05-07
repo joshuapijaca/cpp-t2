@@ -57,9 +57,10 @@ teachMe: |
   not end its line. Always include `<< endl;` (or `<< "\n";`) at
   end of line.
 
+drills: ["tier1:prereq:cout-chained-output"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec F-13 trace primer — no endl glue behaviour"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F13b-1"]
 status: "NEW"

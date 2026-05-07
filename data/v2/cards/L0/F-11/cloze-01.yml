@@ -27,9 +27,10 @@ explanation: |
   The single equals sign `=` is the assignment operator. In a
   declaration `int score = 0;`, `=` writes 0 into the new box.
 
+drills: ["tier1:prereq:variable-declaration-initialisation"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/4-1-variable-constant"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/07-variable"
 
 commonMistakeIds: ["CM-F12a"]
 status: "NEW"

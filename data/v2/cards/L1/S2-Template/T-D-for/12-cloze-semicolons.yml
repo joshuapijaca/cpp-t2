@@ -1,42 +1,35 @@
-id: "L1-S2-TD-12-cloze-semicolons"
-schemaVersion: "v2"
-atomId: "T-04"
-qTags: ["Q1"]
+id: L1-S2-TD-12-cloze-semicolons
+schemaVersion: v2
+atomId: T-04
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Fill in the missing internal punctuation.
-
 prompt: |
   What separates the three slots inside the for-parens?
-
 template: |
   for (int i = 0___ i < SIZE___ i++) {
   }
-
 canonicalAnswer: |
   for (int i = 0; i < SIZE; i++) {
   }
-
 keyChecks:
-  - "; i < SIZE"
-  - "; i++"
-
+  - ; i < SIZE
+  - ; i++
 forbiddenTokens: []
-
 explanation: |
   `;` — semicolons separate the three slots. NO `;` after the third
   slot (that goes outside the parens after the body's `}`).
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — for slot separators"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — for slot separators
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-D cloze: internal semis.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:semicolon

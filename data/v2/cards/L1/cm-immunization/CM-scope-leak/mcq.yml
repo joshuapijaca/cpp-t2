@@ -1,31 +1,28 @@
-# Auto-emitted CM immunization (MCQCard) for CM-scope-leak
-id: "L1-cmimm-CM-scope-leak-mcq"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-scope-leak-mcq
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   After `for (int i = 0; i < N; i++) { ... }`, can you `cout << i;` on the next line?
-
-correct: 'No — `i` is scoped to the for-statement and is gone after the closing brace.'
-
+correct: No — `i` is scoped to the for-statement and is gone after the closing brace.
 distractors:
-  - 'Yes — `i` always lives until the function returns.'
-  - 'Yes, but only if N > 0.'
-  - 'Only if you write `cout << ::i;`.'
-
-explanation: |
-  `for (int i ...)` declares `i` with for-statement scope. To use `i` after the loop, declare it outside: `int i; for (i = 0; ...)`.
-
+  - Yes — `i` always lives until the function returns.
+  - Yes, but only if N > 0.
+  - Only if you write `cout << ::i;`.
+explanation: >
+  `for (int i ...)` declares `i` with for-statement scope. To use `i` after the loop, declare it outside: `int i; for (i
+  = 0; ...)`.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-scope-leak)"
-
-commonMistakeIds: ["CM-scope-leak"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-scope-leak)
+commonMistakeIds:
+  - CM-scope-leak
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

@@ -70,6 +70,7 @@ steps:
       is over. `return 0;` MUST sit BEFORE this brace, never after.
     atomIds: ["F-08"]
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "seminar"
   ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:21:14 — Saloni: 'we have only four questions ... how do you do the hand execution'"

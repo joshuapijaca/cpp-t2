@@ -58,9 +58,10 @@ explanation: |
   A overshoots (panel ≠ output). C is irrelevant. D shows working but
   misses the asked artifact.
 
+drills: ["tier1:prereq:hand-execution-paradigm"]
 source:
-  kind: "practice"
-  ref: "SIT102 past-paper Q1 phrasing — 'What does the program print?' is the literal exam wording"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/07-hand-execution"
 
 commonMistakeIds: ["CM-confuses-panel-with-output"]
 status: "NEW"

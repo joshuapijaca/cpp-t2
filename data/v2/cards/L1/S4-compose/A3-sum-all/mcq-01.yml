@@ -1,31 +1,26 @@
-# =====================================================================
-# L1 / sum-all / MCQCard 01 — predict-final 1
-# =====================================================================
-id: "L1-A3-mcq-01"
-schemaVersion: "v2"
-atomId: "A3"
-qTags: ["Q1"]
+id: L1-A3-mcq-01
+schemaVersion: v2
+atomId: A3
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
-stem: "For sum-all on numbers={1.5, 2.5, 3.5, 4.5, 5.5}, what is the FINAL value of data.mystery printed?"
-
+level: L1
+type: MCQCard
+stem: For sum-all on numbers={1.5, 2.5, 3.5, 4.5, 5.5}, what is the FINAL value of data.mystery printed?
 correct: "17.5"
-
 distractors:
   - "16.0"
   - "19.0"
-  - "bogus2"
-
-explanation: "The sum-all algorithm yields 17.5. Common errors land on the distractor values — see common-mistake catalogue."
-
+  - bogus2
+explanation: The sum-all algorithm yields 17.5. Common errors land on the distractor values — see common-mistake catalogue.
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — sum-all predict-final"
-
-commonMistakeIds: ["CM-A3-init-not-zero", "CM-A3-skip-element"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — sum-all predict-final
+commonMistakeIds:
+  - CM-A3-init-not-zero
+  - CM-A3-skip-element
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
 notes: "Predict-final MCQ: tests result without trace ceremony."
+drills: tier1:Q1:accumulator

@@ -1,17 +1,19 @@
-id: "L1-S3-C-16-cloze-01"
-schemaVersion: "v2"
-atomId: "C-16"
-qTags: ["Q1"]
+id: L1-S3-C-16-cloze-01
+schemaVersion: v2
+atomId: C-16
+qTags:
+  - Q1
 stage: 3
-level: "L1"
-type: "ClozeCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L1
+type: ClozeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-16"
-commonMistakeIds: ["CM-C16a"]
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-16
+commonMistakeIds:
+  - CM-C16a
 stem: |
   Fill the comparison operator that asks "is the array element
   greater than the running scalar?" (find-max guard).
@@ -19,10 +21,11 @@ code: |
   if (data.numbers[i] ___ data.mystery) {
     data.mystery = data.numbers[i];
   }
-clozeSentence: "if (data.numbers[i] ___ data.mystery) { ... }"
+clozeSentence: if (data.numbers[i] ___ data.mystery) { ... }
 answer: ">"
 explanation: |
   Find-max writes `data.numbers[i] > data.mystery`. When the cell
   beats the running max, replace mystery. Targets CM-C16a (flips
   the inequality and accidentally implements find-min).
-notes: "Cloze form for QA-M10 type-diversity. Drills the find-max guard."
+notes: Cloze form for QA-M10 type-diversity. Drills the find-max guard.
+drills: tier1:Q1:if-cond-gt

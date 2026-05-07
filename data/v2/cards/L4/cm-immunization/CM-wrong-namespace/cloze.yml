@@ -27,10 +27,17 @@ explanation: |
 
 source:
   kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-wrong-namespace)"
+  ref: "v2:Q4 — CM immunization: using std missing or wrong namespace"
 
 commonMistakeIds: ["CM-wrong-namespace"]
 status: "NEW"
 createdBy: "QA-M13-fix"
 notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
 authoringStatus: "DRAFT"
+drills:
+  - tier1:Q4:int-main
+tier2:
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations
+  - tier2:seminar:saloni-2 @ 47:17
+  - tier2:v2:Q4
+  - tier2:practice:Q4

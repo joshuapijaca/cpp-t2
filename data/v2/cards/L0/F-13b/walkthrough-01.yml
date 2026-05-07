@@ -45,9 +45,10 @@ steps:
       The whole chain is one statement, ending with one semicolon.
     atomIds: ["F-13b"]
 
+drills: ["tier1:prereq:cout-chained-values-endl"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F13b-1", "CM-F13b-3"]
 status: "NEW"

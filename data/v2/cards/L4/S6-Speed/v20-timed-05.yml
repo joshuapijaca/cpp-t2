@@ -1,49 +1,66 @@
-id: "L4-S6-v20-timed-05"
-schemaVersion: "v2"
-atomId: "Q-10"
-qTags: 
-  - "Q4"
+id: L4-S6-v20-timed-05
+schemaVersion: v2
+atomId: Q-10
+qTags:
+  - Q4
 stage: 6
-level: "L4"
-type: "SpeedDrillCard"
-stem: "[V2.0 timed 5/5] You have 90 seconds to write the full V2.0 main(). After 5s flash of the prompt, the timer starts."
-source: 
-  kind: "v2"
-  ref: "C++T2 spec §6.6 S6 timed V2.0"
-commonMistakeIds: 
-  - "CM-Q4-time-pressure-skip-const"
-  - "CM-Q4-time-pressure-no-return"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L4-Q4"
-prompt: "Write the V2.0 main(): const MAX=700, desk_data, desk_num, prompt+cin, read_desks call, print 3 fields, return 0."
+level: L4
+type: MainWriteCard
+stem: '[V2.0 timed 5/5] You have 90 seconds to write the full V2.0 main(). After 5s flash of the prompt, the timer starts.'
+prompt: 'Write the V2.0 main(): const MAX=700, desk_data, desk_num, prompt+cin, read_desks call, print 3 fields, return 0.'
 canonicalAnswer: |
   int main()
   {
       const int MAX = 700;
       desk_data desks[MAX];
       int desk_num;
-  
+
       cout << "How many desks? ";
       cin >> desk_num;
-  
+
       read_desks(desks, desk_num);
-  
+
       for (int i = 0; i < desk_num; i++)
       {
           cout << desks[i].room_id << ", ";
           cout << desks[i].d_id << ", ";
           cout << desks[i].number_of_screens << endl;
       }
-  
+
       return 0;
   }
-keyChecks: 
-  - "const int MAX = 700"
-  - "desk_data desks[MAX]"
-  - "cin >> desk_num"
-  - "read_desks(desks, desk_num)"
-  - "i < desk_num"
-  - "endl"
-  - "return 0"
-explanation: "90s is realistic exam pace. Build motor memory."
+keyChecks:
+  - const int MAX = 700
+  - desk_data desks[MAX]
+  - cin >> desk_num
+  - read_desks(desks, desk_num)
+  - i < desk_num
+  - endl
+  - return 0
+forbiddenTokens: []
+explanation: 90s is realistic exam pace. Build motor memory.
+expectedTerminal: []
+source:
+  kind: v2
+  ref: "v2:Q4 — S6 timed: V2.0 desk_data main() under 90s"
+commonMistakeIds:
+  - CM-Q4-time-pressure-skip-const
+  - CM-Q4-time-pressure-no-return
+status: NEW
+createdBy: SA-L4-Q4
+authoringStatus: DRAFT
+migratedFrom: SpeedDrillCard
+drills:
+  - tier1:Q4:int-main
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+  - tier1:Q4:fn-call-no-amp
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+  - tier1:Q4:return-0
+tier2:
+  - tier2:v2:Q4
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations

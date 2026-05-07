@@ -9,7 +9,7 @@ type: "ClozeCard"
 stem: "`___ int MAX = 700;` — fill the missing keyword that makes MAX a compile-time constant."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.2 S2 FillSlot token"
+  ref: "v2:Q4 — template fill: const int MAX = 700;"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -38,3 +38,8 @@ code: |
 clozeSentence: "`___ int MAX = 700;` — fill the missing keyword that makes MAX a compile-time constant."
 answer: "const"
 explanation: "The missing token is `const`."
+drills:
+  - tier1:Q4:const-int-MAX
+tier2:
+  - tier2:pfg:part-1-instructions/1-sequence-and-data/2-trailside/07-variable
+  - tier2:v2:Q4

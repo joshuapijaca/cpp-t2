@@ -1,16 +1,17 @@
-id: "L5-partial-Q1-04-sum-negative"
-schemaVersion: "v2"
-atomId: "M-02"
-qTags: ["Q1"]
+id: L5-partial-Q1-04-sum-negative
+schemaVersion: v2
+atomId: M-02
+qTags:
+  - Q1
+drills: ["Q1"]
 stage: 5
-level: "L5"
-type: "SpeedDrillCard"
-
+level: L5
+type: MCQCard
 stem: |
   Partial-mock Q1: sum-negative. 4-min cap. Hand-execute, report final
   d.mystery + iteration trace.
 
-prompt: |
+
   void who_am_i(stat_double &data) {
     int i;
     data.mystery = 0.0;
@@ -25,26 +26,25 @@ prompt: |
   stat_double d = {{1.0, -2.5, 3.0, -1.5, 4.0}, 0.0};
   who_am_i(d);
   // What is d.mystery?
-
-canonicalAnswer: |
-  d.mystery == -4.0;
-
-keyChecks:
-  - "-4.0"
-
-
+correct: d.mystery == -4.0;
+distractors:
+  - '0'
+  - '1'
+  - '5'
 explanation: |
   Partial Q1 (sum-negative). Pre-loop init = 0.0. Loop visits 5
   elements; condition `data.numbers[i] < 0`; action `data.mystery + data.numbers[i]`. Final
   d.mystery == -4.0.
-
 source:
   kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt §Q1 — partial-mock variant"
-
-commonMistakeIds: ["CM-skip-pre-loop-init", "CM-array-from-1", "CM-body-when-false"]
-status: "NEW"
-createdBy: "SA-L5-Mock"
-authoringStatus: "DRAFT"
+  ref: Test2-SIT102-practice-2026T1.txt §Q1 — partial-mock variant
+commonMistakeIds:
+  - CM-skip-pre-loop-init
+  - CM-array-from-1
+  - CM-body-when-false
+status: NEW
+createdBy: SA-L5-Mock
 notes: |
   Partial Q1 #4: sum-negative.
+authoringStatus: DRAFT
+migratedFrom: SpeedDrillCard

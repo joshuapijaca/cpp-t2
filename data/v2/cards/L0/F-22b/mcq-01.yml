@@ -26,6 +26,7 @@ explanation: |
   reference (alias). Placement IS load-bearing — `&int x` is a
   syntax error, `int x&` is a syntax error.
 
+drills: ["tier1:prereq:pass-by-reference-semantics"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"

@@ -1,26 +1,23 @@
-# =====================================================================
-# L1 / V-two-mystery / TraceCard 04
-# two-mystery: track max + sum
-# =====================================================================
-id: "L1-V-twomyst-04"
-schemaVersion: "v2"
-atomId: "A13"
-qTags: ["Q1"]
+id: L1-V-twomyst-04
+schemaVersion: v2
+atomId: A13
+qTags:
+  - Q1
 stage: 5
-level: "L1"
-type: "TraceCard"
-
-stem: "stat_two has TWO mystery fields. Track BOTH: mystery_a = max, mystery_b = sum. Single loop, two updates per iteration. numbers = {2.0, 5.0, 1.0, 4.0, 3.0}."
-
+level: L1
+type: TraceCard
+stem: >-
+  stat_two has TWO mystery fields. Track BOTH: mystery_a = max, mystery_b = sum. Single loop, two updates per iteration.
+  numbers = {2.0, 5.0, 1.0, 4.0, 3.0}.
 code: |
   const int SIZE = 5;
-  
+
   struct stat_two {
     double numbers[SIZE];
     double mystery_a;
     double mystery_b;
   };
-  
+
   int main() {
     stat_two data = { {2.0, 5.0, 1.0, 4.0, 3.0}, 0, 0 };
     data.mystery_a = data.numbers[0];
@@ -34,79 +31,78 @@ code: |
     cout << data.mystery_a << " " << data.mystery_b << endl;
     return 0;
   }
-
-variables: ["i", "data.mystery_a", "data.mystery_b"]
-
+variables:
+  - i
+  - data.mystery_a
+  - data.mystery_b
 expectedTrace:
   - line: 10
-    variable: "data.mystery_a"
+    variable: data.mystery_a
     value: "2.0"
     output: null
   - line: 11
-    variable: "data.mystery_b"
+    variable: data.mystery_b
     value: "0.0"
     output: null
   - line: 12
-    variable: "i"
+    variable: i
     value: "0"
     output: null
   - line: 16
-    variable: "data.mystery_b"
+    variable: data.mystery_b
     value: "2.0"
     output: null
   - line: 12
-    variable: "i"
+    variable: i
     value: "1"
     output: null
   - line: 14
-    variable: "data.mystery_a"
+    variable: data.mystery_a
     value: "5.0"
     output: null
   - line: 16
-    variable: "data.mystery_b"
+    variable: data.mystery_b
     value: "7.0"
     output: null
   - line: 12
-    variable: "i"
+    variable: i
     value: "2"
     output: null
   - line: 16
-    variable: "data.mystery_b"
+    variable: data.mystery_b
     value: "8.0"
     output: null
   - line: 12
-    variable: "i"
+    variable: i
     value: "3"
     output: null
   - line: 16
-    variable: "data.mystery_b"
+    variable: data.mystery_b
     value: "12.0"
     output: null
   - line: 12
-    variable: "i"
+    variable: i
     value: "4"
     output: null
   - line: 16
-    variable: "data.mystery_b"
+    variable: data.mystery_b
     value: "15.0"
     output: null
   - line: 18
     variable: ""
     value: ""
-    output: "5.0 15.0"
-
-terminalOutput: ["5.0 15.0"]
-
-inputMode: "final-only"
-
-teachMe: "mystery_a (max) = 5.0, mystery_b (sum) = 15.0. Both update inside the same loop."
-
+    output: 5.0 15.0
+terminalOutput:
+  - 5.0 15.0
+inputMode: final-only
+teachMe: mystery_a (max) = 5.0, mystery_b (sum) = 15.0. Both update inside the same loop.
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — two-mystery variant"
-
-commonMistakeIds: ["CM-S5-two-mystery-track-one"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
-notes: "Two-mystery transfer trace. Both fields update per iteration."
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — two-mystery variant
+commonMistakeIds:
+  - CM-S5-two-mystery-track-one
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
+notes: Two-mystery transfer trace. Both fields update per iteration.
+drills: tier1:Q1:field-scalar

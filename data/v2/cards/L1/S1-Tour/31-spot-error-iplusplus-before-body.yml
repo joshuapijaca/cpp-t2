@@ -1,17 +1,17 @@
-id: "L1-S1-tour-31-spot-error-iplusplus-before-body"
-schemaVersion: "v2"
-atomId: "T-00"
-qTags: ["Q1"]
+id: L1-S1-tour-31-spot-error-iplusplus-before-body
+schemaVersion: v2
+atomId: T-00
+qTags:
+  - Q1
 stage: 1
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   Spot the error 5/5. A student incremented i BEFORE running the
   body. The trace looks plausible but the values are off. Find the
   bug.
 
-brokenCode: |
+  Code under review:
   // student trace: ran i++ BEFORE the body each iteration
   // brace-init: stat_double d = {{2.4,-3.7,1.0,-2.1,0.5}, -0.9};
   // pre-loop init: mystery = 0.0
@@ -24,39 +24,28 @@ brokenCode: |
   // student answer: 1.5
   ;
 
-bugLocations: [3]
 
-fixedCode: |
-  // CORRECT order: header runs init -> guard -> BODY -> post (i++).
-  // i++ fires AFTER the body, not before.
-  //
-  // iter 0: i=0, body uses data.numbers[0] = 2.4
-  // iter 1: i++ now happens, i=1, then body
-  // ...
-  //
-  // correct answer: 3.9
-  ;
-
-bugCategory: "i++ executed before body"
-
-keyChecks:
-  - "i++"
-  - "after"
-
+  Which diagnosis describes the bug?
+correct: i++ executed before body
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
 explanation: |
   M05: ran i++ before the body of the iteration. The for-header
   semantics are init -> guard -> BODY -> post-step. The post step
   (i++) fires AFTER the body has run for the current i. Doing
   i++ before the body skips numbers[0] entirely on iter 0 and
   shifts every subsequent index by one. Correct answer = 3.9.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — common-mistake catalog M05"
-
-commonMistakeIds: ["CM-Q1-iplusplus-before-body"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — common-mistake catalog M05
+commonMistakeIds:
+  - CM-Q1-iplusplus-before-body
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   Spot-error 5/5: i++ before body.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

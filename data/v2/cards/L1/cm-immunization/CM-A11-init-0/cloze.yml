@@ -1,31 +1,26 @@
-# Auto-emitted CM immunization (ClozeCard) for CM-A11-init-0
-id: "L1-cmimm-CM-A11-init-0-cloze"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-A11-init-0-cloze
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "ClozeCard"
-
-stem: "Fill in the missing token to fix this CM-A11-init-0 mistake."
-
+level: L1
+type: ClozeCard
+stem: Fill in the missing token to fix this CM-A11-init-0 mistake.
 code: |
   // running product: mystery = mystery * numbers[i]
   // pre-loop seed: mystery = ___
-
-clozeSentence: 'Fill in the multiplicative identity (one decimal).'
-
-answer: '1.0'
-
+clozeSentence: Fill in the multiplicative identity (one decimal).
+answer: "1.0"
 explanation: |
   Multiplicative identity is 1.0. Sums use 0.0, products use 1.0.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-A11-init-0)"
-
-commonMistakeIds: ["CM-A11-init-0"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-A11-init-0)
+commonMistakeIds:
+  - CM-A11-init-0
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

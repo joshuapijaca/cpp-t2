@@ -1,40 +1,33 @@
-id: "CM-skip-pre-loop-init-fixit"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: CM-skip-pre-loop-init-fixit
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Fix-it drill for CM-skip-pre-loop-init. The code has the bug; produce the canonical fix.
+  Pick the canonical fix line.
 
-brokenCode: |
+  Broken code:
   // Q1: Q1 skip pre-loop init
   // (init line forgotten)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  data.mystery = data.numbers[0];
-  ;
-
-bugCategory: "CM-skip-pre-loop-init"
-
-keyChecks: []
-
+correct: data.mystery = data.numbers[0];
+distractors:
+  - '// Q1: Q1 skip pre-loop init'
+  - // (init line forgotten)
+  - ;
 explanation: |
   Replace the broken line with: data.mystery = data.numbers[0];
   Diagnosis: data.mystery never initialized before the for-loop.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-skip-pre-loop-init"
-
-commonMistakeIds: ["CM-skip-pre-loop-init"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake CM-skip-pre-loop-init
+commonMistakeIds:
+  - CM-skip-pre-loop-init
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 3/5 (fix-it) for CM-skip-pre-loop-init.

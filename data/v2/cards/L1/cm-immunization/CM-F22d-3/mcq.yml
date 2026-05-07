@@ -1,31 +1,29 @@
-# Hand-authored CM immunization (MCQCard) for CM-F22d-3
-id: "L1-cmimm-CM-F22d-3-mcq"
-schemaVersion: "v2"
-atomId: "F-22d"
-qTags: ["Q1", "Q3"]
+id: L1-cmimm-CM-F22d-3-mcq
+schemaVersion: v2
+atomId: F-22d
+qTags:
+  - Q1
+  - Q3
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   After `who_am_i(d);` returns, what happens to fields the function did NOT assign to?
-
-correct: 'They keep their original values — only fields that were ASSIGNED change'
-
+correct: They keep their original values — only fields that were ASSIGNED change
 distractors:
-  - 'They are reset to 0 / default values'
-  - 'They become undefined'
-  - 'They are returned to the function scope and lost'
-
-explanation: |
-  Pass-by-reference exposes ALL the caller's fields, but a function only changes the fields where it executes an assignment. Reading a field doesn't change it; absent assignment, the value persists.
-
+  - They are reset to 0 / default values
+  - They become undefined
+  - They are returned to the function scope and lost
+explanation: >
+  Pass-by-reference exposes ALL the caller's fields, but a function only changes the fields where it executes an
+  assignment. Reading a field doesn't change it; absent assignment, the value persists.
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-22d multi-field mutation — common-mistake immunization (CM-F22d-3)"
-
-commonMistakeIds: ["CM-F22d-3"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: C++T2 spec §F-22d multi-field mutation — common-mistake immunization (CM-F22d-3)
+commonMistakeIds:
+  - CM-F22d-3
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

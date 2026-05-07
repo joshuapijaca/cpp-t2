@@ -1,28 +1,38 @@
-id: "L4-S3B-faultinj-02"
-schemaVersion: "v2"
-atomId: "Q-03"
-qTags: 
-  - "Q4"
+id: L4-S3B-faultinj-02
+schemaVersion: v2
+atomId: Q-03
+qTags:
+  - Q4
 stage: 3
-level: "L4"
-type: "FaultInjectionCard"
-stem: "Fix the bug: no bound."
-source: 
-  kind: "v2"
-  ref: "C++T2 spec §6.3 Block B fault"
-commonMistakeIds: 
-  - "CM-Q4-array-size-wrong"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L4-Q4"
-brokenCode: "desk_data desks[];"
-bugLocations: 
-  - 1
-fixedCode: "desk_data desks[MAX];"
-bugCategory: "no bound"
-keyChecks: 
-  - "desk_data"
-  - "desks"
-  - "[MAX]"
-  - ";"
-explanation: "A local array decl requires a bound."
+level: L4
+type: MCQCard
+stem: |-
+  Fix the bug: no bound.
+
+  Code under review:
+  desk_data desks[];
+
+  Which diagnosis describes the bug?
+correct: no bound
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: A local array decl requires a bound.
+source:
+  kind: v2
+  ref: "v2:Q4 — Block B: desk_data desks[MAX]; (struct array sized by MAX)"
+commonMistakeIds:
+  - CM-Q4-array-size-wrong
+status: NEW
+createdBy: SA-L4-Q4
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q4:struct-array-decl
+tier2:
+  - tier2:pfg:part-3-programs-as-concepts/3-collections/2-trailside/10-arrays
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/04-declaring-variables-with-custom-types
+  - tier2:v2:Q4
+  - tier2:practice:Q4
+  - tier2:task-sheet:P9

@@ -1,33 +1,39 @@
-id: "L4-S3A-faultinj-02"
-schemaVersion: "v2"
-atomId: "Q-02"
-qTags: 
-  - "Q4"
+id: L4-S3A-faultinj-02
+schemaVersion: v2
+atomId: Q-02
+qTags:
+  - Q4
 stage: 3
-level: "L4"
-type: "FaultInjectionCard"
-stem: "Fix the bug: missing type."
-source: 
-  kind: "v2"
-  ref: "C++T2 spec §6.3 Block A fault"
-commonMistakeIds: 
-  - "CM-Q4-missing-const"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L4-Q4"
-brokenCode: |
+level: L4
+type: MCQCard
+stem: |-
+  Fix the bug: missing type.
+
+  Code under review:
   const MAX = 700;
   desk_data desks[MAX];
-bugLocations: 
-  - 1
-fixedCode: |
-  const int MAX = 700;
-  desk_data desks[MAX];
-bugCategory: "missing type"
-keyChecks: 
-  - "const"
-  - "int"
-  - "MAX"
-  - "700"
-  - ";"
-explanation: "Add the type `int` between `const` and `MAX`."
+
+
+  Which diagnosis describes the bug?
+correct: missing type
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: Add the type `int` between `const` and `MAX`.
+source:
+  kind: v2
+  ref: "v2:Q4 — Block A: const int MAX = N; (compile-time constant for array bound)"
+commonMistakeIds:
+  - CM-Q4-missing-const
+status: NEW
+createdBy: SA-L4-Q4
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q4:const-int-MAX
+tier2:
+  - tier2:pfg:part-1-instructions/1-sequence-and-data/2-trailside/07-variable
+  - tier2:seminar:saloni-2 @ 46:40
+  - tier2:v2:Q4
+  - tier2:practice:Q4

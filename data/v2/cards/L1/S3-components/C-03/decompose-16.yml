@@ -33,7 +33,5 @@ options:
   - label: D
     text: numbers[0] = 7.7, numbers[1] = 0, numbers[2] = 0, numbers[3] = 0, numbers[4] = 0
 correctLabel: B
-explanation: >-
-  C++ arrays are 0-indexed and brace-init fills left-to-right: 1st value → index 0, 5th value →
-  index 4.
-
+explanation: "C++ arrays are 0-indexed and brace-init fills left-to-right: 1st value → index 0, 5th value → index 4."
+drills: tier1:Q1:brace-init-nested

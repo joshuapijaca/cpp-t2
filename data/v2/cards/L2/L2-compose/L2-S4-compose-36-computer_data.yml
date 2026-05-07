@@ -1,13 +1,15 @@
-
-id: "L2-S4-compose-36-computer_data"
-schemaVersion: "v2"
-atomId: "L-24"
-qTags: ["Q2"]
+id: L2-S4-compose-36-computer_data
+schemaVersion: v2
+atomId: L-24
+qTags:
+  - Q2
 stage: 4
-level: "L2"
-type: "StructWriteCard"
-stem: "Q2 Compose #36 (PRACTICE TEST entity). From the English description, write the full struct: name, opening brace, fields one per line, closing `};`."
-prompt: "PRACTICE repeat #3 — exact field order: id, description, location."
+level: L2
+type: StructWriteCard
+stem: >-
+  Q2 Compose #36 (PRACTICE TEST entity). From the English description, write the full struct: name, opening brace,
+  fields one per line, closing `};`.
+prompt: 'PRACTICE repeat #3 — exact field order: id, description, location.'
 canonicalAnswer: |
   struct computer_data
   {
@@ -15,15 +17,42 @@ canonicalAnswer: |
       string description;
       string location;
   };
-requiredFields: ["id","description","location"]
-keyChecks: ["struct computer_data","};","int id;","string description;","string location;"]
-forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
-explanation: "computer_data captures 3 attributes (id, description, location). Type-by-noun: id→int, description→string, location→string."
+requiredFields:
+  - id
+  - description
+  - location
+keyChecks:
+  - struct computer_data
+  - '};'
+  - int id;
+  - string description;
+  - string location;
+forbiddenTokens:
+  - class
+  - Struct
+  - STRUCT
+  - typedef
+  - '*'
+  - '->'
+explanation: >-
+  computer_data captures 3 attributes (id, description, location). Type-by-noun: id→int, description→string,
+  location→string.
 source:
-  kind: "practice"
-  ref: "Practice test — computer_data { int id; string description; string location; }"
-commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "S4 full-compose card (PRACTICE TEST entity)."
+  kind: pfg
+  ref: pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md (struct definition reference)
+commonMistakeIds:
+  - CM-F20a
+  - CM-F20b
+  - CM-F20c
+  - CM-F20d
+  - CM-F20e
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L2-Q2
+notes: S4 full-compose card (PRACTICE TEST entity).
+drills:
+  - tier1:Q2:q2-field-type-decl
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md (struct definition
+    reference)

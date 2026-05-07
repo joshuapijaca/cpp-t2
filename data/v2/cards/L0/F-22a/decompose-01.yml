@@ -39,9 +39,10 @@ explanation: |
   D is wrong: parameters go in PARENS, not braces. Braces wrap the
   BODY, which comes AFTER the header.
 
+drills: ["tier1:prereq:function-definition-syntax"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — function header order"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/01-function-decl"
 
 commonMistakeIds: ["CM-F22a-1", "CM-F22a-2"]
 status: "NEW"

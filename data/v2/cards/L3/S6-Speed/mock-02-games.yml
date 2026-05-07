@@ -1,17 +1,15 @@
-# =====================================================================
-# L3 / R-05 / SpeedDrillCard — mixed mock read_games
-# =====================================================================
-id: "L3-R05-mock-02"
-schemaVersion: "v2"
-atomId: "R-05"
-qTags: ["Q3"]
+id: L3-R05-mock-02
+schemaVersion: v2
+atomId: R-05
+qTags:
+  - Q3
 stage: 6
-level: "L3"
-type: "SpeedDrillCard"
+level: L3
+type: FunctionWriteCard
 stem: |
   MIXED MOCK: write the full read_games function in 90 seconds.
   Random entity surface; check for off-by-one and missing-& errors after writing.
-prompt: "Mixed mock: read_games."
+prompt: 'Mixed mock: read_games.'
 canonicalAnswer: |
   void read_games(game_data &games[], int number_to_read)
   {
@@ -26,18 +24,26 @@ canonicalAnswer: |
     }
   }
 keyChecks:
-  - "void read_games(game_data &games[], int number_to_read)"
-  - "for (int i = 0; i < number_to_read; i++)"
-  - "cin >> games[i].players;"
-  - "cin >> games[i].duration;"
-  - "cin >> games[i].price;"
-forbiddenTokens:
-  - "while"
+  - void read_games(game_data &games[], int number_to_read)
+  - for (int i = 0; i < number_to_read; i++)
+  - cin >> games[i].players;
+  - cin >> games[i].duration;
+  - cin >> games[i].price;
+forbiddenTokens: []
 explanation: |
   Final fluency check. Same skeleton at exam pace.
+passByRefRequired: true
 source:
   kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  ref: "Test 2 V2.0 attempt 1 — Q3 timed (60s) read_desks reproduction"
+drills:
+  - "tier1:Q3:R-05"
+  - "tier2:practice:Q3"
+  - "tier2:v2:Q3"
+  - "tier2:variant:Q3"
+  - "tier2:seminar:saloni-2 @ 44:50"
+commonMistakeIds: []
+status: NEW
+createdBy: SA-L3-Q3
+authoringStatus: DRAFT
+migratedFrom: SpeedDrillCard

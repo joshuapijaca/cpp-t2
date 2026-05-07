@@ -1,30 +1,32 @@
-# Auto-emitted CM immunization (ClozeCard) for CM-hyphen-id
-id: "L2-cmimm-CM-hyphen-id-cloze"
-schemaVersion: "v2"
-atomId: "L-21"
-qTags: ["Q2"]
+id: L2-cmimm-CM-hyphen-id-cloze
+schemaVersion: v2
+atomId: L-21
+qTags:
+  - Q2
 stage: 4
-level: "L2"
-type: "ClozeCard"
-
-stem: "Fill in the missing token to fix this CM-hyphen-id mistake."
-
+level: L2
+type: ClozeCard
+stem: Fill in the missing token to fix this CM-hyphen-id mistake.
 code: |
   double max___value;   // legal struct field
-
-clozeSentence: 'Fill in the legal separator character (one char).'
-
-answer: '_'
-
+clozeSentence: Fill in the legal separator character (one char).
+answer: _
 explanation: |
   `max_value` uses underscore. `max-value` would be subtraction.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-hyphen-id)"
-
-commonMistakeIds: ["CM-hyphen-id"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/0-panorama/1-struct.md §panorama (struct as building-block of
+    fields)
+commonMistakeIds:
+  - CM-hyphen-id
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills:
+  - tier1:Q2:q2-entity-snake-case
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/0-panorama/1-struct.md §panorama (struct as
+    building-block of fields)

@@ -34,6 +34,7 @@ explanation: |
   naturally when main exits; `return` doesn't actively clear them.
   Distractor 3 invents a loop. `return` exits — never repeats.
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"

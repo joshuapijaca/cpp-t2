@@ -16,17 +16,17 @@ commonMistakeIds:
   - CM-C23a
   - CM-C23b
 stem: Write the sum-accumulator mutation (the V2.0 attempt-1 update line).
-section: 'C-23 mutation: mystery = mystery + numbers[i]'
+section: "C-23 mutation: mystery = mystery + numbers[i]"
 prompt: Write the single C++ statement that adds data.numbers[i] into data.mystery (sum accumulator).
 expectedAnswer: data.mystery = data.mystery + data.numbers[i];
 keyChecks:
   - data.mystery
   - data.mystery + data.numbers[i]
   - data.numbers[i]
-  - '='
+  - "="
 variants:
   - prompt: Same, but the parameter name is `s`.
     expectedAnswer: s.mystery = s.mystery + s.numbers[i];
   - prompt: Same, but the loop variable is named `k`.
     expectedAnswer: data.mystery = data.mystery + data.numbers[k];
-
+drills: tier1:Q1:accumulator

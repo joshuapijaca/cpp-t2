@@ -1,48 +1,52 @@
-# Hand-authored CM immunization (FaultInjectionCard) for CM-guesses-from-literals
-id: "L1-cmimm-CM-guesses-from-literals-spot"
-schemaVersion: "v2"
-atomId: "F-03"
-qTags: ["Q1", "Q4"]
+id: L1-cmimm-CM-guesses-from-literals-spot
+schemaVersion: v2
+atomId: F-03
+qTags:
+  - Q1
+  - Q4
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
+level: L1
+type: MCQCard
+stem: >-
+  A student guessed the program output from the literals (4 or 3) without tracing. The actual output requires
+  hand-execution. Find the wrong-guess answer and fix it.
 
-stem: |
-  A student guessed the program output from the literals (4 or 3) without tracing. The actual output requires hand-execution. Find the wrong-guess answer and fix it.
 
-brokenCode: |
+  Code under review:
+
   // Student answer for "what does this program print?":
+
   // Output: 4
+
   //
+
   // Code:
+
   //   int a = 4;
+
   //   int b = a * 3;
+
   //   cout << b << endl;
 
-bugLocations: [2]
 
-fixedCode: |
-  // Output: 12
-  //
-  // Hand-execution panel:
-  //   line 1: a = 4
-  //   line 2: b = 4 * 3 = 12
-  //   line 3: cout << b → prints 12
 
-bugCategory: "guessed from literals; did not trace arithmetic"
-
-keyChecks:
-  - "12"
-
-explanation: |
-  The student saw `int a = 4;` and guessed 4 was the answer. They missed line 2 — the arithmetic. Always: maintain the variables panel line-by-line and read off the cout value, never guess from literals.
-
+  Which diagnosis describes the bug?
+correct: guessed from literals; did not trace arithmetic
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  The student saw `int a = 4;` and guessed 4 was the answer. They missed line 2 — the arithmetic. Always: maintain the
+  variables panel line-by-line and read off the cout value, never guess from literals.
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-03 hand-execution paradigm — common-mistake immunization (CM-guesses-from-literals)"
-
-commonMistakeIds: ["CM-guesses-from-literals"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: C++T2 spec §F-03 hand-execution paradigm — common-mistake immunization (CM-guesses-from-literals)
+commonMistakeIds:
+  - CM-guesses-from-literals
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

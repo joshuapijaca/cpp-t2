@@ -49,9 +49,10 @@ steps:
       read.
     atomIds: ["F-11", "F-12"]
 
+drills: ["tier1:prereq:variable-declaration-initialisation"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 attempt 1: who_am_i function declarations"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/07-variable"
 
 commonMistakeIds: ["CM-F11b"]
 status: "NEW"

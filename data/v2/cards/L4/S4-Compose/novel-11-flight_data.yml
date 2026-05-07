@@ -9,7 +9,7 @@ type: "MainWriteCard"
 stem: "[novel 11/20] Write the COMPLETE main() for the flight_data entity. Apply the canonical 7-piece skeleton with MAX=800, count=flight_count, fn=read_flights."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.4 S4 novel entity transfer"
+  ref: "v2:Q4 — S4 novel-entity transfer: full main() for new entity"
 commonMistakeIds: 
   - "CM-Q4-missing-const"
   - "CM-Q4-pass-MAX-not-count"
@@ -58,3 +58,17 @@ forbiddenTokens:
 expectedTerminal: 
   - "How many flights?"
 explanation: "Same skeleton as V2.0 — only entity name, MAX, count_var, fn, fields differ. Pattern transfer drill."
+drills:
+  - tier1:Q4:int-main
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+  - tier1:Q4:fn-call-no-amp
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+  - tier1:Q4:return-0
+tier2:
+  - tier2:v2:Q4
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations

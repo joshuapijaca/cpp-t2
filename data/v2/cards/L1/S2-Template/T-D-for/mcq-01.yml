@@ -1,28 +1,32 @@
-id: "L1-S2-TD-mcq-01"
-schemaVersion: "v2"
-atomId: "T-04"
-qTags: ["Q1"]
+id: L1-S2-TD-mcq-01
+schemaVersion: v2
+atomId: T-04
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "MCQCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — `for (int i = 0; i < SIZE; i++)`"
-commonMistakeIds: ["CM-Q1-off-by-one", "CM-Q1-iplusplus-before-body"]
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — `for (int i = 0; i < SIZE; i++)`
+commonMistakeIds:
+  - CM-Q1-off-by-one
+  - CM-Q1-iplusplus-before-body
 stem: |
   Which for-header is the canonical Q1 counted loop?
-correct: "for (int i = 0; i < SIZE; i++)"
+correct: for (int i = 0; i < SIZE; i++)
 distractors:
-  - "for (int i = 1; i <= SIZE; i++)"
-  - "for (int i = 0; i++ < SIZE;)"
-  - "for (i = 0, i < SIZE, i++)"
+  - for (int i = 1; i <= SIZE; i++)
+  - for (int i = 0; i++ < SIZE;)
+  - for (i = 0, i < SIZE, i++)
 explanation: |
   The Q1 loop walks indices 0..SIZE-1 inclusive: init `int i = 0`,
   guard `i < SIZE`, post `i++`. Distractor 1 starts at 1 and uses
   `<=`, which both off-by-ones (skips index 0, runs index SIZE).
   Distractor 2 mixes guard and post incorrectly. Distractor 3 uses
   commas where the for-header expects semicolons.
-notes: "MCQ form for QA-M10 type-diversity."
+notes: MCQ form for QA-M10 type-diversity.
+drills: tier1:Q1:for-header

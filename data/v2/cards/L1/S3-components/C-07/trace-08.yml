@@ -27,16 +27,14 @@ variables:
 expectedTrace:
   - line: 3
     variable: data.mystery
-    value: '0.0'
+    value: "0.0"
     output: null
   - line: 4
-    variable: ''
-    value: ''
-    output: '0'
+    variable: ""
+    value: ""
+    output: "0"
 terminalOutput:
-  - '0'
+  - "0"
 inputMode: final-only
-teachMe: >-
-  Pre-loop init = before the for header. The line `data.mystery = 0.0;` overwrites the brace-init
-  value with 0.0.
-
+teachMe: Pre-loop init = before the for header. The line `data.mystery = 0.0;` overwrites the brace-init value with 0.0.
+drills: tier1:Q1:trace-strikethrough

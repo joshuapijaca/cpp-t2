@@ -1,44 +1,38 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-scope-leak
-id: "L1-cmimm-CM-scope-leak-spot"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-scope-leak-spot
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   This trace incorrectly references `i` after the loop ended. Find the line that's wrong.
 
-brokenCode: |
+  Code under review:
   for (int i = 0; i < SIZE; i++) {
     data.mystery = data.mystery + data.numbers[i];
   }
   cout << "stopped at " << i;
 
-bugLocations: [4]
 
-fixedCode: |
-  int i;
-  for (i = 0; i < SIZE; i++) {
-    data.mystery = data.mystery + data.numbers[i];
-  }
-  cout << "stopped at " << i;
-
-bugCategory: 'scope leak — `i` declared in for-init is dead after the loop'
-
-keyChecks:
-  - 'int i;'
-
-explanation: |
-  `for (int i = ...)` makes `i` local to the loop. After the loop closes `i` is gone. Either declare `int i;` outside the loop, or move the cout inside.
-
+  Which diagnosis describes the bug?
+correct: scope leak — `i` declared in for-init is dead after the loop
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  `for (int i = ...)` makes `i` local to the loop. After the loop closes `i` is gone. Either declare `int i;` outside
+  the loop, or move the cout inside.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-scope-leak)"
-
-commonMistakeIds: ["CM-scope-leak"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-scope-leak)
+commonMistakeIds:
+  - CM-scope-leak
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

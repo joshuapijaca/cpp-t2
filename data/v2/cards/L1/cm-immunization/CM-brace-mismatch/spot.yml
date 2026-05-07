@@ -1,16 +1,18 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-brace-mismatch
-id: "L1-cmimm-CM-brace-mismatch-spot"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-brace-mismatch-spot
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
+level: L1
+type: MCQCard
+stem: >-
+  A student submitted code that wouldn't compile because the final closing brace was missing. Below is the FIXED
+  version. Identify the line where the student would need to add a closing brace.
 
-stem: |
-  A student submitted code that wouldn't compile because the final closing brace was missing. Below is the FIXED version. Identify the line where the student would need to add a closing brace.
 
-brokenCode: |
+  Code under review:
+
   void who_am_i(stat_double &data) {
     data.mystery = 0.0;
     for (int i = 0; i < SIZE; i++) {
@@ -18,30 +20,25 @@ brokenCode: |
     }
   } /* this final close was MISSING in student code */
 
-bugLocations: [6]
 
-fixedCode: |
-  void who_am_i(stat_double &data) {
-    data.mystery = 0.0;
-    for (int i = 0; i < SIZE; i++) {
-      data.mystery = data.mystery + data.numbers[i];
-    }
-  } /* close of function */
 
-bugCategory: 'unbalanced braces — missing closing brace'
-
-keyChecks:
-  - '/* close of function */'
-
-explanation: |
-  Two opens were made (function and for-loop). The student only wrote one close. Always count opens vs closes; the function body needs its own final close after the for-loop closes.
-
+  Which diagnosis describes the bug?
+correct: unbalanced braces — missing closing brace
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  Two opens were made (function and for-loop). The student only wrote one close. Always count opens vs closes; the
+  function body needs its own final close after the for-loop closes.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-brace-mismatch)"
-
-commonMistakeIds: ["CM-brace-mismatch"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-brace-mismatch)
+commonMistakeIds:
+  - CM-brace-mismatch
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

@@ -1,39 +1,37 @@
-# Hand-authored CM immunization (FaultInjectionCard) for CM-F13b-2
-id: "L1-cmimm-CM-F13b-2-spot"
-schemaVersion: "v2"
-atomId: "F-13b"
-qTags: ["Q3", "Q4"]
+id: L1-cmimm-CM-F13b-2-spot
+schemaVersion: v2
+atomId: F-13b
+qTags:
+  - Q3
+  - Q4
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   This cout uses Java-style + concatenation. Fix it to use C++ stream insertion.
 
-brokenCode: |
+  Code under review:
   int x = 5;
   cout << "x = " + x + endl;
 
-bugLocations: [2]
 
-fixedCode: |
-  int x = 5;
-  cout << "x = " << x << endl;
-
-bugCategory: "Java + concat instead of C++ << chaining"
-
-keyChecks:
-  - 'cout << "x = " << x << endl;'
-
-explanation: |
-  In C++, cout chains values with `<<`, NOT `+`. The `+` form treats `"x = "` as a string literal pointer and adds x as a number — pointer arithmetic, garbage output. Always chain with `<<`.
-
+  Which diagnosis describes the bug?
+correct: Java + concat instead of C++ << chaining
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  In C++, cout chains values with `<<`, NOT `+`. The `+` form treats `"x = "` as a string literal pointer and adds x as
+  a number — pointer arithmetic, garbage output. Always chain with `<<`.
 source:
-  kind: "pfg"
-  ref: "PFG part-1/1-sequence-and-data/2-trailside/11-1-terminal — common-mistake immunization (CM-F13b-2)"
-
-commonMistakeIds: ["CM-F13b-2"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: pfg
+  ref: PFG part-1/1-sequence-and-data/2-trailside/11-1-terminal — common-mistake immunization (CM-F13b-2)
+commonMistakeIds:
+  - CM-F13b-2
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

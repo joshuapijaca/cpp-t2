@@ -34,9 +34,10 @@ status: "NEW"
 createdBy: "SA-PhaseC"
 authoringStatus: "DRAFT"
 
+drills: ["tier1:prereq:prompt-then-read-pair"]
 source:
-  kind: "practice"
-  ref: "Practice test 2026 T1: full loop body of read_desks"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/1-tour/02-01-read-fns"
 
 commonMistakeIds: ["CM-F15a"]
 

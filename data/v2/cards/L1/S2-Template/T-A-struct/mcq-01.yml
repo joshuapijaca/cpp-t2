@@ -1,26 +1,27 @@
-id: "L1-S2-TA-mcq-01"
-schemaVersion: "v2"
-atomId: "T-01"
-qTags: ["Q1"]
+id: L1-S2-TA-mcq-01
+schemaVersion: v2
+atomId: T-01
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "MCQCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — struct stat_double { double numbers[SIZE]; double mystery; };"
-commonMistakeIds: ["CM-Q1-struct-no-trailing-semi"]
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — struct stat_double { double numbers[SIZE]; double mystery; };
+commonMistakeIds:
+  - CM-Q1-struct-no-trailing-semi
 stem: |
   Which line is the canonical Q1 struct declaration as it appears on
   the test?
-correct: |-
-  struct stat_double { double numbers[SIZE]; double mystery; };
+correct: struct stat_double { double numbers[SIZE]; double mystery; };
 distractors:
-  - "struct stat_double { double numbers[]; double mystery; }"
-  - "class stat_double { double numbers[SIZE]; double mystery; };"
-  - "struct stat_double = { double numbers[SIZE], double mystery };"
+  - struct stat_double { double numbers[]; double mystery; }
+  - class stat_double { double numbers[SIZE]; double mystery; };
+  - struct stat_double = { double numbers[SIZE], double mystery };
 explanation: |
   The Q1 struct uses keyword `struct`, name `stat_double`, the
   `numbers[SIZE]` array (NOT `numbers[]` — Test 2 always sizes the
@@ -29,4 +30,5 @@ explanation: |
   Distractor 1 drops SIZE and the trailing `;`. Distractor 2 uses
   `class` (a struct is not a class for our purposes). Distractor 3
   uses `=` and commas — fields use `;` separators inside `{}`.
-notes: "MCQ form for QA-M10 type-diversity."
+notes: MCQ form for QA-M10 type-diversity.
+drills: tier1:Q1:struct-kw

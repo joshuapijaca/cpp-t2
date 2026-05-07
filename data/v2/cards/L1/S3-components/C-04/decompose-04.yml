@@ -33,4 +33,4 @@ options:
     text: numbers       — single cell holding all 5 values.
 correctLabel: A
 explanation: 5 cells, indexed 0..4. Drawing 6 cells (B/C) is the off-by-one trap.
-
+drills: tier1:Q1:field-array

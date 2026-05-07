@@ -1,45 +1,42 @@
-# Hand-authored CM immunization (FaultInjectionCard) for CM-no-separate-compile-step
-id: "L1-cmimm-CM-no-separate-compile-step-spot"
-schemaVersion: "v2"
-atomId: "F-02"
-qTags: ["Q1", "Q2", "Q3", "Q4"]
+id: L1-cmimm-CM-no-separate-compile-step-spot
+schemaVersion: v2
+atomId: F-02
+qTags:
+  - Q1
+  - Q2
+  - Q3
+  - Q4
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   A student tried to run hello.cpp directly without compiling. Identify and fix the missing step.
 
-brokenCode: |
+  Code under review:
   // Terminal:
   //   $ ls
   //   hello.cpp
   //   $ ./hello.cpp
   //   bash: ./hello.cpp: cannot execute binary file
 
-bugLocations: [4]
 
-fixedCode: |
-  // Terminal (corrected):
-  //   $ ls
-  //   hello.cpp
-  //   $ g++ hello.cpp -o hello
-  //   $ ./hello
-
-bugCategory: "tried to run source file; missing compile step"
-
-keyChecks:
-  - "g++ hello.cpp -o hello"
-
-explanation: |
-  hello.cpp is plain text — the CPU cannot run text. You must first compile it: `g++ hello.cpp -o hello` produces an executable (hello) which you THEN run with `./hello`.
-
+  Which diagnosis describes the bug?
+correct: tried to run source file; missing compile step
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  hello.cpp is plain text — the CPU cannot run text. You must first compile it: `g++ hello.cpp -o hello` produces an
+  executable (hello) which you THEN run with `./hello`.
 source:
-  kind: "pfg"
-  ref: "PFG part-0/1-digital-realities/2-trailside/6-source-code — common-mistake immunization (CM-no-separate-compile-step)"
-
-commonMistakeIds: ["CM-no-separate-compile-step"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: pfg
+  ref: PFG part-0/1-digital-realities/2-trailside/6-source-code — common-mistake immunization (CM-no-separate-compile-step)
+commonMistakeIds:
+  - CM-no-separate-compile-step
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

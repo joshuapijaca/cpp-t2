@@ -9,7 +9,7 @@ type: "MCQCard"
 stem: "After `cin >> desk_num;` — what should happen next?"
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.3 Block C mcq"
+  ref: "v2:Q4 — Block C: int desk_num + cout prompt + cin >> desk_num"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -20,3 +20,12 @@ distractors:
   - "return 0."
   - "Re-prompt for another count."
 explanation: "Now we know the real count → call read fn → fill array → print → return 0."
+drills:
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+tier2:
+  - tier2:pfg:part-1-instructions/1-sequence-and-data/2-trailside/07-variable
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-1-variable-constant
+  - tier2:v2:Q4
+  - tier2:practice:Q4

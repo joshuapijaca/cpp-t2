@@ -1,40 +1,33 @@
-id: "CM-int-vs-double-fixit"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: CM-int-vs-double-fixit
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Fix-it drill for CM-int-vs-double. The code has the bug; produce the canonical fix.
+  Pick the canonical fix line.
 
-brokenCode: |
+  Broken code:
   // Q1: Q1 int vs double mismatch
   data.mystery = 4;
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  data.mystery = 3.7;
-  ;
-
-bugCategory: "CM-int-vs-double"
-
-keyChecks: []
-
+correct: data.mystery = 3.7;
+distractors:
+  - '// Q1: Q1 int vs double mismatch'
+  - data.mystery = 4;
+  - ;
 explanation: |
   Replace the broken line with: data.mystery = 3.7;
   Diagnosis: Rounded fractional doubles to ints in the trace.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-int-vs-double"
-
-commonMistakeIds: ["CM-int-vs-double"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake CM-int-vs-double
+commonMistakeIds:
+  - CM-int-vs-double
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 3/5 (fix-it) for CM-int-vs-double.

@@ -1,47 +1,40 @@
-id: "L1-S2-TA-05-cloze-name"
-schemaVersion: "v2"
-atomId: "T-01"
-qTags: ["Q1"]
+id: L1-S2-TA-05-cloze-name
+schemaVersion: v2
+atomId: T-01
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Fill in the struct name. Snake_case, lowercase.
-
 prompt: |
   Type the missing struct name.
-
 template: |
   struct ___ {
     double numbers[SIZE];
     double mystery;
   };
-
 canonicalAnswer: |
   struct stat_double {
     double numbers[SIZE];
     double mystery;
   };
-
 keyChecks:
-  - "stat_double"
-
+  - stat_double
 forbiddenTokens:
-  - "StatDouble"
-  - "Stat_Double"
-
+  - StatDouble
+  - Stat_Double
 explanation: |
   `stat_double` — lowercase snake_case. SIT102 convention. No camel
   case, no PascalCase.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — struct name stat_double"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — struct name stat_double
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-A line cloze: struct name.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:struct-kw

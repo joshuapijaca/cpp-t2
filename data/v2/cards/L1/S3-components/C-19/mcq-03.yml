@@ -14,11 +14,11 @@ source:
   ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-19
 commonMistakeIds:
   - CM-C19a
-stem: 'For an int variant: numbers[2] = 14. Evaluate `numbers[2] % 2 == 0` (test for even).'
-correct: 'true'
+stem: "For an int variant: numbers[2] = 14. Evaluate `numbers[2] % 2 == 0` (test for even)."
+correct: "true"
 distractors:
-  - 'false'
-  - '7'
+  - "false"
+  - "7"
   - undefined for negative
 explanation: 14 % 2 = 0, which IS 0. So the test is true.
-
+drills: tier1:Q1:trace-strikethrough

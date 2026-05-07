@@ -81,6 +81,7 @@ explanation: |
   C is wrong: the cout already has its `;`.
   D is wrong: the brace count really IS off by one.
 
+drills: ["tier1:prereq:block-delimiters-and"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"

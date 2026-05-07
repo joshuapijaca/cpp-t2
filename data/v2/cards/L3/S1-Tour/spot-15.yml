@@ -18,8 +18,15 @@ distractors:
 explanation: |
   Off-template — Q3 invariant uses for, not while. Correct form: for (int i = 0; i < number_to_read; i++)
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q3 read_computers signature line"
+drills:
+  - "tier1:Q3:R-00"
+  - "tier2:practice:Q3"
+  - "tier2:v2:Q3"
+  - "tier2:seminar:saloni-2 @ 44:50"
+  - "tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx"
+  - "tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-parameter.mdx"
 commonMistakeIds: ["CM-Q3-spot"]
 status: "NEW"
 authoringStatus: "DRAFT"

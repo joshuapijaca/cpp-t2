@@ -1,32 +1,27 @@
-# Auto-emitted CM immunization (ClozeCard) for CM-scope-leak
-id: "L1-cmimm-CM-scope-leak-cloze"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-scope-leak-cloze
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "ClozeCard"
-
-stem: "Fill in the missing token to fix this CM-scope-leak mistake."
-
+level: L1
+type: ClozeCard
+stem: Fill in the missing token to fix this CM-scope-leak mistake.
 code: |
   int ___ ;
   for (i = 0; i < SIZE; i++) { ... }
   cout << i;
-
-clozeSentence: 'Fill in the loop variable name in the outer declaration so it survives past the loop.'
-
-answer: 'i'
-
+clozeSentence: Fill in the loop variable name in the outer declaration so it survives past the loop.
+answer: i
 explanation: |
   Declaring `int i;` before the loop makes `i` available after the loop ends.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-scope-leak)"
-
-commonMistakeIds: ["CM-scope-leak"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-scope-leak)
+commonMistakeIds:
+  - CM-scope-leak
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

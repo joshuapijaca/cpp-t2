@@ -34,12 +34,6 @@ import {
   type CardMeta,
   type SessionState,
 } from '../exposure-counter.ts';
-import {
-  propagateExposure,
-  rankCardsByCoverage,
-  tracksLeakingTo,
-  tracksLeakingToFromCards,
-} from '../multi-q-propagation.ts';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Test fixtures
@@ -475,152 +469,6 @@ describe('getAllAtomFamiliarities + getAllQTrackFamiliarities', () => {
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
-// 6. Multi-Q propagation
-// ─────────────────────────────────────────────────────────────────────────────
-
-describe('propagateExposure', () => {
-  it('lifts every tagged Q-track simultaneously', () => {
-    let s = createInitialState();
-    s = registerCard(s, meta('c1', 'A1', ['Q1', 'Q4'], 'short')); // target 6
-    for (let i = 0; i < 6; i++) {
-      s = propagateExposure(s, 'c1', ['Q1', 'Q4'], true);
-    }
-    expect(getQTrackFamiliarity(s, 'Q1').percent).toBe(100);
-    expect(getQTrackFamiliarity(s, 'Q4').percent).toBe(100);
-  });
-
-  it('throws on unknown card', () => {
-    expect(() =>
-      propagateExposure(createInitialState(), 'ghost', ['Q1'], true),
-    ).toThrow(/unknown cardId=ghost/);
-  });
-
-  it('throws on qTag drift (mismatched supplied vs registered)', () => {
-    let s = registerCard(createInitialState(), meta('c1', 'A1', ['Q1', 'Q4']));
-    expect(() => propagateExposure(s, 'c1', ['Q1'], true)).toThrow(/drift/);
-    expect(() => propagateExposure(s, 'c1', ['Q1', 'Q3'], true)).toThrow(
-      /drift/,
-    );
-  });
-
-  it('order-independent qTag check', () => {
-    let s = registerCard(createInitialState(), meta('c1', 'A1', ['Q1', 'Q4']));
-    expect(() => propagateExposure(s, 'c1', ['Q4', 'Q1'], true)).not.toThrow();
-  });
-
-  it('empty qTags array opts out of drift assertion', () => {
-    let s = registerCard(createInitialState(), meta('c1', 'A1', ['Q1', 'Q4']));
-    expect(() => propagateExposure(s, 'c1', [], true)).not.toThrow();
-  });
-
-  it('passes timestamp through to recordCardResult', () => {
-    let s = registerCard(createInitialState(), meta('c1', 'A1', ['Q1']));
-    s = propagateExposure(s, 'c1', ['Q1'], true, 12345);
-    expect(s.exposures['c1']?.firstExposedAt).toBe(12345);
-  });
-
-  it('does not mutate input state', () => {
-    const base = registerCard(createInitialState(), meta('c1', 'A1', ['Q1']));
-    const snap = JSON.stringify(base);
-    propagateExposure(base, 'c1', ['Q1'], true);
-    expect(JSON.stringify(base)).toBe(snap);
-  });
-});
-
-describe('tracksLeakingTo', () => {
-  it('returns the card qTag set', () => {
-    const s = registerCard(createInitialState(), meta('c1', 'A1', ['Q1', 'Q4']));
-    const set = tracksLeakingTo('c1', s);
-    expect(set.has('Q1')).toBe(true);
-    expect(set.has('Q4')).toBe(true);
-    expect(set.size).toBe(2);
-  });
-
-  it('returns empty set for unknown card', () => {
-    const set = tracksLeakingTo('ghost', createInitialState());
-    expect(set.size).toBe(0);
-  });
-
-  it('returns a fresh Set (no internal leak)', () => {
-    const s = registerCard(createInitialState(), meta('c1', 'A1', ['Q1']));
-    const a = tracksLeakingTo('c1', s);
-    const b = tracksLeakingTo('c1', s);
-    expect(a).not.toBe(b);
-  });
-});
-
-describe('tracksLeakingToFromCards', () => {
-  it('finds card from flat array', () => {
-    const set = tracksLeakingToFromCards('c1', [
-      { cardId: 'c1', qTags: ['Q1', 'Q4'] },
-      { cardId: 'c2', qTags: ['Q2'] },
-    ]);
-    expect(set.has('Q1')).toBe(true);
-    expect(set.has('Q4')).toBe(true);
-  });
-
-  it('returns empty set when missing', () => {
-    expect(
-      tracksLeakingToFromCards('ghost', [{ cardId: 'c1', qTags: ['Q1'] }]).size,
-    ).toBe(0);
-  });
-});
-
-describe('rankCardsByCoverage', () => {
-  it('ranks by number of target Q-tracks lifted', () => {
-    let s = createInitialState();
-    s = regAll(s, [
-      meta('c1', 'A1', ['Q1']),
-      meta('c2', 'A2', ['Q1', 'Q2']),
-      meta('c3', 'A3', ['Q1', 'Q2', 'Q4']),
-    ]);
-    const ranked = rankCardsByCoverage(
-      s,
-      ['c1', 'c2', 'c3'],
-      ['Q1', 'Q2', 'Q4'],
-    );
-    expect(ranked.map((r) => r.cardId)).toEqual(['c3', 'c2', 'c1']);
-    expect(ranked[0]?.coverage).toBe(3);
-    expect(ranked[2]?.coverage).toBe(1);
-  });
-
-  it('drops cards with zero coverage', () => {
-    let s = createInitialState();
-    s = regAll(s, [
-      meta('c1', 'A1', ['Q9']), // not in target list
-      meta('c2', 'A2', ['Q1']),
-    ]);
-    const ranked = rankCardsByCoverage(s, ['c1', 'c2'], ['Q1', 'Q2']);
-    expect(ranked.map((r) => r.cardId)).toEqual(['c2']);
-  });
-
-  it('breaks ties by candidate order (stable)', () => {
-    let s = createInitialState();
-    s = regAll(s, [
-      meta('a', 'A1', ['Q1']),
-      meta('b', 'A2', ['Q1']),
-      meta('c', 'A3', ['Q1']),
-    ]);
-    const ranked = rankCardsByCoverage(s, ['b', 'a', 'c'], ['Q1']);
-    expect(ranked.map((r) => r.cardId)).toEqual(['b', 'a', 'c']);
-  });
-
-  it('skips unregistered candidates silently', () => {
-    let s = createInitialState();
-    s = regAll(s, [meta('c1', 'A1', ['Q1'])]);
-    const ranked = rankCardsByCoverage(s, ['ghost', 'c1'], ['Q1']);
-    expect(ranked).toHaveLength(1);
-  });
-
-  it('reports the actual lifted Q-tracks', () => {
-    let s = createInitialState();
-    s = regAll(s, [meta('c1', 'A1', ['Q1', 'Q3', 'Q4'])]);
-    const ranked = rankCardsByCoverage(s, ['c1'], ['Q1', 'Q4', 'Q5']);
-    expect(ranked[0]?.lifts.slice().sort()).toEqual(['Q1', 'Q4']);
-  });
-});
-
-// ─────────────────────────────────────────────────────────────────────────────
 // 7. Stress test — invariants hold over 1000 random ops
 // ─────────────────────────────────────────────────────────────────────────────
 
@@ -797,13 +645,13 @@ describe('end-to-end: realistic study session', () => {
 
     // Student hits trace2 hard, gets 6 correct in a row → not retired (target 8)
     for (let i = 0; i < 6; i++) {
-      s = propagateExposure(s, 'trace2', ['Q1', 'Q4'], true);
+      s = recordCardResult(s, 'trace2', true);
     }
     expect(getCardStatus(s, 'trace2')).toBe('IN-PROGRESS');
 
     // Two more correct → retires (target 8 + last 3 correct)
-    s = propagateExposure(s, 'trace2', ['Q1', 'Q4'], true);
-    s = propagateExposure(s, 'trace2', ['Q1', 'Q4'], true);
+    s = recordCardResult(s, 'trace2', true);
+    s = recordCardResult(s, 'trace2', true);
     expect(getCardStatus(s, 'trace2')).toBe('FAMILIAR');
 
     // Q1 track now lifted by trace2's 8 corrects on A_struct;
@@ -814,16 +662,9 @@ describe('end-to-end: realistic study session', () => {
 
     // Drill trace1 to 100% to fix the gap
     for (let i = 0; i < 6; i++) {
-      s = propagateExposure(s, 'trace1', ['Q1'], true);
+      s = recordCardResult(s, 'trace1', true);
     }
     const q1After = getQTrackFamiliarity(s, 'Q1');
     expect(q1After.percent).toBeGreaterThan(q1.percent);
-
-    // Coverage ranking: write1 + write2 both lift only Q4; struct-trace
-    // would lift both — but it's already retired. Show that the ranker still
-    // returns viable cards.
-    const ranked = rankCardsByCoverage(s, ['write1', 'write2'], ['Q4']);
-    expect(ranked).toHaveLength(2);
-    expect(ranked.every((r) => r.coverage === 1)).toBe(true);
   });
 });

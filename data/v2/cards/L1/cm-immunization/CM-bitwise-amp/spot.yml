@@ -1,37 +1,35 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-bitwise-amp
-id: "L1-cmimm-CM-bitwise-amp-spot"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-bitwise-amp-spot
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   This Q1 condition uses bitwise `&` instead of logical `&&`. Trace this on `numbers[i] = -1` and you'll see the bug.
 
-brokenCode: |
+  Code under review:
   if (numbers[i] > 0 & numbers[i] < 10) ...   // BUG: bitwise &
 
-bugLocations: [1]
 
-fixedCode: |
-  if (numbers[i] > 0 && numbers[i] < 10) ...   // logical &&
-
-bugCategory: 'bitwise & vs logical &&'
-
-keyChecks:
-  - '&&'
-
-explanation: |
-  `&` is bitwise AND on integer bits. `&&` is logical short-circuit AND on booleans. With negative numbers the bitwise version may give surprising results and skip short-circuit semantics.
-
+  Which diagnosis describes the bug?
+correct: bitwise & vs logical &&
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  `&` is bitwise AND on integer bits. `&&` is logical short-circuit AND on booleans. With negative numbers the bitwise
+  version may give surprising results and skip short-circuit semantics.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-bitwise-amp)"
-
-commonMistakeIds: ["CM-bitwise-amp"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-bitwise-amp)
+commonMistakeIds:
+  - CM-bitwise-amp
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

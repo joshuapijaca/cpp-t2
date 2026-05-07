@@ -1,19 +1,14 @@
-# =====================================================================
-# L1 / S3-components / C-28 / DemoCard 01 — read final mystery
-# =====================================================================
-id: "L1-S3-C-28-demo-01"
-schemaVersion: "v2"
-atomId: "C-28"
-qTags: ["Q1"]
+id: L1-S3-C-28-demo-01
+schemaVersion: v2
+atomId: C-28
+qTags:
+  - Q1
 stage: 3
-level: "L1"
-type: "DemoCard"
-
+level: L1
+type: DemoCard
 stem: |
   Watch how the running mystery cell is read at end-of-loop.
-
-whyOneLine: "After the for-loop guard returns false, the live (un-struck) mystery value is the answer."
-
+whyOneLine: After the for-loop guard returns false, the live (un-struck) mystery value is the answer.
 demoCode: |
   // mystery trail across 4 iterations:
   // i=0:    mystery = 0.0
@@ -26,24 +21,22 @@ demoCode: |
   // mystery: ~~0.0~~ ~~2.4~~ ~~5.4~~ 9.1
 
   // Answer = 9.1   (the only live, un-struck value)
-
 highlightTokens:
   - "9.1"
-  - "live"
-  - "un-struck"
-  - "exits"
-
+  - live
+  - un-struck
+  - exits
 usedIn:
-  - "Q1 V2.0 — `cout << data.mystery << endl;` after the for-loop"
-
+  - Q1 V2.0 — `cout << data.mystery << endl;` after the for-loop
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-28"
-
-commonMistakeIds: ["CM-C28a"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-28
+commonMistakeIds:
+  - CM-C28a
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 notes: |
   Pure exposure of the strikethrough convention: only the live
   value is the answer. Demo form for QA-M10 type-diversity.
+drills: tier1:Q1:trace-strikethrough

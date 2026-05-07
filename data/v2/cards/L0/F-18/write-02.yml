@@ -42,6 +42,7 @@ explanation: |
   `i < SIZE` ensures we never index past the end (arr[SIZE] would
   be out of bounds).
 
+drills: ["tier1:prereq:for-int-i-0-i-n-i-counting-loop"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/01-for-loop"

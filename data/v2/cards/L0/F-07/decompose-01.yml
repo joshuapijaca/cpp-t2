@@ -58,6 +58,7 @@ explanation: |
   statement; it must NOT end with `;`. (And `int y;` already has a
   semicolon.)
 
+drills: ["tier1:prereq:statement-terminator-semicolon"]
 source:
   kind: "seminar"
   ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:25:39 — struct + line-end punctuation"

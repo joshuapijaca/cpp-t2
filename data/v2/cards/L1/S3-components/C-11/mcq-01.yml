@@ -22,4 +22,4 @@ distractors:
   - true → the body runs but i is reset to 0.
   - undefined behaviour — i==SIZE is illegal in C++.
 explanation: 5 < 5 is false, so the body is SKIPPED on this re-test and control falls past the closing brace.
-
+drills: tier1:Q1:for-header

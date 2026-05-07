@@ -1,35 +1,47 @@
-
-id: "L2-S2-close-14"
-schemaVersion: "v2"
-atomId: "L-22"
-qTags: ["Q2"]
+id: L2-S2-close-14
+schemaVersion: v2
+atomId: L-22
+qTags:
+  - Q2
 stage: 2
-level: "L2"
-type: "FaultInjectionCard"
-stem: "Q2 closing-`};` drill #14. computer_data missing the closing `;`. Add the missing terminator and write the fix."
-brokenCode: |
+level: L2
+type: MCQCard
+stem: |-
+  Q2 closing-`};` drill #14. computer_data missing the closing `;`. Add the missing terminator and write the fix.
+
+  Code under review:
   struct computer_data
   {
       int id;
       string description;
       string location;
   }
-bugLocations: [6]
-fixedCode: |
-  struct computer_data
-  {
-      int id;
-      string description;
-      string location;
-  };
-bugCategory: "missing ; after closing }"
-keyChecks: ["};"]
-explanation: "The closing brace of a struct definition MUST be followed by a semicolon. `}` alone is a compile error and the most expensive Q2 mistake on the SIT102 test."
+
+
+  Which diagnosis describes the bug?
+correct: missing ; after closing }
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >-
+  The closing brace of a struct definition MUST be followed by a semicolon. `}` alone is a compile error and the most
+  expensive Q2 mistake on the SIT102 test.
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S2 TEMPLATE"
-commonMistakeIds: ["CM-F20a"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "Isolation drill on the highest-cost Q2 error."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §C/C++ syntax (struct + name + {
+    fields } ; skeleton)
+commonMistakeIds:
+  - CM-F20a
+status: NEW
+createdBy: SA-L2-Q2
+notes: Isolation drill on the highest-cost Q2 error.
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q2:q2-trailing-semi
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §C/C++ syntax
+    (struct + name + { fields } ; skeleton)

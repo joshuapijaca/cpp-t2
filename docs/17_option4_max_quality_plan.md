@@ -1,3 +1,41 @@
+---
+# DEPRECATED — DRIFT ARTIFACT (2026-05-07)
+
+**Status:** SUPERSEDED by `docs/19_v22_minimalist_plan.md` and revised `docs/16_test2_specific_redesign_v2.md`.
+
+**Why deprecated:** This plan misread "max quality" as "max features."
+It introduced 8 unrequested card types (AdversarialMockCard, FaultInjectionCard,
+PreflightCheckCard, ConfidenceCalibrationCard, DAGRetryCard, DeltaCard,
+TestDaySimCard, VariantGenCard) and 12 "advanced features" (weakness file,
+atom skill tree visualizer, adversarial mock generation, cross-track
+validation, burnout detection, multi-pass authoring) that the user never
+requested. It doubled card count to 4,600 with no scope justification.
+
+**What was correct here:**
+- The 6-L structure (L0..L5) — preserved in current spec
+- The Tier 1/2 source-of-truth hierarchy — preserved
+- The 44 Tier 1 atom decomposition — preserved
+- The "100% hand-authored" rule — preserved
+- The "no timers" + "no SRS" + "exposure-frequency" — preserved
+
+**What was drift:**
+- 4,600 card target (revised down to ~1,500)
+- 100-entity pool (over-scoped; 35 max)
+- 20 algorithms (over-scoped; 12 max)
+- 6 stages per Q-track (replaced with linear walk)
+- 8 extra card types (deleted)
+- 12 advanced features (deleted)
+- 30 parallel agents / 176 milestones (project-management theater)
+
+**Read instead:**
+- `docs/16_test2_specific_redesign_v2.md` — current spec (revised v2.2)
+- `docs/19_v22_minimalist_plan.md` — minimalist plan
+- `docs/v2/MANIFEST.md` — locked feature list + forbidden list
+
+---
+
+## ORIGINAL DOC PRESERVED BELOW FOR HISTORY
+
 # cpp-t2 Option 4 — MAX-QUALITY PLAN
 
 **Status:** PROPOSED — pending user authorization

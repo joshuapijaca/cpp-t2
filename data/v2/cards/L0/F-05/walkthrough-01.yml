@@ -67,9 +67,10 @@ steps:
       but verbose; SIT102 marking expects the using-namespace style.
     atomIds: ["F-05"]
 
+drills: ["tier1:prereq:using-namespace-std"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md (using namespace std lets you write cout instead of std::cout)"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/3-code"
 
 commonMistakeIds: ["CM-F05a", "CM-F05b", "CM-F05c"]
 status: "NEW"

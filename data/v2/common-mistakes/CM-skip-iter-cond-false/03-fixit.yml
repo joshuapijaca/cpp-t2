@@ -1,40 +1,33 @@
-id: "CM-skip-iter-cond-false-fixit"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: CM-skip-iter-cond-false-fixit
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Fix-it drill for CM-skip-iter-cond-false. The code has the bug; produce the canonical fix.
+  Pick the canonical fix line.
 
-brokenCode: |
+  Broken code:
   // Q1: Q1 skipped iter when cond false
   // (no row for i=2)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  // i=2 cond -> false, mystery unchanged
-  ;
-
-bugCategory: "CM-skip-iter-cond-false"
-
-keyChecks: []
-
+correct: // i=2 cond -> false, mystery unchanged
+distractors:
+  - '// Q1: Q1 skipped iter when cond false'
+  - // (no row for i=2)
+  - ;
 explanation: |
   Replace the broken line with: // i=2 cond -> false, mystery unchanged
   Diagnosis: Omitted rows where if-cond was false — graders need to see them.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-skip-iter-cond-false"
-
-commonMistakeIds: ["CM-skip-iter-cond-false"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake CM-skip-iter-cond-false
+commonMistakeIds:
+  - CM-skip-iter-cond-false
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 3/5 (fix-it) for CM-skip-iter-cond-false.

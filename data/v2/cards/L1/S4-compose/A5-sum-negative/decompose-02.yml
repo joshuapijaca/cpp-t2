@@ -1,44 +1,39 @@
-# =====================================================================
-# L1 / sum-negative / DecomposeCard 02 — spot-error 2
-# =====================================================================
-id: "L1-A5-decomp-02"
-schemaVersion: "v2"
-atomId: "A5"
-qTags: ["Q1"]
+id: L1-A5-decomp-02
+schemaVersion: v2
+atomId: A5
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "DecomposeCard"
-
-stem: "The code below CLAIMS to compute sum-negative on numbers={1.0, 2.0, -3.0, 4.0, -5.0}. There is a bug. Identify it."
-
+level: L1
+type: DecomposeCard
+stem: The code below CLAIMS to compute sum-negative on numbers={1.0, 2.0, -3.0, 4.0, -5.0}. There is a bug. Identify it.
 code: |
   data.mystery = 0;
   for (int i = 0; i < SIZE; i = i + 1) {
     data.mystery = data.mystery + data.numbers[i];
   }
-
-question: "Pick the option that correctly identifies the bug."
-
+question: Pick the option that correctly identifies the bug.
 options:
-  - label: "A"
+  - label: A
     text: "The bug: the loop body is missing the conditional that sum-negative requires. The correct output should be -8."
-  - label: "B"
-    text: "The code is correct — it produces the right answer."
-  - label: "C"
-    text: "The bug is the loop bound `i < SIZE`; should be `i <= SIZE`."
-  - label: "D"
-    text: "The bug is in the cout statement; missing endl flush."
-
-correctLabel: "A"
-
-explanation: "Spot-error drill. the loop body is missing the conditional that sum-negative requires. Targets CM-A5-flip-condition, CM-A5-result-positive."
-
+  - label: B
+    text: The code is correct — it produces the right answer.
+  - label: C
+    text: The bug is the loop bound `i < SIZE`; should be `i <= SIZE`.
+  - label: D
+    text: The bug is in the cout statement; missing endl flush.
+correctLabel: A
+explanation: >-
+  Spot-error drill. the loop body is missing the conditional that sum-negative requires. Targets CM-A5-flip-condition,
+  CM-A5-result-positive.
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — sum-negative spot-error"
-
-commonMistakeIds: ["CM-A5-flip-condition", "CM-A5-result-positive"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
-notes: "Spot-error decompose card."
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — sum-negative spot-error
+commonMistakeIds:
+  - CM-A5-flip-condition
+  - CM-A5-result-positive
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
+notes: Spot-error decompose card.
+drills: tier1:Q1:accumulator

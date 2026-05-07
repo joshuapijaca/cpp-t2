@@ -1,31 +1,26 @@
-# =====================================================================
-# L1 / count-positive / MCQCard 01 — predict-final 1
-# =====================================================================
-id: "L1-A8-mcq-01"
-schemaVersion: "v2"
-atomId: "A8"
-qTags: ["Q1"]
+id: L1-A8-mcq-01
+schemaVersion: v2
+atomId: A8
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
-stem: "For count-positive on numbers={-1.0, 1.0, -2.0, 2.0, -3.0}, what is the FINAL value of data.mystery printed?"
-
+level: L1
+type: MCQCard
+stem: For count-positive on numbers={-1.0, 1.0, -2.0, 2.0, -3.0}, what is the FINAL value of data.mystery printed?
 correct: "2"
-
 distractors:
   - "3"
   - "5"
   - "3.0"
-
-explanation: "The count-positive algorithm yields 2. Common errors land on the distractor values — see common-mistake catalogue."
-
+explanation: The count-positive algorithm yields 2. Common errors land on the distractor values — see common-mistake catalogue.
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — count-positive predict-final"
-
-commonMistakeIds: ["CM-A8-add-value-not-one", "CM-A8-flip-condition"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — count-positive predict-final
+commonMistakeIds:
+  - CM-A8-add-value-not-one
+  - CM-A8-flip-condition
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
 notes: "Predict-final MCQ: tests result without trace ceremony."
+drills: tier1:Q1:accumulator

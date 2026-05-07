@@ -1,62 +1,56 @@
-id: "L5-postmortem-11-bitwise-amp"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q2"]
+id: L5-postmortem-11-bitwise-amp
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q2
+drills: ["Q2"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q2 struct — student declared `int price` for a product where the spec said `double price`. Compiles, but the auto-grader checks types and flags it; downstream cents are silently truncated.
-
-failedAttempt: |
-  struct product_data
-  {
-      string name;
-      int price;
-      int quantity;
-  };
-
-diagnosis: |
-  The spec specifies `double price` because money has cents (decimal fractions). The student used `int`, which can only hold whole dollars. The auto-grader's rubric token `double\s+price` fails. At runtime, `price = 19.99` would be truncated to `19`. Compiler emits a warning about narrowing conversion but compiles; the bug is silent unless you read the warning.
-
-repairSteps:
-  - "struct product_data"
-  - "{"
-  - "    string name;"
-  - "    double price;     // <-- double, not int (money has cents)"
-  - "    int quantity;     //     int is correct for whole-unit counts"
-  - "};"
-
-preventionTip: |
-  Type rules: money/measurements/percentages are `double`; whole-unit counts (quantity, year, age) are `int`; text is `string`; flags are `bool`. Read the SEMANTIC of each field, not just the spec word.
-
-explanation: |
-  Lesson learned — type choice encodes domain knowledge. `int price` = "I think prices are whole numbers" = wrong for currency. The compiler's narrowing-conversion warning is your friend; never ignore it. When the spec says `price` or `cost` or `weight` or `gpa`, default to `double` unless told otherwise.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q2 struct — student declared `int price` for a product where the spec said `double price`. Compiles, but the
+  auto-grader checks types and flags it; downstream cents are silently truncated.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   struct product_data
   {
       string name;
       double price;
       int quantity;
   };
-
-annotations:
+steps:
+  - line: 1
+    code: struct product_data
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '    string name;'
+    annotation: Repair step 3
+    atomIds: []
   - line: 4
-    severity: err
-    note: "`int price` truncates cents. Money values must be `double` to preserve fractional units."
+    code: '    double price;     // <-- double, not int (money has cents)'
+    annotation: Repair step 4
+    atomIds: []
   - line: 5
-    severity: info
-    note: "`int quantity` is correct — quantities are whole units."
-
+    code: '    int quantity;     //     int is correct for whole-unit counts'
+    annotation: Repair step 5
+    atomIds: []
+  - line: 6
+    code: '};'
+    annotation: Repair step 6
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q2 field type semantics"
-
-commonMistakeIds: ["CM-wrong-type"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q2 field type semantics
+commonMistakeIds:
+  - CM-wrong-type
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #11 — Q2 / int instead of double for money.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

@@ -1,62 +1,56 @@
-id: "L5-postmortem-12-stale-mystery"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q2"]
+id: L5-postmortem-12-stale-mystery
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q2
+drills: ["Q2"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q2 struct — student dropped the `;` after a field declaration, expecting the newline to terminate the line. Compiler reads two fields as one and emits "expected ';' before". Read the diff.
-
-failedAttempt: |
-  struct student_data
-  {
-      string name
-      int age;
-      double gpa;
-  };
-
-diagnosis: |
-  C++ statement terminators are SEMICOLONS, not newlines. Each field declaration must end with `;`. The student left `string name` without `;`, so the compiler reads `string name int age` as a single (malformed) declaration. The error message will point at `int age` saying "expected ';' before 'int'" — confusing because the missing semicolon is on the line ABOVE.
-
-repairSteps:
-  - "struct student_data"
-  - "{"
-  - "    string name;     // <-- semicolon at end of EVERY field"
-  - "    int age;"
-  - "    double gpa;"
-  - "};"
-
-preventionTip: |
-  Every field declaration ends with `;`. When the compiler complains about a token on line N, the bug is often on line N-1 (missing `;`). Type-then-name-then-semicolon is the canonical rhythm.
-
-explanation: |
-  Lesson learned — C++ doesn't care about whitespace or newlines for statement boundaries. Only `;` ends a statement. When you write fields, each one is its own statement. Habituate "type, name, semicolon, newline" as one mental unit so you never drop the semi.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q2 struct — student dropped the `;` after a field declaration, expecting the newline to terminate the line. Compiler
+  reads two fields as one and emits "expected ';' before". Read the diff.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   struct student_data
   {
       string name;
       int age;
       double gpa;
   };
-
-annotations:
+steps:
+  - line: 1
+    code: struct student_data
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
   - line: 3
-    severity: err
-    note: "Missing `;` after `string name`. Compiler error appears on the next line."
+    code: '    string name;     // <-- semicolon at end of EVERY field'
+    annotation: Repair step 3
+    atomIds: []
   - line: 4
-    severity: warn
-    note: "This is where the error appears — `int age` interpreted as continuation of line above."
-
+    code: '    int age;'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '    double gpa;'
+    annotation: Repair step 5
+    atomIds: []
+  - line: 6
+    code: '};'
+    annotation: Repair step 6
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q2 field terminator"
-
-commonMistakeIds: ["CM-missing-semi-field"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q2 field terminator
+commonMistakeIds:
+  - CM-missing-semi-field
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #12 — Q2 / missing `;` after struct field.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

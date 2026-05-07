@@ -31,6 +31,7 @@ explanation: |
   content — it just changes which app opens by default. The OS does not
   block files based on extension.
 
+drills: ["tier1:prereq:source-code-is-plain-text"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"

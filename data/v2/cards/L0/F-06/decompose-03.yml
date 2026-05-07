@@ -57,6 +57,7 @@ explanation: |
   D is wrong: braces are correct; square brackets aren't a brace
   alternative.
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"

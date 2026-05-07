@@ -39,6 +39,7 @@ usedIn:
   - "Q4 main program (skeleton for every answer)"
   - "Q1 trace cards (the program being traced is wrapped in this)"
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md (int main() { write_line(\"Hello\"); return 0; })"

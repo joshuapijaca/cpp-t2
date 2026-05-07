@@ -1,32 +1,27 @@
-# Auto-emitted CM immunization (ClozeCard) for CM-brace-mismatch
-id: "L1-cmimm-CM-brace-mismatch-cloze"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-brace-mismatch-cloze
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "ClozeCard"
-
-stem: "Fill in the missing token to fix this CM-brace-mismatch mistake."
-
+level: L1
+type: ClozeCard
+stem: Fill in the missing token to fix this CM-brace-mismatch mistake.
 code: |
   // Count opens and closes:
   // opens: 2 (function + for-loop)
   // closes: ___ (must match opens)
-
-clozeSentence: 'Fill in the close-count required to match 2 opens.'
-
-answer: '2'
-
+clozeSentence: Fill in the close-count required to match 2 opens.
+answer: "2"
 explanation: |
   Each `{` requires exactly one `}`. 2 opens need 2 closes.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-brace-mismatch)"
-
-commonMistakeIds: ["CM-brace-mismatch"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-brace-mismatch)
+commonMistakeIds:
+  - CM-brace-mismatch
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

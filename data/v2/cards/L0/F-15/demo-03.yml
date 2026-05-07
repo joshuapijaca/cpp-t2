@@ -47,9 +47,10 @@ usedIn:
   - "Q3 read fn polish"
   - "Q4 main polish"
 
+drills: ["tier1:prereq:prompt-then-read-pair"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/1-tour/02-01-read-fns"
 
 commonMistakeIds: ["CM-F15b"]
 status: "NEW"

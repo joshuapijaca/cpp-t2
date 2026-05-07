@@ -61,6 +61,7 @@ variants:
       bool e5 = (score <= passMark);
       bool e6 = (score >= passMark);
 
+drills: ["tier1:prereq:comparison-operators"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-1-comparisons"

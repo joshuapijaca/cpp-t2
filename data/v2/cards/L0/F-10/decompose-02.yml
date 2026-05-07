@@ -57,9 +57,10 @@ explanation: |
   D is wrong: removing `using namespace std;` makes things WORSE — you
   would then need to write `std::string` everywhere.
 
+drills: ["tier1:prereq:primitive-types-int-double-string"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-2/3-structuring-data/0-panorama/0-type"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/06-type"
 
 commonMistakeIds: ["CM-F10b", "CM-F10c"]
 status: "NEW"

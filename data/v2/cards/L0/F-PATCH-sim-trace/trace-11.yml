@@ -39,9 +39,10 @@ teachMe: |
   `sum`. The expression `3 + 4` is NOT stored — only the result is.
   Final panel: { sum: 7 }.
 
+drills: ["tier1:prereq:sim-trace-primer-variables-panel-meta-skill"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §B.2 patch — sim-trace primer card 11/30"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/07-hand-execution"
 
 commonMistakeIds: ["CM-arithmetic-error"]
 status: "NEW"

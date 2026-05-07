@@ -29,6 +29,7 @@ explanation: |
   inside *should* be valid C++ source code. No encryption, no binary,
   no proprietary format — just characters on disk.
 
+drills: ["tier1:prereq:source-code-is-plain-text"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"

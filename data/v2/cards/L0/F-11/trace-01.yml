@@ -58,9 +58,10 @@ teachMe: |
 
   Final: a = 5, b = 10, c = 15. Terminal: 15.
 
+drills: ["tier1:prereq:variable-declaration-initialisation"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec F-11 declaration trace primer"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/07-variable"
 
 commonMistakeIds: ["CM-F11a"]
 status: "NEW"

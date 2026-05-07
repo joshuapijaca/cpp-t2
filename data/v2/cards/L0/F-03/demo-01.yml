@@ -43,9 +43,10 @@ usedIn:
   - "Q1 trace (every Q1 trace card on the test uses this exact two-panel mental layout)"
   - "Q4 main program (you mentally trace the program you wrote to verify it)"
 
+drills: ["tier1:prereq:hand-execution-paradigm"]
 source:
-  kind: "v2"
-  ref: "C++T2 docs §code editor debugger panels (docs/18 line 339)"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/07-hand-execution"
 
 commonMistakeIds: ["CM-skips-mental-state"]
 status: "NEW"

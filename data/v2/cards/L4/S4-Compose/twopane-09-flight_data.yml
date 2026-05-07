@@ -9,7 +9,7 @@ type: "MainWriteCard"
 stem: "[two-pane 9/10] Q2 (struct) and Q3 (read fn signature) are GIVEN below. Your job: write Q4 main() that uses them."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.4 S4 two-pane Q2+Q3+Q4 integration"
+  ref: "v2:Q4 — S4 two-pane: Q2 struct + Q3 read fn + Q4 main integration"
 commonMistakeIds: 
   - "CM-Q4-amp-at-call"
   - "CM-Q4-pass-MAX-not-count"
@@ -66,3 +66,18 @@ forbiddenTokens:
 expectedTerminal: 
   - "How many flights?"
 explanation: "Two-pane integration: main() consumes Q2 struct and Q3 read fn. Practise calling the SAME signature shown on the left (no & at call site)."
+drills:
+  - tier1:Q4:int-main
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+  - tier1:Q4:fn-call-no-amp
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+  - tier1:Q4:return-0
+tier2:
+  - tier2:v2:Q4
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations
+  - tier2:seminar:saloni-2 @ 46:30

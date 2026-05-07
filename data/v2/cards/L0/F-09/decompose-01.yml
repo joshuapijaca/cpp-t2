@@ -58,9 +58,10 @@ explanation: |
   D is wrong: capital letters are LEGAL in C++ identifiers, but SIT102
   requires snake_case. Plus the option misstates the rule.
 
+drills: ["tier1:prereq:identifier-rules-naming"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/2-communicating-syntax/2-trailside/04-identifier"
+  ref: "Programming Fundamentals Guide § part-1/2-communicating-syntax/2-trailside/04-identifier"
 
 commonMistakeIds: ["CM-F09a", "CM-F09c"]
 status: "NEW"

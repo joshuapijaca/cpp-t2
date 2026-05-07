@@ -2,6 +2,7 @@ id: "L5-wildcard-05-q1"
 schemaVersion: "v2"
 atomId: "M-03"
 qTags: ["Q1"]
+drills: ["Q1"]
 stage: 5
 level: "L5"
 type: "MCQCard"

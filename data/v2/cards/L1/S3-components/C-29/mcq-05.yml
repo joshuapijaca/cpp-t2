@@ -15,14 +15,12 @@ source:
 commonMistakeIds:
   - CM-C29a
 stem: >-
-  The Q1 V2.0 sum-positive loop body is `data.mystery = data.mystery + data.numbers[i];`. During the
-  loop, do any numbers[i] cells change?
+  The Q1 V2.0 sum-positive loop body is `data.mystery = data.mystery + data.numbers[i];`. During the loop, do any
+  numbers[i] cells change?
 correct: No. Only mystery (and any counter) is on the LHS of an assignment. numbers[i] is read-only here.
 distractors:
   - Yes — every iteration overwrites numbers[i] with the running sum.
   - Yes — but only on iters where the if-condition is true.
   - Only on iter 4 (the last one), to mark the array as consumed.
-explanation: >-
-  numbers[i] only appears on the RHS — it is READ, not written. M06 is mutating an array cell by
-  mistake.
-
+explanation: numbers[i] only appears on the RHS — it is READ, not written. M06 is mutating an array cell by mistake.
+drills: tier1:Q1:trace-strikethrough

@@ -1,44 +1,35 @@
-id: "CM-skip-pre-loop-init-spoterror"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: CM-skip-pre-loop-init-spoterror
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Spot the error. Q1 skip pre-loop init. The code below has the bug labeled
-  by CM-skip-pre-loop-init. Find the line and provide the fix.
+  Which line below contains the bug?
 
-brokenCode: |
+  Broken code:
   // Q1 broken excerpt:
   // (init line forgotten)
   // (canonical was: data.mystery = data.numbers[0];)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  data.mystery = data.numbers[0];
-  ;
-
-bugCategory: "CM-skip-pre-loop-init"
-
-keyChecks:
-  - "data.mystery = data.numbers[0]"
-
+correct: // (init line forgotten)
+distractors:
+  - '// Q1 broken excerpt:'
+  - '// (canonical was: data.mystery = data.numbers[0];)'
+  - ;
 explanation: |
   Bug: data.mystery never initialized before the for-loop.
   Fix: data.mystery = data.numbers[0];
   This common mistake costs marks on Q1 per the rubric.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-skip-pre-loop-init"
-
-commonMistakeIds: ["CM-skip-pre-loop-init"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-skip-pre-loop-init
+commonMistakeIds:
+  - CM-skip-pre-loop-init
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 1/5 (SpotError) for CM-skip-pre-loop-init.

@@ -47,6 +47,7 @@ explanation: |
   `=>`). A and D have the symbol order reversed and are syntax
   errors. C is not C++ syntax at all.
 
+drills: ["tier1:prereq:comparison-operators"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-1-comparisons"

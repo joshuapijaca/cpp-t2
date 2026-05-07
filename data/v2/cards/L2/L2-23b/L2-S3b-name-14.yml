@@ -1,35 +1,46 @@
-
-id: "L2-S3b-name-14"
-schemaVersion: "v2"
-atomId: "L-23b"
-qTags: ["Q2"]
+id: L2-S3b-name-14
+schemaVersion: v2
+atomId: L-23b
+qTags:
+  - Q2
 stage: 3
-level: "L2"
-type: "DecomposeCard"
-stem: "Q2 field-naming drill #14. snake_case only. Choose the legal field-name format."
+level: L2
+type: DecomposeCard
+stem: 'Q2 field-naming drill #14. snake_case only. Choose the legal field-name format.'
 code: |
   struct stats_data
   {
       string label;
       int total_score;
   };
-question: "Pick the legal field name (no reserved word)."
+question: Pick the legal field name (no reserved word).
 options:
-  - label: "A"
-    text: "`double`"
-  - label: "B"
-    text: "`total_score`"
-  - label: "C"
-    text: "`for`"
-  - label: "D"
-    text: "`if`"
-correctLabel: "B"
-explanation: "`double`, `for`, and `if` are C++ keywords and cannot be field names."
+  - label: A
+    text: '`double`'
+  - label: B
+    text: '`total_score`'
+  - label: C
+    text: '`for`'
+  - label: D
+    text: '`if`'
+correctLabel: B
+explanation: '`double`, `for`, and `if` are C++ keywords and cannot be field names.'
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
-commonMistakeIds: ["CM-Q2-camelcase","CM-Q2-hyphen","CM-Q2-reserved"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "Field-naming legality check."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §field-list (snake_case + one field
+    per line)
+commonMistakeIds:
+  - CM-Q2-camelcase
+  - CM-Q2-hyphen
+  - CM-Q2-reserved
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L2-Q2
+notes: Field-naming legality check.
+drills:
+  - tier1:Q2:q2-entity-snake-case
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §field-list
+    (snake_case + one field per line)

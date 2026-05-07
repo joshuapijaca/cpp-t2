@@ -70,9 +70,10 @@ steps:
       test V2.0 used this exact function name.
     atomIds: ["F-09"]
 
+drills: ["tier1:prereq:identifier-rules-naming"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/3-naming-convention"
+  ref: "Programming Fundamentals Guide § part-1/2-communicating-syntax/2-trailside/04-identifier"
 
 commonMistakeIds: ["CM-F09a", "CM-F09b", "CM-F09c"]
 status: "NEW"

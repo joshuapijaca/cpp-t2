@@ -60,9 +60,10 @@ teachMe: |
   Pattern check: this is exactly how Test 2 V2.0's `who_am_i`
   initialises `data.mystery = 0.0` — the caller sees the change.
 
+drills: ["tier1:prereq:mutation-visibility-after-function-returns"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — `who_am_i` initialises caller's mystery via reference"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
 
 commonMistakeIds: ["CM-F22d-1", "CM-F22d-2"]
 status: "NEW"

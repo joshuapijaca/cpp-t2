@@ -1,45 +1,47 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-fn-call-extra-amp
-id: "L4-cmimm-CM-fn-call-extra-amp-spot"
-schemaVersion: "v2"
-atomId: "Q-00"
-qTags: ["Q4"]
+id: L4-cmimm-CM-fn-call-extra-amp-spot
+schemaVersion: v2
+atomId: Q-00
+qTags:
+  - Q4
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
-stem: |
+level: L4
+type: MCQCard
+stem: |-
   This Q4 main function call has an extra `&` at the call site. Find and fix it.
 
-brokenCode: |
+  Code under review:
   int main() {
     stat_double d;
     read_data(&d);   // BUG: extra &
     return 0;
   }
 
-bugLocations: [3]
 
-fixedCode: |
-  int main() {
-    stat_double d;
-    read_data(d);    // pass `d`; the `&` is on the parameter, not the argument
-    return 0;
-  }
-
-bugCategory: 'extra `&` at call site'
-
-keyChecks:
-  - 'read_data(d)'
-
-explanation: |
-  Pass-by-reference puts `&` on the PARAMETER (in the signature). At the call site you pass the variable as-is. `&d` would be the address-of operator (a pointer).
-
+  Which diagnosis describes the bug?
+correct: extra `&` at call site
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  Pass-by-reference puts `&` on the PARAMETER (in the signature). At the call site you pass the variable as-is. `&d`
+  would be the address-of operator (a pointer).
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-fn-call-extra-amp)"
-
-commonMistakeIds: ["CM-fn-call-extra-amp"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: "v2:Q4 — CM immunization: extra & at call site (& only on signature)"
+commonMistakeIds:
+  - CM-fn-call-extra-amp
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q4:fn-call-no-amp
+tier2:
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-2-function-calls
+  - tier2:pfg:part-2-organised-code/2-organising-code/0-panorama/04-parameter
+  - tier2:seminar:saloni-2 @ 46:30
+  - tier2:v2:Q4
+  - tier2:practice:Q4
+  - tier2:task-sheet:P7

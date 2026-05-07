@@ -15,18 +15,16 @@ source:
 commonMistakeIds:
   - CM-C22a
 stem: Write the one-liner mutation that copies the current cell into mystery (find-max/min update).
-section: 'C-22 mutation: mystery = numbers[i]'
-prompt: >-
-  Write the single C++ statement that assigns data.numbers[i] to data.mystery (assume i is in
-  scope).
+section: "C-22 mutation: mystery = numbers[i]"
+prompt: Write the single C++ statement that assigns data.numbers[i] to data.mystery (assume i is in scope).
 expectedAnswer: data.mystery = data.numbers[i];
 keyChecks:
   - data.mystery
   - data.numbers[i]
-  - '='
+  - "="
 variants:
   - prompt: Same, but the local name is `d` instead of `data`.
     expectedAnswer: d.mystery = d.numbers[i];
   - prompt: Same, using stat_int and SIZE 5.
     expectedAnswer: data.mystery = data.numbers[i];
-
+drills: tier1:Q1:accumulator

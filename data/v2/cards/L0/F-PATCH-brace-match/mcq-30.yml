@@ -57,9 +57,10 @@ explanation: |
   remaining `cout << "done"` runs ONCE, then printAll closes at
   C. Trace the depth label of every `}` to find the right one.
 
+drills: ["tier1:prereq:brace-match-drill-depth-coloured-nested-blocks"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §B.2 patch — brace-match drill card 30/30 (capstone)"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-compound"
 
 commonMistakeIds: ["CM-F08a", "CM-F08b"]
 status: "NEW"

@@ -34,6 +34,7 @@ explanation: |
   Bracketless comma-separated fields aren't valid C++ syntax for
   struct declarations.
 
+drills: ["tier1:prereq:block-delimiters-and"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 3-structuring-data/2-trailside/03-01-struct.md"

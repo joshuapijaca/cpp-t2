@@ -1,31 +1,27 @@
-# Auto-emitted CM immunization (MCQCard) for CM-drop-postloop
-id: "L1-cmimm-CM-drop-postloop-mcq"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-drop-postloop-mcq
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   When tracing a Q1 function, where do you stop?
-
-correct: 'At the closing `}` of the function — INCLUDING any post-loop statements.'
-
+correct: At the closing `}` of the function — INCLUDING any post-loop statements.
 distractors:
-  - 'At the closing `}` of the for-loop.'
-  - 'After the first iteration.'
-  - 'At the first `return`.'
-
+  - At the closing `}` of the for-loop.
+  - After the first iteration.
+  - At the first `return`.
 explanation: |
   Trace every statement inside the function body, post-loop arithmetic included.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-drop-postloop)"
-
-commonMistakeIds: ["CM-drop-postloop"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-drop-postloop)
+commonMistakeIds:
+  - CM-drop-postloop
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

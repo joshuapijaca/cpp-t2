@@ -61,9 +61,10 @@ teachMe: |
   In the variables panel, the older values are crossed out (history)
   but only the most recent (2) is the "live" value.
 
+drills: ["tier1:prereq:assignment"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec F-12 overwrite primer"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/08-assignment-statement"
 
 commonMistakeIds: []
 status: "NEW"

@@ -45,6 +45,7 @@ highlightTokens:
 usedIn:
   - "Q1 if condition (every if you write must use ==, not =)"
 
+drills: ["tier1:prereq:comparison-operators"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/01-0-boolean-data"

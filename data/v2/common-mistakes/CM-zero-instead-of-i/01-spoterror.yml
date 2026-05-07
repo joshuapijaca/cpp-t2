@@ -1,44 +1,35 @@
-id: "CM-zero-instead-of-i-spoterror"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: CM-zero-instead-of-i-spoterror
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Spot the error. Q3 zero instead of i index. The code below has the bug labeled
-  by CM-zero-instead-of-i. Find the line and provide the fix.
+  Which line below contains the bug?
 
-brokenCode: |
+  Broken code:
   // Q3 broken excerpt:
   cin >> arr[0].field;
   // (canonical was: cin >> arr[i].field;)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  cin >> arr[i].field;
-  ;
-
-bugCategory: "CM-zero-instead-of-i"
-
-keyChecks:
-  - "cin >> arr[i].field;"
-
+correct: cin >> arr[0].field;
+distractors:
+  - '// Q3 broken excerpt:'
+  - '// (canonical was: cin >> arr[i].field;)'
+  - ;
 explanation: |
   Bug: Wrote `arr[0]` inside loop — overwrites element 0 every iter.
   Fix: cin >> arr[i].field;
   This common mistake costs marks on Q3 per the rubric.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-zero-instead-of-i"
-
-commonMistakeIds: ["CM-zero-instead-of-i"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-zero-instead-of-i
+commonMistakeIds:
+  - CM-zero-instead-of-i
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 1/5 (SpotError) for CM-zero-instead-of-i.

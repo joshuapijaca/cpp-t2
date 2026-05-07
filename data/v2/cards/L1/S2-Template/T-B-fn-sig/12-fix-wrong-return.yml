@@ -1,44 +1,38 @@
-id: "L1-S2-TB-12-fix-wrong-return"
-schemaVersion: "v2"
-atomId: "T-02"
-qTags: ["Q1"]
+id: L1-S2-TB-12-fix-wrong-return
+schemaVersion: v2
+atomId: T-02
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Fix the broken signature.
-
 prompt: |
   The return type is wrong. Provide the corrected signature.
-
 template: |
   // BROKEN
   double who_am_i(stat_double &data) {
   }
-
 canonicalAnswer: |
   void who_am_i(stat_double &data) {
   }
-
 keyChecks:
-  - "void who_am_i"
+  - void who_am_i
   - "&data"
-
 forbiddenTokens:
-  - "double who_am_i"
-
+  - double who_am_i
 explanation: |
   Return type must be `void`. The function does NOT return a number;
   it mutates the struct via the reference parameter.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — void return"
-
-commonMistakeIds: ["CM-Q1-wrong-return-type"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — void return
+commonMistakeIds:
+  - CM-Q1-wrong-return-type
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-B repair: wrong return type.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:param-by-ref

@@ -41,6 +41,7 @@ usedIn:
   - "Q3 read function (`cin >> data.field` to populate)"
   - "Q4 main program (init or read fields)"
 
+drills: ["tier1:prereq:dot-access-obj-field"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements"

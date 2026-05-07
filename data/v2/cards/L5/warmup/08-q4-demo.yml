@@ -2,6 +2,7 @@ id: "L5-warmup-08-q4"
 schemaVersion: "v2"
 atomId: "M-04"
 qTags: ["Q4"]
+drills: ["Q4"]
 stage: 6
 level: "L5"
 type: "DemoCard"

@@ -10,7 +10,13 @@ authoringStatus: "DRAFT"
 createdBy: "atom-coverage-fix"
 source:
   kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+  ref: "Test 2 V2.0 attempt 1 — Q3 timed (60s) read_desks reproduction"
+drills:
+  - "tier1:Q3:R-05"
+  - "tier2:practice:Q3"
+  - "tier2:v2:Q3"
+  - "tier2:variant:Q3"
+  - "tier2:seminar:saloni-2 @ 44:50"
 commonMistakeIds: ["CM-Q3-missing-amp", "CM-Q3-off-by-one"]
 stem: |
   Under speed conditions, which signature for the Q3 read function

@@ -1,44 +1,35 @@
-id: "CM-missing-semi-after-brace-spoterror"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q2"]
+id: CM-missing-semi-after-brace-spoterror
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q2
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Spot the error. Q2 missing ; after }. The code below has the bug labeled
-  by CM-missing-semi-after-brace. Find the line and provide the fix.
+  Which line below contains the bug?
 
-brokenCode: |
+  Broken code:
   // Q2 broken excerpt:
   }
   // (canonical was: };)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  };
-  ;
-
-bugCategory: "CM-missing-semi-after-brace"
-
-keyChecks:
-  - "};"
-
+correct: '}'
+distractors:
+  - '// Q2 broken excerpt:'
+  - '// (canonical was: };)'
+  - ;
 explanation: |
   Bug: Struct closed with } — no ; follows.
   Fix: };
   This common mistake costs marks on Q2 per the rubric.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-missing-semi-after-brace"
-
-commonMistakeIds: ["CM-missing-semi-after-brace"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-missing-semi-after-brace
+commonMistakeIds:
+  - CM-missing-semi-after-brace
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 1/5 (SpotError) for CM-missing-semi-after-brace.

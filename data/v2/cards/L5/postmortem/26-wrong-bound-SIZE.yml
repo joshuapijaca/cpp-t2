@@ -1,53 +1,17 @@
-id: "L5-postmortem-26-wrong-bound-SIZE"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q4"]
+id: L5-postmortem-26-wrong-bound-SIZE
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q4
+drills: ["Q4"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q4 main — student passed `MAX` (capacity) to the read/print functions instead of `count` (runtime). Read function asks user for 100 records; print function prints 100 records (most uninitialised).
-
-failedAttempt: |
-  int main()
-  {
-      const int MAX = 100;
-      student_data students[MAX];
-      int count = 0;
-
-      cout << "How many students? ";
-      cin >> count;
-
-      read_students(students, MAX);
-      print_students(students, MAX);
-
-      return 0;
-  }
-
-diagnosis: |
-  Two parameters look alike: `MAX` (compile-time capacity, the array size) and `count` (runtime, the number the user wants to enter). The student passed `MAX` to both functions, so read_students prompts the user 100 times and print_students prints all 100 slots — most uninitialised. The user-supplied `count` is ignored. Symptom: program runs forever asking for input, or prints 100 garbage rows.
-
-repairSteps:
-  - "int main()"
-  - "{"
-  - "    const int MAX = 100;"
-  - "    student_data students[MAX];"
-  - "    int count = 0;"
-  - "    cout << \"How many students? \";"
-  - "    cin >> count;"
-  - "    read_students(students, count);   // <-- pass `count`, not `MAX`"
-  - "    print_students(students, count);  // <-- pass `count`, not `MAX`"
-  - "    return 0;"
-  - "}"
-
-preventionTip: |
-  At the call site, the second argument to read/print is the RUNTIME `count`, never the compile-time `MAX`. `MAX` is for declaring the array; `count` is for iterating it. Mantra: "MAX declares, count iterates."
-
-explanation: |
-  Lesson learned — capacity and count are separate concepts. The array is statically sized at MAX (you might use 100 slots even though you only fill 5). The COUNT tells the rest of the program "this many slots are real data." Pass `count` to anything that LOOPS over the array; reserve `MAX` for the array DECLARATION line only.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q4 main — student passed `MAX` (capacity) to the read/print functions instead of `count` (runtime). Read function asks
+  user for 100 records; print function prints 100 records (most uninitialised).
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   int main()
   {
       const int MAX = 100;
@@ -62,22 +26,59 @@ canonicalAnswer: |
 
       return 0;
   }
-
-annotations:
+steps:
+  - line: 1
+    code: int main()
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '    const int MAX = 100;'
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: '    student_data students[MAX];'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '    int count = 0;'
+    annotation: Repair step 5
+    atomIds: []
+  - line: 6
+    code: '    cout << "How many students? ";'
+    annotation: Repair step 6
+    atomIds: []
+  - line: 7
+    code: '    cin >> count;'
+    annotation: Repair step 7
+    atomIds: []
+  - line: 8
+    code: '    read_students(students, count);   // <-- pass `count`, not `MAX`'
+    annotation: Repair step 8
+    atomIds: []
+  - line: 9
+    code: '    print_students(students, count);  // <-- pass `count`, not `MAX`'
+    annotation: Repair step 9
+    atomIds: []
   - line: 10
-    severity: err
-    note: "`read_students(students, MAX)` passes capacity. Should be `count` so the function only reads what the user requested."
+    code: '    return 0;'
+    annotation: Repair step 10
+    atomIds: []
   - line: 11
-    severity: err
-    note: "`print_students(students, MAX)` prints uninitialised slots beyond `count`. Pass `count`."
-
+    code: '}'
+    annotation: Repair step 11
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q4 capacity vs count at call site"
-
-commonMistakeIds: ["CM-Q4-pass-MAX-not-count"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q4 capacity vs count at call site
+commonMistakeIds:
+  - CM-Q4-pass-MAX-not-count
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #26 — Q4 / pass MAX instead of count at call site.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

@@ -1,17 +1,19 @@
-id: "L1-S3-C-19-cloze-01"
-schemaVersion: "v2"
-atomId: "C-19"
-qTags: ["Q1"]
+id: L1-S3-C-19-cloze-01
+schemaVersion: v2
+atomId: C-19
+qTags:
+  - Q1
 stage: 3
-level: "L1"
-type: "ClozeCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L1
+type: ClozeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-19"
-commonMistakeIds: ["CM-C19a"]
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-19
+commonMistakeIds:
+  - CM-C19a
 stem: |
   Fill the operator that asks "is the array element even?"
   (remainder-zero test).
@@ -19,11 +21,12 @@ code: |
   if (data.numbers[i] % 2 ___ 0) {
     // ... element is even
   }
-clozeSentence: "if (data.numbers[i] % 2 ___ 0) { ... }   // even guard"
+clozeSentence: if (data.numbers[i] % 2 ___ 0) { ... }   // even guard
 answer: "=="
 explanation: |
   `% 2 == 0` returns true for even values. The `%` operator yields
   the remainder; for an even number the remainder when divided by 2
   is zero. Targets CM-C19a (uses `=` instead of `==`, an assignment
   bug).
-notes: "Cloze form for QA-M10 type-diversity. Drills the equality operator."
+notes: Cloze form for QA-M10 type-diversity. Drills the equality operator.
+drills: tier1:Q1:if-cond-gt

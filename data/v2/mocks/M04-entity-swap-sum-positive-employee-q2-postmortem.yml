@@ -1,54 +1,43 @@
-# =====================================================================
-# L5 / Mock M04 Q2 POSTMORTEM
-# Diff failed attempt vs canonical, surface repair steps.
-# =====================================================================
-id: "L5-mock-M04-q2-postmortem"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q2"]
+id: L5-mock-M04-q2-postmortem
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q2
+drills: ["Q1", "Q2", "Q3", "Q4"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
+level: L5
+type: WalkthroughCard
 stem: |
   Postmortem for Mock M04 Q2 (struct define). Why did the failed
   attempt below lose marks? What's the exact repair?
-
-failedAttempt: |
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   struct employee_data {
     string name;
     int years;
   }
   // Bug: missing ; after closing }.
-
-diagnosis: |
-  Forgot the `;` after the closing `}` of the struct.
-  C++ requires every struct/class definition to be a STATEMENT, and
-  statements end in semicolon. Without it, the next declaration
-  (usually a function) silently parses as an instance declaration
-  of the struct, producing cascading "expected initializer" errors.
-
-repairSteps:
-  - "Add `;` after the closing `}` of the struct."
-  - "Compile-check: errors should clear."
-  - "Pattern memorize: every `struct X { ... };` form ends with `};`."
-
-preventionTip: |
-  Mentally chant `struct close brace SEMICOLON` whenever you write a struct.
-
-explanation: |
-  Postmortem cards diff your failed answer against the canonical
-  answer, label the bug, and surface exactly what to repair. Per
-  Mock retry policy §7.5: any 70-89 score injects 4 postmortem
-  cards (one per Q) before the next mock attempt unlocks.
-
+steps:
+  - line: 1
+    code: Add `;` after the closing `}` of the struct.
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: 'Compile-check: errors should clear.'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: 'Pattern memorize: every `struct X { ... };` form ends with `};`.'
+    annotation: Repair step 3
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 — Mock M04 retro"
-
-commonMistakeIds: ["CM-missing-semi-after-brace"]
-status: "NEW"
-createdBy: "SA-L5-Mock"
-authoringStatus: "DRAFT"
+  kind: "v2"
+  ref: Test2-SIT102-practice-2026T1.txt + V2.0 — Mock M04 retro
+commonMistakeIds:
+  - CM-missing-semi-after-brace
+status: NEW
+createdBy: SA-L5-Mock
 notes: |
   Mock M04 retro — Q2 repair drill.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

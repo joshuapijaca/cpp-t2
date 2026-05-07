@@ -42,6 +42,7 @@ usedIn:
   - "Q3 read function (write a `void read_xxx(Type &out)` signature)"
   - "Q1 trace (function modifies the caller's struct via reference)"
 
+drills: ["tier1:prereq:pass-by-reference-semantics"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"

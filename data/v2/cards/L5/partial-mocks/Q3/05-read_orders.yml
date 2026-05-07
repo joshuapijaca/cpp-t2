@@ -1,20 +1,19 @@
-id: "L5-partial-Q3-05-read_orders"
-schemaVersion: "v2"
-atomId: "M-02"
-qTags: ["Q3"]
+id: L5-partial-Q3-05-read_orders
+schemaVersion: v2
+atomId: M-02
+qTags:
+  - Q3
+drills: ["Q3"]
 stage: 5
-level: "L5"
-type: "SpeedDrillCard"
-
+level: L5
+type: FunctionWriteCard
 stem: |
   Partial-mock Q3: write read_orders. 4-min cap. Loop reads 3
   field(s) per element from cin into arr[].
-
 prompt: |
   Write the function read_orders(order_data arr[], int count). It loops i
   from 0 to count-1 and reads each field of arr[i] from cin in order:
   customer, items, total.
-
 canonicalAnswer: |
   void read_orders(order_data arr[], int count) {
     int i;
@@ -24,25 +23,27 @@ canonicalAnswer: |
     cin >> arr[i].total;
     }
   }
-
 keyChecks:
-  - "void read_orders(order_data arr[], int count)"
-  - "for (i = 0; i < count; i++)"
-  - "cin >> arr[i].customer"
-
-
+  - void read_orders(order_data arr[], int count)
+  - for (i = 0; i < count; i++)
+  - cin >> arr[i].customer
+forbiddenTokens: []
 explanation: |
   Q3 partial: signature `void read_orders(order_data arr[], int count)`.
   The `arr[]` decay-form passes by pointer; mutations persist. Loop
   i=0..count-1; per iteration, read each field with `cin >> arr[i].field`.
-
+passByRefRequired: false
 source:
   kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt §Q3 — partial read-fn variant"
-
-commonMistakeIds: ["CM-missing-amp-sig", "CM-missing-bracket-i", "CM-wrong-cin-direction", "CM-skipped-field"]
-status: "NEW"
-createdBy: "SA-L5-Mock"
-authoringStatus: "DRAFT"
+  ref: Test2-SIT102-practice-2026T1.txt §Q3 — partial read-fn variant
+commonMistakeIds:
+  - CM-missing-amp-sig
+  - CM-missing-bracket-i
+  - CM-wrong-cin-direction
+  - CM-skipped-field
+status: NEW
+createdBy: SA-L5-Mock
 notes: |
   Partial Q3 #5: read_orders.
+authoringStatus: DRAFT
+migratedFrom: SpeedDrillCard

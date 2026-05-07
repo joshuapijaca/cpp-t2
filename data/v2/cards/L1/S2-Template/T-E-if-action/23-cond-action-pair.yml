@@ -1,47 +1,40 @@
-id: "L1-S2-TE-23-cond-action-pair"
-schemaVersion: "v2"
-atomId: "T-05"
-qTags: ["Q1"]
+id: L1-S2-TE-23-cond-action-pair
+schemaVersion: v2
+atomId: T-05
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Pick the right action for a given cond. The cond `data.numbers[i]
   > 0` could go with sum-positive (add the cell) OR count-positive
   (add 1). Fill in the action for the SUM-POSITIVE variant.
-
 prompt: |
   Cond is sum-positive's. Provide the matching action.
-
 template: |
   if (data.numbers[i] > 0) {
     // ACTION for sum-positive (not count!)
     ___;
   }
-
 canonicalAnswer: |
   if (data.numbers[i] > 0) {
     data.mystery = data.mystery + data.numbers[i];
   }
-
 keyChecks:
-  - "data.mystery + data.numbers[i]"
-
+  - data.mystery + data.numbers[i]
 forbiddenTokens:
-  - "data.mystery + 1"
-
+  - data.mystery + 1
 explanation: |
   Sum-positive: add the CELL VALUE. count-positive would add 1.
   Pick the right one based on the question wording.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — distinguish sum vs count"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — distinguish sum vs count
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-E cond/action discrimination.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:if-cond-gt

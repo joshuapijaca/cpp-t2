@@ -32,7 +32,5 @@ options:
   - label: D
     text: 0.0 + 2.4 + 5.4 + 7.4 = 15.2   (cumulative tape)
 correctLabel: C
-explanation: >-
-  Three writes ⇒ three strikes ⇒ one live value (7.4). C is canonical, A drops the trail (M09), D is
-  double-counting.
-
+explanation: Three writes ⇒ three strikes ⇒ one live value (7.4). C is canonical, A drops the trail (M09), D is double-counting.
+drills: tier1:Q1:trace-strikethrough

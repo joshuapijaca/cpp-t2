@@ -16,10 +16,10 @@ commonMistakeIds:
   - CM-C03a
   - CM-C03b
 stem: Given `stat_double d = { {5, 4, 3, 2, 1}, 0 };` — what is the value of `d.numbers[2]`?
-correct: '3'
+correct: "3"
 distractors:
-  - '2'
-  - '4'
-  - '0'
-explanation: 'Index 2 maps to the 3rd inner value: 3.'
-
+  - "2"
+  - "4"
+  - "0"
+explanation: "Index 2 maps to the 3rd inner value: 3."
+drills: tier1:Q1:trace-strikethrough

@@ -9,7 +9,7 @@ type: "TemplateRecallCard"
 stem: "Type the canonical line for: struct array decl."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.2 S2 typeline drill"
+  ref: "v2:Q4 — template fill: desk_data desks[MAX];"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -26,3 +26,9 @@ forbiddenTokens:
   - "printf"
   - "scanf"
 explanation: "Canonical: `desk_data desks[MAX];`. This is the exact line for \"struct array decl\" in the V2.0/practice main() skeleton."
+drills:
+  - tier1:Q4:struct-array-decl
+tier2:
+  - tier2:pfg:part-3-programs-as-concepts/3-collections/2-trailside/10-arrays
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/04-declaring-variables-with-custom-types
+  - tier2:v2:Q4

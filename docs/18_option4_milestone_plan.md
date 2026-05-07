@@ -1,3 +1,36 @@
+---
+# DEPRECATED — DRIFT ARTIFACT (2026-05-07)
+
+**Status:** SUPERSEDED by `docs/19_v22_minimalist_plan.md`.
+
+**Why deprecated:** This plan was project-management theater for a
+7-day study app. 176 milestones across 5 tracks, 30+ specialist agent
+roles, 4-pass authoring pipeline, semver release engineering, daily
+integration bus — none of which match the user's stated minimalist
+vision.
+
+**What was correct here:**
+- The 4 core RULES (time unbounded, max parallelism, no time estimates,
+  max quality min compromise) — preserved as engineering principles
+- The Tier hierarchy framing — preserved
+- The dependency-driven order (no Gantt) — preserved
+
+**What was drift:**
+- 176 milestones (a study app for one student does not need this)
+- 30 specialist agent roles (1-3 agents in parallel suffices)
+- SA -> VE -> PR -> QA 4-pass pipeline (over-engineered for content)
+- Acceptance gates QA-M16..QA-M34 (most are sim engineering not user-asked)
+- Pre-flight Pearson r=0.85 (false-precision)
+- 50-fuzz-student Monte Carlo dry-run (over-engineered QA)
+
+**Read instead:**
+- `docs/19_v22_minimalist_plan.md` — current minimalist plan
+- `docs/v2/MANIFEST.md` — locked features
+
+---
+
+## ORIGINAL DOC PRESERVED BELOW FOR HISTORY
+
 # cpp-t2 Option 4 — MILESTONE PLAN (consolidated)
 
 **Status:** PROPOSED — pending user authorization

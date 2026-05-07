@@ -56,9 +56,10 @@ explanation: |
   D is wrong: numerical comparisons and arithmetic require a number
   type, not text.
 
+drills: ["tier1:prereq:primitive-types-int-double-string"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 attempt 1: stat_double has `double numbers[SIZE]; double mystery;`"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/06-type"
 
 commonMistakeIds: ["CM-F10d"]
 status: "NEW"

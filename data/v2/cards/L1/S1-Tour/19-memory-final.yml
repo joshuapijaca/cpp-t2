@@ -1,18 +1,16 @@
-id: "L1-S1-tour-19-memory-final"
-schemaVersion: "v2"
-atomId: "T-00"
-qTags: ["Q1"]
+id: L1-S1-tour-19-memory-final
+schemaVersion: v2
+atomId: T-00
+qTags:
+  - Q1
 stage: 1
-level: "L1"
-type: "DemoCard"
-
+level: L1
+type: DemoCard
 stem: |
   Memory format 4/4: final layout, after the function returns. The
   graded answer is the LAST value in the mystery trail (the rightmost,
   not-struck-through number).
-
-whyOneLine: "The Q1 answer is the rightmost mystery value — the only one not crossed out."
-
+whyOneLine: The Q1 answer is the rightmost mystery value — the only one not crossed out.
 demoCode: |
   // After who_am_i(d) returns (sum-positive: 2.4 + 1.0 + 0.5 = 3.9)
 
@@ -29,22 +27,19 @@ demoCode: |
   |                              FINAL answer = 3.9      |
   |                                                      |
   +------------------------------------------------------+
-
 highlightTokens:
   - "3.9"
-  - "FINAL"
-  - "rightmost"
-
+  - FINAL
+  - rightmost
 usedIn:
   - "Q1: this is what the marker reads off the page"
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — sum-positives canonical final answer"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — sum-positives canonical final answer
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   Memory box format: final layout.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:dot-scalar-access

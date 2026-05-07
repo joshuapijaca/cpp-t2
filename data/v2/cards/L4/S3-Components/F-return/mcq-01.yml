@@ -9,7 +9,7 @@ type: "MCQCard"
 stem: "Why `return 0;` and not `return 1;` from main?"
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.3 Block F mcq"
+  ref: "v2:Q4 — Block F: return 0; (success exit, last statement)"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -20,3 +20,9 @@ distractors:
   - "Either works."
   - "It is a syntax requirement."
 explanation: "POSIX/Windows convention: 0=success. 1+ = error codes."
+drills:
+  - tier1:Q4:return-0
+tier2:
+  - tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/05-return
+  - tier2:v2:Q4
+  - tier2:practice:Q4

@@ -42,6 +42,7 @@ usedIn:
   - "Q3 input function (same — text in, program out)"
   - "Q4 main program (text typed under exam pressure)"
 
+drills: ["tier1:prereq:source-code-is-plain-text"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"

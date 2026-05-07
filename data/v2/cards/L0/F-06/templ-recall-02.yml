@@ -39,6 +39,7 @@ explanation: |
   Filled in: `{{HEADER_LINE}}` = `int main() {`,
   `{{RETURN_LINE}}` = `return 0;`. The closing brace is given.
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"

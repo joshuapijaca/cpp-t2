@@ -32,9 +32,10 @@ status: "NEW"
 createdBy: "SA-PhaseC"
 authoringStatus: "DRAFT"
 
+drills: ["tier1:prereq:cin-reads-one-whitespace-delimited-token"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 attempt 1: read array elements one per cin in a loop"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: []
 

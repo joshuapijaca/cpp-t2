@@ -62,9 +62,10 @@ teachMe: |
   Compare: F-22d trace-01 (with &) printed 6. The single character
   `&` made the difference. This is the silent Q3 bug.
 
+drills: ["tier1:prereq:mutation-visibility-after-function-returns"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-22d — pass-by-value contrast"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
 
 commonMistakeIds: ["CM-F22b-1", "CM-F22d-1"]
 status: "NEW"

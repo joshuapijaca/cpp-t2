@@ -28,9 +28,10 @@ explanation: |
   3. NO `endl` on the prompt (cursor stays on the line).
   Only one option matches all three.
 
+drills: ["tier1:prereq:prompt-then-read-pair"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/1-tour/02-01-read-fns"
 
 commonMistakeIds: ["CM-F15a", "CM-F15b", "CM-F15c"]
 status: "NEW"

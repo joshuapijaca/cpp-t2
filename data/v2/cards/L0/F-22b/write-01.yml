@@ -53,9 +53,10 @@ explanation: |
 
 passByRefRequired: true
 
+drills: ["tier1:prereq:pass-by-reference-semantics"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — `void who_am_i ( stat_double &data )` signature"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/0-pointers-and-references"
 
 commonMistakeIds: ["CM-F22b-1", "CM-F22b-4"]
 status: "NEW"

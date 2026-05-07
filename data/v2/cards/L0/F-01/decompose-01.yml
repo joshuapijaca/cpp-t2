@@ -58,6 +58,7 @@ explanation: |
   D is wrong: there is no live link to the compiler. The compiler only
   acts when you invoke it explicitly (`g++ hello.cpp -o hello`).
 
+drills: ["tier1:prereq:source-code-is-plain-text"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md (Source Code and the Compiler)"

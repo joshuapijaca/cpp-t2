@@ -29,11 +29,11 @@ options:
   - label: A
     text: 3 (the value of i)
   - label: B
-    text: '-4 (the i-th cell value)'
+    text: "-4 (the i-th cell value)"
   - label: C
     text: 0 (the mystery value)
   - label: D
     text: undefined — `data.numbers[i]` is not legal until SIZE is defined
 correctLabel: B
 explanation: data.numbers[i] reads the cell AT INDEX i, not the value of i. Confusing the two is M20.
-
+drills: tier1:Q1:dot-array-access

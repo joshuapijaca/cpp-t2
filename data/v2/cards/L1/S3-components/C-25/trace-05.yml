@@ -27,18 +27,18 @@ variables:
 expectedTrace:
   - line: 2
     variable: count
-    value: '4'
+    value: "4"
     output: null
   - line: 3
     variable: count
-    value: '5'
+    value: "5"
     output: null
   - line: 4
-    variable: ''
-    value: ''
-    output: '5'
+    variable: ""
+    value: ""
+    output: "5"
 terminalOutput:
-  - '5'
+  - "5"
 inputMode: final-only
-teachMe: 'Counting accumulator: read OLD count, add 1, write NEW count. Old value gets struck through.'
-
+teachMe: "Counting accumulator: read OLD count, add 1, write NEW count. Old value gets struck through."
+drills: tier1:Q1:trace-strikethrough

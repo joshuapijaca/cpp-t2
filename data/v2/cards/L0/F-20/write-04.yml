@@ -37,6 +37,7 @@ explanation: |
   name, opening brace, one field with `;`, closing `};`. Even with
   one field the closing `;` is mandatory.
 
+drills: ["tier1:prereq:struct-definition-multi-field"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"

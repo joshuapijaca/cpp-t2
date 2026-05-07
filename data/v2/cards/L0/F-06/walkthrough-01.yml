@@ -64,6 +64,7 @@ steps:
       the program ends.
     atomIds: ["F-08"]
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md (main is the entry point of every C++ program; returns int — typically 0 to indicate success)"

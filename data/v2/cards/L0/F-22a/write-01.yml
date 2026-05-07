@@ -42,6 +42,7 @@ explanation: |
 
 passByRefRequired: false
 
+drills: ["tier1:prereq:function-definition-syntax"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/01-function-decl"

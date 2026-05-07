@@ -1,31 +1,28 @@
-# Auto-emitted CM immunization (MCQCard) for CM-misparse-brace
-id: "L1-cmimm-CM-misparse-brace-mcq"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-misparse-brace-mcq
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   Given `stat_double d = {{2.4,3.7,1.0,2.1,0.5}, -0.9};`, which fields get which values?
-
-correct: '`numbers={2.4,3.7,1.0,2.1,0.5}; mystery=-0.9`'
-
+correct: "`numbers={2.4,3.7,1.0,2.1,0.5}; mystery=-0.9`"
 distractors:
-  - '`numbers={2.4,3.7,1.0,2.1,0.5,-0.9}; mystery=0.0`'
-  - '`numbers={2.4}; mystery=3.7`'
-  - '`numbers={};` — empty by default'
-
-explanation: |
-  Outer braces enumerate the struct fields in order. Inner braces enumerate the array. The `-0.9` after the inner braces is the scalar `mystery`.
-
+  - "`numbers={2.4,3.7,1.0,2.1,0.5,-0.9}; mystery=0.0`"
+  - "`numbers={2.4}; mystery=3.7`"
+  - "`numbers={};` — empty by default"
+explanation: >
+  Outer braces enumerate the struct fields in order. Inner braces enumerate the array. The `-0.9` after the inner braces
+  is the scalar `mystery`.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-misparse-brace)"
-
-commonMistakeIds: ["CM-misparse-brace"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-misparse-brace)
+commonMistakeIds:
+  - CM-misparse-brace
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

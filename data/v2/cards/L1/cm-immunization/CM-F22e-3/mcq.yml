@@ -1,31 +1,29 @@
-# Hand-authored CM immunization (MCQCard) for CM-F22e-3
-id: "L1-cmimm-CM-F22e-3-mcq"
-schemaVersion: "v2"
-atomId: "F-22e"
-qTags: ["Q1", "Q3"]
+id: L1-cmimm-CM-F22e-3-mcq
+schemaVersion: v2
+atomId: F-22e
+qTags:
+  - Q1
+  - Q3
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   When a function parameter is `int arr[]` (no &), what happens at the call site for the caller's array?
-
-correct: 'arr aliases the caller storage (decay); mutations through arr[i] are visible after return'
-
+correct: arr aliases the caller storage (decay); mutations through arr[i] are visible after return
 distractors:
-  - 'arr is a local copy; mutations are local-only'
-  - 'undefined behaviour because there is no &'
-  - 'compile error — arrays must always be passed via &'
-
-explanation: |
-  Raw arrays decay to a pointer-like alias at the parameter boundary — no copy is made. Test 2 V2.0 wraps the array in a struct + `&` to make this explicit, but the underlying mechanism is the same: no copy.
-
+  - arr is a local copy; mutations are local-only
+  - undefined behaviour because there is no &
+  - compile error — arrays must always be passed via &
+explanation: >
+  Raw arrays decay to a pointer-like alias at the parameter boundary — no copy is made. Test 2 V2.0 wraps the array in a
+  struct + `&` to make this explicit, but the underlying mechanism is the same: no copy.
 source:
-  kind: "v2"
-  ref: "PFG part-2/5-working-with-multiples — common-mistake immunization (CM-F22e-3)"
-
-commonMistakeIds: ["CM-F22e-3"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: PFG part-2/5-working-with-multiples — common-mistake immunization (CM-F22e-3)
+commonMistakeIds:
+  - CM-F22e-3
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

@@ -1,30 +1,25 @@
-# Auto-emitted CM immunization (ClozeCard) for CM-drop-postloop
-id: "L1-cmimm-CM-drop-postloop-cloze"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-drop-postloop-cloze
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "ClozeCard"
-
-stem: "Fill in the missing token to fix this CM-drop-postloop mistake."
-
+level: L1
+type: ClozeCard
+stem: Fill in the missing token to fix this CM-drop-postloop mistake.
 code: |
   // after the loop: average = mystery / SIZE = 9.7 / 5 = ___
-
-clozeSentence: 'Fill in the post-loop division result (2 dp).'
-
-answer: '1.94'
-
+clozeSentence: Fill in the post-loop division result (2 dp).
+answer: "1.94"
 explanation: |
   9.7 / 5 = 1.94. Don't skip post-loop steps.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-drop-postloop)"
-
-commonMistakeIds: ["CM-drop-postloop"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-drop-postloop)
+commonMistakeIds:
+  - CM-drop-postloop
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

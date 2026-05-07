@@ -28,6 +28,7 @@ explanation: |
   immediately after the struct name (typically on the same line),
   `}` closes it immediately before the terminating `;`.
 
+drills: ["tier1:prereq:struct-definition-multi-field"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"

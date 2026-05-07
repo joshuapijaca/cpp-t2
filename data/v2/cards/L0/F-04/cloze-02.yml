@@ -32,9 +32,10 @@ explanation: |
   `<iostream>`. Standard-library headers always use angle brackets
   (not double quotes) and never carry a `.h` suffix in modern C++.
 
+drills: ["tier1:prereq:include-iostream"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/10-library"
 
 commonMistakeIds: ["CM-F04c"]
 status: "NEW"

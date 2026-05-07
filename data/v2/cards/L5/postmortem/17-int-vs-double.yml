@@ -1,15 +1,17 @@
-id: "L5-postmortem-17-int-vs-double"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: L5-postmortem-17-int-vs-double
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
+drills: ["Q3"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q3 read function — student dropped the `&` from the array parameter, passing it by value instead of by reference. The function reads input, but the caller's array is never updated. Read the diff.
-
-failedAttempt: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q3 read function — student dropped the `&` from the array parameter, passing it by value instead of by reference. The
+  function reads input, but the caller's array is never updated. Read the diff.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   void read_students(student_data students[], int count)
   {
       for (int i = 0; i < count; i++)
@@ -20,57 +22,63 @@ failedAttempt: |
           cin >> students[i].age;
       }
   }
-
-diagnosis: |
-  In SIT102 / SwinGame style, arrays in C++ already decay to pointers, so `students[]` is technically pass-by-pointer (caller WILL see writes). BUT — the unit's rubric requires explicit `&` reference syntax for safety and consistency: `student_data &students[]` or, for arrays specifically, the conventional pattern in this unit is `student_data students[]` with an explicit comment. The auto-grader looks for the `&` token in the signature regex; without it, the function-signature mark is lost. (For non-array struct params you ALWAYS need `&` — the array case is a unit-specific convention; check spec.)
-
-repairSteps:
-  - "void read_students(student_data students[], int count)"
-  - "{"
-  - "    for (int i = 0; i < count; i++)"
-  - "    {"
-  - "        cout << \"Enter name: \";"
-  - "        cin >> students[i].name;"
-  - "        cout << \"Enter age: \";"
-  - "        cin >> students[i].age;"
-  - "    }"
-  - "}"
-  - "// NOTE: For STRUCT (non-array) parameters that must be modified,"
-  - "// signature MUST be `T &param`. Forgetting `&` is the #1 Q3 error."
-
-preventionTip: |
-  Any STRUCT parameter that the function modifies MUST have `&` (pass-by-reference). Pattern: `void f(struct_type &name)` for a single struct, `void f(struct_type arr[], int n)` for an array. When the function "reads input into" a parameter, it modifies it — `&` required.
-
-explanation: |
-  Lesson learned — pass-by-reference is the highest-yield Q3 concept. Without `&` on a struct parameter, you write to a local copy and the caller sees nothing. The compiler doesn't warn — your function "works" but its effects are invisible. Train the reflex: "modifies a struct? add `&`."
-
-canonicalAnswer: |
-  void read_students(student_data students[], int count)
-  {
-      for (int i = 0; i < count; i++)
-      {
-          cout << "Enter name: ";
-          cin >> students[i].name;
-          cout << "Enter age: ";
-          cin >> students[i].age;
-      }
-  }
-
-annotations:
+steps:
   - line: 1
-    severity: warn
-    note: "Array parameter `students[]` — array-decay handles the by-reference effect, but for non-array struct params the `&` is mandatory."
+    code: void read_students(student_data students[], int count)
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '    for (int i = 0; i < count; i++)'
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: '    {'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '        cout << "Enter name: ";'
+    annotation: Repair step 5
+    atomIds: []
   - line: 6
-    severity: info
-    note: "`cin >> students[i].name` correctly targets the array element's field via subscript + dot."
-
+    code: '        cin >> students[i].name;'
+    annotation: Repair step 6
+    atomIds: []
+  - line: 7
+    code: '        cout << "Enter age: ";'
+    annotation: Repair step 7
+    atomIds: []
+  - line: 8
+    code: '        cin >> students[i].age;'
+    annotation: Repair step 8
+    atomIds: []
+  - line: 9
+    code: '    }'
+    annotation: Repair step 9
+    atomIds: []
+  - line: 10
+    code: '}'
+    annotation: Repair step 10
+    atomIds: []
+  - line: 11
+    code: '// NOTE: For STRUCT (non-array) parameters that must be modified,'
+    annotation: Repair step 11
+    atomIds: []
+  - line: 12
+    code: '// signature MUST be `T &param`. Forgetting `&` is the #1 Q3 error.'
+    annotation: Repair step 12
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q3 read-function signature"
-
-commonMistakeIds: ["CM-Q3-missing-amp"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q3 read-function signature
+commonMistakeIds:
+  - CM-Q3-missing-amp
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #17 — Q3 / missing `&` on read-fn signature.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

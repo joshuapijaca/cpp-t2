@@ -27,9 +27,10 @@ explanation: |
   and a mystery field. The trace declared `stat_double d = { ... };`
   to initialise both fields in one statement.
 
+drills: ["tier1:prereq:variable-declaration-initialisation"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 attempt 1: stat_double d = { ... };"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/07-variable"
 
 commonMistakeIds: []
 status: "NEW"

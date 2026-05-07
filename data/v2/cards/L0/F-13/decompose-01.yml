@@ -42,9 +42,10 @@ explanation: |
   D is wrong: nothing in the chain inserts spaces — only the
   characters explicitly written between quotes appear.
 
+drills: ["tier1:prereq:cout-chained-output"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec F-13 — chained output left-to-right semantics"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F13a-2"]
 status: "NEW"

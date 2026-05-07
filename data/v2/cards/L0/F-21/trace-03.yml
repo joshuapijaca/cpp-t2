@@ -82,9 +82,10 @@ teachMe: |
   Trap: writing to one slot or one field does not touch the others.
   Each is independent storage.
 
+drills: ["tier1:prereq:dot-access-obj-field"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-21 — composite field write"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements"
 
 commonMistakeIds: ["CM-F21a"]
 status: "NEW"

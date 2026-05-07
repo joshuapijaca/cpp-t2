@@ -1,31 +1,29 @@
-# Hand-authored CM immunization (MCQCard) for CM-F22e-1
-id: "L1-cmimm-CM-F22e-1-mcq"
-schemaVersion: "v2"
-atomId: "F-22e"
-qTags: ["Q1", "Q3"]
+id: L1-cmimm-CM-F22e-1-mcq
+schemaVersion: v2
+atomId: F-22e
+qTags:
+  - Q1
+  - Q3
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   Test 2 V2.0 wraps the array inside a struct. Which signature is correct for who_am_i?
-
-correct: '`void who_am_i(stat_double &data)` — struct by reference'
-
+correct: "`void who_am_i(stat_double &data)` — struct by reference"
 distractors:
-  - '`void who_am_i(stat_double data[], int size)` — array of structs'
-  - '`void who_am_i(int &data[], int size)` — reference to array'
-  - '`void who_am_i(stat_double data, int size)` — struct by value'
-
-explanation: |
-  Test 2 uses Idiom 2: a single struct passed by reference. The `&` makes data alias the caller's variable; size is reachable via the file-scope `const int SIZE`.
-
+  - "`void who_am_i(stat_double data[], int size)` — array of structs"
+  - "`void who_am_i(int &data[], int size)` — reference to array"
+  - "`void who_am_i(stat_double data, int size)` — struct by value"
+explanation: >
+  Test 2 uses Idiom 2: a single struct passed by reference. The `&` makes data alias the caller's variable; size is
+  reachable via the file-scope `const int SIZE`.
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-22e dual-idiom — common-mistake immunization (CM-F22e-1)"
-
-commonMistakeIds: ["CM-F22e-1"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: C++T2 spec §F-22e dual-idiom — common-mistake immunization (CM-F22e-1)
+commonMistakeIds:
+  - CM-F22e-1
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

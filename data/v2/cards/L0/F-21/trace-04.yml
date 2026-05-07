@@ -67,6 +67,7 @@ teachMe: |
   d.mystery. The OLD d.mystery is replaced each line — use the
   current value, not the initial 0.
 
+drills: ["tier1:prereq:dot-access-obj-field"]
 source:
   kind: "practice"
   ref: "Test 2 V2.0 — Q1 accumulator pattern (selective sum into mystery)"

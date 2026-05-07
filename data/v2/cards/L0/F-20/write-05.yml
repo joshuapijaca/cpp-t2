@@ -48,9 +48,10 @@ explanation: |
   In real programs they sit before `int main()` so every later
   function and main can see them.
 
+drills: ["tier1:prereq:struct-definition-multi-field"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — full entity block opening"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
 
 commonMistakeIds: ["CM-F20a", "CM-F20d", "CM-F19a"]
 status: "NEW"

@@ -1,25 +1,20 @@
-# =====================================================================
-# L1 / V-size-3 / TraceCard 05
-# size-3 variant
-# =====================================================================
-id: "L1-V-size3-05"
-schemaVersion: "v2"
-atomId: "A13"
-qTags: ["Q1"]
+id: L1-V-size3-05
+schemaVersion: v2
+atomId: A13
+qTags:
+  - Q1
 stage: 5
-level: "L1"
-type: "TraceCard"
-
-stem: "Trace sum-all with SIZE = 3, numbers = {2.0, 4.0, 6.0}. Loop runs 3 iterations."
-
+level: L1
+type: TraceCard
+stem: Trace sum-all with SIZE = 3, numbers = {2.0, 4.0, 6.0}. Loop runs 3 iterations.
 code: |
   const int SIZE = 3;
-  
+
   struct stat_double {
     double numbers[SIZE];
     double mystery;
   };
-  
+
   int main() {
     stat_double data = { {2.0, 4.0, 6.0}, 0 };
     data.mystery = 0.0;
@@ -29,59 +24,57 @@ code: |
     cout << data.mystery << endl;
     return 0;
   }
-
-variables: ["i", "data.mystery"]
-
+variables:
+  - i
+  - data.mystery
 expectedTrace:
   - line: 9
-    variable: "data.mystery"
+    variable: data.mystery
     value: "0"
     output: null
   - line: 10
-    variable: "data.mystery"
+    variable: data.mystery
     value: "0.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "0"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "2.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "1"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "6.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "2"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "12.0"
     output: null
   - line: 14
     variable: ""
     value: ""
     output: "12.0"
-
-terminalOutput: ["12.0"]
-
-inputMode: "final-only"
-
-teachMe: "Loop 3 iterations. Sum = 12.0."
-
+terminalOutput:
+  - "12.0"
+inputMode: final-only
+teachMe: Loop 3 iterations. Sum = 12.0.
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — SIZE=3 variant"
-
-commonMistakeIds: ["CM-S5-size-hard-coded"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
-notes: "Size-3 variant trace."
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — SIZE=3 variant
+commonMistakeIds:
+  - CM-S5-size-hard-coded
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
+notes: Size-3 variant trace.
+drills: tier1:Q1:for-header

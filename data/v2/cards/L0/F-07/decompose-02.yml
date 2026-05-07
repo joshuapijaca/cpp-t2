@@ -59,6 +59,7 @@ explanation: |
   B is wrong: three semicolons are out of place.
   C and D undercount.
 
+drills: ["tier1:prereq:statement-terminator-semicolon"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-0-cpp-syntax.md"

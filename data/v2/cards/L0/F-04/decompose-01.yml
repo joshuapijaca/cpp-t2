@@ -59,9 +59,10 @@ explanation: |
   D is wrong: `cout` works with double-quoted string literals; single
   quotes are for single chars, not strings.
 
+drills: ["tier1:prereq:include-iostream"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md + cf. Practice Test 2 Q4 (every Q4 answer needs the include preamble)"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/10-library"
 
 commonMistakeIds: ["CM-F04a"]
 status: "NEW"

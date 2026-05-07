@@ -1,16 +1,16 @@
-# Hand-authored CM immunization (FaultInjectionCard) for CM-F22d-3
-id: "L1-cmimm-CM-F22d-3-spot"
-schemaVersion: "v2"
-atomId: "F-22d"
-qTags: ["Q1", "Q3"]
+id: L1-cmimm-CM-F22d-3-spot
+schemaVersion: v2
+atomId: F-22d
+qTags:
+  - Q1
+  - Q3
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   After flip(d), the student claimed numbers[1..4] became 0. Find and fix the wrong panel.
 
-brokenCode: |
+  Code under review:
   // Code:
   //   void flip(stat_double &data) {
   //       data.numbers[0] = 99.0;
@@ -25,29 +25,25 @@ brokenCode: |
   //   d.numbers = {99, 0, 0, 0, 0}
   //   d.mystery = 7.7
 
-bugLocations: [10]
 
-fixedCode: |
-  // Correct panel after flip:
-  //   d.numbers = {99, 2, 3, 4, 5}
-  //   d.mystery = 7.7
-  //
-  // (only fields ASSIGNED inside flip change; others stay)
-
-bugCategory: "wiped unmutated fields after a partial-mutation function call"
-
-keyChecks:
-  - "{99, 2, 3, 4, 5}"
-
-explanation: |
-  flip only assigns to data.numbers[0] and data.mystery. The other slots (numbers[1..4]) are read but never written, so they retain their original values. A function call doesn't "consume" or "clear" the struct — only assignments change it.
-
+  Which diagnosis describes the bug?
+correct: wiped unmutated fields after a partial-mutation function call
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  flip only assigns to data.numbers[0] and data.mystery. The other slots (numbers[1..4]) are read but never written, so
+  they retain their original values. A function call doesn't "consume" or "clear" the struct — only assignments change
+  it.
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-22d multi-field mutation — common-mistake immunization (CM-F22d-3)"
-
-commonMistakeIds: ["CM-F22d-3"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: C++T2 spec §F-22d multi-field mutation — common-mistake immunization (CM-F22d-3)
+commonMistakeIds:
+  - CM-F22d-3
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

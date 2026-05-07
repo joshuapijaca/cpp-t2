@@ -44,9 +44,10 @@ steps:
       the value.
     atomIds: ["F-13a"]
 
+drills: ["tier1:prereq:cout-operator-direction"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F13a-1"]
 status: "NEW"

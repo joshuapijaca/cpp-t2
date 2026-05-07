@@ -1,45 +1,17 @@
-id: "L5-postmortem-23-wrong-type"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: L5-postmortem-23-wrong-type
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
+drills: ["Q3"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q3 read function — student hardcoded `students[0]` inside the loop instead of `students[i]`. All inputs get written to slot 0; slots 1..count-1 stay default-initialised.
-
-failedAttempt: |
-  void read_students(student_data students[], int count)
-  {
-      for (int i = 0; i < count; i++)
-      {
-          cout << "Enter name: ";
-          cin >> students[0].name;
-          cout << "Enter age: ";
-          cin >> students[0].age;
-      }
-  }
-
-diagnosis: |
-  Inside the read loop, the subscript MUST be the loop counter `i`, not a literal `0`. The student's loop iterates `count` times but every iteration writes to `students[0]`. After `count` user inputs, only the LAST one is preserved (in slot 0); slots 1..count-1 have their default values. Looks plausible during input but main's downstream output is missing all but one record.
-
-repairSteps:
-  - "for (int i = 0; i < count; i++)"
-  - "{"
-  - "    cout << \"Enter name: \";"
-  - "    cin >> students[i].name;     // <-- subscript is `i`, NOT `0`"
-  - "    cout << \"Enter age: \";"
-  - "    cin >> students[i].age;"
-  - "}"
-
-preventionTip: |
-  In any loop, the subscript usually equals the loop counter. `arr[i]`, never `arr[0]` (unless you specifically want slot 0 for ALL iterations). When you find yourself typing a literal index inside a loop, ask "is this what I want?" — usually it isn't.
-
-explanation: |
-  Lesson learned — `i` is the loop counter; using it in subscripts is what makes the loop visit each element. Hardcoding `0` is a common typo when the body was copied/pasted from a single-element example. Train the rhythm: declare counter, increment counter, USE counter — every body that touches the array uses `[i]`.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q3 read function — student hardcoded `students[0]` inside the loop instead of `students[i]`. All inputs get written to
+  slot 0; slots 1..count-1 stay default-initialised.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   void read_students(student_data students[], int count)
   {
       for (int i = 0; i < count; i++)
@@ -50,22 +22,43 @@ canonicalAnswer: |
           cin >> students[i].age;
       }
   }
-
-annotations:
+steps:
+  - line: 1
+    code: for (int i = 0; i < count; i++)
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '    cout << "Enter name: ";'
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: '    cin >> students[i].name;     // <-- subscript is `i`, NOT `0`'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '    cout << "Enter age: ";'
+    annotation: Repair step 5
+    atomIds: []
   - line: 6
-    severity: err
-    note: "`students[0]` hardcodes slot 0. Should be `students[i]` to advance with the loop counter."
-  - line: 8
-    severity: err
-    note: "Same hardcoded subscript. After `count` inputs, only the last value survives."
-
+    code: '    cin >> students[i].age;'
+    annotation: Repair step 6
+    atomIds: []
+  - line: 7
+    code: '}'
+    annotation: Repair step 7
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q3 loop subscript"
-
-commonMistakeIds: ["CM-Q3-zero-instead-of-i"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q3 loop subscript
+commonMistakeIds:
+  - CM-Q3-zero-instead-of-i
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #23 — Q3 / hardcoded index 0 instead of i.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

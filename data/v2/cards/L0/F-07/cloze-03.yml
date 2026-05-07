@@ -37,6 +37,7 @@ explanation: |
   brace line (`int main() {`) and closing brace `}` do NOT take
   semicolons.
 
+drills: ["tier1:prereq:statement-terminator-semicolon"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-0-cpp-syntax.md"

@@ -1,14 +1,13 @@
-# Hand-authored CM immunization (ClozeCard) for CM-F22d-3
-id: "L1-cmimm-CM-F22d-3-cloze"
-schemaVersion: "v2"
-atomId: "F-22d"
-qTags: ["Q1", "Q3"]
+id: L1-cmimm-CM-F22d-3-cloze
+schemaVersion: v2
+atomId: F-22d
+qTags:
+  - Q1
+  - Q3
 stage: 4
-level: "L1"
-type: "ClozeCard"
-
-stem: "Fill in d.numbers[2] after the flip call (which only assigns numbers[0] and mystery)."
-
+level: L1
+type: ClozeCard
+stem: Fill in d.numbers[2] after the flip call (which only assigns numbers[0] and mystery).
 code: |
   void flip(stat_double &data) {
       data.numbers[0] = 99.0;
@@ -19,20 +18,18 @@ code: |
       flip(d);
       // After call, d.numbers[2] == ___
   }
-
-clozeSentence: 'Fill in the value of d.numbers[2] after flip returns.'
-
-answer: '3.0'
-
-explanation: |
-  flip only assigns numbers[0] and mystery. numbers[2] was never written, so it keeps its original initialiser value 3.0.
-
+clozeSentence: Fill in the value of d.numbers[2] after flip returns.
+answer: "3.0"
+explanation: >
+  flip only assigns numbers[0] and mystery. numbers[2] was never written, so it keeps its original initialiser value
+  3.0.
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-22d multi-field mutation — common-mistake immunization (CM-F22d-3)"
-
-commonMistakeIds: ["CM-F22d-3"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: C++T2 spec §F-22d multi-field mutation — common-mistake immunization (CM-F22d-3)
+commonMistakeIds:
+  - CM-F22d-3
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

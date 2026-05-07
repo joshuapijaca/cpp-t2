@@ -42,6 +42,7 @@ highlightTokens:
 usedIn:
   - "Q2 struct definition (every Q2 answer ends with };)"
 
+drills: ["tier1:prereq:statement-terminator-semicolon"]
 source:
   kind: "seminar"
   ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:25:39 — Saloni walking the struct, emphasising line-end punctuation when she draws boxes"

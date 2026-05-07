@@ -1,13 +1,15 @@
-
-id: "L2-S4-compose-12-recipe_data"
-schemaVersion: "v2"
-atomId: "L-24"
-qTags: ["Q2"]
+id: L2-S4-compose-12-recipe_data
+schemaVersion: v2
+atomId: L-24
+qTags:
+  - Q2
 stage: 4
-level: "L2"
-type: "StructWriteCard"
-stem: "Q2 Compose #12. From the English description, write the full struct: name, opening brace, fields one per line, closing `};`."
-prompt: "A recipe has a name, a servings count, and a prep time in minutes."
+level: L2
+type: StructWriteCard
+stem: >-
+  Q2 Compose #12. From the English description, write the full struct: name, opening brace, fields one per line, closing
+  `};`.
+prompt: A recipe has a name, a servings count, and a prep time in minutes.
 canonicalAnswer: |
   struct recipe_data
   {
@@ -15,15 +17,42 @@ canonicalAnswer: |
       int servings;
       int prep_time;
   };
-requiredFields: ["name","servings","prep_time"]
-keyChecks: ["struct recipe_data","};","string name;","int servings;","int prep_time;"]
-forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
-explanation: "recipe_data captures 3 attributes (name, servings, prep_time). Type-by-noun: name→string, servings→int, prep_time→int."
+requiredFields:
+  - name
+  - servings
+  - prep_time
+keyChecks:
+  - struct recipe_data
+  - '};'
+  - string name;
+  - int servings;
+  - int prep_time;
+forbiddenTokens:
+  - class
+  - Struct
+  - STRUCT
+  - typedef
+  - '*'
+  - '->'
+explanation: 'recipe_data captures 3 attributes (name, servings, prep_time). Type-by-noun: name→string, servings→int, prep_time→int.'
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.5 S4 COMPOSE"
-commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "S4 full-compose card."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/3-explore/3-1-entity.md §entity-manager (compose new struct
+    from English description)
+commonMistakeIds:
+  - CM-F20a
+  - CM-F20b
+  - CM-F20c
+  - CM-F20d
+  - CM-F20e
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L2-Q2
+notes: S4 full-compose card.
+drills:
+  - tier1:Q2:q2-field-type-decl
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/3-explore/3-1-entity.md §entity-manager (compose
+    new struct from English description)

@@ -1,40 +1,33 @@
-id: "CM-zero-instead-of-i-fixit"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: CM-zero-instead-of-i-fixit
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Fix-it drill for CM-zero-instead-of-i. The code has the bug; produce the canonical fix.
+  Pick the canonical fix line.
 
-brokenCode: |
+  Broken code:
   // Q3: Q3 zero instead of i index
   cin >> arr[0].field;
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  cin >> arr[i].field;
-  ;
-
-bugCategory: "CM-zero-instead-of-i"
-
-keyChecks: []
-
+correct: cin >> arr[i].field;
+distractors:
+  - '// Q3: Q3 zero instead of i index'
+  - cin >> arr[0].field;
+  - ;
 explanation: |
   Replace the broken line with: cin >> arr[i].field;
   Diagnosis: Wrote `arr[0]` inside loop — overwrites element 0 every iter.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-zero-instead-of-i"
-
-commonMistakeIds: ["CM-zero-instead-of-i"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake CM-zero-instead-of-i
+commonMistakeIds:
+  - CM-zero-instead-of-i
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 3/5 (fix-it) for CM-zero-instead-of-i.

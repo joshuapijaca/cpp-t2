@@ -1,48 +1,41 @@
-id: "L1-S2-TA-13-cloze-2line-header"
-schemaVersion: "v2"
-atomId: "T-01"
-qTags: ["Q1"]
+id: L1-S2-TA-13-cloze-2line-header
+schemaVersion: v2
+atomId: T-01
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Two-line cloze. Fill in the entire struct header line including the
   open brace.
-
 prompt: |
   Provide the keyword and name (the open `{` is given for you).
-
 template: |
   ___ {
     double numbers[SIZE];
     double mystery;
   };
-
 canonicalAnswer: |
   struct stat_double {
     double numbers[SIZE];
     double mystery;
   };
-
 keyChecks:
-  - "struct stat_double"
-
+  - struct stat_double
 forbiddenTokens:
-  - "class"
-
+  - class
 explanation: |
   Full line: `struct stat_double {`. Keyword, name, opening brace.
   Note no semicolon at end of this line — the `;` only goes after
   the CLOSING brace.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — struct header"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — struct header
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-A 2-line cloze: header line.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:struct-kw

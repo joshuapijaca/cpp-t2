@@ -56,9 +56,10 @@ teachMe: |
 
   Final: count=5, price=9.99, name=ana. Terminal: `5 9.99 ana`.
 
+drills: ["tier1:prereq:variable-declaration-initialisation"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec F-11 trace — three-type declaration"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/07-variable"
 
 commonMistakeIds: ["CM-F11a"]
 status: "NEW"

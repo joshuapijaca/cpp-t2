@@ -1,34 +1,49 @@
-
-id: "L2-S3c-space-04"
-schemaVersion: "v2"
-atomId: "L-23c"
-qTags: ["Q2"]
+id: L2-S3c-space-04
+schemaVersion: v2
+atomId: L-23c
+qTags:
+  - Q2
 stage: 3
-level: "L2"
-type: "FaultInjectionCard"
-stem: "Q2 spacing drill #4. The struct compiles but its layout is wrong by SIT102 style: two fields jammed without space. One field per line, 4-space indent inside braces."
-brokenCode: |
+level: L2
+type: MCQCard
+stem: >-
+  Q2 spacing drill #4. The struct compiles but its layout is wrong by SIT102 style: two fields jammed without space. One
+  field per line, 4-space indent inside braces.
+
+
+  Code under review:
+
   struct book_data
+
   {
       string title;string author;
       int pages;
   };
-bugLocations: [2]
-fixedCode: |
-  struct book_data
-  {
-      string title;
-      string author;
-      int pages;
-  };
-bugCategory: "two fields jammed without space"
-keyChecks: ["};"]
-explanation: "SIT102 Q2 expects one field per line. Two-fields-on-one-line is graded as a defect even though it compiles."
+
+
+
+  Which diagnosis describes the bug?
+correct: two fields jammed without space
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: SIT102 Q2 expects one field per line. Two-fields-on-one-line is graded as a defect even though it compiles.
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
-commonMistakeIds: ["CM-Q2-twofields"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "Whitespace correctness card."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §syntax (one field per line,
+    terminating ;)
+commonMistakeIds:
+  - CM-Q2-twofields
+status: NEW
+createdBy: SA-L2-Q2
+notes: Whitespace correctness card.
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q2:q2-field-semi
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §syntax (one field
+    per line, terminating ;)

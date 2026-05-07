@@ -28,9 +28,10 @@ explanation: |
   The semicolon terminates every C++ statement, including declarations.
   Forgetting it is the #1 syntax error in beginner C++ programs.
 
+drills: ["tier1:prereq:variable-declaration-initialisation"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/2-communicating-syntax/2-trailside/05-statement"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/07-variable"
 
 commonMistakeIds: []
 status: "NEW"

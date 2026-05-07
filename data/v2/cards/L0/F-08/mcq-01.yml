@@ -36,6 +36,7 @@ explanation: |
   Distractor 3 is fictional: braces are about blocks, not about
   per-line decoration.
 
+drills: ["tier1:prereq:block-delimiters-and"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"

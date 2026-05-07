@@ -16,14 +16,14 @@ commonMistakeIds:
   - CM-C14a
   - CM-C14b
 stem: >-
-  Given `stat_double data = { {2.4, -3.7, -1.7, 3, 2}, -0.9 };` and i = 0, evaluate
-  `data.numbers[i]`. (Note: NOT the value of i.)
-correct: '2.4'
+  Given `stat_double data = { {2.4, -3.7, -1.7, 3, 2}, -0.9 };` and i = 0, evaluate `data.numbers[i]`. (Note: NOT the
+  value of i.)
+correct: "2.4"
 distractors:
-  - '0'
-  - '-3.7'
-  - '-0.9'
+  - "0"
+  - "-3.7"
+  - "-0.9"
 explanation: >-
-  data.numbers[i] dereferences index i of the array. With i=0, that is numbers[0] = 2.4. Mistake to
-  avoid: returning i (=0) instead of the cell value.
-
+  data.numbers[i] dereferences index i of the array. With i=0, that is numbers[0] = 2.4. Mistake to avoid: returning i
+  (=0) instead of the cell value.
+drills: tier1:Q1:trace-strikethrough

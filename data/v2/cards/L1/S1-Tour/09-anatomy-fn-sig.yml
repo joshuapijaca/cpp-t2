@@ -1,18 +1,18 @@
-id: "L1-S1-tour-09-anatomy-fn-sig"
-schemaVersion: "v2"
-atomId: "T-00"
-qTags: ["Q1"]
+id: L1-S1-tour-09-anatomy-fn-sig
+schemaVersion: v2
+atomId: T-00
+qTags:
+  - Q1
 stage: 1
-level: "L1"
-type: "DemoCard"
-
+level: L1
+type: DemoCard
 stem: |
   Anatomy 4/10: the function signature. `void who_am_i(stat_double
   &data)`. Return type `void`. Name is the procedure. Param is a
   pass-by-reference struct — the `&` is REQUIRED.
-
-whyOneLine: "The `&` after `stat_double` makes mutations stick — without it the function changes a copy and the caller sees nothing."
-
+whyOneLine: >-
+  The `&` after `stat_double` makes mutations stick — without it the function changes a copy and the caller sees
+  nothing.
 demoCode: |
   void who_am_i ( stat_double  &data ) {
   ^^^^  ^^^^^^^^   ^^^^^^^^^^^  ^  ^^^^
@@ -23,24 +23,22 @@ demoCode: |
   |     function NAME
   RETURN TYPE (void = no return value)
   }   // body braces close here
-
 highlightTokens:
-  - "void"
-  - "who_am_i"
-  - "stat_double"
+  - void
+  - who_am_i
+  - stat_double
   - "&data"
-
 usedIn:
   - "Q1: signature is fixed; learn it verbatim"
   - "Q3: read function uses similar `&` for pass-by-reference array"
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt §0 — void who_am_i(stat_double &data)"
-
-commonMistakeIds: ["CM-Q1-missing-amp"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt §0 — void who_am_i(stat_double &data)
+commonMistakeIds:
+  - CM-Q1-missing-amp
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   Anatomy: function-sig anatomy with arrow callouts.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:param-by-ref

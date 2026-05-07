@@ -40,9 +40,10 @@ usedIn:
   - "Q4 main program (every cout << ... in the answer body)"
   - "Q1 trace cards (you trace cout output that only exists because of this)"
 
+drills: ["tier1:prereq:include-iostream"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md (iostream provides cin and cout for terminal I/O)"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/10-library"
 
 commonMistakeIds: ["CM-F04a"]
 status: "NEW"

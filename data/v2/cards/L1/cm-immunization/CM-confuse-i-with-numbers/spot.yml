@@ -1,39 +1,37 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-confuse-i-with-numbers
-id: "L1-cmimm-CM-confuse-i-with-numbers-spot"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-confuse-i-with-numbers-spot
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   This Q1 trace mixed up the loop counter `i` with the value `numbers[i]`. Spot the bug.
 
-brokenCode: |
+  Code under review:
   // numbers = {2.4, 3.7, 1.0, 2.1, 0.5}; mystery init = 0.0
   // algo: mystery = mystery + numbers[i]
   // i=0: 0.0 + 0 = 0.0   mystery = 0.0   // BUG: used i, not numbers[i]
 
-bugLocations: [3]
 
-fixedCode: |
-  // i=0: 0.0 + 2.4 = 2.4   mystery = 2.4   // use numbers[i] = 2.4, not i = 0
-
-bugCategory: 'confused `i` with `numbers[i]`'
-
-keyChecks:
-  - 'numbers[i]'
-
-explanation: |
-  `i` is the index (0,1,2,...). `numbers[i]` is the VALUE at that index. The accumulator adds `numbers[i]` (the value), not `i` (the index).
-
+  Which diagnosis describes the bug?
+correct: confused `i` with `numbers[i]`
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  `i` is the index (0,1,2,...). `numbers[i]` is the VALUE at that index. The accumulator adds `numbers[i]` (the value),
+  not `i` (the index).
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-confuse-i-with-numbers)"
-
-commonMistakeIds: ["CM-confuse-i-with-numbers"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-confuse-i-with-numbers)
+commonMistakeIds:
+  - CM-confuse-i-with-numbers
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

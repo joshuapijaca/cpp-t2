@@ -9,7 +9,7 @@ type: "FunctionWriteCard"
 stem: "[GATING 95%] Write ONE LINE: call read_computers, passing the array computers and the count computer_num. NO & at call site. Pass count, NOT MAX."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.3 Block D fn call (gating)"
+  ref: "v2:Q4 — Block D: read_desks(desks, desk_num); — no &, count not MAX"
 commonMistakeIds: 
   - "CM-Q4-amp-at-call"
   - "CM-Q4-pass-MAX-not-count"
@@ -29,3 +29,12 @@ forbiddenTokens:
   - "MAX"
 passByRefRequired: false
 explanation: "Canonical: `read_computers(computers, computer_num);`. NO `&` (& only on signature). NEVER pass MAX (pass count_var). Order: array first, count second."
+drills:
+  - tier1:Q4:fn-call-no-amp
+tier2:
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-2-function-calls
+  - tier2:pfg:part-2-organised-code/2-organising-code/0-panorama/04-parameter
+  - tier2:seminar:saloni-2 @ 46:30
+  - tier2:v2:Q4
+  - tier2:practice:Q4
+  - tier2:task-sheet:P7

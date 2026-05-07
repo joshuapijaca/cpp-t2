@@ -33,6 +33,7 @@ explanation: |
   (F-07). This statement sits BEFORE the closing brace `}`, never
   after.
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"

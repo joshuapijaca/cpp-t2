@@ -52,9 +52,10 @@ explanation: |
   This is why num_to_read followed by N array reads works smoothly
   even if the user types everything on one line.
 
+drills: ["tier1:prereq:cin-reads-one-whitespace-delimited-token"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F14b-3"]
 status: "NEW"

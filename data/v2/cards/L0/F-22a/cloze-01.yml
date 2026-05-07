@@ -26,6 +26,7 @@ explanation: |
   It comes FIRST in the header, before the function name. Test 2
   Q3 read procedures all have return type `void`.
 
+drills: ["tier1:prereq:function-definition-syntax"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/00-procedures"

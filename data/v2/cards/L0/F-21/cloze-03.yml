@@ -24,9 +24,10 @@ explanation: |
   The same `instance.field` token works on the LHS of an assignment.
   `data.mystery = 0.0;` writes 0 into the `mystery` field of `data`.
 
+drills: ["tier1:prereq:dot-access-obj-field"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — `data.mystery = 0.0;`"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements"
 
 commonMistakeIds: ["CM-F21a"]
 status: "NEW"

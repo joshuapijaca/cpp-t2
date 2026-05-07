@@ -26,14 +26,14 @@ variables:
 expectedTrace:
   - line: 2
     variable: i
-    value: '0'
+    value: "0"
     output: null
   - line: 3
-    variable: ''
-    value: ''
-    output: '0'
+    variable: ""
+    value: ""
+    output: "0"
 terminalOutput:
-  - '0'
+  - "0"
 inputMode: final-only
 teachMe: For-header init runs ONCE before the loop body, not on every iteration.
-
+drills: tier1:Q1:for-header

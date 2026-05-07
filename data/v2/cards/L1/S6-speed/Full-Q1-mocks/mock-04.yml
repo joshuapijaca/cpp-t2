@@ -1,40 +1,34 @@
-# =====================================================================
-# L1 / S6-Full-Q1-mocks / AdversarialMockCard 04 — full Q1 mock: average
-# =====================================================================
-id: "L1-S6-full-04"
-schemaVersion: "v2"
-atomId: "A14"
-qTags: ["Q1"]
+id: L1-S6-full-04
+schemaVersion: v2
+atomId: A14
+qTags:
+  - Q1
 stage: 6
-level: "L1"
-type: "AdversarialMockCard"
+level: L1
+type: MCQCard
+stem: >-
+  FULL Q1 MOCK #4. Time limit: 5 minutes. Cover the algorithm and produce the final mystery + cout output.
 
-stem: "FULL Q1 MOCK #4. Time limit: 5 minutes. Cover the algorithm and produce the final mystery + cout output."
 
-questionNumber: "Q1"
-fullPrompt: "Q1 (Full mock #4): Hand-execute average on stat_double { double numbers[5]; double mystery; }. Initial numbers = {2.0, 4.0, 6.0, 8.0, 10.0}. Show every reassignment in the variables panel and the final cout."
-
-canonicalAnswer: |
+  Q1 (Full mock #4): Hand-execute average on stat_double { double numbers[5]; double mystery; }. Initial numbers = {2.0,
+  4.0, 6.0, 8.0, 10.0}. Show every reassignment in the variables panel and the final cout.
+correct: |-
   // cout output: 6
   data.mystery = 6;
-
-rubric:
-  - "Init line correct"
-  - "Loop bounds correct (start, < SIZE, increment)"
-  - "Body condition matches algorithm"
-  - "Each iteration: i + mystery shown"
-  - "Final cout matches"
-  - "Strikethrough used on reassigned values"
-
-
+distractors:
+  - "0"
+  - "1"
+  - "5"
 explanation: "average: final mystery = 6. Full Q1 simulates exam-day pacing."
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — full Q1 mock average"
-
-commonMistakeIds: ["CM-S6-rush-skip-init", "CM-S6-no-strikethrough-under-time"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — full Q1 mock average
+commonMistakeIds:
+  - CM-S6-rush-skip-init
+  - CM-S6-no-strikethrough-under-time
+status: NEW
+createdBy: SA-L1-S4S5S6
 notes: "Full Q1 5-minute mock. Adversarial: tests speed, accuracy, panel hygiene simultaneously."
+authoringStatus: DRAFT
+migratedFrom: AdversarialMockCard
+drills: tier1:Q1:trace-strikethrough

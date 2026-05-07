@@ -9,7 +9,7 @@ type: "FunctionWriteCard"
 stem: "Write the print for-loop: iterate i=0..emp_num-1 and chained-cout the 3 fields."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.3 Block E print loop"
+  ref: "v2:Q4 — Block E: print loop with chained cout (3 fields + endl)"
 commonMistakeIds: 
   - "CM-Q4-loop-uses-MAX"
   - "CM-Q4-no-endl"
@@ -41,3 +41,12 @@ forbiddenTokens:
   - "printf"
 passByRefRequired: false
 explanation: "Loop bound = emp_num (count, NOT MAX). Last cout in body uses endl. Comma separators between fields."
+drills:
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+tier2:
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-6-for
+  - tier2:pfg:part-3-programs-as-concepts/3-collections/2-trailside/11-manipulating-arrays
+  - tier2:seminar:saloni-2 @ 46:54
+  - tier2:v2:Q4
+  - tier2:practice:Q4

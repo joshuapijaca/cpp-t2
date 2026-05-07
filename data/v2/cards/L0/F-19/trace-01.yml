@@ -59,9 +59,10 @@ teachMe: |
   Trap: a common mistake is reading arr[1] as the FIRST slot. It is
   the SECOND. Indices start at 0.
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-19 trace primer — read-after-write each slot"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
 
 commonMistakeIds: ["CM-F19b"]
 status: "NEW"

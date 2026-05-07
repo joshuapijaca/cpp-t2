@@ -1,21 +1,18 @@
-id: "L1-S2-TA-15-with-size-const"
-schemaVersion: "v2"
-atomId: "T-01"
-qTags: ["Q1"]
+id: L1-S2-TA-15-with-size-const
+schemaVersion: v2
+atomId: T-01
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Type the SIZE const PLUS the struct. Real exam shows both above
   the procedure listing.
-
 prompt: |
   Provide the SIZE constant declaration AND the struct definition.
-
 template: |
   // (type SIZE const + struct from memory)
-
 canonicalAnswer: |
   const int SIZE = 5;
 
@@ -23,29 +20,25 @@ canonicalAnswer: |
     double numbers[SIZE];
     double mystery;
   };
-
 keyChecks:
-  - "const int SIZE = 5"
-  - "struct stat_double"
-  - "numbers[SIZE]"
-  - "mystery"
+  - const int SIZE = 5
+  - struct stat_double
+  - numbers[SIZE]
+  - mystery
   - "};"
-
 forbiddenTokens:
-  - "while"
-
+  - while
 explanation: |
   Two declarations. SIZE is a compile-time constant used inside the
   struct's array brackets. Without `const int SIZE = 5;` the
   `numbers[SIZE]` line fails to compile.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — const int SIZE = 5; + struct"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — const int SIZE = 5; + struct
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-A combined: SIZE const + struct.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:struct-kw

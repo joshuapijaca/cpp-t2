@@ -1,20 +1,17 @@
-# =====================================================================
-# L5 / Mock M09 Q4 POSTMORTEM
-# V2.0 main function repair drill (MAX=700, print loop).
-# =====================================================================
-id: "L5-mock-M09-q4-postmortem"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q4"]
+id: L5-mock-M09-q4-postmortem
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q4
+drills: ["Q1", "Q2", "Q3", "Q4"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
+level: L5
+type: WalkthroughCard
 stem: |
   Postmortem for Mock M09 Q4 (main, V2.0 shape).
   Why did the failed attempt below lose marks? What's the exact repair?
-
-failedAttempt: |
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   int main() {
     const int MAX = 100;
     desk_data desks[MAX];
@@ -27,36 +24,31 @@ failedAttempt: |
     return 0;
   }
   // Bugs: (1) MAX=100 instead of V2.0 MAX=700; (2) only one field printed.
-
-diagnosis: |
-  V2.0 rubric requires `const int MAX = 700;` (verbatim 700) and the
-  print loop must output all THREE fields (room_id, d_id,
-  number_of_screens) per element with a trailing `endl` on the last
-  cout. Printing only one field loses 4 of 25 marks; wrong MAX
-  loses another 1-2 marks for token-match.
-
-repairSteps:
-  - "Change `MAX = 100` to `MAX = 700` (V2.0 verbatim)."
-  - "Add the missing two cout lines for d_id and number_of_screens."
-  - "Confirm last cout uses `<< endl`, not `<< \", \"`."
-  - "Add the cout prompt before cin: `cout << \"How many desks? \";`."
-
-preventionTip: |
-  V2.0 main pattern: `const int MAX = 700;` then `desk_data desks[MAX];` then `int desk_num;` then prompt+cin+call+for-loop printing ALL fields with endl on last+`return 0;`.
-
-explanation: |
-  Postmortem cards diff your failed answer against the canonical
-  answer, label the bug, and surface exactly what to repair. Per
-  Mock retry policy §7.5: any 70-89 score injects 4 postmortem
-  cards (one per Q) before the next mock attempt unlocks.
-
+steps:
+  - line: 1
+    code: Change `MAX = 100` to `MAX = 700` (V2.0 verbatim).
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: Add the missing two cout lines for d_id and number_of_screens.
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: Confirm last cout uses `<< endl`, not `<< ", "`.
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: 'Add the cout prompt before cin: `cout << "How many desks? ";`.'
+    annotation: Repair step 4
+    atomIds: []
 source:
-  kind: "v2"
-  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 verbatim — Mock M09 retro"
-
-commonMistakeIds: ["CM-missing-const"]
-status: "NEW"
-createdBy: "SA-L5-Mock"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test2-SIT102-practice-2026T1.txt + V2.0 verbatim — Mock M09 retro
+commonMistakeIds:
+  - CM-missing-const
+status: NEW
+createdBy: SA-L5-Mock
 notes: |
   Mock M09 retro — Q4 repair drill. V2.0 replica.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

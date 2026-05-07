@@ -59,6 +59,7 @@ explanation: |
   D is wrong: rename is a different command (`mv`). Compile creates a
   new file; it does not rename.
 
+drills: ["tier1:prereq:compiler-turns-source-into-program"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"

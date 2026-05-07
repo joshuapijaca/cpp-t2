@@ -27,9 +27,10 @@ explanation: |
   RHS-first rule: evaluate `n * 3` using the CURRENT n (4). 4 * 3 =
   12. Write 12 into box n. The box held 4, now holds 12.
 
+drills: ["tier1:prereq:assignment"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/0-panorama/4-assignment"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/08-assignment-statement"
 
 commonMistakeIds: ["CM-F12b"]
 status: "NEW"

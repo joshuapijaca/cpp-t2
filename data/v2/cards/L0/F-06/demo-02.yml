@@ -44,6 +44,7 @@ highlightTokens:
 usedIn:
   - "Q4 main program (every answer defines this exact header)"
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"

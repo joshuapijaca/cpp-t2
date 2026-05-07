@@ -49,6 +49,7 @@ variants:
         return 0;
       }
 
+drills: ["tier1:prereq:statement-terminator-semicolon"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-0-cpp-syntax.md"

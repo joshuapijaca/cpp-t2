@@ -1,33 +1,41 @@
-id: "L4-S3C-faultinj-03"
-schemaVersion: "v2"
-atomId: "Q-04"
-qTags: 
-  - "Q4"
+id: L4-S3C-faultinj-03
+schemaVersion: v2
+atomId: Q-04
+qTags:
+  - Q4
 stage: 3
-level: "L4"
-type: "FaultInjectionCard"
-stem: "Fix the bug: wrong type."
-source: 
-  kind: "v2"
-  ref: "C++T2 spec §6.3 Block C fault"
-commonMistakeIds: 
-  - "CM-Q4-count-wrong-type"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L4-Q4"
-brokenCode: |
+level: L4
+type: MCQCard
+stem: |-
+  Fix the bug: wrong type.
+
+  Code under review:
   double desk_num;
   cin >> desk_num;
-bugLocations: 
-  - 1
-fixedCode: |
-  int desk_num;
-  cin >> desk_num;
-bugCategory: "wrong type"
-keyChecks: 
-  - "int"
-  - "desk_num"
-  - "cout"
-  - "cin"
-  - ">>"
-explanation: "count must be int."
+
+
+  Which diagnosis describes the bug?
+correct: wrong type
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: count must be int.
+source:
+  kind: v2
+  ref: "v2:Q4 — Block C: int desk_num + cout prompt + cin >> desk_num"
+commonMistakeIds:
+  - CM-Q4-count-wrong-type
+status: NEW
+createdBy: SA-L4-Q4
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+tier2:
+  - tier2:pfg:part-1-instructions/1-sequence-and-data/2-trailside/07-variable
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-1-variable-constant
+  - tier2:v2:Q4
+  - tier2:practice:Q4

@@ -4,31 +4,18 @@ atomId: "M-03"
 qTags: ["Q2"]
 stage: 4
 level: "L4"
-type: "FaultInjectionCard"
+type: "MCQCard"
 
-stem: |
-  Fix-it drill for CM-2-fields-1-line. The code has the bug; produce the canonical fix.
+stem: "Pick the canonical fix line for CM-2-fields-1-line. Broken: `int a; int b;`"
 
-brokenCode: |
-  // Q2: Q2 two fields on one line
-  int a; int b;
-  ;
+correct: "int a;"
 
-bugLocations: [1]
+distractors:
+  - "int a; int b;"
+  - "int a, b;"
+  - "// no fix needed"
 
-fixedCode: |
-  int a;
-int b;
-  ;
-
-bugCategory: "CM-2-fields-1-line"
-
-keyChecks: []
-
-explanation: |
-  Replace the broken line with: int a;
-int b;
-  Diagnosis: Wrote `int a; int b;` on one line — bad style for Test 2.
+explanation: "Diagnosis: Wrote `int a; int b;` on one line — bad style for Test 2. Fix: split into one declaration per line: `int a;` then `int b;`."
 
 source:
   kind: "practice"
@@ -38,5 +25,4 @@ commonMistakeIds: ["CM-2-fields-1-line"]
 status: "NEW"
 createdBy: "SA-CM-Immune"
 authoringStatus: "DRAFT"
-notes: |
-  CM card 3/5 (fix-it) for CM-2-fields-1-line.
+notes: "CM card 3/5 (fix-it migrated to MCQCard by Phase A6) for CM-2-fields-1-line."

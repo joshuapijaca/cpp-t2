@@ -1,40 +1,33 @@
-id: "L1-S2-TC-06-cloze-numbers0"
-schemaVersion: "v2"
-atomId: "T-03"
-qTags: ["Q1"]
+id: L1-S2-TC-06-cloze-numbers0
+schemaVersion: v2
+atomId: T-03
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Fill in the find-max init RHS.
-
 prompt: |
   What does mystery start at when finding the max?
-
 template: |
   data.mystery = ___;
-
 canonicalAnswer: |
   data.mystery = data.numbers[0];
-
 keyChecks:
-  - "data.numbers[0]"
-
+  - data.numbers[0]
 forbiddenTokens: []
-
 explanation: |
   `data.numbers[0]` — the first array cell. By starting from a real
   value in the array, the loop's `>` comparison will only swap if a
   later value is strictly larger.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — data.numbers[0] init"
-
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — data.numbers[0] init
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-C cloze: numbers[0] init.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:pre-loop-init

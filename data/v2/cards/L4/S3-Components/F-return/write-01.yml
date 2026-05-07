@@ -9,7 +9,7 @@ type: "FunctionWriteCard"
 stem: "Write the LAST line of main: return 0."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.3 Block F return 0"
+  ref: "v2:Q4 — Block F: return 0; (success exit, last statement)"
 commonMistakeIds: 
   - "CM-Q4-missing-return"
 status: "NEW"
@@ -27,3 +27,9 @@ forbiddenTokens:
   - "while"
 passByRefRequired: false
 explanation: "`return 0;` ends main with success. Last statement, before main's closing brace."
+drills:
+  - tier1:Q4:return-0
+tier2:
+  - tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/05-return
+  - tier2:v2:Q4
+  - tier2:practice:Q4

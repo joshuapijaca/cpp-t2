@@ -53,6 +53,7 @@ explanation: |
   D is `import` syntax — that is not part of pre-C++20 standard usage
   and is not how SIT102 teaches the preamble; we use `#include`.
 
+drills: ["tier1:prereq:include-iostream"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 1 · 1-sequence-and-data/2-trailside/10-library.md (#include syntax)"

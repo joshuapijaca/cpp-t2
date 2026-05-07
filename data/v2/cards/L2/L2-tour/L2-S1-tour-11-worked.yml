@@ -1,13 +1,15 @@
-
-id: "L2-S1-tour-11-worked"
-schemaVersion: "v2"
-atomId: "L-21"
-qTags: ["Q2"]
+id: L2-S1-tour-11-worked
+schemaVersion: v2
+atomId: L-21
+qTags:
+  - Q2
 stage: 1
-level: "L2"
-type: "WalkthroughCard"
-stem: "Q2 worked example — produce `desk_data` from the prompt: \"A desk in a uni computer lab has three things: a room id, a desk id, and a screen count.\". Watch the 6-line shape build line by line."
-levelLabel: "L2 · Q2 Tour · desk_data"
+level: L2
+type: WalkthroughCard
+stem: >-
+  Q2 worked example — produce `desk_data` from the prompt: "A desk in a uni computer lab has three things: a room id, a
+  desk id, and a screen count.". Watch the 6-line shape build line by line.
+levelLabel: L2 · Q2 Tour · desk_data
 fullCode: |
   struct desk_data
   {
@@ -17,34 +19,53 @@ fullCode: |
   };
 steps:
   - line: 1
-    code: "struct desk_data"
-    annotation: "Pick the struct keyword (lowercase) and write the snake_case name."
-    atomIds: ["F-20"]
+    code: struct desk_data
+    annotation: Pick the struct keyword (lowercase) and write the snake_case name.
+    atomIds:
+      - F-20
   - line: 2
-    code: "{"
-    annotation: "Open the body with a brace on its own line."
-    atomIds: ["F-20"]
+    code: '{'
+    annotation: Open the body with a brace on its own line.
+    atomIds:
+      - F-20
   - line: 3
-    code: "    int room_id;"
-    annotation: "Field 1: a room id is a whole-number counter → int."
-    atomIds: ["F-20"]
+    code: '    int room_id;'
+    annotation: 'Field 1: a room id is a whole-number counter → int.'
+    atomIds:
+      - F-20
   - line: 4
-    code: "    int d_id;"
-    annotation: "Field 2: another counter → int."
-    atomIds: ["F-20"]
+    code: '    int d_id;'
+    annotation: 'Field 2: another counter → int.'
+    atomIds:
+      - F-20
   - line: 5
-    code: "    int number_of_screens;"
-    annotation: "Field 3: a count of screens → int."
-    atomIds: ["F-20"]
+    code: '    int number_of_screens;'
+    annotation: 'Field 3: a count of screens → int.'
+    atomIds:
+      - F-20
   - line: 6
-    code: "};"
-    annotation: "Close with `};` — this is the load-bearing terminator and the highest-frequency Q2 error."
-    atomIds: ["F-20"]
+    code: '};'
+    annotation: Close with `};` — this is the load-bearing terminator and the highest-frequency Q2 error.
+    atomIds:
+      - F-20
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S1 TOUR"
-commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "Worked walkthrough #11 for desk_data."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/0-panorama/1-struct.md §panorama (struct as building-block of
+    fields)
+commonMistakeIds:
+  - CM-F20a
+  - CM-F20b
+  - CM-F20c
+  - CM-F20d
+  - CM-F20e
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L2-Q2
+notes: 'Worked walkthrough #11 for desk_data.'
+drills:
+  - tier1:Q2:q2-struct-keyword
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/0-panorama/1-struct.md §panorama (struct as
+    building-block of fields)

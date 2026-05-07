@@ -43,6 +43,7 @@ variants:
     expectedAnswer: |
       data.numbers[3] = 42.0;
 
+drills: ["tier1:prereq:dot-access-obj-field"]
 source:
   kind: "practice"
   ref: "Test 2 V2.0 — composite tokens used in Q1 and Q3"

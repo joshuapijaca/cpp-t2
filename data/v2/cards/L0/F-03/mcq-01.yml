@@ -31,9 +31,10 @@ explanation: |
   it, every line of the form `var = var <op> something;` will be
   wrong, and that pattern shows up in nearly every Q1 program.
 
+drills: ["tier1:prereq:hand-execution-paradigm"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-03 — RHS-first evaluation; PFG Part 1 §1-sequence-and-data"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/07-hand-execution"
 
 commonMistakeIds: ["CM-evaluates-lhs-first", "CM-uses-old-value-after-update"]
 status: "NEW"

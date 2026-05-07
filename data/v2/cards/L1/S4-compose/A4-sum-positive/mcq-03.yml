@@ -1,31 +1,27 @@
-# =====================================================================
-# L1 / sum-positive / MCQCard 03 — predict-final 3
-# =====================================================================
-id: "L1-A4-mcq-03"
-schemaVersion: "v2"
-atomId: "A4"
-qTags: ["Q1"]
+id: L1-A4-mcq-03
+schemaVersion: v2
+atomId: A4
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
-stem: "For sum-positive on numbers={1.0, 2.0, 3.0, 4.0, 5.0}, what is the FINAL value of data.mystery printed?"
-
+level: L1
+type: MCQCard
+stem: For sum-positive on numbers={1.0, 2.0, 3.0, 4.0, 5.0}, what is the FINAL value of data.mystery printed?
 correct: "15"
-
 distractors:
   - "15.0"
   - "0.0"
-  - "bogus2"
-
-explanation: "The sum-positive algorithm yields 15. Common errors land on the distractor values — see common-mistake catalogue."
-
+  - bogus2
+explanation: The sum-positive algorithm yields 15. Common errors land on the distractor values — see common-mistake catalogue.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — sum-positive predict-final"
-
-commonMistakeIds: ["CM-A4-skip-condition", "CM-A4-include-zero", "CM-A4-flip-condition"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — sum-positive predict-final
+commonMistakeIds:
+  - CM-A4-skip-condition
+  - CM-A4-include-zero
+  - CM-A4-flip-condition
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
 notes: "Predict-final MCQ: tests result without trace ceremony."
+drills: tier1:Q1:accumulator

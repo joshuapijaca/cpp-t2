@@ -1,43 +1,45 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-wrong-type
-id: "L2-cmimm-CM-wrong-type-spot"
-schemaVersion: "v2"
-atomId: "L-21"
-qTags: ["Q2"]
+id: L2-cmimm-CM-wrong-type-spot
+schemaVersion: v2
+atomId: L-21
+qTags:
+  - Q2
 stage: 4
-level: "L2"
-type: "FaultInjectionCard"
-
-stem: |
+level: L2
+type: MCQCard
+stem: |-
   This Q2 struct uses the wrong base type for its float-array field. Spot the bug and fix it.
 
-brokenCode: |
+  Code under review:
   struct stat_double {
     int numbers[SIZE];
     double mystery;
   };
 
-bugLocations: [1]
 
-fixedCode: |
-  struct stat_double {
-    double numbers[SIZE];
-    double mystery;
-  };
-
-bugCategory: 'wrong type for array field'
-
-keyChecks:
-  - 'double numbers[SIZE]'
-
-explanation: |
-  The struct is `stat_double` and the rubric requires a double array. `int numbers[SIZE]` would silently truncate any decimal inputs. Use `double numbers[SIZE]`.
-
+  Which diagnosis describes the bug?
+correct: wrong type for array field
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  The struct is `stat_double` and the rubric requires a double array. `int numbers[SIZE]` would silently truncate any
+  decimal inputs. Use `double numbers[SIZE]`.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-wrong-type)"
-
-commonMistakeIds: ["CM-wrong-type"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/0-panorama/1-struct.md §panorama (struct as building-block of
+    fields)
+commonMistakeIds:
+  - CM-wrong-type
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q2:q2-noun-to-type
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/0-panorama/1-struct.md §panorama (struct as
+    building-block of fields)

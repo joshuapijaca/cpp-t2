@@ -9,7 +9,7 @@ type: "FunctionWriteCard"
 stem: "Write ONE LINE: declare a const int named MAX with value 5000. This will be used as the array bound below."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.3 Block A const decl"
+  ref: "v2:Q4 — Block A: const int MAX = N; (compile-time constant for array bound)"
 commonMistakeIds: 
   - "CM-Q4-missing-const"
 status: "NEW"
@@ -29,3 +29,10 @@ forbiddenTokens:
   - "while"
 passByRefRequired: false
 explanation: "Canonical: `const int MAX = 5000;` — const required so MAX is a compile-time constant suitable for array bound."
+drills:
+  - tier1:Q4:const-int-MAX
+tier2:
+  - tier2:pfg:part-1-instructions/1-sequence-and-data/2-trailside/07-variable
+  - tier2:seminar:saloni-2 @ 46:40
+  - tier2:v2:Q4
+  - tier2:practice:Q4

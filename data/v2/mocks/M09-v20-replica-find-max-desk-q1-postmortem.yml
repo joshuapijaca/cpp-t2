@@ -1,20 +1,17 @@
-# =====================================================================
-# L5 / Mock M09 Q1 POSTMORTEM
-# Diff failed attempt vs canonical (V2.0 find-max).
-# =====================================================================
-id: "L5-mock-M09-q1-postmortem"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: L5-mock-M09-q1-postmortem
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
+drills: ["Q1", "Q2", "Q3", "Q4"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
+level: L5
+type: WalkthroughCard
 stem: |
   Postmortem for Mock M09 Q1 (hand-execute, V2.0 replica).
   Why did the failed attempt below lose marks? What's the exact repair?
-
-failedAttempt: |
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   // Student forgot pre-loop init (seeded with brace-init 0.0).
   void who_am_i(stat_double &data) {
     int i;
@@ -28,36 +25,27 @@ failedAttempt: |
   }
   // Result: d.mystery = 11.3 by luck (6.5 > 0.0), but the marker
   // checks the trace, not the final number — and the trace is wrong.
-
-diagnosis: |
-  Skipping the pre-loop init (line `data.mystery = data.numbers[0];`)
-  leaves data.mystery at the brace-init value (0.0). For find-max,
-  the canonical seed is data.numbers[0] (= 6.5), not 0.0. With the
-  bad seed, i=0 fires (6.5 > 0.0) and overwrites mystery to 6.5 —
-  this is correct by coincidence, but the iteration trace is wrong:
-  the marker scans for `mystery = numbers[0]` BEFORE the loop.
-
-repairSteps:
-  - "Add line `data.mystery = data.numbers[0];` before the for-loop."
-  - "Re-do the trace with seed=6.5 written first."
-  - "Verify final d.mystery equals 11.3 (only 11.3 beats running max)."
-
-preventionTip: |
-  Find-max ALWAYS seeds with `data.numbers[0]`, NOT with 0.0. Write the seed line first, before reading the loop body.
-
-explanation: |
-  Postmortem cards diff your failed answer against the canonical
-  answer, label the bug, and surface exactly what to repair. Per
-  Mock retry policy §7.5: any 70-89 score injects 4 postmortem
-  cards (one per Q) before the next mock attempt unlocks.
-
+steps:
+  - line: 1
+    code: Add line `data.mystery = data.numbers[0];` before the for-loop.
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: Re-do the trace with seed=6.5 written first.
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: Verify final d.mystery equals 11.3 (only 11.3 beats running max).
+    annotation: Repair step 3
+    atomIds: []
 source:
-  kind: "v2"
-  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 verbatim — Mock M09 retro"
-
-commonMistakeIds: ["CM-skip-pre-loop-init"]
-status: "NEW"
-createdBy: "SA-L5-Mock"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test2-SIT102-practice-2026T1.txt + V2.0 verbatim — Mock M09 retro
+commonMistakeIds:
+  - CM-skip-pre-loop-init
+status: NEW
+createdBy: SA-L5-Mock
 notes: |
   Mock M09 retro — Q1 repair drill. V2.0 replica.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

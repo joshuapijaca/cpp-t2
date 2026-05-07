@@ -38,9 +38,10 @@ explanation: |
   C is wrong because the visible code IS balanced.
   D is wrong because `;` is a statement terminator, not a brace.
 
+drills: ["tier1:prereq:brace-match-drill-depth-coloured-nested-blocks"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §B.2 patch — brace-match drill card 1/30"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-compound"
 
 commonMistakeIds: ["CM-F08c"]
 status: "NEW"

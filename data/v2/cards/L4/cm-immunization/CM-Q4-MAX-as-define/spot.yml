@@ -1,16 +1,15 @@
-# Hand-authored CM immunization (FaultInjectionCard) for CM-Q4-MAX-as-define
-id: "L4-cmimm-CM-Q4-MAX-as-define-spot"
-schemaVersion: "v2"
-atomId: "Q-00"
-qTags: ["Q4"]
+id: L4-cmimm-CM-Q4-MAX-as-define-spot
+schemaVersion: v2
+atomId: Q-00
+qTags:
+  - Q4
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
-stem: |
+level: L4
+type: MCQCard
+stem: |-
   This Q4 main uses #define for MAX. Replace with the SIT102-canonical const declaration.
 
-brokenCode: |
+  Code under review:
   #define MAX 700
 
   int main() {
@@ -21,32 +20,30 @@ brokenCode: |
       return 0;
   }
 
-bugLocations: [1]
 
-fixedCode: |
-  int main() {
-      const int MAX = 700;
-      desk_data desks[MAX];
-      int desk_num;
-      cin >> desk_num;
-      read_desks(desks, desk_num);
-      return 0;
-  }
-
-bugCategory: "#define for constant — should be const int"
-
-keyChecks:
-  - "const int MAX = 700;"
-
-explanation: |
-  SIT102 uses `const int MAX = 700;` inside main(). #define is a preprocessor macro (off-scope for Test 2) and loses type safety. const int is typed and properly scoped.
-
+  Which diagnosis describes the bug?
+correct: '#define for constant — should be const int'
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  SIT102 uses `const int MAX = 700;` inside main(). #define is a preprocessor macro (off-scope for Test 2) and loses
+  type safety. const int is typed and properly scoped.
 source:
-  kind: "v2"
-  ref: "C++T2 spec §6.3 Block A (const int MAX) — common-mistake immunization (CM-Q4-MAX-as-define)"
-
-commonMistakeIds: ["CM-Q4-MAX-as-define"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: "v2:Q4 — CM immunization: #define vs const for MAX"
+commonMistakeIds:
+  - CM-Q4-MAX-as-define
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q4:const-int-MAX
+tier2:
+  - tier2:pfg:part-1-instructions/1-sequence-and-data/2-trailside/07-variable
+  - tier2:seminar:saloni-2 @ 46:40
+  - tier2:v2:Q4
+  - tier2:practice:Q4

@@ -1,21 +1,18 @@
-id: "L1-S2-TC0-01-full-v2"
-schemaVersion: "v2"
-atomId: "T-08"
-qTags: ["Q1"]
+id: L1-S2-TC0-01-full-v2
+schemaVersion: v2
+atomId: T-08
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Type the FULL V2.0 mini-program from blank: SIZE const + struct +
   function + brace-init + call.
-
 prompt: |
   Reproduce the entire V2.0 Q1 program.
-
 template: |
   // (type the full V2.0 program)
-
 canonicalAnswer: |
   const int SIZE = 5;
 
@@ -35,35 +32,34 @@ canonicalAnswer: |
 
   stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};
   who_am_i(d);
-
 keyChecks:
-  - "const int SIZE = 5"
-  - "struct stat_double"
-  - "double numbers[SIZE]"
-  - "double mystery"
-  - "void who_am_i(stat_double &data)"
-  - "data.mystery = 0.0"
-  - "for (int i = 0; i < SIZE; i++)"
-  - "data.numbers[i] > 0"
-  - "data.mystery = data.mystery + data.numbers[i]"
+  - const int SIZE = 5
+  - struct stat_double
+  - double numbers[SIZE]
+  - double mystery
+  - void who_am_i(stat_double &data)
+  - data.mystery = 0.0
+  - for (int i = 0; i < SIZE; i++)
+  - data.numbers[i] > 0
+  - data.mystery = data.mystery + data.numbers[i]
   - "{{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9}"
-  - "who_am_i(d);"
-
+  - who_am_i(d);
 forbiddenTokens:
-  - "while"
-
+  - while
 explanation: |
   Eighteen lines combining everything: T-A struct, T-B sig, T-C
   init, T-D for-header, T-E if-action, T-F brace-init, T-G call.
   This is the full integration test.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — full Q1 program"
-
-commonMistakeIds: ["CM-Q1-struct-no-trailing-semi", "CM-Q1-missing-amp", "CM-Q1-skip-init"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — full Q1 program
+commonMistakeIds:
+  - CM-Q1-struct-no-trailing-semi
+  - CM-Q1-missing-amp
+  - CM-Q1-skip-init
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-COMBO V2.0 full.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:brace-block

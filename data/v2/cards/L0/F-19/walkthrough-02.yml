@@ -54,9 +54,10 @@ steps:
       The trailing `-0.9` fills the second field `d.mystery`.
     atomIds: ["F-19", "F-20", "F-21"]
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — `const int SIZE = 5;` + `double numbers[SIZE];`"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
 
 commonMistakeIds: ["CM-F19a"]
 status: "NEW"

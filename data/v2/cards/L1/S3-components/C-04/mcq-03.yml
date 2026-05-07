@@ -15,12 +15,12 @@ source:
 commonMistakeIds:
   - CM-C04a
 stem: >-
-  Before tracing Q1, you draw memory cells for `double numbers[SIZE]` (SIZE=5). How many cells do
-  you draw, and what are their labels?
+  Before tracing Q1, you draw memory cells for `double numbers[SIZE]` (SIZE=5). How many cells do you draw, and what are
+  their labels?
 correct: 5 cells, labelled numbers[0], numbers[1], numbers[2], numbers[3], numbers[4].
 distractors:
   - 6 cells, labelled numbers[0]..numbers[5] (because SIZE=5 means 5 is included).
   - 5 cells, labelled numbers[1]..numbers[5] (1-indexed).
   - No cells — arrays do not need separate boxes when tracing.
 explanation: C++ arrays are 0-indexed and length SIZE means valid indices are 0..SIZE-1.
-
+drills: tier1:Q1:field-array

@@ -28,6 +28,7 @@ explanation: |
   lines are statements (declaration, output) and each must end with
   its own `;`.
 
+drills: ["tier1:prereq:statement-terminator-semicolon"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 1 · 2-communicating-syntax/2-trailside/02-statement.md"

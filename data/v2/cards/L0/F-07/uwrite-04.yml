@@ -44,6 +44,7 @@ variants:
         int col;
       };
 
+drills: ["tier1:prereq:statement-terminator-semicolon"]
 source:
   kind: "seminar"
   ref: "SIT102 Seminar Mondays 6pm new (2) @ 00:25:50 — Saloni: 'For the struct, what we need is a box.'"

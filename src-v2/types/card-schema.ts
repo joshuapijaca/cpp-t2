@@ -3,9 +3,10 @@
 // LOCKED v2 card schema — see data/v2/SCHEMA_LOCK.md
 // =====================================================================
 //
-// Source-of-truth Zod schema for the Option-4 max-quality build:
-//   - 4,600 hand-authored cards across 6 levels (L0..L5)
-//   - 23 card types in a discriminated union over `type`
+// Source-of-truth Zod schema for the v2.2 minimalist build:
+//   - ~1,530 hand-authored cards across 6 levels (L0..L5)
+//   - 15 card types in a discriminated union over `type`
+//     (11 v1-kept + 4 v2 essentials per docs/v2/MANIFEST.md)
 //   - 30+ atom IDs (F-01..F-22 + sub-atom suffixes + algorithm/entity ext.)
 //   - Multi-Q tagging: every card carries 1+ of [Q1, Q2, Q3, Q4]
 //   - Source citations: practice / v2 / pfg / seminar
@@ -98,29 +99,30 @@ export type AgentId = z.infer<typeof AgentId>;
 // ---------------------------------------------------------------------
 
 export const CardTypes = [
+  // v1-kept (11 per MANIFEST):
+  //   MemorizeCard, MCQCard, TraceCard, WriteCard, ClozeCard,
+  //   DecomposeCard, WalkthroughCard, DemoCard, ProceduralCard,
+  //   MatrixCard, CodeMemorizeCard
+  // v2 essentials (4): TemplateRecallCard, StructWriteCard,
+  //   FunctionWriteCard, MainWriteCard
   'TraceCard',
   'TemplateRecallCard',
   'StructWriteCard',
   'FunctionWriteCard',
   'MainWriteCard',
-  'EntityMatrixCard',
-  'AlgorithmMatrixCard',
-  'SpeedDrillCard',
-  'AdversarialMockCard',
-  'FaultInjectionCard',
-  'PreflightCheckCard',
-  'ConfidenceCalibrationCard',
-  'DAGRetryCard',
-  'DeltaCard',
-  'TestDaySimCard',
-  'VariantGenCard',
   'ClozeCard',
   'WalkthroughCard',
   'DemoCard',
   'DecomposeCard',
   'MCQCard',
   'ProceduralCard',
-  'PostmortemCard',
+  // Phase A6 ports of v1 components into src-v2/ — completes the
+  // MANIFEST 15-type set. Schemas adapt the v1 shape to the v2
+  // common-fields envelope (id/atomId/qTags/stage/level/source/etc.).
+  'MemorizeCard',
+  'WriteCard',
+  'MatrixCard',
+  'CodeMemorizeCard',
 ] as const;
 export const CardTypeEnum = z.enum(CardTypes);
 export type CardType = z.infer<typeof CardTypeEnum>;
@@ -237,168 +239,7 @@ export const MainWriteCard = CommonCardFields.extend({
 });
 
 // ---------------------------------------------------------------------
-// 6. EntityMatrixCard — RAVEN-style transfer over entity (struct) shapes.
-// ---------------------------------------------------------------------
-export const EntityMatrixCard = CommonCardFields.extend({
-  type: z.literal('EntityMatrixCard'),
-  examples: z.array(MCQOption).min(1), // {label, text} = {label, code-snippet}
-  prompt: z.string().min(1),
-  canonicalAnswer: z.string().min(1),
-  keyChecks: KeyChecks,
-  explanation: z.string().min(1),
-});
-
-// ---------------------------------------------------------------------
-// 7. AlgorithmMatrixCard — RAVEN-style transfer over algorithm shapes.
-// ---------------------------------------------------------------------
-export const AlgorithmMatrixCard = CommonCardFields.extend({
-  type: z.literal('AlgorithmMatrixCard'),
-  examples: z.array(MCQOption).min(1),
-  prompt: z.string().min(1),
-  canonicalAnswer: z.string().min(1),
-  keyChecks: KeyChecks,
-  explanation: z.string().min(1),
-});
-
-// ---------------------------------------------------------------------
-// 8. SpeedDrillCard — production-stage recall (full-Q drill, untimed).
-//
-// Timer fields (`flashSeconds`, `targetSeconds`) are deprecated and
-// optional. The runtime ignores them. Existing YAMLs may still carry
-// them harmlessly until they are stripped. See SCHEMA_LOCK.md §10.
-// ---------------------------------------------------------------------
-export const SpeedDrillCard = CommonCardFields.extend({
-  type: z.literal('SpeedDrillCard'),
-  prompt: z.string().min(1),
-  canonicalAnswer: z.string().min(1),
-  keyChecks: KeyChecks,
-  /** @deprecated 2026-05-07 — timers removed; runtime ignores. */
-  flashSeconds: z.number().positive().max(60).optional(),
-  /** @deprecated 2026-05-07 — timers removed; runtime ignores. */
-  targetSeconds: z.number().positive().max(120).optional(),
-  explanation: z.string().min(1),
-});
-
-// ---------------------------------------------------------------------
-// 9. AdversarialMockCard — hardest-content full-question mock (untimed).
-//
-// `timeLimitMinutes` is deprecated and optional. The runtime never
-// applies a per-card time limit — adversarial means content difficulty,
-// not time pressure. See SCHEMA_LOCK.md §10.
-// ---------------------------------------------------------------------
-export const AdversarialMockCard = CommonCardFields.extend({
-  type: z.literal('AdversarialMockCard'),
-  questionNumber: z.enum(['Q1', 'Q2', 'Q3', 'Q4']),
-  fullPrompt: z.string().min(1),
-  canonicalAnswer: z.string().min(1),
-  rubric: z.array(z.string()).default([]),
-  /** @deprecated 2026-05-07 — timers removed; runtime ignores. */
-  timeLimitMinutes: z.number().positive().max(90).optional(),
-  explanation: z.string().min(1),
-});
-
-// ---------------------------------------------------------------------
-// 10. FaultInjectionCard — "this code is broken — find/fix the bug."
-// ---------------------------------------------------------------------
-export const FaultInjectionCard = CommonCardFields.extend({
-  type: z.literal('FaultInjectionCard'),
-  brokenCode: z.string().min(1),
-  bugLocations: z.array(z.number().int().nonnegative()).min(1),
-  fixedCode: z.string().min(1),
-  bugCategory: z.string().min(1), // e.g. "missing &", "wrong operator", "off-by-one"
-  keyChecks: KeyChecks,
-  explanation: z.string().min(1),
-});
-
-// ---------------------------------------------------------------------
-// 11. PreflightCheckCard — pre-attempt checklist drill (warm-up).
-// ---------------------------------------------------------------------
-export const PreflightCheckCard = CommonCardFields.extend({
-  type: z.literal('PreflightCheckCard'),
-  checklist: z.array(z.string().min(1)).min(1),
-  scenario: z.string().min(1),
-  explanation: z.string().min(1),
-});
-
-// ---------------------------------------------------------------------
-// 12. ConfidenceCalibrationCard — predict-then-verify on accuracy.
-// ---------------------------------------------------------------------
-export const ConfidenceCalibrationCard = CommonCardFields.extend({
-  type: z.literal('ConfidenceCalibrationCard'),
-  prompt: z.string().min(1),
-  canonicalAnswer: z.string().min(1),
-  confidenceLevels: z
-    .array(z.number().int().min(0).max(100))
-    .min(2)
-    .default([25, 50, 75, 95]),
-  keyChecks: KeyChecks,
-  explanation: z.string().min(1),
-});
-
-// ---------------------------------------------------------------------
-// 13. DAGRetryCard — surfaced retry tied to a prerequisite atom edge.
-// ---------------------------------------------------------------------
-export const DAGRetryCard = CommonCardFields.extend({
-  type: z.literal('DAGRetryCard'),
-  prerequisiteAtomIds: z.array(AtomId).min(1),
-  failedCardId: z.string().min(1),
-  prompt: z.string().min(1),
-  canonicalAnswer: z.string().min(1),
-  keyChecks: KeyChecks,
-  explanation: z.string().min(1),
-});
-
-// ---------------------------------------------------------------------
-// 14. DeltaCard — "what's different between A and B?" comparison drill.
-// ---------------------------------------------------------------------
-export const DeltaCard = CommonCardFields.extend({
-  type: z.literal('DeltaCard'),
-  codeA: z.string().min(1),
-  codeB: z.string().min(1),
-  prompt: z.string().min(1), // e.g. "list every difference"
-  canonicalAnswer: z.string().min(1),
-  keyChecks: KeyChecks,
-  explanation: z.string().min(1),
-});
-
-// ---------------------------------------------------------------------
-// 15. TestDaySimCard — exam-day full simulation (chained Q1-Q4, untimed).
-//
-// `totalTimeMinutes` is deprecated and optional. The runtime renders Q1-Q4
-// sequentially with no global countdown. See SCHEMA_LOCK.md §10.
-// ---------------------------------------------------------------------
-export const TestDaySimCard = CommonCardFields.extend({
-  type: z.literal('TestDaySimCard'),
-  questionSet: z
-    .array(
-      z.object({
-        questionNumber: z.enum(['Q1', 'Q2', 'Q3', 'Q4']),
-        prompt: z.string().min(1),
-        canonicalAnswer: z.string().min(1),
-        rubric: z.array(z.string()).default([]),
-      })
-    )
-    .length(4),
-  /** @deprecated 2026-05-07 — timers removed; runtime ignores. */
-  totalTimeMinutes: z.number().positive().max(180).optional(),
-  explanation: z.string().min(1),
-});
-
-// ---------------------------------------------------------------------
-// 16. VariantGenCard — "produce N working variants of this idiom."
-// ---------------------------------------------------------------------
-export const VariantGenCard = CommonCardFields.extend({
-  type: z.literal('VariantGenCard'),
-  seedCode: z.string().min(1),
-  variantCount: z.number().int().min(2).max(10),
-  constraints: z.array(z.string()).default([]),
-  canonicalVariants: z.array(z.string().min(1)).min(2),
-  keyChecks: KeyChecks,
-  explanation: z.string().min(1),
-});
-
-// ---------------------------------------------------------------------
-// 17. ClozeCard — fill-in-the-blank over a code/sentence template.
+// 6. ClozeCard — fill-in-the-blank over a code/sentence template.
 // ---------------------------------------------------------------------
 export const ClozeCard = CommonCardFields.extend({
   type: z.literal('ClozeCard'),
@@ -409,7 +250,7 @@ export const ClozeCard = CommonCardFields.extend({
 });
 
 // ---------------------------------------------------------------------
-// 18. WalkthroughCard — annotated walk-through of a worked example.
+// 7. WalkthroughCard — annotated walk-through of a worked example.
 // ---------------------------------------------------------------------
 export const WalkthroughCard = CommonCardFields.extend({
   type: z.literal('WalkthroughCard'),
@@ -428,7 +269,7 @@ export const WalkthroughCard = CommonCardFields.extend({
 });
 
 // ---------------------------------------------------------------------
-// 19. DemoCard — "watch how" / passive-observation card.
+// 8. DemoCard — "watch how" / passive-observation card.
 // ---------------------------------------------------------------------
 export const DemoCard = CommonCardFields.extend({
   type: z.literal('DemoCard'),
@@ -439,7 +280,7 @@ export const DemoCard = CommonCardFields.extend({
 });
 
 // ---------------------------------------------------------------------
-// 20. DecomposeCard — A/B/C/D pick-the-correct-explanation MCQ.
+// 9. DecomposeCard — A/B/C/D pick-the-correct-explanation MCQ.
 // ---------------------------------------------------------------------
 export const DecomposeCard = CommonCardFields.extend({
   type: z.literal('DecomposeCard'),
@@ -451,7 +292,7 @@ export const DecomposeCard = CommonCardFields.extend({
 });
 
 // ---------------------------------------------------------------------
-// 21. MCQCard — single-correct multi-choice question.
+// 10. MCQCard — single-correct multi-choice question.
 // ---------------------------------------------------------------------
 export const MCQCard = CommonCardFields.extend({
   type: z.literal('MCQCard'),
@@ -461,7 +302,7 @@ export const MCQCard = CommonCardFields.extend({
 });
 
 // ---------------------------------------------------------------------
-// 22. ProceduralCard — produce code from prompt; supports variants.
+// 11. ProceduralCard — produce code from prompt; supports variants.
 // ---------------------------------------------------------------------
 export const ProceduralCard = CommonCardFields.extend({
   type: z.literal('ProceduralCard'),
@@ -480,15 +321,59 @@ export const ProceduralCard = CommonCardFields.extend({
 });
 
 // ---------------------------------------------------------------------
-// 23. PostmortemCard — "explain what went wrong + how to repair."
+// 12. MemorizeCard — fact-recall flashcard. <=7-word `fact` (Miller).
 // ---------------------------------------------------------------------
-export const PostmortemCard = CommonCardFields.extend({
-  type: z.literal('PostmortemCard'),
-  failedAttempt: z.string().min(1),
-  diagnosis: z.string().min(1),
-  repairSteps: z.array(z.string().min(1)).min(1),
-  preventionTip: z.string().min(1),
+export const MemorizeCard = CommonCardFields.extend({
+  type: z.literal('MemorizeCard'),
+  fact: z.string().min(1),
+  context: z.string().optional(),
+  codeExample: z.string().optional(),
+  flashSeconds: z.number().int().nonnegative().default(3),
+  mode: z.enum(['race', 'recall']).default('recall'),
+  keyChecks: KeyChecks,
   explanation: z.string().min(1),
+});
+
+// ---------------------------------------------------------------------
+// 13. WriteCard — generic write card (3 difficulty levels: fill /
+//     complete-body / free-form). Distinct from StructWriteCard /
+//     FunctionWriteCard / MainWriteCard which target Q2/Q3/Q4 shapes.
+// ---------------------------------------------------------------------
+export const WriteCard = CommonCardFields.extend({
+  type: z.literal('WriteCard'),
+  writeLevel: z.union([z.literal(1), z.literal(2), z.literal(3)]),
+  spec: z.string().min(1),
+  template: z.string().optional(),
+  expectedAnswer: z.string().min(1),
+  keyChecks: KeyChecks,
+  forbidden: ForbiddenTokens,
+  explanation: z.string().min(1),
+});
+
+// ---------------------------------------------------------------------
+// 14. MatrixCard — RAVEN-style pattern-transfer puzzle.
+// ---------------------------------------------------------------------
+export const MatrixCard = CommonCardFields.extend({
+  type: z.literal('MatrixCard'),
+  section: z.string().min(1),
+  matrixType: z.enum(['algorithm', 'entity', 'progression']),
+  examples: z
+    .array(z.object({ label: z.string().min(1), code: z.string().min(1) }))
+    .min(1),
+  prompt: z.string().min(1),
+  expectedAnswer: z.string().min(1),
+  keyChecks: KeyChecks,
+});
+
+// ---------------------------------------------------------------------
+// 15. CodeMemorizeCard — see-then-type code drill.
+// ---------------------------------------------------------------------
+export const CodeMemorizeCard = CommonCardFields.extend({
+  type: z.literal('CodeMemorizeCard'),
+  section: z.string().min(1),
+  question: z.string().min(1),
+  code: z.string().min(1),
+  keyChecks: KeyChecks,
 });
 
 // ---------------------------------------------------------------------
@@ -501,24 +386,16 @@ export const Card = z.discriminatedUnion('type', [
   StructWriteCard,
   FunctionWriteCard,
   MainWriteCard,
-  EntityMatrixCard,
-  AlgorithmMatrixCard,
-  SpeedDrillCard,
-  AdversarialMockCard,
-  FaultInjectionCard,
-  PreflightCheckCard,
-  ConfidenceCalibrationCard,
-  DAGRetryCard,
-  DeltaCard,
-  TestDaySimCard,
-  VariantGenCard,
   ClozeCard,
   WalkthroughCard,
   DemoCard,
   DecomposeCard,
   MCQCard,
   ProceduralCard,
-  PostmortemCard,
+  MemorizeCard,
+  WriteCard,
+  MatrixCard,
+  CodeMemorizeCard,
 ]);
 export type Card = z.infer<typeof Card>;
 
@@ -528,24 +405,16 @@ export type TemplateRecallCard = z.infer<typeof TemplateRecallCard>;
 export type StructWriteCard = z.infer<typeof StructWriteCard>;
 export type FunctionWriteCard = z.infer<typeof FunctionWriteCard>;
 export type MainWriteCard = z.infer<typeof MainWriteCard>;
-export type EntityMatrixCard = z.infer<typeof EntityMatrixCard>;
-export type AlgorithmMatrixCard = z.infer<typeof AlgorithmMatrixCard>;
-export type SpeedDrillCard = z.infer<typeof SpeedDrillCard>;
-export type AdversarialMockCard = z.infer<typeof AdversarialMockCard>;
-export type FaultInjectionCard = z.infer<typeof FaultInjectionCard>;
-export type PreflightCheckCard = z.infer<typeof PreflightCheckCard>;
-export type ConfidenceCalibrationCard = z.infer<typeof ConfidenceCalibrationCard>;
-export type DAGRetryCard = z.infer<typeof DAGRetryCard>;
-export type DeltaCard = z.infer<typeof DeltaCard>;
-export type TestDaySimCard = z.infer<typeof TestDaySimCard>;
-export type VariantGenCard = z.infer<typeof VariantGenCard>;
 export type ClozeCard = z.infer<typeof ClozeCard>;
 export type WalkthroughCard = z.infer<typeof WalkthroughCard>;
 export type DemoCard = z.infer<typeof DemoCard>;
 export type DecomposeCard = z.infer<typeof DecomposeCard>;
 export type MCQCard = z.infer<typeof MCQCard>;
 export type ProceduralCard = z.infer<typeof ProceduralCard>;
-export type PostmortemCard = z.infer<typeof PostmortemCard>;
+export type MemorizeCard = z.infer<typeof MemorizeCard>;
+export type WriteCard = z.infer<typeof WriteCard>;
+export type MatrixCard = z.infer<typeof MatrixCard>;
+export type CodeMemorizeCard = z.infer<typeof CodeMemorizeCard>;
 
 /** Card-array helper for JSON file loads. */
 export const CardArray = z.array(Card);

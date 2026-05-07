@@ -1,42 +1,35 @@
-id: "L1-S2-TF-05-cloze-inner-close"
-schemaVersion: "v2"
-atomId: "T-06"
-qTags: ["Q1"]
+id: L1-S2-TF-05-cloze-inner-close
+schemaVersion: v2
+atomId: T-06
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   This brace-init is missing the inner array CLOSING brace. Provide
   the corrected full line.
-
 prompt: |
   Provide the corrected brace-init line. The inner array close-brace
   is missing between 0.5 and the comma.
-
 template: |
   // BROKEN: { {2.4,...,0.5, -0.9 } };  -- needs inner close after 0.5
   stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5, -0.9}};
-
 canonicalAnswer: |
   stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};
-
 keyChecks:
-  - "0.5}"
-
+  - 0.5}
 forbiddenTokens: []
-
 explanation: |
   `}` — closes the array initialiser. Comma after, then the mystery
   init.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — inner close brace"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — inner close brace
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-F cloze: inner close brace.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:brace-init-nested

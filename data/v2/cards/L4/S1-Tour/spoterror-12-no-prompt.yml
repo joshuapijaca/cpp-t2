@@ -1,68 +1,54 @@
-id: "L4-S1-spoterror-12"
-schemaVersion: "v2"
-atomId: "Q-00"
-qTags: 
-  - "Q4"
+id: L4-S1-spoterror-12
+schemaVersion: v2
+atomId: Q-00
+qTags:
+  - Q4
 stage: 1
-level: "L4"
-type: "FaultInjectionCard"
-stem: "Spot the bug: missing prompt. Read the broken main() and identify which line is wrong, then write the fix."
-source: 
-  kind: "v2"
-  ref: "C++T2 spec §6.4 Q4 common error #12 — missing prompt"
-commonMistakeIds: 
-  - "CM-Q4-no-prompt"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L4-Q4"
-brokenCode: |
+level: L4
+type: MCQCard
+stem: |-
+  Spot the bug: missing prompt. Read the broken main() and identify which line is wrong, then write the fix.
+
+  Code under review:
   int main()
   {
       const int MAX = 700;
       desk_data desks[MAX];
       int desk_num;
-  
+
       cin >> desk_num;
-  
+
       read_desks(desks, desk_num);
-  
+
       for (int i = 0; i < desk_num; i++)
       {
           cout << desks[i].room_id << ", ";
           cout << desks[i].d_id << ", ";
           cout << desks[i].number_of_screens << endl;
       }
-  
+
       return 0;
   }
-bugLocations: 
-  - 7
-fixedCode: |
-  int main()
-  {
-      const int MAX = 700;
-      desk_data desks[MAX];
-      int desk_num;
-  
-      cout << "How many desks? ";
-      cin >> desk_num;
-  
-      read_desks(desks, desk_num);
-  
-      for (int i = 0; i < desk_num; i++)
-      {
-          cout << desks[i].room_id << ", ";
-          cout << desks[i].d_id << ", ";
-          cout << desks[i].number_of_screens << endl;
-      }
-  
-      return 0;
-  }
-bugCategory: "missing prompt"
-keyChecks: 
-  - "const int MAX"
-  - "desks[MAX]"
-  - "read_desks(desks, desk_num)"
-  - "i < desk_num"
-  - "return 0;"
-explanation: "cin without a cout prompt = blank screen waiting silently. User has no idea what to type. Always prompt first."
+
+
+  Which diagnosis describes the bug?
+correct: missing prompt
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: cin without a cout prompt = blank screen waiting silently. User has no idea what to type. Always prompt first.
+source:
+  kind: v2
+  ref: 'v2:Q4 — common-mistake: cin >> count with no prompt'
+commonMistakeIds:
+  - CM-Q4-no-prompt
+status: NEW
+createdBy: SA-L4-Q4
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q4:prompt-for-count
+tier2:
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-1-variable-constant
+  - tier2:v2:Q4

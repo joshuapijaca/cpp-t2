@@ -42,9 +42,10 @@ usedIn:
   - "Q1 trace (the question hands you a struct definition + instance)"
   - "Q3 read function (the function takes a struct &param)"
 
+drills: ["tier1:prereq:struct-definition-multi-field"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — `struct stat_double { ... };`"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
 
 commonMistakeIds: ["CM-F20a"]
 status: "NEW"

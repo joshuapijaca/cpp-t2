@@ -1,39 +1,36 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-semicolon-after-if
-id: "L1-cmimm-CM-semicolon-after-if-spot"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-semicolon-after-if-spot
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   This Q1 if-statement always runs the body. Why? Find the stray punctuation.
 
-brokenCode: |
+  Code under review:
   if (numbers[i] > 0);
     data.mystery = data.mystery + numbers[i];
 
-bugLocations: [1]
 
-fixedCode: |
-  if (numbers[i] > 0)
-    data.mystery = data.mystery + numbers[i];
-
-bugCategory: 'stray `;` after if-condition'
-
-keyChecks:
-  - 'if (numbers[i] > 0)'
-
-explanation: |
-  A semicolon after `if (...)` ends the if with an empty body. The line below runs unconditionally. Delete the `;` so the body is the next statement.
-
+  Which diagnosis describes the bug?
+correct: stray `;` after if-condition
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  A semicolon after `if (...)` ends the if with an empty body. The line below runs unconditionally. Delete the `;` so
+  the body is the next statement.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-semicolon-after-if)"
-
-commonMistakeIds: ["CM-semicolon-after-if"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-semicolon-after-if)
+commonMistakeIds:
+  - CM-semicolon-after-if
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

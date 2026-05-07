@@ -30,9 +30,10 @@ explanation: |
   versions are `first_name`, `user_id`, `total_price`. The compiler
   reads `_` as part of the identifier, just like a letter.
 
+drills: ["tier1:prereq:identifier-rules-naming"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/3-naming-convention"
+  ref: "Programming Fundamentals Guide § part-1/2-communicating-syntax/2-trailside/04-identifier"
 
 commonMistakeIds: ["CM-F09c"]
 status: "NEW"

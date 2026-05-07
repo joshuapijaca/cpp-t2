@@ -1,12 +1,12 @@
-
-id: "L2-S5-reverse-06"
-schemaVersion: "v2"
-atomId: "L-25"
-qTags: ["Q2"]
+id: L2-S5-reverse-06
+schemaVersion: v2
+atomId: L-25
+qTags:
+  - Q2
 stage: 5
-level: "L2"
-type: "DecomposeCard"
-stem: "Q2 reverse drill #6. Given the struct code, infer the most likely English entity description."
+level: L2
+type: DecomposeCard
+stem: 'Q2 reverse drill #6. Given the struct code, infer the most likely English entity description.'
 code: |
   struct invoice_data
   {
@@ -14,23 +14,32 @@ code: |
       double amount;
       bool paid;
   };
-question: "Which English description best matches this struct?"
+question: Which English description best matches this struct?
 options:
-  - label: "A"
-    text: "An invoice (invoice id, amount, paid flag)."
-  - label: "B"
-    text: "An order (order id, total, shipped flag)."
-  - label: "C"
-    text: "A receipt (receipt id, total, refunded flag)."
-  - label: "D"
-    text: "A subscription (id, fee, cancelled flag)."
-correctLabel: "A"
-explanation: "The field name + type combination uniquely fingerprints the entity."
+  - label: A
+    text: An invoice (invoice id, amount, paid flag).
+  - label: B
+    text: An order (order id, total, shipped flag).
+  - label: C
+    text: A receipt (receipt id, total, refunded flag).
+  - label: D
+    text: A subscription (id, fee, cancelled flag).
+correctLabel: A
+explanation: The field name + type combination uniquely fingerprints the entity.
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.6 S5 VARIATIONS"
-commonMistakeIds: ["CM-Q2-wrong-type"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "Reverse-engineer the prompt from the code."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations.md §type-decl
+    variations
+commonMistakeIds:
+  - CM-Q2-wrong-type
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L2-Q2
+notes: Reverse-engineer the prompt from the code.
+drills:
+  - tier1:Q2:q2-field-type-decl
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations.md
+    §type-decl variations

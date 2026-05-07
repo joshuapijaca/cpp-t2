@@ -48,6 +48,7 @@ usedIn:
   - "Q2 struct definition (always { }, never ( ) or [ ])"
   - "Q4 main program (body always inside { })"
 
+drills: ["tier1:prereq:block-delimiters-and"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"

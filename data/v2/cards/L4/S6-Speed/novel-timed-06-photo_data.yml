@@ -1,47 +1,64 @@
-id: "L4-S6-novel-timed-06"
-schemaVersion: "v2"
-atomId: "Q-10"
-qTags: 
-  - "Q4"
+id: L4-S6-novel-timed-06
+schemaVersion: v2
+atomId: Q-10
+qTags:
+  - Q4
 stage: 6
-level: "L4"
-type: "SpeedDrillCard"
-stem: "[novel timed 6/10] 90s to write a full main() for photo_data."
-source: 
-  kind: "v2"
-  ref: "C++T2 spec §6.6 S6 timed novel"
-commonMistakeIds: 
-  - "CM-Q4-time-pressure-wrong-arg"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L4-Q4"
-prompt: "photo_data: MAX=1000, count=photo_num, fn=read_photos, fields=id, date, rating, prompt=\"How many photos?\"."
+level: L4
+type: MainWriteCard
+stem: '[novel timed 6/10] 90s to write a full main() for photo_data.'
+prompt: 'photo_data: MAX=1000, count=photo_num, fn=read_photos, fields=id, date, rating, prompt="How many photos?".'
 canonicalAnswer: |
   int main()
   {
       const int MAX = 1000;
       photo_data photos[MAX];
       int photo_num;
-  
+
       cout << "How many photos? ";
       cin >> photo_num;
-  
+
       read_photos(photos, photo_num);
-  
+
       for (int i = 0; i < photo_num; i++)
       {
           cout << photos[i].id << ", ";
           cout << photos[i].date << ", ";
           cout << photos[i].rating << endl;
       }
-  
+
       return 0;
   }
-keyChecks: 
-  - "const int MAX = 1000"
-  - "photo_data photos[MAX]"
-  - "int photo_num"
-  - "read_photos(photos, photo_num)"
-  - "i < photo_num"
-  - "return 0"
-explanation: "90s novel-entity transfer. Tests true fluency: not memorisation, transfer."
+keyChecks:
+  - const int MAX = 1000
+  - photo_data photos[MAX]
+  - int photo_num
+  - read_photos(photos, photo_num)
+  - i < photo_num
+  - return 0
+forbiddenTokens: []
+explanation: '90s novel-entity transfer. Tests true fluency: not memorisation, transfer.'
+expectedTerminal: []
+source:
+  kind: v2
+  ref: "v2:Q4 — S6 timed novel: full main() under 90s"
+commonMistakeIds:
+  - CM-Q4-time-pressure-wrong-arg
+status: NEW
+createdBy: SA-L4-Q4
+authoringStatus: DRAFT
+migratedFrom: SpeedDrillCard
+drills:
+  - tier1:Q4:int-main
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+  - tier1:Q4:fn-call-no-amp
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+  - tier1:Q4:return-0
+tier2:
+  - tier2:v2:Q4
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations

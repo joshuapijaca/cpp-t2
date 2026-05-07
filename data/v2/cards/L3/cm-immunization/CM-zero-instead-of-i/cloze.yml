@@ -26,8 +26,12 @@ explanation: |
 
 source:
   kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-zero-instead-of-i)"
+  ref: "Test 2 V2.0 attempt 1 — Q3 must index `[i]` not `[0]` CM-zero-instead-of-i"
 
+drills:
+  - "tier1:Q3:R-02c"
+  - "tier2:v2:Q3"
+  - "tier2:practice:Q3"
 commonMistakeIds: ["CM-zero-instead-of-i"]
 status: "NEW"
 createdBy: "QA-M13-fix"

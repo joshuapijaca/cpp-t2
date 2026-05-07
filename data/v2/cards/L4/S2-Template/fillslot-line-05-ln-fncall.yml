@@ -9,7 +9,7 @@ type: "ClozeCard"
 stem: "After cin reads the count, fill the line that calls the read fn."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.2 S2 FillSlot line"
+  ref: "v2:Q4 — template fill: read_desks(desks, desk_num);"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -38,3 +38,10 @@ code: |
 clozeSentence: "After cin reads the count, fill the line that calls the read fn."
 answer: "read_desks(desks, desk_num);"
 explanation: "Canonical line: `read_desks(desks, desk_num);`."
+drills:
+  - tier1:Q4:fn-call-no-amp
+tier2:
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-2-function-calls
+  - tier2:pfg:part-2-organised-code/2-organising-code/0-panorama/04-parameter
+  - tier2:seminar:saloni-2 @ 46:30
+  - tier2:v2:Q4

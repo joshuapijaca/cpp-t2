@@ -86,6 +86,7 @@ steps:
       `}` (no trailing `;`). The `};` shape is for structs only.
     atomIds: ["F-08"]
 
+drills: ["tier1:prereq:block-delimiters-and"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md (a compound statement is enclosed in braces and groups multiple statements into one block) + Part 2 · 3-structuring-data/2-trailside/03-01-struct.md"

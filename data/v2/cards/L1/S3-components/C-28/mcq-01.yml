@@ -15,14 +15,14 @@ source:
 commonMistakeIds:
   - CM-C28a
 stem: >-
-  The for-loop has just exited (guard returned false). The mystery cell shows: ~~0.0~~ ~~2.4~~
-  ~~5.4~~ 7.4. The exam asks: what is data.mystery now?
+  The for-loop has just exited (guard returned false). The mystery cell shows: ~~0.0~~ ~~2.4~~ ~~5.4~~ 7.4. The exam
+  asks: what is data.mystery now?
 correct: 7.4 — the only unstruck value is the live one; that is the final answer.
 distractors:
   - 15.2 — sum every value in the trail.
   - 0.0 — the first written value is the canonical answer.
   - 5.4 — the second-to-last value, since the loop was already exiting.
 explanation: >-
-  After loop exit, the LIVE value (the un-struck one) is the answer. Trail-as-audit confirms the
-  path; the answer itself is the live value.
-
+  After loop exit, the LIVE value (the un-struck one) is the answer. Trail-as-audit confirms the path; the answer itself
+  is the live value.
+drills: tier1:Q1:trace-strikethrough

@@ -8,9 +8,10 @@ type: "DecomposeCard"
 status: "NEW"
 authoringStatus: "DRAFT"
 createdBy: "atom-coverage-fix"
+drills: ["tier1:prereq:brace-match-drill-depth-coloured-nested-blocks"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §B.2 patch — brace-match drill (DecomposeCard variant)"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-compound"
 commonMistakeIds: ["CM-F08a", "CM-F08b"]
 stem: |
   Use the depth labels to decide which closing brace pairs with the

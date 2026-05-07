@@ -40,9 +40,10 @@ explanation: |
   - cout chains: "label " << i << " sub-label: "
   - cin: array name [i] . field
 
+drills: ["tier1:prereq:prompt-then-read-pair"]
 source:
-  kind: "practice"
-  ref: "Practice test 2026 T1: read_desks loop body shape"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/1-tour/02-01-read-fns"
 
 commonMistakeIds: []
 status: "NEW"

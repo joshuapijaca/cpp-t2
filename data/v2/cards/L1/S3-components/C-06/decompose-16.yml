@@ -34,4 +34,4 @@ options:
     text: numbers and mystery both stay uninitialized — brace-init does nothing on a struct.
 correctLabel: A
 explanation: Inner brace fills numbers[0..4] in order, scalar fills mystery. No re-shuffle.
-
+drills: tier1:Q1:brace-init-nested

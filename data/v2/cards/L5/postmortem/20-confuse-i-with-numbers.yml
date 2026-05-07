@@ -1,48 +1,17 @@
-id: "L5-postmortem-20-confuse-i-with-numbers"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: L5-postmortem-20-confuse-i-with-numbers
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
+drills: ["Q3"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q3 read function — student used `i < SIZE` instead of `i < count`. Loop reads past the actual user-supplied count, asking for input on uninitialised slots and corrupting subsequent main-fn output.
-
-failedAttempt: |
-  void read_students(student_data students[], int count)
-  {
-      for (int i = 0; i < SIZE; i++)
-      {
-          cout << "Enter name: ";
-          cin >> students[i].name;
-          cout << "Enter age: ";
-          cin >> students[i].age;
-      }
-  }
-
-diagnosis: |
-  Q3's `count` is the runtime number of records the user wants to enter. `SIZE` (or `MAX`) is the compile-time array capacity, which is usually larger. Looping to `SIZE` asks the user for input on slots they didn't ask for, blocking on `cin` for missing data. Even if input is available, you populate slots beyond `count` that main never iterates over later — wasted work AND user confusion.
-
-repairSteps:
-  - "void read_students(student_data students[], int count)"
-  - "{"
-  - "    for (int i = 0; i < count; i++)     // <-- bound is `count`, not `SIZE`"
-  - "    {"
-  - "        cout << \"Enter name: \";"
-  - "        cin >> students[i].name;"
-  - "        cout << \"Enter age: \";"
-  - "        cin >> students[i].age;"
-  - "    }"
-  - "}"
-
-preventionTip: |
-  In Q3 read functions, the loop bound is the RUNTIME COUNT parameter (`count` / `n`), NOT the compile-time CAPACITY (`SIZE` / `MAX`). The capacity tells you how many slots the array CAN hold; the count tells you how many the USER wants to fill.
-
-explanation: |
-  Lesson learned — capacity vs count is a defining distinction in array-of-struct work. The function signature literally takes `count` as a parameter precisely so the caller can specify "fill this many." Using `SIZE` ignores the parameter and over-reads. Whenever you see a parameter named `count` or `n`, it IS the loop bound for the data-bearing slots.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q3 read function — student used `i < SIZE` instead of `i < count`. Loop reads past the actual user-supplied count,
+  asking for input on uninitialised slots and corrupting subsequent main-fn output.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   void read_students(student_data students[], int count)
   {
       for (int i = 0; i < count; i++)
@@ -53,19 +22,55 @@ canonicalAnswer: |
           cin >> students[i].age;
       }
   }
-
-annotations:
+steps:
+  - line: 1
+    code: void read_students(student_data students[], int count)
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
   - line: 3
-    severity: err
-    note: "`i < SIZE` ignores the runtime count. Should be `i < count`. Asks user for too many records."
-
+    code: '    for (int i = 0; i < count; i++)     // <-- bound is `count`, not `SIZE`'
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: '    {'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '        cout << "Enter name: ";'
+    annotation: Repair step 5
+    atomIds: []
+  - line: 6
+    code: '        cin >> students[i].name;'
+    annotation: Repair step 6
+    atomIds: []
+  - line: 7
+    code: '        cout << "Enter age: ";'
+    annotation: Repair step 7
+    atomIds: []
+  - line: 8
+    code: '        cin >> students[i].age;'
+    annotation: Repair step 8
+    atomIds: []
+  - line: 9
+    code: '    }'
+    annotation: Repair step 9
+    atomIds: []
+  - line: 10
+    code: '}'
+    annotation: Repair step 10
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q3 capacity vs count"
-
-commonMistakeIds: ["CM-Q3-wrong-bound-SIZE"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q3 capacity vs count
+commonMistakeIds:
+  - CM-Q3-wrong-bound-SIZE
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #20 — Q3 / wrong loop bound (SIZE instead of count).
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

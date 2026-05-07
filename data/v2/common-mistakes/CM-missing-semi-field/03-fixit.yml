@@ -1,40 +1,33 @@
-id: "CM-missing-semi-field-fixit"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q2"]
+id: CM-missing-semi-field-fixit
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q2
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Fix-it drill for CM-missing-semi-field. The code has the bug; produce the canonical fix.
+  Pick the canonical fix line.
 
-brokenCode: |
+  Broken code:
   // Q2: Q2 missing ; on a field
   string brand
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  string brand;
-  ;
-
-bugCategory: "CM-missing-semi-field"
-
-keyChecks: []
-
+correct: string brand;
+distractors:
+  - '// Q2: Q2 missing ; on a field'
+  - string brand
+  - ;
 explanation: |
   Replace the broken line with: string brand;
   Diagnosis: A field line ends with newline only.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-missing-semi-field"
-
-commonMistakeIds: ["CM-missing-semi-field"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake CM-missing-semi-field
+commonMistakeIds:
+  - CM-missing-semi-field
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 3/5 (fix-it) for CM-missing-semi-field.

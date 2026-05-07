@@ -33,6 +33,7 @@ explanation: |
   "CPU runs source code directly" misconception — it does not. CPUs run
   machine code; the compiler bridges the gap.
 
+drills: ["tier1:prereq:source-code-is-plain-text"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"

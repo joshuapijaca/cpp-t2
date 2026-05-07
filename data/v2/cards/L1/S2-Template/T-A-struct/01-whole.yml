@@ -1,52 +1,46 @@
-id: "L1-S2-TA-01-whole"
-schemaVersion: "v2"
-atomId: "T-01"
-qTags: ["Q1"]
+id: L1-S2-TA-01-whole
+schemaVersion: v2
+atomId: T-01
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Type the whole stat_double struct verbatim. 4 lines. Trailing `;`
   after the closing brace is mandatory.
-
 prompt: |
   Reproduce the canonical Q1 struct exactly as it appears on the test.
-
 template: |
   struct stat_double {
     double numbers[___];
     double ___;
   };
-
 canonicalAnswer: |
   struct stat_double {
     double numbers[SIZE];
     double mystery;
   };
-
 keyChecks:
-  - "struct stat_double"
-  - "double numbers[SIZE]"
-  - "double mystery"
+  - struct stat_double
+  - double numbers[SIZE]
+  - double mystery
   - "};"
-
 forbiddenTokens:
-  - "while"
-  - "class"
-
+  - while
+  - class
 explanation: |
   Five tokens to remember: `struct`, name `stat_double`, `double
   numbers[SIZE]`, `double mystery`, and the trailing `};`. SIZE is
   the constant declared above as `const int SIZE = 5;`.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — struct stat_double { double numbers[SIZE]; double mystery; };"
-
-commonMistakeIds: ["CM-Q1-struct-no-trailing-semi"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — struct stat_double { double numbers[SIZE]; double mystery; };
+commonMistakeIds:
+  - CM-Q1-struct-no-trailing-semi
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-A study/hide/type rep 01 — whole struct.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:semicolon

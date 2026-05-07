@@ -33,6 +33,7 @@ explanation: |
   toolchains where `.o` files are kept. Distractor 3 ("none — in
   memory") is the "compile = run" misconception.
 
+drills: ["tier1:prereq:compiler-turns-source-into-program"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"

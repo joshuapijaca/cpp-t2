@@ -34,9 +34,10 @@ status: "NEW"
 createdBy: "SA-PhaseC"
 authoringStatus: "DRAFT"
 
+drills: ["tier1:prereq:assignment"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 attempt 1: data.mystery = 0.0;"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/08-assignment-statement"
 
 commonMistakeIds: []
 

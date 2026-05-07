@@ -46,6 +46,7 @@ usedIn:
   - "Q3 read function definition (write a `void read_xxx(...)`)"
   - "Q1 trace (you read a function definition before tracing)"
 
+drills: ["tier1:prereq:function-definition-syntax"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/01-function-decl"

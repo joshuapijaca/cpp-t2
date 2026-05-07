@@ -66,9 +66,10 @@ teachMe: |
   Trap: the `{ }` is one statement (line 2). All four assignments
   happen on that single line.
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — `double numbers[5] = {2.4, -3.7, -1.7, 3.0, 2.0}` shape"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
 
 commonMistakeIds: ["CM-F19b"]
 status: "NEW"

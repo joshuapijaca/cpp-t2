@@ -1,44 +1,35 @@
-id: "CM-skip-iter-cond-false-spoterror"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: CM-skip-iter-cond-false-spoterror
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Spot the error. Q1 skipped iter when cond false. The code below has the bug labeled
-  by CM-skip-iter-cond-false. Find the line and provide the fix.
+  Which line below contains the bug?
 
-brokenCode: |
+  Broken code:
   // Q1 broken excerpt:
   // (no row for i=2)
   // (canonical was: // i=2 cond -> false, mystery unchanged)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  // i=2 cond -> false, mystery unchanged
-  ;
-
-bugCategory: "CM-skip-iter-cond-false"
-
-keyChecks:
-  - "// i=2 cond -> false, mystery "
-
+correct: // (no row for i=2)
+distractors:
+  - '// Q1 broken excerpt:'
+  - '// (canonical was: // i=2 cond -> false, mystery unchanged)'
+  - ;
 explanation: |
   Bug: Omitted rows where if-cond was false — graders need to see them.
   Fix: // i=2 cond -> false, mystery unchanged
   This common mistake costs marks on Q1 per the rubric.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-skip-iter-cond-false"
-
-commonMistakeIds: ["CM-skip-iter-cond-false"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-skip-iter-cond-false
+commonMistakeIds:
+  - CM-skip-iter-cond-false
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 1/5 (SpotError) for CM-skip-iter-cond-false.

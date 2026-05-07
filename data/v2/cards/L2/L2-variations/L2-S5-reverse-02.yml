@@ -1,12 +1,12 @@
-
-id: "L2-S5-reverse-02"
-schemaVersion: "v2"
-atomId: "L-25"
-qTags: ["Q2"]
+id: L2-S5-reverse-02
+schemaVersion: v2
+atomId: L-25
+qTags:
+  - Q2
 stage: 5
-level: "L2"
-type: "DecomposeCard"
-stem: "Q2 reverse drill #2. Given the struct code, infer the most likely English entity description."
+level: L2
+type: DecomposeCard
+stem: 'Q2 reverse drill #2. Given the struct code, infer the most likely English entity description.'
 code: |
   struct order_data
   {
@@ -14,23 +14,32 @@ code: |
       double total;
       bool paid;
   };
-question: "Which English description best matches this struct?"
+question: Which English description best matches this struct?
 options:
-  - label: "A"
-    text: "A receipt with id, line-item count, taxed flag."
-  - label: "B"
-    text: "An e-commerce order with id, total, paid flag."
-  - label: "C"
-    text: "A discount with code, percentage, active flag."
-  - label: "D"
-    text: "A subscription with id, monthly cost, cancelled flag."
-correctLabel: "B"
-explanation: "The field name + type combination uniquely fingerprints the entity."
+  - label: A
+    text: A receipt with id, line-item count, taxed flag.
+  - label: B
+    text: An e-commerce order with id, total, paid flag.
+  - label: C
+    text: A discount with code, percentage, active flag.
+  - label: D
+    text: A subscription with id, monthly cost, cancelled flag.
+correctLabel: B
+explanation: The field name + type combination uniquely fingerprints the entity.
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.6 S5 VARIATIONS"
-commonMistakeIds: ["CM-Q2-wrong-type"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "Reverse-engineer the prompt from the code."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations.md §type-decl
+    variations
+commonMistakeIds:
+  - CM-Q2-wrong-type
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L2-Q2
+notes: Reverse-engineer the prompt from the code.
+drills:
+  - tier1:Q2:q2-field-type-decl
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations.md
+    §type-decl variations

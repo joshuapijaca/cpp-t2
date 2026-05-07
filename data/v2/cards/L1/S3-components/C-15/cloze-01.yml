@@ -1,17 +1,19 @@
-id: "L1-S3-C-15-cloze-01"
-schemaVersion: "v2"
-atomId: "C-15"
-qTags: ["Q1"]
+id: L1-S3-C-15-cloze-01
+schemaVersion: v2
+atomId: C-15
+qTags:
+  - Q1
 stage: 3
-level: "L1"
-type: "ClozeCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L1
+type: ClozeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-15"
-commonMistakeIds: ["CM-C15a"]
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-15
+commonMistakeIds:
+  - CM-C15a
 stem: |
   Fill the missing field-access operator that reads the running
   scalar inside `data`.
@@ -19,10 +21,11 @@ code: |
   // data is a stat_double struct.
   // We need the current mystery value.
   double v = data___mystery;
-clozeSentence: "double v = data___mystery;   // dot accessor for struct field"
-answer: "."
+clozeSentence: double v = data___mystery;   // dot accessor for struct field
+answer: .
 explanation: |
   C++ uses `.` to access a field of a struct value. `data.mystery`
   reads the live value in the mystery cell. Targets CM-C15a (forgets
   the dot, writes `datamystery`).
-notes: "Cloze form for QA-M10 type-diversity. Drills the dot accessor."
+notes: Cloze form for QA-M10 type-diversity. Drills the dot accessor.
+drills: tier1:Q1:dot-array-access

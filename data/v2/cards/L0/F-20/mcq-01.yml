@@ -27,9 +27,10 @@ explanation: |
   but does not terminate the C++ declaration statement; the `;`
   does. Forgetting it is the highest-frequency Q2 marking error.
 
+drills: ["tier1:prereq:struct-definition-multi-field"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — closing `};`"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/03-01-struct"
 
 commonMistakeIds: ["CM-F20a"]
 status: "NEW"

@@ -58,6 +58,7 @@ steps:
       cout prints 3.
     atomIds: ["F-21"]
 
+drills: ["tier1:prereq:dot-access-obj-field"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements"

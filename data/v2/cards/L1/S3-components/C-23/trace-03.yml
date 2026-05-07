@@ -29,18 +29,18 @@ variables:
 expectedTrace:
   - line: 3
     variable: i
-    value: '2'
+    value: "2"
     output: null
   - line: 4
     variable: data.mystery
-    value: '3'
+    value: "3"
     output: null
   - line: 5
-    variable: ''
-    value: ''
-    output: '3'
+    variable: ""
+    value: ""
+    output: "3"
 terminalOutput:
-  - '3'
+  - "3"
 inputMode: final-only
-teachMe: 'Sum-accumulator: read OLD mystery, add cell, write NEW mystery. The old value is struck through.'
-
+teachMe: "Sum-accumulator: read OLD mystery, add cell, write NEW mystery. The old value is struck through."
+drills: tier1:Q1:trace-strikethrough

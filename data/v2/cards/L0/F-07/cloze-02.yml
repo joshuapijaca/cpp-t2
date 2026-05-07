@@ -35,6 +35,7 @@ explanation: |
   Forgetting this `;` (the `};` shape) is the highest-frequency
   Q2 error per Saloni's seminar.
 
+drills: ["tier1:prereq:statement-terminator-semicolon"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 3-structuring-data/2-trailside/03-01-struct.md"

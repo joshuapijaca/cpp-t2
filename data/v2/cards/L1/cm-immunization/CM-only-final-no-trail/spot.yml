@@ -1,48 +1,38 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-only-final-no-trail
-id: "L1-cmimm-CM-only-final-no-trail-spot"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-only-final-no-trail-spot
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   This Q1 trace shows only the final mystery value, not the iteration history. What does the rubric require?
 
-brokenCode: |
+  Code under review:
   // numbers = {2.4, 3.7, 1.0, 2.1, 0.5}; mystery init = 0.0
   // algo: mystery = mystery + numbers[i]
   //
   // final answer: mystery = 9.7
 
-bugLocations: [4]
 
-fixedCode: |
-  // numbers = {2.4, 3.7, 1.0, 2.1, 0.5}; mystery init = 0.0
-  // algo: mystery = mystery + numbers[i]
-  //
-  // i=0: 0.0 + 2.4 = 2.4    mystery = 2.4
-  // i=1: 2.4 + 3.7 = 6.1    mystery = 6.1
-  // i=2: 6.1 + 1.0 = 7.1    mystery = 7.1
-  // i=3: 7.1 + 2.1 = 9.2    mystery = 9.2
-  // i=4: 9.2 + 0.5 = 9.7    mystery = 9.7
-
-bugCategory: 'no per-iteration trail — final-value only'
-
-keyChecks:
-  - 'i=0'
-  - 'i=4'
-
-explanation: |
-  The Q1 rubric awards working as well as the answer. Show every iteration: i, RHS arithmetic, new mystery. Final-value-only is partial credit at best.
-
+  Which diagnosis describes the bug?
+correct: no per-iteration trail — final-value only
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  The Q1 rubric awards working as well as the answer. Show every iteration: i, RHS arithmetic, new mystery.
+  Final-value-only is partial credit at best.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-only-final-no-trail)"
-
-commonMistakeIds: ["CM-only-final-no-trail"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-only-final-no-trail)
+commonMistakeIds:
+  - CM-only-final-no-trail
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

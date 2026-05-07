@@ -1,31 +1,27 @@
-# Auto-emitted CM immunization (MCQCard) for CM-confuse-eq-pluseq
-id: "L1-cmimm-CM-confuse-eq-pluseq-mcq"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-confuse-eq-pluseq-mcq
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   What does `x = x + y;` do?
-
-correct: 'Reads x and y, adds them, stores result back into x (accumulate).'
-
+correct: Reads x and y, adds them, stores result back into x (accumulate).
 distractors:
-  - 'Stores y into x (overwrite).'
-  - 'Increments x by 1.'
-  - 'Tests if x equals x+y.'
-
+  - Stores y into x (overwrite).
+  - Increments x by 1.
+  - Tests if x equals x+y.
 explanation: |
   `x = x + y` is the accumulator pattern: read x and y, sum, write to x.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-confuse-eq-pluseq)"
-
-commonMistakeIds: ["CM-confuse-eq-pluseq"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-confuse-eq-pluseq)
+commonMistakeIds:
+  - CM-confuse-eq-pluseq
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

@@ -1,41 +1,35 @@
-id: "L1-S2-TF-04-cloze-inner-open"
-schemaVersion: "v2"
-atomId: "T-06"
-qTags: ["Q1"]
+id: L1-S2-TF-04-cloze-inner-open
+schemaVersion: v2
+atomId: T-06
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   This brace-init is missing the inner array opening brace. Provide
   the corrected full line.
-
 prompt: |
   Provide the corrected brace-init line.
-
 template: |
   // BROKEN (missing inner array open-brace before 2.4 -- needs another { )
   stat_double d = {2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};
-
 canonicalAnswer: |
   stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};
-
 keyChecks:
   - "{2.4"
-
 forbiddenTokens: []
-
 explanation: |
   `{` — opens the array sub-initialiser. Without it, the parser
   parses `2.4` directly as a struct field.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — inner brace"
-
-commonMistakeIds: ["CM-Q1-misparse-outer-vs-inner"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — inner brace
+commonMistakeIds:
+  - CM-Q1-misparse-outer-vs-inner
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-F cloze: inner open brace.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:brace-init-nested

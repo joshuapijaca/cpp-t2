@@ -1,44 +1,35 @@
-id: "CM-skipped-field-spoterror"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: CM-skipped-field-spoterror
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Spot the error. Q3 skipped field in read. The code below has the bug labeled
-  by CM-skipped-field. Find the line and provide the fix.
+  Which line below contains the bug?
 
-brokenCode: |
+  Broken code:
   // Q3 broken excerpt:
   cin >> arr[i].brand; cin >> arr[i].price; // year skipped
   // (canonical was: cin >> arr[i].brand; cin >> arr[i].year; cin >> arr[i].price;)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  cin >> arr[i].brand; cin >> arr[i].year; cin >> arr[i].price;
-  ;
-
-bugCategory: "CM-skipped-field"
-
-keyChecks:
-  - "cin >> arr[i].brand; cin >> ar"
-
+correct: cin >> arr[i].brand; cin >> arr[i].price; // year skipped
+distractors:
+  - '// Q3 broken excerpt:'
+  - '// (canonical was: cin >> arr[i].brand; cin >> arr[i].year; cin >> arr[i].price;)'
+  - ;
 explanation: |
   Bug: Read 2 of 3 fields per iteration — misalignment.
   Fix: cin >> arr[i].brand; cin >> arr[i].year; cin >> arr[i].price;
   This common mistake costs marks on Q3 per the rubric.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-skipped-field"
-
-commonMistakeIds: ["CM-skipped-field"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-skipped-field
+commonMistakeIds:
+  - CM-skipped-field
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 1/5 (SpotError) for CM-skipped-field.

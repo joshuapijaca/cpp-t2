@@ -24,8 +24,12 @@ explanation: |
 
 source:
   kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-prompt-outside-loop)"
+  ref: "Test 2 V2.0 attempt 1 — Q3 prompt belongs INSIDE for-loop CM-prompt-outside-loop"
 
+drills:
+  - "tier1:Q3:R-02d"
+  - "tier2:v2:Q3"
+  - "tier2:practice:Q3"
 commonMistakeIds: ["CM-prompt-outside-loop"]
 status: "NEW"
 createdBy: "QA-M13-fix"

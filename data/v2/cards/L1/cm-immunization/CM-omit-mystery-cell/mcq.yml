@@ -1,31 +1,27 @@
-# Auto-emitted CM immunization (MCQCard) for CM-omit-mystery-cell
-id: "L1-cmimm-CM-omit-mystery-cell-mcq"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-omit-mystery-cell-mcq
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   A struct has `double numbers[5]; double mystery;`. Which brace-init is correct?
-
-correct: '`{{2.4,3.7,1.0,2.1,0.5}, -0.9}` — both fields supplied'
-
+correct: "`{{2.4,3.7,1.0,2.1,0.5}, -0.9}` — both fields supplied"
 distractors:
-  - '`{{2.4,3.7,1.0,2.1,0.5}}` — mystery omitted'
-  - '`{2.4,3.7,1.0,2.1,0.5,-0.9}` — flat list'
-  - '`{numbers={2.4,3.7,1.0,2.1,0.5}, mystery=-0.9}` — designated'
-
+  - "`{{2.4,3.7,1.0,2.1,0.5}}` — mystery omitted"
+  - "`{2.4,3.7,1.0,2.1,0.5,-0.9}` — flat list"
+  - "`{numbers={2.4,3.7,1.0,2.1,0.5}, mystery=-0.9}` — designated"
 explanation: |
   The struct has TWO fields (an array, a scalar). Both go in braces, in order, scalar last.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-omit-mystery-cell)"
-
-commonMistakeIds: ["CM-omit-mystery-cell"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-omit-mystery-cell)
+commonMistakeIds:
+  - CM-omit-mystery-cell
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

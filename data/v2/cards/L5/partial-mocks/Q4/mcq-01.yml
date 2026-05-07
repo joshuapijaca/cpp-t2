@@ -2,6 +2,7 @@ id: "L5-partial-Q4-mcq-01"
 schemaVersion: "v2"
 atomId: "M-02"
 qTags: ["Q4"]
+drills: ["Q4"]
 stage: 5
 level: "L5"
 type: "MCQCard"

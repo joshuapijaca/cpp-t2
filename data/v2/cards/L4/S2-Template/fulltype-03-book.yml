@@ -9,7 +9,7 @@ type: "TemplateRecallCard"
 stem: "Type the COMPLETE main() for the book variant. MAX=200, entity=book_data."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.2 S2 FullType"
+  ref: "v2:Q4 — novel-entity full main() type-out"
 commonMistakeIds: 
   - "CM-Q4-skeleton-line-order"
 status: "NEW"
@@ -65,3 +65,17 @@ forbiddenTokens:
   - "getline"
   - "printf"
 explanation: "The skeleton is invariant — only entity/plural/count/MAX/fn/fields slot in. Compare your answer against the canonical for book."
+drills:
+  - tier1:Q4:int-main
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+  - tier1:Q4:fn-call-no-amp
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+  - tier1:Q4:return-0
+tier2:
+  - tier2:v2:Q4
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations

@@ -9,7 +9,7 @@ type: "MCQCard"
 stem: "Position of array decl in main()?"
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.3 Block B mcq"
+  ref: "v2:Q4 — Block B: desk_data desks[MAX]; (struct array sized by MAX)"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -20,3 +20,11 @@ distractors:
   - "After cin >> count."
   - "After read fn call."
 explanation: "Array decl uses MAX → must come after MAX. count_var conventionally follows."
+drills:
+  - tier1:Q4:struct-array-decl
+tier2:
+  - tier2:pfg:part-3-programs-as-concepts/3-collections/2-trailside/10-arrays
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/04-declaring-variables-with-custom-types
+  - tier2:v2:Q4
+  - tier2:practice:Q4
+  - tier2:task-sheet:P9

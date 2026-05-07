@@ -9,7 +9,7 @@ type: "MCQCard"
 stem: "Student writes `int MAX = 700;` (no const). Compiler reaction?"
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.2 S1 what-happens drills"
+  ref: "v2:Q4 — trace: forgot const → VLA (off-scope behaviour)"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -20,3 +20,9 @@ distractors:
   - "Same as const — compiles cleanly."
   - "Linker error at fn call site."
 explanation: "C++ fixed-size array bound MUST be compile-time constant. A non-const int does not qualify, so MAX[arr] fails at compile time."
+drills:
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+tier2:
+  - tier2:pfg:part-1-instructions/1-sequence-and-data/2-trailside/07-variable
+  - tier2:v2:Q4

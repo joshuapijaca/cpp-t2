@@ -52,9 +52,10 @@ teachMe: |
 
   Final output: `4 7`.
 
+drills: ["tier1:prereq:cout-chained-output"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec F-13 trace primer — chained output"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: []
 status: "NEW"

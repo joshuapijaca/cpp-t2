@@ -6,25 +6,18 @@ stage: 4
 level: "L4"
 type: "ClozeCard"
 
-stem: |
-  Cloze for CM-2-fields-1-line: Q2 two fields on one line. Fill the blank.
+stem: "Cloze for CM-2-fields-1-line: Q2 two fields on one line. Fill the blank."
 
 code: |
-  // Canonical Q2 excerpt with blank:
-  // ____ a;
-int b;
-  ;
+  // Canonical Q2 excerpt with blank — one declaration per line:
+  ___ a;
+  int b;
 
-clozeSentence: |
-  Complete the canonical line: int a;
-int b;
+clozeSentence: "Complete the canonical line — what type comes before `a;` so each field is on its own line?"
 
-answer: "int a;\nint b;"
+answer: "int"
 
-explanation: |
-  Canonical pattern: int a;
-int b;
-  Mistake to avoid: Wrote `int a; int b;` on one line — bad style for Test 2.
+explanation: "Canonical pattern: each field declaration on its own line (`int a;` then `int b;`). Mistake to avoid: Wrote `int a; int b;` on one line — bad style for Test 2."
 
 source:
   kind: "practice"
@@ -34,5 +27,4 @@ commonMistakeIds: ["CM-2-fields-1-line"]
 status: "NEW"
 createdBy: "SA-CM-Immune"
 authoringStatus: "DRAFT"
-notes: |
-  CM card 4/5 (cloze) for CM-2-fields-1-line.
+notes: "CM card 4/5 (cloze) for CM-2-fields-1-line."

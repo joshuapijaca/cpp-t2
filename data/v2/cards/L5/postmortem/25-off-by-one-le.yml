@@ -1,51 +1,17 @@
-id: "L5-postmortem-25-off-by-one-le"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q4"]
+id: L5-postmortem-25-off-by-one-le
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q4
+drills: ["Q4"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q4 main — student wrote main without `return 0;` at the end. Compiles in C++17+ (main implicitly returns 0), but the unit's rubric requires explicit `return 0;`. Read the diff.
-
-failedAttempt: |
-  int main()
-  {
-      const int MAX = 100;
-      student_data students[MAX];
-      int count = 0;
-
-      cout << "How many students? ";
-      cin >> count;
-
-      read_students(students, count);
-      print_students(students, count);
-  }
-
-diagnosis: |
-  C++17 lets `int main()` compile without an explicit `return 0;` (the compiler inserts one). But the unit's rubric expects the explicit return statement — it's a token in the marking regex. Without it, the structure-check loses a mark even though the program runs correctly. Always finish main with `return 0;`.
-
-repairSteps:
-  - "int main()"
-  - "{"
-  - "    const int MAX = 100;"
-  - "    student_data students[MAX];"
-  - "    int count = 0;"
-  - "    cout << \"How many students? \";"
-  - "    cin >> count;"
-  - "    read_students(students, count);"
-  - "    print_students(students, count);"
-  - "    return 0;       // <-- EXPLICIT return 0"
-  - "}"
-
-preventionTip: |
-  Every `int main()` ends with `return 0;` (returns success status to the OS). It's the LAST line before the closing `}`. When you type `int main()`, immediately type the closing structure including `return 0;`, then fill in the body.
-
-explanation: |
-  Lesson learned — main is the program's exit point. Returning 0 signals success to the operating system; non-zero signals errors. Even though C++17 allows omission, EVERY style guide and EVERY rubric in this unit requires explicit `return 0;`. Make it muscle memory: `int main() { ... return 0; }` as a single template.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q4 main — student wrote main without `return 0;` at the end. Compiles in C++17+ (main implicitly returns 0), but the
+  unit's rubric requires explicit `return 0;`. Read the diff.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   int main()
   {
       const int MAX = 100;
@@ -60,19 +26,59 @@ canonicalAnswer: |
 
       return 0;
   }
-
-annotations:
-  - line: 12
-    severity: err
-    note: "Missing `return 0;` before closing `}`. Rubric requires explicit return statement at end of main."
-
+steps:
+  - line: 1
+    code: int main()
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '    const int MAX = 100;'
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: '    student_data students[MAX];'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '    int count = 0;'
+    annotation: Repair step 5
+    atomIds: []
+  - line: 6
+    code: '    cout << "How many students? ";'
+    annotation: Repair step 6
+    atomIds: []
+  - line: 7
+    code: '    cin >> count;'
+    annotation: Repair step 7
+    atomIds: []
+  - line: 8
+    code: '    read_students(students, count);'
+    annotation: Repair step 8
+    atomIds: []
+  - line: 9
+    code: '    print_students(students, count);'
+    annotation: Repair step 9
+    atomIds: []
+  - line: 10
+    code: '    return 0;       // <-- EXPLICIT return 0'
+    annotation: Repair step 10
+    atomIds: []
+  - line: 11
+    code: '}'
+    annotation: Repair step 11
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q4 main rubric"
-
-commonMistakeIds: ["CM-Q4-missing-return"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q4 main rubric
+commonMistakeIds:
+  - CM-Q4-missing-return
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #25 — Q4 / missing `return 0;` in main.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

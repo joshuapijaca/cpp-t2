@@ -1,44 +1,35 @@
-id: "CM-drop-postloop-spoterror"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: CM-drop-postloop-spoterror
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Spot the error. Q1 dropped post-loop output. The code below has the bug labeled
-  by CM-drop-postloop. Find the line and provide the fix.
+  Which line below contains the bug?
 
-brokenCode: |
+  Broken code:
   // Q1 broken excerpt:
   // trace stops at for-loop }
   // (canonical was: // trace continues past for-loop close)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  // trace continues past for-loop close
-  ;
-
-bugCategory: "CM-drop-postloop"
-
-keyChecks:
-  - "// trace continues past for-lo"
-
+correct: // trace stops at for-loop }
+distractors:
+  - '// Q1 broken excerpt:'
+  - '// (canonical was: // trace continues past for-loop close)'
+  - ;
 explanation: |
   Bug: Stopped trace at loop exit, missed the cout after.
   Fix: // trace continues past for-loop close
   This common mistake costs marks on Q1 per the rubric.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-drop-postloop"
-
-commonMistakeIds: ["CM-drop-postloop"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-drop-postloop
+commonMistakeIds:
+  - CM-drop-postloop
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 1/5 (SpotError) for CM-drop-postloop.

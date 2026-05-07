@@ -1,45 +1,17 @@
-id: "L5-postmortem-19-omit-mystery-cell"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: L5-postmortem-19-omit-mystery-cell
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
+drills: ["Q3"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q3 read function — student wrote `cin >> students[i] name` (no `.` between subscript and field). Compile error: "expected ';' before 'name'". Read the diff.
-
-failedAttempt: |
-  void read_students(student_data students[], int count)
-  {
-      for (int i = 0; i < count; i++)
-      {
-          cout << "Enter name: ";
-          cin >> students[i] name;
-          cout << "Enter age: ";
-          cin >> students[i] age;
-      }
-  }
-
-diagnosis: |
-  Field access in C++ uses `.` for structs/objects (or `->` for pointers). Without `.`, the compiler sees `students[i]` followed by an identifier `name` and tries to interpret it as two separate things — fails to parse. Error: "expected ';' before 'name'". Three-part composite `students[i].name` MUST have the dot.
-
-repairSteps:
-  - "for (int i = 0; i < count; i++)"
-  - "{"
-  - "    cout << \"Enter name: \";"
-  - "    cin >> students[i].name;     // <-- DOT between subscript and field"
-  - "    cout << \"Enter age: \";"
-  - "    cin >> students[i].age;"
-  - "}"
-
-preventionTip: |
-  Field access requires the `.` operator. `array[i].field` — never `array[i] field`. The dot is part of the field access OP, not a stylistic choice. C++ won't autocorrect it.
-
-explanation: |
-  Lesson learned — operators in C++ are explicit. Where some languages allow space-separated paths or method chaining without dots, C++ requires the punctuation. Train the muscle memory: subscript `[i]` followed immediately by `.` followed immediately by field. No space, no missing dot.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q3 read function — student wrote `cin >> students[i] name` (no `.` between subscript and field). Compile error:
+  "expected ';' before 'name'". Read the diff.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   void read_students(student_data students[], int count)
   {
       for (int i = 0; i < count; i++)
@@ -50,22 +22,43 @@ canonicalAnswer: |
           cin >> students[i].age;
       }
   }
-
-annotations:
+steps:
+  - line: 1
+    code: for (int i = 0; i < count; i++)
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '    cout << "Enter name: ";'
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: '    cin >> students[i].name;     // <-- DOT between subscript and field'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '    cout << "Enter age: ";'
+    annotation: Repair step 5
+    atomIds: []
   - line: 6
-    severity: err
-    note: "`students[i] name` is missing the dot. Should be `students[i].name`."
-  - line: 8
-    severity: err
-    note: "Same dot omission. Won't compile."
-
+    code: '    cin >> students[i].age;'
+    annotation: Repair step 6
+    atomIds: []
+  - line: 7
+    code: '}'
+    annotation: Repair step 7
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q3 field access dot"
-
-commonMistakeIds: ["CM-missing-dot-field"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q3 field access dot
+commonMistakeIds:
+  - CM-missing-dot-field
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #19 — Q3 / missing dot for field access.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

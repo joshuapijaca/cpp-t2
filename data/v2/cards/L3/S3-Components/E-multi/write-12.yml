@@ -38,7 +38,12 @@ explanation: |
   Each pair is cout-prompt + cin-into-list[i].field.
 source:
   kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+  ref: "Test 2 V2.0 attempt 1 — Q3 body close `}` after 3-field prompt-read sequence"
+drills:
+  - "tier1:Q3:R-02e"
+  - "tier2:practice:Q3"
+  - "tier2:v2:Q3"
+  - "tier2:seminar:saloni-2 @ 45:30"
 commonMistakeIds: ["CM-Q3-skipped-field","CM-Q3-reordered-field"]
 status: "NEW"
 authoringStatus: "DRAFT"

@@ -36,6 +36,7 @@ variants:
   - prompt: "Declare an int array `scores` of size 6, initialised with 0, 0, 0, 0, 0, 0."
     expectedAnswer: "int scores[6] = {0, 0, 0, 0, 0, 0};"
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"

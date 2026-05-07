@@ -1,25 +1,27 @@
-id: "L1-S2-TF-mcq-01"
-schemaVersion: "v2"
-atomId: "T-06"
-qTags: ["Q1"]
+id: L1-S2-TF-mcq-01
+schemaVersion: v2
+atomId: T-06
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "MCQCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — `stat_double d = {{2.4,-3.7,1.0,-2.1,0.5}, -0.9};`"
-commonMistakeIds: ["CM-Q1-misparse-outer-vs-inner"]
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — `stat_double d = {{2.4,-3.7,1.0,-2.1,0.5}, -0.9};`
+commonMistakeIds:
+  - CM-Q1-misparse-outer-vs-inner
 stem: |
   Which brace-init line is correct for `stat_double` (5 array values
   + scalar mystery)?
-correct: "stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};"
+correct: stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};
 distractors:
-  - "stat_double d = {2.4, -3.7, 1.0, -2.1, 0.5, -0.9};"
-  - "stat_double d({{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9});"
-  - "stat_double d = {-0.9, {2.4, -3.7, 1.0, -2.1, 0.5}};"
+  - stat_double d = {2.4, -3.7, 1.0, -2.1, 0.5, -0.9};
+  - stat_double d({{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9});
+  - stat_double d = {-0.9, {2.4, -3.7, 1.0, -2.1, 0.5}};
 explanation: |
   The struct has 2 fields: an array (`numbers`) and a scalar
   (`mystery`). The init mirrors the field order: outer braces wrap
@@ -28,4 +30,5 @@ explanation: |
   Distractor 1 omits the inner braces around the array. Distractor 2
   uses constructor-call syntax, which is not a brace-init. Distractor
   3 lists mystery before numbers — wrong field order.
-notes: "MCQ form for QA-M10 type-diversity."
+notes: MCQ form for QA-M10 type-diversity.
+drills: tier1:Q1:brace-init-nested

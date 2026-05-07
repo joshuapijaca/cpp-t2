@@ -1,55 +1,44 @@
-# =====================================================================
-# L5 / Mock M09 Q2 POSTMORTEM
-# V2.0 desk_data struct repair drill.
-# =====================================================================
-id: "L5-mock-M09-q2-postmortem"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q2"]
+id: L5-mock-M09-q2-postmortem
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q2
+drills: ["Q1", "Q2", "Q3", "Q4"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
+level: L5
+type: WalkthroughCard
 stem: |
   Postmortem for Mock M09 Q2 (struct define, V2.0 shape).
   Why did the failed attempt below lose marks? What's the exact repair?
-
-failedAttempt: |
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   struct Desk_Data {
     int room_id;
     int d_id;
     int number_of_screens;
   };
   // Bug: capital D's. V2.0 convention is all-lowercase snake_case.
-
-diagnosis: |
-  The V2.0 entity name is `desk_data` — all lowercase snake_case.
-  Capitalising as `Desk_Data` (or `DeskData`) breaks the rubric
-  token-match: every later occurrence of `desk_data` in the read
-  function and main also has to use the exact name. Inconsistent
-  casing yields cascading "undeclared identifier" errors.
-
-repairSteps:
-  - "Lowercase the struct name to `desk_data`."
-  - "Audit all later uses (read_desks signature, main array, print loop) — they must all read `desk_data`."
-  - "Verify: the `;` at the end of `};` is also present."
-
-preventionTip: |
-  All V2.0 entity names are lowercase snake_case. Burn this in: `desk_data`, `book_data`, `employee_data` — never capitals.
-
-explanation: |
-  Postmortem cards diff your failed answer against the canonical
-  answer, label the bug, and surface exactly what to repair. Per
-  Mock retry policy §7.5: any 70-89 score injects 4 postmortem
-  cards (one per Q) before the next mock attempt unlocks.
-
+steps:
+  - line: 1
+    code: Lowercase the struct name to `desk_data`.
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: Audit all later uses (read_desks signature, main array, print loop) — they must all read `desk_data`.
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: 'Verify: the `;` at the end of `};` is also present.'
+    annotation: Repair step 3
+    atomIds: []
 source:
-  kind: "v2"
-  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 verbatim — Mock M09 retro"
-
-commonMistakeIds: ["CM-cap-struct-name"]
-status: "NEW"
-createdBy: "SA-L5-Mock"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test2-SIT102-practice-2026T1.txt + V2.0 verbatim — Mock M09 retro
+commonMistakeIds:
+  - CM-cap-struct-name
+status: NEW
+createdBy: SA-L5-Mock
 notes: |
   Mock M09 retro — Q2 repair drill. V2.0 replica.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

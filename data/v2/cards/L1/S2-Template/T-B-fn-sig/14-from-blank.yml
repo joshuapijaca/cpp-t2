@@ -1,44 +1,37 @@
-id: "L1-S2-TB-14-from-blank"
-schemaVersion: "v2"
-atomId: "T-02"
-qTags: ["Q1"]
+id: L1-S2-TB-14-from-blank
+schemaVersion: v2
+atomId: T-02
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Final speed rep. Type the canonical signature from blank without any
   hint, in under 5 seconds.
-
 prompt: |
   Type the canonical Q1 signature.
-
 template: |
   // (blank)
-
 canonicalAnswer: |
   void who_am_i(stat_double &data) {
   }
-
 keyChecks:
-  - "void"
-  - "who_am_i"
-  - "stat_double"
+  - void
+  - who_am_i
+  - stat_double
   - "&data"
-
 forbiddenTokens:
-  - "while"
-
+  - while
 explanation: |
   Final speed rep. By now this should be muscle memory.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — function signature"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — function signature
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-B final speed rep.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:param-by-ref

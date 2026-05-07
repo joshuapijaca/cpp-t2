@@ -1,40 +1,33 @@
-id: "CM-wrong-cin-direction-fixit"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: CM-wrong-cin-direction-fixit
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Fix-it drill for CM-wrong-cin-direction. The code has the bug; produce the canonical fix.
+  Pick the canonical fix line.
 
-brokenCode: |
+  Broken code:
   // Q3: Q3 wrong cin direction
   cin << arr[i].field;
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  cin >> arr[i].field;
-  ;
-
-bugCategory: "CM-wrong-cin-direction"
-
-keyChecks: []
-
+correct: cin >> arr[i].field;
+distractors:
+  - '// Q3: Q3 wrong cin direction'
+  - cin << arr[i].field;
+  - ;
 explanation: |
   Replace the broken line with: cin >> arr[i].field;
   Diagnosis: Wrote `cin << arr[i].field` (output direction).
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-wrong-cin-direction"
-
-commonMistakeIds: ["CM-wrong-cin-direction"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake CM-wrong-cin-direction
+commonMistakeIds:
+  - CM-wrong-cin-direction
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 3/5 (fix-it) for CM-wrong-cin-direction.

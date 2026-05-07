@@ -48,9 +48,10 @@ explanation: |
   To fix: add `<< endl` to each line:
   `cout << "a = " << a << endl;`
 
+drills: ["tier1:prereq:cout-chained-values-endl"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/0-pano/5-terminal-functions"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F13b-1"]
 status: "NEW"

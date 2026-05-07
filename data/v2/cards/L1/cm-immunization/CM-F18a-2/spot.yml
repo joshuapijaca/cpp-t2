@@ -1,41 +1,39 @@
-# Hand-authored CM immunization (FaultInjectionCard) for CM-F18a-2
-id: "L1-cmimm-CM-F18a-2-spot"
-schemaVersion: "v2"
-atomId: "F-18"
-qTags: ["Q1", "Q3", "Q4"]
+id: L1-cmimm-CM-F18a-2-spot
+schemaVersion: v2
+atomId: F-18
+qTags:
+  - Q1
+  - Q3
+  - Q4
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   This for loop init slot is missing the type keyword. Fix the declaration.
 
-brokenCode: |
+  Code under review:
   for (i = 0; i < SIZE; i++) {
       cout << numbers[i] << endl;
   }
 
-bugLocations: [1]
 
-fixedCode: |
-  for (int i = 0; i < SIZE; i++) {
-      cout << numbers[i] << endl;
-  }
-
-bugCategory: "for-loop init: assignment instead of declaration"
-
-keyChecks:
-  - "int i = 0"
-
-explanation: |
-  Without `int`, `i = 0` is an assignment to a variable that may not exist. Use `int i = 0` to declare AND initialise i in one step, scoped to the loop.
-
+  Which diagnosis describes the bug?
+correct: "for-loop init: assignment instead of declaration"
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  Without `int`, `i = 0` is an assignment to a variable that may not exist. Use `int i = 0` to declare AND initialise i
+  in one step, scoped to the loop.
 source:
-  kind: "pfg"
-  ref: "PFG part-1/3-control-flow/2-trailside/04-3-for-loop — common-mistake immunization (CM-F18a-2)"
-
-commonMistakeIds: ["CM-F18a-2"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: pfg
+  ref: PFG part-1/3-control-flow/2-trailside/04-3-for-loop — common-mistake immunization (CM-F18a-2)
+commonMistakeIds:
+  - CM-F18a-2
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

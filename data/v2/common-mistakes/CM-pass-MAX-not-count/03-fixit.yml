@@ -1,40 +1,33 @@
-id: "CM-pass-MAX-not-count-fixit"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q4"]
+id: CM-pass-MAX-not-count-fixit
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q4
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Fix-it drill for CM-pass-MAX-not-count. The code has the bug; produce the canonical fix.
+  Pick the canonical fix line.
 
-brokenCode: |
+  Broken code:
   // Q4: Q4 pass MAX vs count
   read_X(arr, MAX);
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  read_X(arr, count);
-  ;
-
-bugCategory: "CM-pass-MAX-not-count"
-
-keyChecks: []
-
+correct: read_X(arr, count);
+distractors:
+  - '// Q4: Q4 pass MAX vs count'
+  - read_X(arr, MAX);
+  - ;
 explanation: |
   Replace the broken line with: read_X(arr, count);
   Diagnosis: Called `read_X(arr, MAX)` instead of `read_X(arr, count)`.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-pass-MAX-not-count"
-
-commonMistakeIds: ["CM-pass-MAX-not-count"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake CM-pass-MAX-not-count
+commonMistakeIds:
+  - CM-pass-MAX-not-count
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 3/5 (fix-it) for CM-pass-MAX-not-count.

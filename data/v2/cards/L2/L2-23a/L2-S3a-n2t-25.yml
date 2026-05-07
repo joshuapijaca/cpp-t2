@@ -1,20 +1,32 @@
-
-id: "L2-S3a-n2t-25"
-schemaVersion: "v2"
-atomId: "L-23a"
-qTags: ["Q2"]
+id: L2-S3a-n2t-25
+schemaVersion: v2
+atomId: L-23a
+qTags:
+  - Q2
 stage: 3
-level: "L2"
-type: "MCQCard"
-stem: "Q2 noun→type #25. A struct field needs a type. The English noun `address` should be stored as which C++ primitive?"
-correct: "`string` — an address contains digits + letters + commas + spaces — text"
-distractors: ["`int` — integers cannot represent decimal or text content this noun implies.","`double` — a floating-point number is overkill for this noun.","`char` — a single character cannot hold this noun."]
-explanation: "`address` is best stored as `string` because an address contains digits + letters + commas + spaces — text"
+level: L2
+type: MCQCard
+stem: 'Q2 noun→type #25. A struct field needs a type. The English noun `address` should be stored as which C++ primitive?'
+correct: '`string` — an address contains digits + letters + commas + spaces — text'
+distractors:
+  - '`int` — integers cannot represent decimal or text content this noun implies.'
+  - '`double` — a floating-point number is overkill for this noun.'
+  - '`char` — a single character cannot hold this noun.'
+explanation: '`address` is best stored as `string` because an address contains digits + letters + commas + spaces — text'
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.4 S3 COMPONENTS"
-commonMistakeIds: ["CM-Q2-wrong-type"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "Noun→type drill, string bucket."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/3-explore/3-1-entity.md §entity-modelling (book_data noun→type
+    pattern)
+commonMistakeIds:
+  - CM-Q2-wrong-type
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L2-Q2
+notes: Noun→type drill, string bucket.
+drills:
+  - tier1:Q2:q2-noun-to-type
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/3-explore/3-1-entity.md §entity-modelling
+    (book_data noun→type pattern)

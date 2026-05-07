@@ -9,7 +9,7 @@ type: "WalkthroughCard"
 stem: "Tour the V2.0 main() — desk_data with MAX=700, sum-positive Q1 algorithm. Read each line, see the 7 invariant pieces."
 source: 
   kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — desk_data main()"
+  ref: "v2:Q4 — full main() walkthrough; desk_data MAX=700, sum-positive"
 commonMistakeIds: 
   - "CM-Q4-missing-const"
 status: "NEW"
@@ -48,3 +48,18 @@ steps:
   - {line: 12, code: "for (int i = 0; i < desk_num; i++)", annotation: "Loop bound by COUNT (not MAX)."}
   - {line: 14, code: "cout << desks[i].room_id << \", \" << desks[i].d_id << \", \" << desks[i].number_of_screens << endl;", annotation: "Chained cout: 3 fields with comma separator + endl."}
   - {line: 17, code: "return 0;", annotation: "Success exit. Last statement of main."}
+drills:
+  - tier1:Q4:int-main
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+  - tier1:Q4:fn-call-no-amp
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+  - tier1:Q4:return-0
+tier2:
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations
+  - tier2:seminar:saloni-2 @ 47:17
+  - tier2:v2:Q4

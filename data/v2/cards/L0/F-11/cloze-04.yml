@@ -36,9 +36,10 @@ explanation: |
   Use 0.0 (not 0) so the type matches `double` exactly. The compiler
   accepts 0 here, but 0.0 is the idiomatic style.
 
+drills: ["tier1:prereq:variable-declaration-initialisation"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 attempt 1: data.mystery = 0.0; (the accumulator init line)"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/07-variable"
 
 commonMistakeIds: []
 status: "NEW"

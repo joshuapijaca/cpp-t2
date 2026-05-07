@@ -55,9 +55,10 @@ explanation: |
   C is wrong: question marks are stylistic, not required.
   D is wrong: cout always uses `<<`.
 
+drills: ["tier1:prereq:prompt-then-read-pair"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-2/2-organising-code/1-tour/02-01-read-fns"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/1-tour/02-01-read-fns"
 
 commonMistakeIds: ["CM-F15c"]
 status: "NEW"

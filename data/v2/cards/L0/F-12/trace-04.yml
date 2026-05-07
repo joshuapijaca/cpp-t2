@@ -68,9 +68,10 @@ teachMe: |
 
   Final answer: 7.4 — the EXACT V2.0 expected answer.
 
+drills: ["tier1:prereq:assignment"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 attempt 1: who_am_i over { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 } returns 7.4"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/08-assignment-statement"
 
 commonMistakeIds: ["CM-F12b"]
 status: "NEW"

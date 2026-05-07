@@ -35,6 +35,7 @@ explanation: |
   `{` must have a matching `}` later — on the next visible line
   CLOSE_BRACE represents that match.
 
+drills: ["tier1:prereq:block-delimiters-and"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"

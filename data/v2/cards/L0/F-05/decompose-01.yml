@@ -58,6 +58,7 @@ explanation: |
   D is wrong: the include is fine; renaming to `.c` would break much
   more than it fixes.
 
+drills: ["tier1:prereq:using-namespace-std"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md (after using directive cout/cin become unqualified)"

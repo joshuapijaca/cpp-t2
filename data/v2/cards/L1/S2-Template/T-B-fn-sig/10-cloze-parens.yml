@@ -1,43 +1,36 @@
-id: "L1-S2-TB-10-cloze-parens"
-schemaVersion: "v2"
-atomId: "T-02"
-qTags: ["Q1"]
+id: L1-S2-TB-10-cloze-parens
+schemaVersion: v2
+atomId: T-02
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Fill in the parentheses around the parameter list.
-
 prompt: |
   Provide the missing punctuation.
-
 template: |
   void who_am_i___stat_double &data___ {
   }
-
 canonicalAnswer: |
   void who_am_i(stat_double &data) {
   }
-
 keyChecks:
-  - "(stat_double"
+  - (stat_double
   - "&data)"
-
 forbiddenTokens:
   - "{stat_double"
-
 explanation: |
   Round parens `(...)` for the parameter list, NOT braces. Braces
   start the function body.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — parameter list parens"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — parameter list parens
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-B cloze: parens.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:param-by-ref

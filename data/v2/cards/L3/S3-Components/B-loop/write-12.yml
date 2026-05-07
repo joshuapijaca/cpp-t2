@@ -26,8 +26,14 @@ explanation: |
   Use the count parameter (passed) as the bound. Half-open <, NOT <=.
   Counter is int i; starts at 0; post-increment.
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+  kind: "pfg"
+  ref: "part-2-organised-code/1-starting-cpp/2-trailside/4-6-for.md — for(int i=0; i<n; i++) form"
+drills:
+  - "tier1:Q3:R-02b"
+  - "tier2:practice:Q3"
+  - "tier2:v2:Q3"
+  - "tier2:seminar:saloni-2 @ 46:30"
+  - "tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-6-for.md"
 commonMistakeIds: ["CM-Q3-off-by-one","CM-Q3-wrong-bound-SIZE"]
 status: "NEW"
 authoringStatus: "DRAFT"

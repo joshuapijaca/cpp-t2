@@ -1,40 +1,33 @@
-id: "CM-A11-init-0-fixit"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: CM-A11-init-0-fixit
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Fix-it drill for CM-A11-init-0. The code has the bug; produce the canonical fix.
+  Pick the canonical fix line.
 
-brokenCode: |
+  Broken code:
   // Q1: Q1 init zero confusion
   data.mystery = 0; // wrong for find-max
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  data.mystery = data.numbers[0]; // find-max
-  ;
-
-bugCategory: "CM-A11-init-0"
-
-keyChecks: []
-
+correct: data.mystery = data.numbers[0]; // find-max
+distractors:
+  - '// Q1: Q1 init zero confusion'
+  - data.mystery = 0; // wrong for find-max
+  - ;
 explanation: |
   Replace the broken line with: data.mystery = data.numbers[0]; // find-max
   Diagnosis: Initialized find-max with 0 instead of numbers[0].
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-A11-init-0"
-
-commonMistakeIds: ["CM-A11-init-0"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake CM-A11-init-0
+commonMistakeIds:
+  - CM-A11-init-0
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 3/5 (fix-it) for CM-A11-init-0.

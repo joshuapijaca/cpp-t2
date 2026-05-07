@@ -40,9 +40,10 @@ status: "NEW"
 createdBy: "SA-PhaseC"
 authoringStatus: "DRAFT"
 
+drills: ["tier1:prereq:identifier-rules-naming"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 attempt 1 + practice test 2026 T1: stat_double, who_am_i, read_desks"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/2-communicating-syntax/2-trailside/04-identifier"
 
 commonMistakeIds: ["CM-F09c"]
 

@@ -1,16 +1,12 @@
-# =====================================================================
-# L1 / C-26 strikethrough V2.0 / Trace 03 — sum-all w/ strike trail
-# =====================================================================
-id: "L1-C26v20-trace-03"
-schemaVersion: "v2"
-atomId: "C-26"
-qTags: ["Q1"]
+id: L1-C26v20-trace-03
+schemaVersion: v2
+atomId: C-26
+qTags:
+  - Q1
 stage: 3
-level: "L1"
-type: "TraceCard"
-
-stem: "Hand-execute sum-all on numbers={1.0, 2.0, 3.0, 4.0, 5.0}. Strikethrough every overwrite of data.mystery."
-
+level: L1
+type: TraceCard
+stem: Hand-execute sum-all on numbers={1.0, 2.0, 3.0, 4.0, 5.0}. Strikethrough every overwrite of data.mystery.
 code: |
   const int SIZE = 5;
 
@@ -28,76 +24,75 @@ code: |
     cout << data.mystery << endl;
     return 0;
   }
-
-variables: ["i", "data.mystery"]
-
+variables:
+  - i
+  - data.mystery
 expectedTrace:
   - line: 10
-    variable: "data.mystery"
+    variable: data.mystery
     value: "0.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "0"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "1.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "1"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "3.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "2"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "6.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "3"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "10.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "4"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "15.0"
     output: null
   - line: 15
     variable: ""
     value: ""
     output: "15"
-
-terminalOutput: ["15"]
-
-inputMode: "final-only"
-
+terminalOutput:
+  - "15"
+inputMode: final-only
 teachMe: |
   Strikethrough trail — sum-all:
     data.mystery:  ~~0.0~~ ~~1.0~~ ~~3.0~~ ~~6.0~~ ~~10.0~~ 15.0
 
   Five overwrites visible — every loop iteration writes once. Trail
   is the breadcrumb that lets you re-check your arithmetic.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — strikethrough on sum-all"
-
-commonMistakeIds: ["CM-C26a", "CM-C26b"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-Coverage-Fill"
+  kind: v2
+  ref: Test 2 V2.0 — strikethrough on sum-all
+commonMistakeIds:
+  - CM-C26a
+  - CM-C26b
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-Coverage-Fill
 notes: "Strikethrough drill 3/6: sum-all dense overwrite trail."
+drills: tier1:Q1:trace-strikethrough

@@ -1,46 +1,39 @@
-id: "L1-S2-TD-22-from-blank-final"
-schemaVersion: "v2"
-atomId: "T-04"
-qTags: ["Q1"]
+id: L1-S2-TD-22-from-blank-final
+schemaVersion: v2
+atomId: T-04
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Final speed rep on the for-header. Aim for under 5 seconds.
-
 prompt: |
   Type the canonical Q1 for-header from blank.
-
 template: |
   // (blank — final speed rep)
-
 canonicalAnswer: |
   for (int i = 0; i < SIZE; i++) {
   }
-
 keyChecks:
-  - "for"
-  - "int i = 0"
-  - "i < SIZE"
-  - "i++"
+  - for
+  - int i = 0
+  - i < SIZE
+  - i++
   - "{"
   - "}"
-
 forbiddenTokens:
-  - "while"
-  - "i <= SIZE"
-
+  - while
+  - i <= SIZE
 explanation: |
   By now this should be muscle memory. for + parens + 3 slots + braces.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — for-header"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — for-header
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-D final speed rep.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:for-header

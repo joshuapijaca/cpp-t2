@@ -25,9 +25,10 @@ explanation: |
   conditions). `:=` is the Pascal/Go assignment operator. `<-` is
   used by R and Haskell. C++ uses `=` for write, `==` for compare.
 
+drills: ["tier1:prereq:assignment"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/08-assignment-statement"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/08-assignment-statement"
 
 commonMistakeIds: ["CM-F12a"]
 status: "NEW"

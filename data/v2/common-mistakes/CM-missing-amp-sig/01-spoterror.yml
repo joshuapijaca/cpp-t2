@@ -1,44 +1,35 @@
-id: "CM-missing-amp-sig-spoterror"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: CM-missing-amp-sig-spoterror
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Spot the error. Q3 missing & in signature. The code below has the bug labeled
-  by CM-missing-amp-sig. Find the line and provide the fix.
+  Which line below contains the bug?
 
-brokenCode: |
+  Broken code:
   // Q3 broken excerpt:
   void read_X(entity arr, int count)
   // (canonical was: void read_X(entity arr[], int count))
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  void read_X(entity arr[], int count)
-  ;
-
-bugCategory: "CM-missing-amp-sig"
-
-keyChecks:
-  - "void read_X(entity arr[], int "
-
+correct: void read_X(entity arr, int count)
+distractors:
+  - '// Q3 broken excerpt:'
+  - '// (canonical was: void read_X(entity arr[], int count))'
+  - ;
 explanation: |
   Bug: Signature uses pass-by-value — mutations lost.
   Fix: void read_X(entity arr[], int count)
   This common mistake costs marks on Q3 per the rubric.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-missing-amp-sig"
-
-commonMistakeIds: ["CM-missing-amp-sig"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-missing-amp-sig
+commonMistakeIds:
+  - CM-missing-amp-sig
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 1/5 (SpotError) for CM-missing-amp-sig.

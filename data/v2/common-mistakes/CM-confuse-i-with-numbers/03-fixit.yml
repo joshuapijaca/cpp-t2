@@ -1,40 +1,33 @@
-id: "CM-confuse-i-with-numbers-fixit"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: CM-confuse-i-with-numbers-fixit
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Fix-it drill for CM-confuse-i-with-numbers. The code has the bug; produce the canonical fix.
+  Pick the canonical fix line.
 
-brokenCode: |
+  Broken code:
   // Q1: Q1 confused i with numbers[i]
   if (i > 5)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  if (data.numbers[i] > 5)
-  ;
-
-bugCategory: "CM-confuse-i-with-numbers"
-
-keyChecks: []
-
+correct: if (data.numbers[i] > 5)
+distractors:
+  - '// Q1: Q1 confused i with numbers[i]'
+  - if (i > 5)
+  - ;
 explanation: |
   Replace the broken line with: if (data.numbers[i] > 5)
   Diagnosis: Wrote `if (i > 5)` instead of `if (data.numbers[i] > 5)`.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-confuse-i-with-numbers"
-
-commonMistakeIds: ["CM-confuse-i-with-numbers"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake CM-confuse-i-with-numbers
+commonMistakeIds:
+  - CM-confuse-i-with-numbers
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 3/5 (fix-it) for CM-confuse-i-with-numbers.

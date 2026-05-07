@@ -4,6 +4,63 @@
 
 **You are working on a from-scratch C++ learning app. The user is preparing for SIT102 Test 2 (Deakin, 2026 T1) starting from zero C++ knowledge.**
 
+## ★ READ FIRST: v2.2 IS THE CURRENT TARGET ★
+
+**v2.2 = current build state (2026-05-07 late evening).**
+
+- Plan: `docs/19_v22_minimalist_plan.md`
+- Spec: `docs/16_test2_specific_redesign_v2.md` (revised v2.2)
+- **MANIFEST: `docs/v2/MANIFEST.md` — LOCKED feature list. Don't deviate.**
+- **ANTI-DRIFT: `docs/v2/ANTI_DRIFT.md` — read before any code wave**
+
+## DEPRECATED DOCS (do not follow)
+- `docs/17_option4_max_quality_plan.md` — drift artifact
+- `docs/18_option4_milestone_plan.md` — drift artifact
+
+## v2.2 in 6 lines
+- 2 pages: Home + Sequence (linear walker)
+- 1 engine: exposure-counter
+- 15 card types max (11 v1 + 4 v2 essentials)
+- 6 levels: L0..L5
+- ~1,530 cards target, all Tier 1 + Tier 2 cited
+- Source-of-truth: `cpp-t2/source-data/` (710 files)
+
+## ★ ANTI-DRIFT ENFORCEMENT (CRITICAL) ★
+
+Past Claude (me) drifted hard in v2 → v2.1 build. Added 14 unrequested
+features. The user wants minimalism + Test-2-focus + source-data
+grounding. NOT gamification, NOT dashboards, NOT smart engines.
+
+### DO NOT add any of these (they were drift):
+- Track / Mock / Postmortem / AtomTree / Weakness / Preflight pages
+- daily-deck-composer / adaptive-deck / stage-gate / failure-recovery /
+  dag-backward-retry / multi-q-propagation engines
+- AdversarialMockCard / FaultInjectionCard / PreflightCheckCard /
+  ConfidenceCalibrationCard / DAGRetryCard / DeltaCard /
+  TestDaySimCard / VariantGenCard / PostmortemCard (as card type)
+- Dashboard tiles, atom DAG visualizer, confidence rating, streak
+  counter, weakness heatmap, mock paper picker
+- Smart card selection, failure-pattern detection, burnout heuristic,
+  calendar/day scheduling, time-based card spacing
+- Live API calls at runtime
+- Build-time AI card generation
+- Spaced repetition (counter only)
+- Timers on cards
+
+### Before any code work:
+1. Re-read `docs/v2/MANIFEST.md` — the locked feature list
+2. Re-read `docs/v2/ANTI_DRIFT.md` — process for preventing drift
+3. Plan changes IN TERMS OF the manifest
+4. After changes, run `npm run lint:drift` to verify nothing off-manifest
+5. Per-wave checkpoint: report files added/modified/deleted to user
+
+---
+
+## Historical v1 Reference (preserved for context — NOT current target)
+
+The sections below describe v1 ship state (pre-v2 drift). Kept for history.
+For current build, follow v2.2 sections above.
+
 ## Read-First Order (Mandatory)
 
 1. **[MISSION.md](MISSION.md)** — non-negotiables. Do not deviate.

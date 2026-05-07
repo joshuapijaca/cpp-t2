@@ -32,7 +32,7 @@ code: |-
 question: After who_am_i(d) returns, what does main print?
 options:
   - label: A
-    text: '-0.9 — main`s d was not affected (function got a copy).'
+    text: "-0.9 — main`s d was not affected (function got a copy)."
   - label: B
     text: 7.4 — d and the function`s data were the same memory; the mutation persists.
   - label: C
@@ -40,7 +40,5 @@ options:
   - label: D
     text: undefined — accessing d after who_am_i is illegal.
 correctLabel: B
-explanation: >-
-  The & in the signature gives data the SAME memory as the caller`s d. Mutations are visible in
-  main.
-
+explanation: The & in the signature gives data the SAME memory as the caller`s d. Mutations are visible in main.
+drills: tier1:Q1:trace-strikethrough

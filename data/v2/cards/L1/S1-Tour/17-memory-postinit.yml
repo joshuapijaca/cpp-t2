@@ -1,18 +1,18 @@
-id: "L1-S1-tour-17-memory-postinit"
-schemaVersion: "v2"
-atomId: "T-00"
-qTags: ["Q1"]
+id: L1-S1-tour-17-memory-postinit
+schemaVersion: v2
+atomId: T-00
+qTags:
+  - Q1
 stage: 1
-level: "L1"
-type: "DemoCard"
-
+level: L1
+type: DemoCard
 stem: |
   Memory format 2/4: post brace-init, pre-call. Now numbers[0..4]
   hold their initial values from the brace-init and mystery holds
   its trailing value.
-
-whyOneLine: "After the brace-init: array cells filled, mystery still equals its init value (it has not been overwritten by the function yet)."
-
+whyOneLine: >-
+  After the brace-init: array cells filled, mystery still equals its init value (it has not been overwritten by the
+  function yet).
 demoCode: |
   // After: stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};
 
@@ -25,7 +25,6 @@ demoCode: |
   |   [ -2.1   ]  [  0.5   ]   [ -0.9   ]                 |
   |                                                       |
   +-------------------------------------------------------+
-
 highlightTokens:
   - "2.4"
   - "-3.7"
@@ -33,17 +32,15 @@ highlightTokens:
   - "-2.1"
   - "0.5"
   - "-0.9"
-
 usedIn:
   - "Q1: the snapshot just before who_am_i(d) is called"
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — brace-init values"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — brace-init values
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   Memory box format: post-init.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:dot-scalar-access

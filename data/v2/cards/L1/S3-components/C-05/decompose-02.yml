@@ -33,4 +33,4 @@ options:
     text: 5 cells — one per array slot.
 correctLabel: B
 explanation: A scalar is one named cell. mystery has no [] anywhere — it is not an array.
-
+drills: tier1:Q1:trace-strikethrough

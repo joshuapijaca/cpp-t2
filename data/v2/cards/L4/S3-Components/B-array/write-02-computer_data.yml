@@ -9,7 +9,7 @@ type: "FunctionWriteCard"
 stem: "Write ONE LINE: declare a fixed-size array of computer_data called computers, sized by MAX."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.3 Block B array decl"
+  ref: "v2:Q4 — Block B: desk_data desks[MAX]; (struct array sized by MAX)"
 commonMistakeIds: 
   - "CM-Q4-var-sized-array"
 status: "NEW"
@@ -30,3 +30,11 @@ forbiddenTokens:
   - "array<"
 passByRefRequired: false
 explanation: "Canonical: `computer_data computers[MAX];` — type, name, [bound], semicolon. MAX MUST be a compile-time constant (NOT count_var)."
+drills:
+  - tier1:Q4:struct-array-decl
+tier2:
+  - tier2:pfg:part-3-programs-as-concepts/3-collections/2-trailside/10-arrays
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/04-declaring-variables-with-custom-types
+  - tier2:v2:Q4
+  - tier2:practice:Q4
+  - tier2:task-sheet:P9

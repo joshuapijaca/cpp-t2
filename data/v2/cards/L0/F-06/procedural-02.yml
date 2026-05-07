@@ -52,9 +52,10 @@ variants:
         return 0;
       }
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-06 procedural — declare-print-return shape"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/2-main-function"
 
 commonMistakeIds: ["CM-F06a"]
 status: "NEW"

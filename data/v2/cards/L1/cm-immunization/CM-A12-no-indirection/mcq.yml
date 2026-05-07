@@ -1,31 +1,27 @@
-# Auto-emitted CM immunization (MCQCard) for CM-A12-no-indirection
-id: "L1-cmimm-CM-A12-no-indirection-mcq"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-A12-no-indirection-mcq
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   In algorithm A12 with `mystery = mystery + numbers[mystery]`, what is the array index expression?
-
-correct: '`mystery` — the value of mystery'
-
+correct: "`mystery` — the value of mystery"
 distractors:
-  - '`i` — the loop counter'
-  - '`SIZE` — the array length'
-  - '`numbers[i]` — the value at i'
-
+  - "`i` — the loop counter"
+  - "`SIZE` — the array length"
+  - "`numbers[i]` — the value at i"
 explanation: |
   A12 indexes BY mystery. Each iter the new mystery picks the next index.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-A12-no-indirection)"
-
-commonMistakeIds: ["CM-A12-no-indirection"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-A12-no-indirection)
+commonMistakeIds:
+  - CM-A12-no-indirection
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

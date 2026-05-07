@@ -1,25 +1,22 @@
-# =====================================================================
-# L1 / V-size-10 / TraceCard 02
-# size-10 variant
-# =====================================================================
-id: "L1-V-size10-02"
-schemaVersion: "v2"
-atomId: "A13"
-qTags: ["Q1"]
+id: L1-V-size10-02
+schemaVersion: v2
+atomId: A13
+qTags:
+  - Q1
 stage: 5
-level: "L1"
-type: "TraceCard"
-
-stem: "Trace sum-all with SIZE = 10, numbers = {2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0}. Loop runs 10 iterations."
-
+level: L1
+type: TraceCard
+stem: >-
+  Trace sum-all with SIZE = 10, numbers = {2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0}. Loop runs 10
+  iterations.
 code: |
   const int SIZE = 10;
-  
+
   struct stat_double {
     double numbers[SIZE];
     double mystery;
   };
-  
+
   int main() {
     stat_double data = { {2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0}, 0 };
     data.mystery = 0.0;
@@ -29,115 +26,113 @@ code: |
     cout << data.mystery << endl;
     return 0;
   }
-
-variables: ["i", "data.mystery"]
-
+variables:
+  - i
+  - data.mystery
 expectedTrace:
   - line: 9
-    variable: "data.mystery"
+    variable: data.mystery
     value: "0"
     output: null
   - line: 10
-    variable: "data.mystery"
+    variable: data.mystery
     value: "0.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "0"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "2.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "1"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "6.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "2"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "12.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "3"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "20.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "4"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "30.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "5"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "42.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "6"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "56.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "7"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "72.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "8"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "90.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "9"
     output: null
   - line: 12
-    variable: "data.mystery"
+    variable: data.mystery
     value: "110.0"
     output: null
   - line: 14
     variable: ""
     value: ""
     output: "110.0"
-
-terminalOutput: ["110.0"]
-
-inputMode: "final-only"
-
-teachMe: "Loop 10 iterations. Sum = 110.0."
-
+terminalOutput:
+  - "110.0"
+inputMode: final-only
+teachMe: Loop 10 iterations. Sum = 110.0.
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — SIZE=10 variant"
-
-commonMistakeIds: ["CM-S5-size-hard-coded"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
-notes: "Size-10 variant trace."
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — SIZE=10 variant
+commonMistakeIds:
+  - CM-S5-size-hard-coded
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
+notes: Size-10 variant trace.
+drills: tier1:Q1:for-header

@@ -27,13 +27,11 @@ options:
   - label: A
     text: Just the array values — outer = inner.
   - label: B
-    text: 'The whole struct: array field + mystery field.'
+    text: "The whole struct: array field + mystery field."
   - label: C
     text: A C++ scope block; nothing to do with the struct.
   - label: D
     text: A function body for `d`.
 correctLabel: B
-explanation: >-
-  Outer braces = the struct brace-init list, listing every field in declared order. Inner = the
-  array sub-init.
-
+explanation: Outer braces = the struct brace-init list, listing every field in declared order. Inner = the array sub-init.
+drills: tier1:Q1:brace-init-nested

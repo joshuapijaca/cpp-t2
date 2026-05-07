@@ -29,6 +29,7 @@ explanation: |
   inside a struct passed by reference, but the underlying mechanism
   is the same: no copy.
 
+drills: ["tier1:prereq:array-decay-t-arr-in-parameter-list"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"

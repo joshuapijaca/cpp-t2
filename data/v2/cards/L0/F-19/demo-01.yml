@@ -38,6 +38,7 @@ usedIn:
   - "Q3 read function (array as struct field, then iterate)"
   - "Q4 main program (declare local array, fill it, print it)"
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"

@@ -1,17 +1,19 @@
-id: "L1-S3-C-18-cloze-01"
-schemaVersion: "v2"
-atomId: "C-18"
-qTags: ["Q1"]
+id: L1-S3-C-18-cloze-01
+schemaVersion: v2
+atomId: C-18
+qTags:
+  - Q1
 stage: 3
-level: "L1"
-type: "ClozeCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L1
+type: ClozeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-18"
-commonMistakeIds: ["CM-C18a"]
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-18
+commonMistakeIds:
+  - CM-C18a
 stem: |
   Fill the operator that asks "is the array element strictly less
   than zero?" (sum-negative guard).
@@ -19,10 +21,11 @@ code: |
   if (data.numbers[i] ___ 0) {
     data.mystery = data.mystery + data.numbers[i];
   }
-clozeSentence: "if (data.numbers[i] ___ 0) { ... }   // sum-negative guard"
-answer: "<"
+clozeSentence: if (data.numbers[i] ___ 0) { ... }   // sum-negative guard
+answer: <
 explanation: |
   Sum-negative writes `data.numbers[i] < 0`. Targets CM-C18a (flips
   the inequality and accidentally sums positive values). Zero is
   excluded by strict less-than.
-notes: "Cloze form for QA-M10 type-diversity. Drills the strict-negative guard."
+notes: Cloze form for QA-M10 type-diversity. Drills the strict-negative guard.
+drills: tier1:Q1:if-cond-gt

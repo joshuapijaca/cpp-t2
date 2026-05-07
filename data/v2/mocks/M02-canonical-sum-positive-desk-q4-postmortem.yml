@@ -1,20 +1,17 @@
-# =====================================================================
-# L5 / Mock M02 Q4 POSTMORTEM
-# Diff failed attempt vs canonical (V2.0 main, MAX=700).
-# =====================================================================
-id: "L5-mock-M02-q4-postmortem"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q4"]
+id: L5-mock-M02-q4-postmortem
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q4
+drills: ["Q1", "Q2", "Q3", "Q4"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
+level: L5
+type: WalkthroughCard
 stem: |
   Postmortem for Mock M02 Q4 (main, V2.0 shape). Why did the failed
   attempt below lose marks? What's the exact repair?
-
-failedAttempt: |
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   int main() {
     desk_data desks[100];
     int desk_num;
@@ -23,37 +20,33 @@ failedAttempt: |
     return 0;
   }
   // Bugs: (1) hard-coded 100 instead of MAX=700; (2) no print loop.
-
-diagnosis: |
-  Three stacked V2.0 issues: (1) `const int MAX = 700;` is the
-  V2.0-verbatim rubric token; the mock uses 700 (not 100). Hard-coding
-  `desks[100]` loses the const-named-MAX rubric mark. (2) The print
-  loop is missing — main must iterate desks and `cout` each field
-  with `<< endl` on the last. (3) The cout prompt `"How many desks? "`
-  is also expected per the V2.0 shape.
-
-repairSteps:
-  - "Add `const int MAX = 700;` then change `desks[100]` to `desks[MAX]`."
-  - "Add the cout prompt line: `cout << \"How many desks? \";`."
-  - "Add the for-loop after read_desks: `for (int i = 0; i < desk_num; i++) { cout << desks[i].room_id << \", \"; ... << endl; }`."
-  - "Verify: token-match for `const int MAX = 700` AND `endl` AND `return 0;` all pass."
-
-preventionTip: |
-  Every Q4 V2.0 main has these non-negotiable tokens: `const int MAX = 700;`, `desk_data desks[MAX];`, `int desk_num;`, `read_desks(desks, desk_num);`, print loop with `endl`, `return 0;`.
-
-explanation: |
-  Postmortem cards diff your failed answer against the canonical
-  answer, label the bug, and surface exactly what to repair. Per
-  Mock retry policy §7.5: any 70-89 score injects 4 postmortem
-  cards (one per Q) before the next mock attempt unlocks.
-
+steps:
+  - line: 1
+    code: Add `const int MAX = 700;` then change `desks[100]` to `desks[MAX]`.
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: 'Add the cout prompt line: `cout << "How many desks? ";`.'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: >-
+      Add the for-loop after read_desks: `for (int i = 0; i < desk_num; i++) { cout << desks[i].room_id << ", "; ... <<
+      endl; }`.
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: 'Verify: token-match for `const int MAX = 700` AND `endl` AND `return 0;` all pass.'
+    annotation: Repair step 4
+    atomIds: []
 source:
-  kind: "v2"
-  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 verbatim — Mock M02 retro"
-
-commonMistakeIds: ["CM-missing-const"]
-status: "NEW"
-createdBy: "SA-L5-Mock"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test2-SIT102-practice-2026T1.txt + V2.0 verbatim — Mock M02 retro
+commonMistakeIds:
+  - CM-missing-const
+status: NEW
+createdBy: SA-L5-Mock
 notes: |
   Mock M02 retro — Q4 repair drill. V2.0 shape: MAX=700, desk_num, print loop, endl, return 0;.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

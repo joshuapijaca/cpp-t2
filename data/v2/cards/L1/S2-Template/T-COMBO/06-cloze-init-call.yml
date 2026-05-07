@@ -1,17 +1,15 @@
-id: "L1-S2-TC0-06-cloze-init-call"
-schemaVersion: "v2"
-atomId: "T-08"
-qTags: ["Q1"]
+id: L1-S2-TC0-06-cloze-init-call
+schemaVersion: v2
+atomId: T-08
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   The procedure is fully given. Fill in the brace-init and call.
-
 prompt: |
   Provide the hand-execute body (brace-init + call).
-
 template: |
   void who_am_i(stat_double &data) {
     data.mystery = 0.0;
@@ -24,7 +22,6 @@ template: |
 
   // brace-init + call here:
   ___
-
 canonicalAnswer: |
   void who_am_i(stat_double &data) {
     data.mystery = 0.0;
@@ -37,26 +34,22 @@ canonicalAnswer: |
 
   stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};
   who_am_i(d);
-
 keyChecks:
-  - "stat_double d ="
+  - stat_double d =
   - "{2.4, -3.7, 1.0, -2.1, 0.5}"
   - "-0.9"
-  - "who_am_i(d);"
-
+  - who_am_i(d);
 forbiddenTokens:
   - "&d"
-
 explanation: |
   Two lines below the procedure. Init + call.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — hand-execute body cloze"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — hand-execute body cloze
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-COMBO init + call cloze.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:brace-block

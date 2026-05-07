@@ -30,6 +30,7 @@ explanation: |
   The function name is `main` — all lowercase. C++ identifiers are
   case-sensitive; `Main` is a different (and undefined) identifier.
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"

@@ -30,6 +30,7 @@ explanation: |
   system, NOT a file extension, and NOT the source file — it is a
   third party that reads your text and writes the runnable binary.
 
+drills: ["tier1:prereq:compiler-turns-source-into-program"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md (Compilers and Interpreters)"

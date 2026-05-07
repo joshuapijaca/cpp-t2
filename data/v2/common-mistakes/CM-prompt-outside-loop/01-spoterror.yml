@@ -1,44 +1,35 @@
-id: "CM-prompt-outside-loop-spoterror"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: CM-prompt-outside-loop-spoterror
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Spot the error. Q3 prompt outside loop. The code below has the bug labeled
-  by CM-prompt-outside-loop. Find the line and provide the fix.
+  Which line below contains the bug?
 
-brokenCode: |
+  Broken code:
   // Q3 broken excerpt:
   // before loop: cout << "Enter all titles: "; (only once)
   // (canonical was: // inside loop: cout << "Enter title: "; cin >> arr[i].title;)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  // inside loop: cout << "Enter title: "; cin >> arr[i].title;
-  ;
-
-bugCategory: "CM-prompt-outside-loop"
-
-keyChecks:
-  - "// inside loop: cout << \"Ente"
-
+correct: '// before loop: cout << "Enter all titles: "; (only once)'
+distractors:
+  - '// Q3 broken excerpt:'
+  - '// (canonical was: // inside loop: cout << "Enter title: "; cin >> arr[i].title;)'
+  - ;
 explanation: |
   Bug: Prompt printed once, before loop — should be per iteration.
   Fix: // inside loop: cout << "Enter title: "; cin >> arr[i].title;
   This common mistake costs marks on Q3 per the rubric.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-prompt-outside-loop"
-
-commonMistakeIds: ["CM-prompt-outside-loop"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-prompt-outside-loop
+commonMistakeIds:
+  - CM-prompt-outside-loop
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 1/5 (SpotError) for CM-prompt-outside-loop.

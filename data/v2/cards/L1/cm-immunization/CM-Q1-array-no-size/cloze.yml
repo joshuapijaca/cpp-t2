@@ -1,34 +1,30 @@
-# Hand-authored CM immunization (ClozeCard) for CM-Q1-array-no-size
-id: "L1-cmimm-CM-Q1-array-no-size-cloze"
-schemaVersion: "v2"
-atomId: "T-01"
-qTags: ["Q1"]
+id: L1-cmimm-CM-Q1-array-no-size-cloze
+schemaVersion: v2
+atomId: T-01
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "ClozeCard"
-
-stem: "Fill in the size constant in the struct array field."
-
+level: L1
+type: ClozeCard
+stem: Fill in the size constant in the struct array field.
 code: |
   const int SIZE = 5;
   struct stat_double {
       double numbers[___];
       double mystery;
   };
-
-clozeSentence: 'Fill in the compile-time constant for the array size.'
-
-answer: 'SIZE'
-
-explanation: |
-  SIZE is the file-scope `const int SIZE = 5;` constant. Inside a struct, array sizes must be compile-time constants — `SIZE` qualifies, but a runtime variable would not.
-
+clozeSentence: Fill in the compile-time constant for the array size.
+answer: SIZE
+explanation: >
+  SIZE is the file-scope `const int SIZE = 5;` constant. Inside a struct, array sizes must be compile-time constants —
+  `SIZE` qualifies, but a runtime variable would not.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-array-no-size)"
-
-commonMistakeIds: ["CM-Q1-array-no-size"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-array-no-size)
+commonMistakeIds:
+  - CM-Q1-array-no-size
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills: tier1:Q1:const

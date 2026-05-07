@@ -28,6 +28,7 @@ explanation: |
   between the `)` and the `{`. The `}` ends the function — nothing
   comes after it (no `;`).
 
+drills: ["tier1:prereq:function-definition-syntax"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/2-organising-code/0-panorama/01-function-decl"

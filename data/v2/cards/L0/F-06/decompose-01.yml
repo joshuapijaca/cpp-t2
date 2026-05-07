@@ -56,6 +56,7 @@ explanation: |
   language conformance.
   D is wrong: the choice is unrelated to what `cout` prints.
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"

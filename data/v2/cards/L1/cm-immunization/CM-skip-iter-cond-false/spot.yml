@@ -1,45 +1,49 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-skip-iter-cond-false
-id: "L1-cmimm-CM-skip-iter-cond-false-spot"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-skip-iter-cond-false-spot
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
+level: L1
+type: MCQCard
+stem: >-
+  In this Q1 sum-positive trace, the student dropped the mystery row entirely on a `false` iteration. What did they get
+  wrong?
 
-stem: |
-  In this Q1 sum-positive trace, the student dropped the mystery row entirely on a `false` iteration. What did they get wrong?
 
-brokenCode: |
+  Code under review:
+
   // algo: if (numbers[i] > 0) mystery = mystery + numbers[i];
+
   // numbers = {2.4, -3.7, 1.0}; mystery init = 0.0
+
   //
+
   // i=0:  2.4>0 true   0.0+2.4=2.4   mystery=2.4
+
   // i=1:  -3.7>0 false [no row]
+
   // i=2:  1.0>0 true   ?.?+1.0       mystery=?
 
-bugLocations: [5]
 
-fixedCode: |
-  // CORRECT: even when COND is false you MUST record the unchanged mystery
-  // i=0:  2.4>0 true   0.0+2.4=2.4   mystery=2.4
-  // i=1:  -3.7>0 false (skip body)   mystery=2.4 (unchanged)
-  // i=2:  1.0>0 true   2.4+1.0=3.4   mystery=3.4
 
-bugCategory: 'omitted false-branch row in trace'
-
-keyChecks:
-  - 'mystery = 2.4'
-
-explanation: |
-  When the if-condition is false the body skips, but the iteration still happens and mystery still has its previous value. Always record a row (even if mystery is unchanged) so the next iter reads the right value.
-
+  Which diagnosis describes the bug?
+correct: omitted false-branch row in trace
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  When the if-condition is false the body skips, but the iteration still happens and mystery still has its previous
+  value. Always record a row (even if mystery is unchanged) so the next iter reads the right value.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-skip-iter-cond-false)"
-
-commonMistakeIds: ["CM-skip-iter-cond-false"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-skip-iter-cond-false)
+commonMistakeIds:
+  - CM-skip-iter-cond-false
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

@@ -1,63 +1,48 @@
-id: "L5-postmortem-01-skip-pre-loop-init"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: L5-postmortem-01-skip-pre-loop-init
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
+drills: ["Q1"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q1 trace — student skipped the pre-loop init line `data.mystery = 0.0;`. Final mystery cell came out wrong because `mystery` started at whatever memory held, not zero. Read the failed attempt, study the canonical, walk the diff.
-
-failedAttempt: |
-  void who_am_i(test_data &data) {
-      // (no init line here — student jumped straight into the loop)
-      for (int i = 0; i < SIZE; i++) {
-          data.mystery = data.mystery + data.numbers[i];
-      }
-  }
-
-diagnosis: |
-  Pre-loop init `data.mystery = 0.0;` (or `= data.numbers[0];` per spec) belongs BEFORE the for-loop. The student went straight into the loop, so `mystery` started at its uninitialised value (often 0.0 by brace-init, but per spec V2.0 the seed was -20.0 from `numbers[0]`). Every iteration's running sum used the wrong baseline. Compiler said nothing — the bug is silent.
-
-repairSteps:
-  - "data.mystery = 0.0;   // <-- ADD THIS LINE FIRST (pre-loop init)"
-  - "for (int i = 0; i < SIZE; i++) {"
-  - "    data.mystery = data.mystery + data.numbers[i];"
-  - "}"
-
-preventionTip: |
-  Before writing `for (...)`, look ABOVE the loop for a seed assignment. If the spec says `mystery = 0.0` or `mystery = numbers[0]`, that line runs ONCE before iteration. Mantra: "init-then-iterate."
-
-explanation: |
-  Lesson learned — pre-loop initialization is the silent failure mode of trace questions. The for-loop is what students see; the init line is what they skim. Always scan the function top-to-bottom and ask "what runs before the loop body?" before you start tracing. Saloni's seminar warning at 21:14: "don't skip the line before the loop." This bug cost the student the entire mystery column.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q1 trace — student skipped the pre-loop init line `data.mystery = 0.0;`. Final mystery cell came out wrong because
+  `mystery` started at whatever memory held, not zero. Read the failed attempt, study the canonical, walk the diff.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   void who_am_i(test_data &data) {
       data.mystery = 0.0;
       for (int i = 0; i < SIZE; i++) {
           data.mystery = data.mystery + data.numbers[i];
       }
   }
-
-annotations:
+steps:
+  - line: 1
+    code: data.mystery = 0.0;   // <-- ADD THIS LINE FIRST (pre-loop init)
+    annotation: Repair step 1
+    atomIds: []
   - line: 2
-    severity: err
-    note: "Missing pre-loop init `data.mystery = 0.0;`. Variable starts in undefined state — trace baseline is wrong from row 0."
+    code: for (int i = 0; i < SIZE; i++) {
+    annotation: Repair step 2
+    atomIds: []
   - line: 3
-    severity: info
-    note: "Loop header is correct: `i = 0` start, `i < SIZE` exit, `i++` step."
+    code: '    data.mystery = data.mystery + data.numbers[i];'
+    annotation: Repair step 3
+    atomIds: []
   - line: 4
-    severity: warn
-    note: "Body shape correct, but reads-and-writes a `mystery` that was never initialised. Final value is garbage + sum, not 0 + sum."
-
+    code: '}'
+    annotation: Repair step 4
+    atomIds: []
 source:
-  kind: "seminar"
-  ref: "SIT102 Seminar Mondays 6pm new (2) @ 21:14 — Saloni: 'don't skip the line before the loop'"
-
-commonMistakeIds: ["CM-skip-pre-loop-init"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: seminar
+  ref: 'SIT102 Seminar Mondays 6pm new (2) @ 21:14 — Saloni: ''don''t skip the line before the loop'''
+commonMistakeIds:
+  - CM-skip-pre-loop-init
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #01 — Q1 / pre-loop init missed. Real failed-attempt diff per card-quality audit.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

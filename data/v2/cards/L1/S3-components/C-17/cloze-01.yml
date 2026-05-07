@@ -1,17 +1,19 @@
-id: "L1-S3-C-17-cloze-01"
-schemaVersion: "v2"
-atomId: "C-17"
-qTags: ["Q1"]
+id: L1-S3-C-17-cloze-01
+schemaVersion: v2
+atomId: C-17
+qTags:
+  - Q1
 stage: 3
-level: "L1"
-type: "ClozeCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L1
+type: ClozeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-17"
-commonMistakeIds: ["CM-C17a"]
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-17
+commonMistakeIds:
+  - CM-C17a
 stem: |
   Fill the right-hand operand of the V2.0 sum-positive guard:
   "is the array element strictly greater than zero?"
@@ -19,11 +21,12 @@ code: |
   if (data.numbers[i] > ___) {
     data.mystery = data.mystery + data.numbers[i];
   }
-clozeSentence: "if (data.numbers[i] > ___) { ... }   // sum-positive guard"
+clozeSentence: if (data.numbers[i] > ___) { ... }   // sum-positive guard
 answer: "0"
 explanation: |
   V2.0 sums only the positive numbers; the guard is
   `data.numbers[i] > 0`. Zero itself is excluded (strictly greater).
   Targets CM-C17a (uses `>= 0` and accidentally adds zeros to the
   sum).
-notes: "Cloze form for QA-M10 type-diversity. Drills the strict-positive guard."
+notes: Cloze form for QA-M10 type-diversity. Drills the strict-positive guard.
+drills: tier1:Q1:if-cond-gt

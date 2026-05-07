@@ -39,9 +39,10 @@ usedIn:
   - "Q1 trace (the struct setup line on every Q1 — exact format)"
   - "Q4 main (an alternative way to fill the struct without cin)"
 
+drills: ["tier1:prereq:variable-declaration-initialisation"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 attempt 1: stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9 };"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/07-variable"
 
 commonMistakeIds: ["CM-F11a"]
 status: "NEW"

@@ -79,9 +79,10 @@ variants:
         return 0;
       }
 
+drills: ["tier1:prereq:statement-terminator-semicolon"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-07 procedural — full-program semicolon repair"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/2-communicating-syntax/2-trailside/02-statement"
 
 commonMistakeIds: ["CM-F07a", "CM-F07b", "CM-F07c"]
 status: "NEW"

@@ -15,12 +15,12 @@ source:
 commonMistakeIds:
   - CM-C15a
 stem: >-
-  Given `stat_double data = { {-1, -2, -3, -4, -5}, 0 };` and no further mutations — what does
-  `data.mystery` evaluate to?
-correct: '0'
+  Given `stat_double data = { {-1, -2, -3, -4, -5}, 0 };` and no further mutations — what does `data.mystery` evaluate
+  to?
+correct: "0"
 distractors:
-  - '-1'
-  - '-5'
-  - '0.0'
-explanation: 'data.mystery reads the scalar cell. It was filled by the trailing brace-init value: 0.'
-
+  - "-1"
+  - "-5"
+  - "0.0"
+explanation: "data.mystery reads the scalar cell. It was filled by the trailing brace-init value: 0."
+drills: tier1:Q1:accumulator

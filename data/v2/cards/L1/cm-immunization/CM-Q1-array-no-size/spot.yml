@@ -1,45 +1,39 @@
-# Hand-authored CM immunization (FaultInjectionCard) for CM-Q1-array-no-size
-id: "L1-cmimm-CM-Q1-array-no-size-spot"
-schemaVersion: "v2"
-atomId: "T-01"
-qTags: ["Q1"]
+id: L1-cmimm-CM-Q1-array-no-size-spot
+schemaVersion: v2
+atomId: T-01
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   This struct array field has empty brackets. Fix it so the struct compiles.
 
-brokenCode: |
+  Code under review:
   const int SIZE = 5;
   struct stat_double {
       double numbers[];
       double mystery;
   };
 
-bugLocations: [3]
 
-fixedCode: |
-  const int SIZE = 5;
-  struct stat_double {
-      double numbers[SIZE];
-      double mystery;
-  };
-
-bugCategory: "empty array brackets in struct field"
-
-keyChecks:
-  - "numbers[SIZE]"
-
-explanation: |
-  Inside a struct, the array size MUST be a compile-time constant. Empty brackets are a compile error. Use SIZE (declared `const int SIZE = 5;` above).
-
+  Which diagnosis describes the bug?
+correct: empty array brackets in struct field
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  Inside a struct, the array size MUST be a compile-time constant. Empty brackets are a compile error. Use SIZE
+  (declared `const int SIZE = 5;` above).
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-array-no-size)"
-
-commonMistakeIds: ["CM-Q1-array-no-size"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-array-no-size)
+commonMistakeIds:
+  - CM-Q1-array-no-size
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:const

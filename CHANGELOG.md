@@ -953,4 +953,77 @@ Authorized: "ok do the next milestone".
 
 ---
 
+## 2026-05-07 (late evening) | v2.2 strip-down: minimalist linear-walk per user spec — strip 14 drift items, re-cite all citations to real source-data
+
+**Decision**: Cut every off-manifest feature accumulated in v2 → v2.1 and
+re-ground every card citation in real `source-data/` paths. Final shape
+matches `docs/v2/MANIFEST.md` exactly: 2 pages, 1 engine, 15 card types,
+6 levels, 100% source-cited.
+
+**Why**: Past Claude (me) drifted hard between v2.0 and v2.1 — added 14
+unrequested features (Track/Mock/Postmortem/AtomTree/Weakness/Preflight
+pages, daily-deck/stage-gate/adaptive/failure-recovery/dag-retry/
+multi-q-propagation engines, 12 forbidden card types). User wants
+minimalism + Test-2-focus + source-data grounding, not gamification or
+smart engines. T-1 to exam: ship the build that matches the spec.
+
+### Phase A — strip drift
+
+- Deleted 6 forbidden pages (Track, Mock, Postmortem, AtomTree,
+  Weakness, Preflight)
+- Deleted 6 forbidden engines (daily-deck-composer, adaptive-deck,
+  stage-gate, failure-recovery, dag-backward-retry, multi-q-propagation)
+- Deleted 12 forbidden card components (AdversarialMock, FaultInjection,
+  Preflight, ConfidenceCalibration, DAGRetry, Delta, TestDaySim,
+  VariantGen, Postmortem-as-card, etc.)
+- Migrated 303 cards from off-spec types to kept types
+  (FaultInjection → MCQ, Postmortem → Walkthrough, etc.)
+- Reduced schema enum from 23 → 15 card types per MANIFEST
+- Rewrote Home + Sequence v1-style minimalist
+- Stripped session-store to minimal hooks
+
+### Phase B — re-cite to real source-data
+
+- L0: 446/517 cards re-cited (PFG paths verified)
+- L1: 836 cards re-cited (Saloni VTT timestamps verified)
+- L2: 257/259 cards re-cited (struct PFG sections)
+- L3: 430 cards re-cited (incl. `&list[]` critical pattern)
+- L4: 403 cards re-cited (was 90% FAKE — now 100% real)
+- L5: 119 cards re-cited (V2.0 verbatim mock M09 confirmed)
+- 0 cards archived (all salvageable)
+- All 44 Tier 1 atoms have ≥3 cards drilling them
+
+### Anti-drift policy locked
+
+- `docs/v2/MANIFEST.md` (approved + forbidden lists)
+- `docs/v2/ANTI_DRIFT.md` (process for preventing drift)
+- `build-v2/lint-drift.ts` (build-time enforcement, clean)
+- `CLAUDE.md` updated with anti-drift section
+- `docs/17_*.md` + `docs/18_*.md` deprecated with banners
+
+### Final state
+
+- 2 pages (Home + Sequence)
+- 1 engine (exposure-counter)
+- 15 card types
+- 6 levels (L0..L5)
+- 2,528 cards, 0 invalid, all source-grounded
+- 36 mock files
+- Build: 2731 modules, 533.36 KB total gzip (index 403.87 KB,
+  vendor-react 60.49 KB, cards 32.10 KB, vendor 28.10 KB,
+  CSS 4.44 KB, pages 3.61 KB, engines 0.75 KB)
+- Lint: 0 errors across cards/atoms/deck/drift
+- Tests: 50/50 unit pass (exposure-counter + lint-cards specs)
+- TypeScript: clean
+- PWA installable + offline + auto-update preserved
+
+**Source**: `cpp-t2/dist-v2/RELEASE.md`, `cpp-t2/docs/v2/MANIFEST.md`,
+`cpp-t2/docs/v2/ANTI_DRIFT.md`, `cpp-t2/CLAUDE.md`,
+`cpp-t2/build-v2/lint-drift.ts`.
+
+**Authorized by**: user (explicit "ship clean per spec — strip drift,
+re-cite, commit") + RULE 4 transparency.
+
+---
+
 <!-- Append new decisions here. Don't edit prior entries. -->

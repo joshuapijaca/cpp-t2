@@ -34,6 +34,7 @@ explanation: |
   file before compiling. Without these characters, the compiler will
   never know about `cout`.
 
+drills: ["tier1:prereq:include-iostream"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 1 · 1-sequence-and-data/2-trailside/10-library.md"

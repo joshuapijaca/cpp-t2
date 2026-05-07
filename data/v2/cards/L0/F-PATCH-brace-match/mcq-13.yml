@@ -42,9 +42,10 @@ explanation: |
   C is wrong: `;` is a statement terminator, not a brace.
   D is wrong: A is visible. C++ does not use blank lines for scope.
 
+drills: ["tier1:prereq:brace-match-drill-depth-coloured-nested-blocks"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §B.2 patch — brace-match drill card 13/30"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-compound"
 
 commonMistakeIds: ["CM-F08a"]
 status: "NEW"

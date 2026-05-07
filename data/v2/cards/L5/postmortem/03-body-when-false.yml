@@ -1,41 +1,17 @@
-id: "L5-postmortem-03-body-when-false"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: L5-postmortem-03-body-when-false
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
+drills: ["Q1"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q1 trace — student executed the if-body even when the condition was false. They added every element to `mystery`, even the negatives the spec said to skip. Read the failed attempt, study the canonical, walk the diff.
-
-failedAttempt: |
-  void who_am_i(test_data &data) {
-      data.mystery = 0.0;
-      for (int i = 0; i < SIZE; i++) {
-          if (data.numbers[i] > 0) {
-          }
-          data.mystery = data.mystery + data.numbers[i];
-      }
-  }
-
-diagnosis: |
-  The accumulation `mystery = mystery + numbers[i]` was placed OUTSIDE the if-block (after the closing `}`). The if-test still runs each iteration but its body is empty, so the accumulation runs unconditionally — including for negative values. The trace shows mystery growing on every iteration instead of only when `numbers[i] > 0`.
-
-repairSteps:
-  - "for (int i = 0; i < SIZE; i++) {"
-  - "    if (data.numbers[i] > 0) {"
-  - "        data.mystery = data.mystery + data.numbers[i];   // INSIDE the if-body"
-  - "    }"
-  - "}"
-
-preventionTip: |
-  An action belongs INSIDE `{ ... }` of the conditional. If the action sits AFTER the closing `}`, it runs unconditionally. When tracing, ask "is this line inside or outside the if-block?" before deciding whether it executes.
-
-explanation: |
-  Lesson learned — brace placement determines control flow. The body of `if` is what's between its `{` and matching `}`. Empty if-bodies usually mean the action escaped to the wrong scope. When you see a "sum-positive" or "count-evens" pattern, the conditional UPDATE must live inside the if-block.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q1 trace — student executed the if-body even when the condition was false. They added every element to `mystery`, even
+  the negatives the spec said to skip. Read the failed attempt, study the canonical, walk the diff.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   void who_am_i(test_data &data) {
       data.mystery = 0.0;
       for (int i = 0; i < SIZE; i++) {
@@ -44,22 +20,35 @@ canonicalAnswer: |
           }
       }
   }
-
-annotations:
+steps:
+  - line: 1
+    code: for (int i = 0; i < SIZE; i++) {
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '    if (data.numbers[i] > 0) {'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '        data.mystery = data.mystery + data.numbers[i];   // INSIDE the if-body'
+    annotation: Repair step 3
+    atomIds: []
   - line: 4
-    severity: warn
-    note: "If-body is empty `{ }`. The compiler accepts this but the conditional logic is now a no-op."
-  - line: 6
-    severity: err
-    note: "Accumulation lives OUTSIDE the if-block. Runs on every iteration (positives AND negatives). Should be inside `{ ... }` of the if."
-
+    code: '    }'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '}'
+    annotation: Repair step 5
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q1 conditional accumulation"
-
-commonMistakeIds: ["CM-body-when-false"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q1 conditional accumulation
+commonMistakeIds:
+  - CM-body-when-false
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #03 — Q1 / if-body action escaped scope. Real failed-attempt diff.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

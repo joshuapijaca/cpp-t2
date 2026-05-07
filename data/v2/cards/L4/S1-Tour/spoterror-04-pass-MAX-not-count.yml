@@ -1,69 +1,57 @@
-id: "L4-S1-spoterror-04"
-schemaVersion: "v2"
-atomId: "Q-00"
-qTags: 
-  - "Q4"
+id: L4-S1-spoterror-04
+schemaVersion: v2
+atomId: Q-00
+qTags:
+  - Q4
 stage: 1
-level: "L4"
-type: "FaultInjectionCard"
-stem: "Spot the bug: wrong argument. Read the broken main() and identify which line is wrong, then write the fix."
-source: 
-  kind: "v2"
-  ref: "C++T2 spec §6.4 Q4 common error #04 — wrong argument"
-commonMistakeIds: 
-  - "CM-Q4-pass-MAX-not-count"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L4-Q4"
-brokenCode: |
+level: L4
+type: MCQCard
+stem: |-
+  Spot the bug: wrong argument. Read the broken main() and identify which line is wrong, then write the fix.
+
+  Code under review:
   int main()
   {
       const int MAX = 700;
       desk_data desks[MAX];
       int desk_num;
-  
+
       cout << "How many desks? ";
       cin >> desk_num;
-  
+
       read_desks(desks, MAX);
-  
+
       for (int i = 0; i < desk_num; i++)
       {
           cout << desks[i].room_id << ", ";
           cout << desks[i].d_id << ", ";
           cout << desks[i].number_of_screens << endl;
       }
-  
+
       return 0;
   }
-bugLocations: 
-  - 10
-fixedCode: |
-  int main()
-  {
-      const int MAX = 700;
-      desk_data desks[MAX];
-      int desk_num;
-  
-      cout << "How many desks? ";
-      cin >> desk_num;
-  
-      read_desks(desks, desk_num);
-  
-      for (int i = 0; i < desk_num; i++)
-      {
-          cout << desks[i].room_id << ", ";
-          cout << desks[i].d_id << ", ";
-          cout << desks[i].number_of_screens << endl;
-      }
-  
-      return 0;
-  }
-bugCategory: "wrong argument"
-keyChecks: 
-  - "const int MAX"
-  - "desks[MAX]"
-  - "read_desks(desks, desk_num)"
-  - "i < desk_num"
-  - "return 0;"
-explanation: "Passes MAX (700) to read fn → fn loops 700 times asking for input even if user only wants 5 desks. Pass count_var, NEVER MAX."
+
+
+  Which diagnosis describes the bug?
+correct: wrong argument
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >-
+  Passes MAX (700) to read fn → fn loops 700 times asking for input even if user only wants 5 desks. Pass count_var,
+  NEVER MAX.
+source:
+  kind: v2
+  ref: 'v2:Q4 — common-mistake: passing MAX (capacity) instead of count'
+commonMistakeIds:
+  - CM-Q4-pass-MAX-not-count
+status: NEW
+createdBy: SA-L4-Q4
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q4:fn-call-no-amp
+tier2:
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-2-function-calls
+  - tier2:v2:Q4

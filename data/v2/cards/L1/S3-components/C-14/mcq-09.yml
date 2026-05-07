@@ -16,14 +16,14 @@ commonMistakeIds:
   - CM-C14a
   - CM-C14b
 stem: >-
-  Given `stat_double data = { {-3, 6, -1, 8, -2}, 0 };` and i = 3, evaluate `data.numbers[i]`.
-  (Note: NOT the value of i.)
-correct: '8'
+  Given `stat_double data = { {-3, 6, -1, 8, -2}, 0 };` and i = 3, evaluate `data.numbers[i]`. (Note: NOT the value of
+  i.)
+correct: "8"
 distractors:
-  - '3'
-  - '-2'
-  - '0'
+  - "3"
+  - "-2"
+  - "0"
 explanation: >-
-  data.numbers[i] dereferences index i of the array. With i=3, that is numbers[3] = 8. Mistake to
-  avoid: returning i (=3) instead of the cell value.
-
+  data.numbers[i] dereferences index i of the array. With i=3, that is numbers[3] = 8. Mistake to avoid: returning i
+  (=3) instead of the cell value.
+drills: tier1:Q1:trace-strikethrough

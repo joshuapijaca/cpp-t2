@@ -27,14 +27,14 @@ variables:
 expectedTrace:
   - line: 3
     variable: data.mystery
-    value: '5'
+    value: "5"
     output: null
   - line: 4
-    variable: ''
-    value: ''
-    output: '5'
+    variable: ""
+    value: ""
+    output: "5"
 terminalOutput:
-  - '5'
+  - "5"
 inputMode: final-only
 teachMe: Find-max/find-min seeds mystery with numbers[0] so the first compare has a valid baseline.
-
+drills: tier1:Q1:trace-strikethrough

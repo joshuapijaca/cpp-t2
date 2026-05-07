@@ -1,31 +1,28 @@
-# Hand-authored CM immunization (MCQCard) for CM-Q1-mystery-wrong-type
-id: "L1-cmimm-CM-Q1-mystery-wrong-type-mcq"
-schemaVersion: "v2"
-atomId: "T-01"
-qTags: ["Q1"]
+id: L1-cmimm-CM-Q1-mystery-wrong-type-mcq
+schemaVersion: v2
+atomId: T-01
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   In `struct stat_double { double numbers[SIZE]; ___ mystery; };`, what is the right type for mystery?
-
-correct: '`double` — same type as numbers[] elements (accumulator matches element type)'
-
+correct: "`double` — same type as numbers[] elements (accumulator matches element type)"
 distractors:
-  - '`int` — saves space'
-  - '`float` — same family, different precision'
-  - '`void` — type-less placeholder'
-
-explanation: |
-  mystery stores running sums/products of doubles, so it must hold doubles. int truncates; float loses precision; void is not a value type.
-
+  - "`int` — saves space"
+  - "`float` — same family, different precision"
+  - "`void` — type-less placeholder"
+explanation: >
+  mystery stores running sums/products of doubles, so it must hold doubles. int truncates; float loses precision; void
+  is not a value type.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-mystery-wrong-type)"
-
-commonMistakeIds: ["CM-Q1-mystery-wrong-type"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-mystery-wrong-type)
+commonMistakeIds:
+  - CM-Q1-mystery-wrong-type
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

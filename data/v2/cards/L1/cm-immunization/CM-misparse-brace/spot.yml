@@ -1,42 +1,45 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-misparse-brace
-id: "L1-cmimm-CM-misparse-brace-spot"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-misparse-brace-spot
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
+level: L1
+type: MCQCard
+stem: >-
+  This Q1 trace mis-parsed the brace-init. The student treated the comma after the inner array as part of numbers. Find
+  the line that's wrong.
 
-stem: |
-  This Q1 trace mis-parsed the brace-init. The student treated the comma after the inner array as part of numbers. Find the line that's wrong.
 
-brokenCode: |
+  Code under review:
+
   stat_double d = {{2.4,3.7,1.0,2.1,0.5}, -0.9};
+
   // student trace
+
   // numbers = {2.4, 3.7, 1.0, 2.1, 0.5, -0.9}   // BUG
+
   // mystery = 0.0
 
-bugLocations: [3]
 
-fixedCode: |
-  // CORRECT parse:
-  // numbers = {2.4, 3.7, 1.0, 2.1, 0.5}   // 5 elements only
-  // mystery = -0.9                          // scalar after the inner braces
 
-bugCategory: 'mis-parsed brace-init — included scalar in the array'
-
-keyChecks:
-  - 'mystery = -0.9'
-
-explanation: |
-  The OUTER brace `{ ... }` holds two items: the inner-brace array `{2.4,...,0.5}` and the scalar `-0.9`. They are separate fields, not one big list.
-
+  Which diagnosis describes the bug?
+correct: mis-parsed brace-init — included scalar in the array
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  The OUTER brace `{ ... }` holds two items: the inner-brace array `{2.4,...,0.5}` and the scalar `-0.9`. They are
+  separate fields, not one big list.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-misparse-brace)"
-
-commonMistakeIds: ["CM-misparse-brace"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-misparse-brace)
+commonMistakeIds:
+  - CM-misparse-brace
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

@@ -1,34 +1,29 @@
-# Auto-emitted CM immunization (ClozeCard) for CM-stale-mystery
-id: "L1-cmimm-CM-stale-mystery-cloze"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-stale-mystery-cloze
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "ClozeCard"
-
-stem: "Fill in the missing token to fix this CM-stale-mystery mistake."
-
+level: L1
+type: ClozeCard
+stem: Fill in the missing token to fix this CM-stale-mystery mistake.
 code: |
   // algo: mystery = mystery + numbers[i]
   // numbers = {2.4, 3.7}; mystery init = 0.0
   //
   // i=0: 0.0 + 2.4 = 2.4   mystery = 2.4
   // i=1: ___ + 3.7 = 6.1   mystery = 6.1
-
-clozeSentence: 'Fill in the value of mystery used at i=1 (the freshest one, not the init).'
-
-answer: '2.4'
-
+clozeSentence: Fill in the value of mystery used at i=1 (the freshest one, not the init).
+answer: "2.4"
 explanation: |
   After i=0 mystery = 2.4. The next iter reads 2.4, not 0.0.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-stale-mystery)"
-
-commonMistakeIds: ["CM-stale-mystery"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-stale-mystery)
+commonMistakeIds:
+  - CM-stale-mystery
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

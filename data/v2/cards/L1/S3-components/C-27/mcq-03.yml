@@ -15,14 +15,14 @@ source:
 commonMistakeIds:
   - CM-C27a
 stem: >-
-  mystery cell saw three writes: 0.0 → 2.4 → 5.4 → 7.4. After all three, what is the cell's recorded
-  trail and live value?
-correct: 'Trail: ~~0.0~~ ~~2.4~~ ~~5.4~~ 7.4 ; Live: 7.4 (the only un-struck value).'
+  mystery cell saw three writes: 0.0 → 2.4 → 5.4 → 7.4. After all three, what is the cell's recorded trail and live
+  value?
+correct: "Trail: ~~0.0~~ ~~2.4~~ ~~5.4~~ 7.4 ; Live: 7.4 (the only un-struck value)."
 distractors:
-  - 'Trail: 0.0+2.4+5.4+7.4 = 15.2 ; Live: 15.2.'
-  - 'Trail: only 7.4 visible ; Live: 7.4 (intermediate values discarded).'
-  - 'Trail: 0.0, 2.4, 5.4, 7.4 (no strikes) ; Live: undefined.'
+  - "Trail: 0.0+2.4+5.4+7.4 = 15.2 ; Live: 15.2."
+  - "Trail: only 7.4 visible ; Live: 7.4 (intermediate values discarded)."
+  - "Trail: 0.0, 2.4, 5.4, 7.4 (no strikes) ; Live: undefined."
 explanation: >-
-  Each write strikes the prior live value. Trail-of-three is the canonical Q1 sum-positive shape
-  after iters 0, 3, 4 of V2.0 attempt-1.
-
+  Each write strikes the prior live value. Trail-of-three is the canonical Q1 sum-positive shape after iters 0, 3, 4 of
+  V2.0 attempt-1.
+drills: tier1:Q1:trace-strikethrough

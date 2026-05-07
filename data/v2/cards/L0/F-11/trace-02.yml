@@ -59,9 +59,10 @@ teachMe: |
   Note: the `?` (garbage) only matters for one line; the assignments
   immediately overwrite it.
 
+drills: ["tier1:prereq:variable-declaration-initialisation"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec F-11 trace — declare without initialiser"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/07-variable"
 
 commonMistakeIds: ["CM-F11b"]
 status: "NEW"

@@ -1,18 +1,16 @@
-id: "L1-S1-tour-08-anatomy-scalar-field"
-schemaVersion: "v2"
-atomId: "T-00"
-qTags: ["Q1"]
+id: L1-S1-tour-08-anatomy-scalar-field
+schemaVersion: v2
+atomId: T-00
+qTags:
+  - Q1
 stage: 1
-level: "L1"
-type: "DemoCard"
-
+level: L1
+type: DemoCard
 stem: |
   Anatomy 3/10: the scalar field `mystery`. ONE double cell. This is
   the answer slot — the value here at the end of the function is what
   Q1 grades.
-
 whyOneLine: "`mystery` is a single double cell — it's the accumulator and the final answer slot."
-
 demoCode: |
   struct stat_double {
     double numbers[SIZE];
@@ -22,22 +20,19 @@ demoCode: |
   // memory layout includes a 6th cell for mystery:
   //   numbers[0..4]              mystery
   //   [ ? ][ ? ][ ? ][ ? ][ ? ]   [   ?   ]
-
 highlightTokens:
-  - "mystery"
-  - "double mystery;"
-
+  - mystery
+  - double mystery;
 usedIn:
   - "Q1: every algorithm writes to data.mystery"
   - "Q1: final d.mystery is the canonical answer"
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt §0 — scalar field mystery"
-
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt §0 — scalar field mystery
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   Anatomy: scalar field cell.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:dot-scalar-access

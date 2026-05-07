@@ -31,9 +31,10 @@ explanation: |
   scope, NOT inside a function that received the array.
   Distractor 3 is dangerous nonsense.
 
+drills: ["tier1:prereq:array-decay-t-arr-in-parameter-list"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — `const int SIZE` file-scope strategy"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
 
 commonMistakeIds: ["CM-F22e-2"]
 status: "NEW"

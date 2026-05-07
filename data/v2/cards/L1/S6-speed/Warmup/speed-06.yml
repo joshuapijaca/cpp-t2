@@ -1,31 +1,29 @@
-# =====================================================================
-# L1 / S6-Warmup / SpeedDrillCard 06 — flash count-positive
-# =====================================================================
-id: "L1-S6-warmup-06"
-schemaVersion: "v2"
-atomId: "A14"
-qTags: ["Q1"]
+id: L1-S6-warmup-06
+schemaVersion: v2
+atomId: A14
+qTags:
+  - Q1
 stage: 6
-level: "L1"
-type: "SpeedDrillCard"
+level: L1
+type: MCQCard
+stem: |-
+  Speed-drill warmup: count-positive. Read array, compute final mystery, type answer.
 
-stem: "Speed-drill warmup: count-positive. Read array, compute final mystery, type answer."
-
-prompt: "count-positive on numbers={1.0, 2.0, 3.0, 4.0, 5.0}. Final data.mystery = ?"
-
-canonicalAnswer: "data.mystery = 5;"
-
-keyChecks: ["5"]
-
-
-explanation: "count-positive gives 5. Practice recognising the shape under flash conditions."
-
+  count-positive on numbers={1.0, 2.0, 3.0, 4.0, 5.0}. Final data.mystery = ?
+correct: data.mystery = 5;
+distractors:
+  - "0"
+  - "1"
+  - "5"
+explanation: count-positive gives 5. Practice recognising the shape under flash conditions.
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — count-positive flash variant"
-
-commonMistakeIds: ["CM-S6-rush-skip-init"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
-notes: "Flash-then-answer warmup; 30s view, 60s answer."
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — count-positive flash variant
+commonMistakeIds:
+  - CM-S6-rush-skip-init
+status: NEW
+createdBy: SA-L1-S4S5S6
+notes: Flash-then-answer warmup; 30s view, 60s answer.
+authoringStatus: DRAFT
+migratedFrom: SpeedDrillCard
+drills: tier1:Q1:accumulator

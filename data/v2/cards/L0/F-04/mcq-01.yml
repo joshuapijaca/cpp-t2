@@ -35,6 +35,7 @@ explanation: |
   Distractor 3 mistakes `#` for a comment marker — `//` is the C++
   comment marker, not `#`.
 
+drills: ["tier1:prereq:include-iostream"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 1 · 1-sequence-and-data/2-trailside/10-library.md"

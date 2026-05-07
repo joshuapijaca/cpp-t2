@@ -1,52 +1,17 @@
-id: "L5-postmortem-30-var-sized-array"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q4"]
+id: L5-postmortem-30-var-sized-array
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q4
+drills: ["Q4"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q4 main — student sized the array with the runtime `count` (`student_data students[count]`). This is a Variable-Length Array (VLA), non-standard C++. Read the diff.
-
-failedAttempt: |
-  int main()
-  {
-      int count = 0;
-      cout << "How many students? ";
-      cin >> count;
-
-      student_data students[count];
-
-      read_students(students, count);
-      print_students(students, count);
-
-      return 0;
-  }
-
-diagnosis: |
-  The student tried to size the array based on the user-supplied count: `student_data students[count]`. This is a Variable-Length Array — `count` is a runtime value, not a compile-time constant. VLAs are a GCC extension, not standard C++, and the unit explicitly disallows them. Standard pattern: declare the array at MAX capacity (`const int MAX = 100; T arr[MAX];`), then track real size with `count`.
-
-repairSteps:
-  - "int main()"
-  - "{"
-  - "    const int MAX = 100;             // <-- compile-time capacity"
-  - "    student_data students[MAX];      // <-- size with MAX, NOT count"
-  - "    int count = 0;"
-  - "    cout << \"How many students? \";"
-  - "    cin >> count;"
-  - "    read_students(students, count);  // <-- iterate up to count"
-  - "    print_students(students, count);"
-  - "    return 0;"
-  - "}"
-
-preventionTip: |
-  Arrays are sized once, at compile time, with `const`. The runtime `count` controls iteration, not declaration. Pattern: "MAX sizes the array; count iterates the array." Never `T arr[runtime_var]`.
-
-explanation: |
-  Lesson learned — fixed-capacity arrays with a runtime count is THE canonical pattern for SIT102 record-management programs. Allocate enough room (MAX); track real fill (count). VLAs feel intuitive ("I want exactly the right size") but they're non-portable and break the rubric. Train the discipline: declare at MAX, iterate up to count.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q4 main — student sized the array with the runtime `count` (`student_data students[count]`). This is a Variable-Length
+  Array (VLA), non-standard C++. Read the diff.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   int main()
   {
       const int MAX = 100;
@@ -61,22 +26,59 @@ canonicalAnswer: |
 
       return 0;
   }
-
-annotations:
+steps:
+  - line: 1
+    code: int main()
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '    const int MAX = 100;             // <-- compile-time capacity'
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: '    student_data students[MAX];      // <-- size with MAX, NOT count'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '    int count = 0;'
+    annotation: Repair step 5
+    atomIds: []
+  - line: 6
+    code: '    cout << "How many students? ";'
+    annotation: Repair step 6
+    atomIds: []
   - line: 7
-    severity: err
-    note: "`student_data students[count]` is a Variable-Length Array (VLA). Non-standard C++; disallowed by unit."
-  - line: 7
-    severity: info
-    note: "Replace with `const int MAX = 100;` declared FIRST, then `student_data students[MAX];`."
-
+    code: '    cin >> count;'
+    annotation: Repair step 7
+    atomIds: []
+  - line: 8
+    code: '    read_students(students, count);  // <-- iterate up to count'
+    annotation: Repair step 8
+    atomIds: []
+  - line: 9
+    code: '    print_students(students, count);'
+    annotation: Repair step 9
+    atomIds: []
+  - line: 10
+    code: '    return 0;'
+    annotation: Repair step 10
+    atomIds: []
+  - line: 11
+    code: '}'
+    annotation: Repair step 11
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q4 VLA prohibition"
-
-commonMistakeIds: ["CM-var-sized-array"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q4 VLA prohibition
+commonMistakeIds:
+  - CM-var-sized-array
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #30 — Q4 / variable-length array.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

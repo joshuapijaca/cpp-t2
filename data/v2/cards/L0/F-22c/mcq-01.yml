@@ -29,6 +29,7 @@ explanation: |
   type. `*n` is pointer dereference (n isn't a pointer). `&f(n)`
   is nonsense.
 
+drills: ["tier1:prereq:pass-by-reference-call-site-no"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"

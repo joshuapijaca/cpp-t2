@@ -1,48 +1,17 @@
-id: "L5-postmortem-04-no-strikethrough"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: L5-postmortem-04-no-strikethrough
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
+drills: ["Q1"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q1 trace — student wrote the new `mystery` value next to the old one without striking the old. Marker can't tell which value is current. Read the failed attempt and the canonical fix.
-
-failedAttempt: |
-  // Trace table for `data.mystery` (Q1 hand-execution):
-  //   i = 0:  mystery = -20.0
-  //   i = 1:  mystery = -20.0  3.5
-  //   i = 2:  mystery = -20.0  3.5  3.5
-  //   i = 3:  mystery = -20.0  3.5  3.5  12.0
-  //   final: mystery = ???  (which one counts?)
-  void who_am_i(test_data &data) {
-      data.mystery = data.numbers[0];
-      for (int i = 1; i < SIZE; i++) {
-          if (data.numbers[i] > data.mystery) {
-              data.mystery = data.numbers[i];
-          }
-      }
-  }
-
-diagnosis: |
-  Q1 hand-execution rubric REQUIRES strikethrough on stale values: each cell shows old-value-crossed-out next to new-value. The student wrote values side-by-side without strikes. The marker can't tell which is current; the trace is ambiguous and gets zero marks even if the values are right.
-
-repairSteps:
-  - "// Strike out the previous value when overwriting:"
-  - "//   i = 0:  mystery = -20.0"
-  - "//   i = 1:  mystery = ~~-20.0~~  3.5"
-  - "//   i = 2:  mystery = 3.5  (cond false: 1.0 > 3.5 is false)"
-  - "//   i = 3:  mystery = ~~3.5~~  12.0"
-  - "//   final: mystery = 12.0"
-
-preventionTip: |
-  Every memory cell in the trace shows the HISTORY of that variable. When a value changes, draw a line through the old number and write the new one beside it. Final answer = the only un-struck value at the end.
-
-explanation: |
-  Lesson learned — the trace IS the answer; presentation matters as much as the math. Strikethrough makes the sequence of mutations readable at a glance. Without it, the marker sees ambiguity and assumes you don't know which value is current. APK practice mode renders this exactly: old values get a line through them on update.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q1 trace — student wrote the new `mystery` value next to the old one without striking the old. Marker can't tell which
+  value is current. Read the failed attempt and the canonical fix.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   // Trace with strikethrough applied:
   //   i = 0:  mystery = -20.0
   //   i = 1:  mystery = ~~-20.0~~  3.5
@@ -57,25 +26,39 @@ canonicalAnswer: |
           }
       }
   }
-
-annotations:
+steps:
+  - line: 1
+    code: '// Strike out the previous value when overwriting:'
+    annotation: Repair step 1
+    atomIds: []
   - line: 2
-    severity: info
-    note: "First assignment — no prior value to strike."
+    code: '//   i = 0:  mystery = -20.0'
+    annotation: Repair step 2
+    atomIds: []
   - line: 3
-    severity: err
-    note: "Wrote `-20.0  3.5` side-by-side. Should be `~~-20.0~~ 3.5` (old value crossed)."
+    code: '//   i = 1:  mystery = ~~-20.0~~  3.5'
+    annotation: Repair step 3
+    atomIds: []
   - line: 4
-    severity: err
-    note: "Three values with no strikes. Marker cannot determine which is current."
-
+    code: '//   i = 2:  mystery = 3.5  (cond false: 1.0 > 3.5 is false)'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '//   i = 3:  mystery = ~~3.5~~  12.0'
+    annotation: Repair step 5
+    atomIds: []
+  - line: 6
+    code: '//   final: mystery = 12.0'
+    annotation: Repair step 6
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q1 trace presentation rubric"
-
-commonMistakeIds: ["CM-no-strikethrough"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q1 trace presentation rubric
+commonMistakeIds:
+  - CM-no-strikethrough
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #04 — Q1 / trace presentation strikethrough missed.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

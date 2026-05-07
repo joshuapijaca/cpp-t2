@@ -40,6 +40,7 @@ explanation: |
 
 passByRefRequired: false
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"

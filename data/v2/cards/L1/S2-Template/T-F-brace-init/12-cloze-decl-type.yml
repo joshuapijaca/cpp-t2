@@ -1,39 +1,32 @@
-id: "L1-S2-TF-12-cloze-decl-type"
-schemaVersion: "v2"
-atomId: "T-06"
-qTags: ["Q1"]
+id: L1-S2-TF-12-cloze-decl-type
+schemaVersion: v2
+atomId: T-06
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Fill in the variable type.
-
 prompt: |
   What type prefixes the variable name?
-
 template: |
   ___ d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};
-
 canonicalAnswer: |
   stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};
-
 keyChecks:
-  - "stat_double"
-
+  - stat_double
 forbiddenTokens: []
-
 explanation: |
   `stat_double` — the struct type. Variable d is an instance of the
   struct.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — variable type"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — variable type
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-F cloze: variable type.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:brace-init-nested

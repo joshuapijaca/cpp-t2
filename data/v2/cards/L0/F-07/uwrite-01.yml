@@ -34,6 +34,7 @@ variants:
   - prompt: "Repair: return 0"
     expectedAnswer: "return 0;"
 
+drills: ["tier1:prereq:statement-terminator-semicolon"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 1 · 2-communicating-syntax/2-trailside/02-statement.md"

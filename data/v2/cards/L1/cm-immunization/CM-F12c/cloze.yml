@@ -1,33 +1,29 @@
-# Hand-authored CM immunization (ClozeCard) for CM-F12c
-id: "L1-cmimm-CM-F12c-cloze"
-schemaVersion: "v2"
-atomId: "F-12"
-qTags: ["Q1", "Q4"]
+id: L1-cmimm-CM-F12c-cloze
+schemaVersion: v2
+atomId: F-12
+qTags:
+  - Q1
+  - Q4
 stage: 4
-level: "L1"
-type: "ClozeCard"
-
-stem: "Fill in the comparison operator inside this if-condition."
-
+level: L1
+type: ClozeCard
+stem: Fill in the comparison operator inside this if-condition.
 code: |
   int x = 3;
   if (x ___ 5) {
       cout << "match" << endl;
   }
-
-clozeSentence: 'Fill in the equality-test operator (NOT assignment).'
-
-answer: '=='
-
+clozeSentence: Fill in the equality-test operator (NOT assignment).
+answer: "=="
 explanation: |
   `==` is comparison: returns true only if x equals 5. `=` would assign 5 to x and always run the body.
-
 source:
-  kind: "pfg"
-  ref: "PFG part-1/1-sequence-and-data/2-trailside/08-assignment-statement — common-mistake immunization (CM-F12c)"
-
-commonMistakeIds: ["CM-F12c"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: pfg
+  ref: PFG part-1/1-sequence-and-data/2-trailside/08-assignment-statement — common-mistake immunization (CM-F12c)
+commonMistakeIds:
+  - CM-F12c
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

@@ -1,40 +1,33 @@
-id: "CM-off-by-one-exit-fixit"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: CM-off-by-one-exit-fixit
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Fix-it drill for CM-off-by-one-exit. The code has the bug; produce the canonical fix.
+  Pick the canonical fix line.
 
-brokenCode: |
+  Broken code:
   // Q1: Q1 off-by-one exit i==SIZE
   cout << data.numbers[i]; // i is now SIZE
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  // post-loop: do NOT use data.numbers[i]
-  ;
-
-bugCategory: "CM-off-by-one-exit"
-
-keyChecks: []
-
+correct: '// post-loop: do NOT use data.numbers[i]'
+distractors:
+  - '// Q1: Q1 off-by-one exit i==SIZE'
+  - cout << data.numbers[i]; // i is now SIZE
+  - ;
 explanation: |
   Replace the broken line with: // post-loop: do NOT use data.numbers[i]
   Diagnosis: Indexed numbers[i] after loop exit (i == SIZE, out-of-bounds).
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-off-by-one-exit"
-
-commonMistakeIds: ["CM-off-by-one-exit"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake CM-off-by-one-exit
+commonMistakeIds:
+  - CM-off-by-one-exit
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 3/5 (fix-it) for CM-off-by-one-exit.

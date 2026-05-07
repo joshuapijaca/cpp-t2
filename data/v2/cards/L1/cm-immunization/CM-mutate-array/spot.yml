@@ -1,41 +1,37 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-mutate-array
-id: "L1-cmimm-CM-mutate-array-spot"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-mutate-array-spot
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   This Q1 trace MUTATED the input array. The student wrote new values into `numbers`. Why is that wrong?
 
-brokenCode: |
+  Code under review:
   // numbers = {2.4,3.7,1.0,2.1,0.5}
   // i=0: numbers[0] = 2.4 + 3.7 = 6.1   // wrote into numbers
   // i=1: numbers[1] = 6.1 + 1.0 = 7.1
 
-bugLocations: [2]
 
-fixedCode: |
-  // numbers (unchanged) = {2.4,3.7,1.0,2.1,0.5}
-  // i=0: mystery = 0.0 + numbers[0] = 0.0 + 2.4 = 2.4
-  // i=1: mystery = 2.4 + numbers[1] = 2.4 + 3.7 = 6.1
-
-bugCategory: 'mutated input array instead of accumulator'
-
-keyChecks:
-  - 'mystery'
-
-explanation: |
-  The accumulator is `mystery`, not `numbers[i]`. The array is read-only input. Don't overwrite cells — write into mystery.
-
+  Which diagnosis describes the bug?
+correct: mutated input array instead of accumulator
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  The accumulator is `mystery`, not `numbers[i]`. The array is read-only input. Don't overwrite cells — write into
+  mystery.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-mutate-array)"
-
-commonMistakeIds: ["CM-mutate-array"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-mutate-array)
+commonMistakeIds:
+  - CM-mutate-array
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

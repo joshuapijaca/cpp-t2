@@ -1,48 +1,17 @@
-id: "L5-postmortem-21-missing-semi-after-brace"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: L5-postmortem-21-missing-semi-after-brace
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
+drills: ["Q3"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q3 read function — student dropped the `[]` from the array parameter, declaring `student_data students` (single struct) instead of `student_data students[]` (array). Compiles, but every iteration overwrites the same struct.
-
-failedAttempt: |
-  void read_students(student_data students, int count)
-  {
-      for (int i = 0; i < count; i++)
-      {
-          cout << "Enter name: ";
-          cin >> students[i].name;
-          cout << "Enter age: ";
-          cin >> students[i].age;
-      }
-  }
-
-diagnosis: |
-  Without `[]`, `students` is a single struct, not an array. The body's `students[i].name` then fails to compile (cannot subscript a non-array). Even if you "fix" it by removing `[i]`, you'd write to the same single struct each iteration, ending with only the last input retained. The `[]` in the signature is what makes `students` an array parameter.
-
-repairSteps:
-  - "void read_students(student_data students[], int count)   // <-- ARRAY param: students[]"
-  - "{"
-  - "    for (int i = 0; i < count; i++)"
-  - "    {"
-  - "        cout << \"Enter name: \";"
-  - "        cin >> students[i].name;"
-  - "        cout << \"Enter age: \";"
-  - "        cin >> students[i].age;"
-  - "    }"
-  - "}"
-
-preventionTip: |
-  Array parameters need `[]` after the name in the signature: `T name[]`. The brackets distinguish "array of T" from "single T." Without them, your `[i]` subscripts in the body have nothing to index.
-
-explanation: |
-  Lesson learned — function signatures encode parameter shape. `student_data students[]` says "this is an array of student_data." Drop the brackets and you've declared a single struct, breaking every subscript in the body. When writing a read function for an array, the FIRST thing to type after the type name is `name[]`.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q3 read function — student dropped the `[]` from the array parameter, declaring `student_data students` (single
+  struct) instead of `student_data students[]` (array). Compiles, but every iteration overwrites the same struct.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   void read_students(student_data students[], int count)
   {
       for (int i = 0; i < count; i++)
@@ -53,22 +22,55 @@ canonicalAnswer: |
           cin >> students[i].age;
       }
   }
-
-annotations:
+steps:
   - line: 1
-    severity: err
-    note: "`student_data students` declares a single struct. Should be `student_data students[]` for an array parameter."
+    code: 'void read_students(student_data students[], int count)   // <-- ARRAY param: students[]'
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '    for (int i = 0; i < count; i++)'
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: '    {'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '        cout << "Enter name: ";'
+    annotation: Repair step 5
+    atomIds: []
   - line: 6
-    severity: err
-    note: "`students[i]` won't compile because `students` is not an array (per the signature on line 1)."
-
+    code: '        cin >> students[i].name;'
+    annotation: Repair step 6
+    atomIds: []
+  - line: 7
+    code: '        cout << "Enter age: ";'
+    annotation: Repair step 7
+    atomIds: []
+  - line: 8
+    code: '        cin >> students[i].age;'
+    annotation: Repair step 8
+    atomIds: []
+  - line: 9
+    code: '    }'
+    annotation: Repair step 9
+    atomIds: []
+  - line: 10
+    code: '}'
+    annotation: Repair step 10
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q3 array parameter signature"
-
-commonMistakeIds: ["CM-Q3-missing-brackets-sig"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q3 array parameter signature
+commonMistakeIds:
+  - CM-Q3-missing-brackets-sig
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #21 — Q3 / missing `[]` in array param signature.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

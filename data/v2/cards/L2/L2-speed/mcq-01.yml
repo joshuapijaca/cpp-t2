@@ -1,25 +1,28 @@
-id: "L2-S6-speed-mcq-01"
-schemaVersion: "v2"
-atomId: "L-26"
-qTags: ["Q2"]
+id: L2-S6-speed-mcq-01
+schemaVersion: v2
+atomId: L-26
+qTags:
+  - Q2
 stage: 6
-level: "L2"
-type: "MCQCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L2
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — Q2 speed-drill rubric"
-commonMistakeIds: ["CM-F20a", "CM-F20d"]
+  kind: pfg
+  ref: pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §full-skeleton drill
+commonMistakeIds:
+  - CM-F20a
+  - CM-F20d
 stem: |
   In a Q2 speed-write of a struct, which token is most often missed
   under time pressure and costs marks?
-correct: "The trailing `};` after the closing brace of the struct."
+correct: The trailing `};` after the closing brace of the struct.
 distractors:
-  - "The opening `struct` keyword."
-  - "The `int` and `double` type names of the fields."
-  - "Indentation of the field list."
+  - The opening `struct` keyword.
+  - The `int` and `double` type names of the fields.
+  - Indentation of the field list.
 explanation: |
   Under the 30-second clock, students reliably remember the body
   but drop the closing `};` (CM-F20d). The trailing `;` is required
@@ -27,4 +30,8 @@ explanation: |
   error. Type the closing `};` first, then fill the body inside.
   Distractor 4 (indentation) is graded as a style defect (L-23c)
   but is less catastrophic than missing `};`.
-notes: "MCQ form for QA-M10 type-diversity (L-26 was SpeedDrillCard only)."
+notes: MCQ form for QA-M10 type-diversity (L-26 was SpeedDrillCard only).
+drills:
+  - tier1:Q2:q2-trailing-semi
+tier2:
+  - tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §full-skeleton drill

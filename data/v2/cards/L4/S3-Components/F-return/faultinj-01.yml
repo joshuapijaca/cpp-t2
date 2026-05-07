@@ -1,36 +1,40 @@
-id: "L4-S3F-faultinj-01"
-schemaVersion: "v2"
-atomId: "Q-07"
-qTags: 
-  - "Q4"
+id: L4-S3F-faultinj-01
+schemaVersion: v2
+atomId: Q-07
+qTags:
+  - Q4
 stage: 3
-level: "L4"
-type: "FaultInjectionCard"
-stem: "Fix the bug: missing return."
-source: 
-  kind: "v2"
-  ref: "C++T2 spec §6.3 Block F fault"
-commonMistakeIds: 
-  - "CM-Q4-missing-return"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L4-Q4"
-brokenCode: |
+level: L4
+type: MCQCard
+stem: |-
+  Fix the bug: missing return.
+
+  Code under review:
   int main()
   {
       for (int i = 0; i < n; i++) { cout << "x" << endl; }
   }
-bugLocations: 
-  - 4
-fixedCode: |
-  int main()
-  {
-      for (int i = 0; i < n; i++) { cout << "x" << endl; }
-      return 0;
-  }
-bugCategory: "missing return"
-keyChecks: 
-  - "return"
-  - "0"
-  - ";"
-explanation: "Add `return 0;` before main's closing brace."
+
+
+  Which diagnosis describes the bug?
+correct: missing return
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: Add `return 0;` before main's closing brace.
+source:
+  kind: v2
+  ref: "v2:Q4 — Block F: return 0; (success exit, last statement)"
+commonMistakeIds:
+  - CM-Q4-missing-return
+status: NEW
+createdBy: SA-L4-Q4
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q4:return-0
+tier2:
+  - tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/05-return
+  - tier2:v2:Q4
+  - tier2:practice:Q4

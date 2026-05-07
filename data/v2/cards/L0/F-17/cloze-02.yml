@@ -28,6 +28,7 @@ explanation: |
   immediately after `if` (with optional space), close paren before
   the `{`.
 
+drills: ["tier1:prereq:if-cond-no-else"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"

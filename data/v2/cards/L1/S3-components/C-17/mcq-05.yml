@@ -15,10 +15,10 @@ source:
 commonMistakeIds:
   - CM-C17a
 stem: data.numbers[4] = 5. Evaluate `data.numbers[4] > 0`. (Sum-positive guard, V2.0 attempt-1.)
-correct: 'true'
+correct: "true"
 distractors:
-  - 'false'
+  - "false"
   - undefined
   - true only if i is even
-explanation: '5 > 0 is true. '
-
+explanation: "5 > 0 is true. "
+drills: tier1:Q1:trace-strikethrough

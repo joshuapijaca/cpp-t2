@@ -1,20 +1,17 @@
-# =====================================================================
-# L5 / Mock M01 Q3 POSTMORTEM
-# Diff failed attempt vs canonical, surface repair steps.
-# =====================================================================
-id: "L5-mock-M01-q3-postmortem"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: L5-mock-M01-q3-postmortem
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
+drills: ["Q1", "Q2", "Q3", "Q4"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
+level: L5
+type: WalkthroughCard
 stem: |
   Postmortem for Mock M01 Q3 (read function). Why did the failed
   attempt below lose marks? What's the exact repair?
-
-failedAttempt: |
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   void read_computers(computer_data arr, int count) {
     int i;
     for (i = 0; i < count; i++) {
@@ -22,35 +19,27 @@ failedAttempt: |
     }
   }
   // Bug: arr passed by value (no [], no &). Caller's array unchanged.
-
-diagnosis: |
-  Two stacked errors: (1) parameter `computer_data arr` accepts
-  a single struct by value, not an array; (2) even if a value-array
-  were possible, mutations would not propagate back. The correct
-  form is `computer_data arr[]` (decay-array, the Deakin convention)
-  which auto-passes by-pointer to the underlying memory.
-
-repairSteps:
-  - "Change `computer_data arr` to `computer_data arr[]`."
-  - "Verify compile + run shows mutations persist."
-  - "Drill Q3 read-function template 5x."
-
-preventionTip: |
-  Q3 signature is always `void read_X(EntityName arr[], int count)` — drill the [] and the &-style.
-
-explanation: |
-  Postmortem cards diff your failed answer against the canonical
-  answer, label the bug, and surface exactly what to repair. Per
-  Mock retry policy §7.5: any 70-89 score injects 4 postmortem
-  cards (one per Q) before the next mock attempt unlocks.
-
+steps:
+  - line: 1
+    code: Change `computer_data arr` to `computer_data arr[]`.
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: Verify compile + run shows mutations persist.
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: Drill Q3 read-function template 5x.
+    annotation: Repair step 3
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 — Mock M01 retro"
-
-commonMistakeIds: ["CM-missing-amp-sig"]
-status: "NEW"
-createdBy: "SA-L5-Mock"
-authoringStatus: "DRAFT"
+  kind: "v2"
+  ref: Test2-SIT102-practice-2026T1.txt + V2.0 — Mock M01 retro
+commonMistakeIds:
+  - CM-missing-amp-sig
+status: NEW
+createdBy: SA-L5-Mock
 notes: |
   Mock M01 retro — Q3 repair drill.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

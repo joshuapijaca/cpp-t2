@@ -47,9 +47,10 @@ explanation: |
   C uses pointer dereference (CM-F22c-2) — same wrong type.
   D is nonsense — `&` cannot prefix a function call.
 
+drills: ["tier1:prereq:pass-by-reference-call-site-no"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — `who_am_i ( d );`"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
 
 commonMistakeIds: ["CM-F22c-1", "CM-F22c-2"]
 status: "NEW"

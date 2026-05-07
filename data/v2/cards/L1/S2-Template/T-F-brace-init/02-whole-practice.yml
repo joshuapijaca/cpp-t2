@@ -1,41 +1,34 @@
-id: "L1-S2-TF-02-whole-practice"
-schemaVersion: "v2"
-atomId: "T-06"
-qTags: ["Q1"]
+id: L1-S2-TF-02-whole-practice
+schemaVersion: v2
+atomId: T-06
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Type the practice-test brace-init verbatim.
-
 prompt: |
   Reproduce the practice-test stat_double brace-init.
-
 template: |
   // (type the practice brace-init)
-
 canonicalAnswer: |
   stat_double d = {{-20.0, 3.2, 1.9, -1.5, 1.3}, 0.0};
-
 keyChecks:
-  - "stat_double d ="
+  - stat_double d =
   - "{-20.0, 3.2, 1.9, -1.5, 1.3}"
   - "0.0"
   - "};"
-
 forbiddenTokens: []
-
 explanation: |
   Practice variant: different values, same structure.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — brace-init"
-
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — brace-init
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-F practice whole.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:brace-init-nested

@@ -9,7 +9,7 @@ type: "DemoCard"
 stem: "Variant tour: employee_data entity. Same skeleton, different name/MAX. Notice MAX=500, count=emp_num, fn=read_employees."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.2 S1 entity-swap variants"
+  ref: "variant:Q4 — printer_data main() (Sem 1 2025 retired)"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -45,3 +45,17 @@ highlightTokens:
 usedIn: 
   - "Q4 entity transfer (any noun → main works)"
   - "Q4 cold-start (entity-name-only)"
+drills:
+  - tier1:Q4:int-main
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+  - tier1:Q4:fn-call-no-amp
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+  - tier1:Q4:return-0
+tier2:
+  - tier2:variant:Q4
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations

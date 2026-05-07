@@ -27,18 +27,18 @@ variables:
 expectedTrace:
   - line: 2
     variable: i
-    value: '4'
+    value: "4"
     output: null
   - line: 3
     variable: i
-    value: '5'
+    value: "5"
     output: null
   - line: 4
-    variable: ''
-    value: ''
-    output: '5'
+    variable: ""
+    value: ""
+    output: "5"
 terminalOutput:
-  - '5'
+  - "5"
 inputMode: final-only
 teachMe: i++ adds 1 to i. In a for-loop, this runs AFTER the body, before the next guard test.
-
+drills: tier1:Q1:trace-strikethrough

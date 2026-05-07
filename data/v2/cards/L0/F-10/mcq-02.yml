@@ -27,9 +27,10 @@ explanation: |
   losing precision. Storing it in a string makes arithmetic
   impossible.
 
+drills: ["tier1:prereq:primitive-types-int-double-string"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-2/3-structuring-data/0-panorama/0-type"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/06-type"
 
 commonMistakeIds: ["CM-F10a"]
 status: "NEW"

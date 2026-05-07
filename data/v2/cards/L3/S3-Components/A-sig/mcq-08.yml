@@ -19,7 +19,15 @@ explanation: |
   before parameter name
 source:
   kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V"
+  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — Q3 signature `desk_data &desk_list[]` (& placement)"
+drills:
+  - "tier1:Q3:R-02a"
+  - "tier2:practice:Q3"
+  - "tier2:v2:Q3"
+  - "tier2:variant:Q3"
+  - "tier2:seminar:saloni-2 @ 44:50"
+  - "tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-parameter.mdx"
+  - "tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx"
 status: "NEW"
 authoringStatus: "DRAFT"
 createdBy: "SA-L3-Q3"

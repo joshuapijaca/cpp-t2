@@ -43,9 +43,10 @@ usedIn:
   - "Q1 trace (struct + array initialised at declaration)"
   - "Q4 main program (test data hard-coded as brace list)"
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — `stat_double d = { {2.4, -3.7, -1.7, 3.0, 2.0}, -0.9};`"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
 
 commonMistakeIds: ["CM-F19a"]
 status: "NEW"

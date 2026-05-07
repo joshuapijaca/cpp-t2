@@ -36,4 +36,4 @@ options:
     text: undefined — `data.numbers[i]` is not legal until SIZE is defined
 correctLabel: B
 explanation: data.numbers[i] reads the cell AT INDEX i, not the value of i. Confusing the two is M20.
-
+drills: tier1:Q1:dot-array-access

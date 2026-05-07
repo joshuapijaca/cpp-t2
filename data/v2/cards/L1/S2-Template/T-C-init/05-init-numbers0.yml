@@ -1,40 +1,33 @@
-id: "L1-S2-TC-05-init-numbers0"
-schemaVersion: "v2"
-atomId: "T-03"
-qTags: ["Q1"]
+id: L1-S2-TC-05-init-numbers0
+schemaVersion: v2
+atomId: T-03
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Type the pre-loop init for find-max / find-min algorithms.
-
 prompt: |
   What pre-loop init is used when finding the max value?
-
 template: |
   // (type the init line)
-
 canonicalAnswer: |
   data.mystery = data.numbers[0];
-
 keyChecks:
-  - "data.mystery"
-  - "data.numbers[0]"
-
+  - data.mystery
+  - data.numbers[0]
 forbiddenTokens: []
-
 explanation: |
   `data.mystery = data.numbers[0];` — start the running best as the
   first cell. Used in the practice find-max question and in find-min.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt §0 — find-max init"
-
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt §0 — find-max init
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-C init = numbers[0] (find-max/find-min).
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:pre-loop-init

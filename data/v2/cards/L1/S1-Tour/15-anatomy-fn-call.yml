@@ -1,18 +1,16 @@
-id: "L1-S1-tour-15-anatomy-fn-call"
-schemaVersion: "v2"
-atomId: "T-00"
-qTags: ["Q1"]
+id: L1-S1-tour-15-anatomy-fn-call
+schemaVersion: v2
+atomId: T-00
+qTags:
+  - Q1
 stage: 1
-level: "L1"
-type: "DemoCard"
-
+level: L1
+type: DemoCard
 stem: |
   Anatomy 10/10: the function call. `who_am_i(d);` — pass the variable
   d by reference. NO `&` at the call site — only on the parameter
   declaration in the function header.
-
-whyOneLine: "The `&` lives on the parameter, not the argument — `who_am_i(&d)` would be a compile error."
-
+whyOneLine: The `&` lives on the parameter, not the argument — `who_am_i(&d)` would be a compile error.
 demoCode: |
   // declaration (inside the function header)
   void who_am_i ( stat_double &data ) { ... }
@@ -28,22 +26,20 @@ demoCode: |
   //   d.mystery is updated in place (because of the & on the param)
   //   The caller's d sees the changes — that's the whole point of
   //   pass-by-reference.
-
 highlightTokens:
-  - "who_am_i(d)"
-  - "NO &"
+  - who_am_i(d)
+  - NO &
   - "&data"
-
 usedIn:
   - "Q1: every hand-execute body ends with this call"
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt §0 — who_am_i(d);"
-
-commonMistakeIds: ["CM-Q1-amp-at-call"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt §0 — who_am_i(d);
+commonMistakeIds:
+  - CM-Q1-amp-at-call
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   Anatomy: call-site form (no & at call).
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:fn-call-no-amp

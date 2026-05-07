@@ -1,40 +1,33 @@
-id: "CM-prompt-outside-loop-fixit"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: CM-prompt-outside-loop-fixit
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Fix-it drill for CM-prompt-outside-loop. The code has the bug; produce the canonical fix.
+  Pick the canonical fix line.
 
-brokenCode: |
+  Broken code:
   // Q3: Q3 prompt outside loop
   // before loop: cout << "Enter all titles: "; (only once)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  // inside loop: cout << "Enter title: "; cin >> arr[i].title;
-  ;
-
-bugCategory: "CM-prompt-outside-loop"
-
-keyChecks: []
-
+correct: '// inside loop: cout << "Enter title: "; cin >> arr[i].title;'
+distractors:
+  - '// Q3: Q3 prompt outside loop'
+  - '// before loop: cout << "Enter all titles: "; (only once)'
+  - ;
 explanation: |
   Replace the broken line with: // inside loop: cout << "Enter title: "; cin >> arr[i].title;
   Diagnosis: Prompt printed once, before loop — should be per iteration.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-prompt-outside-loop"
-
-commonMistakeIds: ["CM-prompt-outside-loop"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake CM-prompt-outside-loop
+commonMistakeIds:
+  - CM-prompt-outside-loop
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 3/5 (fix-it) for CM-prompt-outside-loop.

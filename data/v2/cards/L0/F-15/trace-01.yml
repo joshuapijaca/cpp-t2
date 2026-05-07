@@ -54,9 +54,10 @@ teachMe: |
 
   Final: desk_id = 5. Terminal: `desk_id: 5`.
 
+drills: ["tier1:prereq:prompt-then-read-pair"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec F-15 trace primer — single prompt-pair"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/2-organising-code/1-tour/02-01-read-fns"
 
 commonMistakeIds: []
 status: "NEW"

@@ -9,7 +9,7 @@ type: "MCQCard"
 stem: "User enters MAX+1 (=701) — what is the risk?"
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.5 S5 dynamic count edge cases"
+  ref: "v2:Q4 — S5 variation: edge cases for count value (0, 1, MAX)"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -20,3 +20,9 @@ distractors:
   - "Compile error."
   - "Loops 701 times safely."
 explanation: "Edge-case behaviour — knowing these prevents surprise bugs in mock exams."
+drills:
+  - tier1:Q4:read-count
+  - tier1:Q4:print-loop
+tier2:
+  - tier2:v2:Q4
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-6-for

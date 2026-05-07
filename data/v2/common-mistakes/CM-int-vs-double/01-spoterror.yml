@@ -1,44 +1,35 @@
-id: "CM-int-vs-double-spoterror"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: CM-int-vs-double-spoterror
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Spot the error. Q1 int vs double mismatch. The code below has the bug labeled
-  by CM-int-vs-double. Find the line and provide the fix.
+  Which line below contains the bug?
 
-brokenCode: |
+  Broken code:
   // Q1 broken excerpt:
   data.mystery = 4;
   // (canonical was: data.mystery = 3.7;)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  data.mystery = 3.7;
-  ;
-
-bugCategory: "CM-int-vs-double"
-
-keyChecks:
-  - "data.mystery = 3.7;"
-
+correct: data.mystery = 4;
+distractors:
+  - '// Q1 broken excerpt:'
+  - '// (canonical was: data.mystery = 3.7;)'
+  - ;
 explanation: |
   Bug: Rounded fractional doubles to ints in the trace.
   Fix: data.mystery = 3.7;
   This common mistake costs marks on Q1 per the rubric.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-int-vs-double"
-
-commonMistakeIds: ["CM-int-vs-double"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-int-vs-double
+commonMistakeIds:
+  - CM-int-vs-double
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 1/5 (SpotError) for CM-int-vs-double.

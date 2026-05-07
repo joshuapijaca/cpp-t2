@@ -53,9 +53,10 @@ teachMe: |
   integer 0 to the OS as the program's exit status. The terminal
   shows only what `cout` produced.
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-06 trace primer — minimal main with one cout + return"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/2-main-function"
 
 commonMistakeIds: ["CM-F06a"]
 status: "NEW"

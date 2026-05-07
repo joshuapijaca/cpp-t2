@@ -1,42 +1,35 @@
-# =====================================================================
-# L1 / S3-components / C-30 / ClozeCard 01 — `&` makes alias
-# =====================================================================
-id: "L1-S3-C-30-cloze-01"
-schemaVersion: "v2"
-atomId: "C-30"
-qTags: ["Q1"]
+id: L1-S3-C-30-cloze-01
+schemaVersion: v2
+atomId: C-30
+qTags:
+  - Q1
 stage: 3
-level: "L1"
-type: "ClozeCard"
-
+level: L1
+type: ClozeCard
 stem: |
   Fill the missing token so the function parameter binds to the
   caller's struct (not a copy).
-
 code: |
   void who_am_i(stat_double ___ data) {
     data.mystery = 0;
   }
-
-clozeSentence: "void who_am_i(stat_double ___ data)   // alias, not copy"
-
+clozeSentence: void who_am_i(stat_double ___ data)   // alias, not copy
 answer: "&"
-
 explanation: |
   The `&` after the type name declares the parameter as a reference.
   `data` becomes another name for the caller's struct; mutations
   inside the function ARE visible in the caller. Without `&`, the
   struct would be passed by value (copied) and `data.mystery = 0;`
   would only zero the local copy.
-
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-30"
-
-commonMistakeIds: ["CM-C30a"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-30
+commonMistakeIds:
+  - CM-C30a
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 notes: |
   Cloze form drills the `&` token. Critical for Q1 trace where
   who_am_i mutates the caller's data.
+drills: tier1:Q1:param-by-ref

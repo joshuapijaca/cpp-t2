@@ -9,7 +9,7 @@ type: "MainWriteCard"
 stem: "[entity variation 2/10] Write the full main() for building_data."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.5 S5 entity variations"
+  ref: "v2:Q4 — S5 variation: different entity name, same skeleton"
 commonMistakeIds: 
   - "CM-Q4-entity-naming-drift"
 status: "NEW"
@@ -49,3 +49,17 @@ forbiddenTokens:
 expectedTerminal: 
   - "How many buildings?"
 explanation: "Same skeleton; new entity. Pattern transfer drill."
+drills:
+  - tier1:Q4:int-main
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+  - tier1:Q4:fn-call-no-amp
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+  - tier1:Q4:return-0
+tier2:
+  - tier2:v2:Q4
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/04-declaring-variables-with-custom-types

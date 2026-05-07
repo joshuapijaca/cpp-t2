@@ -42,9 +42,10 @@ usedIn:
   - "Q4 main program (line 1 of every answer)"
   - "Q3 input/output function (still needed even when you only write a function)"
 
+drills: ["tier1:prereq:include-iostream"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md (preamble structure)"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/10-library"
 
 commonMistakeIds: ["CM-F04b", "CM-F04c"]
 status: "NEW"

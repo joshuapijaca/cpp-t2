@@ -1,31 +1,28 @@
-# Hand-authored CM immunization (MCQCard) for CM-Q1-wrong-return-type
-id: "L1-cmimm-CM-Q1-wrong-return-type-mcq"
-schemaVersion: "v2"
-atomId: "T-02"
-qTags: ["Q1"]
+id: L1-cmimm-CM-Q1-wrong-return-type-mcq
+schemaVersion: v2
+atomId: T-02
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   Test 2 V2.0 who_am_i mutates the struct via &data. What is its return type?
-
-correct: '`void` — the function returns nothing; the mutation is the side effect'
-
+correct: "`void` — the function returns nothing; the mutation is the side effect"
 distractors:
-  - '`double` — returns the accumulated mystery value'
-  - '`int` — returns the number of elements processed'
-  - '`stat_double` — returns the modified struct'
-
-explanation: |
-  who_am_i works through the reference parameter — the caller's storage is updated directly. There is no value to return, so the type is `void`.
-
+  - "`double` — returns the accumulated mystery value"
+  - "`int` — returns the number of elements processed"
+  - "`stat_double` — returns the modified struct"
+explanation: >
+  who_am_i works through the reference parameter — the caller's storage is updated directly. There is no value to
+  return, so the type is `void`.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-wrong-return-type)"
-
-commonMistakeIds: ["CM-Q1-wrong-return-type"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-wrong-return-type)
+commonMistakeIds:
+  - CM-Q1-wrong-return-type
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:void-fn

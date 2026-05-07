@@ -1,43 +1,36 @@
-id: "L1-S2-TD-19-fix-pre-decrement"
-schemaVersion: "v2"
-atomId: "T-04"
-qTags: ["Q1"]
+id: L1-S2-TD-19-fix-pre-decrement
+schemaVersion: v2
+atomId: T-04
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   This for-header decrements i. For Q1's forward iteration, fix it.
-
 prompt: |
   Provide the corrected post slot.
-
 template: |
   // BROKEN
   for (int i = 0; i < SIZE; i--) {
   }
-
 canonicalAnswer: |
   for (int i = 0; i < SIZE; i++) {
   }
-
 keyChecks:
-  - "i++"
-
+  - i++
 forbiddenTokens:
-  - "i--"
-
+  - i--
 explanation: |
   `i++` increments. `i--` would loop forever (i goes to -1, still
   less than SIZE, never exits) and crash on negative-index access.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — i++ increment"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — i++ increment
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-D repair: i++ vs i--.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:for-header

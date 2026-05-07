@@ -9,7 +9,7 @@ type: "MCQCard"
 stem: "main lacks `return 0;`. What does the OS observe as the exit code?"
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.2 S1 what-happens drills"
+  ref: "v2:Q4 — trace: missing return 0; behaviour"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -20,3 +20,8 @@ distractors:
   - "Random integer."
   - "The program will not link."
 explanation: "C++ standard implicitly returns 0 from main if no return; statement appears. But the SIT102 rubric assesses the line literally — write `return 0;`."
+drills:
+  - tier1:Q4:return-0
+tier2:
+  - tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/05-return
+  - tier2:v2:Q4

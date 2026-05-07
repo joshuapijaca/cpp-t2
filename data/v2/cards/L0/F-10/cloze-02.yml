@@ -29,9 +29,10 @@ explanation: |
   always double, never float. The real test V2.0 used double for every
   number in the desk_data.numbers array.
 
+drills: ["tier1:prereq:primitive-types-int-double-string"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 attempt 1: stat_double { double numbers[SIZE]; double mystery; };"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/06-type"
 
 commonMistakeIds: ["CM-F10d"]
 status: "NEW"

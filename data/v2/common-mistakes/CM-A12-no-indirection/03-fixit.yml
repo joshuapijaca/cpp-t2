@@ -1,40 +1,33 @@
-id: "CM-A12-no-indirection-fixit"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: CM-A12-no-indirection-fixit
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Fix-it drill for CM-A12-no-indirection. The code has the bug; produce the canonical fix.
+  Pick the canonical fix line.
 
-brokenCode: |
+  Broken code:
   // Q1: Q1 forgot data. indirection
   mystery = numbers[i];
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  data.mystery = data.numbers[i];
-  ;
-
-bugCategory: "CM-A12-no-indirection"
-
-keyChecks: []
-
+correct: data.mystery = data.numbers[i];
+distractors:
+  - '// Q1: Q1 forgot data. indirection'
+  - mystery = numbers[i];
+  - ;
 explanation: |
   Replace the broken line with: data.mystery = data.numbers[i];
   Diagnosis: Wrote `mystery = numbers[i]` instead of `data.mystery = data.numbers[i]`.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake CM-A12-no-indirection"
-
-commonMistakeIds: ["CM-A12-no-indirection"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake CM-A12-no-indirection
+commonMistakeIds:
+  - CM-A12-no-indirection
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 3/5 (fix-it) for CM-A12-no-indirection.

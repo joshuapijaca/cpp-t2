@@ -31,9 +31,10 @@ variants:
   - prompt: "Reproduce line 2 of the canonical SIT102 preamble."
     expectedAnswer: "using namespace std;"
 
+drills: ["tier1:prereq:using-namespace-std"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/0-pano/3-code.md"
+  ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/0-pano/3-code"
 
 commonMistakeIds: ["CM-F05b", "CM-F05c"]
 status: "NEW"

@@ -1,59 +1,56 @@
-id: "L5-postmortem-14-skip-iter-cond-false"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q2"]
+id: L5-postmortem-14-skip-iter-cond-false
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q2
+drills: ["Q2"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q2 struct — student used a hyphen in the type name (`student-data`). Hyphens aren't legal in C++ identifiers; the compiler treats `student - data` as subtraction of two undeclared variables. Read the diff.
-
-failedAttempt: |
-  struct student-data
-  {
-      string name;
-      int age;
-      double gpa;
-  };
-
-diagnosis: |
-  Legal C++ identifier characters are: letters (A-Z, a-z), digits (0-9), and underscore (_). Hyphens are NOT allowed — they're the subtraction operator. `student-data` is parsed as `student MINUS data`, two identifiers neither declared. Compiler error: "expected unqualified-id before '-' token". Use UNDERSCORE for word separation in C++ identifiers.
-
-repairSteps:
-  - "struct student_data    // <-- underscore, not hyphen"
-  - "{"
-  - "    string name;"
-  - "    int age;"
-  - "    double gpa;"
-  - "};"
-
-preventionTip: |
-  C++ identifier alphabet: letters, digits, underscores. NO hyphens, NO spaces, NO dollar signs. To separate words use `snake_case` (underscore) or `camelCase`. Mantra: "underscore for separator, never hyphen."
-
-explanation: |
-  Lesson learned — identifier rules differ across languages. CSS allows hyphens (`background-color`); Lisp prefers them (`my-list`); C++ FORBIDS them. If you're coming from web dev or other dialects, this is a common reflex error. Train the underscore: `student_data`, `final_score`, `num_items`.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q2 struct — student used a hyphen in the type name (`student-data`). Hyphens aren't legal in C++ identifiers; the
+  compiler treats `student - data` as subtraction of two undeclared variables. Read the diff.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   struct student_data
   {
       string name;
       int age;
       double gpa;
   };
-
-annotations:
+steps:
   - line: 1
-    severity: err
-    note: "Hyphen `-` is not legal in C++ identifiers. Replace with underscore `_`."
-
+    code: struct student_data    // <-- underscore, not hyphen
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '    string name;'
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: '    int age;'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '    double gpa;'
+    annotation: Repair step 5
+    atomIds: []
+  - line: 6
+    code: '};'
+    annotation: Repair step 6
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q2 identifier alphabet"
-
-commonMistakeIds: ["CM-hyphen-id"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q2 identifier alphabet
+commonMistakeIds:
+  - CM-hyphen-id
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #14 — Q2 / hyphen in struct identifier.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

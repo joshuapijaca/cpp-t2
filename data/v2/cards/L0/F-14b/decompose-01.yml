@@ -50,9 +50,10 @@ explanation: |
   C is wrong: the leading word IS captured.
   D is wrong: no crash; just truncation.
 
+drills: ["tier1:prereq:cin-reads-one-whitespace-delimited-token"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F14b-1"]
 status: "NEW"

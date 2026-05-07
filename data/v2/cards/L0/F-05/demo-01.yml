@@ -45,6 +45,7 @@ usedIn:
   - "Q4 main program (line 2 of every answer)"
   - "Q3 input/output function (still needed when the function uses cout/cin)"
 
+drills: ["tier1:prereq:using-namespace-std"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"

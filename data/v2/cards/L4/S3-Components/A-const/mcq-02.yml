@@ -9,7 +9,7 @@ type: "MCQCard"
 stem: "`#define MAX 700` vs `const int MAX = 700;` — which is preferred in SIT102?"
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.3 Block A mcq"
+  ref: "v2:Q4 — Block A: const int MAX = N; (compile-time constant for array bound)"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -20,3 +20,10 @@ distractors:
   - "They are identical."
   - "Neither — use `static int MAX = 700;`."
 explanation: "#define is a textual macro (no type, no scope). const int is a real C++ object and is the SIT102 idiom."
+drills:
+  - tier1:Q4:const-int-MAX
+tier2:
+  - tier2:pfg:part-1-instructions/1-sequence-and-data/2-trailside/07-variable
+  - tier2:seminar:saloni-2 @ 46:40
+  - tier2:v2:Q4
+  - tier2:practice:Q4

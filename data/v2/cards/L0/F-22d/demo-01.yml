@@ -45,6 +45,7 @@ usedIn:
   - "Q1 trace (function mutates caller's struct via reference)"
   - "Q3 read function (cin writes go through reference into caller)"
 
+drills: ["tier1:prereq:mutation-visibility-after-function-returns"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/0-pointers-and-references"

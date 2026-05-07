@@ -22,9 +22,14 @@ explanation: |
   The V2.0 marking rubric expects the literal name `number_to_read`. Abbreviations (`n`, `count`, `size`) are common everywhere else but NOT in V2.0 — and the marker matches text literally.
 
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md#PART V Block B — name MCQ"
+  kind: "practice"
+  ref: "Test2-SIT102-practice-2026T1.txt — Q3 second parameter `int number_to_read`"
 
+drills:
+  - "tier1:Q3:R-02b"
+  - "tier2:practice:Q3"
+  - "tier2:v2:Q3"
+  - "tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-parameter.mdx"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"

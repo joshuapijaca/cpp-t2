@@ -1,33 +1,51 @@
-
-id: "L2-S2-reserved-29"
-schemaVersion: "v2"
-atomId: "L-22"
-qTags: ["Q2"]
+id: L2-S2-reserved-29
+schemaVersion: v2
+atomId: L-22
+qTags:
+  - Q2
 stage: 2
-level: "L2"
-type: "FaultInjectionCard"
-stem: "Q2 reserved-word ban drill #29. The field name `return` is a C++ keyword and cannot be used as an identifier. Choose a non-reserved alternative."
-brokenCode: |
+level: L2
+type: MCQCard
+stem: >-
+  Q2 reserved-word ban drill #29. The field name `return` is a C++ keyword and cannot be used as an identifier. Choose a
+  non-reserved alternative.
+
+
+  Code under review:
+
   struct car_data
+
   {
       int return;
       string make;
   };
-bugLocations: [3]
-fixedCode: |
-  struct car_data
-  {
-      int return_type;
-      string make;
-  };
-bugCategory: "reserved word as field name"
-keyChecks: ["return_type","struct car_data","};"]
-explanation: "`return` is a C++ reserved word. Field names must be non-reserved snake_case identifiers. `return_type` works because it is not a keyword."
+
+
+
+  Which diagnosis describes the bug?
+correct: reserved word as field name
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >-
+  `return` is a C++ reserved word. Field names must be non-reserved snake_case identifiers. `return_type` works because
+  it is not a keyword.
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S2 TEMPLATE"
-commonMistakeIds: ["CM-Q2-reserved"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "Reserved-word ban with concrete substitution."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §C/C++ syntax (struct + name + {
+    fields } ; skeleton)
+commonMistakeIds:
+  - CM-Q2-reserved
+status: NEW
+createdBy: SA-L2-Q2
+notes: Reserved-word ban with concrete substitution.
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q2:q2-opening-brace
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §C/C++ syntax
+    (struct + name + { fields } ; skeleton)

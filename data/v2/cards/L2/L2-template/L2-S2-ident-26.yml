@@ -1,12 +1,12 @@
-
-id: "L2-S2-ident-26"
-schemaVersion: "v2"
-atomId: "L-22"
-qTags: ["Q2"]
+id: L2-S2-ident-26
+schemaVersion: v2
+atomId: L-22
+qTags:
+  - Q2
 stage: 2
-level: "L2"
-type: "DecomposeCard"
-stem: "Q2 identifier rules drill #26. Which is a legal identifier for the origin field?"
+level: L2
+type: DecomposeCard
+stem: 'Q2 identifier rules drill #26. Which is a legal identifier for the origin field?'
 code: |
   struct flight_data
   {
@@ -14,23 +14,33 @@ code: |
       string origin;
       string destination;
   };
-question: "Which is a legal identifier for the origin field?"
+question: Which is a legal identifier for the origin field?
 options:
-  - label: "A"
-    text: "`1st_origin`"
-  - label: "B"
-    text: "`origin`"
-  - label: "C"
-    text: "`Origin`"
-  - label: "D"
-    text: "`origin!`"
-correctLabel: "C"
-explanation: "Identifiers cannot start with a digit and cannot contain `!`. Lowercase `origin` is SIT102-styled."
+  - label: A
+    text: '`1st_origin`'
+  - label: B
+    text: '`origin`'
+  - label: C
+    text: '`Origin`'
+  - label: D
+    text: '`origin!`'
+correctLabel: C
+explanation: Identifiers cannot start with a digit and cannot contain `!`. Lowercase `origin` is SIT102-styled.
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S2 TEMPLATE"
-commonMistakeIds: ["CM-Q2-camelcase","CM-Q2-hyphen"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "Identifier-rules pick-the-correct."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §C/C++ syntax (struct + name + {
+    fields } ; skeleton)
+commonMistakeIds:
+  - CM-Q2-camelcase
+  - CM-Q2-hyphen
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L2-Q2
+notes: Identifier-rules pick-the-correct.
+drills:
+  - tier1:Q2:q2-trailing-semi
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §C/C++ syntax
+    (struct + name + { fields } ; skeleton)

@@ -1,45 +1,43 @@
-# =====================================================================
-# L1 / average / DecomposeCard 01 — spot-error 1
-# =====================================================================
-id: "L1-A10-decomp-01"
-schemaVersion: "v2"
-atomId: "A10"
-qTags: ["Q1"]
+id: L1-A10-decomp-01
+schemaVersion: v2
+atomId: A10
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "DecomposeCard"
-
-stem: "The code below CLAIMS to compute average on numbers={2.0, 4.0, 6.0, 8.0, 10.0}. There is a bug. Identify it."
-
+level: L1
+type: DecomposeCard
+stem: The code below CLAIMS to compute average on numbers={2.0, 4.0, 6.0, 8.0, 10.0}. There is a bug. Identify it.
 code: |
   data.mystery = 0.0;
   for (int i = 0; i < SIZE; i = i + 1) {
     data.mystery = data.mystery + data.numbers[i];
     data.mystery = data.mystery / SIZE;
   }
-
-question: "Pick the option that correctly identifies the bug."
-
+question: Pick the option that correctly identifies the bug.
 options:
-  - label: "A"
-    text: "The bug: divide is INSIDE the loop — runs SIZE times; correct: divide once after the loop ends. The correct output should be 6."
-  - label: "B"
-    text: "The code is correct — it produces the right answer."
-  - label: "C"
-    text: "The bug is the loop bound `i < SIZE`; should be `i <= SIZE`."
-  - label: "D"
-    text: "The bug is in the cout statement; missing endl flush."
-
-correctLabel: "A"
-
-explanation: "Spot-error drill. divide is INSIDE the loop — runs SIZE times; correct: divide once after the loop ends. Targets CM-A10-divide-inside-loop, CM-A10-forget-divide, CM-A10-int-div-truncate."
-
+  - label: A
+    text: >-
+      The bug: divide is INSIDE the loop — runs SIZE times; correct: divide once after the loop ends. The correct output
+      should be 6.
+  - label: B
+    text: The code is correct — it produces the right answer.
+  - label: C
+    text: The bug is the loop bound `i < SIZE`; should be `i <= SIZE`.
+  - label: D
+    text: The bug is in the cout statement; missing endl flush.
+correctLabel: A
+explanation: >-
+  Spot-error drill. divide is INSIDE the loop — runs SIZE times; correct: divide once after the loop ends. Targets
+  CM-A10-divide-inside-loop, CM-A10-forget-divide, CM-A10-int-div-truncate.
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — average spot-error"
-
-commonMistakeIds: ["CM-A10-divide-inside-loop", "CM-A10-forget-divide", "CM-A10-int-div-truncate"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
-notes: "Spot-error decompose card."
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — average spot-error
+commonMistakeIds:
+  - CM-A10-divide-inside-loop
+  - CM-A10-forget-divide
+  - CM-A10-int-div-truncate
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
+notes: Spot-error decompose card.
+drills: tier1:Q1:accumulator

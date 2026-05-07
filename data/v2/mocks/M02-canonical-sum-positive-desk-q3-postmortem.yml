@@ -1,20 +1,17 @@
-# =====================================================================
-# L5 / Mock M02 Q3 POSTMORTEM
-# Diff failed attempt vs canonical (V2.0 read_desks shape).
-# =====================================================================
-id: "L5-mock-M02-q3-postmortem"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: L5-mock-M02-q3-postmortem
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
+drills: ["Q1", "Q2", "Q3", "Q4"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
+level: L5
+type: WalkthroughCard
 stem: |
   Postmortem for Mock M02 Q3 (read function, V2.0 shape). Why did the
   failed attempt below lose marks? What's the exact repair?
-
-failedAttempt: |
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   void read_desks(desk_data desk_list, int number_to_read) {
     int i;
     for (i = 0; i < number_to_read; i++) {
@@ -23,36 +20,27 @@ failedAttempt: |
   }
   // Bug: param `desk_data desk_list` is a single struct value, not an array.
   //      Missing `&` and `[]` per Deakin V2.0 convention.
-
-diagnosis: |
-  Two stacked errors: (1) parameter `desk_data desk_list` accepts
-  a single struct by value, not an array; (2) the V2.0 Deakin
-  convention is `desk_data &desk_list[]` — ampersand AND empty
-  brackets. Without `&[]` the array does not pass through correctly
-  per the rubric, and only one of three fields is read (room_id only;
-  d_id and number_of_screens are skipped).
-
-repairSteps:
-  - "Change `desk_data desk_list` to `desk_data &desk_list[]`."
-  - "Add the two missing cin lines: `cin >> desk_list[i].d_id;` and `cin >> desk_list[i].number_of_screens;`."
-  - "Verify signature matches V2.0 verbatim: `void read_desks(desk_data &desk_list[], int number_to_read)`."
-
-preventionTip: |
-  Q3 V2.0 signature is ALWAYS `void read_X(EntityName &arr[], int number_to_read)` — drill the `&` AND the `[]` together. Read all three fields.
-
-explanation: |
-  Postmortem cards diff your failed answer against the canonical
-  answer, label the bug, and surface exactly what to repair. Per
-  Mock retry policy §7.5: any 70-89 score injects 4 postmortem
-  cards (one per Q) before the next mock attempt unlocks.
-
+steps:
+  - line: 1
+    code: Change `desk_data desk_list` to `desk_data &desk_list[]`.
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: 'Add the two missing cin lines: `cin >> desk_list[i].d_id;` and `cin >> desk_list[i].number_of_screens;`.'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: 'Verify signature matches V2.0 verbatim: `void read_desks(desk_data &desk_list[], int number_to_read)`.'
+    annotation: Repair step 3
+    atomIds: []
 source:
-  kind: "v2"
-  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 verbatim — Mock M02 retro"
-
-commonMistakeIds: ["CM-missing-amp-sig"]
-status: "NEW"
-createdBy: "SA-L5-Mock"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test2-SIT102-practice-2026T1.txt + V2.0 verbatim — Mock M02 retro
+commonMistakeIds:
+  - CM-missing-amp-sig
+status: NEW
+createdBy: SA-L5-Mock
 notes: |
   Mock M02 retro — Q3 repair drill. V2.0 shape: &desk_list[] + 3 cin lines.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

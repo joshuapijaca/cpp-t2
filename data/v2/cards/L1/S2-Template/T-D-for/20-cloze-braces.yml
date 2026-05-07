@@ -1,46 +1,39 @@
-id: "L1-S2-TD-20-cloze-braces"
-schemaVersion: "v2"
-atomId: "T-04"
-qTags: ["Q1"]
+id: L1-S2-TD-20-cloze-braces
+schemaVersion: v2
+atomId: T-04
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Add the body braces around the for-loop's body region.
-
 prompt: |
   Provide the missing body braces.
-
 template: |
   for (int i = 0; i < SIZE; i++) ___
     // body
   ___
-
 canonicalAnswer: |
   for (int i = 0; i < SIZE; i++) {
     // body
   }
-
 keyChecks:
   - "{"
   - "}"
-
 forbiddenTokens: []
-
 explanation: |
   Open `{` after the closing paren of the for-header, close `}` after
   the last body statement. Required when the body has more than one
   statement (and stylistically required even for single-statement
   bodies in SIT102).
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — body braces"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — body braces
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-D cloze: body braces.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:for-header

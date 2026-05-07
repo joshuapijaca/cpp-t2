@@ -48,6 +48,7 @@ explanation: |
   C is nonsense — there is no default-reset on return.
   D is also wrong — pass-by-reference is fully defined behaviour.
 
+drills: ["tier1:prereq:mutation-visibility-after-function-returns"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"

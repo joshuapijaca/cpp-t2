@@ -38,6 +38,7 @@ status: "NEW"
 createdBy: "SA-PhaseC"
 authoringStatus: "DRAFT"
 
+drills: ["tier1:prereq:prompt-then-read-pair"]
 source:
   kind: "practice"
   ref: "Practice test 2026 T1: Q4 main reads num_to_read first"

@@ -34,6 +34,7 @@ explanation: |
   Distractor 3 confuses the directive with `-std=c++17` flags or
   pragmas. Those configure the compiler, not the namespace.
 
+drills: ["tier1:prereq:using-namespace-std"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"

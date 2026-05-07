@@ -1,44 +1,35 @@
-id: "CM-misparse-brace-spoterror"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: CM-misparse-brace-spoterror
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
+level: L4
+type: MCQCard
 stem: |
-  Spot the error. Q1 misparsed brace-init. The code below has the bug labeled
-  by CM-misparse-brace. Find the line and provide the fix.
+  Which line below contains the bug?
 
-brokenCode: |
+  Broken code:
   // Q1 broken excerpt:
   // d.numbers = {1,2,3,4,5,0}
   // (canonical was: stat_double d = {{1.0,2.0,3.0,4.0,5.0}, 0.0};)
   ;
-
-bugLocations: [1]
-
-fixedCode: |
-  stat_double d = {{1.0,2.0,3.0,4.0,5.0}, 0.0};
-  ;
-
-bugCategory: "CM-misparse-brace"
-
-keyChecks:
-  - "stat_double d = {{1.0,2.0,3.0,"
-
+correct: // d.numbers = {1,2,3,4,5,0}
+distractors:
+  - '// Q1 broken excerpt:'
+  - '// (canonical was: stat_double d = {{1.0,2.0,3.0,4.0,5.0}, 0.0};)'
+  - ;
 explanation: |
   Bug: Treated {{1,2,3,4,5}, 0} as a 6-element array.
   Fix: stat_double d = {{1.0,2.0,3.0,4.0,5.0}, 0.0};
   This common mistake costs marks on Q1 per the rubric.
-
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-misparse-brace"
-
-commonMistakeIds: ["CM-misparse-brace"]
-status: "NEW"
-createdBy: "SA-CM-Immune"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — common-mistake catalogue CM-misparse-brace
+commonMistakeIds:
+  - CM-misparse-brace
+status: NEW
+createdBy: SA-CM-Immune
+authoringStatus: DRAFT
 notes: |
   CM card 1/5 (SpotError) for CM-misparse-brace.

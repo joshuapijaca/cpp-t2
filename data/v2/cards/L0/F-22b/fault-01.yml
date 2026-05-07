@@ -1,20 +1,18 @@
-# =====================================================================
-# L0 / F-22b / FaultInjectionCard 01 — missing `&` in signature
-# =====================================================================
-id: "L0-F22b-fault-01"
-schemaVersion: "v2"
-atomId: "F-22b"
-qTags: ["Q1", "Q3"]
+id: L0-F22b-fault-01
+schemaVersion: v2
+atomId: F-22b
+qTags:
+  - Q1
+  - Q3
 stage: 0
-level: "L0"
-type: "FaultInjectionCard"
-
-stem: |
+level: L0
+type: MCQCard
+stem: |-
   This Q3 read function compiles AND runs without errors — yet the
   test will mark it WRONG. Find the bug, point to the line, and
   give the fix.
 
-brokenCode: |
+  Code under review:
   void read_data(stat_double data)
   {
     int i;
@@ -24,24 +22,13 @@ brokenCode: |
     }
   }
 
-bugLocations: [1]
 
-fixedCode: |
-  void read_data(stat_double &data)
-  {
-    int i;
-    data.mystery = 0.0;
-    for (i = 0; i < SIZE; i++) {
-      cin >> data.numbers[i];
-    }
-  }
-
-bugCategory: "missing &"
-
-keyChecks:
-  - "stat_double &data"
-  - "&data"
-
+  Which diagnosis describes the bug?
+correct: missing &
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
 explanation: |
   Bug: line 1 takes `data` BY VALUE (no `&`). The function receives
   a COPY of the caller's struct. Inside the function, the loop
@@ -57,16 +44,16 @@ explanation: |
   COMPILES, runs without crashing, but produces wrong observable
   behaviour. The bug is INVISIBLE without testing — drill the `&`
   into muscle memory.
-
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — high-frequency Q3 marking loss"
-
-commonMistakeIds: ["CM-F22b-1"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-PhaseE"
+  kind: practice
+  ref: Test 2 V2.0 — high-frequency Q3 marking loss
+commonMistakeIds:
+  - CM-F22b-1
+status: NEW
+createdBy: SA-PhaseE
 notes: |
   Highest-stakes fault-injection in F-22. Drives home that the
   bug is silent: code compiles + runs + crashes nothing, but loses
   the entire Q3.
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard

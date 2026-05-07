@@ -52,6 +52,7 @@ explanation: |
   C — programs do not have multiple "runs" in C++.
   D — wrong; the body runs at most once per visit, and here zero.
 
+drills: ["tier1:prereq:if-cond-no-else"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/02-branches"

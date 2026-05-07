@@ -30,9 +30,10 @@ explanation: |
   inside the `who_am_i` procedure. `>` is strict greater-than.
   Recognising this on sight is the goal of Q1 trace prep.
 
+drills: ["tier1:prereq:if-cond-no-else"]
 source:
-  kind: "v2"
-  ref: "Test2-SIT102-practice (1).docx — who_am_i body line"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/02-branches"
 
 commonMistakeIds: ["CM-F17a"]
 status: "NEW"

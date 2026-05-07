@@ -50,9 +50,10 @@ steps:
       Multi-word strings need a different read function (out of scope).
     atomIds: ["F-14a"]
 
+drills: ["tier1:prereq:cin-operator-direction"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F14a-1"]
 status: "NEW"

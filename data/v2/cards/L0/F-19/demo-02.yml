@@ -36,6 +36,7 @@ usedIn:
   - "Q1 trace (loop `for (i=0; i<SIZE; i++)` reads arr[0]..arr[SIZE-1])"
   - "Q3 read function (loop fills arr[0]..arr[N-1])"
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"

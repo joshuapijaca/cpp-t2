@@ -36,9 +36,10 @@ explanation: |
   Each cin pulls ONE token. Type-conversion is automatic based on
   the variable's declared type.
 
+drills: ["tier1:prereq:cin-reads-one-whitespace-delimited-token"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: []
 status: "NEW"

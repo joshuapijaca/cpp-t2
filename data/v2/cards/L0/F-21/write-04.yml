@@ -40,6 +40,7 @@ explanation: |
 
 passByRefRequired: false
 
+drills: ["tier1:prereq:dot-access-obj-field"]
 source:
   kind: "practice"
   ref: "Test 2 V2.0 — Q3 read function body line"

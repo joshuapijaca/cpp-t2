@@ -27,6 +27,7 @@ explanation: |
   same as `arr[2]`. This is the loop-driven access pattern used in
   Q1 trace bodies and Q3 read functions.
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"

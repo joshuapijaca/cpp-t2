@@ -1,32 +1,28 @@
-# Hand-authored CM immunization (ClozeCard) for CM-Q1-wrong-return-type
-id: "L1-cmimm-CM-Q1-wrong-return-type-cloze"
-schemaVersion: "v2"
-atomId: "T-02"
-qTags: ["Q1"]
+id: L1-cmimm-CM-Q1-wrong-return-type-cloze
+schemaVersion: v2
+atomId: T-02
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "ClozeCard"
-
-stem: "Fill in the return type for who_am_i (mutates via reference)."
-
+level: L1
+type: ClozeCard
+stem: Fill in the return type for who_am_i (mutates via reference).
 code: |
   ___ who_am_i(stat_double &data) {
       data.mystery = 0.0;
   }
-
-clozeSentence: 'Fill in the return type for a function that returns nothing.'
-
-answer: 'void'
-
-explanation: |
-  void = "this function returns no value". who_am_i mutates the caller's struct through the reference parameter, so no return value is needed.
-
+clozeSentence: Fill in the return type for a function that returns nothing.
+answer: void
+explanation: >
+  void = "this function returns no value". who_am_i mutates the caller's struct through the reference parameter, so no
+  return value is needed.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-wrong-return-type)"
-
-commonMistakeIds: ["CM-Q1-wrong-return-type"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — common-mistake immunization (CM-Q1-wrong-return-type)
+commonMistakeIds:
+  - CM-Q1-wrong-return-type
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills: tier1:Q1:void-fn

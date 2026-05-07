@@ -1,51 +1,58 @@
-# Hand-authored CM immunization (FaultInjectionCard) for CM-confuses-panel-with-output
-id: "L1-cmimm-CM-confuses-panel-with-output-spot"
-schemaVersion: "v2"
-atomId: "F-03"
-qTags: ["Q1", "Q4"]
+id: L1-cmimm-CM-confuses-panel-with-output-spot
+schemaVersion: v2
+atomId: F-03
+qTags:
+  - Q1
+  - Q4
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
+level: L1
+type: MCQCard
+stem: >-
+  The exam asked "What does the program print?" The student wrote the variables panel where only the terminal output was
+  wanted. Find the wrong answer.
 
-stem: |
-  The exam asked "What does the program print?" The student wrote the variables panel where only the terminal output was wanted. Find the wrong answer.
 
-brokenCode: |
+  Code under review:
+
   // Question: What does this program print?
+
   //
+
   // Student answer:
+
   //   x = 5, y = 12, z = 17
+
   //
+
   // Code traced:
+
   //   int x = 5;
+
   //   int y = 12;
+
   //   int z = x + y;
+
   //   cout << z << endl;
 
-bugLocations: [4]
 
-fixedCode: |
-  // Question: What does this program print?
-  //
-  // Correct answer:
-  //   17
-  //
-  // (panel was scratch; only cout output goes here)
 
-bugCategory: "wrote variables panel instead of terminal output"
-
-keyChecks:
-  - "17"
-
-explanation: |
-  The exam wording asks for what the program PRINTS. cout << z prints 17 — only the terminal output is the answer. The panel `{x:5, y:12, z:17}` is your scratch working, not the deliverable.
-
+  Which diagnosis describes the bug?
+correct: wrote variables panel instead of terminal output
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  The exam wording asks for what the program PRINTS. cout << z prints 17 — only the terminal output is the answer. The
+  panel `{x:5, y:12, z:17}` is your scratch working, not the deliverable.
 source:
-  kind: "v2"
-  ref: "SIT102 past-paper Q1 phrasing — common-mistake immunization (CM-confuses-panel-with-output)"
-
-commonMistakeIds: ["CM-confuses-panel-with-output"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: SIT102 past-paper Q1 phrasing — common-mistake immunization (CM-confuses-panel-with-output)
+commonMistakeIds:
+  - CM-confuses-panel-with-output
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

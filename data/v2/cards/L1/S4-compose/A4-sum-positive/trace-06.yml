@@ -1,25 +1,22 @@
-# =====================================================================
-# L1 / sum-positive / TraceCard 06
-# V2.0 floats
-# =====================================================================
-id: "L1-A4-trace-06"
-schemaVersion: "v2"
-atomId: "A4"
-qTags: ["Q1"]
+id: L1-A4-trace-06
+schemaVersion: v2
+atomId: A4
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "TraceCard"
-
-stem: "Hand-execute the sum-positive loop on stat_double { numbers = {2.4, -3.7, 5.1, -1.2, 4.8}, mystery = ? }. Track i and data.mystery in the panel; print final mystery. V2.0 floats."
-
+level: L1
+type: TraceCard
+stem: >-
+  Hand-execute the sum-positive loop on stat_double { numbers = {2.4, -3.7, 5.1, -1.2, 4.8}, mystery = ? }. Track i and
+  data.mystery in the panel; print final mystery. V2.0 floats.
 code: |
   const int SIZE = 5;
-  
+
   struct stat_double {
     double numbers[SIZE];
     double mystery;
   };
-  
+
   int main() {
     stat_double data = { {2.4, -3.7, 5.1, -1.2, 4.8}, 0 };
     data.mystery = 0.0;
@@ -31,59 +28,57 @@ code: |
     cout << data.mystery << endl;
     return 0;
   }
-
-variables: ["i", "data.mystery"]
-
+variables:
+  - i
+  - data.mystery
 expectedTrace:
   - line: 9
-    variable: "data.mystery"
+    variable: data.mystery
     value: "0"
     output: null
   - line: 10
-    variable: "data.mystery"
+    variable: data.mystery
     value: "0.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "0"
     output: null
   - line: 13
-    variable: "data.mystery"
+    variable: data.mystery
     value: "2.4"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "1"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "2"
     output: null
   - line: 13
-    variable: "data.mystery"
+    variable: data.mystery
     value: "7.5"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "3"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "4"
     output: null
   - line: 13
-    variable: "data.mystery"
+    variable: data.mystery
     value: "12.3"
     output: null
   - line: 17
     variable: ""
     value: ""
     output: "12.3"
-
-terminalOutput: ["12.3"]
-
-inputMode: "final-only"
-
+terminalOutput:
+  - "12.3"
+inputMode: final-only
 teachMe: |
   After hand-execution:
     data.mystery = 0
@@ -97,15 +92,17 @@ teachMe: |
     i = 4
     data.mystery = 12.3
     Print: 12.3
-  
+
   Final terminal output: 12.3
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — sum-positive shape"
-
-commonMistakeIds: ["CM-A4-skip-condition", "CM-A4-include-zero", "CM-A4-flip-condition"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 (2026-05-07) — sum-positive shape
+commonMistakeIds:
+  - CM-A4-skip-condition
+  - CM-A4-include-zero
+  - CM-A4-flip-condition
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
 notes: "Progression: V2.0 floats. Trace card. Input mode: final-only."
+drills: tier1:Q1:accumulator

@@ -46,9 +46,10 @@ teachMe: |
 
   Final output: `price: 9.99`.
 
+drills: ["tier1:prereq:cout-chained-output"]
 source:
-  kind: "practice"
-  ref: "Practice test 2026 T1: labelled-print pattern"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: []
 status: "NEW"

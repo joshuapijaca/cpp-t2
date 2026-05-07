@@ -15,14 +15,14 @@ source:
 commonMistakeIds:
   - CM-C21a
 stem: >-
-  In `if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }`, the condition
-  evaluates to FALSE. What happens?
+  In `if (data.numbers[i] > 0) { data.mystery = data.mystery + data.numbers[i]; }`, the condition evaluates to FALSE.
+  What happens?
 correct: The body is SKIPPED. data.mystery is unchanged for this iteration.
 distractors:
   - The body still runs because there is no else.
   - data.mystery is reset to 0.
   - The loop exits immediately.
 explanation: >-
-  If false, the body is skipped and data.mystery does NOT change. Drop a row in the trail with no
-  mutation. M03 trap is running the body anyway.
-
+  If false, the body is skipped and data.mystery does NOT change. Drop a row in the trail with no mutation. M03 trap is
+  running the body anyway.
+drills: tier1:Q1:trace-strikethrough

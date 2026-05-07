@@ -9,7 +9,7 @@ type: "WalkthroughCard"
 stem: "Tour the practice main() — computer_data with MAX=100, find-max Q1 algorithm. Same 7-piece skeleton as V2.0 with different MAX/entity."
 source: 
   kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — computer_data main()"
+  ref: "practice:Q4 — full main() walkthrough; computer_data MAX=100, find-max"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -46,3 +46,18 @@ steps:
   - {line: 12, code: "for (int i = 0; i < computer_num; i++)", annotation: "Loop bound by computer_num."}
   - {line: 14, code: "cout << computers[i].id << \", \" << computers[i].description << \", \" << computers[i].location << endl;", annotation: "Three fields with comma separator + endl."}
   - {line: 17, code: "return 0;", annotation: "Last statement."}
+drills:
+  - tier1:Q4:int-main
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+  - tier1:Q4:fn-call-no-amp
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+  - tier1:Q4:return-0
+tier2:
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations
+  - tier2:seminar:saloni-2 @ 47:17
+  - tier2:practice:Q4

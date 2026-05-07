@@ -1,20 +1,17 @@
-# =====================================================================
-# L5 / Mock M07 Q1 POSTMORTEM
-# Diff failed attempt vs canonical, surface repair steps.
-# =====================================================================
-id: "L5-mock-M07-q1-postmortem"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q1"]
+id: L5-mock-M07-q1-postmortem
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q1
+drills: ["Q1", "Q2", "Q3", "Q4"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
+level: L5
+type: WalkthroughCard
 stem: |
   Postmortem for Mock M07 Q1 (hand-execute). Why did the failed
   attempt below lose marks? What's the exact repair?
-
-failedAttempt: |
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   // Student answered 6.0 (wrongly divided sum by SIZE).
   void who_am_i(stat_double &data) {
     int i;
@@ -29,37 +26,27 @@ failedAttempt: |
   }
   // Result: student got 6.0 by READING the algorithm wrong — there
   // is NO division step. The body just sums every element.
-
-diagnosis: |
-  The algorithm body is `if (true) data.mystery += data.numbers[i];`
-  — a sum-all loop, NOT an average. There is no division by SIZE
-  anywhere in the body. With input {3.0, 6.0, 9.0, 4.0, 8.0} and
-  seed 0.0, hand-trace gives 0+3=3, 3+6=9, 9+9=18, 18+4=22, 22+8=30.
-  Final d.mystery == 30.0. The student saw the variant label
-  "average" and mentally injected a `/SIZE` step that the actual
-  C++ code does NOT contain. Read the body, not the label.
-
-repairSteps:
-  - "Re-read the body. Confirm there is NO `/ SIZE` and NO division."
-  - "Hand-trace each iter: 0+3=3; +6=9; +9=18; +4=22; +8=30."
-  - "Verify final d.mystery equals 30.0 (not 6.0)."
-
-preventionTip: |
-  Trust the CODE, not the label. If the body has no `/`, no division happens. Sum-all and average look similar; only the body decides.
-
-explanation: |
-  Postmortem cards diff your failed answer against the canonical
-  answer, label the bug, and surface exactly what to repair. Per
-  Mock retry policy §7.5: any 70-89 score injects 4 postmortem
-  cards (one per Q) before the next mock attempt unlocks.
-
+steps:
+  - line: 1
+    code: Re-read the body. Confirm there is NO `/ SIZE` and NO division.
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: 'Hand-trace each iter: 0+3=3; +6=9; +9=18; +4=22; +8=30.'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: Verify final d.mystery equals 30.0 (not 6.0).
+    annotation: Repair step 3
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 — Mock M07 retro"
-
-commonMistakeIds: ["CM-cap-struct-name"]
-status: "NEW"
-createdBy: "SA-L5-Mock"
-authoringStatus: "DRAFT"
+  kind: "v2"
+  ref: Test2-SIT102-practice-2026T1.txt + V2.0 — Mock M07 retro
+commonMistakeIds:
+  - CM-cap-struct-name
+status: NEW
+createdBy: SA-L5-Mock
 notes: |
   Mock M07 retro — Q1 repair drill.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

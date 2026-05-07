@@ -1,59 +1,56 @@
-id: "L5-postmortem-16-A11-init-0"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q2"]
+id: L5-postmortem-16-A11-init-0
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q2
+drills: ["Q2"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q2 struct — student named a field `class` (a C++ reserved keyword). Compiler error: cannot use keyword as identifier. Read the diff.
-
-failedAttempt: |
-  struct student_data
-  {
-      string name;
-      int class;
-      int year;
-  };
-
-diagnosis: |
-  `class` is a reserved keyword in C++ — it introduces class definitions. You cannot use it as an identifier. Other off-limits: `int`, `double`, `for`, `if`, `return`, `void`, `const`, `struct`, `enum`, `using`, `namespace`. Compiler error: "expected member name before 'class'". Choose a non-reserved name like `class_id`, `class_num`, or `course`.
-
-repairSteps:
-  - "struct student_data"
-  - "{"
-  - "    string name;"
-  - "    int class_id;     // <-- avoid the keyword `class`"
-  - "    int year;"
-  - "};"
-
-preventionTip: |
-  C++ has ~80 reserved keywords. If your editor highlights a name in keyword color, pick a different name. Common traps: `class`, `template`, `new`, `delete`, `case`, `try`, `throw`, `default`, `friend`, `operator`. Append `_id`, `_num`, or `_value` to disambiguate.
-
-explanation: |
-  Lesson learned — reserved words are language-level taboo. The compiler error is immediate and clear ("expected member name before 'class'"), but the fix requires you to know the keyword list. When in doubt, paste your identifier into a C++ keyword reference. PascalCase doesn't save you either: `Class` is fine but conventions for this unit are snake_case.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q2 struct — student named a field `class` (a C++ reserved keyword). Compiler error: cannot use keyword as identifier.
+  Read the diff.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   struct student_data
   {
       string name;
       int class_id;
       int year;
   };
-
-annotations:
+steps:
+  - line: 1
+    code: struct student_data
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '    string name;'
+    annotation: Repair step 3
+    atomIds: []
   - line: 4
-    severity: err
-    note: "`class` is a reserved C++ keyword. Use `class_id` or `course` or another non-keyword."
-
+    code: '    int class_id;     // <-- avoid the keyword `class`'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '    int year;'
+    annotation: Repair step 5
+    atomIds: []
+  - line: 6
+    code: '};'
+    annotation: Repair step 6
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q2 reserved-word collision"
-
-commonMistakeIds: ["CM-reserved-word"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q2 reserved-word collision
+commonMistakeIds:
+  - CM-reserved-word
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #16 — Q2 / reserved keyword as field name.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

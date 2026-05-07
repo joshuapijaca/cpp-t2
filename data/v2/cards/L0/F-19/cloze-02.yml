@@ -25,6 +25,7 @@ explanation: |
   An array of size 5 has indices 0, 1, 2, 3, 4. The last valid index
   is SIZE - 1 = 4. Writing arr[5] would go off the end (CM-F19b).
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"

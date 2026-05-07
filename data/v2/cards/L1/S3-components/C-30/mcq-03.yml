@@ -15,16 +15,14 @@ source:
 commonMistakeIds:
   - CM-C30a
 stem: >-
-  void who_am_i(stat_double &data) { ... } is called as who_am_i(d); from main. Do d and data refer
-  to the same memory or different memory?
-correct: >-
-  Same memory. The & makes data an alias for the caller`s d. Mutations inside who_am_i are visible
-  in main.
+  void who_am_i(stat_double &data) { ... } is called as who_am_i(d); from main. Do d and data refer to the same memory
+  or different memory?
+correct: Same memory. The & makes data an alias for the caller`s d. Mutations inside who_am_i are visible in main.
 distractors:
   - Different memory. The function gets a copy of d; main`s d is untouched.
   - Same memory only for scalars; arrays inside d are still copied.
   - Same memory only when the function returns void; otherwise it is a copy.
 explanation: >-
-  Pass-by-reference (&) shares the same memory. Without &, the struct would be copied
-  (pass-by-value) and mutations would not be visible.
-
+  Pass-by-reference (&) shares the same memory. Without &, the struct would be copied (pass-by-value) and mutations
+  would not be visible.
+drills: tier1:Q1:trace-strikethrough

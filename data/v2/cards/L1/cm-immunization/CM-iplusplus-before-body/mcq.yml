@@ -1,31 +1,27 @@
-# Auto-emitted CM immunization (MCQCard) for CM-iplusplus-before-body
-id: "L1-cmimm-CM-iplusplus-before-body-mcq"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-iplusplus-before-body-mcq
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "MCQCard"
-
+level: L1
+type: MCQCard
 stem: |
   Per iteration of `for (int i = 0; i < N; i++)`, what is the order of operations?
-
-correct: 'cond-check, body, then i++.'
-
+correct: cond-check, body, then i++.
 distractors:
-  - 'i++, cond-check, body.'
-  - 'body, i++, cond-check.'
-  - 'cond-check, i++, body.'
-
+  - i++, cond-check, body.
+  - body, i++, cond-check.
+  - cond-check, i++, body.
 explanation: |
   Standard for-loop: condition, body, post-statement, repeat.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-iplusplus-before-body)"
-
-commonMistakeIds: ["CM-iplusplus-before-body"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (MCQCard / concept check)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-iplusplus-before-body)
+commonMistakeIds:
+  - CM-iplusplus-before-body
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (MCQCard / concept check)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

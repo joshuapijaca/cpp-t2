@@ -41,6 +41,7 @@ explanation: |
   body has just one cout. Note the parens around `x > 0`. Note the
   semicolon at the end of the cout (not after the closing brace).
 
+drills: ["tier1:prereq:if-cond-no-else"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/1-starting-cpp/2-trailside/4-3-if"

@@ -29,9 +29,10 @@ explanation: |
   comma operator discards the rest. Distractor 3 tries `+`, which only
   works when both sides are strings.
 
+drills: ["tier1:prereq:cout-chained-output"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec F-13 — cout chained output"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F13a-1"]
 status: "NEW"

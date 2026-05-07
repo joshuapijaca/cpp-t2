@@ -1,46 +1,52 @@
-# Hand-authored CM immunization (FaultInjectionCard) for CM-F22e-3
-id: "L1-cmimm-CM-F22e-3-spot"
-schemaVersion: "v2"
-atomId: "F-22e"
-qTags: ["Q1", "Q3"]
+id: L1-cmimm-CM-F22e-3-spot
+schemaVersion: v2
+atomId: F-22e
+qTags:
+  - Q1
+  - Q3
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
+level: L1
+type: MCQCard
+stem: >-
+  A student wrote that the function would NOT change the caller's array because no `&` was used. Find and fix the wrong
+  claim.
 
-stem: |
-  A student wrote that the function would NOT change the caller's array because no `&` was used. Find and fix the wrong claim.
 
-brokenCode: |
+  Code under review:
+
   // Code:
+
   //   void zero_first(int arr[], int size) { arr[0] = 0; }
+
   //   int main() { int data[3] = {7,8,9}; zero_first(data, 3);
+
   //                cout << data[0] << endl; }
+
   //
+
   // Student claim:
+
   //   "Output: 7. The array param has no & so it's a local copy."
 
-bugLocations: [6]
 
-fixedCode: |
-  // Correct claim:
-  //   "Output: 0. Raw arrays decay to pointer-like aliases at the
-  //    parameter boundary; mutations through arr[i] are visible to
-  //    the caller. No `&` needed for arrays."
 
-bugCategory: "thinks raw array param makes a local copy"
-
-keyChecks:
-  - "0"
-
-explanation: |
-  Arrays do NOT copy at the parameter boundary — they decay. Mutations to arr[i] inside the function modify the caller's storage. Output is 0, not 7.
-
+  Which diagnosis describes the bug?
+correct: thinks raw array param makes a local copy
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  Arrays do NOT copy at the parameter boundary — they decay. Mutations to arr[i] inside the function modify the caller's
+  storage. Output is 0, not 7.
 source:
-  kind: "v2"
-  ref: "PFG part-2/5-working-with-multiples — common-mistake immunization (CM-F22e-3)"
-
-commonMistakeIds: ["CM-F22e-3"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: PFG part-2/5-working-with-multiples — common-mistake immunization (CM-F22e-3)
+commonMistakeIds:
+  - CM-F22e-3
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

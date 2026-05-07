@@ -1,29 +1,32 @@
-id: "L1-S2-TC-mcq-01"
-schemaVersion: "v2"
-atomId: "T-03"
-qTags: ["Q1"]
+id: L1-S2-TC-mcq-01
+schemaVersion: v2
+atomId: T-03
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "MCQCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — sum-positive uses `data.mystery = 0.0;`"
-commonMistakeIds: ["CM-Q1-skip-init"]
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — sum-positive uses `data.mystery = 0.0;`
+commonMistakeIds:
+  - CM-Q1-skip-init
 stem: |
   Which pre-loop init line is correct for the V2.0 sum-positive
   algorithm?
-correct: "data.mystery = 0.0;"
+correct: data.mystery = 0.0;
 distractors:
-  - "data.mystery = data.numbers[0];"
-  - "data.mystery = SIZE;"
-  - "double data.mystery = 0.0;"
+  - data.mystery = data.numbers[0];
+  - data.mystery = SIZE;
+  - double data.mystery = 0.0;
 explanation: |
   Sum-positive starts mystery at 0.0 so the running sum begins from
   a clean baseline. Distractor 1 is the find-max init (T-03 alt).
   Distractor 2 is meaningless — SIZE is the array length. Distractor
   3 redeclares the field with `double`, which is wrong syntax inside
   a function body (the field already exists on the struct).
-notes: "MCQ form for QA-M10 type-diversity."
+notes: MCQ form for QA-M10 type-diversity.
+drills: tier1:Q1:pre-loop-init

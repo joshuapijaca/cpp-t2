@@ -1,13 +1,15 @@
-
-id: "L2-S6-speed-19-grade_data"
-schemaVersion: "v2"
-atomId: "L-26"
-qTags: ["Q2"]
+id: L2-S6-speed-19-grade_data
+schemaVersion: v2
+atomId: L-26
+qTags:
+  - Q2
 stage: 6
-level: "L2"
-type: "SpeedDrillCard"
-stem: "Q2 Speed #19. 90s clock — type the full struct from the prompt. Closing `};` is the most-missed token under time pressure."
-prompt: "90s COLD char-edge: grade_data — student_id, course, mark (single char)."
+level: L2
+type: StructWriteCard
+stem: >-
+  Q2 Speed #19. 90s clock — type the full struct from the prompt. Closing `};` is the most-missed token under time
+  pressure.
+prompt: '90s COLD char-edge: grade_data — student_id, course, mark (single char).'
 canonicalAnswer: |
   struct grade_data
   {
@@ -15,13 +17,27 @@ canonicalAnswer: |
       string course;
       char mark;
   };
-keyChecks: ["struct grade_data","};","int student_id;","string course;","char mark;"]
-explanation: "Under-clock target 90s. Closing `};` is the highest-frequency loss when rushed; type it before reviewing the body."
+keyChecks:
+  - struct grade_data
+  - '};'
+  - int student_id;
+  - string course;
+  - char mark;
+forbiddenTokens: []
+explanation: Under-clock target 90s. Closing `};` is the highest-frequency loss when rushed; type it before reviewing the body.
+requiredFields: []
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.3 S6 SPEED"
-commonMistakeIds: ["CM-F20a","CM-F20d"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "S6 timed drill at 90s."
+  kind: pfg
+  ref: pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §full-skeleton drill
+commonMistakeIds:
+  - CM-F20a
+  - CM-F20d
+status: NEW
+createdBy: SA-L2-Q2
+notes: S6 timed drill at 90s.
+authoringStatus: DRAFT
+migratedFrom: SpeedDrillCard
+drills:
+  - tier1:Q2:q2-trailing-semi
+tier2:
+  - tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/2-trailside/03-01-struct.md §full-skeleton drill

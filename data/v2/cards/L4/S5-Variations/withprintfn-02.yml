@@ -9,7 +9,7 @@ type: "MainWriteCard"
 stem: "[print-fn variation 2/10] Instead of inline for-loop, call print_desks(desks, desk_num) AFTER read_desks. Same result; cleaner main."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.5 S5 with-print-fn variant"
+  ref: "variant:Q4 — printer-style: print fn supplied (Sem 1 2025 retired pattern)"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -43,3 +43,9 @@ forbiddenTokens:
 expectedTerminal: 
   - "How many desks?"
 explanation: "Replacing inline loop with a print fn call shows that the loop is encapsulated. Same arg pattern: array + count, no &."
+drills:
+  - tier1:Q4:fn-call-no-amp
+  - tier1:Q4:print-loop
+tier2:
+  - tier2:variant:Q4
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-2-function-calls

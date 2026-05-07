@@ -31,9 +31,10 @@ explanation: |
   `num_to_read`. The opposite styles are camelCase (totalPrice) and
   PascalCase (TotalPrice), which SIT102 does NOT use.
 
+drills: ["tier1:prereq:identifier-rules-naming"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/2-trailside/3-naming-convention"
+  ref: "Programming Fundamentals Guide § part-1/2-communicating-syntax/2-trailside/04-identifier"
 
 commonMistakeIds: ["CM-F09c"]
 status: "NEW"

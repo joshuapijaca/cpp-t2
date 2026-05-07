@@ -9,7 +9,7 @@ type: "ClozeCard"
 stem: "`___ 0;` — fill the keyword."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.3 Block F cloze"
+  ref: "v2:Q4 — Block F: return 0; (success exit, last statement)"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -18,3 +18,9 @@ code: "return 0;"
 clozeSentence: "`___ 0;` — fill the keyword."
 answer: "return"
 explanation: "Answer: `return`."
+drills:
+  - tier1:Q4:return-0
+tier2:
+  - tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/05-return
+  - tier2:v2:Q4
+  - tier2:practice:Q4

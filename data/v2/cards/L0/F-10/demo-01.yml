@@ -37,9 +37,10 @@ usedIn:
   - "Q3 read-fn parameter num_to_read is int"
   - "Q4 main: SIZE constant + i loop counter are ints"
 
+drills: ["tier1:prereq:primitive-types-int-double-string"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/06-type"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/06-type"
 
 commonMistakeIds: ["CM-F10a"]
 status: "NEW"

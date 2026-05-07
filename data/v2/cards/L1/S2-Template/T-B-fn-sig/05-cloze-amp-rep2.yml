@@ -1,43 +1,37 @@
-id: "L1-S2-TB-05-cloze-amp-rep2"
-schemaVersion: "v2"
-atomId: "T-02"
-qTags: ["Q1"]
+id: L1-S2-TB-05-cloze-amp-rep2
+schemaVersion: v2
+atomId: T-02
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Cloze rep 2: fill in just the `&`.
-
 prompt: |
   Insert the missing reference marker.
-
 template: |
   void who_am_i(stat_double ___ data) {
   }
-
 canonicalAnswer: |
   void who_am_i(stat_double &data) {
   }
-
 keyChecks:
   - "&"
   - "&data"
-
 forbiddenTokens:
   - "*"
-
 explanation: |
   `&` immediately before the parameter name. Spaces are tolerated by
   the compiler but the canonical SIT102 form is `&data` no space.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — & placement"
-
-commonMistakeIds: ["CM-Q1-missing-amp"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — & placement
+commonMistakeIds:
+  - CM-Q1-missing-amp
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-B amp cloze rep 2.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:param-by-ref

@@ -1,44 +1,38 @@
-id: "L1-S2-TB-01-whole"
-schemaVersion: "v2"
-atomId: "T-02"
-qTags: ["Q1"]
+id: L1-S2-TB-01-whole
+schemaVersion: v2
+atomId: T-02
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Type the whole function signature verbatim. One line. Note the `&`.
-
 prompt: |
   Reproduce the canonical Q1 function signature.
-
 template: |
   // (type the whole signature)
-
 canonicalAnswer: |
   void who_am_i(stat_double &data) {
   }
-
 keyChecks:
-  - "void who_am_i"
-  - "stat_double"
+  - void who_am_i
+  - stat_double
   - "&data"
-
 forbiddenTokens:
-  - "double who_am_i"
-  - "while"
-
+  - double who_am_i
+  - while
 explanation: |
   `void who_am_i(stat_double &data)`. Return type, name, type,
   ampersand, parameter name. The `&` makes the param a reference.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — function signature"
-
-commonMistakeIds: ["CM-Q1-missing-amp"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — function signature
+commonMistakeIds:
+  - CM-Q1-missing-amp
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-B rep 01 — whole signature.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:param-by-ref

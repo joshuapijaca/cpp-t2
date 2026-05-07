@@ -41,6 +41,7 @@ explanation: |
   Together: `int main() { return 0; }` — the smallest legal
   program.
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"

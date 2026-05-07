@@ -39,9 +39,10 @@ usedIn:
   - "Q3 read fn (parameter names must not collide with keywords)"
   - "Q4 main (local variable names must follow rules)"
 
+drills: ["tier1:prereq:identifier-rules-naming"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/2-communicating-syntax/2-trailside/04-identifier"
+  ref: "Programming Fundamentals Guide § part-1/2-communicating-syntax/2-trailside/04-identifier"
 
 commonMistakeIds: ["CM-F09a", "CM-F09b", "CM-F09c"]
 status: "NEW"

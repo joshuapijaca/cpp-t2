@@ -42,6 +42,7 @@ explanation: |
   Q3 (`read_computers`) and Q4 (`main`) need: read user input N
   times.
 
+drills: ["tier1:prereq:for-int-i-0-i-n-i-counting-loop"]
 source:
   kind: "v2"
   ref: "Test2-SIT102-practice (1).docx — Q3 read_computers signature"

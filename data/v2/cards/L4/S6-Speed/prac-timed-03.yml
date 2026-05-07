@@ -1,48 +1,67 @@
-id: "L4-S6-prac-timed-03"
-schemaVersion: "v2"
-atomId: "Q-10"
-qTags: 
-  - "Q4"
+id: L4-S6-prac-timed-03
+schemaVersion: v2
+atomId: Q-10
+qTags:
+  - Q4
 stage: 6
-level: "L4"
-type: "SpeedDrillCard"
-stem: "[practice timed 3/5] 90 seconds to write the practice main() (computer_data, MAX=100)."
-source: 
-  kind: "practice"
-  ref: "C++T2 spec §6.6 S6 timed practice"
-commonMistakeIds: 
-  - "CM-Q4-time-pressure-skip-const"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L4-Q4"
-prompt: "Write the practice main(): const MAX=100, computer_data, computer_num, prompt+cin, read_computers call, print 3 fields, return 0."
+level: L4
+type: MainWriteCard
+stem: '[practice timed 3/5] 90 seconds to write the practice main() (computer_data, MAX=100).'
+prompt: >-
+  Write the practice main(): const MAX=100, computer_data, computer_num, prompt+cin, read_computers call, print 3
+  fields, return 0.
 canonicalAnswer: |
   int main()
   {
       const int MAX = 100;
       computer_data computers[MAX];
       int computer_num;
-  
+
       cout << "How many computers? ";
       cin >> computer_num;
-  
+
       read_computers(computers, computer_num);
-  
+
       for (int i = 0; i < computer_num; i++)
       {
           cout << computers[i].id << ", ";
           cout << computers[i].description << ", ";
           cout << computers[i].location << endl;
       }
-  
+
       return 0;
   }
-keyChecks: 
-  - "const int MAX = 100"
-  - "computer_data computers[MAX]"
-  - "cin >> computer_num"
-  - "read_computers(computers, computer_num)"
-  - "i < computer_num"
-  - "endl"
-  - "return 0"
-explanation: "90s practice main(). Prove fluency on the practice canonical."
+keyChecks:
+  - const int MAX = 100
+  - computer_data computers[MAX]
+  - cin >> computer_num
+  - read_computers(computers, computer_num)
+  - i < computer_num
+  - endl
+  - return 0
+forbiddenTokens: []
+explanation: 90s practice main(). Prove fluency on the practice canonical.
+expectedTerminal: []
+source:
+  kind: practice
+  ref: "practice:Q4 — S6 timed: practice main() under 90s"
+commonMistakeIds:
+  - CM-Q4-time-pressure-skip-const
+status: NEW
+createdBy: SA-L4-Q4
+authoringStatus: DRAFT
+migratedFrom: SpeedDrillCard
+drills:
+  - tier1:Q4:int-main
+  - tier1:Q4:const-int-MAX
+  - tier1:Q4:struct-array-decl
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+  - tier1:Q4:fn-call-no-amp
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+  - tier1:Q4:return-0
+tier2:
+  - tier2:practice:Q4
+  - tier2:pfg:part-2-organised-code/3-structuring-data/2-trailside/02-program-with-type-declarations

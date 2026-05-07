@@ -28,9 +28,10 @@ explanation: |
   immediately when it sees `int struct` because two type-keywords back-
   to-back is meaningless. Pick a non-keyword name.
 
+drills: ["tier1:prereq:identifier-rules-naming"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/2-communicating-syntax/2-trailside/04-identifier"
+  ref: "Programming Fundamentals Guide § part-1/2-communicating-syntax/2-trailside/04-identifier"
 
 commonMistakeIds: ["CM-F09b"]
 status: "NEW"

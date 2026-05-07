@@ -15,17 +15,15 @@ source:
 commonMistakeIds:
   - CM-C24a
 stem: Write the product-accumulator mutation.
-section: 'C-24 mutation: mystery = mystery * numbers[i]'
-prompt: >-
-  Write the single C++ statement that multiplies data.numbers[i] into data.mystery (product
-  accumulator).
+section: "C-24 mutation: mystery = mystery * numbers[i]"
+prompt: Write the single C++ statement that multiplies data.numbers[i] into data.mystery (product accumulator).
 expectedAnswer: data.mystery = data.mystery * data.numbers[i];
 keyChecks:
   - data.mystery
   - data.mystery * data.numbers[i]
   - data.numbers[i]
-  - '='
+  - "="
 variants:
   - prompt: Same, parameter name `p`.
     expectedAnswer: p.mystery = p.mystery * p.numbers[i];
-
+drills: tier1:Q1:accumulator

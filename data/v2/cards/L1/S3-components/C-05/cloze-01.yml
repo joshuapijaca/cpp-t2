@@ -1,17 +1,13 @@
-# =====================================================================
-# L1 / S3-components / C-05 / ClozeCard 01 — scalar cell label
-# =====================================================================
-id: "L1-S3-C-05-cloze-01"
-schemaVersion: "v2"
-atomId: "C-05"
-qTags: ["Q1"]
+id: L1-S3-C-05-cloze-01
+schemaVersion: v2
+atomId: C-05
+qTags:
+  - Q1
 stage: 3
-level: "L1"
-type: "ClozeCard"
-
+level: L1
+type: ClozeCard
 stem: |
   Fill the missing label for the scalar field's memory cell.
-
 code: |
   struct stat_double {
     double numbers[SIZE];
@@ -20,24 +16,21 @@ code: |
   // Memory sketch:
   // [ numbers[0] ][ numbers[1] ][ numbers[2] ][ numbers[3] ][ numbers[4] ]
   // [ ___ ]
-
 clozeSentence: "[ ___ ]   // 1 cell for the scalar field"
-
-answer: "mystery"
-
+answer: mystery
 explanation: |
   The scalar field `double mystery;` is drawn as a single labelled
   cell. Use the field name directly with no index suffix; scalars
   are not arrays.
-
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-05"
-
-commonMistakeIds: ["CM-C05a"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-05
+commonMistakeIds:
+  - CM-C05a
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 notes: |
   Cloze form for scalar-cell drawing. Drills the rule: scalars are
   single named cells with no index.
+drills: tier1:Q1:dot-scalar-access

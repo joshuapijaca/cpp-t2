@@ -1,39 +1,35 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-iplusplus-before-body
-id: "L1-cmimm-CM-iplusplus-before-body-spot"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-iplusplus-before-body-spot
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   This Q1 trace incremented i before running the body of iteration 0. Spot the wrong row.
 
-brokenCode: |
+  Code under review:
   // for (int i = 0; i < 3; i++) { mystery = mystery + numbers[i]; }
   // student row 1: i becomes 1 BEFORE body runs, so body uses numbers[1]
 
-bugLocations: [2]
 
-fixedCode: |
-  // CORRECT: body runs FIRST at i=0 with numbers[0], then post-stmt makes i=1.
-  // row 1: body uses numbers[0]; post-stmt -> i=1.
-
-bugCategory: 'i++ before body — misordered for-loop semantics'
-
-keyChecks:
-  - 'numbers[0]'
-
+  Which diagnosis describes the bug?
+correct: i++ before body — misordered for-loop semantics
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
 explanation: |
   In every iteration the body runs BEFORE the post-statement. Body at i=0 uses `numbers[0]`.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-iplusplus-before-body)"
-
-commonMistakeIds: ["CM-iplusplus-before-body"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-iplusplus-before-body)
+commonMistakeIds:
+  - CM-iplusplus-before-body
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

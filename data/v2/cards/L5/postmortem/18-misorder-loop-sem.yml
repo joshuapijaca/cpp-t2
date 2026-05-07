@@ -1,45 +1,17 @@
-id: "L5-postmortem-18-misorder-loop-sem"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: L5-postmortem-18-misorder-loop-sem
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
+drills: ["Q3"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
-stem: |
-  Q3 read function — student wrote `cin >> students.name` (forgot the `[i]` subscript). Every iteration writes into the same conceptual struct; the array is never populated correctly.
-
-failedAttempt: |
-  void read_students(student_data students[], int count)
-  {
-      for (int i = 0; i < count; i++)
-      {
-          cout << "Enter name: ";
-          cin >> students.name;
-          cout << "Enter age: ";
-          cin >> students.age;
-      }
-  }
-
-diagnosis: |
-  `students` is an array of structs; you must subscript it with `[i]` BEFORE accessing a field. The composite token `students[i].name` has THREE parts: array name, subscript, field. The student dropped `[i]` and wrote `students.name`. This actually fails to compile (arrays don't have `.name` directly), but students sometimes paper over it with refactors and end up with all input flowing into the same conceptual record.
-
-repairSteps:
-  - "for (int i = 0; i < count; i++)"
-  - "{"
-  - "    cout << \"Enter name: \";"
-  - "    cin >> students[i].name;     // <-- ARRAY[i].FIELD"
-  - "    cout << \"Enter age: \";"
-  - "    cin >> students[i].age;"
-  - "}"
-
-preventionTip: |
-  Inside a read loop, the input target is `arr[i].field`. Three tokens: array, `[i]`, `.field`. Drop any one and you have a different (wrong) thing. Mantra: "array-bracket-i-dot-field."
-
-explanation: |
-  Lesson learned — `students[i].name` is a single composite expression you should drill until it's automatic. Common confusion under exam pressure: students collapse it to `students.name` (forgot subscript) or `students[i]` (forgot field). Both lose marks. Practice writing the full composite 10 times to lock it in.
-
-canonicalAnswer: |
+level: L5
+type: WalkthroughCard
+stem: >
+  Q3 read function — student wrote `cin >> students.name` (forgot the `[i]` subscript). Every iteration writes into the
+  same conceptual struct; the array is never populated correctly.
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   void read_students(student_data students[], int count)
   {
       for (int i = 0; i < count; i++)
@@ -50,22 +22,43 @@ canonicalAnswer: |
           cin >> students[i].age;
       }
   }
-
-annotations:
+steps:
+  - line: 1
+    code: for (int i = 0; i < count; i++)
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: '{'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: '    cout << "Enter name: ";'
+    annotation: Repair step 3
+    atomIds: []
+  - line: 4
+    code: '    cin >> students[i].name;     // <-- ARRAY[i].FIELD'
+    annotation: Repair step 4
+    atomIds: []
+  - line: 5
+    code: '    cout << "Enter age: ";'
+    annotation: Repair step 5
+    atomIds: []
   - line: 6
-    severity: err
-    note: "`students.name` is missing `[i]`. Should be `students[i].name`. Won't compile (arrays have no `.name`)."
-  - line: 8
-    severity: err
-    note: "Same mistake on the next field. Both inputs target a non-existent member."
-
+    code: '    cin >> students[i].age;'
+    annotation: Repair step 6
+    atomIds: []
+  - line: 7
+    code: '}'
+    annotation: Repair step 7
+    atomIds: []
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt — Q3 array element access"
-
-commonMistakeIds: ["CM-missing-bracket-i"]
-status: "NEW"
-createdBy: "SA-L5-Postmortem-Rewrite"
-authoringStatus: "DRAFT"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt — Q3 array element access
+commonMistakeIds:
+  - CM-missing-bracket-i
+status: NEW
+createdBy: SA-L5-Postmortem-Rewrite
 notes: |
   Postmortem #18 — Q3 / missing `[i]` subscript.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

@@ -1,24 +1,26 @@
-id: "L1-S2-TG-mcq-01"
-schemaVersion: "v2"
-atomId: "T-07"
-qTags: ["Q1"]
+id: L1-S2-TG-mcq-01
+schemaVersion: v2
+atomId: T-07
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "MCQCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — `who_am_i(d);`"
-commonMistakeIds: ["CM-Q1-amp-at-call"]
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — `who_am_i(d);`
+commonMistakeIds:
+  - CM-Q1-amp-at-call
 stem: |
   How is `who_am_i` called from main if `d` is the local variable?
-correct: "who_am_i(d);"
+correct: who_am_i(d);
 distractors:
-  - "who_am_i(&d);"
+  - who_am_i(&d);
   - "&who_am_i(d);"
-  - "who_am_i(stat_double d);"
+  - who_am_i(stat_double d);
 explanation: |
   The `&` for pass-by-reference goes ONLY on the parameter
   declaration in the function header, NOT at the call site. Distractor
@@ -26,4 +28,5 @@ explanation: |
   Distractor 2 puts `&` on the function name, which is meaningless
   here. Distractor 3 redeclares the type of `d` — the call site uses
   the variable name only.
-notes: "MCQ form for QA-M10 type-diversity."
+notes: MCQ form for QA-M10 type-diversity.
+drills: tier1:Q1:fn-call-no-amp

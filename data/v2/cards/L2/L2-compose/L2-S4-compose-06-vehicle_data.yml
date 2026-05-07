@@ -1,13 +1,15 @@
-
-id: "L2-S4-compose-06-vehicle_data"
-schemaVersion: "v2"
-atomId: "L-24"
-qTags: ["Q2"]
+id: L2-S4-compose-06-vehicle_data
+schemaVersion: v2
+atomId: L-24
+qTags:
+  - Q2
 stage: 4
-level: "L2"
-type: "StructWriteCard"
-stem: "Q2 Compose #6. From the English description, write the full struct: name, opening brace, fields one per line, closing `};`."
-prompt: "A vehicle has a rego, a make, and a year of manufacture."
+level: L2
+type: StructWriteCard
+stem: >-
+  Q2 Compose #6. From the English description, write the full struct: name, opening brace, fields one per line, closing
+  `};`.
+prompt: A vehicle has a rego, a make, and a year of manufacture.
 canonicalAnswer: |
   struct vehicle_data
   {
@@ -15,15 +17,42 @@ canonicalAnswer: |
       string make;
       int year;
   };
-requiredFields: ["rego","make","year"]
-keyChecks: ["struct vehicle_data","};","string rego;","string make;","int year;"]
-forbiddenTokens: ["class","Struct","STRUCT","typedef","*","->"]
-explanation: "vehicle_data captures 3 attributes (rego, make, year). Type-by-noun: rego→string, make→string, year→int."
+requiredFields:
+  - rego
+  - make
+  - year
+keyChecks:
+  - struct vehicle_data
+  - '};'
+  - string rego;
+  - string make;
+  - int year;
+forbiddenTokens:
+  - class
+  - Struct
+  - STRUCT
+  - typedef
+  - '*'
+  - '->'
+explanation: 'vehicle_data captures 3 attributes (rego, make, year). Type-by-noun: rego→string, make→string, year→int.'
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md PART IV §4.5 S4 COMPOSE"
-commonMistakeIds: ["CM-F20a","CM-F20b","CM-F20c","CM-F20d","CM-F20e"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L2-Q2"
-notes: "S4 full-compose card."
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/3-explore/3-1-entity.md §entity-manager (compose new struct
+    from English description)
+commonMistakeIds:
+  - CM-F20a
+  - CM-F20b
+  - CM-F20c
+  - CM-F20d
+  - CM-F20e
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L2-Q2
+notes: S4 full-compose card.
+drills:
+  - tier1:Q2:q2-field-type-decl
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/3-explore/3-1-entity.md §entity-manager (compose
+    new struct from English description)

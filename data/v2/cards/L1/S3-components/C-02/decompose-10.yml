@@ -34,4 +34,4 @@ options:
     text: A discarded comment block.
 correctLabel: A
 explanation: Inner braces = the array sub-init; each value lands in numbers[0]..numbers[4] in order.
-
+drills: tier1:Q1:brace-init-nested

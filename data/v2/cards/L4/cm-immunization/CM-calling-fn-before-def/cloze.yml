@@ -22,10 +22,19 @@ explanation: |
 
 source:
   kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-calling-fn-before-def)"
+  ref: "v2:Q4 — CM immunization: calling fn before its declaration is in scope"
 
 commonMistakeIds: ["CM-calling-fn-before-def"]
 status: "NEW"
 createdBy: "QA-M13-fix"
 notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
 authoringStatus: "DRAFT"
+drills:
+  - tier1:Q4:fn-call-no-amp
+tier2:
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-2-function-calls
+  - tier2:pfg:part-2-organised-code/2-organising-code/0-panorama/04-parameter
+  - tier2:seminar:saloni-2 @ 46:30
+  - tier2:v2:Q4
+  - tier2:practice:Q4
+  - tier2:task-sheet:P7

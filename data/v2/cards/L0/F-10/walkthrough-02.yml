@@ -65,9 +65,10 @@ steps:
       string. Must include `<string>` at the top of the file.
     atomIds: ["F-10"]
 
+drills: ["tier1:prereq:primitive-types-int-double-string"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 attempt 1: stat_double uses doubles for desk numbers; practice test asks for double fields"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/06-type"
 
 commonMistakeIds: ["CM-F10a", "CM-F10b"]
 status: "NEW"

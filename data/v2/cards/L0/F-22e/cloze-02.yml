@@ -33,9 +33,10 @@ explanation: |
   Targets CM-F22e-2 (tries arr.length / sizeof inside fn — neither
   works in C++).
 
+drills: ["tier1:prereq:array-decay-t-arr-in-parameter-list"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — `const int SIZE = 5;` file-scope strategy"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
 
 commonMistakeIds: ["CM-F22e-2"]
 status: "NEW"

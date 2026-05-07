@@ -1,31 +1,39 @@
-id: "L4-S3C-faultinj-02"
-schemaVersion: "v2"
-atomId: "Q-04"
-qTags: 
-  - "Q4"
+id: L4-S3C-faultinj-02
+schemaVersion: v2
+atomId: Q-04
+qTags:
+  - Q4
 stage: 3
-level: "L4"
-type: "FaultInjectionCard"
-stem: "Fix the bug: no prompt."
-source: 
-  kind: "v2"
-  ref: "C++T2 spec §6.3 Block C fault"
-commonMistakeIds: 
-  - "CM-Q4-no-prompt"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L4-Q4"
-brokenCode: "cin >> desk_num;"
-bugLocations: 
-  - 1
-fixedCode: |
-  cout << "How many desks? ";
+level: L4
+type: MCQCard
+stem: |-
+  Fix the bug: no prompt.
+
+  Code under review:
   cin >> desk_num;
-bugCategory: "no prompt"
-keyChecks: 
-  - "int"
-  - "desk_num"
-  - "cout"
-  - "cin"
-  - ">>"
-explanation: "Prompt the user first."
+
+  Which diagnosis describes the bug?
+correct: no prompt
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: Prompt the user first.
+source:
+  kind: v2
+  ref: "v2:Q4 — Block C: int desk_num + cout prompt + cin >> desk_num"
+commonMistakeIds:
+  - CM-Q4-no-prompt
+status: NEW
+createdBy: SA-L4-Q4
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q4:count-var-decl
+  - tier1:Q4:prompt-for-count
+  - tier1:Q4:read-count
+tier2:
+  - tier2:pfg:part-1-instructions/1-sequence-and-data/2-trailside/07-variable
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-1-variable-constant
+  - tier2:v2:Q4
+  - tier2:practice:Q4

@@ -30,6 +30,7 @@ explanation: |
   return an integer. `void main()` is non-standard and rejected by
   Test 2 marking.
 
+drills: ["tier1:prereq:int-main-and-return-0"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/2-main-function.md"

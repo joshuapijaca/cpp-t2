@@ -29,9 +29,10 @@ explanation: |
   `->` is for pointer-to-struct (off-scope, CM-F21b).
   `::` is for namespaces / class statics (off-scope, CM-F21c).
 
+drills: ["tier1:prereq:dot-access-obj-field"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — `data.numbers[i]`"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/3-structuring-data/2-trailside/05-assignment-statement-with-fields-and-elements"
 
 commonMistakeIds: ["CM-F21a", "CM-F21b", "CM-F21c"]
 status: "NEW"

@@ -32,9 +32,10 @@ usedIn:
   - "Q3 read fn (every prompt is cout << ...)"
   - "Q4 main (every print uses cout <<)"
 
+drills: ["tier1:prereq:cout-operator-direction"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-2/1-starting-cpp/0-pano/5-terminal-functions"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F13a-1"]
 status: "NEW"

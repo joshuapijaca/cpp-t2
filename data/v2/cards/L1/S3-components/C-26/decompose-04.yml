@@ -32,7 +32,5 @@ options:
   - label: D
     text: mystery is now invalid (writing twice is undefined)
 correctLabel: B
-explanation: >-
-  Each write strikes the previous live value. The trail is auditable; only the last unstruck value
-  is live.
-
+explanation: Each write strikes the previous live value. The trail is auditable; only the last unstruck value is live.
+drills: tier1:Q1:field-array

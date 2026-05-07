@@ -28,9 +28,10 @@ explanation: |
   - `cout >> x` mixes the output stream with input direction.
   - `x >> cin` is reversed; cin must come first.
 
+drills: ["tier1:prereq:cin-operator-direction"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F14a-1", "CM-F14a-2"]
 status: "NEW"

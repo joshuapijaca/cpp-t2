@@ -60,9 +60,10 @@ teachMe: |
 
   Final: total = 10. Terminal: 10.
 
+drills: ["tier1:prereq:assignment"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec F-12 accumulator pattern primer"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/08-assignment-statement"
 
 commonMistakeIds: ["CM-F12b"]
 status: "NEW"

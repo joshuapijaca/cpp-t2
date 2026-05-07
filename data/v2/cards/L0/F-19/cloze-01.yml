@@ -25,6 +25,7 @@ explanation: |
   allocates 5 int slots indexed 0..4. The size must be a compile-time
   constant (an int literal or a `const int` value).
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"

@@ -23,10 +23,19 @@ explanation: |
 
 source:
   kind: "v2"
-  ref: "C++T2 spec §6.3 Block D — common-mistake immunization (CM-Q4-arg-order-swap)"
+  ref: "v2:Q4 — CM immunization: argument order swap (count vs array)"
 
 commonMistakeIds: ["CM-Q4-arg-order-swap"]
 status: "NEW"
 createdBy: "stub-CM-fix"
 notes: "Hand-authored CM immunization card (ClozeCard / fix-it)"
 authoringStatus: "DRAFT"
+drills:
+  - tier1:Q4:fn-call-no-amp
+tier2:
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-2-function-calls
+  - tier2:pfg:part-2-organised-code/2-organising-code/0-panorama/04-parameter
+  - tier2:seminar:saloni-2 @ 46:30
+  - tier2:v2:Q4
+  - tier2:practice:Q4
+  - tier2:task-sheet:P7

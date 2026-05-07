@@ -82,9 +82,10 @@ teachMe: |
   Trap: forgetting that the index variable can change between reads.
   The print at line 6 uses the NEW i, not the old.
 
+drills: ["tier1:prereq:fixed-size-array-t-arr-n"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-19 — variable-driven index access"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"
 
 commonMistakeIds: ["CM-F19b", "CM-uses-old-value-after-update"]
 status: "NEW"

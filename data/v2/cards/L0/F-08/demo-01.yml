@@ -47,6 +47,7 @@ usedIn:
   - "Q4 main program (one brace pair around the body)"
   - "Q3 input/output function (one brace pair around the function body)"
 
+drills: ["tier1:prereq:block-delimiters-and"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 2 · 1-starting-cpp/2-trailside/4-3-compound.md"

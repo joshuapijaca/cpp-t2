@@ -65,9 +65,10 @@ teachMe: |
   the caller's `n` stays at 5. Wrong — `&` makes them the same
   variable. The mutation persists.
 
+drills: ["tier1:prereq:mutation-visibility-after-function-returns"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-22d — mutation visibility"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/4-indirect-access/0-panorama/1-reference-params"
 
 commonMistakeIds: ["CM-F22d-1", "CM-F22d-2"]
 status: "NEW"

@@ -31,6 +31,7 @@ explanation: |
   with array). Both are valid C++; pick the one matching your
   declaration.
 
+drills: ["tier1:prereq:dot-access-obj-field"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/3-0-struct-array"

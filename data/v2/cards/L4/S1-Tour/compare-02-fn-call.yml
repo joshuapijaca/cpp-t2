@@ -9,7 +9,7 @@ type: "DecomposeCard"
 stem: "Which line correctly calls the read fn at call site?"
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.2 S1 compare-line drills"
+  ref: "v2:Q4 — read_desks(desks, desk_num) call site; no &"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -43,3 +43,10 @@ options:
   - {label: "D", text: "read_desks(desk_num, desks);"}
 correctLabel: "B"
 explanation: "B is canonical: no `&` at call site, count NOT MAX, array first. A puts `&` at call site (only goes on the signature). C passes MAX. D swaps arg order."
+drills:
+  - tier1:Q4:fn-call-no-amp
+tier2:
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-2-function-calls
+  - tier2:pfg:part-2-organised-code/2-organising-code/0-panorama/04-parameter
+  - tier2:seminar:saloni-2 @ 46:30
+  - tier2:v2:Q4

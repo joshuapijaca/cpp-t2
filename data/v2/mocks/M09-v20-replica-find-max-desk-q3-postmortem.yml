@@ -1,20 +1,17 @@
-# =====================================================================
-# L5 / Mock M09 Q3 POSTMORTEM
-# V2.0 read_desks function repair drill.
-# =====================================================================
-id: "L5-mock-M09-q3-postmortem"
-schemaVersion: "v2"
-atomId: "M-03"
-qTags: ["Q3"]
+id: L5-mock-M09-q3-postmortem
+schemaVersion: v2
+atomId: M-03
+qTags:
+  - Q3
+drills: ["Q1", "Q2", "Q3", "Q4"]
 stage: 5
-level: "L5"
-type: "PostmortemCard"
-
+level: L5
+type: WalkthroughCard
 stem: |
   Postmortem for Mock M09 Q3 (read function, V2.0 shape).
   Why did the failed attempt below lose marks? What's the exact repair?
-
-failedAttempt: |
+levelLabel: L5 · M-03 · Postmortem
+fullCode: |-
   void read_desks(desk_data desk_list[], int number_to_read) {
     for (int i = 0; i < number_to_read; i++) {
       cin >> desk_list[i].room_id;
@@ -23,34 +20,27 @@ failedAttempt: |
     }
   }
   // Bug: missing & in `desk_data &desk_list[]` per V2.0 Deakin convention.
-
-diagnosis: |
-  V2.0 Q3 signature is `void read_desks(desk_data &desk_list[], int number_to_read)`
-  — both `&` AND `[]` are required by the Deakin pass-by-reference
-  convention. The student kept the array brackets but dropped the
-  ampersand. Lose 2-3 marks under §7.4 of the rubric (signature line).
-
-repairSteps:
-  - "Insert `&` before `desk_list[]` in the signature."
-  - "Verify exact signature: `void read_desks(desk_data &desk_list[], int number_to_read)`."
-  - "Drill the &-on-array Deakin signature 5x (R-05 atom)."
-
-preventionTip: |
-  Q3 V2.0 = `void read_X(EntityName &arr[], int number_to_read)` — ampersand AND brackets together. Drill them as one chunk.
-
-explanation: |
-  Postmortem cards diff your failed answer against the canonical
-  answer, label the bug, and surface exactly what to repair. Per
-  Mock retry policy §7.5: any 70-89 score injects 4 postmortem
-  cards (one per Q) before the next mock attempt unlocks.
-
+steps:
+  - line: 1
+    code: Insert `&` before `desk_list[]` in the signature.
+    annotation: Repair step 1
+    atomIds: []
+  - line: 2
+    code: 'Verify exact signature: `void read_desks(desk_data &desk_list[], int number_to_read)`.'
+    annotation: Repair step 2
+    atomIds: []
+  - line: 3
+    code: Drill the &-on-array Deakin signature 5x (R-05 atom).
+    annotation: Repair step 3
+    atomIds: []
 source:
-  kind: "v2"
-  ref: "Test2-SIT102-practice-2026T1.txt + V2.0 verbatim — Mock M09 retro"
-
-commonMistakeIds: ["CM-missing-amp-sig"]
-status: "NEW"
-createdBy: "SA-L5-Mock"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test2-SIT102-practice-2026T1.txt + V2.0 verbatim — Mock M09 retro
+commonMistakeIds:
+  - CM-missing-amp-sig
+status: NEW
+createdBy: SA-L5-Mock
 notes: |
   Mock M09 retro — Q3 repair drill. V2.0 replica.
+authoringStatus: DRAFT
+migratedFrom: PostmortemCard

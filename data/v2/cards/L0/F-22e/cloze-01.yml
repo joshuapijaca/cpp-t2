@@ -33,6 +33,7 @@ explanation: |
   (Test 2 V2.0 sidesteps this by using a file-scope
   `const int SIZE = 5;` that all functions can see directly.)
 
+drills: ["tier1:prereq:array-decay-t-arr-in-parameter-list"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/0-panorama/0-array"

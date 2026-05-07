@@ -16,10 +16,10 @@ commonMistakeIds:
   - CM-C03a
   - CM-C03b
 stem: Given `stat_double d = { {2.4, -3.7, -1.7, 3, 2}, -0.9 };` — what is the value of `d.numbers[0]`?
-correct: '2.4'
+correct: "2.4"
 distractors:
-  - '-3.7'
-  - '2'
-  - '-0.9'
-explanation: 'Index 0 maps to the 1st inner value: 2.4.'
-
+  - "-3.7"
+  - "2"
+  - "-0.9"
+explanation: "Index 0 maps to the 1st inner value: 2.4."
+drills: tier1:Q1:trace-strikethrough

@@ -39,9 +39,10 @@ usedIn:
   - "Q3 read fn (prompts: cout << \"desk_id: \")"
   - "Q4 main (print full result lines with chained values)"
 
+drills: ["tier1:prereq:cout-chained-values-endl"]
 source:
   kind: "pfg"
-  ref: "Programming Fundamentals Guide part-1/1-sequence-and-data/2-trailside/11-1-terminal"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F13b-1"]
 status: "NEW"

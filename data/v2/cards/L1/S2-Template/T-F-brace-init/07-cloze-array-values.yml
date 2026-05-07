@@ -1,42 +1,35 @@
-id: "L1-S2-TF-07-cloze-array-values"
-schemaVersion: "v2"
-atomId: "T-06"
-qTags: ["Q1"]
+id: L1-S2-TF-07-cloze-array-values
+schemaVersion: v2
+atomId: T-06
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Fill in the V2.0 array values.
-
 prompt: |
   What 5 values go inside the array initialiser?
-
 template: |
   stat_double d = {{___}, -0.9};
-
 canonicalAnswer: |
   stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};
-
 keyChecks:
   - "2.4"
   - "-3.7"
   - "1.0"
   - "-2.1"
   - "0.5"
-
 forbiddenTokens: []
-
 explanation: |
   V2.0 array values: 2.4, -3.7, 1.0, -2.1, 0.5. Comma-separated.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — array values"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — array values
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-F cloze: V2.0 array values.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:brace-init-nested

@@ -45,6 +45,7 @@ explanation: |
   break the parse. No-separators is a syntax error. Colons are
   not used.
 
+drills: ["tier1:prereq:for-int-i-0-i-n-i-counting-loop"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide § part-1/3-control-flow/2-trailside/04-3-for-loop"

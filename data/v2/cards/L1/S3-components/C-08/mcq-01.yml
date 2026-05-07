@@ -1,28 +1,31 @@
-id: "L1-S3-C-08-mcq-01"
-schemaVersion: "v2"
-atomId: "C-08"
-qTags: ["Q1"]
+id: L1-S3-C-08-mcq-01
+schemaVersion: v2
+atomId: C-08
+qTags:
+  - Q1
 stage: 3
-level: "L1"
-type: "MCQCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L1
+type: MCQCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "v2"
-  ref: "cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-08"
-commonMistakeIds: ["CM-C08a"]
+  kind: v2
+  ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-08
+commonMistakeIds:
+  - CM-C08a
 stem: |
   Before a find-max or find-min loop, what is the canonical starting
   value for `data.mystery`?
-correct: "data.mystery = data.numbers[0] — copy the first element so subsequent comparisons have a real candidate."
+correct: data.mystery = data.numbers[0] — copy the first element so subsequent comparisons have a real candidate.
 distractors:
-  - "data.mystery = 0.0 — zero is always a safe default for any accumulator."
-  - "Skip the init; the first iteration of the loop will set mystery itself."
-  - "data.mystery = SIZE — store the array length as the starting candidate."
+  - data.mystery = 0.0 — zero is always a safe default for any accumulator.
+  - Skip the init; the first iteration of the loop will set mystery itself.
+  - data.mystery = SIZE — store the array length as the starting candidate.
 explanation: |
   Find-max/find-min must start with a real value from the array;
   numbers[0] is the conventional choice. Targets CM-C08a (zero-init
   trap: if all numbers are negative, starting at 0.0 yields the wrong
   max). Sum/count uses 0.0 — that is C-07.
-notes: "MCQ form for QA-M10 type-diversity."
+notes: MCQ form for QA-M10 type-diversity.
+drills: tier1:Q1:pre-loop-init

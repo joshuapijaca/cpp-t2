@@ -48,6 +48,7 @@ usedIn:
   - "Q4 main program (your code is meaningless until compiled — the test marker pictures it running)"
   - "Mental model for any code-execution question (Q1-Q4)"
 
+drills: ["tier1:prereq:compiler-turns-source-into-program"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 0 · 1-digital-realities/2-trailside/6-source-code.md"

@@ -1,43 +1,37 @@
-id: "L1-S2-TB-11-fix-no-amp"
-schemaVersion: "v2"
-atomId: "T-02"
-qTags: ["Q1"]
+id: L1-S2-TB-11-fix-no-amp
+schemaVersion: v2
+atomId: T-02
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   This signature compiles but is broken in semantics. Find and fix.
-
 prompt: |
   Rewrite the signature so the function can mutate the caller's struct.
-
 template: |
   // BROKEN: function takes a copy of data
   void who_am_i(stat_double data) {
   }
-
 canonicalAnswer: |
   void who_am_i(stat_double &data) {
   }
-
 keyChecks:
   - "&data"
-
 forbiddenTokens: []
-
 explanation: |
   Add `&` before `data`. Without it, mutations inside the function
   affect a LOCAL copy and the caller's d.mystery never changes.
   This is M11 in the Q1 mistakes catalog.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — &data semantics"
-
-commonMistakeIds: ["CM-Q1-missing-amp"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — &data semantics
+commonMistakeIds:
+  - CM-Q1-missing-amp
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-B repair: missing &.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:param-by-ref

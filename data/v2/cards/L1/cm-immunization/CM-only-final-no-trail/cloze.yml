@@ -1,32 +1,27 @@
-# Auto-emitted CM immunization (ClozeCard) for CM-only-final-no-trail
-id: "L1-cmimm-CM-only-final-no-trail-cloze"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-only-final-no-trail-cloze
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "ClozeCard"
-
-stem: "Fill in the missing token to fix this CM-only-final-no-trail mistake."
-
+level: L1
+type: ClozeCard
+stem: Fill in the missing token to fix this CM-only-final-no-trail mistake.
 code: |
   // algo: mystery = mystery + numbers[i]; mystery init=0.0; numbers={2.4,3.7}
   // i=0: 0.0 + 2.4 = ___    mystery = 2.4
   // i=1: 2.4 + 3.7 = 6.1    mystery = 6.1
-
-clozeSentence: 'Fill in the arithmetic result for iteration 0.'
-
-answer: '2.4'
-
+clozeSentence: Fill in the arithmetic result for iteration 0.
+answer: "2.4"
 explanation: |
   0.0 + 2.4 = 2.4. Recording it makes the trail auditable.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-only-final-no-trail)"
-
-commonMistakeIds: ["CM-only-final-no-trail"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-only-final-no-trail)
+commonMistakeIds:
+  - CM-only-final-no-trail
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

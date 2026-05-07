@@ -14,13 +14,11 @@ source:
   ref: cpp-t2/docs/16_test2_specific_redesign_v2.md § 3.4 C-15
 commonMistakeIds:
   - CM-C15a
-stem: >-
-  Given `stat_double data = { {0, 0, 0, 0, 0}, 7.7 };` and no further mutations — what does
-  `data.mystery` evaluate to?
-correct: '7.7'
+stem: Given `stat_double data = { {0, 0, 0, 0, 0}, 7.7 };` and no further mutations — what does `data.mystery` evaluate to?
+correct: "7.7"
 distractors:
-  - '0'
-  - '0'
-  - '0.0'
-explanation: 'data.mystery reads the scalar cell. It was filled by the trailing brace-init value: 7.7.'
-
+  - "0"
+  - "0"
+  - "0.0"
+explanation: "data.mystery reads the scalar cell. It was filled by the trailing brace-init value: 7.7."
+drills: tier1:Q1:accumulator

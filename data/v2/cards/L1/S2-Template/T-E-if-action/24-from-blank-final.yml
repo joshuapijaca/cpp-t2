@@ -1,43 +1,36 @@
-id: "L1-S2-TE-24-from-blank-final"
-schemaVersion: "v2"
-atomId: "T-05"
-qTags: ["Q1"]
+id: L1-S2-TE-24-from-blank-final
+schemaVersion: v2
+atomId: T-05
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Type all three V2.0 sum-positive lines from a fully blank prompt.
-
 prompt: |
   Type the V2.0 if-action body verbatim, no template hint.
-
 template: |
   // (totally blank — type all 3 lines)
-
 canonicalAnswer: |
   if (data.numbers[i] > 0) {
     data.mystery = data.mystery + data.numbers[i];
   }
-
 keyChecks:
-  - "if (data.numbers[i] > 0)"
-  - "data.mystery = data.mystery + data.numbers[i]"
+  - if (data.numbers[i] > 0)
+  - data.mystery = data.mystery + data.numbers[i]
   - "{"
   - "}"
-
 forbiddenTokens: []
-
 explanation: |
   Final cold-recall test. By now: 3 lines, sub-10 seconds.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — full body cold recall"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — full body cold recall
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-E cold final.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:if-cond-gt

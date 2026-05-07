@@ -51,9 +51,10 @@ teachMe: |
   The cout always reads the CURRENT value at the moment it runs, not
   whatever the value was earlier.
 
+drills: ["tier1:prereq:sim-trace-primer-variables-panel-meta-skill"]
 source:
-  kind: "v2"
-  ref: "C++T2 spec §B.2 patch — sim-trace primer card 25/30"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/3-control-flow/0-panorama/07-hand-execution"
 
 commonMistakeIds: ["CM-uses-old-value-after-update"]
 status: "NEW"

@@ -21,4 +21,4 @@ distractors:
   - true but the loop exits anyway
   - undefined — the comparison cannot be evaluated until i==SIZE
 explanation: 4 < 5 is true, so the body runs and the iteration continues.
-
+drills: tier1:Q1:for-header

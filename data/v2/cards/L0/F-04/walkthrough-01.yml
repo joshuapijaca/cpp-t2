@@ -72,6 +72,7 @@ steps:
       Closing brace (F-08). Skipped.
     atomIds: ["F-08"]
 
+drills: ["tier1:prereq:include-iostream"]
 source:
   kind: "pfg"
   ref: "Programming Fundamentals Guide · Part 1 · 1-sequence-and-data/2-trailside/10-library.md (libraries are brought in with #include) + Part 2 · 1-starting-cpp/0-pano/3-code.md (iostream provides cin/cout)"

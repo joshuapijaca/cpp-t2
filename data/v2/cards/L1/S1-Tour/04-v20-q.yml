@@ -1,18 +1,16 @@
-id: "L1-S1-tour-04-v20-q"
-schemaVersion: "v2"
-atomId: "T-00"
-qTags: ["Q1"]
+id: L1-S1-tour-04-v20-q
+schemaVersion: v2
+atomId: T-00
+qTags:
+  - Q1
 stage: 1
-level: "L1"
-type: "DemoCard"
-
+level: L1
+type: DemoCard
 stem: |
   This is the REAL TEST V2.0 attempt-1 Q1. Same struct + skeleton, but
   the algorithm is sum-of-positives. Brace-init values are
   {2.4, -3.7, 1.0, -2.1, 0.5} and mystery starts at -0.9.
-
-whyOneLine: "V2.0 Q1 = sum-positives algorithm; canonical answer is 0.0 + 2.4 + 1.0 + 0.5 = 3.9."
-
+whyOneLine: V2.0 Q1 = sum-positives algorithm; canonical answer is 0.0 + 2.4 + 1.0 + 0.5 = 3.9.
 demoCode: |
   // PROCEDURE
   void who_am_i(stat_double &data) {
@@ -28,25 +26,23 @@ demoCode: |
   stat_double d = {{2.4, -3.7, 1.0, -2.1, 0.5}, -0.9};
   who_am_i(d);
   // What is d.mystery now?
-
 highlightTokens:
-  - "data.mystery = 0.0"
-  - "data.numbers[i] > 0"
-  - "data.mystery + data.numbers[i]"
+  - data.mystery = 0.0
+  - data.numbers[i] > 0
+  - data.mystery + data.numbers[i]
   - "{2.4, -3.7, 1.0, -2.1, 0.5}"
   - "-0.9"
-
 usedIn:
-  - "Q1 V2.0 — sum-positives"
-  - "Same skeleton as practice — only cond/action/init differ"
-
+  - Q1 V2.0 — sum-positives
+  - Same skeleton as practice — only cond/action/init differ
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — Q1 procedure + body"
-
-commonMistakeIds: ["CM-Q1-skip-init"]
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 (2026-05-07) — Q1 procedure + body
+commonMistakeIds:
+  - CM-Q1-skip-init
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   S1 Tour 04: real V2.0 Q + brace-init. Card 05 shows trace.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:accumulator

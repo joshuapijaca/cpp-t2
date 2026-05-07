@@ -33,9 +33,10 @@ status: "NEW"
 createdBy: "SA-PhaseC"
 authoringStatus: "DRAFT"
 
+drills: ["tier1:prereq:cout-chained-values-endl"]
 source:
-  kind: "practice"
-  ref: "Practice test 2026 T1: cout << \"desk_id: \" << desk.desk_id << endl;"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-1/1-sequence-and-data/2-trailside/11-1-terminal"
 
 commonMistakeIds: ["CM-F13b-1"]
 

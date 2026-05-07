@@ -43,9 +43,10 @@ highlightTokens:
 usedIn:
   - "Q3 read function (Test 2 uses Idiom 2 — struct &data)"
 
+drills: ["tier1:prereq:array-decay-t-arr-in-parameter-list"]
 source:
-  kind: "practice"
-  ref: "Test 2 V2.0 — Idiom 2 used; Idiom 1 reference for clarity"
+  kind: "pfg"
+  ref: "Programming Fundamentals Guide § part-2/5-working-with-multiples/2-trailside/00-01-array-declaration"
 
 commonMistakeIds: ["CM-F22e-1", "CM-F22e-2"]
 status: "NEW"

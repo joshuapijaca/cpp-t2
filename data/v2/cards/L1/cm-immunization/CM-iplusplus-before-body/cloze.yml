@@ -1,31 +1,26 @@
-# Auto-emitted CM immunization (ClozeCard) for CM-iplusplus-before-body
-id: "L1-cmimm-CM-iplusplus-before-body-cloze"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-iplusplus-before-body-cloze
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "ClozeCard"
-
-stem: "Fill in the missing token to fix this CM-iplusplus-before-body mistake."
-
+level: L1
+type: ClozeCard
+stem: Fill in the missing token to fix this CM-iplusplus-before-body mistake.
 code: |
   // at the START of iteration 0 (after init), i = ___
   // body uses numbers[i] = numbers[___]
-
-clozeSentence: 'Fill in the value of i used by the body in iteration 0 (both blanks the same).'
-
-answer: '0'
-
+clozeSentence: Fill in the value of i used by the body in iteration 0 (both blanks the same).
+answer: "0"
 explanation: |
   Init sets i=0; body runs with i=0; post-stmt makes i=1 only AFTER the body.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-iplusplus-before-body)"
-
-commonMistakeIds: ["CM-iplusplus-before-body"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (ClozeCard / fix-it)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-iplusplus-before-body)
+commonMistakeIds:
+  - CM-iplusplus-before-body
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (ClozeCard / fix-it)
+authoringStatus: DRAFT
+drills: tier1:Q1:trace-strikethrough

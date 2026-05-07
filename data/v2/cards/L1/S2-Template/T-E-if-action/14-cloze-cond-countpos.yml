@@ -1,43 +1,36 @@
-id: "L1-S2-TE-14-cloze-cond-countpos"
-schemaVersion: "v2"
-atomId: "T-05"
-qTags: ["Q1"]
+id: L1-S2-TE-14-cloze-cond-countpos
+schemaVersion: v2
+atomId: T-05
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Fill in the count-positive cond.
-
 prompt: |
   Cond for count-positive?
-
 template: |
   if (___) {
     data.mystery = data.mystery + 1;
   }
-
 canonicalAnswer: |
   if (data.numbers[i] > 0) {
     data.mystery = data.mystery + 1;
   }
-
 keyChecks:
-  - "data.numbers[i] > 0"
-
+  - data.numbers[i] > 0
 forbiddenTokens: []
-
 explanation: |
   Same cond as sum-positive: `data.numbers[i] > 0`. The DIFFERENCE
   is in the action: count adds 1, sum adds the cell value.
-
 source:
-  kind: "v2"
-  ref: "docs/16_test2_specific_redesign_v2.md §3.5 — count-positive cond"
-
+  kind: v2
+  ref: docs/16_test2_specific_redesign_v2.md §3.5 — count-positive cond
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-E cloze: count-positive cond.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:if-cond-gt

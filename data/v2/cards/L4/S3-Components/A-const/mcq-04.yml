@@ -9,7 +9,7 @@ type: "MCQCard"
 stem: "`const int MAX;` (no = 700) — legal?"
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.3 Block A mcq"
+  ref: "v2:Q4 — Block A: const int MAX = N; (compile-time constant for array bound)"
 commonMistakeIds: []
 status: "NEW"
 authoringStatus: "DRAFT"
@@ -20,3 +20,10 @@ distractors:
   - "Yes — defaults to MAX_INT."
   - "Compiler warns but compiles."
 explanation: "const MUST be initialised in its decl. Otherwise the value is locked to indeterminate."
+drills:
+  - tier1:Q4:const-int-MAX
+tier2:
+  - tier2:pfg:part-1-instructions/1-sequence-and-data/2-trailside/07-variable
+  - tier2:seminar:saloni-2 @ 46:40
+  - tier2:v2:Q4
+  - tier2:practice:Q4

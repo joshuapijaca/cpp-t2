@@ -1,6 +1,7 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
+import { VitePWA } from 'vite-plugin-pwa';
 import { resolve } from 'node:path';
 
 /**
@@ -13,13 +14,109 @@ import { resolve } from 'node:path';
  *   - cards (heavy card components — lazy-friendly)
  *   - engines (deck composer + recovery)
  *   - main (app shell + routing)
+ *
+ * PWA (v2 only):
+ *   - vite-plugin-pwa registers a Workbox service worker.
+ *   - registerType 'autoUpdate' + skipWaiting + clientsClaim → new builds
+ *     activate immediately on next page load (no manual user action).
+ *   - globPatterns precaches everything emitted to dist-v2/, so the app
+ *     works offline after the first load.
+ *   - The pwa-update-prompt component (src-v2/pwa-update-prompt.tsx)
+ *     handles the in-app "new version available" toast and 30-min poll.
  */
 export default defineConfig(({ mode }) => {
   const isV1 = mode === 'v1';
   const isV2 = !isV1;
 
+  const v2Plugins = [
+    react(),
+    tailwindcss(),
+    VitePWA({
+      registerType: 'autoUpdate',
+      injectRegister: false, // we register manually in src-v2/main.tsx
+      includeAssets: [
+        'favicon.ico',
+        'pwa-192x192.png',
+        'pwa-512x512.png',
+        'pwa-maskable-512.png',
+      ],
+      manifest: {
+        name: 'cpp-t2 — SIT102 Test 2 Prep',
+        short_name: 'cpp-t2',
+        description: 'Test 2 prep with 2,547 hand-authored cards',
+        theme_color: '#0d1117',
+        background_color: '#0d1117',
+        display: 'standalone',
+        orientation: 'portrait',
+        start_url: '/',
+        scope: '/',
+        icons: [
+          {
+            src: 'pwa-192x192.png',
+            sizes: '192x192',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: 'pwa-512x512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'any',
+          },
+          {
+            src: 'pwa-maskable-512.png',
+            sizes: '512x512',
+            type: 'image/png',
+            purpose: 'maskable',
+          },
+        ],
+      },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,svg,png,ico,woff2}'],
+        // Bundle ~430 KB total; relax 2 MB default ceiling so large JS chunks
+        // (cards corpus inlined as YAML) precache without complaint.
+        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        skipWaiting: true,
+        clientsClaim: true,
+        cleanupOutdatedCaches: true,
+        navigateFallback: '/index.html',
+        runtimeCaching: [
+          {
+            urlPattern: ({ request }) => request.mode === 'navigate',
+            handler: 'StaleWhileRevalidate',
+            options: { cacheName: 'cpp-t2-pages' },
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.googleapis\.com\/.*/i,
+            handler: 'StaleWhileRevalidate',
+            options: { cacheName: 'google-fonts-stylesheets' },
+          },
+          {
+            urlPattern: /^https:\/\/fonts\.gstatic\.com\/.*/i,
+            handler: 'CacheFirst',
+            options: {
+              cacheName: 'google-fonts-webfonts',
+              cacheableResponse: { statuses: [0, 200] },
+              expiration: {
+                maxAgeSeconds: 60 * 60 * 24 * 365,
+                maxEntries: 30,
+              },
+            },
+          },
+        ],
+      },
+      devOptions: {
+        // PWA artifacts are emitted in dev too so the registration code
+        // path is exercised; safe to leave enabled.
+        enabled: true,
+        type: 'module',
+        navigateFallback: 'index.html',
+      },
+    }),
+  ];
+
   const base = {
-    plugins: [react(), tailwindcss()],
+    plugins: isV1 ? [react(), tailwindcss()] : v2Plugins,
     server: {
       port: isV2 ? 5174 : 5173,
       strictPort: true,

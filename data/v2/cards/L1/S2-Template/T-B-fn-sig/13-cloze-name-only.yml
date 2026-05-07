@@ -1,42 +1,35 @@
-id: "L1-S2-TB-13-cloze-name-only"
-schemaVersion: "v2"
-atomId: "T-02"
-qTags: ["Q1"]
+id: L1-S2-TB-13-cloze-name-only
+schemaVersion: v2
+atomId: T-02
+qTags:
+  - Q1
 stage: 2
-level: "L1"
-type: "TemplateRecallCard"
-
+level: L1
+type: TemplateRecallCard
 stem: |
   Fill in only the function name and parameter name.
-
 prompt: |
   Provide the function name AND the parameter name.
-
 template: |
   void ___(stat_double &___) {
   }
-
 canonicalAnswer: |
   void who_am_i(stat_double &data) {
   }
-
 keyChecks:
-  - "who_am_i"
+  - who_am_i
   - "&data"
-
 forbiddenTokens: []
-
 explanation: |
   `who_am_i` for the function, `data` for the parameter. Snake_case
   on both.
-
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — function/parameter names"
-
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — function/parameter names
 commonMistakeIds: []
-status: "NEW"
-createdBy: "SA-L1-S1S2"
+status: NEW
+createdBy: SA-L1-S1S2
 notes: |
   T-B cloze: both names.
-authoringStatus: "DRAFT"
+authoringStatus: DRAFT
+drills: tier1:Q1:param-by-ref

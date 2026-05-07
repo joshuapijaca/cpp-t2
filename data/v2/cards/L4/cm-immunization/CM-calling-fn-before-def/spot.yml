@@ -1,51 +1,49 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-calling-fn-before-def
-id: "L4-cmimm-CM-calling-fn-before-def-spot"
-schemaVersion: "v2"
-atomId: "Q-00"
-qTags: ["Q4"]
+id: L4-cmimm-CM-calling-fn-before-def-spot
+schemaVersion: v2
+atomId: Q-00
+qTags:
+  - Q4
 stage: 4
-level: "L4"
-type: "FaultInjectionCard"
-
-stem: |
+level: L4
+type: MCQCard
+stem: |-
   This Q4 main calls `read_data` before `read_data` is defined. The compiler complains. Find the missing piece.
 
-brokenCode: |
+  Code under review:
   int main() {
     stat_double d;
     read_data(d);
     return 0;
   }
-  
+
   void read_data(stat_double &data) { ... }
 
-bugLocations: [1]
 
-fixedCode: |
-  void read_data(stat_double &data);   // forward declaration
-  
-  int main() {
-    stat_double d;
-    read_data(d);
-    return 0;
-  }
-  
-  void read_data(stat_double &data) { ... }
-
-bugCategory: 'function used before declaration'
-
-keyChecks:
-  - 'void read_data(stat_double &data);'
-
-explanation: |
-  C++ reads top-down. To call a function from main, declare it (prototype) before main, or define it before main. Without that, the compiler doesn't know `read_data`.
-
+  Which diagnosis describes the bug?
+correct: function used before declaration
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  C++ reads top-down. To call a function from main, declare it (prototype) before main, or define it before main.
+  Without that, the compiler doesn't know `read_data`.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-calling-fn-before-def)"
-
-commonMistakeIds: ["CM-calling-fn-before-def"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: "v2:Q4 — CM immunization: calling fn before its declaration is in scope"
+commonMistakeIds:
+  - CM-calling-fn-before-def
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q4:fn-call-no-amp
+tier2:
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-2-function-calls
+  - tier2:pfg:part-2-organised-code/2-organising-code/0-panorama/04-parameter
+  - tier2:seminar:saloni-2 @ 46:30
+  - tier2:v2:Q4
+  - tier2:practice:Q4
+  - tier2:task-sheet:P7

@@ -1,17 +1,21 @@
-id: "L2-S3a-n2t-cloze-01"
-schemaVersion: "v2"
-atomId: "L-23a"
-qTags: ["Q2"]
+id: L2-S3a-n2t-cloze-01
+schemaVersion: v2
+atomId: L-23a
+qTags:
+  - Q2
 stage: 3
-level: "L2"
-type: "ClozeCard"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "atom-coverage-fix"
+level: L2
+type: ClozeCard
+status: NEW
+authoringStatus: DRAFT
+createdBy: atom-coverage-fix
 source:
-  kind: "practice"
-  ref: "docs/16_test2_specific_redesign_v2.md §4.4 S3 Noun→Type Map"
-commonMistakeIds: ["CM-Q2-wrong-type"]
+  kind: pfg
+  ref: >-
+    pfg-content/part-2-organised-code/3-structuring-data/3-explore/3-1-entity.md §entity-modelling (book_data noun→type
+    pattern)
+commonMistakeIds:
+  - CM-Q2-wrong-type
 stem: |
   Fill the canonical C++ primitive type for each common Q2 noun.
 code: |
@@ -20,12 +24,17 @@ code: |
   // price       ->   double
   // name        ->   string
   // paid        ->   bool
-
-clozeSentence: "id -> ___   (non-decimal counter, 1, 2, 3, ...)"
-answer: "int"
+clozeSentence: id -> ___   (non-decimal counter, 1, 2, 3, ...)
+answer: int
 explanation: |
   `id` is a non-decimal counter, so it maps to `int`. The other rows
   remind the canonical map: price -> double, name -> string,
   paid -> bool. Targets CM-Q2-wrong-type (storing id as double or
   string).
-notes: "Cloze form for QA-M10 type-diversity (L-23a was MCQ only)."
+notes: Cloze form for QA-M10 type-diversity (L-23a was MCQ only).
+drills:
+  - tier1:Q2:q2-noun-to-type
+tier2:
+  - >-
+    tier2:pfg:Q2 — pfg-content/part-2-organised-code/3-structuring-data/3-explore/3-1-entity.md §entity-modelling
+    (book_data noun→type pattern)

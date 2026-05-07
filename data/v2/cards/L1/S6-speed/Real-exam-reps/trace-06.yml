@@ -1,25 +1,22 @@
-# =====================================================================
-# L1 / S6-Real-exam-reps / TraceCard 06
-# real V2.0 sum-positive rep
-# =====================================================================
-id: "L1-S6-realrep-06"
-schemaVersion: "v2"
-atomId: "A14"
-qTags: ["Q1"]
+id: L1-S6-realrep-06
+schemaVersion: v2
+atomId: A14
+qTags:
+  - Q1
 stage: 6
-level: "L1"
-type: "TraceCard"
-
-stem: "REAL V2.0 EXAM REP. Trace sum-positive on stat_double with numbers = {10.0, -5.0, 7.5, -3.0, 2.5}. Target: 2 minutes. Use strikethrough on every reassignment."
-
+level: L1
+type: TraceCard
+stem: >-
+  REAL V2.0 EXAM REP. Trace sum-positive on stat_double with numbers = {10.0, -5.0, 7.5, -3.0, 2.5}. Target: 2 minutes.
+  Use strikethrough on every reassignment.
 code: |
   const int SIZE = 5;
-  
+
   struct stat_double {
     double numbers[SIZE];
     double mystery;
   };
-  
+
   int main() {
     stat_double data = { {10.0, -5.0, 7.5, -3.0, 2.5}, 0 };
     data.mystery = 0.0;
@@ -31,67 +28,67 @@ code: |
     cout << data.mystery << endl;
     return 0;
   }
-
-variables: ["i", "data.mystery"]
-
+variables:
+  - i
+  - data.mystery
 expectedTrace:
   - line: 9
-    variable: "data.mystery"
+    variable: data.mystery
     value: "0"
     output: null
   - line: 10
-    variable: "data.mystery"
+    variable: data.mystery
     value: "0.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "0"
     output: null
   - line: 13
-    variable: "data.mystery"
+    variable: data.mystery
     value: "10.0"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "1"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "2"
     output: null
   - line: 13
-    variable: "data.mystery"
+    variable: data.mystery
     value: "17.5"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "3"
     output: null
   - line: 11
-    variable: "i"
+    variable: i
     value: "4"
     output: null
   - line: 13
-    variable: "data.mystery"
+    variable: data.mystery
     value: "20.0"
     output: null
   - line: 17
     variable: ""
     value: ""
     output: "20"
-
-terminalOutput: ["20"]
-
-inputMode: "final-only"
-
-teachMe: "Final mystery = 20. This is the EXACT shape from V2.0 — repeat until 2-min mark hit consistently."
-
+terminalOutput:
+  - "20"
+inputMode: final-only
+teachMe: Final mystery = 20. This is the EXACT shape from V2.0 — repeat until 2-min mark hit consistently.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — sum-positive real exam shape"
-
-commonMistakeIds: ["CM-A4-skip-condition", "CM-A4-include-zero", "CM-S6-rush-skip-init"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L1-S4S5S6"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 (2026-05-07) — sum-positive real exam shape
+commonMistakeIds:
+  - CM-A4-skip-condition
+  - CM-A4-include-zero
+  - CM-S6-rush-skip-init
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L1-S4S5S6
 notes: "Speed target: 2 minutes. Real V2.0 exam rep #06"
+drills: tier1:Q1:trace-strikethrough

@@ -23,19 +23,43 @@
 import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import yaml from 'js-yaml';
+import { registerSW } from 'virtual:pwa-register';
 
 import App, { type AppData } from './App';
 import { SessionStoreProvider } from './lib/session-store';
 import { Card, type Card as CardT } from './types/card-schema';
 import type { Atom } from './types/atom';
-import type { MockPaper } from './pages/Mock';
 import { CardRenderer } from './components/CardRenderer';
+import {
+  PWAUpdatePrompt,
+  pwaSetRegistration,
+  pwaSetUpdateHandler,
+  pwaTriggerNeedRefresh,
+} from './pwa-update-prompt';
 
 import './theme.css';
 import './lib/typography.css';
 import './lib/spacing.css';
 import './lib/focus.css';
 import './lib/motion.css';
+
+// ─── PWA registration ─────────────────────────────────────────────────
+// registerType: 'autoUpdate' is set in vite.config.ts; here we just wire
+// the callbacks so PWAUpdatePrompt can render a toast. The returned
+// `updateSW` is what actually swaps the active SW + reloads.
+const updateSW = registerSW({
+  immediate: true,
+  onNeedRefresh() {
+    pwaTriggerNeedRefresh();
+  },
+  onRegisteredSW(_swUrl, registration) {
+    pwaSetRegistration(registration);
+  },
+  onRegisterError(err) {
+    console.warn('[pwa] register error', err);
+  },
+});
+pwaSetUpdateHandler(updateSW);
 
 // ─────────────────────────────────────────────────────────────────────
 // Eager YAML load — Vite resolves the glob at build time and bundles
@@ -49,12 +73,6 @@ const cardYamlModules = import.meta.glob('../data/v2/cards/**/*.yml', {
 }) as Record<string, string>;
 
 const atomYamlModules = import.meta.glob('../data/v2/atoms/**/*.yml', {
-  query: '?raw',
-  import: 'default',
-  eager: true,
-}) as Record<string, string>;
-
-const mockYamlModules = import.meta.glob('../data/v2/mocks/*.yml', {
   query: '?raw',
   import: 'default',
   eager: true,
@@ -210,78 +228,11 @@ function loadAtoms(): { atoms: Atom[]; bad: number } {
 }
 
 // ─────────────────────────────────────────────────────────────────────
-// Mock papers — hydrate from data/v2/mocks/ + L5 cards.
-// Each Mxx-* mock generates one paper. The current cards/L5 corpus
-// emits SpeedDrillCards + PostmortemCards for mocks, NOT TraceCard /
-// StructWriteCard / FunctionWriteCard / MainWriteCard. The Mock view
-// requires the latter four, so we substitute the closest-matching
-// real card from the global deck (filtered to the corresponding Q-tag)
-// per Mxx mock entry. Result: 8 mock papers (one per Mxx file group).
-// ─────────────────────────────────────────────────────────────────────
-
-function pickFor(cards: CardT[], type: string, qTag: string): CardT | undefined {
-  return cards.find((c) => c.type === type && c.qTags.includes(qTag as 'Q1'));
-}
-
-function buildMockPapers(cards: CardT[]): MockPaper[] {
-  // Discover Mxx ids from the mocks YAML directory file names.
-  const mockIds = new Set<string>();
-  const labelById = new Map<string, string>();
-  for (const path of Object.keys(mockYamlModules)) {
-    const fname = path.split('/').pop() ?? '';
-    const m = fname.match(/^(M\d{2})-([a-z0-9-]+?)(?:-q[1-4]-postmortem|-speeddrill)\.yml$/);
-    if (m) {
-      mockIds.add(m[1]!);
-      // Pretty label: e.g. "M02 · canonical-sum-positive-desk"
-      if (!labelById.has(m[1]!)) labelById.set(m[1]!, `${m[1]!}-${m[2]!}`);
-    }
-  }
-  if (mockIds.size === 0) {
-    // Fallback: fabricate one paper from the first matching cards.
-    const q1 = pickFor(cards, 'TraceCard', 'Q1');
-    const q2 = pickFor(cards, 'StructWriteCard', 'Q2');
-    const q3 = pickFor(cards, 'FunctionWriteCard', 'Q3');
-    const q4 = pickFor(cards, 'MainWriteCard', 'Q4');
-    if (!q1 || !q2 || !q3 || !q4) return [];
-    return [
-      {
-        id: 'paper-default-001',
-        q1: q1 as MockPaper['q1'],
-        q2: q2 as MockPaper['q2'],
-        q3: q3 as MockPaper['q3'],
-        q4: q4 as MockPaper['q4'],
-      },
-    ];
-  }
-  // Real mock list: one paper per Mxx, all sharing the same closest-matching
-  // hand-execute / write cards from the deck. The variation is the Mxx
-  // identifier + UI selector; the underlying deck cards are reused so the
-  // student sees consistent question shapes across papers.
-  const q1All = cards.filter((c) => c.type === 'TraceCard' && c.qTags.includes('Q1'));
-  const q2All = cards.filter((c) => c.type === 'StructWriteCard' && c.qTags.includes('Q2'));
-  const q3All = cards.filter((c) => c.type === 'FunctionWriteCard' && c.qTags.includes('Q3'));
-  const q4All = cards.filter((c) => c.type === 'MainWriteCard' && c.qTags.includes('Q4'));
-  if (q1All.length === 0 || q2All.length === 0 || q3All.length === 0 || q4All.length === 0) {
-    return [];
-  }
-  const sortedIds = [...mockIds].sort();
-  return sortedIds.map((mid, idx) => {
-    const q1 = q1All[idx % q1All.length]!;
-    const q2 = q2All[idx % q2All.length]!;
-    const q3 = q3All[idx % q3All.length]!;
-    const q4 = q4All[idx % q4All.length]!;
-    return {
-      id: labelById.get(mid) ?? mid,
-      q1: q1 as MockPaper['q1'],
-      q2: q2 as MockPaper['q2'],
-      q3: q3 as MockPaper['q3'],
-      q4: q4 as MockPaper['q4'],
-    };
-  });
-}
-
-// ─────────────────────────────────────────────────────────────────────
 // AppData — feed the router real, non-empty atoms / familiarity / weakness.
+//
+// v2.2 minimalist: no mock-paper hydration (the Mock page is forbidden
+// per docs/v2/MANIFEST.md and was deleted in Phase A1). Mock content
+// lives as L5 cards in the linear deck instead.
 // ─────────────────────────────────────────────────────────────────────
 
 function buildAppData(cards: CardT[], atoms: Atom[]): AppData {
@@ -296,7 +247,6 @@ function buildAppData(cards: CardT[], atoms: Atom[]): AppData {
   // Per AUDIT_FUNCTIONALITY: length 90, not 7.
   const weaknessHeat = Array.from({ length: 90 }, () => 0);
   return {
-    mockPapers: buildMockPapers(cards),
     preflightCards: cards.slice(0, 50),
     atoms,
     familiarity,
@@ -406,5 +356,6 @@ if (!rootEl) {
 createRoot(rootEl).render(
   <StrictMode>
     <Boot />
+    <PWAUpdatePrompt />
   </StrictMode>,
 );

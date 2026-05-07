@@ -1,69 +1,58 @@
-id: "L4-S1-spoterror-02"
-schemaVersion: "v2"
-atomId: "Q-00"
-qTags: 
-  - "Q4"
+id: L4-S1-spoterror-02
+schemaVersion: v2
+atomId: Q-00
+qTags:
+  - Q4
 stage: 1
-level: "L4"
-type: "FaultInjectionCard"
-stem: "Spot the bug: variable-sized array. Read the broken main() and identify which line is wrong, then write the fix."
-source: 
-  kind: "v2"
-  ref: "C++T2 spec §6.4 Q4 common error #02 — variable-sized array"
-commonMistakeIds: 
-  - "CM-Q4-var-sized-array"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L4-Q4"
-brokenCode: |
+level: L4
+type: MCQCard
+stem: |-
+  Spot the bug: variable-sized array. Read the broken main() and identify which line is wrong, then write the fix.
+
+  Code under review:
   int main()
   {
       const int MAX = 700;
       desk_data desks[desk_num];
       int desk_num;
-  
+
       cout << "How many desks? ";
       cin >> desk_num;
-  
+
       read_desks(desks, desk_num);
-  
+
       for (int i = 0; i < desk_num; i++)
       {
           cout << desks[i].room_id << ", ";
           cout << desks[i].d_id << ", ";
           cout << desks[i].number_of_screens << endl;
       }
-  
+
       return 0;
   }
-bugLocations: 
-  - 4
-fixedCode: |
-  int main()
-  {
-      const int MAX = 700;
-      desk_data desks[MAX];
-      int desk_num;
-  
-      cout << "How many desks? ";
-      cin >> desk_num;
-  
-      read_desks(desks, desk_num);
-  
-      for (int i = 0; i < desk_num; i++)
-      {
-          cout << desks[i].room_id << ", ";
-          cout << desks[i].d_id << ", ";
-          cout << desks[i].number_of_screens << endl;
-      }
-  
-      return 0;
-  }
-bugCategory: "variable-sized array"
-keyChecks: 
-  - "const int MAX"
-  - "desks[MAX]"
-  - "read_desks(desks, desk_num)"
-  - "i < desk_num"
-  - "return 0;"
-explanation: "Array bound is `desk_num` — a runtime variable. C++ requires compile-time-constant. Use MAX, not count_var, in the array decl."
+
+
+  Which diagnosis describes the bug?
+correct: variable-sized array
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >-
+  Array bound is `desk_num` — a runtime variable. C++ requires compile-time-constant. Use MAX, not count_var, in the
+  array decl.
+source:
+  kind: v2
+  ref: 'v2:Q4 — common-mistake: variable-length array (no const → VLA)'
+commonMistakeIds:
+  - CM-Q4-var-sized-array
+status: NEW
+createdBy: SA-L4-Q4
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills:
+  - tier1:Q4:struct-array-decl
+  - tier1:Q4:const-int-MAX
+tier2:
+  - tier2:pfg:part-3-programs-as-concepts/3-collections/2-trailside/10-arrays
+  - tier2:v2:Q4

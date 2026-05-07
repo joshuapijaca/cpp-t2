@@ -1,16 +1,16 @@
-# Hand-authored CM immunization (FaultInjectionCard) for CM-F22b-3
-id: "L1-cmimm-CM-F22b-3-spot"
-schemaVersion: "v2"
-atomId: "F-22b"
-qTags: ["Q1", "Q3"]
+id: L1-cmimm-CM-F22b-3-spot
+schemaVersion: v2
+atomId: F-22b
+qTags:
+  - Q1
+  - Q3
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   who_am_i is void and mutates via reference. Fix the wrong call site that tries to assign its return value.
 
-brokenCode: |
+  Code under review:
   int main() {
       stat_double d = { {1,2,3,4,5}, 0.0 };
       d = who_am_i(d);
@@ -18,30 +18,24 @@ brokenCode: |
       return 0;
   }
 
-bugLocations: [3]
 
-fixedCode: |
-  int main() {
-      stat_double d = { {1,2,3,4,5}, 0.0 };
-      who_am_i(d);
-      cout << d.mystery << endl;
-      return 0;
-  }
-
-bugCategory: "tries to assign return value of a void function"
-
-keyChecks:
-  - "who_am_i(d);"
-
-explanation: |
-  who_am_i returns void — there is no value to assign. The reference parameter (`stat_double &data`) is the channel back: the caller's d is mutated in place. Just call it as a statement.
-
+  Which diagnosis describes the bug?
+correct: tries to assign return value of a void function
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  who_am_i returns void — there is no value to assign. The reference parameter (`stat_double &data`) is the channel
+  back: the caller's d is mutated in place. Just call it as a statement.
 source:
-  kind: "v2"
-  ref: "C++T2 spec §F-22b — common-mistake immunization (CM-F22b-3)"
-
-commonMistakeIds: ["CM-F22b-3"]
-status: "NEW"
-createdBy: "stub-CM-fix"
-notes: "Hand-authored CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: C++T2 spec §F-22b — common-mistake immunization (CM-F22b-3)
+commonMistakeIds:
+  - CM-F22b-3
+status: NEW
+createdBy: stub-CM-fix
+notes: Hand-authored CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

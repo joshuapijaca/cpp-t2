@@ -1,40 +1,37 @@
-# Auto-emitted CM immunization (FaultInjectionCard) for CM-no-strikethrough
-id: "L1-cmimm-CM-no-strikethrough-spot"
-schemaVersion: "v2"
-atomId: "A1"
-qTags: ["Q1"]
+id: L1-cmimm-CM-no-strikethrough-spot
+schemaVersion: v2
+atomId: A1
+qTags:
+  - Q1
 stage: 4
-level: "L1"
-type: "FaultInjectionCard"
-
-stem: |
+level: L1
+type: MCQCard
+stem: |-
   This Q1 trace overwrote mystery without showing the old value. The marker can't see the work. Fix the notation.
 
-brokenCode: |
+  Code under review:
   // mystery = 2.4
   // i=1: mystery = 6.1
   // i=2: mystery = 7.1
 
-bugLocations: [1]
 
-fixedCode: |
-  // mystery: ~2.4~ 6.1
-  // i=2: ~6.1~ 7.1
-
-bugCategory: 'no strikethrough — old values invisible'
-
-keyChecks:
-  - '~2.4~'
-
-explanation: |
-  When mystery changes, write the new value next to the old one with the old struck through. The trail makes the work auditable.
-
+  Which diagnosis describes the bug?
+correct: no strikethrough — old values invisible
+distractors:
+  - no bug — code is correct
+  - pre-loop init missing
+  - loop bound off-by-one (use < not <=)
+explanation: >
+  When mystery changes, write the new value next to the old one with the old struck through. The trail makes the work
+  auditable.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 — common-mistake immunization (CM-no-strikethrough)"
-
-commonMistakeIds: ["CM-no-strikethrough"]
-status: "NEW"
-createdBy: "QA-M13-fix"
-notes: "Auto-emitted CM immunization card (FaultInjectionCard / SpotError)"
-authoringStatus: "DRAFT"
+  kind: v2
+  ref: Test 2 V2.0 — common-mistake immunization (CM-no-strikethrough)
+commonMistakeIds:
+  - CM-no-strikethrough
+status: NEW
+createdBy: QA-M13-fix
+notes: Auto-emitted CM immunization card (FaultInjectionCard / SpotError)
+authoringStatus: DRAFT
+migratedFrom: FaultInjectionCard
+drills: tier1:Q1:trace-strikethrough

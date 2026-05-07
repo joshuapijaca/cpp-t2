@@ -9,7 +9,7 @@ type: "MainWriteCard"
 stem: "[field-count variation 8/10] 5 fields per row: code, description, price, category, stock. Adjust the print loop accordingly."
 source: 
   kind: "v2"
-  ref: "C++T2 spec §6.5 S5 field-count variations"
+  ref: "v2:Q4 — S5 variation: different field count in print loop"
 commonMistakeIds: 
   - "CM-Q4-field-count-fixed-3"
 status: "NEW"
@@ -57,3 +57,9 @@ forbiddenTokens:
 expectedTerminal: 
   - "How many computers?"
 explanation: "5 fields → 5 chained couts in the print loop. The skeleton is otherwise identical."
+drills:
+  - tier1:Q4:print-loop
+  - tier1:Q4:chained-cout
+tier2:
+  - tier2:v2:Q4
+  - tier2:pfg:part-2-organised-code/1-starting-cpp/2-trailside/4-6-for
