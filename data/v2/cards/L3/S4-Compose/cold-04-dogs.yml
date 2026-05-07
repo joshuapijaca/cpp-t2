@@ -1,18 +1,16 @@
-# =====================================================================
-# L3 / R-03 / FunctionWriteCard — cold-start dogs
-# =====================================================================
-id: "L3-R03-cold-04"
-schemaVersion: "v2"
-atomId: "R-03"
-qTags: ["Q3"]
+id: L3-R03-cold-04
+schemaVersion: v2
+atomId: R-03
+qTags:
+  - Q3
 stage: 4
-level: "L3"
-type: "FunctionWriteCard"
+level: L3
+type: FunctionWriteCard
 stem: |
   Cold start. You are given only the entity name 'dogs'. Choose
   3 plausible fields, write the struct, and then the matching read_dogs.
-prompt: "Cold-start dogs (Q2 + Q3)."
-signatureHint: "Entity: dogs. Choose fields, write Q2 struct, then Q3 read fn."
+prompt: Cold-start dogs (Q2 + Q3).
+signatureHint: 'Entity: dogs. Choose fields, write Q2 struct, then Q3 read fn.'
 canonicalAnswer: |
   struct dog_data
   {
@@ -25,38 +23,35 @@ canonicalAnswer: |
   {
     for (int i = 0; i < number_to_read; i++)
     {
-      cout << "Age (yrs): ";
       cin >> dogs[i].age_yrs;
-      cout << "Weight (kg): ";
       cin >> dogs[i].weight_kg;
-      cout << "Vet visits: ";
       cin >> dogs[i].visits;
     }
   }
 keyChecks:
-  - "struct dog_data"
-  - "void read_dogs(dog_data &dogs[], int number_to_read)"
-  - "for (int i = 0; i < number_to_read; i++)"
-  - "dogs[i].age_yrs"
-  - "dogs[i].weight_kg"
-  - "dogs[i].visits"
+  - struct dog_data
+  - void read_dogs(dog_data &dogs[], int number_to_read)
+  - for (int i = 0; i < number_to_read; i++)
+  - dogs[i].age_yrs
+  - dogs[i].weight_kg
+  - dogs[i].visits
 forbiddenTokens:
-  - "while"
-  - "function"
+  - while
+  - function
 explanation: |
   Cold-start drill: any plausible 3 fields work, but the read fn skeleton stays fixed.
 passByRefRequired: true
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — Q3 full read_desks body shape (12-line skeleton)"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — Q3 full read_desks body shape (12-line skeleton)
 drills:
-  - "tier1:Q3:R-03"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-  - "tier2:seminar:saloni-2 @ 44:50"
-  - "tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx"
-  - "tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  - tier1:Q3:R-03
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+  - tier2:seminar:saloni-2 @ 44:50
+  - tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx
+  - tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L3-Q3

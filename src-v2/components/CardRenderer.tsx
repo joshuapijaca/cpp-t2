@@ -12,13 +12,14 @@
  *   - The exhaustive switch flags any newly-added card type at compile
  *     time via the never-default branch.
  *
- * v2.2 minimalist build: 15 card types declared in src-v2 (4 v2
- * essentials + 11 ported v1 types — see docs/v2/MANIFEST.md). Phase A6
- * completed the v1 port set: MemorizeCard / WriteCard / MatrixCard /
- * CodeMemorizeCard. Off-manifest types (AdversarialMock /
- * FaultInjection / Preflight / ConfidenceCalibration / DAGRetry /
- * Delta / TestDaySim / VariantGen / Postmortem / EntityMatrix /
- * AlgorithmMatrix / SpeedDrill) were removed in Phase A3.
+ * v2.2 minimalist build: 14 card types declared in src-v2 (4 v2
+ * essentials + 10 ported v1 types — see docs/v2/MANIFEST.md). Phase A6
+ * completed the v1 port set: MemorizeCard / WriteCard /
+ * CodeMemorizeCard. MatrixCard removed 2026-05-08 per user direction.
+ * Off-manifest types (AdversarialMock / FaultInjection / Preflight /
+ * ConfidenceCalibration / DAGRetry / Delta / TestDaySim / VariantGen /
+ * Postmortem / EntityMatrix / AlgorithmMatrix / SpeedDrill) were
+ * removed in Phase A3.
  */
 
 import { type ReactNode } from 'react';
@@ -37,7 +38,6 @@ import { MCQCard } from './cards/MCQCard';
 import { ProceduralCard } from './cards/ProceduralCard';
 import { MemorizeCard } from './cards/MemorizeCard';
 import { WriteCard } from './cards/WriteCard';
-import { MatrixCard } from './cards/MatrixCard';
 import { CodeMemorizeCard } from './cards/CodeMemorizeCard';
 
 export interface CardRendererProps {
@@ -87,8 +87,6 @@ export function CardRenderer({ card, onComplete }: CardRendererProps): ReactNode
       return <MemorizeCard card={card} onComplete={onComplete} />;
     case 'WriteCard':
       return <WriteCard card={card} onComplete={onComplete} />;
-    case 'MatrixCard':
-      return <MatrixCard card={card} onComplete={onComplete} />;
     case 'CodeMemorizeCard':
       return <CodeMemorizeCard card={card} onComplete={onComplete} />;
     default: {

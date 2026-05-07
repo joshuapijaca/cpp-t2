@@ -1,46 +1,41 @@
-# =====================================================================
-# L3 / R-04 / FunctionWriteCard — string field pizzas
-# =====================================================================
-id: "L3-R04-string-05"
-schemaVersion: "v2"
-atomId: "R-04"
-qTags: ["Q3"]
+id: L3-R04-string-05
+schemaVersion: v2
+atomId: R-04
+qTags:
+  - Q3
 stage: 5
-level: "L3"
-type: "FunctionWriteCard"
+level: L3
+type: FunctionWriteCard
 stem: |
   Variation: pizzas with a string 'name' as the first field.
   cin >> works for whitespace-delimited string tokens.
-prompt: "string-field variant"
+prompt: string-field variant
 canonicalAnswer: |
   void read_pizzas(pizza_data &pizzas[], int number_to_read)
   {
     for (int i = 0; i < number_to_read; i++)
     {
-      cout << "Name: ";
       cin >> pizzas[i].name;
-      cout << "Diameter (cm): ";
       cin >> pizzas[i].diameter_cm;
-      cout << "Toppings: ";
       cin >> pizzas[i].toppings;
     }
   }
 keyChecks:
-  - "cin >> pizzas[i].name;"
+  - cin >> pizzas[i].name;
 forbiddenTokens:
-  - "while"
-  - "getline"
+  - while
+  - getline
 explanation: |
   cin >> reads up to first whitespace into the string. No getline required for single-token names.
 passByRefRequired: true
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt + Test 2 V2.0 attempt 1 — Q3 read function across entity variants"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt + Test 2 V2.0 attempt 1 — Q3 read function across entity variants
 drills:
-  - "tier1:Q3:R-04"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  - tier1:Q3:R-04
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L3-Q3

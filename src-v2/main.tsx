@@ -30,6 +30,9 @@ import { SessionStoreProvider } from './lib/session-store';
 import { Card, type Card as CardT } from './types/card-schema';
 import type { Atom } from './types/atom';
 import { CardRenderer } from './components/CardRenderer';
+import AllMemoryBoxesStories from './components/primitives/__stories__/MemoryBoxes.stories';
+import TraceCardDevPreview from './components/cards/__stories__/TraceCard.devpreview';
+import WalkthroughDevPreview from './components/cards/__stories__/WalkthroughCard.devpreview';
 import {
   PWAUpdatePrompt,
   pwaSetRegistration,
@@ -283,6 +286,28 @@ function Boot() {
     }, 0);
     return () => clearTimeout(id);
   }, []);
+
+  // Dev-only visual previews via query gate (no new route, no manifest hit).
+  // Use ?dev=memboxes to inspect MemoryBoxes shape coverage during W3 review.
+  // Use ?dev=tracecard to inspect the paper-sim TraceCard rewrite (W4 review).
+  if (
+    typeof window !== 'undefined' &&
+    /[?&]dev=memboxes\b/.test(window.location.search)
+  ) {
+    return <AllMemoryBoxesStories />;
+  }
+  if (
+    typeof window !== 'undefined' &&
+    /[?&]dev=tracecard\b/.test(window.location.search)
+  ) {
+    return <TraceCardDevPreview />;
+  }
+  if (
+    typeof window !== 'undefined' &&
+    /[?&]dev=walkthrough\b/.test(window.location.search)
+  ) {
+    return <WalkthroughDevPreview />;
+  }
 
   if (!data) {
     return (

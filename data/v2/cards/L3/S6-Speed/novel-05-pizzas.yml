@@ -15,11 +15,8 @@ canonicalAnswer: |
   {
     for (int i = 0; i < number_to_read; i++)
     {
-      cout << "Diameter (cm): ";
       cin >> pizzas[i].diameter_cm;
-      cout << "Toppings: ";
       cin >> pizzas[i].toppings;
-      cout << "Price: ";
       cin >> pizzas[i].price;
     }
   }
@@ -34,14 +31,14 @@ explanation: |
   Novel entity under time pressure. Skeleton is invariant.
 passByRefRequired: true
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — Q3 timed (60s) read_desks reproduction"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — Q3 timed (60s) read_desks reproduction
 drills:
-  - "tier1:Q3:R-05"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-  - "tier2:seminar:saloni-2 @ 44:50"
+  - tier1:Q3:R-05
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+  - tier2:seminar:saloni-2 @ 44:50
 commonMistakeIds: []
 status: NEW
 createdBy: SA-L3-Q3

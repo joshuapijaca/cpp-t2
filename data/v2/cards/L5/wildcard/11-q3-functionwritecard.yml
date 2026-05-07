@@ -11,15 +11,15 @@ stem: |
   S5.5 wildcard: Dynamic count read. Write the function.
 
 prompt: |
-  Write read_orders(order_data arr[], int count). Loop reads 3 fields per element.
+  Write read_games(game_data arr[], int count). Loop reads 3 fields per element.
 
 canonicalAnswer: |
-  void read_orders(order_data arr[], int count) {
+  void read_games(game_data arr[], int count) {
     int i;
     for (i = 0; i < count; i++) {
-      cin >> arr[i].customer;
-      cin >> arr[i].items;
-      cin >> arr[i].total;
+      cin >> arr[i].title;
+      cin >> arr[i].publisher;
+      cin >> arr[i].price;
     }
   }
 

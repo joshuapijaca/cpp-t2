@@ -1,57 +1,52 @@
-# =====================================================================
-# L3 / R-01 / FunctionWriteCard — full skeleton for books
-# =====================================================================
-id: "L3-R01-fulltype-03"
-schemaVersion: "v2"
-atomId: "R-01"
-qTags: ["Q3"]
+id: L3-R01-fulltype-03
+schemaVersion: v2
+atomId: R-01
+qTags:
+  - Q3
 stage: 2
-level: "L3"
-type: "FunctionWriteCard"
+level: L3
+type: FunctionWriteCard
 stem: |
   Type the full read_books function from memory. 3 fields:
   int pages, double price, double rating.
-prompt: "Full read_books from skeleton."
-signatureHint: "void read_books(book_data &books[], int number_to_read) { ... }"
+prompt: Full read_books from skeleton.
+signatureHint: void read_books(book_data &books[], int number_to_read) { ... }
 canonicalAnswer: |
   void read_books(book_data &books[], int number_to_read)
   {
     for (int i = 0; i < number_to_read; i++)
     {
-      cout << "Pages: ";
       cin >> books[i].pages;
-      cout << "Price: ";
       cin >> books[i].price;
-      cout << "Rating: ";
       cin >> books[i].rating;
     }
   }
 keyChecks:
-  - "void read_books"
-  - "&books[]"
-  - "int number_to_read"
-  - "for (int i = 0; i < number_to_read; i++)"
-  - "cin >> books[i].pages;"
-  - "cin >> books[i].price;"
-  - "cin >> books[i].rating;"
+  - void read_books
+  - '&books[]'
+  - int number_to_read
+  - for (int i = 0; i < number_to_read; i++)
+  - cin >> books[i].pages;
+  - cin >> books[i].price;
+  - cin >> books[i].rating;
 forbiddenTokens:
-  - "function"
-  - "->"
-  - "while"
-  - "scanf"
+  - function
+  - '->'
+  - while
+  - scanf
 explanation: |
   Skeleton is fixed: void name + by-ref array + count int + for-loop + 3 prompt-pairs.
 passByRefRequired: true
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 (2026-05-07) — `void read_desks(desk_data &desk_list[], int number_to_read)` skeleton"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 (2026-05-07) — `void read_desks(desk_data &desk_list[], int number_to_read)` skeleton
 drills:
-  - "tier1:Q3:R-01"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-  - "tier2:seminar:saloni-2 @ 44:50"
-  - "tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  - tier1:Q3:R-01
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+  - tier2:seminar:saloni-2 @ 44:50
+  - tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L3-Q3

@@ -11,16 +11,16 @@ stem: |
   S5.5 wildcard: Dynamic count main. Write the main.
 
 prompt: |
-  Write main: const MAX=100, employee_data arr[MAX], read count, read employees, print employees, return 0.
+  Write main: const MAX=100, movie_data arr[MAX], read count, read employees, print employees, return 0.
 
 canonicalAnswer: |
   int main() {
     const int MAX = 100;
-    employee_data arr[MAX];
+    movie_data arr[MAX];
     int count;
     cin >> count;
-    read_employees(arr, count);
-    print_employees(arr, count);
+    read_movies(arr, count);
+    print_movies(arr, count);
     return 0;
   }
 

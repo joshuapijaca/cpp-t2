@@ -1,56 +1,55 @@
-# =====================================================================
-# L3 / R-03 / FunctionWriteCard — novel read_dogs
-# =====================================================================
-id: "L3-R03-novel-05"
-schemaVersion: "v2"
-atomId: "R-03"
-qTags: ["Q3"]
+id: L3-R03-novel-05
+schemaVersion: v2
+atomId: R-03
+qTags:
+  - Q3
 stage: 4
-level: "L3"
-type: "FunctionWriteCard"
+level: L3
+type: FunctionWriteCard
 stem: |
   Write the FULL read_dogs function. dog_data has 3 fields:
   int age_yrs, double weight_kg, int visits.
-prompt: "Compose: novel entity read_dogs."
-signatureHint: "void read_dogs(dog_data &dogs[], int number_to_read) { ... }"
+prompt: 'Compose: novel entity read_dogs.'
+signatureHint: void read_dogs(dog_data &dogs[], int number_to_read) { ... }
 canonicalAnswer: |
   void read_dogs(dog_data &dogs[], int number_to_read)
   {
     for (int i = 0; i < number_to_read; i++)
     {
-      cout << "Age (yrs): ";
       cin >> dogs[i].age_yrs;
-      cout << "Weight (kg): ";
       cin >> dogs[i].weight_kg;
-      cout << "Vet visits: ";
       cin >> dogs[i].visits;
     }
   }
 keyChecks:
-  - "void read_dogs(dog_data &dogs[], int number_to_read)"
-  - "for (int i = 0; i < number_to_read; i++)"
-  - "cin >> dogs[i].age_yrs;"
-  - "cin >> dogs[i].weight_kg;"
-  - "cin >> dogs[i].visits;"
+  - void read_dogs(dog_data &dogs[], int number_to_read)
+  - for (int i = 0; i < number_to_read; i++)
+  - cin >> dogs[i].age_yrs;
+  - cin >> dogs[i].weight_kg;
+  - cin >> dogs[i].visits;
 forbiddenTokens:
-  - "function"
-  - "->"
-  - "while"
+  - function
+  - '->'
+  - while
 explanation: |
   Novel entity. Same skeleton; only entity + field surface rotates.
 passByRefRequired: true
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — Q3 full read_desks body shape (12-line skeleton)"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — Q3 full read_desks body shape (12-line skeleton)
 drills:
-  - "tier1:Q3:R-03"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-  - "tier2:seminar:saloni-2 @ 44:50"
-  - "tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx"
-  - "tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx"
-commonMistakeIds: ["CM-Q3-off-by-one","CM-Q3-missing-amp","CM-Q3-missing-index","CM-Q3-missing-field"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  - tier1:Q3:R-03
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+  - tier2:seminar:saloni-2 @ 44:50
+  - tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx
+  - tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx
+commonMistakeIds:
+  - CM-Q3-off-by-one
+  - CM-Q3-missing-amp
+  - CM-Q3-missing-index
+  - CM-Q3-missing-field
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L3-Q3

@@ -1,47 +1,42 @@
-# =====================================================================
-# L3 / R-04 / FunctionWriteCard — list-name 'data'
-# =====================================================================
-id: "L3-R04-listname-03"
-schemaVersion: "v2"
-atomId: "R-04"
-qTags: ["Q3"]
+id: L3-R04-listname-03
+schemaVersion: v2
+atomId: R-04
+qTags:
+  - Q3
 stage: 5
-level: "L3"
-type: "FunctionWriteCard"
+level: L3
+type: FunctionWriteCard
 stem: |
   Variation: read_books but the list parameter is named 'data'.
-prompt: "list-name variant"
+prompt: list-name variant
 canonicalAnswer: |
   void read_books(book_data &data[], int number_to_read)
   {
     for (int i = 0; i < number_to_read; i++)
     {
-      cout << "Pages: ";
       cin >> data[i].pages;
-      cout << "Price: ";
       cin >> data[i].price;
-      cout << "Rating: ";
       cin >> data[i].rating;
     }
   }
 keyChecks:
-  - "&data[]"
-  - "data[i].pages"
-  - "data[i].price"
-  - "data[i].rating"
+  - '&data[]'
+  - data[i].pages
+  - data[i].price
+  - data[i].rating
 forbiddenTokens:
-  - "while"
+  - while
 explanation: |
   Use the list name consistently in [i].field accesses.
 passByRefRequired: true
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt + Test 2 V2.0 attempt 1 — Q3 read function across entity variants"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt + Test 2 V2.0 attempt 1 — Q3 read function across entity variants
 drills:
-  - "tier1:Q3:R-04"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  - tier1:Q3:R-04
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L3-Q3

@@ -11,16 +11,21 @@
  *   - prints the list using a for-loop with dot-access on the struct fields
  *   - returns 0
  *
- * Layout (2-pane):
- *   ┌──────────── 35% ─────────────┬───────────────── 65% ────────────────┐
- *   │  English spec                 │  CodeEditor (writable)               │
- *   │  ─────────                    │  full IDE feel: line numbers,        │
- *   │  Previously-defined struct    │  syntax highlight, brace match,      │
- *   │  (read-only)                  │  auto-indent.                        │
- *   │                               │                                       │
- *   │  Previously-defined read fn   │  Optional pre-seeded scaffold with   │
- *   │  (read-only)                  │  `_____` blanks at each section.     │
- *   └───────────────────────────────┴───────────────────────────────────────┘
+ * Layout (paper-sim, vertical stack — matches Test 2 exam Q4):
+ *   ┌────────────────────────────────────────────────────────────────┐
+ *   │ Spec — what to write                                           │
+ *   │ Context: struct (already defined) + read fn (already defined)  │
+ *   ├────────────────────────────────────────────────────────────────┤
+ *   │ CodeEditor — student writes int main() { ... }                 │
+ *   ├────────────────────────────────────────────────────────────────┤
+ *   │ [Submit] / [Try again]                                          │
+ *   ├────────────────────────────────────────────────────────────────┤
+ *   │ Sectional feedback panel                                        │
+ *   └────────────────────────────────────────────────────────────────┘
+ *
+ * Stripped (paper-sim — not on exam):
+ *   - "Q4 — Write `int main()`" eyebrow title
+ *   - Two-pane horizontal split
  *
  * Submit grading: SECTIONAL.
  *   - Section 1 (ask for count):  cout, cin >>, count variable
@@ -264,20 +269,15 @@ export function MainWriteCard({
     >
       <style>{MWC_STYLES}</style>
 
-      {/* ───── LEFT pane (35%): spec + read-only context ───── */}
-      <aside
-        className="mwc-left"
+      {/* ─── Spec + context (top) ─── */}
+      <section
+        className="mwc-spec-block"
         aria-label="Exercise specification and prior context"
       >
-        <h2 className="mwc-title">Q4 — Write `int main()`</h2>
-
-        <section className="mwc-spec" aria-label="English specification">
-          <h3 className="mwc-h3">What to write</h3>
-          <p className="mwc-prompt">{card.prompt}</p>
-        </section>
+        <p className="mwc-prompt">{card.prompt}</p>
 
         {extras?.contextStruct && (
-          <section
+          <div
             className="mwc-context"
             aria-label="Previously-defined struct (read-only)"
           >
@@ -285,11 +285,11 @@ export function MainWriteCard({
             <pre className="mwc-context-code">
               <code>{extras.contextStruct}</code>
             </pre>
-          </section>
+          </div>
         )}
 
         {extras?.contextReadFn && (
-          <section
+          <div
             className="mwc-context"
             aria-label="Previously-defined read function (read-only)"
           >
@@ -297,11 +297,11 @@ export function MainWriteCard({
             <pre className="mwc-context-code">
               <code>{extras.contextReadFn}</code>
             </pre>
-          </section>
+          </div>
         )}
-      </aside>
+      </section>
 
-      {/* ───── RIGHT pane (65%): editor + submit + sectional feedback ───── */}
+      {/* ─── Editor + submit + feedback (below) ─── */}
       <main className="mwc-right" aria-label="Main-function editor">
         <div className="mwc-editor-shell">
           <CodeEditor
@@ -452,25 +452,16 @@ export function MainWriteCard({
 
 const MWC_STYLES = `
 .mwc-root {
-  display: grid;
-  grid-template-columns: 35% 65%;
-  gap: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
   padding: 16px;
   background: var(--bg-0, #0d1117);
   color: var(--text-0, #e6edf3);
   font-family: var(--font-sans, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif);
   min-height: 100%;
 }
-@media (max-width: 900px) {
-  .mwc-root { grid-template-columns: 1fr; }
-}
 
-.mwc-title {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 12px;
-  color: var(--text-0, #e6edf3);
-}
 .mwc-h3 {
   font-size: 13px;
   font-weight: 600;
@@ -480,21 +471,21 @@ const MWC_STYLES = `
   color: var(--text-1, #8b949e);
 }
 
-.mwc-left {
+.mwc-spec-block {
   background: var(--bg-1, #161b22);
   border: 1px solid var(--border-1, #30363d);
   border-radius: 6px;
-  padding: 16px;
-  overflow: auto;
+  padding: 14px 16px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
 }
-.mwc-spec .mwc-prompt {
+.mwc-spec-block .mwc-prompt {
   margin: 0;
   font-size: 14px;
-  line-height: 1.6;
+  line-height: 1.55;
   color: var(--text-0, #e6edf3);
+  white-space: pre-wrap;
 }
 .mwc-context-code {
   background: var(--bg-2, #1f2937);

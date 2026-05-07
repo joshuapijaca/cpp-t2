@@ -1,16 +1,14 @@
-# =====================================================================
-# L3 / R-03 / FunctionWriteCard — two-pane Q2->Q3 bikes
-# =====================================================================
-id: "L3-R03-twopane-07"
-schemaVersion: "v2"
-atomId: "R-03"
-qTags: ["Q3"]
+id: L3-R03-twopane-07
+schemaVersion: v2
+atomId: R-03
+qTags:
+  - Q3
 stage: 4
-level: "L3"
-type: "FunctionWriteCard"
+level: L3
+type: FunctionWriteCard
 stem: |
   Two-pane: Q2 struct shown left. Write the matching Q3 read_bikes.
-prompt: "Two-pane Q2 -> Q3."
+prompt: Two-pane Q2 -> Q3.
 signatureHint: |
   Given:
   struct bike_data
@@ -25,36 +23,33 @@ canonicalAnswer: |
   {
     for (int i = 0; i < number_to_read; i++)
     {
-      cout << "Gears: ";
       cin >> bikes[i].gears;
-      cout << "Weight (kg): ";
       cin >> bikes[i].weight_kg;
-      cout << "Price: ";
       cin >> bikes[i].price;
     }
   }
 keyChecks:
-  - "void read_bikes(bike_data &bikes[], int number_to_read)"
-  - "for (int i = 0; i < number_to_read; i++)"
-  - "cin >> bikes[i].gears;"
-  - "cin >> bikes[i].weight_kg;"
-  - "cin >> bikes[i].price;"
+  - void read_bikes(bike_data &bikes[], int number_to_read)
+  - for (int i = 0; i < number_to_read; i++)
+  - cin >> bikes[i].gears;
+  - cin >> bikes[i].weight_kg;
+  - cin >> bikes[i].price;
 forbiddenTokens:
-  - "while"
+  - while
 explanation: |
   Read fields in struct-declaration order. Each field gets one prompt-pair.
 passByRefRequired: true
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — Q3 full read_desks body shape (12-line skeleton)"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — Q3 full read_desks body shape (12-line skeleton)
 drills:
-  - "tier1:Q3:R-03"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-  - "tier2:seminar:saloni-2 @ 44:50"
-  - "tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx"
-  - "tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  - tier1:Q3:R-03
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+  - tier2:seminar:saloni-2 @ 44:50
+  - tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx
+  - tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L3-Q3

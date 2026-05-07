@@ -1,56 +1,54 @@
-# =====================================================================
-# L3 / R-03 / FunctionWriteCard — practice read_computers
-# =====================================================================
-id: "L3-R03-computers-02"
-schemaVersion: "v2"
-atomId: "R-03"
-qTags: ["Q3"]
+id: L3-R03-computers-02
+schemaVersion: v2
+atomId: R-03
+qTags:
+  - Q3
 stage: 4
-level: "L3"
-type: "FunctionWriteCard"
+level: L3
+type: FunctionWriteCard
 stem: |
   Write the FULL read_computers function. computer_data has 3 fields:
   cpu_speed (double), ram_gb (int), price (double).
-prompt: "Compose: full read_computers."
-signatureHint: "void read_computers(computer_data &computers[], int number_to_read) { ... }"
+prompt: 'Compose: full read_computers.'
+signatureHint: void read_computers(computer_data &computers[], int number_to_read) { ... }
 canonicalAnswer: |
   void read_computers(computer_data &computers[], int number_to_read)
   {
     for (int i = 0; i < number_to_read; i++)
     {
-      cout << "CPU speed (GHz): ";
       cin >> computers[i].cpu_speed;
-      cout << "RAM (GB): ";
       cin >> computers[i].ram_gb;
-      cout << "Price ($): ";
       cin >> computers[i].price;
     }
   }
 keyChecks:
-  - "void read_computers(computer_data &computers[], int number_to_read)"
-  - "for (int i = 0; i < number_to_read; i++)"
-  - "cin >> computers[i].cpu_speed;"
-  - "cin >> computers[i].ram_gb;"
-  - "cin >> computers[i].price;"
+  - void read_computers(computer_data &computers[], int number_to_read)
+  - for (int i = 0; i < number_to_read; i++)
+  - cin >> computers[i].cpu_speed;
+  - cin >> computers[i].ram_gb;
+  - cin >> computers[i].price;
 forbiddenTokens:
-  - "function"
-  - "->"
-  - "while"
+  - function
+  - '->'
+  - while
 explanation: |
   Practice-test Q3 shape. Same 12-line skeleton with rotated entity.
 passByRefRequired: true
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — Q3 full read_desks body shape (12-line skeleton)"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — Q3 full read_desks body shape (12-line skeleton)
 drills:
-  - "tier1:Q3:R-03"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-  - "tier2:seminar:saloni-2 @ 44:50"
-  - "tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx"
-  - "tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx"
-commonMistakeIds: ["CM-Q3-off-by-one","CM-Q3-missing-amp","CM-Q3-missing-index"]
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  - tier1:Q3:R-03
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+  - tier2:seminar:saloni-2 @ 44:50
+  - tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx
+  - tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx
+commonMistakeIds:
+  - CM-Q3-off-by-one
+  - CM-Q3-missing-amp
+  - CM-Q3-missing-index
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L3-Q3

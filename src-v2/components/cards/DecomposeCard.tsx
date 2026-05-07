@@ -125,10 +125,6 @@ export function DecomposeCard({ card, onComplete }: DecomposeCardProps) {
         <h2 id="dec-stem" className="dec-stem">
           {card.stem}
         </h2>
-        <div className="dec-meta">
-          <span className="dec-atom">{card.atomId}</span>
-          <span className="dec-q">{card.qTags.join(' · ')}</span>
-        </div>
       </header>
 
       <pre className="dec-code" aria-label="code under analysis" tabIndex={0}>

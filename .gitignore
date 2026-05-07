@@ -17,6 +17,9 @@ playwright-report/
 # Background test artifacts
 *.tmp
 
+# Lint reports (regenerable via npm run lint:*)
+build-v2/*-lint-report.json
+
 # vite-plugin-pwa dev output (regenerable; emits sw.js, registerSW.js, manifest stub on dev start)
 dev-dist/
 # Built service-worker artifact (lives in dist-v2/ but listed as a safety net

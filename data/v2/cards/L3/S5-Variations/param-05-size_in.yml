@@ -1,45 +1,40 @@
-# =====================================================================
-# L3 / R-04 / FunctionWriteCard — param name 'size_in'
-# =====================================================================
-id: "L3-R04-param-05"
-schemaVersion: "v2"
-atomId: "R-04"
-qTags: ["Q3"]
+id: L3-R04-param-05
+schemaVersion: v2
+atomId: R-04
+qTags:
+  - Q3
 stage: 5
-level: "L3"
-type: "FunctionWriteCard"
+level: L3
+type: FunctionWriteCard
 stem: |
   Variation: read_phones with count parameter renamed to 'size_in'.
-prompt: "param-name variant"
+prompt: param-name variant
 canonicalAnswer: |
   void read_phones(phone_data &phones[], int size_in)
   {
     for (int i = 0; i < size_in; i++)
     {
-      cout << "Storage (GB): ";
       cin >> phones[i].storage_gb;
-      cout << "Battery (mAh): ";
       cin >> phones[i].battery_mah;
-      cout << "Price: ";
       cin >> phones[i].price;
     }
   }
 keyChecks:
-  - "int size_in"
-  - "for (int i = 0; i < size_in; i++)"
+  - int size_in
+  - for (int i = 0; i < size_in; i++)
 forbiddenTokens:
-  - "while"
+  - while
 explanation: |
   Same skeleton; the count parameter name is just a label. Use it consistently in the for-loop bound.
 passByRefRequired: true
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt + Test 2 V2.0 attempt 1 — Q3 read function across entity variants"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt + Test 2 V2.0 attempt 1 — Q3 read function across entity variants
 drills:
-  - "tier1:Q3:R-04"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  - tier1:Q3:R-04
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L3-Q3

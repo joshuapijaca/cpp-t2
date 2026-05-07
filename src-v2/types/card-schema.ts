@@ -5,8 +5,9 @@
 //
 // Source-of-truth Zod schema for the v2.2 minimalist build:
 //   - ~1,530 hand-authored cards across 6 levels (L0..L5)
-//   - 15 card types in a discriminated union over `type`
-//     (11 v1-kept + 4 v2 essentials per docs/v2/MANIFEST.md)
+//   - 14 card types in a discriminated union over `type`
+//     (10 v1-kept + 4 v2 essentials per docs/v2/MANIFEST.md)
+//     MatrixCard removed 2026-05-08 per user direction.
 //   - 30+ atom IDs (F-01..F-22 + sub-atom suffixes + algorithm/entity ext.)
 //   - Multi-Q tagging: every card carries 1+ of [Q1, Q2, Q3, Q4]
 //   - Source citations: practice / v2 / pfg / seminar
@@ -99,10 +100,10 @@ export type AgentId = z.infer<typeof AgentId>;
 // ---------------------------------------------------------------------
 
 export const CardTypes = [
-  // v1-kept (11 per MANIFEST):
+  // v1-kept (10 per MANIFEST, MatrixCard removed 2026-05-08):
   //   MemorizeCard, MCQCard, TraceCard, WriteCard, ClozeCard,
   //   DecomposeCard, WalkthroughCard, DemoCard, ProceduralCard,
-  //   MatrixCard, CodeMemorizeCard
+  //   CodeMemorizeCard
   // v2 essentials (4): TemplateRecallCard, StructWriteCard,
   //   FunctionWriteCard, MainWriteCard
   'TraceCard',
@@ -117,11 +118,10 @@ export const CardTypes = [
   'MCQCard',
   'ProceduralCard',
   // Phase A6 ports of v1 components into src-v2/ — completes the
-  // MANIFEST 15-type set. Schemas adapt the v1 shape to the v2
+  // MANIFEST 14-type set. Schemas adapt the v1 shape to the v2
   // common-fields envelope (id/atomId/qTags/stage/level/source/etc.).
   'MemorizeCard',
   'WriteCard',
-  'MatrixCard',
   'CodeMemorizeCard',
 ] as const;
 export const CardTypeEnum = z.enum(CardTypes);
@@ -166,11 +166,73 @@ const MCQOption = z.object({
   text: z.string().min(1),
 });
 
+// ---------------------------------------------------------------------
+// Paper-sim primitives — added 2026-05-08 to support the MemoryBoxes
+// component (W3). Trace + Walkthrough cards render variables as
+// hand-drawn memory diagrams: scalar boxes, indexed array cells,
+// nested struct fields. Schema additions are OPTIONAL — existing
+// data renders correctly via runtime auto-derivation from variable
+// names + code parsing.
+// ---------------------------------------------------------------------
+
+/** Variable shape — overrides MemoryBoxes auto-derivation. */
+const VarShape = z.discriminatedUnion('kind', [
+  z.object({
+    kind: z.literal('scalar'),
+    name: z.string().min(1),
+    cppType: z.string().optional(), // e.g. "int", "double" — display hint
+  }),
+  z.object({
+    kind: z.literal('array'),
+    name: z.string().min(1),
+    size: z.number().int().positive(),
+    cellType: z.string().optional(),
+  }),
+  z.object({
+    kind: z.literal('struct'),
+    name: z.string().min(1),
+    structType: z.string().optional(), // e.g. "stat_double"
+    fields: z.array(
+      z.object({
+        name: z.string().min(1),
+        kind: z.enum(['scalar', 'array']),
+        size: z.number().int().positive().optional(),
+        cppType: z.string().optional(),
+      })
+    ),
+  }),
+]);
+
+/** Pass-by-reference aliasing — `void f(stat_double &data)` called as
+ * `f(d)` produces the visual `data → d`. */
+const PassByRef = z.object({
+  paramName: z.string().min(1),     // "data"
+  callerName: z.string().min(1),    // "d"
+});
+
+/** Initial array contents — overrides auto-parsed init from code.
+ * Use when init expression is non-trivial or computed. */
+const ArrayInit = z.object({
+  name: z.string().min(1),          // "numbers" or "d.numbers"
+  values: z.array(z.string()).min(1),
+});
+
+/** Per-step memory snapshot for WalkthroughCard. When absent on a
+ * step, the walkthrough renders prose-only (fallback). When present,
+ * MemoryBoxes builds up alongside the code. */
+const VarSnapshot = z.object({
+  name: z.string().min(1),          // e.g. "x", "data.mystery", "numbers[2]"
+  value: z.string(),                // current value after this step
+  history: z.array(z.string()).default([]), // strikethrough chain (oldest → newest, EXCLUDING current)
+});
+
 const KeyChecks = z.array(z.string().min(1)).default([]);
 const ForbiddenTokens = z.array(z.string().min(1)).default([]);
 
 // ---------------------------------------------------------------------
 // 1. TraceCard — hand-execute code, fill memory + terminal output.
+//    Paper-sim fields (varShapes / passByRef / arrayInits) are
+//    optional overrides for the MemoryBoxes renderer.
 // ---------------------------------------------------------------------
 export const TraceCard = CommonCardFields.extend({
   type: z.literal('TraceCard'),
@@ -183,6 +245,10 @@ export const TraceCard = CommonCardFields.extend({
   inputMode: z.enum(['per-step', 'final-only']).default('final-only'),
   q4StopCondition: z.string().optional(),
   teachMe: z.string().optional(),
+  // ── paper-sim additions (optional, auto-derived when absent) ──
+  varShapes: z.array(VarShape).optional(),
+  passByRef: PassByRef.optional(),
+  arrayInits: z.array(ArrayInit).optional(),
 });
 
 // ---------------------------------------------------------------------
@@ -251,6 +317,10 @@ export const ClozeCard = CommonCardFields.extend({
 
 // ---------------------------------------------------------------------
 // 7. WalkthroughCard — annotated walk-through of a worked example.
+//    Hand-execution walkthroughs may attach memory snapshots per step
+//    (vars + terminal) — when present, MemoryBoxes builds up beside
+//    the code. Prose-only walkthroughs (syntax explanations) leave
+//    snapshots absent and render the annotation only.
 // ---------------------------------------------------------------------
 export const WalkthroughCard = CommonCardFields.extend({
   type: z.literal('WalkthroughCard'),
@@ -263,9 +333,18 @@ export const WalkthroughCard = CommonCardFields.extend({
         code: z.string().min(1),
         annotation: z.string().min(1),
         atomIds: z.array(AtomId).default([]),
+        // ── paper-sim additions (optional) ──
+        vars: z.array(VarSnapshot).optional(),
+        terminal: z.array(z.string()).optional(),
       })
     )
     .min(1),
+  // Optional shape declaration shared across all steps (e.g. the Q1
+  // stat_double struct). When absent, MemoryBoxes auto-derives from
+  // step-level var names + fullCode.
+  varShapes: z.array(VarShape).optional(),
+  passByRef: PassByRef.optional(),
+  arrayInits: z.array(ArrayInit).optional(),
 });
 
 // ---------------------------------------------------------------------
@@ -351,22 +430,7 @@ export const WriteCard = CommonCardFields.extend({
 });
 
 // ---------------------------------------------------------------------
-// 14. MatrixCard — RAVEN-style pattern-transfer puzzle.
-// ---------------------------------------------------------------------
-export const MatrixCard = CommonCardFields.extend({
-  type: z.literal('MatrixCard'),
-  section: z.string().min(1),
-  matrixType: z.enum(['algorithm', 'entity', 'progression']),
-  examples: z
-    .array(z.object({ label: z.string().min(1), code: z.string().min(1) }))
-    .min(1),
-  prompt: z.string().min(1),
-  expectedAnswer: z.string().min(1),
-  keyChecks: KeyChecks,
-});
-
-// ---------------------------------------------------------------------
-// 15. CodeMemorizeCard — see-then-type code drill.
+// 14. CodeMemorizeCard — see-then-type code drill.
 // ---------------------------------------------------------------------
 export const CodeMemorizeCard = CommonCardFields.extend({
   type: z.literal('CodeMemorizeCard'),
@@ -394,7 +458,6 @@ export const Card = z.discriminatedUnion('type', [
   ProceduralCard,
   MemorizeCard,
   WriteCard,
-  MatrixCard,
   CodeMemorizeCard,
 ]);
 export type Card = z.infer<typeof Card>;
@@ -413,7 +476,6 @@ export type MCQCard = z.infer<typeof MCQCard>;
 export type ProceduralCard = z.infer<typeof ProceduralCard>;
 export type MemorizeCard = z.infer<typeof MemorizeCard>;
 export type WriteCard = z.infer<typeof WriteCard>;
-export type MatrixCard = z.infer<typeof MatrixCard>;
 export type CodeMemorizeCard = z.infer<typeof CodeMemorizeCard>;
 
 /** Card-array helper for JSON file loads. */

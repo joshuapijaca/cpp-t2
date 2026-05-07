@@ -140,19 +140,13 @@ export function ProceduralCard({
       <style>{PC_STYLES}</style>
 
       <header className="pc-header">
-        <div>
-          <span className="pc-section">{card.section}</span>
-          <h2 className="pc-stem">{card.stem}</h2>
-        </div>
+        <h2 className="pc-stem">{card.stem}</h2>
         <div className="pc-meta">
           <StreakIndicator streak={streak} target={effectiveTarget} />
-          <span className="pc-atom">{card.atomId}</span>
-          <span className="pc-q">{card.qTags.join(' · ')}</span>
         </div>
       </header>
 
       <p className="pc-prompt" aria-live="polite">
-        <span className="pc-prompt-eyebrow">prompt {variantIdx + 1}/{variants.length}</span>
         <span>{current.prompt}</span>
       </p>
 

@@ -103,10 +103,6 @@ export function CodeMemorizeCard({ card, onComplete }: CodeMemorizeCardProps) {
 
   return (
     <div className={`${cardClass} cmem-card`}>
-      <div className="atom-id">
-        {card.level} · Code Memorize · {card.section} · {card.atomId}
-      </div>
-
       <div className="write-spec">{card.question}</div>
 
       {phase === 'study' && (

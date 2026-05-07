@@ -1,47 +1,42 @@
-# =====================================================================
-# L3 / R-04 / FunctionWriteCard — mixed-type fridges
-# =====================================================================
-id: "L3-R04-mixed-01"
-schemaVersion: "v2"
-atomId: "R-04"
-qTags: ["Q3"]
+id: L3-R04-mixed-01
+schemaVersion: v2
+atomId: R-04
+qTags:
+  - Q3
 stage: 5
-level: "L3"
-type: "FunctionWriteCard"
+level: L3
+type: FunctionWriteCard
 stem: |
   Variation: fridges with mixed int + double fields.
   double volume_l, int shelves, double price.
-prompt: "mixed-type variant"
+prompt: mixed-type variant
 canonicalAnswer: |
   void read_fridges(fridge_data &fridges[], int number_to_read)
   {
     for (int i = 0; i < number_to_read; i++)
     {
-      cout << "Volume (L): ";
       cin >> fridges[i].volume_l;
-      cout << "Shelves: ";
       cin >> fridges[i].shelves;
-      cout << "Price: ";
       cin >> fridges[i].price;
     }
   }
 keyChecks:
-  - "cin >> fridges[i].volume_l;"
-  - "cin >> fridges[i].shelves;"
-  - "cin >> fridges[i].price;"
+  - cin >> fridges[i].volume_l;
+  - cin >> fridges[i].shelves;
+  - cin >> fridges[i].price;
 forbiddenTokens:
-  - "while"
+  - while
 explanation: |
   cin >> is overloaded for int and double. Same prompt-pair pattern works for both.
 passByRefRequired: true
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt + Test 2 V2.0 attempt 1 — Q3 read function across entity variants"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt + Test 2 V2.0 attempt 1 — Q3 read function across entity variants
 drills:
-  - "tier1:Q3:R-04"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  - tier1:Q3:R-04
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L3-Q3

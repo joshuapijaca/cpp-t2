@@ -118,10 +118,6 @@ export function MCQCard({ card, onComplete }: MCQCardProps) {
         <h2 id="mcq-stem" className="mcq-stem">
           {card.stem}
         </h2>
-        <div className="mcq-meta">
-          <span className="mcq-atom">{card.atomId}</span>
-          <span className="mcq-q">{card.qTags.join(' · ')}</span>
-        </div>
       </header>
 
       <ul

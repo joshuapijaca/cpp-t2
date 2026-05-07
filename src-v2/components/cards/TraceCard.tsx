@@ -1,42 +1,43 @@
 /**
- * TraceCard.tsx
+ * TraceCard.tsx — paper-sim hand-execute card.
  *
- * The Q1 hand-execute card — the backbone of the C++T2 deck.
+ * Q1 backbone of the SIT102 Test 2 deck. Replaces the old IDE-style
+ * 3-pane layout (code + name/type/value/scope grid + terminal) with
+ * a paper-format memory diagram (MemoryBoxes) beside the code panel.
  *
- * Layout (3-pane code editor: editor + variables panel + terminal):
- * ─────────────────────────────────────────────────────────────────────
- *   ┌──── Header ──────────────────────────────────────────────────────┐
- *   │  stem ........................ atom-id  ......... confidence    │
- *   ├──────────────────────────────────────┬───────────────────────────┤
- *   │                                       │  Variables (interactive) │
- *   │                                       │  ─────────────────────── │
- *   │   CodeEditor (readOnly,               │  name  type  value scope │
- *   │   active line marked with ▶)          │  ...                     │
- *   │                                       ├───────────────────────────┤
- *   │                                       │  Terminal (typeable)     │
- *   │                                       │  $ student@cpp-t2:...    │
- *   │                                       │  > _                     │
- *   ├──────────────────────────────────────┴───────────────────────────┤
- *   │  [⏮ reset] [⏵ step] [⏩ run]                       [Submit]      │
- *   └──────────────────────────────────────────────────────────────────┘
+ * Visual model (matches source-data/tests/practice1_images/image2.jpeg):
  *
- * Step mode: Click [⏵ step] highlights the next line via `▶` marker.
- * Student must MANUALLY update the variables panel to advance the trace —
- * there is NO auto-execution. That is the entire point of the card type:
- * the student is the CPU.
+ *   ┌── Header — stem only (no atom-id / q-tags / confidence widget) ─┐
+ *   ├──────────────────────────────────┬─────────────────────────────┤
+ *   │                                   │                              │
+ *   │   CodeEditor (read-only,         │   MemoryBoxes               │
+ *   │   ▶ marks active line)            │   (paper-sim diagram)       │
+ *   │                                   │                              │
+ *   │                                   │   ─────────────              │
+ *   │                                   │   Terminal                   │
+ *   │                                   │   (predicted stdout)        │
+ *   ├──────────────────────────────────┴─────────────────────────────┤
+ *   │  [⏮ reset] [⏵ step] [⏩ run]                       [submit]      │
+ *   └────────────────────────────────────────────────────────────────┘
  *
- * Run mode: same, but skips line highlighting (jumps to the end). Use when
- * the student wants to fill the whole panel up-front.
+ * Paper-sim guarantees:
+ *   - Variable boxes per scalar with strikethrough history.
+ *   - Arrays render as horizontal indexed cells [0][1][2]...
+ *   - Structs render as outer box containing nested field rows.
+ *   - Pass-by-reference shown as `paramName ──→ callerName` note.
  *
- * On submit:
- *   - gradeTrace() compares the student's variables panel to expectedTrace
- *     (final value per variable) AND terminal lines (char-match w/ lenient
- *     normalize).
- *   - Per-variable green/red feedback + diff vs canonical terminal.
- *   - Must pass to advance — onComplete(true) only on full pass.
+ * Digital luxuries kept:
+ *   - Active-line marker (▶) advances on [step].
+ *   - Auto-grading on [submit] with diff feedback.
+ *   - Try-again retries (no skip).
+ *   - Lenient char-match grading via existing gradeTrace.
  *
- * Per RULE 4: TraceCard MUST be deterministic. There are no LLM calls,
- * no randomness, no side-effects.
+ * The shape of memory (scalar vs array vs struct) is auto-derived
+ * from `card.variables[]` + `card.code` parsing. Cards may override
+ * via `card.varShapes`, `card.arrayInits`, `card.passByRef`.
+ *
+ * Per RULE 4: TraceCard MUST be deterministic. No LLM, no random,
+ * no side-effects beyond the React state machine.
  */
 
 import {
@@ -48,16 +49,25 @@ import {
 } from 'react';
 import { CodeEditor } from '../primitives/CodeEditor';
 import {
-  VariablesPanel,
-  type Variable,
-  type VariableType,
-} from '../primitives/VariablesPanel';
-import { TerminalPanel } from '../primitives/TerminalPanel';
+  MemoryBoxes,
+  deriveShapes,
+  type HistoryMap,
+  type ArrayInitMap,
+  type VarShape,
+  type StructFieldShape,
+  type PassByRefHint,
+} from '../primitives/MemoryBoxes';
 import {
   buildExpectedTrace,
   gradeTrace,
   type GradeResult,
 } from '../../lib/grading-trace';
+import {
+  parseTraceCode,
+  parseArrayInit,
+  resolveSize,
+} from '../../lib/trace-code-parser';
+import type { Variable, VariableType } from '../primitives/VariablesPanel';
 import type { TraceCard as TraceCardData } from '../../types/card-schema';
 
 // ─────────────────────────────────────────────────────────────────────
@@ -70,54 +80,142 @@ export interface TraceCardProps {
   onComplete: (correct: boolean) => void;
 }
 
-const TYPE_DEFAULTS: Record<VariableType, string> = {
-  int: '',
-  double: '',
-  string: '',
-  bool: '',
-  char: '',
-  struct: '',
-};
-
 // ─────────────────────────────────────────────────────────────────────
-// Helpers — code line manipulation for the active-line marker
+// Helpers
 // ─────────────────────────────────────────────────────────────────────
 
-/**
- * Insert the active-line marker into the displayed code WITHOUT mutating
- * the underlying code value used by CodeEditor's tokenizer. We render the
- * marker via a separate gutter overlay (CSS) so the source stays clean.
- *
- * Right now we adopt a simpler approach: prefix the active line with `▶ `
- * inside a copy of the code that we hand to a read-only CodeEditor. The
- * underlying card.code is preserved for grading.
- */
 function withActiveLineMarker(code: string, activeLine: number | null): string {
   if (activeLine === null || activeLine < 1) return code;
   const lines = code.split('\n');
   if (activeLine > lines.length) return code;
-  // 1-indexed line numbers (matches the gutter)
   const idx = activeLine - 1;
   const original = lines[idx] ?? '';
-  // Don't double-mark
   if (original.startsWith('▶ ')) return code;
   lines[idx] = `▶ ${original}`;
   return lines.join('\n');
 }
 
-/** Newline count + 1. */
 function countLines(code: string): number {
   let n = 1;
   for (let i = 0; i < code.length; i++) if (code[i] === '\n') n++;
   return n;
 }
 
+/** Map MemoryBoxes HistoryMap → legacy Variable[] for gradeTrace. */
+function historyToVariables(history: HistoryMap): Variable[] {
+  const out: Variable[] = [];
+  for (const [name, values] of Object.entries(history)) {
+    if (!values || values.length === 0) continue;
+    const past = values.slice(0, -1);
+    const current = values[values.length - 1] ?? '';
+    out.push({
+      id: `mb_${name}`,
+      name,
+      type: 'int' as VariableType,   // type/scope are ignored by grader
+      value: current,
+      scope: 'local',
+      history: past,
+    });
+  }
+  return out;
+}
+
 /**
- * Generate a stable, non-cryptographic id for newly added panel rows.
- * Random is fine here — these IDs never leave session memory.
+ * Auto-derive shapes + arrayInits + passByRef from card data + code.
+ *
+ * Priority (highest first):
+ *   1. card.varShapes / card.arrayInits / card.passByRef (explicit)
+ *   2. Parsed struct + decl from code
+ *   3. Heuristic from variables[] notation (deriveShapes)
  */
-function genId(): string {
-  return `vp_${Math.random().toString(36).slice(2, 9)}`;
+interface AutoDerived {
+  shapes: VarShape[];
+  arrayInits: ArrayInitMap;
+  passByRef: PassByRefHint | undefined;
+}
+
+function autoDerive(card: TraceCardData): AutoDerived {
+  // Start with parsed code.
+  const parsed = parseTraceCode(card.code);
+
+  // 1. Pass-by-ref (explicit overrides parser).
+  const passByRef = card.passByRef ?? parsed.passByRef ?? undefined;
+
+  // 2. Build a struct-type registry from struct definitions.
+  //    e.g. "stat_double" → { numbers: array(SIZE), mystery: scalar }
+  const structTypeMap = new Map<string, StructFieldShape[]>();
+  for (const def of parsed.structDefs) {
+    const fields: StructFieldShape[] = def.fields.map((f) => {
+      if (f.kind === 'array') {
+        const size = f.sizeRef
+          ? resolveSize(f.sizeRef, parsed.sizeConsts) ?? 5
+          : 5;
+        return { name: f.name, kind: 'array', size, cppType: f.cppType };
+      }
+      return { name: f.name, kind: 'scalar', cppType: f.cppType };
+    });
+    structTypeMap.set(def.name, fields);
+  }
+
+  // 3. Build varShapes:
+  //    - For each declared variable whose type is a known struct, emit
+  //      a struct shape using the struct fields.
+  //    - For each unique base in card.variables, fall back to deriveShapes.
+  let shapes: VarShape[] = [];
+  if (card.varShapes && card.varShapes.length > 0) {
+    shapes = card.varShapes;
+  } else {
+    // Struct-typed declarations → struct shapes.
+    const structShapes: VarShape[] = [];
+    for (const decl of parsed.varDecls) {
+      const fields = structTypeMap.get(decl.cppType);
+      if (fields) {
+        structShapes.push({
+          kind: 'struct',
+          name: decl.name,
+          structType: decl.cppType,
+          fields,
+        });
+      }
+    }
+    // Auto-derive for the rest from variables[].
+    const seenStructNames = new Set(structShapes.map((s) => s.name));
+    const remainingVars = card.variables.filter((v) => {
+      const dot = v.indexOf('.');
+      const base = dot >= 0 ? v.slice(0, dot) : v;
+      return !seenStructNames.has(base);
+    });
+    const derived = deriveShapes(remainingVars);
+    shapes = [...structShapes, ...derived];
+  }
+
+  // 4. arrayInits — explicit overrides parser; parser inits via decls.
+  const arrayInits: ArrayInitMap = {};
+  if (card.arrayInits) {
+    for (const ai of card.arrayInits) arrayInits[ai.name] = ai.values;
+  } else {
+    // Parse struct-with-array initializers like:
+    //   stat_double d = { {-20.0, 3.2, 1.9, -1.5, 1.3}, 0.0 };
+    for (const decl of parsed.varDecls) {
+      const fields = structTypeMap.get(decl.cppType);
+      if (!fields || !decl.init) continue;
+      const slots = parseArrayInit(decl.init);
+      // Match slot order to field order.
+      for (let i = 0; i < fields.length && i < slots.length; i++) {
+        const f = fields[i];
+        const s = slots[i];
+        if (!f || s === undefined) continue;
+        if (f.kind === 'array') {
+          const cells = parseArrayInit(s);
+          if (cells.length > 0) {
+            arrayInits[`${decl.name}.${f.name}`] = cells;
+          }
+        }
+      }
+    }
+  }
+
+  return { shapes, arrayInits, passByRef };
 }
 
 // ─────────────────────────────────────────────────────────────────────
@@ -125,83 +223,42 @@ function genId(): string {
 // ─────────────────────────────────────────────────────────────────────
 
 export function TraceCard({ card, onComplete }: TraceCardProps) {
-  // Build the canonical expected answer once per card.
   const expected = useMemo(() => buildExpectedTrace(card), [card]);
   const totalLines = useMemo(() => countLines(card.code), [card.code]);
+  const derived = useMemo(() => autoDerive(card), [card]);
 
-  // ── Variables panel state ─────────────────────────────────────
-  // Student starts with empty rows. They click "+ row" to add what they
-  // think is in memory — the watch-table is INTERACTIVE.
-  const [variables, setVariables] = useState<Variable[]>([]);
+  // Student's memory state — keyed by variable path.
+  const [history, setHistory] = useState<HistoryMap>({});
 
-  // ── Terminal text the student is typing ───────────────────────
+  // Terminal predicted stdout text.
   const [terminalText, setTerminalText] = useState<string>('');
 
-  // ── Step controls ─────────────────────────────────────────────
-  /** activeLine===null  -> not stepping (initial / reset).
-   *  activeLine===N      -> currently focused on line N.
-   *  activeLine===-1     -> stepping has run past the end. */
+  // Active line for the ▶ marker. null = not stepping yet, -1 = past end.
   const [activeLine, setActiveLine] = useState<number | null>(null);
 
-  // ── Confidence rating placeholder ─────────────────────────────
-  const [confidence, setConfidence] = useState<number | null>(null);
-
-  // ── Grade state ───────────────────────────────────────────────
+  // Grade state.
   const [grade, setGrade] = useState<GradeResult | null>(null);
 
-  // Reset state when card changes (loop into next card mid-mount).
+  // Reset when card changes.
   useEffect(() => {
-    setVariables([]);
+    setHistory({});
     setTerminalText('');
     setActiveLine(null);
-    setConfidence(null);
     setGrade(null);
   }, [card.id]);
 
-  // ── Variable panel handlers ───────────────────────────────────
-  const onAddVar = useCallback(() => {
-    setVariables((prev) => [
+  // ── Memory updaters ──────────────────────────────────────────────
+  const onAddValue = useCallback((varPath: string, value: string) => {
+    setHistory((prev) => ({
       ...prev,
-      {
-        id: genId(),
-        name: '',
-        type: 'int',
-        value: TYPE_DEFAULTS.int,
-        scope: 'local',
-        history: [],
-      },
-    ]);
+      [varPath]: [...(prev[varPath] ?? []), value],
+    }));
   }, []);
 
-  const onUpdateVar = useCallback(
-    (id: string, patch: Partial<Variable>) => {
-      setVariables((prev) =>
-        prev.map((v) => (v.id === id ? { ...v, ...patch } : v))
-      );
-    },
-    []
-  );
-
-  const onRemoveVar = useCallback((id: string) => {
-    setVariables((prev) => prev.filter((v) => v.id !== id));
-  }, []);
-
-  const onReorderVar = useCallback((id: string, target: number) => {
-    setVariables((prev) => {
-      const i = prev.findIndex((v) => v.id === id);
-      if (i < 0) return prev;
-      const out = [...prev];
-      const [moved] = out.splice(i, 1);
-      if (!moved) return prev;
-      out.splice(target, 0, moved);
-      return out;
-    });
-  }, []);
-
-  // ── Step controls ─────────────────────────────────────────────
+  // ── Step controls ────────────────────────────────────────────────
   const onReset = useCallback(() => {
     setActiveLine(null);
-    setVariables([]);
+    setHistory({});
     setTerminalText('');
     setGrade(null);
   }, []);
@@ -217,81 +274,69 @@ export function TraceCard({ card, onComplete }: TraceCardProps) {
   }, [totalLines]);
 
   const onRun = useCallback(() => {
-    // "Run" = mark all lines as visited (no auto-mutation), highlight removed.
     setActiveLine(-1);
   }, []);
 
-  // ── Submit / grade ────────────────────────────────────────────
+  // ── Submit / grade ───────────────────────────────────────────────
   const onSubmit = useCallback(() => {
+    const variables = historyToVariables(history);
     const result = gradeTrace({ variables, terminalText }, expected);
     setGrade(result);
     if (result.pass) onComplete(true);
-  }, [variables, terminalText, expected, onComplete]);
+  }, [history, terminalText, expected, onComplete]);
 
-  // Try-again resets the grade view but keeps the student's draft.
   const onTryAgain = useCallback(() => setGrade(null), []);
 
-  // ── Display code with active-line marker ──────────────────────
+  // ── Display code ────────────────────────────────────────────────
   const displayedCode = useMemo(
     () =>
       withActiveLineMarker(
         card.code,
-        activeLine === -1 ? null : activeLine
+        activeLine === -1 ? null : activeLine,
       ),
-    [card.code, activeLine]
+    [card.code, activeLine],
   );
 
-  // CodeEditor needs a noop onChange for read-only mode.
   const onCodeNoop = useCallback((_next: string) => {
     /* readOnly */
   }, []);
 
-  // ── Layout style — keep the 3-pane proportions stable ─────────
   const layoutStyle: CSSProperties = useMemo(
     () => ({
       display: 'grid',
-      gridTemplateColumns: 'minmax(0, 1.4fr) minmax(0, 1fr)',
+      gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 1fr)',
       gridTemplateRows: 'auto 1fr auto',
       gridTemplateAreas: `
         "header   header"
         "code     panes"
         "footer   footer"
       `,
-      gap: '12px',
-      padding: '12px',
+      gap: 12,
+      padding: 12,
       width: '100%',
-      maxWidth: '1280px',
+      maxWidth: 1280,
       margin: '0 auto',
-      minHeight: '560px',
+      minHeight: 560,
     }),
-    []
+    [],
   );
 
   return (
     <section
       className="tc-root"
       role="application"
-      aria-label={`Trace exercise — atom ${card.atomId}`}
+      aria-label="trace exercise"
       data-testid="trace-card"
       style={layoutStyle}
     >
-      {/* ── Header ───────────────────────────────────────────── */}
+      {/* ── Header — stem only (paper-sim: no metadata clutter) ── */}
       <header className="tc-header" style={{ gridArea: 'header' }}>
         <div className="tc-stem" aria-label="trace prompt">
-          <span className="tc-stem-text">{card.stem}</span>
-        </div>
-        <div className="tc-meta">
-          <span className="tc-atom-id" aria-label="atom id">
-            {card.atomId}
-          </span>
-          <span className="tc-q-tags" aria-label="question tags">
-            {card.qTags.join(' · ')}
-          </span>
-          <ConfidenceRating value={confidence} onChange={setConfidence} />
+          {card.stem}
         </div>
       </header>
 
-      {/* ── Left pane: code editor (read-only) ──────────────── */}
+      {/* ── Left: code editor ────────────────────────────────── */}
       <div
         className="tc-code-pane"
         style={{ gridArea: 'code', minHeight: 0, display: 'flex' }}
@@ -309,28 +354,29 @@ export function TraceCard({ card, onComplete }: TraceCardProps) {
         />
       </div>
 
-      {/* ── Right column: variables (top) + terminal (bottom) ── */}
+      {/* ── Right: MemoryBoxes (top) + Terminal (bottom) ─────── */}
       <div
         className="tc-right-col"
         style={{
           gridArea: 'panes',
           display: 'grid',
-          gridTemplateRows: 'minmax(0, 1.5fr) minmax(0, 1fr)',
-          gap: '12px',
+          gridTemplateRows: 'minmax(0, 1.6fr) minmax(0, 1fr)',
+          gap: 12,
           minHeight: 0,
         }}
       >
         <div
           className="tc-vars-pane"
           style={{ minHeight: 0, overflow: 'auto' }}
-          aria-label="variables panel"
+          aria-label="memory diagram"
         >
-          <VariablesPanel
-            variables={variables}
-            onAdd={onAddVar}
-            onUpdate={onUpdateVar}
-            onRemove={onRemoveVar}
-            onReorder={onReorderVar}
+          <MemoryBoxes
+            shapes={derived.shapes}
+            history={history}
+            arrayInits={derived.arrayInits}
+            passByRef={derived.passByRef}
+            editable={grade?.pass !== true}
+            onAddValue={onAddValue}
             title="memory (you fill this in)"
           />
         </div>
@@ -348,7 +394,7 @@ export function TraceCard({ card, onComplete }: TraceCardProps) {
         </div>
       </div>
 
-      {/* ── Footer: step controls + Submit ────────────────────── */}
+      {/* ── Footer: step controls + submit ───────────────────── */}
       <footer
         className="tc-footer"
         style={{
@@ -356,7 +402,7 @@ export function TraceCard({ card, onComplete }: TraceCardProps) {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          gap: '12px',
+          gap: 12,
         }}
       >
         <div
@@ -382,11 +428,6 @@ export function TraceCard({ card, onComplete }: TraceCardProps) {
           >
             <span aria-hidden="true">⏵</span>
             <span className="tc-btn-label">step</span>
-            {activeLine !== null && activeLine > 0 && (
-              <span className="tc-step-pos" aria-hidden="true">
-                {activeLine}/{totalLines}
-              </span>
-            )}
           </button>
           <button
             type="button"
@@ -422,7 +463,6 @@ export function TraceCard({ card, onComplete }: TraceCardProps) {
         </div>
       </footer>
 
-      {/* ── Feedback overlay ─────────────────────────────────── */}
       {grade && (
         <FeedbackPanel
           grade={grade}
@@ -437,50 +477,8 @@ export function TraceCard({ card, onComplete }: TraceCardProps) {
 }
 
 // ─────────────────────────────────────────────────────────────────────
-// Sub-components
+// Sub-components — Terminal + Feedback
 // ─────────────────────────────────────────────────────────────────────
-
-interface ConfidenceRatingProps {
-  value: number | null;
-  onChange: (v: number) => void;
-}
-
-/**
- * Confidence rating placeholder — 0..3 scale (none / low / med / high).
- * Real spec calls for a 4-stop predict-then-verify; this component
- * stores the value and emits it. The full ConfidenceCalibrationCard
- * pipeline lives elsewhere.
- */
-function ConfidenceRating({ value, onChange }: ConfidenceRatingProps) {
-  const stops = [
-    { v: 0, label: '?', title: 'unsure' },
-    { v: 1, label: '◔', title: 'low' },
-    { v: 2, label: '◑', title: 'medium' },
-    { v: 3, label: '●', title: 'high' },
-  ];
-  return (
-    <div
-      className="tc-conf"
-      role="group"
-      aria-label="confidence rating (placeholder)"
-    >
-      <span className="tc-conf-label">confidence:</span>
-      {stops.map((s) => (
-        <button
-          key={s.v}
-          type="button"
-          className={`tc-conf-stop ${value === s.v ? 'is-active' : ''}`}
-          onClick={() => onChange(s.v)}
-          aria-label={`confidence ${s.title}`}
-          aria-pressed={value === s.v}
-          title={s.title}
-        >
-          {s.label}
-        </button>
-      ))}
-    </div>
-  );
-}
 
 interface TraceTerminalProps {
   value: string;
@@ -488,27 +486,26 @@ interface TraceTerminalProps {
   readOnly: boolean;
 }
 
-/**
- * The terminal pane is "writable" in trace mode — the student types the
- * stdout they predict the program will produce. We render the visual frame
- * via TerminalPanel and overlay an editable textarea below it for input.
- */
 function TraceTerminal({ value, onChange, readOnly }: TraceTerminalProps) {
   const lines = value === '' ? [] : value.split(/\r\n?|\n/);
-  // Drop a single trailing empty line so the live preview doesn't blink an empty row.
   if (lines.length > 0 && lines[lines.length - 1] === '') lines.pop();
 
   return (
     <div className="tc-term-wrap" aria-label="predicted terminal output">
-      <TerminalPanel
-        stdoutLines={lines}
-        stdinPrompts={[]}
-        title="predicted output"
-        readOnly={true}
-      />
-      <label htmlFor="tc-term-input" className="tc-term-label">
-        type the stdout you predict, one line per row
-      </label>
+      <div className="tc-term-display" role="region" aria-label="output preview">
+        <div className="tc-term-label">output</div>
+        <pre className="tc-term-pre">
+          {lines.length === 0 ? (
+            <span className="tc-term-empty">(no output yet)</span>
+          ) : (
+            lines.map((line, i) => (
+              <div key={i} className="tc-term-line">
+                {line || ' '}
+              </div>
+            ))
+          )}
+        </pre>
+      </div>
       <textarea
         id="tc-term-input"
         className="tc-term-input"
@@ -521,7 +518,7 @@ function TraceTerminal({ value, onChange, readOnly }: TraceTerminalProps) {
         autoCapitalize="off"
         wrap="off"
         rows={3}
-        placeholder="(no output expected — leave blank if so)"
+        placeholder="type predicted stdout here, one line per row"
         aria-label="terminal input — type predicted stdout"
         aria-multiline="true"
       />
@@ -623,7 +620,7 @@ const TC_STYLES = `
 .tc-header {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: flex-start;
   gap: 12px;
   padding: 8px 4px;
@@ -635,59 +632,6 @@ const TC_STYLES = `
   font-size: 13px;
   line-height: 1.45;
   white-space: pre-wrap;
-}
-.tc-meta {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 11px;
-  color: var(--text-1, #8b949e);
-  flex-wrap: wrap;
-}
-.tc-atom-id {
-  background: var(--bg-2, #1f2937);
-  border: 1px solid var(--border-1, #30363d);
-  border-radius: 3px;
-  padding: 2px 6px;
-  color: var(--accent-cyan, #79c0ff);
-  letter-spacing: 0.05em;
-}
-.tc-q-tags {
-  color: var(--accent-org, #ffa657);
-  letter-spacing: 0.05em;
-}
-.tc-conf {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.tc-conf-label {
-  font-size: 10px;
-  color: var(--text-2, #6e7681);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-.tc-conf-stop {
-  width: 22px;
-  height: 22px;
-  background: var(--bg-2, #1f2937);
-  border: 1px solid var(--border-1, #30363d);
-  color: var(--text-2, #6e7681);
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 12px;
-  padding: 0;
-  font-family: inherit;
-}
-.tc-conf-stop:hover { color: var(--accent-cyan, #79c0ff); }
-.tc-conf-stop.is-active {
-  background: rgba(121,192,255,0.12);
-  border-color: var(--accent-cyan, #79c0ff);
-  color: var(--accent-cyan, #79c0ff);
-}
-.tc-conf-stop:focus-visible {
-  outline: 2px solid var(--accent-cyan, #79c0ff);
-  outline-offset: 1px;
 }
 
 .tc-step-controls,
@@ -733,16 +677,9 @@ const TC_STYLES = `
   border-color: var(--accent-grn, #7ee787);
   color: var(--bg-0, #0d1117);
 }
-.tc-btn--ghost {
-  background: transparent;
-}
+.tc-btn--ghost { background: transparent; }
 .tc-btn--small { font-size: 10px; padding: 3px 8px; }
 .tc-btn-label { letter-spacing: 0.04em; }
-.tc-step-pos {
-  font-size: 10px;
-  color: var(--text-2, #6e7681);
-  margin-left: 2px;
-}
 
 .tc-term-wrap {
   display: flex;
@@ -750,28 +687,55 @@ const TC_STYLES = `
   gap: 6px;
   height: 100%;
 }
+.tc-term-display {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: var(--bg-1, #161b22);
+  border: 1px solid var(--border-1, #30363d);
+  border-radius: 4px;
+  padding: 8px 10px;
+  flex: 1;
+  min-height: 0;
+}
 .tc-term-label {
   font-size: 10px;
   color: var(--text-2, #6e7681);
-  text-transform: lowercase;
-  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+}
+.tc-term-pre {
+  margin: 0;
+  flex: 1;
+  font-family: inherit;
+  font-size: 12px;
+  color: var(--accent-grn, #7ee787);
+  white-space: pre-wrap;
+  overflow: auto;
+}
+.tc-term-line {
+  min-height: 16px;
+}
+.tc-term-empty {
+  color: var(--text-2, #6e7681);
+  font-style: italic;
 }
 .tc-term-input {
   background: var(--bg-0, #0d1117);
-  border: 1px solid var(--border-1, #30363d);
-  border-radius: 4px;
-  color: var(--accent-grn, #7ee787);
+  border: 1px dashed var(--border-1, #30363d);
+  border-radius: 3px;
+  color: var(--text-0, #e6edf3);
   font-family: inherit;
   font-size: 12px;
   padding: 6px 10px;
   resize: vertical;
   min-height: 56px;
   outline: 0;
-  caret-color: var(--accent-grn, #7ee787);
 }
 .tc-term-input:focus-visible {
-  outline: 2px solid var(--accent-cyan, #79c0ff);
-  outline-offset: -2px;
+  border-style: solid;
+  border-color: var(--accent-cyan, #79c0ff);
 }
 
 .tc-feedback {

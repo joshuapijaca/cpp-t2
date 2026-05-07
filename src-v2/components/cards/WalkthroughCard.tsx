@@ -1,29 +1,63 @@
 /**
- * WalkthroughCard.tsx — annotated reveal of a worked example.
+ * WalkthroughCard.tsx — paper-sim worked-example reveal.
  *
- * Static reveal — student presses Space (or Next) to surface the next
- * step's annotation. The card "completes" once every step is revealed.
- * No grading: this is the SEE half of see-then-do.
+ * Drops the old `<ol>` step list with metadata headers (`step 1 · line 3
+ * · atoms [F-03,O-01]`) — those don't exist on paper. Replaces with a
+ * MemoryBoxes diagram that builds up beside the code as steps reveal,
+ * matching the way a tutor would draw the trace on a whiteboard.
+ *
+ * Two render modes (decided per step):
+ *   - step.vars present → memory snapshot fed to MemoryBoxes; the
+ *                          annotation prose is the "what just happened".
+ *   - step.vars absent  → no memory diagram for this step; annotation
+ *                          renders as plain prose (syntax-only walkthrough).
  *
  * Layout:
- *   ┌──────────────────────────┬─────────────────────────────┐
- *   │ Code panel (full code,   │ Steps panel — reveal-on-key │
- *   │  active line highlight)  │   step 1: <annotation>      │
- *   │                          │   step 2: <annotation>      │
- *   │                          │   ▌ next: press Space       │
- *   └──────────────────────────┴─────────────────────────────┘
+ *   ┌── Header: stem only ───────────────────────────────────────────┐
+ *   ├──────────────────────────────────┬─────────────────────────────┤
+ *   │   CodeEditor (active line ▶)     │   MemoryBoxes (accumulating) │
+ *   │                                   │   ─────────────              │
+ *   │                                   │   Step prose (annotation)    │
+ *   │                                   │   Terminal (if step has it) │
+ *   ├──────────────────────────────────┴─────────────────────────────┤
+ *   │ [← back] [reveal next (Space)] [reveal all]                     │
+ *   └────────────────────────────────────────────────────────────────┘
  *
- * Keyboard:
- *   - Space / ArrowRight / Enter : reveal next step
- *   - Backspace / ArrowLeft       : un-reveal last step (review)
- *   - End / Ctrl+Enter            : reveal all (skip)
+ * Stripped (paper-sim — not on exam):
+ *   - levelLabel pill in header
+ *   - step number / line N badges per step
+ *   - atom-ID tags per step
+ *   - progress "n / total" counter
  *
- * Accessibility:
- *   - aria-live="polite" on the steps list so screen readers announce reveals.
- *   - Each step is an <li> with a labelled atom-ID badge.
+ * Kept (digital learning luxury):
+ *   - Reveal-on-Space (with ArrowRight / Enter aliases)
+ *   - Back step (Backspace / ArrowLeft)
+ *   - Reveal-all skip
+ *   - Active-line marker that follows the current step
  */
 
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState,
+  type CSSProperties,
+} from 'react';
+import { CodeEditor } from '../primitives/CodeEditor';
+import {
+  MemoryBoxes,
+  type HistoryMap,
+  type ArrayInitMap,
+  type VarShape,
+  type StructFieldShape,
+  type PassByRefHint,
+} from '../primitives/MemoryBoxes';
+import {
+  parseTraceCode,
+  parseArrayInit,
+  resolveSize,
+} from '../../lib/trace-code-parser';
+import { deriveShapes } from '../primitives/MemoryBoxes';
 import type { WalkthroughCard as WalkthroughCardData } from '../../types/card-schema';
 
 export interface WalkthroughCardProps {
@@ -31,14 +65,180 @@ export interface WalkthroughCardProps {
   onComplete: (correct: boolean) => void;
 }
 
+// ─────────────────────────────────────────────────────────────────────
+// Helpers
+// ─────────────────────────────────────────────────────────────────────
+
+function withActiveLineMarker(code: string, activeLine: number | null): string {
+  if (activeLine === null || activeLine < 1) return code;
+  const lines = code.split('\n');
+  if (activeLine > lines.length) return code;
+  const idx = activeLine - 1;
+  const original = lines[idx] ?? '';
+  if (original.startsWith('▶ ')) return code;
+  lines[idx] = `▶ ${original}`;
+  return lines.join('\n');
+}
+
+/**
+ * Build a HistoryMap by walking through the revealed steps. For each
+ * step's `vars[]`, append the value to that variable's history when
+ * it differs from the current value. Returns a snapshot suitable for
+ * MemoryBoxes display.
+ */
+function buildHistoryFromSteps(
+  steps: WalkthroughCardData['steps'],
+  upTo: number,
+): HistoryMap {
+  const out: HistoryMap = {};
+  for (let i = 0; i < upTo && i < steps.length; i++) {
+    const step = steps[i];
+    if (!step?.vars) continue;
+    for (const v of step.vars) {
+      const cur = out[v.name];
+      if (!cur || cur.length === 0) {
+        out[v.name] = [v.value];
+      } else if (cur[cur.length - 1] !== v.value) {
+        out[v.name] = [...cur, v.value];
+      }
+    }
+  }
+  return out;
+}
+
+/**
+ * Latest terminal[] from the most-recent revealed step that has one.
+ * Falls back to [] if no step set terminal yet.
+ */
+function latestTerminal(
+  steps: WalkthroughCardData['steps'],
+  upTo: number,
+): string[] {
+  for (let i = upTo - 1; i >= 0; i--) {
+    const t = steps[i]?.terminal;
+    if (t) return t;
+  }
+  return [];
+}
+
+interface AutoDerived {
+  shapes: VarShape[];
+  arrayInits: ArrayInitMap;
+  passByRef: PassByRefHint | undefined;
+}
+
+function autoDerive(card: WalkthroughCardData): AutoDerived {
+  const parsed = parseTraceCode(card.fullCode);
+  const passByRef = card.passByRef ?? parsed.passByRef ?? undefined;
+
+  const structTypeMap = new Map<string, StructFieldShape[]>();
+  for (const def of parsed.structDefs) {
+    const fields: StructFieldShape[] = def.fields.map((f) => {
+      if (f.kind === 'array') {
+        const size = f.sizeRef
+          ? resolveSize(f.sizeRef, parsed.sizeConsts) ?? 5
+          : 5;
+        return { name: f.name, kind: 'array', size, cppType: f.cppType };
+      }
+      return { name: f.name, kind: 'scalar', cppType: f.cppType };
+    });
+    structTypeMap.set(def.name, fields);
+  }
+
+  let shapes: VarShape[] = [];
+  if (card.varShapes && card.varShapes.length > 0) {
+    shapes = card.varShapes;
+  } else {
+    const structShapes: VarShape[] = [];
+    for (const decl of parsed.varDecls) {
+      const fields = structTypeMap.get(decl.cppType);
+      if (fields) {
+        structShapes.push({
+          kind: 'struct',
+          name: decl.name,
+          structType: decl.cppType,
+          fields,
+        });
+      }
+    }
+    // For walkthrough, gather all vars-mentioned-in-steps as the
+    // "tracked variables" pool — that's what we want to draw boxes for.
+    const seenStructNames = new Set(structShapes.map((s) => s.name));
+    const stepVarSet = new Set<string>();
+    for (const step of card.steps) {
+      if (step.vars) for (const v of step.vars) stepVarSet.add(v.name);
+    }
+    const remaining = [...stepVarSet].filter((name) => {
+      const dot = name.indexOf('.');
+      const base = dot >= 0 ? name.slice(0, dot) : name;
+      return !seenStructNames.has(base);
+    });
+    const derived = deriveShapes(remaining);
+    shapes = [...structShapes, ...derived];
+  }
+
+  const arrayInits: ArrayInitMap = {};
+  if (card.arrayInits) {
+    for (const ai of card.arrayInits) arrayInits[ai.name] = ai.values;
+  } else {
+    for (const decl of parsed.varDecls) {
+      const fields = structTypeMap.get(decl.cppType);
+      if (!fields || !decl.init) continue;
+      const slots = parseArrayInit(decl.init);
+      for (let i = 0; i < fields.length && i < slots.length; i++) {
+        const f = fields[i];
+        const s = slots[i];
+        if (!f || s === undefined) continue;
+        if (f.kind === 'array') {
+          const cells = parseArrayInit(s);
+          if (cells.length > 0) {
+            arrayInits[`${decl.name}.${f.name}`] = cells;
+          }
+        }
+      }
+    }
+  }
+
+  return { shapes, arrayInits, passByRef };
+}
+
+// ─────────────────────────────────────────────────────────────────────
+// WalkthroughCard
+// ─────────────────────────────────────────────────────────────────────
+
 export function WalkthroughCard({ card, onComplete }: WalkthroughCardProps) {
   const totalSteps = card.steps.length;
   const [revealed, setRevealed] = useState(0);
 
-  // Lines lookup so we can highlight the active one.
-  const codeLines = useMemo(() => card.fullCode.split('\n'), [card.fullCode]);
-  const activeLine = revealed > 0 ? card.steps[revealed - 1]?.line ?? null : null;
+  const derived = useMemo(() => autoDerive(card), [card]);
 
+  // Latest revealed step's line drives the active marker.
+  const activeLine =
+    revealed > 0 ? card.steps[revealed - 1]?.line ?? null : null;
+
+  // Memory state derived from revealed steps.
+  const history = useMemo(
+    () => buildHistoryFromSteps(card.steps, revealed),
+    [card.steps, revealed],
+  );
+
+  // Terminal snapshot (falls back to last step that set it).
+  const terminal = useMemo(
+    () => latestTerminal(card.steps, revealed),
+    [card.steps, revealed],
+  );
+
+  // Whether ANY step in this card has memory snapshots.
+  const hasMemory = useMemo(
+    () => card.steps.some((s) => Boolean(s.vars)),
+    [card.steps],
+  );
+
+  // Latest annotation (the prose for the just-revealed step).
+  const latestAnnotation =
+    revealed > 0 ? card.steps[revealed - 1]?.annotation ?? '' : '';
+
+  // Reset on card change.
   useEffect(() => {
     setRevealed(0);
   }, [card.id]);
@@ -60,9 +260,9 @@ export function WalkthroughCard({ card, onComplete }: WalkthroughCardProps) {
     onComplete(true);
   }, [totalSteps, onComplete]);
 
+  // Keyboard shortcuts (with text-input guard).
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      // Skip if focus is in a text input (none here, but be polite).
       if (
         e.target instanceof HTMLElement &&
         (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA')
@@ -75,7 +275,10 @@ export function WalkthroughCard({ card, onComplete }: WalkthroughCardProps) {
       } else if (e.key === 'Backspace' || e.key === 'ArrowLeft') {
         e.preventDefault();
         unReveal();
-      } else if (e.key === 'End' || ((e.ctrlKey || e.metaKey) && e.key === 'Enter')) {
+      } else if (
+        e.key === 'End' ||
+        ((e.ctrlKey || e.metaKey) && e.key === 'Enter')
+      ) {
         e.preventDefault();
         revealAll();
       }
@@ -84,80 +287,129 @@ export function WalkthroughCard({ card, onComplete }: WalkthroughCardProps) {
     return () => window.removeEventListener('keydown', onKey);
   }, [reveal, unReveal, revealAll]);
 
+  const displayedCode = useMemo(
+    () => withActiveLineMarker(card.fullCode, activeLine),
+    [card.fullCode, activeLine],
+  );
+
+  const onCodeNoop = useCallback((_next: string) => {
+    /* readOnly */
+  }, []);
+
+  const layoutStyle: CSSProperties = useMemo(
+    () => ({
+      display: 'grid',
+      gridTemplateColumns: 'minmax(0, 1.2fr) minmax(0, 1fr)',
+      gridTemplateRows: 'auto 1fr auto',
+      gridTemplateAreas: `
+        "header   header"
+        "code     panes"
+        "footer   footer"
+      `,
+      gap: 12,
+      padding: 12,
+      width: '100%',
+      maxWidth: 1280,
+      margin: '0 auto',
+      minHeight: 560,
+    }),
+    [],
+  );
+
   return (
     <section
       className="wt-root"
       role="application"
-      aria-label={`Walkthrough — ${card.levelLabel}`}
+      aria-label="walkthrough"
+      style={layoutStyle}
     >
-      <style>{WT_STYLES}</style>
-
-      <header className="wt-header">
-        <div>
-          <span className="wt-level">{card.levelLabel}</span>
-          <h2 className="wt-stem">{card.stem}</h2>
-        </div>
-        <div className="wt-progress" aria-label={`step ${revealed} of ${totalSteps}`}>
-          {revealed} / {totalSteps}
-        </div>
+      <header className="wt-header" style={{ gridArea: 'header' }}>
+        <h2 className="wt-stem">{card.stem}</h2>
       </header>
 
-      <div className="wt-grid">
-        <pre
-          className="wt-code"
-          aria-label="walk-through code panel"
-          tabIndex={0}
-        >
-          {codeLines.map((line, i) => {
-            const lineNum = i + 1;
-            const isActive = lineNum === activeLine;
-            return (
-              <span
-                key={i}
-                className={`wt-line ${isActive ? 'is-active' : ''}`}
-                aria-current={isActive ? 'step' : undefined}
-              >
-                <span className="wt-lineno" aria-hidden="true">
-                  {String(lineNum).padStart(2, ' ')}
-                </span>
-                <span className="wt-linecode">{line || ' '}</span>
-                {'\n'}
-              </span>
-            );
-          })}
-        </pre>
-
-        <ol className="wt-steps" aria-live="polite">
-          {card.steps.slice(0, revealed).map((step, i) => (
-            <li key={i} className="wt-step">
-              <div className="wt-step-head">
-                <span className="wt-step-num">step {i + 1}</span>
-                <span className="wt-step-line">line {step.line}</span>
-                {step.atomIds.length > 0 && (
-                  <span className="wt-step-atoms" aria-label="atoms touched">
-                    {step.atomIds.map((a) => (
-                      <code key={a} className="wt-atom-tag">
-                        {a}
-                      </code>
-                    ))}
-                  </span>
-                )}
-              </div>
-              <pre className="wt-step-code">{step.code}</pre>
-              <p className="wt-step-note">{step.annotation}</p>
-            </li>
-          ))}
-          {revealed < totalSteps && (
-            <li className="wt-step wt-step--ghost" aria-label="next step">
-              <span className="wt-step-prompt">
-                press <kbd>Space</kbd> to reveal the next step
-              </span>
-            </li>
-          )}
-        </ol>
+      {/* Code panel ─ left */}
+      <div
+        className="wt-code-pane"
+        style={{ gridArea: 'code', minHeight: 0, display: 'flex' }}
+      >
+        <CodeEditor
+          value={displayedCode}
+          onChange={onCodeNoop}
+          language="cpp"
+          readOnly={true}
+          ariaLabel={
+            activeLine && activeLine > 0
+              ? `walkthrough code, active line ${activeLine}`
+              : 'walkthrough code'
+          }
+        />
       </div>
 
-      <footer className="wt-footer">
+      {/* Right column ─ MemoryBoxes (top) + annotation/terminal (bottom) */}
+      <div
+        className="wt-right-col"
+        style={{
+          gridArea: 'panes',
+          display: 'grid',
+          gridTemplateRows: hasMemory ? 'minmax(0, 1.4fr) minmax(0, 1fr)' : '1fr',
+          gap: 12,
+          minHeight: 0,
+        }}
+      >
+        {hasMemory && (
+          <div
+            className="wt-vars-pane"
+            style={{ minHeight: 0, overflow: 'auto' }}
+            aria-label="memory diagram"
+          >
+            <MemoryBoxes
+              shapes={derived.shapes}
+              history={history}
+              arrayInits={derived.arrayInits}
+              passByRef={derived.passByRef}
+              editable={false}
+              title="memory (auto-revealing)"
+            />
+          </div>
+        )}
+
+        <div
+          className="wt-prose-pane"
+          aria-live="polite"
+          aria-label="walkthrough notes"
+        >
+          {revealed === 0 ? (
+            <p className="wt-prose-empty">
+              press <kbd>Space</kbd> to begin the walkthrough.
+            </p>
+          ) : (
+            <>
+              <p className="wt-prose-body">{latestAnnotation}</p>
+              {terminal.length > 0 && (
+                <div className="wt-terminal" aria-label="terminal so far">
+                  <div className="wt-terminal-label">terminal</div>
+                  <pre className="wt-terminal-pre">
+                    {terminal.map((line, i) => (
+                      <div key={i}>{line || ' '}</div>
+                    ))}
+                  </pre>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      </div>
+
+      <footer
+        className="wt-footer"
+        style={{
+          gridArea: 'footer',
+          display: 'flex',
+          justifyContent: 'flex-end',
+          alignItems: 'center',
+          gap: 8,
+        }}
+      >
         <button
           type="button"
           className="wt-btn"
@@ -174,7 +426,7 @@ export function WalkthroughCard({ card, onComplete }: WalkthroughCardProps) {
           disabled={revealed === totalSteps}
           aria-label="reveal next step (Space)"
         >
-          {revealed === totalSteps ? 'done' : 'reveal next (Space)'}
+          {revealed === totalSteps ? 'done' : 'reveal next'}
         </button>
         <button
           type="button"
@@ -186,144 +438,88 @@ export function WalkthroughCard({ card, onComplete }: WalkthroughCardProps) {
           reveal all
         </button>
       </footer>
+
+      <style>{WT_STYLES}</style>
     </section>
   );
 }
 
 const WT_STYLES = `
 .wt-root {
-  font-family: var(--font-sans, system-ui, sans-serif);
+  font-family: var(--font-mono, 'JetBrains Mono', monospace);
   background: var(--bg-0, #0d1117);
   color: var(--text-0, #e6edf3);
   border: 1px solid var(--border-1, #30363d);
   border-radius: 8px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  max-width: 1280px;
-  margin: 0 auto;
 }
 .wt-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 12px;
+  padding: 8px 4px;
   border-bottom: 1px solid var(--border-1, #30363d);
-  padding-bottom: 10px;
 }
-.wt-level {
-  display: inline-block;
-  font-size: 11px;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--accent-org, #ffa657);
-  margin-bottom: 4px;
-}
-.wt-stem { margin: 0; font-size: 15px; line-height: 1.4; }
-.wt-progress {
-  font-family: var(--font-mono, monospace);
-  font-size: 12px;
-  color: var(--text-2, #6e7681);
-  background: var(--bg-2, #1f2937);
-  border: 1px solid var(--border-1, #30363d);
-  padding: 4px 10px;
-  border-radius: 3px;
-  align-self: center;
-}
-.wt-grid {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 12px;
-  min-height: 380px;
-}
-.wt-code {
+.wt-stem {
   margin: 0;
-  padding: 10px 0;
-  background: var(--bg-1, #161b22);
-  border: 1px solid var(--border-1, #30363d);
-  border-radius: 4px;
-  font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 12px;
-  line-height: 1.55;
-  overflow-x: auto;
-  white-space: pre;
+  font-size: 14px;
+  line-height: 1.45;
   color: var(--text-0, #e6edf3);
+  font-weight: 500;
+  white-space: pre-wrap;
 }
-.wt-code:focus-visible { outline: 2px solid var(--accent-cyan, #79c0ff); outline-offset: -2px; }
-.wt-line { display: inline; }
-.wt-line.is-active { background: rgba(121,192,255,0.12); }
-.wt-line.is-active .wt-linecode { color: var(--accent-cyan, #79c0ff); font-weight: 600; }
-.wt-lineno {
-  display: inline-block;
-  width: 32px;
-  padding: 0 8px;
-  text-align: right;
-  color: var(--text-2, #6e7681);
-  user-select: none;
-}
-.wt-linecode { padding-right: 8px; }
-.wt-steps {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  overflow-y: auto;
-  max-height: 480px;
-}
-.wt-step {
+
+.wt-prose-pane {
   background: var(--bg-1, #161b22);
   border: 1px solid var(--border-1, #30363d);
   border-radius: 4px;
   padding: 10px 12px;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 8px;
 }
-.wt-step--ghost {
-  border-style: dashed;
-  background: transparent;
-  color: var(--text-2, #6e7681);
-  text-align: center;
+.wt-prose-empty {
+  margin: 0;
   font-size: 12px;
-  align-items: center;
+  color: var(--text-2, #6e7681);
+  font-style: italic;
 }
-.wt-step-prompt kbd {
+.wt-prose-empty kbd {
   background: var(--bg-2, #1f2937);
   border: 1px solid var(--border-1, #30363d);
   border-radius: 3px;
   padding: 1px 6px;
-  font-family: var(--font-mono, monospace);
-  font-size: 10px;
   color: var(--accent-cyan, #79c0ff);
+  font-family: inherit;
+  font-size: 11px;
 }
-.wt-step-head { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; font-size: 11px; }
-.wt-step-num { color: var(--accent-cyan, #79c0ff); font-weight: 600; }
-.wt-step-line { color: var(--text-2, #6e7681); }
-.wt-step-atoms { display: inline-flex; gap: 4px; }
-.wt-atom-tag {
-  background: var(--bg-2, #1f2937);
-  border: 1px solid var(--border-1, #30363d);
-  border-radius: 2px;
-  padding: 1px 5px;
-  font-size: 10px;
-  color: var(--accent-yel, #d2a8ff);
-}
-.wt-step-code {
+.wt-prose-body {
   margin: 0;
-  padding: 6px 8px;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-size: 13px;
+  line-height: 1.55;
+  color: var(--text-0, #e6edf3);
+  white-space: pre-wrap;
+}
+
+.wt-terminal {
   background: var(--bg-0, #0d1117);
+  border: 1px solid var(--border-1, #30363d);
   border-radius: 3px;
-  font-family: var(--font-mono, monospace);
+  padding: 6px 10px;
+}
+.wt-terminal-label {
+  font-size: 10px;
+  color: var(--text-2, #6e7681);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+.wt-terminal-pre {
+  margin: 0;
   font-size: 12px;
   color: var(--accent-grn, #7ee787);
   white-space: pre-wrap;
-  overflow-x: auto;
 }
-.wt-step-note { margin: 0; font-size: 12px; line-height: 1.5; color: var(--text-1, #8b949e); }
-.wt-footer { display: flex; justify-content: flex-end; gap: 8px; }
+
 .wt-btn {
   background: var(--bg-1, #161b22);
   border: 1px solid var(--border-1, #30363d);
@@ -334,8 +530,14 @@ const WT_STYLES = `
   font-size: 12px;
   cursor: pointer;
 }
-.wt-btn:hover:not(:disabled) { border-color: var(--accent-cyan, #79c0ff); color: var(--accent-cyan, #79c0ff); }
-.wt-btn:focus-visible { outline: 2px solid var(--accent-cyan, #79c0ff); outline-offset: 2px; }
+.wt-btn:hover:not(:disabled) {
+  border-color: var(--accent-cyan, #79c0ff);
+  color: var(--accent-cyan, #79c0ff);
+}
+.wt-btn:focus-visible {
+  outline: 2px solid var(--accent-cyan, #79c0ff);
+  outline-offset: 2px;
+}
 .wt-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 .wt-btn--primary {
   background: var(--accent-cyan, #79c0ff);
@@ -344,7 +546,7 @@ const WT_STYLES = `
   font-weight: 600;
 }
 @media (max-width: 768px) {
-  .wt-grid { grid-template-columns: 1fr; }
+  .wt-right-col { grid-template-rows: auto auto !important; }
 }
 `;
 

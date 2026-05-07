@@ -1,44 +1,40 @@
-# =====================================================================
-# L3 / R-04 / FunctionWriteCard — 2-field houses
-# =====================================================================
-id: "L3-R04-v2-08"
-schemaVersion: "v2"
-atomId: "R-04"
-qTags: ["Q3"]
+id: L3-R04-v2-08
+schemaVersion: v2
+atomId: R-04
+qTags:
+  - Q3
 stage: 5
-level: "L3"
-type: "FunctionWriteCard"
+level: L3
+type: FunctionWriteCard
 stem: |
   Variation: houses with ONLY 2 fields (bedrooms, area_m2).
-prompt: "2-field variation"
+prompt: 2-field variation
 canonicalAnswer: |
   void read_houses(house_data &houses[], int number_to_read)
   {
     for (int i = 0; i < number_to_read; i++)
     {
-      cout << "Bedrooms: ";
       cin >> houses[i].bedrooms;
-      cout << "Area (m^2): ";
       cin >> houses[i].area_m2;
     }
   }
 keyChecks:
-  - "void read_houses(house_data &houses[], int number_to_read)"
-  - "cin >> houses[i].bedrooms;"
-  - "cin >> houses[i].area_m2;"
+  - void read_houses(house_data &houses[], int number_to_read)
+  - cin >> houses[i].bedrooms;
+  - cin >> houses[i].area_m2;
 forbiddenTokens:
-  - "while"
+  - while
 explanation: |
   Same skeleton; the body has 2 prompt-pairs instead of 3.
 passByRefRequired: true
 source:
-  kind: "practice"
-  ref: "Test2-SIT102-practice-2026T1.txt + Test 2 V2.0 attempt 1 — Q3 read function across entity variants"
+  kind: practice
+  ref: Test2-SIT102-practice-2026T1.txt + Test 2 V2.0 attempt 1 — Q3 read function across entity variants
 drills:
-  - "tier1:Q3:R-04"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  - tier1:Q3:R-04
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L3-Q3

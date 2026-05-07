@@ -120,10 +120,6 @@ export function MemorizeCard({ card, onComplete }: MemorizeCardProps) {
 
   return (
     <div className={cardClass}>
-      <div className="atom-id">
-        {card.level} · {card.atomId}
-      </div>
-
       {card.context && (
         <div
           className={

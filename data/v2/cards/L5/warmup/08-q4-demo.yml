@@ -24,9 +24,9 @@ demoCode: |
   }
 
 highlightTokens:
-  - "&data"
-  - "for ("
-  - "cin"
+  - "const int MAX"
+  - "cin >>"
+  - "read_desks"
   - "return 0;"
 
 usedIn:

@@ -1,16 +1,14 @@
-# =====================================================================
-# L3 / R-03 / TemplateRecallCard — fill-blank bikes
-# =====================================================================
-id: "L3-R03-fill-09"
-schemaVersion: "v2"
-atomId: "R-03"
-qTags: ["Q3"]
+id: L3-R03-fill-09
+schemaVersion: v2
+atomId: R-03
+qTags:
+  - Q3
 stage: 4
-level: "L3"
-type: "TemplateRecallCard"
+level: L3
+type: TemplateRecallCard
 stem: |
   Fill the 5 placeholders {{R}} {{A}} {{I}} {{B}} {{T}} in read_bikes.
-prompt: "5-blank fill-in"
+prompt: 5-blank fill-in
 template: |
   {{R}} read_bikes(bike_data {{A}}bikes[], {{I}} number_to_read)
   {
@@ -29,30 +27,27 @@ canonicalAnswer: |
   {
     for (int i = 0; i < number_to_read; i++)
     {
-      cout << "Gears: ";
       cin >> bikes[i].gears;
-      cout << "Weight (kg): ";
       cin >> bikes[i].weight_kg;
-      cout << "Price: ";
       cin >> bikes[i].price;
     }
   }
 keyChecks:
-  - "void read_bikes(bike_data &bikes[], int number_to_read)"
-  - "bikes[i].gears"
+  - void read_bikes(bike_data &bikes[], int number_to_read)
+  - bikes[i].gears
 explanation: |
   {{R}}=void, {{A}}=&, {{I}}=int, {{B}}=number_to_read, {{T}}=bikes[i].gears.
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — Q3 full read_desks body shape (12-line skeleton)"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — Q3 full read_desks body shape (12-line skeleton)
 drills:
-  - "tier1:Q3:R-03"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-  - "tier2:seminar:saloni-2 @ 44:50"
-  - "tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx"
-  - "tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  - tier1:Q3:R-03
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+  - tier2:seminar:saloni-2 @ 44:50
+  - tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx
+  - tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L3-Q3

@@ -3,13 +3,23 @@
  *
  * Q2 highest-frequency-correct card type.
  *
- * Layout:
- *   ┌───────────────────────────┬──────────────────────────────────────┐
- *   │ Left 40%  read-only       │ Right 60%  CodeEditor (writable)     │
- *   │   • English entity prompt │   • header: "struct" + brace counter │
- *   │   • field bullet list     │   • monospace + syntax highlight     │
- *   │   • optional skeleton     │   • aria-label on textarea           │
- *   └───────────────────────────┴──────────────────────────────────────┘
+ * Layout (paper-sim, 2026-05-08):
+ *   ┌────────────────────────────────────────────────────────────────┐
+ *   │ Prompt — entity description + required field list              │
+ *   │ (matches Test2 exam paper format: paragraph above, write below)│
+ *   ├────────────────────────────────────────────────────────────────┤
+ *   │ CodeEditor (writable, monospace, syntax highlight)             │
+ *   │ — optional skeleton hint above (Stage-1 only)                  │
+ *   ├────────────────────────────────────────────────────────────────┤
+ *   │ [Submit]  /  [Retry] after grade                               │
+ *   ├────────────────────────────────────────────────────────────────┤
+ *   │ Grade banner + per-line diff + explanation                     │
+ *   └────────────────────────────────────────────────────────────────┘
+ *
+ * Stripped (paper-sim — not on exam):
+ *   - "Q2 · struct write" eyebrow tag
+ *   - "struct.cpp" filename label in editor header
+ *   - Live brace counter widget
  *
  * Stage-1 hint: when `card.notes` includes "stage:1" we render the
  *   `struct ___ { ___; };` skeleton above the editor for the first
@@ -26,7 +36,7 @@
  * EDUCATIONAL feedback — never just "wrong, try again."
  */
 
-import { useCallback, useId, useMemo, useRef, useState } from 'react';
+import { useCallback, useId, useRef, useState } from 'react';
 import { CodeEditor, type CodeEditorHandle } from '../primitives/CodeEditor';
 import {
   gradeWrite,
@@ -56,17 +66,6 @@ export function StructWriteCard({
   const editorRef = useRef<CodeEditorHandle | null>(null);
   const liveRegionId = useId();
   const submitId = useId();
-
-  // ── live brace counter (cheap O(n) scan) ─────────────────────────
-  const braceCount = useMemo(() => {
-    let opens = 0;
-    let closes = 0;
-    for (let i = 0; i < code.length; i++) {
-      if (code[i] === '{') opens++;
-      else if (code[i] === '}') closes++;
-    }
-    return { opens, closes, balanced: opens === closes };
-  }, [code]);
 
   // ── derive the field list out of the schema for the prompt panel ─
   const fields = card.requiredFields ?? [];
@@ -100,14 +99,12 @@ export function StructWriteCard({
     <div className="swc-root">
       <style>{SWC_STYLES}</style>
 
-      <div className="swc-grid">
-        {/* ─────────────────────── LEFT (40%) ─────────────────────── */}
+      <div className="swc-stack">
+        {/* ─── Prompt (top) — exam paper format ─── */}
         <section className="swc-prompt" aria-labelledby={`${submitId}-title`}>
-          <header>
-            <span className="swc-eyebrow">Q2 · struct write</span>
-            <h2 id={`${submitId}-title`}>{card.stem}</h2>
-          </header>
-
+          <h2 id={`${submitId}-title`} className="swc-stem">
+            {card.stem}
+          </h2>
           <div className="swc-entity">
             <p>{card.prompt}</p>
             {fields.length > 0 && (
@@ -123,34 +120,21 @@ export function StructWriteCard({
               </>
             )}
           </div>
+        </section>
 
+        {/* ─── Editor (below) — student writes the struct ─── */}
+        <section className="swc-editor" aria-label="Your struct definition">
           {showSkeleton && (
             <div className="swc-hint" aria-label="Skeleton hint">
-              <h3>Skeleton (Stage 1 only)</h3>
               <pre>
                 <code>{`struct ___ {\n    ___;\n    ___;\n    ___;\n};`}</code>
               </pre>
               <p className="swc-hint-note">
-                Replace each <code>___</code> with the right type + field name.
-                You can also type from a blank page.
+                Skeleton hint — replace each <code>___</code> with the right
+                type + field name. You can also type from a blank page.
               </p>
             </div>
           )}
-        </section>
-
-        {/* ─────────────────────── RIGHT (60%) ────────────────────── */}
-        <section className="swc-editor" aria-label="Your struct definition">
-          <header className="swc-editor-header">
-            <span className="swc-editor-title">struct.cpp</span>
-            <span
-              className={`swc-brace-counter${
-                braceCount.balanced ? '' : ' swc-brace-counter--bad'
-              }`}
-              aria-label={`Braces: ${braceCount.opens} open, ${braceCount.closes} close`}
-            >
-              {`{ ${braceCount.opens} / } ${braceCount.closes}`}
-            </span>
-          </header>
 
           <CodeEditor
             ref={editorRef}
@@ -309,11 +293,10 @@ const SWC_STYLES = `
   color: var(--text-0, #e6edf3);
   font-family: var(--font-sans, system-ui, sans-serif);
 }
-.swc-grid {
-  display: grid;
-  grid-template-columns: 40% 60%;
+.swc-stack {
+  display: flex;
+  flex-direction: column;
   gap: 16px;
-  align-items: stretch;
 }
 .swc-prompt {
   background: var(--bg-1, #161b22);
@@ -322,20 +305,14 @@ const SWC_STYLES = `
   padding: 16px 20px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
-.swc-prompt header { display: flex; flex-direction: column; gap: 4px; }
-.swc-eyebrow {
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-2, #6e7681);
-}
-.swc-prompt h2 {
+.swc-stem {
   margin: 0;
-  font-size: 18px;
-  line-height: 1.35;
+  font-size: 16px;
+  line-height: 1.4;
   color: var(--text-0, #e6edf3);
+  font-weight: 500;
 }
 .swc-entity p {
   margin: 0 0 12px;
@@ -365,18 +342,10 @@ const SWC_STYLES = `
   font-size: 13px;
 }
 .swc-hint {
-  margin-top: auto;
   border: 1px dashed var(--accent-cyan, #79c0ff);
   border-radius: 6px;
-  padding: 12px;
+  padding: 10px 12px;
   background: rgba(121, 192, 255, 0.04);
-}
-.swc-hint h3 {
-  margin: 0 0 6px;
-  font-size: 11px;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--accent-cyan, #79c0ff);
 }
 .swc-hint pre {
   margin: 0;
@@ -398,25 +367,6 @@ const SWC_STYLES = `
   flex-direction: column;
   gap: 8px;
 }
-.swc-editor-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: var(--bg-2, #21262d);
-  border: 1px solid var(--border-1, #30363d);
-  border-bottom: 0;
-  border-radius: 6px 6px 0 0;
-  padding: 6px 12px;
-  font-family: var(--font-mono, "JetBrains Mono", ui-monospace, monospace);
-  font-size: 12px;
-  color: var(--text-1, #8b949e);
-}
-.swc-editor-title { font-weight: 600; }
-.swc-brace-counter {
-  font-variant-numeric: tabular-nums;
-  color: var(--accent-cyan, #79c0ff);
-}
-.swc-brace-counter--bad { color: var(--state-err, #f85149); }
 .swc-actions {
   display: flex;
   justify-content: flex-end;

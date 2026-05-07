@@ -23,10 +23,10 @@ demoCode: |
   }
 
 highlightTokens:
-  - "&data"
   - "for ("
-  - "cin"
-  - "return 0;"
+  - "cin >>"
+  - "arr[i]"
+  - "count"
 
 usedIn:
   - "Every Test 2 Q3 attempt"

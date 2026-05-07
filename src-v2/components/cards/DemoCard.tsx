@@ -84,10 +84,6 @@ export function DemoCard({ card, onComplete }: DemoCardProps) {
 
       <header className="dc-header">
         <h2 className="dc-stem">{card.stem}</h2>
-        <div className="dc-meta">
-          <span className="dc-atom">{card.atomId}</span>
-          <span className="dc-q">{card.qTags.join(' · ')}</span>
-        </div>
       </header>
 
       <p className="dc-why" aria-label="why this matters">
@@ -98,17 +94,6 @@ export function DemoCard({ card, onComplete }: DemoCardProps) {
       <pre className="dc-code" aria-label="demo code (read-only)" tabIndex={0}>
         {codeNode}
       </pre>
-
-      {card.usedIn.length > 0 && (
-        <div className="dc-used" aria-label="used in">
-          <span className="dc-used-eyebrow">used in</span>
-          {card.usedIn.map((u) => (
-            <span key={u} className="dc-used-tag">
-              {u}
-            </span>
-          ))}
-        </div>
-      )}
 
       <footer className="dc-footer">
         <button

@@ -158,10 +158,6 @@ export function ClozeCard({ card, onComplete }: ClozeCardProps) {
 
       <header className="cz-header">
         <h2 className="cz-stem">{card.stem}</h2>
-        <div className="cz-meta">
-          <span className="cz-atom">{card.atomId}</span>
-          <span className="cz-q">{card.qTags.join(' · ')}</span>
-        </div>
       </header>
 
       <p className="cz-sentence" aria-label="cloze sentence">

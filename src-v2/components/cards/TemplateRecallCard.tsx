@@ -195,7 +195,6 @@ export function TemplateRecallCard({
       <style>{TRC_STYLES}</style>
 
       <div className="trc-prompt">
-        <span className="trc-prompt-label">PROMPT</span>
         <p>{card.prompt}</p>
       </div>
 

@@ -14,9 +14,9 @@ manifest wins.
 ## Approved engines (1)
 - **exposure-counter** — atom familiarity 0→100% gauge
 
-## Approved card components (15)
+## Approved card components (14)
 
-### v1 types (11)
+### v1 types (10)
 - MemorizeCard
 - MCQCard
 - TraceCard
@@ -26,7 +26,6 @@ manifest wins.
 - WalkthroughCard
 - DemoCard
 - ProceduralCard *(was ProceduralDrill in v1)*
-- MatrixCard *(was CodeMatrix in v1)*
 - CodeMemorizeCard
 
 ### v2 essentials (4) — user-approved in v2.1 plan
@@ -34,6 +33,9 @@ manifest wins.
 - StructWriteCard
 - FunctionWriteCard
 - MainWriteCard
+
+### Removed 2026-05-08
+- MatrixCard *(was CodeMatrix in v1; user removed — RAVEN pattern-transfer not aligned with Test 2 hand-execute / write-from-spec format)*
 
 ## Approved 6 levels
 - **L0** Foundations (~400 cards) — PFG part-1 prereqs
@@ -65,7 +67,7 @@ manifest wins.
 - dag-backward-retry (no prereq injection on fail)
 - multi-q-propagation (modules are independent)
 
-### Forbidden card components (9)
+### Forbidden card components (10)
 - AdversarialMockCard
 - FaultInjectionCard
 - PreflightCheckCard
@@ -75,6 +77,7 @@ manifest wins.
 - TestDaySimCard
 - VariantGenCard
 - PostmortemCard *(postmortem is an L5 walkthrough, not a card type)*
+- MatrixCard *(removed 2026-05-08 — RAVEN pattern-transfer not exam-aligned)*
 
 ### Forbidden UI surfaces
 - Dashboard tiles (TODAY / MOCK / MASTERY / WEAKNESS)
@@ -131,11 +134,11 @@ The `source` field on every card carries `kind` + `ref`. Approved forms:
 ---
 
 ## Schema lock
-Card schema enum reduces: **23 types → 15 types**. The 8 forbidden card types
-throw Zod errors at validation time. The 11 v1-approved + 4 v2-essentials list
+Card schema enum reduces: **23 types → 14 types**. The 9 forbidden card types
+throw Zod errors at validation time. The 10 v1-approved + 4 v2-essentials list
 above is the authoritative discriminated-union enum.
 
-The 8 types removed from the enum:
+The 9 types removed from the enum:
 1. AdversarialMockCard
 2. FaultInjectionCard
 3. PreflightCheckCard
@@ -145,10 +148,10 @@ The 8 types removed from the enum:
 7. TestDaySimCard
 8. VariantGenCard
 9. PostmortemCard
+10. MatrixCard *(removed 2026-05-08)*
 
-(That is technically 9 — `SpeedDrillCard` and `EntityMatrixCard` /
-`AlgorithmMatrixCard` are also off-manifest; they are subsumed by
-`MatrixCard` and treated as forbidden in lint.)
+(`SpeedDrillCard` and `EntityMatrixCard` / `AlgorithmMatrixCard` are also
+off-manifest and treated as forbidden in lint.)
 
 ---
 

@@ -27,8 +27,8 @@ demoCode: |
 highlightTokens:
   - "&data"
   - "for ("
-  - "cin"
-  - "return 0;"
+  - "data.mystery"
+  - "data.numbers"
 
 usedIn:
   - "Every Test 2 Q1 attempt"

@@ -23,20 +23,23 @@
  *   2. Body — keyChecks must all appear (e.g. `for`, `cin >>`, `list[i].`).
  *      Forbidden tokens (e.g. `cout`, `return`) must NOT appear.
  *
- * Layout (2-pane, 40/60 split):
+ * Layout (paper-sim, vertical stack — matches Test 2 exam paper Q3):
  *
- *   ┌──────────────────────────────────┬─────────────────────────────┐
- *   │ SPEC PANE         (left, 40%)    │ EDITOR (right, 60%)         │
- *   │                                  │                             │
- *   │ ┌── English spec (top 50%) ───┐  │ ┌── signature (read-only) ┐ │
- *   │ │ "Write read_computers …"   │  │ │ void read_X(...)        │ │
- *   │ │ struct context (read-only) │  │ │ {                       │ │
- *   │ └────────────────────────────┘  │ └─────────────────────────┘ │
- *   │ ┌── signature given (50%) ───┐  │ ┌── body (writable) ──────┐ │
- *   │ │ void read_computers(...);  │  │ │     // ← caret here     │ │
- *   │ │ // student fills body only │  │ │ }  ← trailing close     │ │
- *   │ └────────────────────────────┘  │ └─────────────────────────┘ │
- *   └──────────────────────────────────┴─────────────────────────────┘
+ *   ┌────────────────────────────────────────────────────────────────┐
+ *   │ Prompt — English description of what the function does         │
+ *   │ Given signature: void read_X(X &list[], int n)                 │
+ *   │ Given struct context (when present)                            │
+ *   ├────────────────────────────────────────────────────────────────┤
+ *   │ CodeEditor — signature pinned, body writable, } pinned         │
+ *   ├────────────────────────────────────────────────────────────────┤
+ *   │ [Submit (Ctrl+Enter)]                                           │
+ *   ├────────────────────────────────────────────────────────────────┤
+ *   │ Feedback — signature tokens + body keychecks + canonical        │
+ *   └────────────────────────────────────────────────────────────────┘
+ *
+ * Stripped (paper-sim — not on exam):
+ *   - "Q3 — Read array of structs" eyebrow
+ *   - Live brace counter widget
  *
  * The right-hand editor presents the *whole* function (signature + open brace
  * + indent + body cursor + close brace). The signature line and the trailing
@@ -242,22 +245,6 @@ function splitCanonical(canonical: string): TemplateParts {
 }
 
 // ─────────────────────────────────────────────────────────────────────
-// Live brace counter helper
-// ─────────────────────────────────────────────────────────────────────
-
-function countBraces(s: string): { open: number; close: number; balanced: boolean } {
-  let open = 0;
-  let close = 0;
-  // Naive: ignore string/comment for now (CodeEditor's BraceMatcher already
-  // colors the real picture; this counter is a redundant numeric belt).
-  for (const ch of s) {
-    if (ch === "{") open++;
-    else if (ch === "}") close++;
-  }
-  return { open, close, balanced: open === close };
-}
-
-// ─────────────────────────────────────────────────────────────────────
 // Component
 // ─────────────────────────────────────────────────────────────────────
 
@@ -381,54 +368,31 @@ export function FunctionWriteCard({
     return () => window.removeEventListener("keydown", onKey);
   }, [handleSubmit]);
 
-  const braces = useMemo(() => countBraces(code), [code]);
-
   return (
     <div className="fwc-root">
       <style>{FWC_STYLES}</style>
 
-      <div className="fwc-grid">
-        {/* ───────────────────── LEFT PANE: spec + signature ──────────────── */}
+      <div className="fwc-stack">
+        {/* ─── Prompt + given signature (top) ─── */}
         <section
-          className="fwc-left"
+          className="fwc-spec"
           role="region"
-          aria-label="Question 3 specification"
+          aria-label="Question specification"
         >
-          {/* Spec (English prompt + struct context) — top 50% of left pane */}
-          <div
-            className="fwc-spec"
-            role="region"
-            aria-label="English specification and struct context"
-            tabIndex={0}
-          >
-            <h2 className="fwc-h">Q3 — Read array of structs</h2>
-            <p className="fwc-prompt">{card.prompt}</p>
+          <p className="fwc-prompt">{card.prompt}</p>
 
-            {structContext ? (
-              <>
-                <h3 className="fwc-h-sub">Given struct</h3>
-                <pre className="fwc-readonly">{structContext}</pre>
-              </>
-            ) : null}
-          </div>
+          <h3 className="fwc-h-sub">Function signature (given)</h3>
+          <pre className="fwc-readonly fwc-sig-line">{parts.signature}</pre>
 
-          {/* Signature (read-only, given) — bottom 50% of left pane */}
-          <div
-            className="fwc-sig-given"
-            role="region"
-            aria-label="Function signature given to the student"
-            tabIndex={0}
-          >
-            <h3 className="fwc-h-sub">Function signature (given)</h3>
-            <pre className="fwc-readonly fwc-sig-line">{parts.signature}</pre>
-            <p className="fwc-hint">
-              Fill in the body of this function. The signature is fixed — copy
-              it exactly into the editor.
-            </p>
-          </div>
+          {structContext ? (
+            <>
+              <h3 className="fwc-h-sub">Given struct</h3>
+              <pre className="fwc-readonly">{structContext}</pre>
+            </>
+          ) : null}
         </section>
 
-        {/* ───────────────────── RIGHT PANE: editor + submit ───────────────── */}
+        {/* ─── Editor (middle) ─── */}
         <section
           className="fwc-right"
           role="region"
@@ -447,19 +411,6 @@ export function FunctionWriteCard({
           </div>
 
           <div className="fwc-toolbar" role="group" aria-label="Editor toolbar">
-            <span
-              className={`fwc-brace ${braces.balanced ? "ok" : "bad"}`}
-              aria-label={`Brace counter: ${braces.open} open, ${braces.close} close, ${
-                braces.balanced ? "balanced" : "unbalanced"
-              }`}
-            >
-              {"{ "}
-              {braces.open}
-              {" / "}
-              {braces.close}
-              {" }"}
-              {braces.balanced ? "  ok" : "  unbalanced"}
-            </span>
             <button
               ref={submitBtnRef}
               type="button"
@@ -553,39 +504,16 @@ const FWC_STYLES = `
   min-height: 100%;
 }
 
-/* 40 / 60 split */
-.fwc-grid {
-  display: grid;
-  grid-template-columns: 40fr 60fr;
-  gap: 16px;
-  min-height: 28rem;
+.fwc-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
-
-/* ── Left pane ─────────────────────────────────────────────────────── */
-.fwc-left {
-  display: grid;
-  grid-template-rows: 1fr 1fr;
-  gap: 16px;
-  min-width: 0;
-}
-.fwc-spec,
-.fwc-sig-given {
+.fwc-spec {
   background: var(--bg-1, #161b22);
   border: 1px solid var(--border-1, #30363d);
   border-radius: 6px;
   padding: 12px 16px;
-  overflow: auto;
-}
-.fwc-spec:focus,
-.fwc-sig-given:focus {
-  outline: 2px solid var(--accent-cyan, #79c0ff);
-  outline-offset: -2px;
-}
-.fwc-h {
-  font-size: 14px;
-  font-weight: 600;
-  color: var(--accent-cyan, #79c0ff);
-  margin: 0 0 8px;
 }
 .fwc-h-sub {
   font-size: 12px;
@@ -643,20 +571,11 @@ const FWC_STYLES = `
 }
 .fwc-toolbar {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   padding: 4px 0;
   font-family: var(--font-mono, ui-monospace, monospace);
   font-size: 12px;
-}
-.fwc-brace {
-  color: var(--text-1, #8b949e);
-}
-.fwc-brace.ok {
-  color: var(--accent-grn, #7ee787);
-}
-.fwc-brace.bad {
-  color: var(--state-err, #f85149);
 }
 .fwc-submit {
   background: var(--accent-cyan, #79c0ff);
@@ -755,11 +674,6 @@ const FWC_STYLES = `
   color: var(--accent-cyan, #79c0ff);
 }
 
-@media (max-width: 768px) {
-  .fwc-grid {
-    grid-template-columns: 1fr;
-  }
-}
 `;
 
 export default FunctionWriteCard;

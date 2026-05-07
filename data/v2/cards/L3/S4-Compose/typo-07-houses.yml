@@ -1,17 +1,15 @@
-# =====================================================================
-# L3 / R-03 / FunctionWriteCard — with-typos houses
-# =====================================================================
-id: "L3-R03-typo-07"
-schemaVersion: "v2"
-atomId: "R-03"
-qTags: ["Q3"]
+id: L3-R03-typo-07
+schemaVersion: v2
+atomId: R-03
+qTags:
+  - Q3
 stage: 4
-level: "L3"
-type: "FunctionWriteCard"
+level: L3
+type: FunctionWriteCard
 stem: |
   The Q2 struct on the left has minor formatting noise. Use it AS-IF
   correct; write the canonical read_houses.
-prompt: "With Q2 typos: filter signal."
+prompt: 'With Q2 typos: filter signal.'
 signatureHint: |
   Q2 (with typos):
   struct house_data
@@ -26,34 +24,31 @@ canonicalAnswer: |
   {
     for (int i = 0; i < number_to_read; i++)
     {
-      cout << "Bedrooms: ";
       cin >> houses[i].bedrooms;
-      cout << "Area (m^2): ";
       cin >> houses[i].area_m2;
-      cout << "Price: ";
       cin >> houses[i].price;
     }
   }
 keyChecks:
-  - "void read_houses(house_data &houses[], int number_to_read)"
-  - "for (int i = 0; i < number_to_read; i++)"
-  - "cin >> houses[i].bedrooms;"
-  - "cin >> houses[i].area_m2;"
-  - "cin >> houses[i].price;"
+  - void read_houses(house_data &houses[], int number_to_read)
+  - for (int i = 0; i < number_to_read; i++)
+  - cin >> houses[i].bedrooms;
+  - cin >> houses[i].area_m2;
+  - cin >> houses[i].price;
 explanation: |
   Q3 skeleton is invariant — typos in Q2 do not propagate to Q3.
 passByRefRequired: true
 source:
-  kind: "v2"
-  ref: "Test 2 V2.0 attempt 1 — Q3 full read_desks body shape (12-line skeleton)"
+  kind: v2
+  ref: Test 2 V2.0 attempt 1 — Q3 full read_desks body shape (12-line skeleton)
 drills:
-  - "tier1:Q3:R-03"
-  - "tier2:practice:Q3"
-  - "tier2:v2:Q3"
-  - "tier2:variant:Q3"
-  - "tier2:seminar:saloni-2 @ 44:50"
-  - "tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx"
-  - "tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx"
-status: "NEW"
-authoringStatus: "DRAFT"
-createdBy: "SA-L3-Q3"
+  - tier1:Q3:R-03
+  - tier2:practice:Q3
+  - tier2:v2:Q3
+  - tier2:variant:Q3
+  - tier2:seminar:saloni-2 @ 44:50
+  - tier2:pfg:part-2-organised-code/2-organising-code/2-trailside/04-function-decl.mdx
+  - tier2:pfg:part-2-organised-code/5-working-with-multiples/2-trailside/00-05-array-params.mdx
+status: NEW
+authoringStatus: DRAFT
+createdBy: SA-L3-Q3

@@ -96,18 +96,21 @@ function parseManifest(text: string): Manifest {
   const sections = splitSections(text);
 
   const approvedPages = parseBulletList(
-    sections['Approved pages (2)'] ?? ''
+    findSection(sections, /^Approved pages\b/) ?? ''
   );
   const approvedEngines = parseBulletList(
-    sections['Approved engines (1)'] ?? ''
+    findSection(sections, /^Approved engines\b/) ?? ''
   );
 
-  // Card types come from THREE sub-sections:
-  //   "v1 types (11)"
-  //   "v2 essentials (4) — user-approved in v2.1 plan"
-  // both nested under "Approved card components (15)".
-  const cardSection = sections['Approved card components (15)'] ?? '';
-  const approvedCardTypes = parseBulletList(cardSection);
+  // Card types come from sub-sections nested under
+  // "Approved card components (N)" — count varies as types are
+  // added/removed via MANIFEST RFC. Regex tolerates the count.
+  // Subsections like "### Removed YYYY-MM-DD" inside this parent
+  // section are intentionally excluded by stopping at the next
+  // "### Removed" heading.
+  const cardSection = findSection(sections, /^Approved card components\b/) ?? '';
+  const cardSectionLive = stripRemovedSubsection(cardSection);
+  const approvedCardTypes = parseBulletList(cardSectionLive);
 
   return {
     approvedPages,
@@ -123,6 +126,29 @@ function parseManifest(text: string): Manifest {
  * though they live under `### v1 types (11)` and `### v2 essentials
  * (4)` headings.
  */
+/** Find a section whose heading matches a regex. Returns first match. */
+function findSection(
+  sections: Record<string, string>,
+  pattern: RegExp,
+): string | undefined {
+  for (const [heading, body] of Object.entries(sections)) {
+    if (pattern.test(heading)) return body;
+  }
+  return undefined;
+}
+
+/** Strip everything from `### Removed` onward so removed types aren't
+ * treated as approved. */
+function stripRemovedSubsection(section: string): string {
+  const lines = section.split(/\r?\n/);
+  const out: string[] = [];
+  for (const line of lines) {
+    if (/^###\s+Removed\b/.test(line)) break;
+    out.push(line);
+  }
+  return out.join('\n');
+}
+
 function splitSections(text: string): Record<string, string> {
   const out: Record<string, string> = {};
   const lines = text.split(/\r?\n/);
