@@ -24,9 +24,14 @@ import { resolve } from 'node:path';
  *   - The pwa-update-prompt component (src-v2/pwa-update-prompt.tsx)
  *     handles the in-app "new version available" toast and 30-min poll.
  */
-export default defineConfig(({ mode }) => {
+export default defineConfig(({ mode, command }) => {
   const isV1 = mode === 'v1';
   const isV2 = !isV1;
+  // For GitHub Pages: served at /cpp-t2/. Locally: /. dev always /.
+  // Build defaults to /cpp-t2/ (repo name); override via DEPLOY_BASE env var.
+  const baseUrl = command === 'build'
+    ? (process.env.DEPLOY_BASE || '/cpp-t2/')
+    : '/';
 
   const v2Plugins = [
     react(),
@@ -48,8 +53,8 @@ export default defineConfig(({ mode }) => {
         background_color: '#0d1117',
         display: 'standalone',
         orientation: 'portrait',
-        start_url: '/',
-        scope: '/',
+        start_url: baseUrl,
+        scope: baseUrl,
         icons: [
           {
             src: 'pwa-192x192.png',
@@ -116,6 +121,7 @@ export default defineConfig(({ mode }) => {
   ];
 
   const base = {
+    base: baseUrl,
     plugins: isV1 ? [react(), tailwindcss()] : v2Plugins,
     server: {
       port: isV2 ? 5174 : 5173,
